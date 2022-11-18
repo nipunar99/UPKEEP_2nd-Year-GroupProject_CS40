@@ -57,16 +57,19 @@ class App{
 
         $controller = new $this->controller;// create the object of the find controller
 
+        $URL = array_values($URL);
         // select a method
         
-        if(!empty($URL[2])){
+        if(!empty($URL[0])){
 
-            if(method_exists($controller,$URL[2])){
-                $this->method = $URL[2];
-                unset($URL[2]);
+            if(method_exists($controller,$URL[0])){
+                $this->method = $URL[0];
+                unset($URL[0]);
             }
 
         }
+
+        $URL = array_values($URL);
 
         call_user_func_array([$controller,$this->method],[$URL]);
     }
