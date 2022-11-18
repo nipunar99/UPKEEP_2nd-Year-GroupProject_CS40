@@ -29,7 +29,25 @@ class Signin {
 
     public function technicianSignin (){
         
-        //Rahal  singin controler method
+        $data = [];
+
+        if($_SERVER['REQUEST_METHOD']=="POST"){
+            $user = new User;
+            $email = $_POST["email"];
+            $row = $user->getUserByEmail($email);
+
+            if(!empty($row)){
+                if($row['password']===$_POST['password']){
+                    $_SESSION['user_name'] = $row['user_name'];
+                    $_SESSION['user_role'] = $row['user_role'];
+                    redirect('Technician/Dashboard');
+                    return true;
+                }
+            }
+
+            $user->errors["email"] = "email or password not valid";
+            $data["errors"]= $user->errors;
+        }
 
     }
 
