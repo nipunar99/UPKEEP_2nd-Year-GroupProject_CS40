@@ -11,7 +11,7 @@ class Signup {
             if($user->validate($_POST))
             {
                 $user->insert($_POST);
-                // redirect("s");
+                redirect("Home");
             }
             
             $data["errors"] = $user->errors;

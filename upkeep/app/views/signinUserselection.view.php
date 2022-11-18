@@ -33,28 +33,28 @@
     <div class="middle">
 
                           <!-- -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/itemOwnerSignin"> 
+      <a href="<?= ROOT ?>/Signin/itemOwnerSignin"> 
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/itemowner.png" alt="">
           <h3>Item owner</h3>
         </div>
       </a>
                       <!-- RAHAL -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/technicianSignin">
+      <a href="<?= ROOT ?>/Signin/technicianSignin">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/technician.png" alt="">
           <h3>Item owner</h3>
         </div>
       </a>
                       <!-- RUSITH -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/moderatorSignin">
+      <a href="<?= ROOT ?>/Signin/moderatorSignin">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/moderator.png" alt="">
           <h3>Item owner</h3>
         </div>
       </a>
                       <!-- SASINI -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/adminSignin">
+      <a href="<?= ROOT ?>/Signin/adminSignin">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/admin.png" alt="">
           <h3>Item owner</h3>
