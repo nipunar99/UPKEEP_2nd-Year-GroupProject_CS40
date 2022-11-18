@@ -30,6 +30,21 @@ class Signup {
     public function moderatorSignup (){
         
         //sasini  singin controler method
+        $data =[];
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $moderator = new Moderator;
+
+            if($moderator->validate($_POST))
+            {
+                $moderator->insert($_POST);
+                redirect("Home");
+            }
+            
+            $data["errors"] = $moderator->errors;
+        }
+        
+        $this->view('/Signup/moderatorSignup',$data);
+
 
     }
 

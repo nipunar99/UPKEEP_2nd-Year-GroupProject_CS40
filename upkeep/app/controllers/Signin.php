@@ -55,6 +55,27 @@ class Signin {
         
         //sasini  singin controler method
 
+$data =[];
+
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $moderator = new Moderator;
+            $arr['email'] = $_POST['email'];
+
+            $row = $moderator->first($arr);
+
+            if($row)
+            {
+                if($row->password === $_POST['password']){
+                    $_SESSION['USER'] = 'Moderators';
+                    redirect('Moderator/Moderatordashboard');
+                } 
+            }
+
+            $moderator->errors['email']="Wrong email or password";
+            $data['errors'] = $moderator->errors;
+        }
+
+        $this->view('/Signin/moderatorSignin',$data);
     }
 
     public function adminSignin (){
