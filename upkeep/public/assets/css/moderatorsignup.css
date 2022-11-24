@@ -6,7 +6,7 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'Roboto Flex',sans-serif;
+    font-family:  'Poppins',sans-serif;
 }
 
 .topic{
@@ -17,7 +17,7 @@
 .title{
     margin: 7rem 0 5rem 0;
     text-align:center;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .main-container{
@@ -49,9 +49,7 @@ img{
     margin-right: auto;
     margin-bottom: auto;
     margin-top: auto;
- width: 60%;
-  
-  
+    width: 47%;  
 
 }
 .form-contain{
@@ -94,13 +92,13 @@ img{
 
  .btn{
     display: block;
-    width: 80%;
-    height: 10%;
+    width: 100%;
+    height:50px;
     border: none;
-    padding: 10px 50px 10px 100px;
+    align: center;
     font-size: 45px;
     cursor: pointer;
-    text-align: center;
+    align: center;
    
   }
 
@@ -110,7 +108,7 @@ img{
     outline: none;
     color: #000;
     border: none;
-    font-size: 1.1rem;
+    font-size: 2.1rem;
     font-weight: 500;
     border-radius: 6px;
     letter-spacing: 1px;

@@ -8,6 +8,7 @@ class Moderatoritemtemplate
 
     protected $allowedColumns = [
         "name",
+        "status",
         "type",
         "description",
         "category",

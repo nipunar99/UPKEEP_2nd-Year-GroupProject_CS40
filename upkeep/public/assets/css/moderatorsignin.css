@@ -1,3 +1,5 @@
+  
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 *{
@@ -75,7 +77,7 @@ img{
     font-size: 25px;
 }
 
-.input-box input, select{
+.input-box input{
     height: 45px;
     width: 100%;
     outline: none;
@@ -125,3 +127,8 @@ img{
 .btn input:hover{
     background: linear-gradient(-135deg,#0DBCDF,#0095D9);
 }    
+
+.input-box.forgetpw{
+    position: relative;
+    left: 400px;
+}

@@ -17,8 +17,8 @@
             <div class="top">
 
                 <div class="logo">
-                    <img src="<?= ROOT ?>/assets/css/images/logo.png" alt="">
-                    <img src="<?= ROOT ?>/assets/css/images/title.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
                 <div class="close" id="close-btn">
@@ -40,7 +40,7 @@
                     <h3>Suggestions</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Itemtemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
@@ -72,7 +72,7 @@
                     <h3>Settings</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -102,7 +102,7 @@
                                 <small class="text-muted">User</small>
                             </div>
                             <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/css/images/profile-1.jpg" alt="">
+                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/moderatorsignup.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  
     <title>Sign up-Moderator</title>
 </head>
 
@@ -16,10 +17,11 @@
             <div class="title">
                 <h1><strong> KEEP UP WITH</strong></h1>
                 <h1><i>UPKEEP</i></h1>
-            </div>
-            <div>
                 <img src="<?= ROOT ?>/assets/images/mod.png" alt="">
             </div>
+         
+               
+          
         </div>
         <div class="sectionform">
 
@@ -46,10 +48,10 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Password</span>
-                        <input type="text" name="password" id="" required placeholder="Enter password">
+                        <input type="password" name="password" id="" required placeholder="Enter password">
                     </div>
                    
-                </form>
+             
 
                 <span></span><input type="checkbox" name="" id="" required>I agree with UPKEEP terms and conditions.</span>
 
@@ -59,9 +61,10 @@
                         password</a>
                 </div>
                 <div class="input-box btn">
-                    <input type="submit" value="Sign up" name="btn">
+                    <input type="submit" value="Sign up" >
                 </div>
-                <br>
+             <br><br>
+                
                 <div class="input-box">
                     <div class="input-box">
                         Already have an acconnt? <span> <a href="<?= ROOT ?>/Userselection/signin" style=" color: #80D4FF;">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,7 +73,7 @@
 
 
                 </div>
-
+                </form>
             </div>
 
 

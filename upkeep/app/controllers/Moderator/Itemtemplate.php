@@ -4,12 +4,12 @@ class Itemtemplate {
 
     use Controller;
     public function index (){
-        $data = [];
+        // $data = [];
         if($_SESSION['USER'] == 'Moderators'){
             $itemtemplates = new Moderatoritemtemplate;
-            $result = $itemtemplates->findAll();
+            // $result = $itemtemplates->findAll();
 
-            $data['result'] = $result;
+            // $data['result'] = $result;
 
             $this->view('Moderator/itemTemplate');
         }else{

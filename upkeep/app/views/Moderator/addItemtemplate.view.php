@@ -17,8 +17,8 @@
             <div class="top">
 
                 <div class="logo">
-                    <img src="<?= ROOT ?>/assets/css/images/logo.png" alt="">
-                    <img src="<?= ROOT ?>/assets/css/images/title.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
                 <div class="close" id="close-btn">
@@ -94,7 +94,7 @@
                                 <small class="text-muted">User</small>
                             </div>
                             <div class="profile-photo">
-                                <img src="images/profile-1.jpg" alt="">
+                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -107,38 +107,38 @@
             </div>
 
             <div class="insight">
-                <form action="#">
+                <form method="post" action="#">
                     <div class="itemDetails">
         
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="" id="" required placeholder="Enter Item template Name">
+                            <input type="text" name="name" id="" required placeholder="Enter Item template Name">
                         </div>
         
                         <div class="input-box">
                             <span class="details">Status</span>
-                            <select name="Select Item Type" id="district" ></select>
+                            <select name="" name="status" id="district" ></select>
                         </div>
                         
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Item Type</span>
-                                <input type="text" name="" id="" required placeholder="Enter Description">
+                                <input type="text" name="type" id="" required placeholder="Enter Description">
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Category</span>
-                                <input type="text" name="" id="" required placeholder="Enter Model">
+                                <input type="text" name="category" id="" required placeholder="Enter Model">
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Description</span>
-                                <input type="text" name="" id="" required placeholder="Enter Description about item">
+                                <input type="text" name="description" id="" required placeholder="Enter Description about item">
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Esti. lifespan </span>
-                                <input type="date" name="" id=""  placeholder="Enter Purchase Date">
+                                <input type="date" name="date" id=""  placeholder="Enter Purchase Date">
                             </div>
 
                         </div>
@@ -154,6 +154,6 @@
         </main> 
 
     </div>
-    <script src="additemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/additemtemplate.js"></script>
 </body>
 </html>

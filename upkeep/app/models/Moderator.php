@@ -7,6 +7,7 @@ class Moderator
     protected $table = "moderators";
 
     protected $allowedColumns = [
+        
         "first_name",
         "last_name",
         "email",

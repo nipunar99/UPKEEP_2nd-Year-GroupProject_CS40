@@ -111,7 +111,7 @@
                     <input type="search" name="" id="" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
-                <button class="addItem">Add An Item Template</button>
+                <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
             </div>
 
             <div class="insight">
