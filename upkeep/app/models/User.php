@@ -30,7 +30,7 @@ class User
 
     public function getUserByEmail($email){
         $user = $this->first(['email'=>$email]);
-        if(!empty($user)){
+        if($user){
             return $user;
         }else{
             return false;

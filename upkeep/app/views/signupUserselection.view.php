@@ -43,21 +43,21 @@
       <a href="<?= ROOT ?>/Signup/technicianSignup">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/technician.png" alt="">
-          <h3>Item owner</h3>
+          <h3>Technician</h3>
         </div>
       </a>
                       <!-- RUSITH -> folder / controller file / method -->
       <a href="<?= ROOT ?>/Signup/moderatorSignup">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/moderator.png" alt="">
-          <h3>Item owner</h3>
+          <h3>Moderator</h3>
         </div>
       </a>
                       <!-- SASINI -> folder / controller file / method -->
       <a href="<?= ROOT ?>/Signup/adminSignup">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/admin.png" alt="">
-          <h3>Item owner</h3>
+          <h3>Admin</h3>
         </div>
       </a>
 

@@ -36,10 +36,11 @@ class Signin {
             $email = $_POST["email"];
             $row = $user->getUserByEmail($email);
 
-            if(!empty($row)){
-                if($row['password']===$_POST['password']){
-                    $_SESSION['user_name'] = $row['user_name'];
-                    $_SESSION['user_role'] = $row['user_role'];
+            if($row){
+                if($row->password===$_POST['password']){
+                    $_SESSION['user_id'] = $row->user_id;
+                    $_SESSION['user_name'] = $row->user_name;
+                    $_SESSION['user_role'] = $row->user_role;
                     redirect('Technician/Dashboard');
                     return true;
                 }
@@ -49,13 +50,15 @@ class Signin {
             $data["errors"]= $user->errors;
         }
 
+        $this->view('/Signin/technicianSignin');
+
     }
 
     public function moderatorSignin (){
         
         //sasini  singin controler method
 
-$data =[];
+        $data =[];
 
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $moderator = new Moderator;

@@ -4,7 +4,7 @@ class Userdashboard {
 
     use Controller;
     public function index (){
-        
+         
         if($_SESSION['USER'] == 'Owner'){
             $this->view('Itemowner/userDashboard');
         }else{
@@ -14,3 +14,4 @@ class Userdashboard {
     }
 
 }
+ 

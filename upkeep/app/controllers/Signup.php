@@ -24,6 +24,20 @@ class Signup {
     public function technicianSignup (){
         
         //Rahal  singin controler method
+        $data =  [];
+
+        if($_SERVER['POST_METHOD']=="POST"){
+            $user = new User;
+
+            if($user->validate($_POST)){
+                $user->insert($_POST);
+                redirect('Home');
+            }
+
+            $data= $user->errors;
+        }
+
+        $this->view('/Signup/technicianSignup',$data);
 
     }
 
@@ -31,6 +45,7 @@ class Signup {
         
         //sasini  singin controler method
         $data =[];
+        
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $moderator = new Moderator;
 
