@@ -6,18 +6,11 @@ class Additem {
     
     public function index (){
         
-        if($_SESSION['USER'] == 'Owner'){
+        if($_SESSION['USER'] == $_SESSION['id']){
             $data =[];
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $item = new Owneritem;
-                // if($item->validate($_POST))
-                // {
-                //     $item->insert($_POST);
-                //     redirect("Userdashboard");
-                // }
-                
-                // $data["errors"] = $user->errors;
-                $item->insert($_POST);
+                $item->insertItem($_POST);
                 redirect("Itemowner/Item");
 
             }
