@@ -3,13 +3,13 @@
 if($_SERVER['SERVER_NAME'] == 'localhost'){
     
     // database config
-    define('DBNAME','upkeep');
+    define('DBNAME','upkeep2');
     define('DBHOST','localhost');
     define('DBUSER','root');
     define('DBPASS','');
     define('DBDRIVER','');
 
-    define('ROOT','http://localhost/upkeep/public');
+    define('ROOT','http://localhost/upkeep/upkeep/public');
 }else{
 
     define('DBNAME','my_db');

@@ -28,4 +28,13 @@ class User
         return false;
     }
 
+    public function getUserByEmail($email){
+        $user = $this->first(['email'=>$email]);
+        if($user){
+            return $user;
+        }else{
+            return false;
+        }
+    }
+
 }

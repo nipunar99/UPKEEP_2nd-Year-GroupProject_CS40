@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" class="active">
+                <a href="<?=ROOT?>/Technician/Dashboard" class="active">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -40,15 +40,11 @@
                     <h3>Orders</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?=ROOT?>/Technician/Gigs">
                     <span class="material-icons-sharp">task</span>
                     <h3>Gigs</h3>
                 </a>
-<!-- 
-                <a href="#" >
-                    <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
-                </a> -->
+
 
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
@@ -67,12 +63,7 @@
                     <h3>Reports</h3>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
-                </a>
-
-                <a href="signout">
+                <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -90,6 +81,7 @@
             </div>
             <div class="recent-orders">
                 <h2>Orders</h2>
+                <h4>dataOnly for demonstration purposes</h4>
                 <table>
                     <thead>
                         <tr>
