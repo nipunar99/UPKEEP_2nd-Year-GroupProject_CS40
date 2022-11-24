@@ -18,14 +18,13 @@
 
     <div class="nav">
       <ul class="navlist">
-        <li><a href="#">Home</a></li>
+        <li><a href="<?= ROOT ?>/Home">Home</a></li>
         <li><a href="#">How Get Started</a></li>
       </ul>
     </div>
 
     <div class="logbtn">
-      <a class="createBtn" href="#" >Create</a></li>
-      <a href="#" >Sign in</a></li>
+      <a href="<?=ROOT?>/Userselection/signin" >Sign in</a></li>
     </div>
   </header>
 
@@ -57,7 +56,7 @@
       <a href="<?= ROOT ?>/Signup/adminSignup">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/admin.png" alt="">
-          <h3>Admin</h3>
+          <h3>Administrator</h3>
         </div>
       </a>
 
