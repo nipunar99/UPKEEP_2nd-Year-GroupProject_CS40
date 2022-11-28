@@ -1,12 +1,12 @@
 <?php
 
-class Userdashboard {
+class Moderatordashboard {
 
     use Controller;
     public function index (){
         
-        if($_SESSION['USER'] == $_SESSION['id']){
-            $this->view('Itemowner/userDashboard');
+        if($_SESSION['USER'] == 'Moderators'){
+            $this->view('Moderator/moderatorDashboard');
         }else{
             redirect("Home/home");
         }

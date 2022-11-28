@@ -12,7 +12,7 @@
 
         <div class="sectionimg">
             <div>
-                <img src="<?= ROOT ?>/assets/images/logImg.png" alt="">
+                <img src="<?= ROOT ?>/assets/images/logImgTech.png" alt="">
             </div>
         </div>
 

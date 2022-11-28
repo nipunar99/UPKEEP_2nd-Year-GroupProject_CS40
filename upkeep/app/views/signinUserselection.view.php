@@ -18,14 +18,13 @@
 
     <div class="nav">
       <ul class="navlist">
-        <li><a href="#">Home</a></li>
+        <li><a href="<?= ROOT ?>/Home">Home</a></li>
         <li><a href="#">How Get Started</a></li>
       </ul>
     </div>
 
     <div class="logbtn">
-      <a class="createBtn" href="#" >Create</a></li>
-      <a href="#" >Sign in</a></li>
+      <a href="<?=ROOT?>/Userselection/signup" href="#" >Create</a></li>
     </div>
   </header>
 
@@ -33,31 +32,31 @@
     <div class="middle">
 
                           <!-- -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/itemOwnerSignin"> 
+      <a href="<?= ROOT ?>/Signin/itemOwnerSignin"> 
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/itemowner.png" alt="">
           <h3>Item owner</h3>
         </div>
       </a>
                       <!-- RAHAL -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/technicianSignin">
+      <a href="<?= ROOT ?>/Signin/technicianSignin">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/technician.png" alt="">
-          <h3>Item owner</h3>
+          <h3>Technician</h3>
         </div>
       </a>
                       <!-- RUSITH -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/moderatorSignin">
+      <a href="<?= ROOT ?>/Signin/moderatorSignin">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/moderator.png" alt="">
-          <h3>Item owner</h3>
+          <h3>Moderator</h3>
         </div>
       </a>
                       <!-- SASINI -> folder / controller file / method -->
-      <a href="<?= ROOT ?>/Signin/Signin/adminSignin">
+      <a href="<?= ROOT ?>/Signin/adminSignin">
         <div class="actor">
           <img src="<?= ROOT ?>/assets/images/admin.png" alt="">
-          <h3>Item owner</h3>
+          <h3>Administrator</h3>
         </div>
       </a>
 

@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpKeep</title>
+    <title>Document</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/items.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/itemtemplate.css">
 </head>
 <body>
     <div class="container">
@@ -31,14 +30,24 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/Itemowner/Userdashboard/">
+                <a href="#" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
+                <a href="#">
+                    <span class="material-icons-sharp">help_outline</span>
+                    <h3>Suggestions</h3>
+                </a>
+
                 <a href="#" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
-                    <h3>Item</h3>
+                    <h3>Item Templates</h3>
+                </a>
+
+                <a href="#">
+                    <span class="material-icons-sharp">error</span>
+                    <h3>Complaints</h3>
                 </a>
 
                 <a href="#" >
@@ -49,18 +58,6 @@
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
-                </a>
-
-
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
-                    <span class="message-count">11</span>
-                </a>
-
-                <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
                 </a>
 
                 <a href="#">
@@ -80,7 +77,7 @@
 
         <main>
             <div class="mainHeader">
-                <h1>Items</h1>
+                <h1>Items Templates</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -109,43 +106,72 @@
                 </div>
     
             </div>
-            
             <div class="toolbar">
                 <div class="searchBar">
                     <input type="search" name="" id="" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
-                <a href="<?= ROOT ?>/Itemowner/Additem"><button class="addItem">Add an Item</button></a>
-                
-                <button class="availItem">Available Items</button>
+                <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
             </div>
 
             <div class="insight">
-                
-            <?php 
-                if(!empty($result)) {
-                    foreach($result as $row)
-                        echo "
-                        <div class=''>
-                        <span class='material-icons-sharp'>analytics</span>
-                        <div class='middle'>
-                            <div class='left'>
-                                <h3>".$row->item_name."</h3>
-                                <h2>".$row->item_type."</h1>
-                            </div>
-                            <div class='progress'>
-                                <img src='http://localhost/UpKeep/public/assets/images/uploads/".$row->image."'>
-                            </div>
-                        </div>
-                        <a href='http://localhost/UpKeep/public/Itemowner/ViewItem'>
-                        <h3 class='text-muted'>More Details</h3>
-                        </a>
-                    </div>
-                        ";
-                }
-            ?>
-
-                <!-- End of Sales  -->
+                <div class="itemTemplateList">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item template Name</th>
+                                <th>Item type</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                                <th>Esti.lifespan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="warning">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td>
+                            </tr>
+                            <tr>
+                                <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="warning">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td>
+                            </tr>
+                            <tr>
+                                <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="success">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td>
+                            </tr>
+                            <tr>
+                                <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="success">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td>
+                            </tr>
+                            <tr>
+                                <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="success">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#">Show All</a>
+                </div>
             </div>
         </main> 
 

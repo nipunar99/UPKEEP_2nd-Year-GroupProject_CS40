@@ -15,7 +15,33 @@ class Owneritem {
         "description",
         "purchase_date",
         "warrenty_date",
+        "image",
+        "owner_id",
     ];
+
+    public function insertItem($data){
+
+        $file_name = $_FILES['image']['name'];
+        $file_temp = $_FILES['image']['tmp_name'];
+        $file_size = $_FILES['image']['size'];
+        $file_type = $_FILES['image']['type'];
+
+        $location= "../public/assets/images/uploads/".$file_name;
+
+        if($file_size < 524000){
+            if(move_uploaded_file($file_temp,$location)){
+                try{
+                    $data["owner_id"] = $_SESSION['id'];
+                    $data["image"] = $file_name;
+                    show($data);
+                    $this->insert($data);
+                }
+                catch(PDOException $e){
+                    echo $e->getMessage();
+                }
+            }
+        }
+    }
 
 
 }

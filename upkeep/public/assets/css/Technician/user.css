@@ -37,7 +37,6 @@
     border: 0;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 html{
@@ -61,7 +60,7 @@ body{
     width: 98%;
     margin: 0 auto;
     gap: 1rem;
-    grid-template-columns: 15rem auto;
+    grid-template-columns: 15rem auto 19rem;
     height: 100vh;
 }
 a{
@@ -74,7 +73,7 @@ img{
 }
 
 h1{
-    color: #05B2E9;
+
     font-weight: 800;
     font-size: 1.8rem;
 }
@@ -142,6 +141,10 @@ aside .top{
     align-items: center;
     justify-content: space-between;
     margin-top:1.4rem;
+}
+
+.notification {
+    color: var(--color-danger);
 }
 
 aside .logo {
@@ -230,107 +233,108 @@ main h1{
     text-align: center;
 }
 
+main .date{
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin: 1rem 0 0 3rem;
+    padding: 0.5rem 1.6rem;
+}
+
+main .date input[type="date"]{
+    background: transparent;
+    color: var(--color-dark);
+}
+
 main .insight{
-    height: 84vh;
-    padding: 2rem 12rem 0;
-}
-
-
-main .mainHeader{
-    display: flex;
-}
-main .mainHeader h1{
-    position: relative;
-    left: 414px;
-}
-
-form .itemDetails .input-box{
-    margin-bottom: 15px;
-    width: 18rem;
-}
-.input-box select{
-    height: 40px;
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    color: black;
-    padding-left: 15px;
-    font-size: 1rem;
-    border-bottom-width: 2px;
-    transition: all 300ms ease;
-}
-
-form .itemDetails >.input-box:first-child {
-    width: 46rem;
-}
-form .itemDetails >.input-box:nth-child(2) {
-    width: 18rem;
-}
-form .itemDetails .middleInput{
     display: grid;
-    grid-template-columns:repeat(2,1fr)
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.6rem;
+    overflow-y: scroll;
+    height: 84vh;
+    padding: 0 1.2rem;
 }
 
-.itemDetails .input-box .details{
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
+main .insight > div{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
 }
 
-.itemDetails .input-box input{
-    height: 45px;
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
+main .insight >div:hover{
+    box-shadow: none;
+}
+
+main .insight >div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+main .insight > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .insight h3{
+    margin: 1rem 0 0.6rem;
     font-size: 1rem;
-    border-bottom-width: 2px;
+}
+
+
+main .insight small{
+    margin-top: 1.6rem;
+    display: block;
+}
+
+/* Recent orders */
+
+main .recent-orders{
+    margin-top: 0.9rem;
+}
+
+main .recent-orders h2{
+    margin-bottom: 0.2rem;
+}
+
+main .recent-orders table{
+    background: var(--color-white);
+    width:100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
 
-.itemDetails .input-box input:focus,
-.itemDetails .input-box input:valid{
-    /* change */
-    border-color: #9b59b6;
-    font-size: 1.1rem;
+main .recent-orders table:hover{
+    box-shadow: none;
 }
 
-form .button{
-    position: relative;
-    left: 45rem;
-    height: 45px;
-    margin: 45px 0;
-    width: 8rem;
+main table tbody td{
+    height:2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
 }
 
-form .button input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: #fff;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    border-radius: 30px;
-    letter-spacing: 1px;
-    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
-    transition: all 300ms ease;
+main .recent-orders a{
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    color: var(--color-primary);
 }
 
-form .button input:hover{
-    transform: scale(1.1);
-}    
 /* Right CSS */
 
 .right{
     margin-top: 1.4rem;
     margin-right: 1rem;
-    width: 10rem;
-    position: relative;
-    left: 850px;
-
 }
 
 .right .top{
@@ -401,3 +405,107 @@ form .button input:hover{
 }
 
 /* Sales Analytics */
+
+.right .sales-analytics{
+    margin-top: 1rem;
+}
+
+.right .sales-analytics h2{
+    margin-bottom: 0.8rem;
+}
+
+.right .sales-analytics .item{
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+}
+
+.right .sales-analytics .item:hover{
+    box-shadow: none;
+}
+
+.maintenance{
+    height: 19rem;
+    overflow-y: scroll;
+}
+.right .sales-analytics .item .right{
+    display: flex;
+    justify-content:space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.right .sales-analytics .item .icon{
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+}
+
+.right .sales-analytics .item.online .icon{
+    background: var(--color-success);
+}
+
+.right .sales-analytics .item.offline .icon{
+    background: var(--color-danger);
+}
+
+
+/* Recent order css */
+
+.right .recent-orders{
+    margin-top: 1rem;
+}
+
+
+.right .recent-orders h2{
+    margin-bottom: 0.8rem;
+}
+
+.right .recent-orders .item{
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+}
+
+.right .recent-orders .item:hover{
+    box-shadow: none;
+}
+
+.maintenance{
+    height: 19rem;
+    overflow-y: scroll;
+}
+.right .recent-orders .item .right{
+    display: flex;
+    justify-content:space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.right .recent-orders .item .icon{
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+}
+
+.right .recent-orders .item.online .icon{
+    background: var(--color-success);
+}
+
+.right .recent-orders .item.offline .icon{
+    background: var(--color-danger);
+}
