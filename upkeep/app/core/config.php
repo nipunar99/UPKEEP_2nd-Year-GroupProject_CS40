@@ -9,7 +9,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('DBPASS','');
     define('DBDRIVER','');
 
-    define('ROOT','http://localhost/upkeep/public');
+    define('ROOT','http://localhost/UpKeep/public');
 }else{
 
     define('DBNAME','my_db');

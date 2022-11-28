@@ -110,7 +110,7 @@
             </div>
 
             <div class="insight">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" action="#">
                     <div class="itemDetails">
         
                         <div class="input-box">
@@ -122,11 +122,6 @@
                             <span class="details">Item type</span>
                             <select name="item_type" id="itemtype" ></select>
                         </div>
-
-                        <div class="input-box">
-                                <span class="details">Image</span>
-                                <input type="file" name="image" id=""  placeholder="Enter Brand">
-                        </div>
                         
                         <div class="middleInput">
                             <div class="input-box">
@@ -136,27 +131,27 @@
             
                             <div class="input-box">
                                 <span class="details">Model</span>
-                                <input type="text" name="model" id=""  placeholder="Enter Model">
+                                <input type="text" name="model" id="" required placeholder="Enter Model">
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Purchase Price(Rs.)</span>
-                                <input type="number" name="purchase_price" id=""  placeholder="Purchase Price">
+                                <input type="number" name="purchase_price" id="" required placeholder="Purchase Price">
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Description</span>
-                                <input type="text" name="description" id=""  placeholder="Enter Description about item">
+                                <input type="text" name="description" id="" required placeholder="Enter Description about item">
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Purchase Date</span>
-                                <input type="date" name="purchase_date" id=""  placeholder="Enter Purchase Date">
+                                <input type="date" name="purchase_date" id="" required placeholder="Enter Purchase Date">
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Warrenty Date</span>
-                                <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
+                                <input type="date" name="warrenty_date" id="" required placeholder="Enter Warrenty Date">
                             </div>
                         </div>
                         

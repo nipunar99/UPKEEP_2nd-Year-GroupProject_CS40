@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/items.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/viewItem.css">
 </head>
 <body>
     <div class="container">
@@ -134,12 +134,10 @@
                                 <h2>".$row->item_type."</h1>
                             </div>
                             <div class='progress'>
-                                <img src='http://localhost/UpKeep/public/assets/images/uploads/".$row->image."'>
+                                <img src='http://localhost/UpKeep/public/assets/images/item1.png'>
                             </div>
                         </div>
-                        <a href='http://localhost/UpKeep/public/Itemowner/ViewItem'>
-                        <h3 class='text-muted'>More Details</h3>
-                        </a>
+                        <small class='text-muted'>More Details</small>
                     </div>
                         ";
                 }

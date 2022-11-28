@@ -50,7 +50,7 @@
                 </div>
                 
                 <div class="input-box">
-                    <small>Don't have an acconnt? <span> <a href="<?=ROOT?>/Userselection/signup">Sign up</a></span></small>
+                    <small>Don't have an acconnt? <span> <a href="<?=ROOT?>/Userselection/Userselection/signup">Sign up</a></span></small>
                 </div>
 
 

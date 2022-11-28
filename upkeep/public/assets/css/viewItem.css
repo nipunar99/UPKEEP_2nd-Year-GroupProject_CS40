@@ -15,7 +15,6 @@
     --color-primary-variant:#111e88;
     --color-dark-variant: #677483;
     --color-background:#f6f6f9;
-    --color-gray:#b3b4bb;
 
     --card-border-radius: 1.5rem;
     --border-radius-1: 0.4rem;
@@ -26,7 +25,7 @@
     --padding-1:1.2rem;
 
     --box-shadow: 0 2rem 3rem var(--color-light);
-    --box-shadow-green: 0 2rem 3rem var(--color-success);
+
 }
 
 *{
@@ -38,6 +37,7 @@
     border: 0;
     list-style: none;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 html{
@@ -61,7 +61,7 @@ body{
     width: 98%;
     margin: 0 auto;
     gap: 1rem;
-    grid-template-columns: 15rem auto 19rem;
+    grid-template-columns: 15rem auto;
     height: 100vh;
 }
 a{
@@ -225,224 +225,136 @@ aside .sidebar .message-count {
 
 main{
     margin-top: 1.4rem;
-    height: 90vh;
-    overflow-y: scroll;
 }
-main .boardtitle h1{
+main h1{
     text-align: center;
-    color:#05B2E9;
 }
 
-main .date{
+main .toolbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.7rem;
+}
+
+main .toolbar button{
     display: inline-block;
-    background: var(--color-light);
-    border-radius: var(--border-radius-1);
-    margin: 1rem 0 0 3rem;
+    border-radius: 30px;
+    margin: 0 3rem;
     padding: 0.5rem 1.6rem;
+    color: white;
+    font-weight: 500;
+    transition: all 300ms ease;
 }
-
-/* input[type="date"] */
-main .date p{
-    background: transparent;
-    font-size: 1.1rem  !important;
+main .toolbar button:hover{
+    transform: scale(1.1);
+}
+main .toolbar .addItem{
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+}
+main .toolbar .availItem{
+    background: #B3B4BB;
 }
 
 main .insight{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     gap: 1.6rem;
-    padding: 0 1.2rem;
+    overflow-y: scroll;
+    height: 81vh;
+    padding: 1rem 1.2rem;
 }
 
 main .insight > div{
-    /* display: flex; */
     background: var(--color-white);
-    padding: 0.8rem;
+    padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
+    box-shadow: var(--box-shadow);
     transition: all 300ms ease;
-    height: 9rem;
-}
-
-main .insight >.mainDisplay1{
-    box-shadow: 0 0.5rem 3rem #caffcf;
-    transition: all 300ms ease;
-}
-main .insight >.mainDisplay2{
-    box-shadow: 0 0.5rem 3rem rgba(48,156,255,0.12);
-    transition: all 300ms ease;
-}
-main .insight >.mainDisplay3{
-    box-shadow: 0 0.5rem 3rem rgba(251,129,121,0.25);
-    transition: all 300ms ease;
-}
-
-main .insight >.addMaitenanceEm{
-    width: 150px;
-    height: 100px;
-    background-color:var(--color-background);
-    box-shadow: 0 0.5rem 1rem rgba(129, 130, 131, 0.2);
-    transition: all 300ms ease;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    font-size: 0.6rem;
-    padding: 0.5rem;
-}
-
-.insight >.addMaitenanceEm>span{
-    font-size: 4rem;
-    color: var(--color-info-dark);
 }
 
 main .insight >div:hover{
     box-shadow: none;
-    background: white;
 }
 
-.mainDisplay1 .middle>span , .mainDisplay2 .middle>span,.mainDisplay3 .middle>span{
-    background: #A7FCA6;
-    padding: 0.8rem;
-    margin: 0.5rem 1rem 0 0;
-    border-radius: 83%;
+main .insight >div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
     color: var(--color-white);
-    width: 50px;
-    height: 50px;
+    font-size: 2rem;
 }
 
-
-main .insight >div .middle span{
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-main .insight > div.mainDisplay2 .middle>span{
-    background-color: #A6C8FC;
+main .insight > div.expenses span{
+    background-color: var(--color-danger);
 }
 
-main .insight > div.mainDisplay3 .middle>span{
-    background-color: #FCA6A6;
+main .insight > div.income span{
+    background-color: var(--color-success);
 }
 
 main .insight > div .middle{
     display: flex;
-    width: 168px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 main .insight h3{
-    font-size: 0.8rem;
-    color:#46535D;
-}
-
-main .insight h4{
-    color: #B3B4BB;
-    font-weight: 400;
-    margin-top: 1rem;
-}
-/* insight end */
-
-/*start upMaintenceList */
-
-main .upMaintenceList{
-    margin: 1.5rem 0;
-}
-
-main .upMaintenceList h2{
-    color: #05B2E9;
-    font-size: 1.2rem;
-}
-
-main .maintenceBoxes {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 1rem;
-}
-
-main .maintenceBox {
-    box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);
-    border-radius: 30px;
-    transition: all 300ms ease;
-}
-
-main .maintenceBox:hover{
-    box-shadow: none;
-}
-
-main .maintenceBox h3{
-    color: #46535D;
-    font-weight: 500;
-    margin: 0.5rem 1rem 0rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-
-main .upMaintenceList .middle{
-    width: 13rem;
-    font-weight: 400;
-}
-
-main .upMaintenceList .middle small{
-    color: #6F6F6F;
+    margin: 1rem 0 0.6rem;
     font-size: 1rem;
-    font-weight: 400;
-
-    
-}
-main .upMaintenceList .middle h4{
-    color: #6F6F6F;
-    font-weight: 400;
-}
-main .upMaintenceList .middle span{
-    color: #B3B4BB;
-    /* font-size: 1rem;
-    font-weight: 400; */
 }
 
-main .upMaintenceList .middle div{
-    margin: 10px 10px;
-    display: flex;
-    gap: 1.5rem;
-}
-
-main .maintenceBox .btn_action{
-    border-radius: 30px;
-    color: #89D99D;
-    background: white;
+main .insight .progress{
     position: relative;
-    left: 7rem;
-    height: 2rem;
-    width: 5rem;
-    box-shadow: 0 0.2rem 1rem rgb(137 248 157);
-    margin-bottom: 1rem;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
 }
 
-main .maintenceBox .maintenanceStatus span{
-    color: #F46060;
-}
-main .maintenceBox .maintenanceStatus h4{
-    color: #F46060;
+main .insight svg{
+    width: 7rem;
+    height: 7rem;
 }
 
+main .insight svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px,5px);
+}
 
+main .insight .sales svg circle{
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+main .insight .income svg circle{
+    stroke-dashoffset: 20;
+    stroke-dasharray: 80;
+}
+main .insight .expenses svg circle{
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
 
+main .insight .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+main .insight small{
+    margin-top: 1.6rem;
+    display: block;
+}
 
 /* Recent orders */
-
-h2{
-    color: #05B2E9;
-    font-size: 1.2rem;
-}
 
 main .recent-orders{
     margin-top: 0.9rem;
@@ -466,11 +378,6 @@ main .recent-orders table:hover{
     box-shadow: none;
 }
 
-main table{
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
 main table tbody td{
     height:2.8rem;
     border-bottom: 1px solid var(--color-light);
@@ -484,11 +391,40 @@ main .recent-orders a{
     color: var(--color-primary);
 }
 
+main .mainHeader{
+    display: flex;
+}
+main .mainHeader h1{
+    position: relative;
+    left: 414px;
+}
+
+.searchBar{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0 2rem 3rem rgba(80,154,240,0.25);
+    height: 2.5rem;
+    border-radius: 30px;
+    padding: 0 1rem;
+    color: #6F6F6F;    
+}
+.searchBar input[type="search"]{
+    width: 35rem;
+    height: 2rem;
+
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Right CSS */
 
 .right{
     margin-top: 1.4rem;
     margin-right: 1rem;
+    width: 10rem;
+    position: relative;
+    left: 850px;
+
 }
 
 .right .top{
@@ -533,93 +469,79 @@ main .recent-orders a{
     text-align: right;
 }
 
-.right .item-details{
+.right .recent-updates{
     margin-top: 1rem;
 }
 
-.right .item-details h2{
+.right .recent-updates h2{
     margin-bottom: 0.5rem;
 }
 
-.right .item-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.right .recent-updates .updates{
     background: var(--color-white);
     padding: 1.2rem;
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
-    height: 87vh;
-    padding-top: 0;
+    height: 36vh;
+    overflow-y: scroll;
 }
 
-.right .item-details .image-container{
-    padding: 20px;
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.details>div:nth-child(3) {
+.right .recent-updates .updates .update{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 2.6rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-.details>div{
+/* Sales Analytics */
+
+.right .sales-analytics{
     margin-top: 1rem;
 }
-.details div p{
-    position: relative;
-    left:1rem;
-}
-.details>div>div{
-    margin-bottom: 1rem;
+
+.right .sales-analytics h2{
+    margin-bottom: 0.8rem;
 }
 
-.itembtnsection1{
+.right .sales-analytics .item{
+    background: var(--color-white);
     display: flex;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-.itembtnsection1 button{
-    width: 5rem;
-    height: 2rem;
-    border-radius: 10px;
-}
-
-.itembtnsection1 .morebtn{
-    background: linear-gradient(#0095D9,#00BEE4);
-    color: white;
-}
-
-.itembtnsection1 .editbtn{
-    border: 1px solid var(--color-gray);
-    background:none;
-    color: var(--color-gray);
-}
-
-.itembtnsection1 .deletebtn{
-    border: 1px solid var(--color-danger);
-    background:none;
-    color: var(--color-danger);
-}
-
-
-.itembtnsection2 button{
-    /* margin: 0.1rem; */
-    width: 7.5rem;
-    font-size: 1rem;
-    font-weight: 400;
-    height: 2.5rem;
-    border-radius: 10px;
-    background: linear-gradient(#0095D9,#00BEE4);
-    color: white;
-}
-.item-details button{
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
     transition: all 300ms ease;
 }
-.item-details button:hover{
-    transform: scale(1.1);
-    font-size: 1.1rem
+
+.right .sales-analytics .item:hover{
+    box-shadow: none;
+}
+
+.maintenance{
+    height: 19rem;
+    overflow-y: scroll;
+}
+.right .sales-analytics .item .right{
+    display: flex;
+    justify-content:space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.right .sales-analytics .item .icon{
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+}
+
+.right .sales-analytics .item.online .icon{
+    background: var(--color-success);
+}
+
+.right .sales-analytics .item.offline .icon{
+    background: var(--color-danger);
 }

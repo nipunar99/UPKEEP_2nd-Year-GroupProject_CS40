@@ -5,7 +5,7 @@ class Userdashboard {
     use Controller;
     public function index (){
         
-        if($_SESSION['USER'] == $_SESSION['id']){
+        if($_SESSION['USER'] == 'Owner'){
             $this->view('Itemowner/userDashboard');
         }else{
             redirect("Home/home");
