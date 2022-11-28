@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/additem.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/additemtemplate.css">
 </head>
 <body>
     <div class="container">
@@ -30,14 +30,24 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/itemowner/userdashboard">
+                <a href="#" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/itemowner/item" class="active">
+                <a href="#">
+                    <span class="material-icons-sharp">help_outline</span>
+                    <h3>Suggestions</h3>
+                </a>
+
+                <a href="#" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
-                    <h3>Item</h3>
+                    <h3>Item Templates</h3>
+                </a>
+
+                <a href="#">
+                    <span class="material-icons-sharp">error</span>
+                    <h3>Complaints</h3>
                 </a>
 
                 <a href="#" >
@@ -50,36 +60,23 @@
                     <h3>Community</h3>
                 </a>
 
-
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
-                    <span class="message-count">11</span>
-                </a>
-
-                <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
-                </a>
-
                 <a href="#">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Signout/signout">
+                <a href="#">
                     <span class="material-icons-sharp">logout</span>
-                    <h3>Sign out</h3>
+                    <h3>Log out</h3>
                 </a>
 
             </div>
-
 
         </aside>
 
         <main>
             <div class="mainHeader">
-                <h1>Items</h1>
+                <h1>Items Templates</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -97,7 +94,7 @@
                                 <small class="text-muted">User</small>
                             </div>
                             <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/css/images/profile-1.jpg" alt="">
+                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -110,54 +107,40 @@
             </div>
 
             <div class="insight">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" action="#">
                     <div class="itemDetails">
         
                         <div class="input-box">
-                            <span class="details">Item Name</span>
-                            <input type="text" name="item_name" id="" required placeholder="Enter Item Name">
+                            <span class="details">Item template Name</span>
+                            <input type="text" name="name" id="" required placeholder="Enter Item template Name">
                         </div>
         
                         <div class="input-box">
-                            <span class="details">Item type</span>
-                            <select name="item_type" id="itemtype" ></select>
-                        </div>
-
-                        <div class="input-box">
-                                <span class="details">Image</span>
-                                <input type="file" name="image" id=""  placeholder="Enter Brand">
+                            <span class="details">Status</span>
+                            <select name="" name="status" id="district" ></select>
                         </div>
                         
                         <div class="middleInput">
                             <div class="input-box">
-                                <span class="details">Brand</span>
-                                <input type="text" name="brand" id="" required placeholder="Enter Brand">
+                                <span class="details">Item Type</span>
+                                <input type="text" name="type" id="" required placeholder="Enter Description">
                             </div>
             
                             <div class="input-box">
-                                <span class="details">Model</span>
-                                <input type="text" name="model" id=""  placeholder="Enter Model">
-                            </div>
-            
-                            <div class="input-box">
-                                <span class="details">Purchase Price(Rs.)</span>
-                                <input type="number" name="purchase_price" id=""  placeholder="Purchase Price">
+                                <span class="details">Category</span>
+                                <input type="text" name="category" id="" required placeholder="Enter Model">
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Description</span>
-                                <input type="text" name="description" id=""  placeholder="Enter Description about item">
+                                <input type="text" name="description" id="" required placeholder="Enter Description about item">
                             </div>
 
                             <div class="input-box">
-                                <span class="details">Purchase Date</span>
-                                <input type="date" name="purchase_date" id=""  placeholder="Enter Purchase Date">
+                                <span class="details">Esti. lifespan </span>
+                                <input type="date" name="date" id=""  placeholder="Enter Purchase Date">
                             </div>
 
-                            <div class="input-box">
-                                <span class="details">Warrenty Date</span>
-                                <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
-                            </div>
                         </div>
                         
         
@@ -171,6 +154,6 @@
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/itemTypes.js"></script>
+    <script src="<?= ROOT ?>/assets/js/additemtemplate.js"></script>
 </body>
 </html>
