@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/additem.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/additem.css">
 </head>
 <body>
     <div class="container">
@@ -125,7 +125,7 @@
 
                         <div class="input-box">
                                 <span class="details">Image</span>
-                                <input type="file" name="image" id=""  placeholder="Enter Brand">
+                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
                         </div>
                         
                         <div class="middleInput">
@@ -159,10 +159,27 @@
                                 <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
                             </div>
                         </div>
+
+                        <h2>Documentation</h2>
                         
-        
+                        <div class="middleInput">                            
+                            <div class="input-box">
+                                <span class="details">Bill</span>
+                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                            </div>
+
+                            <div class="input-box">
+                                    <span class="details">Warrenty Card</span>
+                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                            </div>
+
+                            <div class="input-box">
+                                    <span class="details">User Manual</span>
+                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                            </div>
+                        </div>
                         <div class="button">
-                            <input type="submit" value="Add Item">
+                            <input type="submit" value="Add an Item">
                         </div>
         
                     </div>
