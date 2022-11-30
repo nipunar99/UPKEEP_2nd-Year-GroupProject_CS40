@@ -188,6 +188,6 @@
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/itemTypes.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/itemTypes.js"></script>
 </body>
 </html>
