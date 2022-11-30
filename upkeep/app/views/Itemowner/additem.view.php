@@ -160,9 +160,9 @@
                             </div>
                         </div>
 
-                        <h2>Documentation</h2>
+                        <!-- <h2>Documentation</h2> -->
                         
-                        <div class="middleInput">                            
+                        <!-- <div class="middleInput">                            
                             <div class="input-box">
                                 <span class="details">Bill</span>
                                 <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
@@ -177,7 +177,7 @@
                                     <span class="details">User Manual</span>
                                     <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="button">
                             <input type="submit" value="Add an Item">
                         </div>

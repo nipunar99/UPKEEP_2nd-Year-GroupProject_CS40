@@ -134,10 +134,10 @@
                                 <h2>".$row->item_type."</h1>
                             </div>
                             <div class='progress'>
-                                <img src='http://localhost/UpKeep/public/assets/images/uploads/".$row->image."'>
+                                <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$row->image."'>
                             </div>
                         </div>
-                        <a href='http://localhost/UpKeep/public/Itemowner/ViewItem'>
+                        <a href='http://localhost/UpKeep/upkeep/public/Itemowner/ViewItem'>
                         <h3 class='text-muted'>More Details</h3>
                         </a>
                     </div>

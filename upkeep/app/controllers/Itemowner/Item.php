@@ -6,9 +6,9 @@ class Item {
     
     public function index (){
         $data =[];
-        if($_SESSION['USER'] == $_SESSION['id']){
+        if($_SESSION['USER'] == $_SESSION['user_id']){
             $arr=[];
-            $arr["owner_id"] = $_SESSION['id'];
+            $arr["owner_id"] = $_SESSION['user_id'];
 
             $items = new Owneritem;
             $result = $items->where($arr);

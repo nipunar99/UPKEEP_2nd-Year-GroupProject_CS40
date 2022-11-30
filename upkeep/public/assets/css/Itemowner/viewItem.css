@@ -333,7 +333,8 @@ main .insight h3{
 }
 
 main .insight h4{
-    color: #B3B4BB;
+    color: #3d3e3e;
+    text-align: center;
     font-weight: 400;
     margin-top: 1rem;
 }
@@ -388,7 +389,7 @@ main .upMaintenceList .middle small{
     
 }
 main .upMaintenceList .middle h4{
-    color: #6F6F6F;
+    color: #3d3e3e;
     font-weight: 400;
 }
 main .upMaintenceList .middle span{

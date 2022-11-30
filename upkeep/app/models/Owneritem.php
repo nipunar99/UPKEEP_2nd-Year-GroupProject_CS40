@@ -31,10 +31,11 @@ class Owneritem {
         if($file_size < 524000){
             if(move_uploaded_file($file_temp,$location)){
                 try{
-                    $data["owner_id"] = $_SESSION['id'];
                     $data["image"] = $file_name;
-                    show($data);
+                    $data["owner_id"] = $_SESSION['user_id'];
                     $this->insert($data);
+                    show($data);
+
                 }
                 catch(PDOException $e){
                     echo $e->getMessage();

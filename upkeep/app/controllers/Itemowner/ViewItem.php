@@ -6,7 +6,7 @@ class ViewItem {
     
     public function index (){
         $data =[];
-        if($_SESSION['USER'] == $_SESSION['id']){
+        if($_SESSION['USER'] == $_SESSION['user_id']){
             $this->view('itemowner/viewitem');
         }else{
             redirect("Home/home");

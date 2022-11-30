@@ -15,8 +15,8 @@ class Signin {
             if($row)
             {
                 if($row->password === $_POST['password']){
-                    $_SESSION['USER'] = $row->id;
-                    $_SESSION['id'] = $row->id;
+                    $_SESSION['USER'] = $row->user_id;
+                    $_SESSION['user_id'] = $row->user_id;
 
                     redirect('Itemowner/Userdashboard');
                 } 
