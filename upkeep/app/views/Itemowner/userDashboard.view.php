@@ -92,6 +92,7 @@
                         </div>
                     </div>
                     <h4>Replace or clean Air Conditioner filter</h4>
+
                 </div>
 
                 <div class="mainDisplay2">
@@ -123,28 +124,85 @@
 
                 <div class="maintenceBoxes">
                     
-                    <div class="maintenceBox show-modal" role="button">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
+                    <div class="maintenceBox show-modal1" role="button">
                         <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
+                        <div>
+                            <div class="middle">
+                                <div>
+                                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                                    <h4>Clean air filter</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">calendar_today</span>
+                                    <h4>21/25/2022</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">construction</span>
+                                    <h4>Air filter</h4>
+                                </div>
+                                <div class="maintenanceStatus">
+                                    <span class="material-icons-sharp">error_outline</span>
+                                    <h4>Pending</h4>
+                                </div>
                             </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
+                            <img src="<?= ROOT ?>/assets/images/component1.png" alt="">
+
                         </div>
-                        <button class="btn_action">Action</button>
+
+                    </div>
+
+                    <div class="maintenceBox show-modal2" role="button">
+                        <h3>Maintenance Schedule</h3>
+                        <div>
+                            <div class="middle">
+                                <div>
+                                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                                    <h4>Clean air filter</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">calendar_today</span>
+                                    <h4>21/25/2022</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">construction</span>
+                                    <h4>Air filter</h4>
+                                </div>
+                                <div class="maintenanceStatus">
+                                    <span class="material-icons-sharp">error_outline</span>
+                                    <h4>Pending</h4>
+                                </div>
+                            </div>
+                            <img src="<?= ROOT ?>/assets/images/component2.png" alt="">
+
+                        </div>
+
+                    </div>
+                    
+                    <div class="maintenceBox show-modal3" role="button">
+                        <h3>Maintenance Schedule</h3>
+                        <div>
+                            <div class="middle">
+                                <div>
+                                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                                    <h4>Clean air filter</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">calendar_today</span>
+                                    <h4>21/25/2022</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">construction</span>
+                                    <h4>Air filter</h4>
+                                </div>
+                                <div class="maintenanceStatus">
+                                    <span class="material-icons-sharp">error_outline</span>
+                                    <h4>Pending</h4>
+                                </div>
+                            </div>
+                            <img src="<?= ROOT ?>/assets/images/component3.png" alt="">
+
+                        </div>
+
                     </div>
 
                 </div>
