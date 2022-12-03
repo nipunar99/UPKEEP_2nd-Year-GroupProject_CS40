@@ -67,7 +67,7 @@
                     <h3>Settings</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
