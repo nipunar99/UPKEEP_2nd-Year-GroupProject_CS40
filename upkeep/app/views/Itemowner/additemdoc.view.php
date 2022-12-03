@@ -112,56 +112,28 @@
             <div class="insight">
                 <form method="post" enctype="multipart/form-data">
                     <div class="itemDetails">
-        
+
+                    <h2>Documentation</h2>
+                        
+                    <div class="middleInput">                            
                         <div class="input-box">
-                            <span class="details">Item Name</span>
-                            <input type="text" name="item_name" id="" required placeholder="Enter Item Name">
-                        </div>
-        
-                        <div class="input-box">
-                            <span class="details">Item type</span>
-                            <select name="item_type" id="itemtype" ></select>
+                            <span class="details">Bill</span>
+                            <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
                         </div>
 
                         <div class="input-box">
-                                <span class="details">Image</span>
+                                <span class="details">Warrenty Card</span>
                                 <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
                         </div>
-                        
-                        <div class="middleInput">
-                            <div class="input-box">
-                                <span class="details">Brand</span>
-                                <input type="text" name="brand" id="" required placeholder="Enter Brand">
-                            </div>
-            
-                            <div class="input-box">
-                                <span class="details">Model</span>
-                                <input type="text" name="model" id=""  placeholder="Enter Model">
-                            </div>
-            
-                            <div class="input-box">
-                                <span class="details">Purchase Price(Rs.)</span>
-                                <input type="number" name="purchase_price" id=""  placeholder="Purchase Price">
-                            </div>
-                            
-                            <div class="input-box">
-                                <span class="details">Description</span>
-                                <input type="text" name="description" id=""  placeholder="Enter Description about item">
-                            </div>
 
-                            <div class="input-box">
-                                <span class="details">Purchase Date</span>
-                                <input type="date" name="purchase_date" id=""  placeholder="Enter Purchase Date">
-                            </div>
-
-                            <div class="input-box">
-                                <span class="details">Warrenty Date</span>
-                                <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
-                            </div>
+                        <div class="input-box">
+                                <span class="details">User Manual</span>
+                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
                         </div>
-                        <div class="button">
-                            <input type="submit" value="Next">
-                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Add an Item">
+                    </div>
         
                     </div>
                 </form>
