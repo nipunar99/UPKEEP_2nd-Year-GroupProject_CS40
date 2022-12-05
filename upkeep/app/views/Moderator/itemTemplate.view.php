@@ -128,7 +128,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <?php 
+                if(!empty($result)) {
+                    foreach($result as $row)
+                        echo "
+                        <tr>
+                        
+                                <td>".$row->itemtemplate_name."</td>
+                                <td>".$row->item_type."</td>
+                                <td>".$row->category."</td>
+                                <td id='a' class='checkStatus'onclick='func()'>".$row->status."</td>
+                                <td>".$row->description."</td>
+                                <td>".$row->lifespan."</td>
+                           
+                        </tr>
+                        
+                        
+                        
+                    
+                        ";
+                }
+            ?>
+                                <!-- <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="warning">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td> -->
+                            
+                            <!-- <tr>
                                 <td>Name should be added</td>
                                 <td>Refrigerator</td>
                                 <td>non freeze refrigerator</td>
@@ -140,14 +168,6 @@
                                 <td>Name should be added</td>
                                 <td>Refrigerator</td>
                                 <td>non freeze refrigerator</td>
-                                <td class="warning">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
                                 <td class="success">Pending</td>
                                 <td>N/A</td>
                                 <td>10 years</td>
@@ -167,7 +187,7 @@
                                 <td class="success">Pending</td>
                                 <td>N/A</td>
                                 <td>10 years</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <a href="#">Show All</a>
@@ -176,5 +196,6 @@
         </main> 
 
     </div>
+    <script src="<?= ROOT ?>/assets/js/itemtemplate.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const districtSelect = document.getElementById("district");
+const districtSelect = document.getElementById("status");
 
 const district = ['Approved','Pending'];
 
