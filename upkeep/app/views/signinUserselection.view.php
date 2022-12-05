@@ -19,7 +19,7 @@
     <div class="nav">
       <ul class="navlist">
         <li><a href="<?= ROOT ?>/Home">Home</a></li>
-        <li><a href="#">How Get Started</a></li>
+        <li><a href="#">How Get Started</a></li> 
       </ul>
     </div>
 
