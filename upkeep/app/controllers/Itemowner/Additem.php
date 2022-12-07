@@ -11,7 +11,7 @@ class Additem {
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $item = new Owneritem;
                 $item->insertItem($_POST);
-                // redirect("Itemowner/additem/adddoc");
+                redirect("Itemowner/additem/adddoc");
 
             }
             $this->view('Itemowner/additem');

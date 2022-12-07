@@ -137,18 +137,29 @@
                                 <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$row->image."'>
                             </div>
                         </div>
-                        <a href='http://localhost/UpKeep/upkeep/public/Itemowner/ViewItem'>
-                        <h3 class='text-muted'>More Details</h3>
-                        </a>
+                        <div> 
+                            <form  method='post'>
+                                <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
+                                <input  style='display:none;' type='text' name='owner_id' value='".$row->owner_id."'>
+                                <div class='button'>
+                                    <input type='submit' value='More Details'>
+                                </div>
+                            </form>
+                        </div>
+                        
                     </div>
                         ";
                 }
             ?>
-
-                <!-- End of Sales  -->
+                        <!-- <a href='http://localhost/UpKeep/upkeep/public/Itemowner/Item/selectItem'>
+                        <h3 class='text-muted'>More Details</h3>
+                            </a> -->
+                        <!-- End of Sales  -->
             </div>
+            
         </main> 
 
     </div>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
 </body>
 </html>

@@ -13,5 +13,8 @@ class ViewItem {
         }
         
     }
+    public function item($data){
+        show($data);
+    }
 
 }
