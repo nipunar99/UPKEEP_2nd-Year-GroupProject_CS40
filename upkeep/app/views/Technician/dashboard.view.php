@@ -13,8 +13,8 @@
 </head>
 <body>
     <div class="container">
-        <aside>
-            <div class="top">
+        <aside class="close">
+            <div class="top"> 
 
                 <div class="logo">
                     <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
@@ -73,12 +73,40 @@
 
         </aside>
 
-        <main>
+        <main> 
             <h1>Dashboard</h1>
 
-            <div class="date">
-                <input type="date" name="" id="">
+            <div class="dashItem">
+                <div class="card green">
+                        <div>
+                            <span class="material-icons-sharp customer">groups</span>
+                        </div>  
+                        <h2>35</h2>
+                        <h3>CUSTOMERS</h3>
+                    
+                </div>
+
+                <div class="card blue">
+                        <div>
+                            <span class="material-icons-sharp revenue">payments</span>
+                        </div>  
+                        <h2>Rs. 12000</h2>
+                        <h3>REVENUE</h3>
+                    
+                </div>
+
+                <div class="card yellow">
+                        <div>
+                            <span class="material-icons-sharp queue">work</span>
+                        </div>  
+                        <h2>35</h2>
+                        <h3>JOBS ON QUEUE</h3>
+                    
+                </div>
+
             </div>
+
+
             <div class="recent-orders">
                 <h2>Orders</h2>
                 <h4>dataOnly for demonstration purposes</h4>
@@ -176,10 +204,6 @@
 
         <div class="right">
             <div class="top">
-                <div class="notification">
-                    <span class="material-icons-sharp">
-                        notifications</span>
-                </div>
 
                 <div class="theme-toggler">
                     <span class="material-icons-sharp active">light_mode</span>
@@ -188,7 +212,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Hey,<b>Saman</b></p>
+                        <p>Hey,<b><?=$_SESSION['user_name']?></b></p>
                         <small class="text-muted">Technician</small>
                     </div>
                     <div class="profile-photo">

@@ -14,4 +14,23 @@ class Gigs{
 
         $this->view(('Technician/gigs'),$data);
     }
+
+    public function addgig()
+    {
+        $gig = new Gig;
+        //print_r($_POST);
+
+        $gig->createGig($_POST,$_SESSION['user_id']);
+        redirect("/Technician/Gigs");
+
+            // $user->errors["email"] = "email or password not valid";
+            // $data["errors"]= $user->errors;
+        
+    }
 } 
+
+$init = new Gigs;
+
+if($_SERVER['REQUEST_METHOD']=="POST"){
+    $init->addgig();
+}
