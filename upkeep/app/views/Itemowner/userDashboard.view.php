@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <div class="mainDisplay2">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">

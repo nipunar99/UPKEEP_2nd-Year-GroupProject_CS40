@@ -20,7 +20,6 @@ class Item {
         }else{
             redirect("Home/home");
         }
-        
     }
 
 }

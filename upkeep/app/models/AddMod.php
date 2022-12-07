@@ -16,6 +16,7 @@ protected $allowedColumns = [
 
     
 ];
+
 public function validate($data){
     $this->errors =[];
     

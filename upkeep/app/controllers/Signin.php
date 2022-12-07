@@ -59,7 +59,6 @@ class Signin {
     public function moderatorSignin (){
         
         //sasini  singin controler method
-
         $data =[];
 
         if($_SERVER['REQUEST_METHOD'] == "POST"){

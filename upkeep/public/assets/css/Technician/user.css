@@ -43,6 +43,7 @@ html{
     font-size: 14px;
     font-weight: 500;
 }
+
 body{
     width: 100vw;
     height: 100vh;
@@ -246,52 +247,6 @@ main .date input[type="date"]{
     color: var(--color-dark);
 }
 
-main .insight{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1.6rem;
-    overflow-y: scroll;
-    height: 84vh;
-    padding: 0 1.2rem;
-}
-
-main .insight > div{
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
-
-main .insight >div:hover{
-    box-shadow: none;
-}
-
-main .insight >div span{
-    background: var(--color-primary);
-    padding: 0.5rem;
-    border-radius: 50%;
-    color: var(--color-white);
-    font-size: 2rem;
-}
-
-main .insight > div .middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-main .insight h3{
-    margin: 1rem 0 0.6rem;
-    font-size: 1rem;
-}
-
-
-main .insight small{
-    margin-top: 1.6rem;
-    display: block;
-}
 
 /* Recent orders */
 
@@ -508,4 +463,81 @@ main .recent-orders a{
 
 .right .recent-orders .item.offline .icon{
     background: var(--color-danger);
+}
+
+
+/*card for basic info*/
+main .dashItem {
+    display: flex;
+    height: auto;
+    /* border: black solid 2px; */
+    padding: 6px 10px;
+    align-content: center;
+    /* overflow-x: scroll; */
+}
+
+main .dashItem .card {
+    gap: 1.6rem;
+    width: 33%;
+    margin: 1rem;
+    box-shadow: 0 2rem 3rem #CAFFCF;
+    border-radius: var(--card-border-radius);
+    text-align: center;
+    padding: 1rem;
+    transition: all 300ms ease;
+}
+
+
+main .dashItem .card >div {
+    display: block;
+    margin-top:5%;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+    transition: all 300ms ease;
+
+}
+
+main .dashItem .card >div span{
+    background: #000000;
+    padding: 0.6rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+
+}
+
+main .dashItem .card >div span.customer{
+    background: #A7FCA6;
+}
+
+main .dashItem .card >div span.revenue{
+    background: #a6a7fc;
+}
+
+main .dashItem .card >div span.queue{
+    background: #f8fca6;
+}
+
+main .dashItem .card.green{
+    box-shadow: 0 2rem 3rem #CAFFCF;
+    transition: all 300ms ease;
+
+} 
+
+main .dashItem .card.blue{
+    box-shadow: 0 2rem 3rem rgba(48,156,255,0.12);
+    transition: all 300ms ease;
+
+} 
+
+main .dashItem .card.yellow{
+    box-shadow: 0 2rem 3rem rgba(255, 250, 114, 0.697);
+    transition: all 300ms ease;
+
+} 
+
+main .dashItem >div.card:hover{
+    box-shadow: none;
+    transform: scale(0.9);
 }

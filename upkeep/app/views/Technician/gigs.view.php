@@ -15,6 +15,7 @@
     <div class="container">
     <aside>
             <div class="top">
+                <script>console.log("Loaded")</script>
 
                 <div class="logo">
                     <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
@@ -74,34 +75,7 @@
 
         <main>
             <h1>GIGS</h1>
-            <div class="">
-            <button class="show-modal addGig"><h3>Add a Gig</h3></button> 
-            </div>
-            
-            
 
-            <div class="insight">
-                <div class="sales">
-                    <div class="middle">
-                        <div class="gig-cover">
-                            <img src="images/Gigcover.jpg" alt="">
-                        </div>
-                        <div >
-                            <p>Welcome to The World of Creative Logo Design.
-                                Are You Looking For Creative And Minimalist Logo Design?
-                                You Are At The Perfect Place For All Types Of Creative Logo Design.
-                                We Understand The Value Of Your Logo And Surely Create A Unique Design .</p>
-                        </div>
-                    </div>
-                    <small class="text-muted">More Details</small>
-                </div>
-
-                </div>
-        </main> 
-
-        <!-- End of Main -->
-
-        <div class="right">
             <div class="top">
                 <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
@@ -118,17 +92,118 @@
                         <small class="text-muted">Technician</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="images/profile-1.jpg" alt="">
+                        <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
                     </div>
                 </div>
             </div>
+
+            <div class="toolbar">
+                <a class="show-modal addGig" href="#addgig">Add GIG</a> 
+                <a class="viewitem" href="#">View Available Items</a> 
+            </div>
+            
+            <?php if(!empty($data['gigList'])) : ?>
+            <div class="insight">
+            <?php foreach($data["gigList"] as $gig) : ?>
+                <div class="gig-card">
+                    <div class="middle">  
+                        <div class='gig-cover'>
+                            <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+                        </div>
+                        <h1><?=$gig->title?></h1>
+                        <div class="description">
+                            <p>
+                                <?=$gig->description?>
+                            </p>
+                            <div class="dots">...</div>
+                        </div>
+                        
+                    </div>
+                    <small class="text-muted">More Details</small>
+                </div>
+                <?php endforeach;?>
+            </div>
+            <?php endif; ?>
+        <!-- </main>  -->
+
+        <!-- End of Main -->
+
+        <!-- <div class="right"> -->
+            
             <!-- End of top -->
 
-            </div>
-        </div>
+        <!-- </div> -->
+        </main>
     </div>
 
-    <div class="popupview hidden">
+    <div id="addgig" class="overlay">
+        <div class="popup">
+            <div class="middle">
+                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
+                <h1>Create Gig</h1>
+            </div>
+            <!-- <div class="form"> -->
+                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
+                    <div class="gigDetails">
+                        <div class="inline">
+                            <div class="input-box inline">
+                                <span class="details">Choose Item</span>
+                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
+                                <select id="item" name="item">
+                                    <option value="A/C">A/C</option>
+                                    <option value="Refrigerator">Refridgerator</option>
+                                    <option value="Washing Machine">Washing Machine</option>
+                                    <option value="Gas Cooker">Gas Cooker</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-box inline">
+                                <span class="details">Location</span>
+                                <input type="text" name="location" id="location" required placeholder="Enter Description about item">
+                            </div>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Title</span>
+                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) ">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"></textarea>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Work Tags</span>
+                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Add Photos</span>
+                            <input type="file" name="image" id="image" placeholder="add images related to your work">
+                        </div>
+
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            <!-- </div> -->
+                
+        </div>
+    </div>    
+
+    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+<!-- <div class="popupview hidden">
         <button class="closebtn">&times;</button>
         <form action="#">
             <div class="gigDetails">
@@ -184,8 +259,4 @@
         </form>
     </div>
     
-    <div class="overlayview hidden"></div>
-
-    <script src="<?=ROOT?>/assets/js/gigPopup.js"></script>;
-</body>
-</html>
+    <div class="overlayview hidden"></div> -->
