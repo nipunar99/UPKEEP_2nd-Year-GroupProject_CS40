@@ -86,6 +86,27 @@ class Signin {
     public function adminSignin (){
         
         //Rusiya  singin controler method
+        $data =[];
+
+
+
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $admin = new User;
+            $arr['email'] = $_POST['email'];
+            $row = $admin->first($arr);
+
+            if($row)
+            {
+                if($row->password === $_POST['password']){
+                    $_SESSION['USER'] = 'Admin';
+                    redirect('Admin/Admindashboard');
+                } 
+            }
+
+            $admin->errors['email']="Wrong email or password";
+            $data['errors'] = $admin->errors;
+        }
+            $this->view('/Signin/adminSignin',$data);
 
     }
 }
