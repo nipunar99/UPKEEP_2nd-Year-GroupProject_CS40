@@ -11,7 +11,7 @@ class Dashboard{
             redirect('/Home');
         }
 
-        $this->view('Technician/dashboard');
+         $this->view('Technician/dashboard');
     }
 
 }
