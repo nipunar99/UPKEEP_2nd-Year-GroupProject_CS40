@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/items.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/items.css">
 </head>
 <body>
     <div class="container">
@@ -134,21 +134,32 @@
                                 <h2>".$row->item_type."</h1>
                             </div>
                             <div class='progress'>
-                                <img src='http://localhost/UpKeep/public/assets/images/uploads/".$row->image."'>
+                                <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$row->image."'>
                             </div>
                         </div>
-                        <a href='http://localhost/UpKeep/public/Itemowner/ViewItem'>
-                        <h3 class='text-muted'>More Details</h3>
-                        </a>
+                        <div> 
+                            <form  method='post'>
+                                <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
+                                <input  style='display:none;' type='text' name='owner_id' value='".$row->owner_id."'>
+                                <div class='button'>
+                                    <input type='submit' value='More Details'>
+                                </div>
+                            </form>
+                        </div>
+                        
                     </div>
                         ";
                 }
             ?>
-
-                <!-- End of Sales  -->
+                        <!-- <a href='http://localhost/UpKeep/upkeep/public/Itemowner/Item/selectItem'>
+                        <h3 class='text-muted'>More Details</h3>
+                            </a> -->
+                        <!-- End of Sales  -->
             </div>
+            
         </main> 
 
     </div>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
 </body>
 </html>

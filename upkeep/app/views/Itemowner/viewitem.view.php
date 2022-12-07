@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/viewItem.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/viewItem.css">
 </head>
 <body>
     <div class="container">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Itemowner/Userdashboard/" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -126,8 +126,8 @@
 
             <div class="upMaintenceList">
                 <h2>Upcomming Maintenance</h2>
+                
                 <div class="maintenceBoxes">
-
                     <div class="maintenceBox">
                         <!-- <span class="material-icons-sharp">analytics</span> -->
                         <h3>Maintenance Schedule</h3>
@@ -279,10 +279,16 @@
             </div>
 
             <div class="item-details">
-                <div class="image-container">
-                    <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                </div>
-
+            <?php 
+                if(empty($result)){
+                    echo "result";
+                    // echo "
+                    //     <div class='image-container'>
+                    //     <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$result->image."'>
+                    //     </div>
+                    // ";
+                }
+            ?>
                 <h2>Air Conditioner</h2>
                 <h4>Samsung</h4>
 
@@ -341,7 +347,23 @@
                 </div>
 
             </div>
+        </div>
+
+        <!-- Delete form alert -->
+
+        <div class="overlayview hidden"></div>
+
+        <div class="popupview hidden deleteMsg">
+            
+            <h2>Are sure you want to permanently delete this item ?</h2>
+
+            <div class="action_btn">
+                <a href="<?= ROOT ?>/itemowner/item"><button>Delete</button></a>
+                <button class="closebtn1">Cancel</button>
+            </div>
 
         </div>
+        
+        <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
 </body>
 </html>

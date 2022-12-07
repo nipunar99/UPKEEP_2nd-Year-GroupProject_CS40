@@ -15,6 +15,7 @@
     --color-primary-variant:#111e88;
     --color-dark-variant: #677483;
     --color-background:#f6f6f9;
+    --color-gray:#b3b4bb;
 
     --card-border-radius: 1.5rem;
     --border-radius-1: 0.4rem;
@@ -227,8 +228,9 @@ main{
     height: 90vh;
     overflow-y: scroll;
 }
-main h1{
+main .boardtitle h1{
     text-align: center;
+    color:#05B2E9;
 }
 
 main .date{
@@ -252,66 +254,89 @@ main .insight{
 }
 
 main .insight > div{
+    /* display: flex; */
     background: var(--color-white);
     padding: 0.8rem;
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
     transition: all 300ms ease;
+    height: 9rem;
 }
 
 main .insight >.mainDisplay1{
-    box-shadow: 0 2rem 3rem #CAFFCF;
+    box-shadow: 0 0.5rem 3rem #caffcf;
     transition: all 300ms ease;
 }
 main .insight >.mainDisplay2{
-    box-shadow: 0 2rem 3rem rgba(48,156,255,0.12);
+    box-shadow: 0 0.5rem 3rem rgba(48,156,255,0.12);
     transition: all 300ms ease;
 }
 main .insight >.mainDisplay3{
-    box-shadow: 0 2rem 3rem rgba(251,129,121,0.25);
+    box-shadow: 0 0.5rem 3rem rgba(251,129,121,0.25);
     transition: all 300ms ease;
+}
+
+main .insight >.addMaitenanceEm{
+    width: 150px;
+    height: 100px;
+    background-color:var(--color-background);
+    box-shadow: 0 0.5rem 1rem rgba(129, 130, 131, 0.2);
+    transition: all 300ms ease;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 0.6rem;
+    padding: 0.5rem;
+}
+
+.insight >.addMaitenanceEm>span{
+    font-size: 4rem;
+    color: var(--color-info-dark);
 }
 
 main .insight >div:hover{
     box-shadow: none;
+    background: white;
 }
 
-main .insight >div >span{
+.mainDisplay1 .middle>span , .mainDisplay2 .middle>span,.mainDisplay3 .middle>span{
     background: #A7FCA6;
-    padding: 0.5rem;
-    border-radius: 50%;
+    padding: 0.8rem;
+    margin: 0.5rem 1rem 0 0;
+    border-radius: 83%;
     color: var(--color-white);
-    font-size: 2rem;
+    width: 50px;
+    height: 50px;
 }
 
 
 main .insight >div .middle span{
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
-main .insight > div.mainDisplay2 >span{
+main .insight > div.mainDisplay2 .middle>span{
     background-color: #A6C8FC;
 }
 
-main .insight > div.mainDisplay3 span{
+main .insight > div.mainDisplay3 .middle>span{
     background-color: #FCA6A6;
 }
 
 main .insight > div .middle{
-    margin-top: 0.5rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 195px;
+    width: 168px;
 }
 
 main .insight h3{
-    margin: 0.5rem 0 0.6rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    color:#46535D;
 }
 
 main .insight h4{
-    color: #B3B4BB;
-    font-weight: 400;
+    color: #3d3e3e;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 1rem;
 }
 /* insight end */
 
@@ -343,8 +368,11 @@ main .maintenceBox:hover{
 }
 
 main .maintenceBox h3{
+    color: #46535D;
+    font-weight: 500;
     margin: 0.5rem 1rem 0rem;
     font-size: 0.9rem;
+    font-weight: 700;
 }
 
 
@@ -361,7 +389,7 @@ main .upMaintenceList .middle small{
     
 }
 main .upMaintenceList .middle h4{
-    color: #6F6F6F;
+    color: #3d3e3e;
     font-weight: 400;
 }
 main .upMaintenceList .middle span{
@@ -374,11 +402,6 @@ main .upMaintenceList .middle div{
     margin: 10px 10px;
     display: flex;
     gap: 1.5rem;
-}
-main .maintenceBox h3{
-    color: #46535D;
-    font-weight: 500;
-    
 }
 
 main .maintenceBox .btn_action{
@@ -417,7 +440,7 @@ main .maintenceBox .maintenanceStatus h4{
 
 /* Recent orders */
 
-main .recent-orders h2{
+h2{
     color: #05B2E9;
     font-size: 1.2rem;
 }
@@ -442,6 +465,11 @@ main .recent-orders table{
 
 main .recent-orders table:hover{
     box-shadow: none;
+}
+
+main table{
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 main table tbody td{
@@ -506,79 +534,198 @@ main .recent-orders a{
     text-align: right;
 }
 
-.right .recent-updates{
+.right .item-details{
     margin-top: 1rem;
 }
 
-.right .recent-updates h2{
+.right .item-details h2{
     margin-bottom: 0.5rem;
 }
 
-.right .recent-updates .updates{
+.right .item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--color-white);
     padding: 1.2rem;
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
-    height: 36vh;
-    overflow-y: scroll;
+    height: 87vh;
+    padding-top: 0;
 }
 
-.right .recent-updates .updates .update{
+.right .item-details .image-container{
+    padding: 20px;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.details>div:nth-child(3) {
     display: grid;
-    grid-template-columns: 2.6rem auto;
-    gap: 1rem;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.details>div{
+    margin-top: 1rem;
+}
+.details div p{
+    position: relative;
+    left:1rem;
+}
+.details>div>div{
     margin-bottom: 1rem;
 }
 
-/* Sales Analytics */
-
-.right .sales-analytics{
-    margin-top: 1rem;
-}
-
-.right .sales-analytics h2{
-    margin-bottom: 0.8rem;
-}
-
-.right .sales-analytics .item{
-    background: var(--color-white);
+.itembtnsection1{
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.7rem;
-    padding: 1.4rem var(--card-padding);
-    border-radius: var(--border-radius-3);
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.itembtnsection1 button{
+    width: 5rem;
+    height: 2rem;
+    border-radius: 10px;
+}
+
+.itembtnsection1 .morebtn{
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+}
+
+.itembtnsection1 .editbtn{
+    border: 1px solid var(--color-gray);
+    background:none;
+    color: var(--color-gray);
+}
+
+.itembtnsection1 .deletebtn{
+    border: 1px solid var(--color-danger);
+    background:none;
+    color: var(--color-danger);
+}
+
+
+.itembtnsection2 button{
+    /* margin: 0.1rem; */
+    width: 7.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 2.5rem;
+    border-radius: 10px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+}
+.item-details button{
     transition: all 300ms ease;
 }
-
-.right .sales-analytics .item:hover{
-    box-shadow: none;
+.item-details button:hover{
+    transform: scale(1.1);
+    font-size: 1.1rem
 }
 
-.maintenance{
-    height: 19rem;
-    overflow-y: scroll;
-}
-.right .sales-analytics .item .right{
-    display: flex;
-    justify-content:space-between;
-    align-items: start;
-    margin: 0;
+/* Overlay window */
+.overlayview {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(179, 180, 189, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+.hidden {
+    display: none;
+}
+.popupview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    background-color: var(--color-white);
+    color: rgb(68, 67, 67);
+    padding: 5rem 2rem 2rem 5rem;
+    padding-left: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    height: 60vh;
 }
 
-.right .sales-analytics .item .icon{
-    padding: 0.6rem;
-    color: var(--color-white);
-    border-radius: 50%;
+.deleteMsg{
+    height: 32vh;
+    text-align:center;
+}
+.deleteMsg h2{
+    color: var(--color-danger);
+}
+.content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.right .sales-analytics .item.online .icon{
-    background: var(--color-success);
+
+.content >div{
+    display: grid;
+    grid-template-columns: 2rem 10rem 18rem;
+    gap: 2rem;
 }
 
-.right .sales-analytics .item.offline .icon{
-    background: var(--color-danger);
+.content h2{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.content h3{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.content span{
+    color: var(--color-info-dark);
+    font-weight: 300;
+}
+
+.closebtn {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: var(--color-dark);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.action_btn {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.action_btn button{
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;
+    transition: all 200ms ease;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color:var(--color-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.action_btn button:first-child{
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+}
+
+.action_btn button:hover{
+    transform: scale(1.1);
 }
