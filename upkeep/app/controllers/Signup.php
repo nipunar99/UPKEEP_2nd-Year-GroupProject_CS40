@@ -26,7 +26,7 @@ class Signup {
         //Rahal  singin controler method
         $data =  [];
 
-        if($_SERVER['POST_METHOD']=="POST"){
+        if($_SERVER['REQUEST_METHOD']=="POST"){
             $user = new User;
 
             if($user->validate($_POST)){
