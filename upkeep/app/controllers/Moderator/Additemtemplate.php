@@ -6,11 +6,11 @@ class Additemtemplate {
     
     public function index (){
         
-        if($_SESSION['USER'] == 'Moderators'){
+        if($_SESSION['USER'] == $_SESSION['ID']){
             $data = [];
             if($_SERVER['REQUEST_METHOD'] == "POST"){
-                $itemtemplate = new Moderatoritemtemplate;
-                $itemtemplate->insert($_POST);
+                $itemtemplate = new Itemtemplates;
+                $itemtemplate->insertItemtemplate($_POST);
                 redirect("Moderator/Itemtemplate");
             }
             $this->view('Moderator/addItemtemplate');

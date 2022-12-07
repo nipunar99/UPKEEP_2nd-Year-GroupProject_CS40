@@ -112,18 +112,18 @@
         
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="name" id="" required placeholder="Enter Item template Name">
+                            <input type="text" name="itemtemplate_name" id="" required placeholder="Enter Item template Name">
                         </div>
         
                         <div class="input-box">
                             <span class="details">Status</span>
-                            <select name="" name="status" id="district" ></select>
+                            <select name="status" id="status" ></select>
                         </div>
                         
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Item Type</span>
-                                <input type="text" name="type" id="" required placeholder="Enter Description">
+                                <input type="text" name="item_type" id="" required placeholder="Enter Description">
                             </div>
             
                             <div class="input-box">
@@ -138,7 +138,7 @@
 
                             <div class="input-box">
                                 <span class="details">Esti. lifespan </span>
-                                <input type="date" name="date" id=""  placeholder="Enter Purchase Date">
+                                <input type="number" name="lifespan" id=""  placeholder="Enter Purchase Date">
                             </div>
 
                         </div>
