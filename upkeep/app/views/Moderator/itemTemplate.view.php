@@ -108,14 +108,14 @@
             </div>
             <div class="toolbar">
                 <div class="searchBar">
-                    <input type="search" name="" id="" placeholder="Search item">
+                    <input type="search" name="" id="txtHint" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
             </div>
 
             <div class="insight">
-                <div class="itemTemplateList">
+                <div class="itemTemplateList" onchange="showUser(this.th)">
                     <table>
                         <thead>
                             <tr>
@@ -137,7 +137,7 @@
                                 <td>".$row->itemtemplate_name."</td>
                                 <td>".$row->item_type."</td>
                                 <td>".$row->category."</td>
-                                <td id='a' class='checkStatus'onclick='func()'>".$row->status."</td>
+                                <td>".$row->status."</td>
                                 <td>".$row->description."</td>
                                 <td>".$row->lifespan."</td>
                            
