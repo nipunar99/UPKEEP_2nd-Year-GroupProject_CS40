@@ -92,7 +92,7 @@ class Signin {
 
 
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $admin = new User;
+            $admin = new Admin;
             $arr['email'] = $_POST['email'];
             $row = $admin->first($arr);
 
