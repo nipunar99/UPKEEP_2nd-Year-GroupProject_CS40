@@ -601,12 +601,19 @@ main .recent-orders a{
 }
 
 .itembtnsection1 .deletebtn{
+    text-align: center;
+    padding: 4px;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 10px;
     border: 1px solid var(--color-danger);
     background:none;
     color: var(--color-danger);
 }
 
-
+.itembtnsection1 .deletebtn input{
+    color: var(--color-danger);
+}
 .itembtnsection2 button{
     /* margin: 0.1rem; */
     width: 7.5rem;

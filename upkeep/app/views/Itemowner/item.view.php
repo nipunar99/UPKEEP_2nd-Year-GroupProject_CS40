@@ -124,6 +124,7 @@
                 
             <?php 
                 if(!empty($result)) {
+                // show($result);
                     foreach($result as $row)
                         echo "
                         <div class=''>
@@ -140,7 +141,6 @@
                         <div> 
                             <form  method='post'>
                                 <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
-                                <input  style='display:none;' type='text' name='owner_id' value='".$row->owner_id."'>
                                 <div class='button'>
                                     <input type='submit' value='More Details'>
                                 </div>
