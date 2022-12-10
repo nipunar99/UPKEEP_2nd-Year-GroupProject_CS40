@@ -280,65 +280,76 @@
 
             <div class="item-details">
             <?php 
-                if(empty($result)){
-                    echo "result";
-                    // echo "
-                    //     <div class='image-container'>
-                    //     <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$result->image."'>
-                    //     </div>
-                    // ";
+                if(!empty($result)){
+                foreach ($result as $row)
+                    // show($row);
+                        echo "
+                            <div class='image-container'>
+                            <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$row->image."'>
+                            </div>
+
+                            <h2>".$row->item_name."</h2>
+                            <h4>".$row->brand."</h4>
+
+                            <div class='details'>
+
+                                <div>
+                                    <h4>Item Name</h4>
+                                    <p>".$row->item_name."</p>
+                                </div>
+
+                                <div>
+                                    <h4>Item Type</h4>
+                                    <p>".$row->item_type."</p>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <h4>Brand</h4>
+                                        <p>".$row->brand."</p>
+                                    </div>
+                                    <div>
+                                        <h4>Model</h4>
+                                        <p>".$row->model."</p>
+                                    </div>
+                                    <div>
+                                        <h4>Purchase Price</h4>
+                                        <p>Rs.".$row->purchase_price."</p>
+                                    </div>
+                                    <div>
+                                        <h4>Warranty date</h4>
+                                        <p>".$row->warrenty_date."</p>
+                                    </div>
+                
+                                    <div>
+                                        <h4>Used date</h4>
+                                        <p>175 Days</p>
+                                    </div>
+                
+                                    <div>
+                                        <h4>Maintenance cost</h4>
+                                        <p>Rs.12500</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        ";
                 }
             ?>
-                <h2>Air Conditioner</h2>
-                <h4>Samsung</h4>
-
-                <div class="details">
-
-                    <div>
-                        <h4>Item Name</h4>
-                        <p>Samsung inverter Windfree AC</p>
-                    </div>
-
-                    <div>
-                        <h4>Item Type</h4>
-                        <p>A/C</p>
-                    </div>
-
-                    <div>
-                        <div>
-                            <h4>Brand</h4>
-                            <p>Samsung</p>
-                        </div>
-                        <div>
-                            <h4>Model</h4>
-                            <p>AC-5132</p>
-                        </div>
-                        <div>
-                            <h4>Purchase Price</h4>
-                            <p>Rs.65000</p>
-                        </div>
-                        <div>
-                            <h4>Warranty date</h4>
-                            <p>22/11/2022</p>
-                        </div>
-    
-                        <div>
-                            <h4>Used date</h4>
-                            <p>175 Days</p>
-                        </div>
-    
-                        <div>
-                            <h4>Maintenance cost</h4>
-                            <p>Rs.12500</p>
-                        </div>
-                    </div>
-
-                </div>
 
                 <div class="itembtnsection1">
+                    
                     <button class="morebtn">More</button>
                     <button class="editbtn">Edit</button>
                     <button class="deletebtn">Delete</button>
+                    <!-- <form  method='post'>
+                        <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
+                        <input  style='display:none;' type='text' name='owner_id' value='".$row->owner_id."'>
+                        <div class='deletebtn'>
+                            <input type='submit' value='Delete'>
+                        </div>
+                    </form> -->
                 </div>
 
                 <div class="itembtnsection2">
@@ -358,7 +369,7 @@
             <h2>Are sure you want to permanently delete this item ?</h2>
 
             <div class="action_btn">
-                <a href="<?= ROOT ?>/itemowner/item"><button>Delete</button></a>
+                <a href="<?= ROOT ?>/itemowner/item"><button class="confirmbtn">Confirm</button></a>
                 <button class="closebtn1">Cancel</button>
             </div>
 
