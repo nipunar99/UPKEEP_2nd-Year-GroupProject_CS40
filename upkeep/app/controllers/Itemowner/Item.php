@@ -7,17 +7,25 @@ class Item {
 public function index (){
     $data =[];
     if($_SESSION['USER'] == $_SESSION['user_id']){
-        $arr=[];
+
+        $arr = [];
         $arr["owner_id"] = $_SESSION['user_id'];
-        
         $items = new Owneritem;
         $result = $items->where($arr);
-
-        $data['result'] = $result;
+            $data["result"] = $result; 
 
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $this->selectItem($_POST);
-        }else{
+            if(isset($_POST['action']) && $_POST['action']=="addItem"){
+
+                unset($_POST['action']);
+                $item = new Owneritem;
+                $item->insertItem($_POST);
+            } 
+            else {
+                $this->selectItem($_POST);
+            }
+        }
+        else{
             //show(result);
             $this->view('itemowner/item',$data);
         }
@@ -29,16 +37,22 @@ public function index (){
 }
 
 public function selectItem($arr){
+    $data = [];
     $items = new Owneritem;
     $result = $items->where($arr);
     $data['result'] = $result;
-    // show($result);
+    // show($data);
     $this->view('itemowner/viewitem',$data);
 
 }
 
-    public function deleteItem(){
-        
-    }
+public function getAllItem(){
+    $arr = [];
+    $arr["owner_id"] = $_SESSION['user_id'];
+    $items = new Owneritem;
+    $result = $items->where($arr);
+    $json = json_encode($result);
+    echo($json);
+}
 
 }

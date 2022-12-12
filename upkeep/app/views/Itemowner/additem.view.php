@@ -110,7 +110,7 @@
             </div>
 
             <div class="insight">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="form_itemDetails">
                     <div class="itemDetails">
         
                         <div class="input-box">
@@ -125,7 +125,7 @@
 
                         <div class="input-box">
                                 <span class="details">Image</span>
-                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
                         </div>
                         
                         <div class="middleInput">
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                         <div class="button">
-                            <input type="submit" value="Next">
+                            <input type="submit" value="Next" id="itemDetails">
                         </div>
         
                     </div>
@@ -169,6 +169,6 @@
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/Itemowner/itemTypes.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/addItem.js"></script>
 </body>
 </html>
