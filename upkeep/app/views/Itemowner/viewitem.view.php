@@ -293,6 +293,11 @@
 
                             <div class='details'>
 
+                                <div style='display:none;'>
+                                    <h4>Item id</h4>
+                                    <p>".$row->item_id."</p>
+                                </div>
+
                                 <div>
                                     <h4>Item Name</h4>
                                     <p>".$row->item_name."</p>

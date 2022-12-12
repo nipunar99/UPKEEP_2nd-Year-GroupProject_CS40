@@ -561,7 +561,7 @@ main .recent-orders a{
     box-shadow: var(--box-shadow);
 }
 
-.details>div:nth-child(3) {
+.details>div:nth-child(4) {
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }

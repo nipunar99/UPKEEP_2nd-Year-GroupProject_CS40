@@ -7,11 +7,20 @@ class Additem {
     public function index (){
         
         if($_SESSION['USER'] == $_SESSION['user_id']){
-            $data =[];
+
+            // if($_SERVER['REQUEST_METHOD'] == "POST"){
+            //     // $item = new Owneritem;
+            //     // $item->insertItem($_POST);
+            //     // redirect("Itemowner/additem/adddoc");
+            //     echo "awa";
+            //     print_r($_POST);
+
+            // }
+
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $item = new Owneritem;
                 $item->insertItem($_POST);
-                redirect("Itemowner/additem/adddoc");
+                // redirect("Itemowner/additem/adddoc");
 
             }
             $this->view('Itemowner/additem');
