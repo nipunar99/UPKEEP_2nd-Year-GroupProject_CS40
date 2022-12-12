@@ -14,9 +14,11 @@ class Signin {
 
             if($row)
             {
-                if($row->password === $_POST['password']){
+                // if($row->password === $_POST['password']){
+                if(password_verify($_POST['password'] ,$row->password )){
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['user_id'] = $row->user_id;
+                    $_SESSION['user_name'] = $row->user_name;
 
                     redirect('Itemowner/Userdashboard');
                 } 
@@ -71,7 +73,8 @@ class Signin {
             if($row)
             {
                 if($row->password === $_POST['password']){
-                    $_SESSION['USER'] = 'Moderators';
+                    $_SESSION['USER'] = $row->user_id;
+                    $_SESSION['ID'] = $row->user_id;
                     redirect('Moderator/Moderatordashboard');
                 } 
             }
@@ -86,6 +89,27 @@ class Signin {
     public function adminSignin (){
         
         //Rusiya  singin controler method
+        $data =[];
+
+
+
+        // if($_SERVER['REQUEST_METHOD'] == "POST"){
+        //     // $admin = new Admin;
+        //     $arr['email'] = $_POST['email'];
+        //     $row = $admin->first($arr);
+
+        //     if($row)
+        //     {
+        //         if($row->password === $_POST['password']){
+        //             $_SESSION['USER'] = 'Admin';
+        //             redirect('Admin/Admindashboard');
+        //         } 
+        //     }
+
+        //     $admin->errors['email']="Wrong email or password";
+        //     $data['errors'] = $admin->errors;
+        // }
+        //     $this->view('/Signin/adminSignin',$data);
 
     }
 }
