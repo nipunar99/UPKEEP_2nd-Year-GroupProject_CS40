@@ -2,6 +2,7 @@
 const deleteMsg = document.querySelector(".deleteMsg");
 const confirmbtn = document.querySelector(".confirmbtn");
 const overlay = document.querySelector(".overlayview");
+const autoclick = document.querySelector(".autoclick");
 // const btnCloseModal = document.querySelector(".closebtn");
 const btnCloseModal1 = document.querySelector(".closebtn1");
 const deleteConfirmation = document.querySelector(".deletebtn");
@@ -27,25 +28,25 @@ deleteConfirmation.addEventListener("click", deleteMsgFunc);
 // close modal click
 // btnCloseModal.addEventListener("click", closeModal);
 btnCloseModal1.addEventListener("click", closeModal);
-
 overlay.addEventListener("click", closeModal);
-confirmbtn.addEventListener("click", closeModal);
+confirmbtn.addEventListener("click", ajax_deleteItem);
 
 
 // AJAX for the delete an item
 
-function ajax_deleteItem(e){
-
-    const form = new FormData(formItemDetails);
-    form.append("action","addItem");
-    // const urlparams = new URLSearchParams(form);
+function ajax_deleteItem(){
+    const item_id = document.querySelector(".item_id").innerHTML;
+    const form = new FormData();
+    form.append("action","deleteItem");
+    form.append("item_id",item_id);
+    // console.log(item_id);
+    const urlparams = new URLSearchParams(form);
 
     
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/Item");
-    // xhr.setRequestHeader("Content-Type","application/json");             
-    // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem");
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -53,12 +54,8 @@ function ajax_deleteItem(e){
             console.log(res);
         }
     }
+    xhr.send(urlparams);
 
-    xhr.send(form);
-
-    
     closeModal();
-    ajax_getItems();
-    formItemDetails.reset();
-
+    autoclick.click();
 }
