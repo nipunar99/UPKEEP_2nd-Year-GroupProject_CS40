@@ -61,25 +61,25 @@ class Signup {
 
     }
 
-    // public function adminSignup (){
+    public function adminSignup (){
         
-    //     //rusith  singin controler method
-    //     $data =[];
-    //     if($_SERVER['REQUEST_METHOD'] == "POST"){
-    //         $admin = new Admin;
+        //rusith  singin controler method
+        $data =[];
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $admin = new Admin;
 
-    //         if($admin->validate($_POST))
-    //         {
-    //             $admin->insert($_POST);
-    //             redirect("Home");
-    //         }
+            if($admin->validate($_POST))
+            {
+                $admin->insert($_POST);
+                redirect("Home");
+            }
             
-    //         $data["errors"] = $admin->errors;
-    //     }
+            $data["errors"] = $admin->errors;
+        }
         
-    //     $this->view('/Signup/adminSignup',$data);// (folder name/php filename)
+        $this->view('/Signup/adminSignup',$data);// (folder name/php filename)
 
 
-    // }
+    }
 
 }
