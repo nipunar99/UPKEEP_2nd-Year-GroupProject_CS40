@@ -42,16 +42,27 @@ class Signup {
     }
 
     public function moderatorSignup (){
-        
+        if(isset($_SESSION['user_id'])){
+            redirect('/Moderator/Moderatordashboard');
+        }
         //sasini  singin controler method
         $data =[];
         
         if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+
             $moderator = new Moderator;
 
             if($moderator->validate($_POST))
             {
-                $moderator->insert($_POST);
+                $post = [
+                    'first_name'=>$_POST['first_name'],
+                    'last_name'=>$_POST['last_name'],
+                    'user_name'=>$_POST['user_name'],
+                    'email'=>$_POST['email'],
+                    'password'=>password_hash($_POST['password'],PASSWORD_DEFAULT)
+                ];
+                $moderator->insert($post);
                 redirect("Home");
             }
             

@@ -84,7 +84,7 @@
 
         <main>
             <div class="mainHeader">
-                <h1>Items</h1>
+                <h1>Dashboard</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
