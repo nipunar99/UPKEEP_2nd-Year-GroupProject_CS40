@@ -5,7 +5,7 @@ class Itemtemplate {
     use Controller;
     public function index (){
          $data = [];
-        if($_SESSION['USER'] == $_SESSION['ID']){
+        if(isset($_SESSION['user_id'])){
             $arr=[];
             $itemtemplates = new Itemtemplates;
             $result = $itemtemplates->findAll();

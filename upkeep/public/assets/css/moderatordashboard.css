@@ -259,6 +259,10 @@ main .toolbar .availItem{
 
 
 main .insight > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33%;
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -443,14 +447,18 @@ main .insight > div h3{
     font-weight: 500;
 }
 main .insight >.mainDisplay1{
+    /* width:33%; */
+    text-align:center;
     box-shadow: 0 2rem 3rem #CAFFCF;
     transition: all 300ms ease;
 }
 main .insight >.mainDisplay2{
+    /* width:33%; */
     box-shadow: 0 2rem 3rem rgba(48,156,255,0.12);
     transition: all 300ms ease;
 }
 main .insight >.mainDisplay3{
+    /* width:33%; */
     box-shadow: 0 2rem 3rem rgba(251,129,121,0.25);
     transition: all 300ms ease;
 }

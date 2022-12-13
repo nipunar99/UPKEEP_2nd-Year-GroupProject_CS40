@@ -6,7 +6,7 @@ class Additemtemplate {
     
     public function index (){
         
-        if($_SESSION['USER'] == $_SESSION['ID']){
+        if(isset($_SESSION['user_id'])){
             $data = [];
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $itemtemplate = new Itemtemplates;
