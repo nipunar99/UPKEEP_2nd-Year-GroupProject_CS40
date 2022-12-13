@@ -9,35 +9,7 @@ const deleteConfirmation = document.querySelector(".deletebtn");
 
 // Show Modal function const showModal
 const deleteMsgFunc = function () {
-    console.log("button clicked");
-    deleteMsg.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-}; 
-
-// Close Modal function
-const closeModal = function () {
-    console.log("button clicked");
-    deleteMsg.classList.add("hidden");
-    overlay.classList.add("hidden");
-    // removeEvent();
-};
-
-// show modal click event
-deleteConfirmation.addEventListener("click", deleteMsgFunc);
-
-// close modal click
-// btnCloseModal.addEventListener("click", closeModal);
-btnCloseModal1.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-confirmbtn.addEventListener("click", ajax_deleteItem);
-
-
-// AJAX for the delete an item
-
-function ajax_deleteItem(){
-    const item_id = document.querySelector(".item_id").innerHTML;
-    const form = new FormData();
-    form.append("action","deleteItem");
+     form.append("action","deleteItem");
     form.append("item_id",item_id);
     // console.log(item_id);
     const urlparams = new URLSearchParams(form);

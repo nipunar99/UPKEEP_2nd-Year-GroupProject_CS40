@@ -15,7 +15,6 @@ class ViewItem {
                     $item_id = $_POST['item_id'];
                     echo ($item_id);
                     $item->delete($item_id);
-                    redirect("Home/home");
                 } 
             }
             // $this->view('itemowner/viewitem');
