@@ -278,6 +278,16 @@ main table tbody td{
     color: var(--color-dark-variant);
 }
 
+main table tbody tr td .order{
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+}
+
+main table tbody tr td .order > div {
+    text-align: left;
+}
+
 main .recent-orders a{
     display: block;
     text-align: center;

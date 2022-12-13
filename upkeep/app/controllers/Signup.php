@@ -22,7 +22,8 @@ class Signup {
     }
 
     public function technicianSignup (){
-        
+        if(isset($_SESSION['user_id']))
+            redirect('/Tecnician/Dashboard');
         //Rahal  singin controler method
         $data = [];
         if($_SERVER['REQUEST_METHOD']=="POST"){
@@ -34,6 +35,7 @@ class Signup {
                     'last_name' => $_POST['last_name'],
                     'user_name' => $_POST['user_name'],
                     'email' => $_POST['email'],
+                    'user_role' => 'Technician',
                     'password' => password_hash($_POST['password'],PASSWORD_DEFAULT)
                 ];
                 $user->insert($post);

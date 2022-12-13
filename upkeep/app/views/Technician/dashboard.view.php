@@ -111,15 +111,22 @@
                 <h2>Orders</h2>
                 <h4>dataOnly for demonstration purposes</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
-                            <td>Repair AC</td>
+                            <td>
+                                <div class="order">
+                                    <div>
+                                        <h2>Title</h2>
+                                        <h4>Description</h4>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="order">Hello</div>
+                            </td>
                         </tr>
 
                         <tr>
