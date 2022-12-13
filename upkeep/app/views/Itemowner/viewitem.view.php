@@ -295,7 +295,7 @@
 
                                 <div style='display:none;'>
                                     <h4>Item id</h4>
-                                    <p>".$row->item_id."</p>
+                                    <p class='item_id'>".$row->item_id."</p>
                                 </div>
 
                                 <div>
@@ -374,8 +374,9 @@
             <h2>Are sure you want to permanently delete this item ?</h2>
 
             <div class="action_btn">
-                <a href="<?= ROOT ?>/itemowner/item"><button class="confirmbtn">Confirm</button></a>
+                <button class="confirmbtn">Confirm</button>
                 <button class="closebtn1">Cancel</button>
+                <a href="<?= ROOT ?>/itemowner/item" style='display:none;' class="autoclick"></a>
             </div>
 
         </div>

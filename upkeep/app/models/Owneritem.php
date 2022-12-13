@@ -43,5 +43,14 @@ class Owneritem {
         }
     }
 
+    public function delete($id, $id_column = "item_id"){
+        
+        $data[$id_column] = $id;
+        $query = "delete from $this->table where $id_column = :$id_column";
+
+        $this->query($query,$data);
+        return false;
+    }
+
 
 }
