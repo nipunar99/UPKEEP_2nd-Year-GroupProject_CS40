@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>

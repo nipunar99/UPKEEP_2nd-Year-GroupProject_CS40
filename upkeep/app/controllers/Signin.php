@@ -71,6 +71,7 @@ class Signin {
             if($row)
             {
                 if($row->password === $_POST['password']){
+                    
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['ID'] = $row->user_id;
                     redirect('Moderator/Moderatordashboard');
