@@ -30,8 +30,11 @@ class Signin {
     }
 
     public function technicianSignin (){
-        
+
         $data = [];
+
+        if(isset($_SESSION['user_id']))
+            redirect('Technician/Dashboard');
 
         if($_SERVER['REQUEST_METHOD']=="POST"){
             $user = new User;
@@ -39,7 +42,7 @@ class Signin {
             $row = $user->getUserByEmail($email);
 
             if($row){
-                if($row->password===$_POST['password']){
+                if(password_verify($_POST["password"],$row->password)){
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
                     $_SESSION['user_role'] = $row->user_role;

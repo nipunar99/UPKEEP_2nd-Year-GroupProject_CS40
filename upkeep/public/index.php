@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+///Compatible php versio checker
+$minPHPversion =  '8.0';
+if(phpversion()<$minPHPversion){
+    die("Your PHP version must be {$minPHPversion} or higher to run this application. Your current version is ".phpversion());
+}
+
 //before excute anything , we require all core files using init.php
 require '../app/core/init.php';
 

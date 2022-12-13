@@ -24,13 +24,19 @@ class Signup {
     public function technicianSignup (){
         
         //Rahal  singin controler method
-        $data =  [];
-
+        $data = [];
         if($_SERVER['REQUEST_METHOD']=="POST"){
             $user = new User;
 
             if($user->validate($_POST)){
-                $user->insert($_POST);
+                $post =  [
+                    'first_name' => $_POST['first_name'],
+                    'last_name' => $_POST['last_name'],
+                    'user_name' => $_POST['user_name'],
+                    'email' => $_POST['email'],
+                    'password' => password_hash($_POST['password'],PASSWORD_DEFAULT)
+                ];
+                $user->insert($post);
                 redirect('Home');
             }
 

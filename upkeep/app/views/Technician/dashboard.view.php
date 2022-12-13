@@ -114,84 +114,40 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Job type</th>
-                            <th>Item type</th>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Status</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                         <tr>
                             <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
                         </tr>
 
                     </tbody>
