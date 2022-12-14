@@ -10,15 +10,13 @@ class Signup {
 
             if($user->validate($_POST))
             {
-                $user->insert($_POST);
+                $user->preprocess($_POST);
                 redirect("Home");
             }
             
             $data["errors"] = $user->errors;
         }
-        
         $this->view('/Signup/itemOwnerSignup',$data);// (folder name/php filename)
-
     }
 
     public function technicianSignup (){
