@@ -15,9 +15,11 @@ const district = ['Refrigerator','Air Conditioner','Washer','TV','Solor Panel',
 
 // Add Item view
 const addItem = document.querySelector(".addItem");
-const modal = document.querySelector(".popupview");
+const modal = document.querySelector(".popupview1");
+const modal1 = document.querySelector(".popupview2");
 const overlay = document.querySelector(".overlayview");
 const btnCloseModal = document.querySelector(".closebtn");
+const btnCloseModal1 = document.querySelector(".closebtn1");
 
 
 
@@ -28,9 +30,20 @@ const showModal = function () {
     overlay.classList.remove("hidden");
 }; 
 
+const showModal1 = function () {
+    console.log("showModal1");
+    modal1.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+}; 
+
 // Close Modal function
 const closeModal = function () {
     modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+
+};
+const closeModal1 = function () {
+    modal1.classList.add("hidden");
     overlay.classList.add("hidden");
 
 };
@@ -39,6 +52,7 @@ addItem.addEventListener("click", showModal);
 
 // close modal click
 btnCloseModal.addEventListener("click", closeModal);
+btnCloseModal1.addEventListener("click", closeModal1);
 overlay.addEventListener("click", closeModal);
 
 
@@ -72,13 +86,18 @@ function ajax_addItem(e){
     }
 
     xhr.send(form);
-
     
     closeModal();
     ajax_getItems();
     formItemDetails.reset();
+    showModal1();
 
 }
+
+document.getElementById("finishBtn").addEventListener('click',function(){
+    closeModal1();
+    ajax_getItems();
+});
 
 
 document.addEventListener("DOMContentLoaded",function(){ajax_getItems()});
@@ -92,7 +111,6 @@ function ajax_getItems(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log(json[0].image);
             var html = "";
 
             for (var a = 0; a < json.length; a++) {
