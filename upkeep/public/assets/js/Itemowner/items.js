@@ -111,7 +111,6 @@ function ajax_getItems(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log(json[0].image);
             var html = "";
 
             for (var a = 0; a < json.length; a++) {
