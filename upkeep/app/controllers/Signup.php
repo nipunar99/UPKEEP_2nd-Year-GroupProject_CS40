@@ -68,7 +68,7 @@ class Signup {
         //rusith  singin controler method
         $data =[];
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $admin = new User;
+            $admin = new Admin;
 
             if($admin->validate($_POST))
             {
