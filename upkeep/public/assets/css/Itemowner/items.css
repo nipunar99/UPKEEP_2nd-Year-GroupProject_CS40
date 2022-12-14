@@ -576,25 +576,39 @@ main .mainHeader h1{
     z-index: 10;
     min-height: 90vh;
     min-width: 65vw;
+    padding-top: 25px;
 }
+
+.popupview2{
+    min-height: 50vh;
+}
+
+
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
 }
+.content2{
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
-.content >div{
+.content1 >div{
     display: grid;
     grid-template-columns: 2rem 10rem 18rem;
     gap: 2rem;
 }
 
 .content h2{
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
 }
+
 .content h3{
     font-size: 1rem;
     font-weight: 400;
@@ -603,6 +617,14 @@ main .mainHeader h1{
 .content span{
     color: var(--color-info-dark);
     font-weight: 300;
+}
+
+.middleInput>div , .middleInput span{
+    margin-bottom: 1rem;
+}
+
+#upfile{
+    padding-top: 0.6rem;
 }
 
 .closebtn {
@@ -615,7 +637,16 @@ main .mainHeader h1{
     border: none;
     background: none;
 }
-
+.closebtn1 {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: var(--color-dark);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
 .action_btn {
     margin-top: 2rem;
     display: flex;
@@ -685,6 +716,7 @@ form .itemDetails .middleInput{
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
+    font-size: 1rem;
 }
 
 .itemDetails .input-box input{
@@ -713,7 +745,7 @@ form .itemDetails .middleInput{
     width: 8rem;
 }
 
-.content form .button input{
+.content form .button input ,#finishBtn{
     height: 100%;
     width: 100%;
     outline: none;
@@ -726,7 +758,12 @@ form .itemDetails .middleInput{
     background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
     transition: all 300ms ease;
 }
-
+#finishBtn{
+    position: relative;
+    left: 33rem;
+    height: 45px;
+    width: 8rem;
+}
 .content form .button input:hover{
     transform: scale(1.1);
 }
