@@ -124,14 +124,14 @@
             
         </main> 
 
-        <div class="popupview hidden">
+        <div class="popupview popupview1 hidden">
             <button class="closebtn">&times;</button>
 
-            <div class="content">
+            <div class="content content1">
 
                 <form method="post" enctype="multipart/form-data" id="form_itemDetails">
+                <h2>Item Details</h2>
                     <div class="itemDetails">
-        
                         <div class="input-box">
                             <span class="details">Item Name</span>
                             <input type="text" name="item_name" id="" required placeholder="Enter Item Name">
@@ -186,11 +186,45 @@
                     </div>
                 </form>
 
+            </div>
+        </div>
+
+        <div class="popupview popupview2 hidden">
+            <button class="closebtn1">&times;</button>
+
+            <div class="content content2">
+
+                <!-- <form method="post" enctype="multipart/form-data" id=""> -->
+                    
+                    <div class="itemDetails">
+                        <h2>Documentation</h2>
+                        <div class="middleInput">                            
+                            <div class="input-box">
+                                <span class="details">Bill</span>
+                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                            </div>
+
+                            <div class="input-box">
+                                    <span class="details">Warrenty Card</span>
+                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                            </div>
+
+                            <div class="input-box">
+                                    <span class="details">User Manual</span>
+                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                            </div>
+                    </div>
+
+                    <button id="finishBtn">Finish</button>
+                    </div>
+                </form>
+
         </div>
     </div>
-        <div class="overlayview hidden"></div>
+        
+    <div class="overlayview hidden"></div>
     
-    </div>
+    
     <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
 </body>
 </html>
