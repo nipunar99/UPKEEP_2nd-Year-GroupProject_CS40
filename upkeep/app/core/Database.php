@@ -6,8 +6,16 @@ Trait Database {
     private function connect(){
 
         $string = "mysql:hostname =".DBHOST.";dbname=".DBNAME;
-        $con = new PDO($string,DBUSER,DBPASS);
-        return $con;
+        try{
+            $con = new PDO($string,DBUSER,DBPASS);
+
+            $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            return $con;
+        }
+        catch(PDOException $e){
+            echo "Database connection failed";
+            die();
+        }
     }
 
     public function query($query, $data=[]){

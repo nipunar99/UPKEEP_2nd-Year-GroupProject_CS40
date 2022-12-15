@@ -9,9 +9,9 @@ class Dashboard{
     public function index(){
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
             redirect('/Home');
-        }
-
-         $this->view('Technician/dashboard');
+        }else{
+            $this->view('Technician/dashboard');
+        }    
     }
 
 }

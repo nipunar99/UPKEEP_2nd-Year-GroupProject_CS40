@@ -16,6 +16,7 @@ class User
     public function validate($data){
         $this->errors =[];
         
+        
         if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
             $this->errors['email'] ="Email is not valid";
         }

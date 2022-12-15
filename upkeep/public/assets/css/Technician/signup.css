@@ -100,3 +100,14 @@ input small{
 .btn input:hover{
     background: linear-gradient(-135deg,#0DBCDF,#0095D9);
 }    
+
+.sectionimg{
+    background-color: #F4F3F3;
+    text-align: center;
+}
+
+.sectionimg img{
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+}
