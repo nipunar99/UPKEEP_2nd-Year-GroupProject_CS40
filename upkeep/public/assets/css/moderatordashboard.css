@@ -430,7 +430,7 @@ main .date p{
 main .insight{
     display: flex;
     gap: 1.6rem;
-    padding: 0 1.2rem;
+    padding: 5rem 1.2rem;
 }
 
 main .insight > div{
