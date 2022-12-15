@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -50,7 +50,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#" >
+                <!-- <a href="#" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -58,11 +58,11 @@
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
-                </a>
+                </a> -->
 
                 <a href="#">
                     <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href="#">

@@ -62,6 +62,10 @@ class Signin {
         
         //sasini  singin controler method
 
+        if(isset($_SESSION['user_id'])){
+            redirect('/Moderator/Moderatordashboard');
+        }
+
         $data =[];
 
         if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -72,9 +76,12 @@ class Signin {
 
             if($row)
             {
-                if($row->password === $_POST['password']){
+                if(password_verify($_POST['password'],$row->password)){
+                    
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['ID'] = $row->user_id;
+                    $_SESSION['user_id']=$row->user_id;
+                    $_SESSION['user_name']=$row->user_name;
                     redirect('Moderator/Moderatordashboard');
                 } 
             }
