@@ -388,6 +388,10 @@ main .mainHeader h1{
     text-align: right;
 }
 
+.profile-photo >img{
+    width: 44px;
+}
+
 .right .recent-updates{
     margin-top: 1rem;
 }
@@ -501,4 +505,7 @@ main .insight h3{
 main .insight h4{
     color: #B3B4BB;
     font-weight: 400;
+}
+.name{
+    text-align: left;
 }

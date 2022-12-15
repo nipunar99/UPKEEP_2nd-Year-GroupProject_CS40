@@ -64,9 +64,16 @@
         </div>
 
         <div class="content">
-            <h3>Integrations Across Your Entire Stack</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla placeat deserunt saepe repudiandae veniam soluta minima dolor hic aperiam iure.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quaerat. Dolorem ratione saepe magni quo inventore porro ab voluptates eos, nam eius provident accusantium, quia similique est, repellendus et reiciendis.</p>
+        
+            <p>
+             
+            To use your day to day maintainable items in maximum lifespan. <br>
+            To generate remainders according to your items. <br>
+            Not to remember but to know about maintenaces of each item. <br>
+            To contact technician according to your items repairing tasks. <br>
+            To communicate with other users and technicians about items. 
+
+</p>
             <div class="buttons">
                 <a href="#" class="btn">Read Now </a>
                 <a href="#" class="btn"> Start Now </a>

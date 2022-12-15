@@ -154,31 +154,31 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>T_10001 Air Conditioner</td>
+                                <td class = "name">T_10001 Air Conditioner</td>
                                 <td class="primary">Air Conditioner</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td>T_10002 Refrigerator</td>
+                                <td class = "name">T_10002 Refrigerator</td>
                                 <td class="primary">Refrigerator</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td>T_10003 Microwave Oven</td>
+                                <td class = "name">T_10003 Microwave Oven</td>
                                 <td class="primary">Microwave Oven</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td>T_10004 Gas Cooker</td>
+                                <td class = "name">T_10004 Gas Cooker</td>
                                 <td class="primary">Gas Cooker</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td>T_10005 Washing Machine</td>
+                                <td class = "name">T_10005 Washing Machine</td>
                                 <td class="primary">Washing Machine</td>
                                 <td class="warning">Pending</td>
                             </tr>
@@ -199,30 +199,30 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Nimal</td>
+                                <td class="primary">2022/06/10</td>
+                                <td class="primary">Gig</td>
                             </tr>
 
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Amal</td>
+                                <td class="primary">2022/05/10</td>
+                                <td class="primary">Community</td>
                             </tr>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Kamal</td>
+                                <td class="primary">2022/04/10</td>
+                                <td class="primary">Gig</td>
                             </tr>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Sunil</td>
+                                <td class="primary">2022/03/10</td>
+                                <td class="primary">Community</td>
                             </tr>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Amila</td>
+                                <td class="primary">2022/02/10</td>
+                                <td class="primary">Gig</td>
                             </tr>
                         </tbody>
                     </table>
