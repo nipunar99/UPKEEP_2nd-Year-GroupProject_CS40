@@ -223,8 +223,8 @@ aside .sidebar .message-count {
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
-    height: 90vh;
+    margin-top: 4.4rem;
+    max-height: 97vh;
     overflow-y: scroll;
 }
 main h1{
@@ -381,6 +381,10 @@ main .upMaintenceList .middle div{
     gap: 0.5rem;
 }
 
+.profile-photo img{
+    width: 43px;
+}
+
 main .maintenceBox img{
 
     margin-top:1rem;
@@ -409,20 +413,6 @@ main .maintenceBox .maintenanceStatus span{
 main .maintenceBox .maintenanceStatus h4{
     color: #F46060;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Recent orders */
