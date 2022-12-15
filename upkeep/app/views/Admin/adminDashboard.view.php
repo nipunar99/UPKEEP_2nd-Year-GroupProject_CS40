@@ -139,6 +139,24 @@
                         </div>
                         <button class="btn_action action2">See more</button>
                     </div>
+                    <div class="summaryBox">
+                        <h2>Verification Requests</h2>
+                        <div class="middle">
+                            <div>
+                                <span class="material-icons-sharp">person</span>
+                                <h4>New Regestration : 65 Acounts</h4>
+                            </div>
+                            <div>
+                                <span class="material-icons-sharp">manage_accounts</span>
+                                <h4>Pending Approvals : 15 Acounts</h4>
+                            </div>
+                            <div class="maintenanceStatus">
+                                <span class="material-icons-sharp">person_off</span>
+                                <h4>Rejected : 5 Accounts</h4>
+                            </div>
+                        </div>
+                        <button class="btn_action action1">See more</button>
+                    </div>
                 </div>
             </div>
 
