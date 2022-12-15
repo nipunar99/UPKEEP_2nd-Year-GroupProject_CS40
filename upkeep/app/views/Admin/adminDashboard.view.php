@@ -173,7 +173,6 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>NIC</th>
-                            <th>Password</th>
                             <th>Phone Number</th>
                             <th>Address</th>
                         </tr> 
@@ -184,7 +183,7 @@
                         
                         if($result->num_rows>0)
                             while($row=$result->fetch_assoc())
-                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["password"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</tr>"
+                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</tr>"
                             
                         
                         /* else{
