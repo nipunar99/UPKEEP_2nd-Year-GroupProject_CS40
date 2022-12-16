@@ -117,11 +117,15 @@
                             </p>
                             <div class="dots">...</div>
                         </div>
+                        <?php $arr=explode(",",$gig->work_tags);?>
+                        <?php foreach($arr as $tag) : ?>
+                        <a class="worktags"><?=$tag?></a>
+                        <?php endforeach; ?>
                         
                     </div>
-                    <small class="text-muted">More Details</small>
+                    <div style="text-align: center; margin-top:8px;"><small class="text-muted">More Details</small></div>
                 </div>
-                <?php endforeach;?>
+            <?php endforeach;?>
             </div>
             <?php endif; ?>
         <!-- </main>  -->

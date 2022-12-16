@@ -555,6 +555,20 @@ input[type=submit] {
     clear: both;
 }
 
+
+a.worktags{
+    color: var(--color-dark-variant);
+    background-color: var(--color-background);
+    margin-right: 0.8rem;
+    display: inline-block;
+    width: max-content;
+    height: max-content;
+    padding: 0.2rem;
+    border-radius: var(--border-radius-3);
+    box-shadow: 0 0 10px var(--color-info-dark);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
   
 
 
