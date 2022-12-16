@@ -58,7 +58,7 @@ class Signin {
             $data["errors"]= $user->errors;
         }
 
-        $this->view('/Signin/technicianSignin');
+        $this->view('/Signin/technicianSignin',$data);
 
     }
 
