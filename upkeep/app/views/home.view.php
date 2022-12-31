@@ -64,11 +64,11 @@
         </div>
 
         <div class="content">
-        
+        <h3>Intergration Across Your Entire Stack</h3>
             <p>
              
             To use your day to day maintainable items in maximum lifespan. <br>
-            To generate remainders according to your items. <br>
+            To generate remainders according to your items. <br><br>
             Not to remember but to know about maintenaces of each item. <br>
             To contact technician according to your items repairing tasks. <br>
             To communicate with other users and technicians about items. 
