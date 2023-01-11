@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -50,7 +50,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#" >
+                <!-- <a href="#" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -58,11 +58,11 @@
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
-                </a>
+                </a> -->
 
                 <a href="#">
                     <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href="#">
@@ -112,35 +112,39 @@
         
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="name" id="" required placeholder="Enter Item template Name">
+                            <input type="text" name="itemtemplate_name" id="" required placeholder="Enter Item template Name">
                         </div>
         
-                        <div class="input-box">
-                            <span class="details">Status</span>
-                            <select name="" name="status" id="district" ></select>
-                        </div>
+                        
                         
                         <div class="middleInput">
                             <div class="input-box">
+                                <span class="details">Status</span>
+                                <select name="status" id="status" ></select>
+                            </div>
+
+                            <div class="input-box">
                                 <span class="details">Item Type</span>
-                                <input type="text" name="type" id="" required placeholder="Enter Description">
+                                <input type="text" name="item_type" id="" required placeholder="Enter Item Type">
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Category</span>
-                                <input type="text" name="category" id="" required placeholder="Enter Model">
+                                <input type="text" name="category" id="" required placeholder="Enter Category">
                             </div>
                             
-                            <div class="input-box">
-                                <span class="details">Description</span>
-                                <input type="text" name="description" id="" required placeholder="Enter Description about item">
-                            </div>
+                            
 
                             <div class="input-box">
                                 <span class="details">Esti. lifespan </span>
-                                <input type="date" name="date" id=""  placeholder="Enter Purchase Date">
+                                <input type="number" name="lifespan" id=""  placeholder="Enter Estimated life span">
                             </div>
 
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
                         </div>
                         
         

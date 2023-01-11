@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -50,7 +50,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#" >
+                <!-- <a href="#" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -58,11 +58,11 @@
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
-                </a>
+                </a> -->
 
                 <a href="#">
                     <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href="#">
@@ -108,14 +108,14 @@
             </div>
             <div class="toolbar">
                 <div class="searchBar">
-                    <input type="search" name="" id="" placeholder="Search item">
+                    <input type="search" name="" id="txtHint" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
             </div>
 
             <div class="insight">
-                <div class="itemTemplateList">
+                <div class="itemTemplateList" onchange="showUser(this.th)">
                     <table>
                         <thead>
                             <tr>
@@ -128,7 +128,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <?php 
+                if(!empty($result)) {
+                    foreach($result as $row)
+                        echo "
+                        <tr>
+                        
+                                <td>".$row->itemtemplate_name."</td>
+                                <td>".$row->item_type."</td>
+                                <td>".$row->category."</td>
+                                <td>".$row->status."</td>
+                                <td>".$row->description."</td>
+                                <td>".$row->lifespan."</td>
+                           
+                        </tr>
+                        
+                        
+                        
+                    
+                        ";
+                }
+            ?>
+                                <!-- <td>Name should be added</td>
+                                <td>Refrigerator</td>
+                                <td>non freeze refrigerator</td>
+                                <td class="warning">Pending</td>
+                                <td>N/A</td>
+                                <td>10 years</td> -->
+                            
+                            <!-- <tr>
                                 <td>Name should be added</td>
                                 <td>Refrigerator</td>
                                 <td>non freeze refrigerator</td>
@@ -140,14 +168,6 @@
                                 <td>Name should be added</td>
                                 <td>Refrigerator</td>
                                 <td>non freeze refrigerator</td>
-                                <td class="warning">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
                                 <td class="success">Pending</td>
                                 <td>N/A</td>
                                 <td>10 years</td>
@@ -167,7 +187,7 @@
                                 <td class="success">Pending</td>
                                 <td>N/A</td>
                                 <td>10 years</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <a href="#">Show All</a>
@@ -176,5 +196,6 @@
         </main> 
 
     </div>
+    <script src="<?= ROOT ?>/assets/js/itemtemplate.js"></script>
 </body>
 </html>

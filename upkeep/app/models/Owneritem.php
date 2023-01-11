@@ -31,9 +31,9 @@ class Owneritem {
         if($file_size < 524000){
             if(move_uploaded_file($file_temp,$location)){
                 try{
-                    $data["owner_id"] = $_SESSION['id'];
+                    $data["owner_id"] = $_SESSION['user_id'];
                     $data["image"] = $file_name;
-                    show($data);
+                    // show($data);
                     $this->insert($data);
                 }
                 catch(PDOException $e){
@@ -41,6 +41,15 @@ class Owneritem {
                 }
             }
         }
+    }
+
+    public function delete($id, $id_column = "item_id"){
+        
+        $data[$id_column] = $id;
+        $query = "delete from $this->table where $id_column = :$id_column";
+
+        $this->query($query,$data);
+        return false;
     }
 
 

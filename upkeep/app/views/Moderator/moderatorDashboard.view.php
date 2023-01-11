@@ -28,7 +28,6 @@
                 </div>
 
             </div>
-
             <div class="sidebar">
                 <a href="#" class="active">
                     <span class="material-icons-sharp">grid_view</span>
@@ -52,13 +51,13 @@
 
                 <a href="#" >
                     <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                    <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a>
+                    <h3>Logout</h3>
+                </a> -->
 
 <!-- 
                 <a href="#">
@@ -67,10 +66,10 @@
                     <span class="message-count">11</span>
                 </a> -->
 
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
-                </a>
+                </a> -->
 
                 <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
@@ -84,7 +83,7 @@
 
         <main>
             <div class="mainHeader">
-                <h1>Items</h1>
+                <h1>Dashboard</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -111,9 +110,9 @@
                 </div>
     
             </div>
-            <div class="date">
+            <!-- <div class="date">
                 <p>14/11/2022</p>
-            </div>
+            </div> -->
 
             <div class="insight">
                 <div class="mainDisplay1">
@@ -144,37 +143,43 @@
             
             <div class="main-tables">
                 <div class="suggestion">
-                    <h2>Recent Suggestions</h2>
+                    <h2>Recent Item Suggestions</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>Category</th>
+                                <th>Template Name</th>
+                                <th>Item Type</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
+                                <td>T_10001 Air Conditioner</td>
+                                <td class="primary">Air Conditioner</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
+                                <td>T_10002 Refrigerator</td>
+                                <td class="primary">Refrigerator</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
+                                <td>T_10003 Microwave Oven</td>
+                                <td class="primary">Microwave Oven</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
+                                <td>T_10004 Gas Cooker</td>
+                                <td class="primary">Gas Cooker</td>
                                 <td class="warning">Pending</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
+                                <td>T_10005 Washing Machine</td>
+                                <td class="primary">Washing Machine</td>
                                 <td class="warning">Pending</td>
                             </tr>
                         </tbody>
@@ -186,9 +191,9 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>Complainer User Name</th>
                                 <th>Date</th>
-                                <th>Category</th>
-                                <th>Description</th>
+                                <th>Type</th>
 
                             </tr>
                         </thead>

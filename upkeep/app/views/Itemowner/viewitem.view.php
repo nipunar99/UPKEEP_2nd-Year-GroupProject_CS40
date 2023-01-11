@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/viewItem.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/viewItem.css">
 </head>
 <body>
     <div class="container">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Itemowner/Userdashboard/" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -126,8 +126,8 @@
 
             <div class="upMaintenceList">
                 <h2>Upcomming Maintenance</h2>
+                
                 <div class="maintenceBoxes">
-
                     <div class="maintenceBox">
                         <!-- <span class="material-icons-sharp">analytics</span> -->
                         <h3>Maintenance Schedule</h3>
@@ -279,60 +279,82 @@
             </div>
 
             <div class="item-details">
-                <div class="image-container">
-                    <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                </div>
+            <?php 
+                if(!empty($result)){
+                foreach ($result as $row)
+                    // show($row);
+                        echo "
+                            <div class='image-container'>
+                            <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$row->image."'>
+                            </div>
 
-                <h2>Air Conditioner</h2>
-                <h4>Samsung</h4>
+                            <h2>".$row->item_name."</h2>
+                            <h4>".$row->brand."</h4>
 
-                <div class="details">
+                            <div class='details'>
 
-                    <div>
-                        <h4>Item Name</h4>
-                        <p>Samsung inverter Windfree AC</p>
-                    </div>
+                                <div style='display:none;'>
+                                    <h4>Item id</h4>
+                                    <p class='item_id'>".$row->item_id."</p>
+                                </div>
 
-                    <div>
-                        <h4>Item Type</h4>
-                        <p>A/C</p>
-                    </div>
+                                <div>
+                                    <h4>Item Name</h4>
+                                    <p>".$row->item_name."</p>
+                                </div>
 
-                    <div>
-                        <div>
-                            <h4>Brand</h4>
-                            <p>Samsung</p>
-                        </div>
-                        <div>
-                            <h4>Model</h4>
-                            <p>AC-5132</p>
-                        </div>
-                        <div>
-                            <h4>Purchase Price</h4>
-                            <p>Rs.65000</p>
-                        </div>
-                        <div>
-                            <h4>Warranty date</h4>
-                            <p>22/11/2022</p>
-                        </div>
-    
-                        <div>
-                            <h4>Used date</h4>
-                            <p>175 Days</p>
-                        </div>
-    
-                        <div>
-                            <h4>Maintenance cost</h4>
-                            <p>Rs.12500</p>
-                        </div>
-                    </div>
+                                <div>
+                                    <h4>Item Type</h4>
+                                    <p>".$row->item_type."</p>
+                                </div>
 
-                </div>
+                                <div>
+                                    <div>
+                                        <h4>Brand</h4>
+                                        <p>".$row->brand."</p>
+                                    </div>
+                                    <div>
+                                        <h4>Model</h4>
+                                        <p>".$row->model."</p>
+                                    </div>
+                                    <div>
+                                        <h4>Purchase Price</h4>
+                                        <p>Rs.".$row->purchase_price."</p>
+                                    </div>
+                                    <div>
+                                        <h4>Warranty date</h4>
+                                        <p>".$row->warrenty_date."</p>
+                                    </div>
+                
+                                    <div>
+                                        <h4>Used date</h4>
+                                        <p>175 Days</p>
+                                    </div>
+                
+                                    <div>
+                                        <h4>Maintenance cost</h4>
+                                        <p>Rs.12500</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        ";
+                }
+            ?>
 
                 <div class="itembtnsection1">
+                    
                     <button class="morebtn">More</button>
                     <button class="editbtn">Edit</button>
                     <button class="deletebtn">Delete</button>
+                    <!-- <form  method='post'>
+                        <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
+                        <input  style='display:none;' type='text' name='owner_id' value='".$row->owner_id."'>
+                        <div class='deletebtn'>
+                            <input type='submit' value='Delete'>
+                        </div>
+                    </form> -->
                 </div>
 
                 <div class="itembtnsection2">
@@ -341,7 +363,24 @@
                 </div>
 
             </div>
+        </div>
+
+        <!-- Delete form alert -->
+
+        <div class="overlayview hidden"></div>
+
+        <div class="popupview hidden deleteMsg">
+            
+            <h2>Are sure you want to permanently delete this item ?</h2>
+
+            <div class="action_btn">
+                <button class="confirmbtn">Confirm</button>
+                <button class="closebtn1">Cancel</button>
+                <a href="<?= ROOT ?>/itemowner/item" style='display:none;' class="autoclick"></a>
+            </div>
 
         </div>
+        
+        <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
 </body>
 </html>

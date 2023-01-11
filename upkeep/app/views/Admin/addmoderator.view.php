@@ -31,13 +31,13 @@
             </div>
 
             <div class="sidebar">
-                <a href="#">
+                <a href="<?=ROOT?> /Admin/Admindashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
                 
                 <a href="#">
-                    <span class="material-icons-sharp">view_in_ar</span>
+                    <span class="material-icons-sharp">help_outline</span>
                     <h3>Verification Requests </h3>
                 </a>
 
@@ -57,7 +57,7 @@
                 </a>
 
                 <a href="#">
-                    <span class="material-icons-sharp">error</span>
+                    <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
 
@@ -120,12 +120,17 @@
             </div>
 
             <div class="insight">
-                <form action="#">
+                <form method="post" action="#">
                     <div class="itemDetails">
-        
-                        <div class="input-box">
-                            <span class="details">Name</span>
-                            <input type="text" name="mod_name" id="" required placeholder="Enter Name">
+                        <div class="topInput">
+                            <div class="input-box">
+                                <span class="details">First Name</span>
+                                <input type="text" name="first_name" id="" required placeholder="Enter First Name">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Last Name</span>
+                                <input type="text" name="last_name" id="" required placeholder="Enter Last Name">
+                            </div>
                         </div>
         
 
@@ -142,12 +147,12 @@
             
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="number" name="password" id="" required placeholder="Enter Password">
+                                <input type="text" name="password" id="" required placeholder="Enter Password">
                             </div>
 
                             <div class="input-box">
-                                <span class="details">Join date</span>
-                                <input type="date" name="join_date" id="" required placeholder="Enter Join Date">
+                                <span class="details">Phone Number</span>
+                                <input type="text" name="mobile_no" id="" required placeholder="Phone Number">
                             </div>
 
                             <div class="input-box">
@@ -159,8 +164,8 @@
                         
         
                         <div class="button">
-                        <input type="submit" value="Add Moderator">
-                            
+                        <!-- <a href="Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
+                         <input type="submit" value="Add Moderator"> 
                         </div>
         
                     </div>
@@ -169,7 +174,7 @@
         </main> 
 
     </div>
-    <script src="mod.js"></script>
+    
     
 </body>
 </html>

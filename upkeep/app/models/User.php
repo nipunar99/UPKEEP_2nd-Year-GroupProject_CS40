@@ -93,4 +93,12 @@ class User
         }
     }
 
+    public function preprocess($data){
+        $hashpw = password_hash($data['password'], PASSWORD_DEFAULT);
+        unset($data['password']);
+        $data['password'] = $hashpw;
+        $this->insert($data);
+
+    }
+
 }

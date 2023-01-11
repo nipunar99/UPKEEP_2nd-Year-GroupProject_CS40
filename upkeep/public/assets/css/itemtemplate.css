@@ -313,6 +313,7 @@ main .insight .progress{
 
 main .itemTemplateList{
     margin-top: 0.9rem;
+    height: 80vh;
 }
 
 main .itemTemplateList h2{
@@ -383,7 +384,7 @@ main .mainHeader h1{
     margin-right: 1rem;
     width: 10rem;
     position: relative;
-    left: 730px;
+    left: 860px;
 
 }
 

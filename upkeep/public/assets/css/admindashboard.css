@@ -60,7 +60,7 @@ body{
     width: 98%;
     margin: 0 auto;
     gap: 1rem;
-    grid-template-columns: 15rem auto 19rem;
+    grid-template-columns: 15rem auto ;
     height: 100vh;
 }
 a{
@@ -324,6 +324,11 @@ main .summaryBox h3{
     margin-bottom: 1rem;
 }
 
+.btn_action.addMode{
+    padding-top:5px;
+    width:8rem;
+}
+
 .action1{
     left: 17rem;
 }
@@ -332,7 +337,11 @@ main .summaryBox h3{
     left: 17rem;
     top: 2rem;
 }
-
+.mainhead{
+    display: flex;
+    gap: 13.5rem;
+    justify-content: space-around;
+}
 main .summaryBox .maintenanceStatus span{
     color: #F46060;
 }
@@ -340,22 +349,6 @@ main .summaryBox .maintenanceStatus h4{
     color: #F46060;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Recent orders */
 
 main .modarotorList h2{
     color: #05B2E9;
@@ -408,22 +401,22 @@ main .modarotorList a{
 
 /* Right CSS */
 
-.right{
+.heading{
     margin-top: 1.4rem;
     margin-right: 1rem;
 }
 
-.right .top{
+.heading .top{
     display: flex;
     justify-content: space-around;
     gap: 2rem;
 } 
 
-.right .top button{
+.heading .top button{
     display: none;
 }
 
-.right .theme-toggler{
+.heading .theme-toggler{
     background: var(--color-light);
     display: flex;
     justify-content:space-between;
@@ -434,7 +427,7 @@ main .modarotorList a{
     border-radius: var(--border-radius-1);
 }
 
-.right .theme-toggler span{
+.heading .theme-toggler span{
     font-size: 1.2rem;
     width: 50%;
     height: 100%;
@@ -443,91 +436,14 @@ main .modarotorList a{
     justify-content: center;
 }
 
-.right .theme-toggler span.active{
+.heading .theme-toggler span.active{
     background: var(--color-primary);
     color: white;
     border-radius: var(--border-radius-1);
 }
 
-.right .top .profile{
+.heading .top .profile{
     display: flex;
     gap: 2rem;
     text-align: right;
-}
-
-.right .recent-updates{
-    margin-top: 1rem;
-}
-
-.right .recent-updates h2{
-    margin-bottom: 0.5rem;
-}
-
-.right .recent-updates .updates{
-    background: var(--color-white);
-    padding: 1.2rem;
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-    height: 36vh;
-    overflow-y: scroll;
-}
-
-.right .recent-updates .updates .update{
-    display: grid;
-    grid-template-columns: 2.6rem auto;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-/* Sales Analytics */
-
-.right .sales-analytics{
-    margin-top: 1rem;
-}
-
-.right .sales-analytics h2{
-    margin-bottom: 0.8rem;
-}
-
-.right .sales-analytics .item{
-    background: var(--color-white);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.7rem;
-    padding: 1.4rem var(--card-padding);
-    border-radius: var(--border-radius-3);
-    transition: all 300ms ease;
-}
-
-.right .sales-analytics .item:hover{
-    box-shadow: none;
-}
-
-.maintenance{
-    height: 19rem;
-    overflow-y: scroll;
-}
-.right .sales-analytics .item .right{
-    display: flex;
-    justify-content:space-between;
-    align-items: start;
-    margin: 0;
-    width: 100%;
-}
-
-.right .sales-analytics .item .icon{
-    padding: 0.6rem;
-    color: var(--color-white);
-    border-radius: 50%;
-    display: flex;
-}
-
-.right .sales-analytics .item.online .icon{
-    background: var(--color-success);
-}
-
-.right .sales-analytics .item.offline .icon{
-    background: var(--color-danger);
 }
