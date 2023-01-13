@@ -9,32 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/moderatordashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/moderatordashboard.css">
 </head>
 <body>
     <div class="container">
         <aside>
             <div class="top">
 
-                <div class="logo">
+                <!-- <div class="logo"> -->
                     <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
-                </div>
+                <!-- </div> -->
 
-                <div class="close" id="close-btn">
+                <!-- <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
                         </span>
-                </div>
+                </div> -->
 
             </div>
             <div class="sidebar">
                 <a href="#" class="active">
-                    <span class="material-icons-sharp">grid_view</span>
+                    <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Suggestion">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
@@ -85,10 +85,10 @@
             <div class="mainHeader">
                 <h1>Dashboard</h1>
                 <div class="right">
-                    <div class="top">
-                        <button id="menu-btn">
+                    <!-- <div class="top"> -->
+                        <!-- <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
-                        </button>
+                        </button> -->
         
                         <div class="theme-toggler">
                             <span class="material-icons-sharp active">light_mode</span>
@@ -104,7 +104,7 @@
                                 <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
 
         
                 </div>

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/itemtemplate.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/itemtemplate.css">
 </head>
 <body>
     <div class="container">
@@ -40,7 +40,7 @@
                     <h3>Suggestions</h3>
                 </a>
 
-                <a href="#" class="active">
+                <a href="<?= ROOT ?>/Moderator/Item" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
@@ -115,7 +115,7 @@
             </div>
 
             <div class="insight">
-                <div class="itemTemplateList" onchange="showUser(this.th)">
+                <!-- <div class="itemTemplateList" onchange="showUser(this.th)">
                     <table>
                         <thead>
                             <tr>
@@ -149,6 +149,8 @@
                         ";
                 }
             ?>
+             
+            -->
                                 <!-- <td>Name should be added</td>
                                 <td>Refrigerator</td>
                                 <td>non freeze refrigerator</td>
@@ -190,7 +192,7 @@
                             </tr> -->
                         </tbody>
                     </table>
-                    <a href="#">Show All</a>
+                    <!-- <a href="#">Show All</a> -->
                 </div>
             </div>
         </main> 
