@@ -64,6 +64,16 @@ body{
     grid-template-columns: 15rem auto 19rem;
     height: 100vh;
 }
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    background-color: none;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #dcdcdc;
+    border-radius: 30px;
+}
+
 a{
     color: var(--color-dark);
 }
