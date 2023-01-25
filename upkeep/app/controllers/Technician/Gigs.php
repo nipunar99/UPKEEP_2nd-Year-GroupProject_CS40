@@ -27,6 +27,18 @@ class Gigs{
             // $data["errors"]= $user->errors;
         
     }
+
+    public function viewGig($id){
+        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
+            redirect('/Home');
+        }
+
+        $gig = new Gig;
+        // $gigDetails = $gig->getGig($id);
+        // $data['gigDetails']=$gigDetails;
+
+        $this->view(('Technician/singlegig'));
+    }
 } 
 
 $init = new Gigs;

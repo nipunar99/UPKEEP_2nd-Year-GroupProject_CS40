@@ -31,9 +31,14 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?=ROOT?>/Technician/Dashboard" >
+                <a href="<?=ROOT?>/Technician/Dashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
+                </a>
+
+                <a href="#" >
+                    <span class="material-icons-sharp">work</span>
+                    <h3>Find Jobs</h3>
                 </a>
 
                 <a href="#" >
@@ -45,6 +50,7 @@
                     <span class="material-icons-sharp">task</span>
                     <h3>Gigs</h3>
                 </a>
+
 
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
@@ -59,8 +65,8 @@
                 </a>
 
                 <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
+                    <span class="material-icons-sharp">analytics</span>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href=<?=ROOT."/Signout"?>>
@@ -69,7 +75,6 @@
                 </a>
 
             </div>
-
 
         </aside>
 
@@ -179,8 +184,9 @@
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Add Photos</span>
-                            <input type="file" name="image" id="image" placeholder="add images related to your work">
+                            <span class="details">Add Photo</span>
+                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
+                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
                         </div>
 
                     </div>
