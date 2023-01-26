@@ -103,3 +103,10 @@ input small{
     color: red;
     opacity: 1; 
 }
+
+h4.error {
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    padding-bottom: 10px;
+}

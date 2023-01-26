@@ -59,9 +59,8 @@
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
-
                 
-                <a href="<?=ROOT?> /Home/home">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>

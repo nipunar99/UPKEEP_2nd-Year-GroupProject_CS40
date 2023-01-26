@@ -10,8 +10,24 @@ class Home {
             $this->view('home');
         }
         else{
-            $userRole = $_SESSION['user_role'];
-            redirect($userRole.'/Dashboard');
+            switch ($_SESSION['user_role']) {
+                case 'Itemowner':
+                    redirect('Itemowner/Userdashboard');
+                    break;
+                
+                case 'Technician':
+                    redirect('Technician/Dashboard');
+                    break;
+
+                case 'Moderator':
+                    redirect('Moderator/Moderatordashboard');
+                    break;
+
+                case 'Admin':
+                    redirect('Admin/Admindashboard');
+                    break;
+               
+            }
         }
 
     }

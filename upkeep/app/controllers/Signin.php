@@ -19,6 +19,7 @@ class Signin {
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
+                    $_SESSION['user_role'] = 'Itemowner';
 
                     redirect('Itemowner/Userdashboard');
                 } 
@@ -47,7 +48,7 @@ class Signin {
                 if(password_verify($_POST["password"],$row->password)){
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
-                    $_SESSION['user_role'] = $row->user_role;
+                    $_SESSION['user_role'] = 'Technician';
                     redirect('Technician/Dashboard');
                     return true;
                 }
@@ -57,7 +58,7 @@ class Signin {
             $data["errors"]= $user->errors;
         }
 
-        $this->view('/Signin/technicianSignin');
+        $this->view('/Signin/technicianSignin',$data);
 
     }
 
@@ -80,12 +81,13 @@ class Signin {
             if($row)
             {
                 if(password_verify($_POST['password'],$row->password)){
-                    
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['ID'] = $row->user_id;
                     $_SESSION['user_id']=$row->user_id;
                     $_SESSION['user_name']=$row->user_name;
+                    $_SESSION['user_role']='Moderator';
                     redirect('Moderator/Moderatordashboard');
+                    return true;
                 } 
             }
 
@@ -112,6 +114,9 @@ class Signin {
             {
                 if($row->password === $_POST['password']){
                     $_SESSION['USER'] = 'Admin';
+                    $_SESSION['user_id']=$row->user_id;
+                    $_SESSION['user_name']=$row->user_name;
+                    $_SESSION['user_role']='Admin';
                     redirect('Admin/Admindashboard');
                 } 
             }
