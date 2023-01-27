@@ -5,16 +5,35 @@
     grid-template-columns: 15rem auto;
 }
 
+.header {
+    display:block;
+    width: 100%;
+    background-color: #B3B5B4;
+}
+
+
+.main .top{
+    display: flex;
+    justify-content: space-around;
+}
+
+
 
 /* Main Gig Container */
 .gig-container {
     display: grid;
+    position: relative;
     grid-template-columns: 2fr 1fr;
     margin-top: 10vh;
     width: 100%;
     height: 100vh;
     padding: 0 15px;
     /* background-color: rgb(200, 200, 200); */
+}
+
+.gig-container .left {
+    overflow-y: scroll;
+    padding: 2rem;
 }
 
 /* Details of the Gig */
@@ -40,7 +59,14 @@
     margin-bottom: 1rem;
 }
 
+.gigDetails .location p{
+    display: inline-block;
+}
 
+.gigDetails span{
+    display: inline;
+    font-size: 1rem;
+}
 
 
 /* For Images of the gig */
@@ -89,4 +115,146 @@
 }
 
 
+/* Reviews style */
 
+.heading-title h1{
+    margin:0px;
+    padding:0px 0px 10px 0px;
+    text-align:center;
+    margin-top: 2rem;
+}
+
+
+.average-rating{
+    display: inline-block;
+    float:center;
+    text-align: center;
+    width:30%;
+}
+
+.average-rating h2{
+    margin:0px;
+    font-size:80px;
+}
+
+.average-rating p{
+    margin:0px;
+    font-size:20px;
+}
+
+.fa-star,.fa-star-o,.fa-star-half-o{
+    color:#FDC91B;
+    font-size:25px !important;
+}
+
+.progress,.progress-2,.progress-3,.progress-4,.progress-5{
+    background:#F5F5F5;
+    border-radius: 13px;
+    height:18px;
+    width:97%;
+    padding:3px;
+    margin:5px 0px 3px 0px;
+}
+
+.progress:after,.progress-2:after,.progress-3:after,.progress-4:after,.progress-5:after{
+    content: '';
+    background: #337AB7;
+    display: block;
+    width:80%;
+    height: 100%;
+    border-radius: 9px;
+}
+
+.progress-2:after{
+    width: 60%;
+}
+
+.progress-3:after{
+    width:40%;
+}
+
+.progress-4:after{
+    width:20%;
+}
+
+.progress-5:after{
+    width:10%;
+}
+
+.loder-ratimg{
+    display: inline-block;
+    width:40%;
+}
+
+.start-part{
+    float:right;
+    width:30%;
+    text-align: center;
+}
+
+.start-part span{
+    color:#337AB7;
+    font-size:23px;
+}
+
+.reviews h1{
+    margin:10px 0px 20px 30px;
+}
+
+.user-img img{
+    height: 80px;
+    width: 80px;
+    border:1px solid blue;
+    border-radius: 50%;
+}
+
+.user-img-part{
+    width:30%;
+    float:left;
+}
+
+.user-img{
+    width:48%;
+    float:left;
+    text-align: center;
+}
+
+.user-text{
+    float:left;
+}
+
+.user-text h4,.user-text p{
+    margin:0px 0px 5px 0px;
+}
+
+.user-text p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-text h4,.user-text span{
+    color:#B3B5B4;
+}
+
+.comment{
+    width:68%;
+    float:right;
+}
+
+.comment-part{
+    margin-top: 1rem;
+}
+
+/* Profile Details */
+.right{
+    padding-left: 1rem;
+}
+
+.right .profile-details{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}

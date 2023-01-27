@@ -34,10 +34,15 @@ class Gigs{
         }
 
         $gig = new Gig;
-        // $gigDetails = $gig->getGig($id);
-        // $data['gigDetails']=$gigDetails;
-
-        $this->view(('Technician/singlegig'));
+        $gigDetails = $gig->getGig($id);
+        
+        $data['gigDetails']=$gigDetails;
+    
+        // echo "hello";
+        // show($data);
+        // show($gigDetails);
+        // show($data['gigDetails']);
+        $this->view('Technician/singlegig',$data);
     }
 } 
 

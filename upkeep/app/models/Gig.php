@@ -11,7 +11,7 @@ class Gig{
     }
 
     public function getGig($id){
-        $gig = $this->where(['id'=>$id]);
+        $gig = $this->where(['gig_id'=>$id[0]]);
         return $gig;
     }
 

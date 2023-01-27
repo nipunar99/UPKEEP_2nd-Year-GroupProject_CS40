@@ -110,26 +110,27 @@
             <?php if(!empty($data['gigList'])) : ?>
             <div class="insight">
             <?php foreach($data["gigList"] as $gig) : ?>
-                <div class="gig-card">
-                    <div class="middle">  
-                        <div class='gig-cover'>
-                            <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+                    <div class="gig-card">
+                        <div class="middle">  
+                            <div class='gig-cover'>
+                                <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+                            </div>
+                            <h1><?=$gig->title?></h1>
+                            <div class="description">
+                                <p>
+                                    <?=$gig->description?>
+                                </p>
+                                <div class="dots">...</div>
+                            </div>
+                            <?php $arr=explode(",",$gig->work_tags);?>
+                            <?php foreach($arr as $tag) : ?>
+                            <a class="worktags"><?=$tag?></a>
+                            <?php endforeach; ?>
+                            
                         </div>
-                        <h1><?=$gig->title?></h1>
-                        <div class="description">
-                            <p>
-                                <?=$gig->description?>
-                            </p>
-                            <div class="dots">...</div>
-                        </div>
-                        <?php $arr=explode(",",$gig->work_tags);?>
-                        <?php foreach($arr as $tag) : ?>
-                        <a class="worktags"><?=$tag?></a>
-                        <?php endforeach; ?>
-                        
+                        <a class="gig" href="<?=ROOT?>/Technician/Gigs/viewGig/<?=$gig->gig_id?>"><div style="text-align: center; margin-top:8px;"><small class="text-muted">More Details</small></div></a>
                     </div>
-                    <div style="text-align: center; margin-top:8px;"><small class="text-muted">More Details</small></div>
-                </div>
+                
             <?php endforeach;?>
             </div>
             <?php endif; ?>
