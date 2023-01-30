@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/community.css">
 </head>
 <body>
@@ -38,11 +39,6 @@
                 <a href="#" >
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item</h3>
-                </a>
-
-                <a href="#">
-                    <span class="material-icons-sharp">add</span>
-                    <h3>Add Items</h3>
                 </a>
 
                 <a href="#" >
@@ -85,13 +81,18 @@
                 <p>14/11/2022</p>
             </div>
 
+            <div class="searchBar">
+                    <input type="search" name="" id="" placeholder="Search item">
+                    <span class="material-icons-sharp">search</span>
+            </div>
+
             <section class="main-content">
     
                 <div class="write-post-container">
                     <div class="user-profile">
-                        <img src="assets/images/fbpro.png">
+                        <img src="http://localhost/upkeep/upkeep/public/assets/images/profile-2.jpg">
                         <div>
-                            <p>Mewan Sampath</p>
+                            <p>Adonis</p>
                             <small>Public <i class="fa-solid fa-caret-down"></i></small>
                         </div>
                     </div>
@@ -100,8 +101,8 @@
                         <textarea rows="3" placeholder="What's on your mind, Mewan?"></textarea>
                         <div class="add-post-links">
                             <a href="#"><img src="<?= ROOT ?>/assets/images/live-video.png"> Live Video</a>
-                            <a href="#"><img src="assetssrc="<?= ROOT ?>/assets/images/photo.png"> Photo/Video</a>
-                            <a href="#"><img src="<?= ROOT ?>/assets/images/images/feeling.png"> Feling/Activity</a>
+                            <a href="#"><img src="<?= ROOT ?>/assets/images/photo.png"> Photo/Video</a>
+                            <a href="#"><img src="<?= ROOT ?>/assets/images/feeling.png"> Feling/Activity</a>
                         </div>
                     </div>
                 </div>
@@ -112,9 +113,9 @@
                 <div class="post-container">
                     <div class="post-row">
                         <div class="user-profile">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png">
+                            <img src="<?= ROOT ?>/assets/images/profile-2.jpg">
                             <div>
-                                <p>Mewan Sampath</p>
+                                <p>Nimna Induwara</p>
                                 <span>January 04 2023, 15:40 pm</span>
                             </div>
                         </div>
@@ -127,26 +128,24 @@
                         which lowers the indoor cooling coils temperature. Any air flow conditions such as too many supply registers closed, 
                         blocked off return air grilles or possibly a dirty cooling coil (evaporator) which will restrict air flow and result 
                         in a freeze up.mthing to everyone.</p>
-                    <img src="<?= ROOT ?>/assets/images/images/feed-image-1.png" class="post-img">
+
+                    <img src="<?= ROOT ?>/assets/images/feed-image-1.png" class="post-img">
     
                     <div class="post-row">
                         <div class="activity-icons">
-                            <div><img src="<?= ROOT ?>/assets/images/images/like-blue.png"> 187</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/comments.png"> 43</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/share.png"> 21</div>
-                        </div>
-    
-                        <div class="post-profile-icons">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png"> <i class="fa-solid fa-caret-down"></i>
+                            <div><img src="<?= ROOT ?>/assets/images/like-blue.png"> 187</div>
+                            <div><img src="<?= ROOT ?>/assets/images/comments.png"> 43</div>
+                            <div><img src="<?= ROOT ?>/assets/images/share.png"> 21</div>
                         </div>
                     </div>
+
                 </div>
     
                 <!------post 2------->
                 <div class="post-container">
                     <div class="post-row">
                         <div class="user-profile">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png">
+                            <img src="<?= ROOT ?>/assets/images/profile-4.jpg">
                             <div>
                                 <p>Mewan Sampath</p>
                                 <span>January 01 2023, 08:35 am</span>
@@ -159,29 +158,26 @@
                         Brownouts cause a drop in voltage. Low voltage conditions can cause the compressor, 
                         especially, to fail to start and damage the internal motor. In cases where brownouts are likely, 
                         sometimes it’s appropriate to install a hard start kit to provide a boost to the compressor on startup.</p>
-                    <img src="<?= ROOT ?>/assets/images/images/feed-image-2.png" class="post-img">
+                        <img src="<?= ROOT ?>/assets/images/feed-image-2.png" class="post-img">
     
-                    <div class="post-row">
-                        <div class="activity-icons">
-                            <div><img src="<?= ROOT ?>/assets/images/images/like.png"> 308</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/comments.png"> 101</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/share.png"> 48</div>
+                        <div class="post-row">
+                            <div class="activity-icons">
+                                <div><img src="<?= ROOT ?>/assets/images/like-blue.png"> 187</div>
+                                <div><img src="<?= ROOT ?>/assets/images/comments.png"> 43</div>
+                                <div><img src="<?= ROOT ?>/assets/images/share.png"> 21</div>
+                            </div>
                         </div>
-    
-                        <div class="post-profile-icons">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png"> <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </div>
+
                 </div>
-    
+
                 <!------post 3------->
                 <div class="post-container">
                     <div class="post-row">
                         <div class="user-profile">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png">
+                            <img src="<?= ROOT ?>/assets/images/profile-4.jpg">
                             <div>
                                 <p>Mewan Sampath</p>
-                                <span>January 04 2023, 15:40 pm</span>
+                                <span>January 01 2023, 08:35 am</span>
                             </div>
                         </div>
                         <a href="#"><i class="fas fa-ellipsis-v"></i></a>
@@ -191,29 +187,26 @@
                         Brownouts cause a drop in voltage. Low voltage conditions can cause the compressor, 
                         especially, to fail to start and damage the internal motor. In cases where brownouts are likely, 
                         sometimes it’s appropriate to install a hard start kit to provide a boost to the compressor on startup.</p>
-                    <img src="<?= ROOT ?>/assets/images/images/feed-image-3.png" class="post-img">
+                        <img src="<?= ROOT ?>/assets/images/feed-image-2.png" class="post-img">
     
-                    <div class="post-row">
-                        <div class="activity-icons">
-                            <div><img src="<?= ROOT ?>/assets/images/images/like-blue.png"> 187</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/comments.png"> 43</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/share.png"> 21</div>
+                        <div class="post-row">
+                            <div class="activity-icons">
+                                <div><img src="<?= ROOT ?>/assets/images/like-blue.png"> 187</div>
+                                <div><img src="<?= ROOT ?>/assets/images/comments.png"> 43</div>
+                                <div><img src="<?= ROOT ?>/assets/images/share.png"> 21</div>
+                            </div>
                         </div>
-    
-                        <div class="post-profile-icons">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png"> <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </div>
+
                 </div>
-    
+
                 <!------post 4------->
                 <div class="post-container">
                     <div class="post-row">
                         <div class="user-profile">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png">
+                            <img src="<?= ROOT ?>/assets/images/profile-4.jpg">
                             <div>
                                 <p>Mewan Sampath</p>
-                                <span>January 04 2023, 15:40 pm</span>
+                                <span>January 01 2023, 08:35 am</span>
                             </div>
                         </div>
                         <a href="#"><i class="fas fa-ellipsis-v"></i></a>
@@ -223,52 +216,21 @@
                         Brownouts cause a drop in voltage. Low voltage conditions can cause the compressor, 
                         especially, to fail to start and damage the internal motor. In cases where brownouts are likely, 
                         sometimes it’s appropriate to install a hard start kit to provide a boost to the compressor on startup.</p>
-                    <img src="<?= ROOT ?>/assets/images/images/feed-image-4.png" class="post-img">
+                        <img src="<?= ROOT ?>/assets/images/feed-image-2.png" class="post-img">
     
-                    <div class="post-row">
-                        <div class="activity-icons">
-                            <div><img src="<?= ROOT ?>/assets/images/images/like-blue.png"> 187</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/comments.png"> 43</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/share.png"> 21</div>
-                        </div>
-    
-                        <div class="post-profile-icons">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png"> <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </div>
-                </div>
-    
-                <!------post 5------->
-                <div class="post-container">
-                    <div class="post-row">
-                        <div class="user-profile">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png">
-                            <div>
-                                <p>Mewan Sampath</p>
-                                <span>January 04 2023, 15:40 pm</span>
+                        <div class="post-row">
+                            <div class="activity-icons">
+                                <div><img src="<?= ROOT ?>/assets/images/like-blue.png"> 187</div>
+                                <div><img src="<?= ROOT ?>/assets/images/comments.png"> 43</div>
+                                <div><img src="<?= ROOT ?>/assets/images/share.png"> 21</div>
                             </div>
                         </div>
-                        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
-                    </div>
-    
-                    <p class="post-text"><b>What effect do rolling brown-outs have on home A/C and refridgerators?</b> <br>
-                        Brownouts cause a drop in voltage. Low voltage conditions can cause the compressor, 
-                        especially, to fail to start and damage the internal motor. In cases where brownouts are likely, 
-                        sometimes it’s appropriate to install a hard start kit to provide a boost to the compressor on startup.</p>
-                    <img src="<?= ROOT ?>/assets/images/images/feed-image-5.png" class="post-img">
-    
-                    <div class="post-row">
-                        <div class="activity-icons">
-                            <div><img src="<?= ROOT ?>/assets/images/images/like.png"> 187</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/comments.png"> 43</div>
-                            <div><img src="<?= ROOT ?>/assets/images/images/share.png"> 21</div>
-                        </div>
-    
-                        <div class="post-profile-icons">
-                            <img src="<?= ROOT ?>/assets/images/images/fbpro.png"> <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </div>
+
                 </div>
+
+                
+    
+                
     
                 <!--load more Button-->
                 <button type="button" class="load-more-btn">Load More</button>

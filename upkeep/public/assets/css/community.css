@@ -805,7 +805,27 @@ main .recent-orders a{
     border-radius: 4px;
 }
 
+/* search bar Css */
 
+.searchBar{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0 2rem 3rem rgba(80,154,240,0.25);
+    height: 2.5rem;
+    border-radius: 30px;
+    padding: 0 1rem;
+    color: #6F6F6F;
+    position: relative;
+    left: 15vw;
+    width: 38vw;
+}
+.searchBar input[type="search"]{
+    width: 35rem;
+    height: 2rem;
+
+    font-family: 'Poppins', sans-serif;
+}
 
 
 

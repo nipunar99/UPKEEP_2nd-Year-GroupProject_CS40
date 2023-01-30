@@ -523,7 +523,7 @@
                             <small class="text-muted">User</small>
                         </div>
                         <div class="profile-photo">
-                            <img src="images/profile-1.jpg" alt="">
+                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                         </div>
                     </div>
                 </div>

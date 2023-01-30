@@ -141,3 +141,62 @@ b{
 .warning{
     color:var(--color-warning);
 }
+
+.profile-photo img {
+    width: 43px;
+}
+
+.tableView h2{
+    color: #05B2E9;
+    font-size: 1.2rem;
+}
+
+.tableView{
+    margin-top: 0.9rem;
+}
+
+.tableView h2{
+    margin-bottom: 0.2rem;
+}
+
+.tableView table{
+    background: var(--color-white);
+    width:100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    width: 96%;
+    position: relative;
+    left: 2%;
+}
+
+.tableView table:hover{
+    box-shadow: none;
+}
+
+table tbody td{
+    height:2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+.tableView a{
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
+
+/* maintenanceMissed table */
+.maintenanceMissed h2{
+    color: var(--color-danger);
+}
+
+main{
+    margin-top: 1.4rem;
+    height: 97vh;
+    overflow-y: scroll;
+}

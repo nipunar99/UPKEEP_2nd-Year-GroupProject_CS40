@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/viewItem.css">
 </head>
 <body>
@@ -75,7 +76,7 @@
             </div>
         </aside>
 
-        <main>
+        <main class="main1">
             <div class="boardtitle">
                 <h1>Items</h1>
             </div>
@@ -118,7 +119,7 @@
                     <h4>Replace or clean Air Conditioner filter</h4>
                 </div>
 
-                <div class="addMaitenanceEm">
+                <div class="addMaitenanceEm" role="button">
                     <span class="material-icons-sharp">add</span>
                         <h3>Add Maintenance task</h3>
                 </div>
@@ -252,6 +253,7 @@
             </div>
 
         </main>
+
         <!-- End of Main -->
 
         <div class="right">
@@ -365,7 +367,7 @@
             </div>
         </div>
 
-        <!-- Delete form alert -->
+        <!-- End right -->
 
         <div class="overlayview hidden"></div>
 
@@ -380,7 +382,230 @@
             </div>
 
         </div>
+
+        <div class="popupview addMaintenanceForm hidden" id="addMaitenanceFromPopup">
+            <button class="closebtn">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" enctype="multipart/form-data" id="form_reminderDetails">
+                <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="" required placeholder="Enter description">
+                        </div>
+                        
+                        <div class="middleInput">
+                            <!-- shoud get only months or weeks -->
+                            <div class="input-box">
+                            <span class="details">Sub Component</span>
+                                <input type="text" name="sub_component" id=""  placeholder="Enter Sub component">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Sub Component Image</span>
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Start Date</span>
+                                <input type="date" name="start_date" id="startDate" required placeholder="Enter Brand">
+                            </div>
+
+                        </div>
+
+                        <div class="button">
+                            <input type="submit" value="Add a Maintenance" id="addReminderbtn"> 
+                            <!-- itemDetails -->
+                        </div>
         
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <main class="main2 hidden">
+            <div class="date">
+                <p>14/11/2022</p>
+            </div>
+            
+            <button class="back">Back</button>
+            
+            <div class="tableView maintenanceUp">
+                <h2>Upcomming Maintenance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Sub Component</th>
+                            <th>Due date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AC air filter clean</td>
+                            <td>Air filter</td>
+                            <td class="danger">07/02/2023</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tableView maintenanceMissed">
+                <h2 class="danger">Overdue Maintenance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Sub Component</th>
+                            <th>Due date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AC air filter clean</td>
+                            <td>Air filter</td>
+                            <td class="danger">07/02/2023</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tableView maintenanceList">
+                <h2>Maintenance Tasks List </h2>
+
+                <button class="addMaintainTask">Add Maintain Task</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Sub Component</th>
+                            <th>Start Date</th>
+                            <th>Time frame</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                            <td>AC air filter clean</td>
+                            <td>Air filter</td>
+                            <td class="warning" >07/02/2023</td>
+                            <td><span></span> <span>03 months</span> <span>10 days</span></td>
+                            <td class="success">Active</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                        <tr>
+                            <td>Cleaning the coils</td>
+                            <td>Coils</td>
+                            <td class="warning" >07/02/2023</td>
+                            <td><span></span> <span>06 months</span> <span></span></td>
+                            <td class="success">Active</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                        <tr>
+                            <td>Checking the compressor's vibration and noise</td>
+                            <td>Compressor</td>
+                            <td class="warning" >07/02/2023</td>
+                            <td><span></span> <span>03 months</span> <span></span></td>
+                            <td class="success">Active</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                        <tr>
+                            <td>Check door seals are clean and in good condition</td>
+                            <td>door sealsr</td>
+                            <td class="warning" >27/01/2023</td>
+                            <td><span></span> <span>02 months</span> <span></span></td>
+                            <td class="success">Active</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                        <tr>
+                            <td>AC air filter clean</td>
+                            <td>Air filter</td>
+                            <td class="warning" >07/02/2023</td>
+                            <td><span></span> <span>03 months</span> <span>10 days</span></td>
+                            <td class="success">Active</td>
+                            <td class="primary">Action</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <div class="popupview addMaintenanceForm2 hidden" >
+            <button class="closebtn closebtn2">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" enctype="multipart/form-data" id="form_maintenanceDetails">
+                <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="desc" id="" required placeholder="Enter description">
+                        </div>
+
+                        <div class="input-box">
+                                <span class="details">Sub Component Image</span>
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
+                        </div>
+
+                        <h2>Time frame</h2>
+                        
+                        <div class="middleInput">
+                            
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
+                            </div>
+
+
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
+                            </div>
+            
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Due date</span>
+                            <input type="date" name="start_date" id="startDate" required placeholder="Enter Brand">
+                        </div>
+
+                        <div class="button">
+                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn"> 
+                            
+                        </div>
+        
+                    </div>
+                </form>
+
+            </div>
+        </div> 
+
+    </div>
         <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
 </body>
 </html>

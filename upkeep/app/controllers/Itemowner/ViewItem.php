@@ -15,8 +15,17 @@ class ViewItem {
                     $item_id = $_POST['item_id'];
                     echo ($item_id);
                     $item->delete($item_id);
-                    redirect("Home/home");
                 } 
+                if(isset($_POST['action']) && $_POST['action']=="addReminder"){
+
+                    unset($_POST['action']);
+                    show($_POST);
+                    $reminder = new Reminder;
+                    $reminder->insertReminder($_POST);
+                }
+                if(isset($_POST['action']) && $_POST['action']=="addMaintenance"){
+                    show($_POST);
+                }
             }
             // $this->view('itemowner/viewitem');
         }else{
@@ -24,8 +33,6 @@ class ViewItem {
         }
         
     }
-    // public function item($data){
-    //     show($data);
-    // }
+
 
 }
