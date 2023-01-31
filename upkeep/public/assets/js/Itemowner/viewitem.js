@@ -69,8 +69,8 @@ overlay.addEventListener("click", closeModal);
 
 //Ajax functions call
 confirmbtn.addEventListener("click", ajax_deleteItem);
-reminderbtn.addEventListener("click", ajax_addReminder);
-maintenancebtn.addEventListener("click", ajax_addMaintenance);
+reminderbtn.addEventListener("click", function() {ajax_addReminder();ajax_getAllReminders();});
+maintenancebtn.addEventListener("click", function(){ajax_addMaintenance();ajax_getAllMaintenance();});
 addMaintenceBtn.addEventListener("click", addMaintenaceFormFunc);
 
 
@@ -164,10 +164,56 @@ function ajax_addReminder(e){
     }
 
     xhr.send(form);
-
     closeModal();
     formReminderDetails.reset();
 }
+
+
+// Ajax for the get all reminders
+
+document.addEventListener("DOMContentLoaded",function(){
+    ajax_getAllReminders();
+    ajax_getAllMaintenance();
+});
+
+function ajax_getAllReminders(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/getAllReminders");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            console.log(json.length);
+            var html = "";
+
+            if (json.length == 0){
+                html += "<h2>No data available</h2>";
+            }else{
+                for (var a = 0; a < json.length; a++) {
+                    html += "<div class='maintenceBox'>";
+                    html += "<h3>Maintenance Schedule</h3>";
+                    html += "<div class='middle'>";
+                    html += "<div><span class='material-icons-sharp'>chat_bubble_outline</span>";
+                    html += "<h4>"+json[a].description+"</h4></div>";
+                    html += "<div><span class='material-icons-sharp'>calendar_today</span>";
+                    html += "<h4>"+json[a].start_date+"</h4></div>";
+                    html += "<div><span class='material-icons-sharp'>construction</span>";
+                    html += "<h4>"+json[a].sub_component+"</h4></div>";
+                    html += "<div class='maintenanceStatus'>";
+                    html += "<span class='material-icons-sharp'>error_outline</span>";
+                    html += "<h4>"+json[a].status+"</h4></div>";
+                    html += "</div><button class='btn_action'>Action</button></div>";
+                }
+            }
+            
+            document.querySelector(".maintenceBoxes").innerHTML = html;
+        }
+    }
+    xhr.send();
+}
+
 
 
 // Ajax for the add Maintenance
@@ -194,4 +240,52 @@ function ajax_addMaintenance(e){
     closeModal();
     formMaintenanceDetails.reset();
     
+}
+
+function ajax_getAllMaintenance(){
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/getAllMaintenance");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            console.log(json.length);
+            var html = "";
+
+            if (json.length < 1){   
+                html += "<tr><td>No data available</td></tr>";
+            }else{
+                for (var a = 0; a < json.length; a++) {
+  
+                        html +="<tr><td>"+json[a].description+"</td>";
+                        html +="<td>"+json[a].sub_component+"</td>";
+                        html +="<td class='warning' >"+json[a].starqt_date+"</td>";
+                        if(json[a].years =='0'){
+                            html +="<td>";
+                        }else{
+                            html +="<td><span>"+json[a].years+"</span> <span> years</span> ";
+                        }
+                        if(json[a].months =='0'){
+                            html +="";
+                        }else{                        
+                            html +="<span>"+json[a].months+"</span> <span>months</span> ";
+                        }
+                        if(json[a].weeks =='0'){
+                            html +="";
+                        }else{
+                            html +="<span>"+json[a].weeks+"</span> <span> weeks</span></td>";
+                        }
+                        html +="<td class='success'>"+json[a].status+"</td>";
+                        html +="<td class='primary test'>Action</td></tr>";
+
+
+                }
+            }
+            
+            document.querySelector(".maintenanceListTbody").innerHTML = html;
+        }
+    }
+
+    xhr.send();
 }

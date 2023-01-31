@@ -129,77 +129,6 @@
                 <h2>Upcomming Maintenance</h2>
                 
                 <div class="maintenceBoxes">
-                    <div class="maintenceBox">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
-                        <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
-                        </div>
-                        <button class="btn_action">Action</button>
-                    </div>
-
-                    <div class="maintenceBox">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
-                        <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
-                        </div>
-                        <button class="btn_action">Action</button>
-                    </div>
-
-                    <div class="maintenceBox">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
-                        <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
-                        </div>
-                        <button class="btn_action">Action</button>
-                    </div>
 
                 </div>
             </div>
@@ -495,49 +424,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                            <td>AC air filter clean</td>
-                            <td>Air filter</td>
-                            <td class="warning" >07/02/2023</td>
-                            <td><span></span> <span>03 months</span> <span>10 days</span></td>
-                            <td class="success">Active</td>
-                            <td class="primary">Action</td>
-                        </tr>
-                        <tr>
-                            <td>Cleaning the coils</td>
-                            <td>Coils</td>
-                            <td class="warning" >07/02/2023</td>
-                            <td><span></span> <span>06 months</span> <span></span></td>
-                            <td class="success">Active</td>
-                            <td class="primary">Action</td>
-                        </tr>
-                        <tr>
-                            <td>Checking the compressor's vibration and noise</td>
-                            <td>Compressor</td>
-                            <td class="warning" >07/02/2023</td>
-                            <td><span></span> <span>03 months</span> <span></span></td>
-                            <td class="success">Active</td>
-                            <td class="primary">Action</td>
-                        </tr>
-                        <tr>
-                            <td>Check door seals are clean and in good condition</td>
-                            <td>door sealsr</td>
-                            <td class="warning" >27/01/2023</td>
-                            <td><span></span> <span>02 months</span> <span></span></td>
-                            <td class="success">Active</td>
-                            <td class="primary">Action</td>
-                        </tr>
-                        <tr>
-                            <td>AC air filter clean</td>
-                            <td>Air filter</td>
-                            <td class="warning" >07/02/2023</td>
-                            <td><span></span> <span>03 months</span> <span>10 days</span></td>
-                            <td class="success">Active</td>
-                            <td class="primary">Action</td>
-                        </tr>
-
-                    </tbody>
+                    <tbody class="maintenanceListTbody"></tbody>
                 </table>
             </div>
 
@@ -559,7 +446,7 @@
                         
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <input type="text" name="desc" id="" required placeholder="Enter description">
+                            <input type="text" name="description" id="" required placeholder="Enter description">
                         </div>
 
                         <div class="input-box">
@@ -591,7 +478,7 @@
                         
                         <div class="input-box">
                             <span class="details">Due date</span>
-                            <input type="date" name="start_date" id="startDate" required placeholder="Enter Brand">
+                            <input type="date" name="start_date" id="start_date" required placeholder="Enter Brand">
                         </div>
 
                         <div class="button">

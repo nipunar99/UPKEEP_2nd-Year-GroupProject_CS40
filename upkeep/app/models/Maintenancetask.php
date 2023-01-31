@@ -1,21 +1,25 @@
 <?php
 
-class Reminder {
+class Maintenancetask {
     use Model;
 
-    protected $table = "reminder";
+    protected $table =  "maintenance_task";
 
-    protected $allowedColumn =[
-        "reminder_id",
+    protected $allowedColumn = [
+        "task_ID",
         "item_id",
-        "description",
         "sub_component",
         "image",
+        "description",
+        "years",
+        "months",
+        "weeks",
         "start_date",
-        "end_date",
+        "status"
     ];
 
-    public function insertReminder($data){
+    public function insertMaintenanceTask($data){
+
         $file_name = $_FILES['image']["name"];
         $file_temp = $_FILES['image']['tmp_name'];
         $file_size = $_FILES['image']['size'];
@@ -36,10 +40,5 @@ class Reminder {
                 }
             }
         }
-    }
-    
-    public function getAllItemReminders($user_id){
-        $query = "select r.description,r.sub_component,r.start_date,r.image from reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id";
-        return $this->query($query);
     }
 }
