@@ -327,7 +327,6 @@
                         </div>
                         
                         <div class="middleInput">
-                            <!-- shoud get only months or weeks -->
                             <div class="input-box">
                             <span class="details">Sub Component</span>
                                 <input type="text" name="sub_component" id=""  placeholder="Enter Sub component">
@@ -345,7 +344,6 @@
 
                         <div class="button">
                             <input type="submit" value="Add a Maintenance" id="addReminderbtn"> 
-                            <!-- itemDetails -->
                         </div>
         
                     </div>
@@ -435,8 +433,8 @@
 
             <div class="content content1">
 
-                <form method="post" enctype="multipart/form-data" id="form_maintenanceDetails">
-                <h2>Maintenance Details</h2>
+                <form id="form_maintenanceDetails">
+                    <h2>Maintenance Details</h2>
                     <div class="itemDetails">
 
                         <div class="input-box">

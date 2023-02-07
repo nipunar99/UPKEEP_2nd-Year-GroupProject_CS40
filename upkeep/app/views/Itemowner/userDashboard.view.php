@@ -41,7 +41,7 @@
                     <h3>Item</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/itemowner/TechnicianGigs" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>

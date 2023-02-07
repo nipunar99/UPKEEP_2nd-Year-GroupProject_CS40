@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/items.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/technicianGigs.css">
 </head>
 <body>
     <div class="container">
@@ -36,12 +36,12 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#" class="active">
+                <a href="#">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item</h3>
                 </a>
 
-                <a href="#" >
+                <a href="#"  class="active">
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -79,8 +79,9 @@
         </aside>
 
         <main>
+
             <div class="mainHeader">
-                <h1>Items</h1>
+                <h1>Gigs</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -102,25 +103,36 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End of top -->
-        
-                    <!-- End of recent updates -->
         
                 </div>
     
             </div>
-            
+
             <div class="toolbar">
                 <div class="searchBar">
                     <input type="search" name="" id="" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <button class="addItem">Add an Item</button>
-                
                 <button class="availItem">Available Items</button>
             </div>
 
-            <div class="insight"></div>
+            <div class="insight">
+                <div class="sales">
+                        <span class="material-icons-sharp">analytics</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Samsung</h3>
+                                <h2>A/C</h1>
+                            </div>
+                            <div class="progress">
+                                <img src="images/item1.png" alt="">
+                            </div>
+                        </div>
+                        <small class="text-muted">More Details</small>
+                </div>
+            </div>
+
             
         </main> 
 
@@ -224,7 +236,7 @@
         
     <div class="overlayview hidden"></div>
     
-    
-    <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
+<!--     
+    <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script> -->
 </body> 
 </html>

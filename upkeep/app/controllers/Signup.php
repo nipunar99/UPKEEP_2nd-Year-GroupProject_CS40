@@ -10,6 +10,8 @@ class Signup {
 
             if($user->validate($_POST))
             {
+
+                $_POST['user_role'] = "item_owner";
                 $user->preprocess($_POST);
                 redirect("Home");
             }

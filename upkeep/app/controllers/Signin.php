@@ -3,6 +3,7 @@
 class Signin {
 
     use Controller;
+    
     public function itemOwnerSignin (){
         $data =[];
 
@@ -19,7 +20,7 @@ class Signin {
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
-
+                    // put user role
                     redirect('Itemowner/Userdashboard');
                 } 
             }

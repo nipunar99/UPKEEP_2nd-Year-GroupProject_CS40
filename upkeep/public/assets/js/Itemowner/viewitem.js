@@ -1,5 +1,3 @@
-// Get all DOM and store in variable
-// const controllerURL = "http://localhost/upkeep/upkeep/public/Itemowner/ViewItem";
 const deleteMsg = document.querySelector(".deleteMsg");
 const confirmbtn = document.querySelector(".confirmbtn");
 const reminderbtn = document.querySelector("#addReminderbtn");
@@ -11,6 +9,7 @@ const addMaintenceBtn = document.querySelector(".addMaitenanceEm");
 const addMaintenanceForm = document.querySelector(".addMaintenanceForm");
 const addMaintenanceForm2 = document.querySelector(".addMaintenanceForm2");
 const addMaintainTaskbtn = document.querySelector(".addMaintainTask");
+const test =  document.querySelector(".editbtn");
 
 const allMaintenance = document.querySelector(".morebtn");
 const main1 = document.querySelector(".main1");
@@ -20,6 +19,12 @@ const container = document.querySelector(".container");
 const backbtn = document.querySelector(".back");
 
 //............... Add maintenance form constraints...............
+
+document.addEventListener("DOMContentLoaded",function(){
+    ajax_getAllReminders();
+    ajax_getAllMaintenance();
+});
+
 
     //.....set start date element
     const startdate = document.getElementById("startDate"); 
@@ -69,8 +74,8 @@ overlay.addEventListener("click", closeModal);
 
 //Ajax functions call
 confirmbtn.addEventListener("click", ajax_deleteItem);
-reminderbtn.addEventListener("click", function() {ajax_addReminder();ajax_getAllReminders();});
-maintenancebtn.addEventListener("click", function(){ajax_addMaintenance();ajax_getAllMaintenance();});
+reminderbtn.addEventListener("click",ajax_addReminder);
+maintenancebtn.addEventListener("click",ajax_addMaintenance);
 addMaintenceBtn.addEventListener("click", addMaintenaceFormFunc);
 
 
@@ -166,15 +171,13 @@ function ajax_addReminder(e){
     xhr.send(form);
     closeModal();
     formReminderDetails.reset();
+    ajax_getAllReminders();
+
 }
 
 
 // Ajax for the get all reminders
 
-document.addEventListener("DOMContentLoaded",function(){
-    ajax_getAllReminders();
-    ajax_getAllMaintenance();
-});
 
 function ajax_getAllReminders(){
     const xhr = new XMLHttpRequest();
@@ -239,10 +242,12 @@ function ajax_addMaintenance(e){
 
     closeModal();
     formMaintenanceDetails.reset();
-    
+    ajax_getAllMaintenance();
 }
 
 function ajax_getAllMaintenance(){
+    console.log("ajax_getAllReminders");
+
     const xhr = new XMLHttpRequest();
     xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/getAllMaintenance");
 
