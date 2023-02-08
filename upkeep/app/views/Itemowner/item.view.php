@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/items.css">
 </head>
 <body>
@@ -46,7 +45,7 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>

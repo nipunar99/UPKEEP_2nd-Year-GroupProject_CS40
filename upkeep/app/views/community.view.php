@@ -36,7 +36,7 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/itemowner/item" >
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item</h3>
                 </a>

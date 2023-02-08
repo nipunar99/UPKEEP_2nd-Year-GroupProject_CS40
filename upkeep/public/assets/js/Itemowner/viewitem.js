@@ -9,7 +9,7 @@ const addMaintenceBtn = document.querySelector(".addMaitenanceEm");
 const addMaintenanceForm = document.querySelector(".addMaintenanceForm");
 const addMaintenanceForm2 = document.querySelector(".addMaintenanceForm2");
 const addMaintainTaskbtn = document.querySelector(".addMaintainTask");
-const test =  document.querySelector(".editbtn");
+const docsbtn =  document.querySelector(".docbtn");
 
 const allMaintenance = document.querySelector(".morebtn");
 const main1 = document.querySelector(".main1");
@@ -191,9 +191,8 @@ function ajax_getAllReminders(){
             console.log(json);
             var html = "";
 
-            if (json.length == 0){
-                html += "<h2>No data available</h2>";
-            }else{
+            if (json.length > 0){
+                
                 for (var a = 0; a < json.length; a++) {
                     html += "<div class='maintenceBox'>";
                     html += "<h3>Maintenance Schedule</h3>";
@@ -209,6 +208,8 @@ function ajax_getAllReminders(){
                     html += "<h4>"+json[a].status+"</h4></div>";
                     html += "</div><button class='btn_action'>Action</button></div>";
                 }
+            }else{
+                html += "<h2>No data available</h2>";
             }
             
             document.querySelector(".maintenceBoxes").innerHTML = html;

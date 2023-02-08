@@ -46,7 +46,7 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Community>
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
@@ -68,7 +68,7 @@
                     <h3>Settings</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -277,7 +277,7 @@
                 <div class="itembtnsection1">
                     
                     <button class="morebtn">More</button>
-                    <button class="docbtn">Docs</button>
+                    <a href="<?= ROOT ?>/Itemowner/Documentation"><button class="docbtn" >Docs</button></a>
                     <button class="deletebtn">Delete</button>
                     <!-- <form  method='post'>
                         <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
