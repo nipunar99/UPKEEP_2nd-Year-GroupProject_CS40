@@ -13,4 +13,12 @@ class Userdashboard {
 
     }
 
+    public function getAllReminders(){
+        $user_id = $_SESSION['user_id'];
+        $reminder = new Reminder;
+        $result = $reminder->getAllItemReminders($user_id);
+        $json = json_encode($result);
+        echo($json);
+    }
+
 }

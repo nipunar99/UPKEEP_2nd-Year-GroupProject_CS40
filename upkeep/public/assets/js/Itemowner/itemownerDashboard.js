@@ -1,4 +1,7 @@
 // "use strict";
+//
+document.addEventListener("DOMContentLoaded",function(){ajax_getAllReminders()});
+//
 
 // Get all DOM and store in variable
 const modal = document.querySelector(".popupview");
@@ -34,6 +37,52 @@ btnShowModal3.addEventListener("click", showModal);
 // close modal click
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+
+
+//................................................................
+
+function ajax_getAllReminders() {
+    console.log("ajax_getAllReminders");
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET',"http://localhost/upkeep/upkeep/public/Itemowner/Userdashboard/getAllReminders");
+
+    xhr.onload = function () {
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            console.log(json);
+
+            var html="";
+            for(var i=0; i<json.length; i++){
+                html+= "<div class='maintenceBox show-modal1' role='button'><h3>Maintenance Schedule</h3>";   
+                html+= "<div><div class='middle'>";   
+                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>calendar_today</span>";
+                html+= "<h4>"+json[i].start_date+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
+                html+= "<div class='maintenanceStatus'><span class='material-icons-sharp'>error_outline</span>";
+                html+= "<h4>Pending</h4></div></div>";
+                html+= "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[i].image+"'></div></div>";
+            }
+            document.querySelector(".maintenceBoxes").innerHTML=html;
+        }
+
+    }
+    xhr.send();
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //............................calender Script.....................................................
