@@ -1,0 +1,453 @@
+@import "general.css";
+
+.container {
+    display: grid;
+    grid-template-columns: 15rem auto;
+}
+
+.header {
+    display:block;
+    width: 100%;
+    background-color: #B3B5B4;
+}
+
+.right .top{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+/* Main Gig Container */
+.gig-container {
+    display: grid;
+    grid-template-columns: auto 19rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: none;
+    /* background-color: rgb(200, 200, 200); */
+}
+
+.gig-container .left {
+    overflow-y: scroll;
+    padding: 2rem;
+}
+
+/* Details of the Gig */
+.gigDetails {
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(91, 91, 91); */
+    border-radius: var(--card-border-radius);
+    padding: 1.5rem;
+    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.5);
+}
+
+.gigDetails h1{
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gigDetails p{
+    text-align: justify;
+    content: justify;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gigDetails .location p{
+    display: inline-block;
+}
+
+.gigDetails span{
+    display: inline;
+    font-size: 1rem;
+}
+
+
+/* For Images of the gig */
+.image-caraousel {
+    height: 30vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(208, 208, 208);
+    border-radius: var(--card-border-radius);
+}
+
+.next, .prev{
+    position:absolute;
+    top: 45%;
+    cursor: pointer;
+    width: auto;
+    padding: 10px;
+    color: white;
+}
+
+.next{
+    right: 0;
+}
+
+.prev{
+    left: 0;
+}
+
+.next:hover, .prev:hover{
+     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide {
+    position: relative;
+    display: relative;
+    overflow: hidden;
+}
+
+.slide > img{
+    display: relative;
+    width: 100%;
+    height: 100%;
+}
+
+a.worktags{
+    color: var(--color-dark-variant);
+    background-color: var(--color-background);
+    margin-right: 0.8rem;
+    display: inline-block;
+    width: max-content;
+    height: max-content;
+    padding: 0.2rem;
+    border-radius: var(--border-radius-3);
+    box-shadow: 0 0 10px var(--color-info-dark);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+
+/* Reviews style */
+
+.heading-title h1{
+    margin:0px;
+    padding:0px 0px 10px 0px;
+    text-align:center;
+    margin-top: 2rem;
+}
+
+
+.average-rating{
+    display: inline-block;
+    float:center;
+    text-align: center;
+    width:30%;
+}
+
+.average-rating h2{
+    margin:0px;
+    font-size:80px;
+}
+
+.average-rating p{
+    margin:0px;
+    font-size:20px;
+}
+
+.fa-star,.fa-star-o,.fa-star-half-o{
+    color:#FDC91B;
+    font-size:25px !important;
+}
+
+.progress,.progress-2,.progress-3,.progress-4,.progress-5{
+    background:#F5F5F5;
+    border-radius: 13px;
+    height:18px;
+    width:97%;
+    padding:3px;
+    margin:5px 0px 3px 0px;
+}
+
+.progress:after,.progress-2:after,.progress-3:after,.progress-4:after,.progress-5:after{
+    content: '';
+    background: #337AB7;
+    display: block;
+    width:80%;
+    height: 100%;
+    border-radius: 9px;
+}
+
+.progress-2:after{
+    width: 60%;
+}
+
+.progress-3:after{
+    width:40%;
+}
+
+.progress-4:after{
+    width:20%;
+}
+
+.progress-5:after{
+    width:10%;
+}
+
+.loder-ratimg{
+    display: inline-block;
+    width:40%;
+}
+
+.start-part{
+    float:right;
+    width:30%;
+    text-align: center;
+}
+
+.start-part span{
+    color:#337AB7;
+    font-size:23px;
+}
+
+.reviews h1{
+    margin:10px 0px 20px 30px;
+}
+
+.user-img img{
+    height: 80px;
+    width: 80px;
+    border:1px solid blue;
+    border-radius: 50%;
+}
+
+.user-img-part{
+    width:30%;
+    float:left;
+}
+
+.user-img{
+    width:48%;
+    float:left;
+    text-align: center;
+}
+
+.user-text{
+    float:left;
+}
+
+.user-text h4,.user-text p{
+    margin:0px 0px 5px 0px;
+}
+
+.user-text p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-text h4,.user-text span{
+    color:#B3B5B4;
+}
+
+.comment{
+    width:68%;
+    float:right;
+}
+
+.comment-part{
+    margin-top: 1rem;
+}
+
+/* Profile Details */
+.gig-container .right{
+    padding-top: 2rem;
+}
+
+.gig-container .right .profile-details{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.profile-img{
+    justify-content: center;
+    overflow:hidden;
+    display: flex;
+    margin: 1rem;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+
+
+.profile-img img{
+    width:10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+    
+.profile-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    
+}
+
+.profile-details .profile-text h2{
+    text-align: center;
+}
+
+.other-details{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.description{
+    padding: 1.5rem;
+    text-align: justify;
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 2rem;
+}
+
+.actions a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+
+/* popup form */
+.overlay {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(179, 180, 189, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 6;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.popup {
+    position: absolute;
+    margin:auto;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: var(--border-radius-3);
+    box-shadow: 0 0 20px rgb(99, 99, 99);
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.overlay .popup h1{
+    display: inline-block;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.overlay .popup .middle {
+    display: inline-flexbox;
+    text-align: center;
+}
+
+.overlay .popup a.close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-dark);
+}
+
+/* form styles */
+.overlay .popup .form {
+    display: flexbox;
+    padding: 1rem;
+    height: auto;
+  
+}
+
+
+.overlay .popup .form .gigDetails .input-box{
+    display: inline-flexbox;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    top: 1rem;
+    padding: 0.3rem;
+}
+
+.overlay .popup .form .gigDetails .input-box.inline{
+    float: left;
+    width: 50%;
+}
+
+input[type=text],input[type=file], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+  
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.inline:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form .gigDetails{
+    box-shadow: none;
+}

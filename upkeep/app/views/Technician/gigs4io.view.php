@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/findtechnicians.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -103,9 +103,38 @@
                 </div>
             </div>
 
-            <div class="toolbar">
-                <a class="show-modal addGig btn" href="#addgig">Add GIG</a> 
-                <a class="viewitem btn" href="#">View Available Items</a> 
+            <div class="filter-search">
+                <div>
+                <div class="filter-container">
+                    <div class="filter-item">
+                        <label for="category">Category:</label>
+                        <select id="category">
+                        <option value="all">All</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="sort">Sort:</label>
+                        <select id="sort">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="items">Items:</label>
+                        <select id="items">
+                        <option value="A/C">A/C</option>
+                        <option value="Refridgerator">Refridgerator</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                    <button><span class="material-icons-sharp">search</span></button>
+                </div>
+                
             </div>
             
             <div class="gigs">
@@ -117,26 +146,28 @@
                                 <div class='gig-cover'>
                                     <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
                                 </div>
-                                <h1><?=$gig->title?></h1>
-                                <?php if(empty($gig->rating)):?>
-                                    <p>No Reviews Yet</p> 
-                                <?php else:?>
-                                    <?php echo "Rating: "?>
-                                        <?php for($i=0;$i<5;$i++):?>
-                                            <?php if((int)round($gig->rating)>$i):?>
-                                                <span class="fa fa-star checked"></span>
-                                            <?php else:?>
-                                                <span class="fa fa-star"></span>
-                                            <?php endif;?>
-                                        <?php endfor;?>
-                                    <?= "(".round($gig->rating,1).")"?>
-                                <?php endif;?>    
-                                <div class="description">
-                                    <p>
-                                        <?=$gig->description?>
-                                    </p>
-                                    <div class="dots">...</div>
+                                <div class="technician-profile">                                    
+                                    <div class="profile-pic">
+                                        <img src="<?=ROOT?>/assets/images/profile-2.jpg">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h3>Sahan Perera</h3>
+                                        <?php if(empty($gig->rating)):?>
+                                            <p>No Reviews Yet</p> 
+                                        <?php else:?>
+                                            <?php echo "Rating: "?>
+                                                <?php for($i=0;$i<5;$i++):?>
+                                                    <?php if((int)round($gig->rating)>$i):?>
+                                                        <span class="fa fa-star checked"></span>
+                                                    <?php else:?>
+                                                        <span class="fa fa-star"></span>
+                                                    <?php endif;?>
+                                                <?php endfor;?>
+                                            <?= "(".round($gig->rating,1).")"?>
+                                        <?php endif;?>                                    
+                                    </div>
                                 </div>
+                                <h1><?=$gig->title?></h1>    
                                 <?php $arr=explode(",",$gig->work_tags);?>
 
                                 <div class="worktagsContainer">
@@ -144,9 +175,15 @@
                                     <a class="worktags"><?=$tag?></a>
                                     <?php endforeach; ?>
                                 </div>
-                                
+                                <div class="location">
+                                    <span class="material-icons-sharp">location_on</span>
+                                    <h3><?=$gig->location?></h3>
+                                </div>
                             </div>
-                            <a class="moreDetailsBtn" href="<?=ROOT?>/Technician/Gigs/viewGig/<?=$gig->gig_id?>"><div style="text-align: center; margin-top:8px;"><small class="text-muted">View More</small></div></a>
+                            <div class="action-bar">
+                                <a href="" class="view">View</a>
+                                <a href="" class="hire">Hire</a>
+                            </div>
                         </div>
                     
                 <?php endforeach;?>
