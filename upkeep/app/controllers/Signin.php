@@ -19,7 +19,7 @@ class Signin {
             {
                 // if($row->password === $_POST['password']){
                 if(password_verify($_POST['password'] ,$row->password )){
-                    
+                    // show($row);
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
