@@ -20,7 +20,7 @@ class Signin {
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
-                    $_SESSION['user_role'] = 'Itemowner';
+                    // $_SESSION['user_role'] = 'Itemowner';
 
                     redirect('Itemowner/Userdashboard');
                 } 

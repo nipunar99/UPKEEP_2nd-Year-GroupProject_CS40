@@ -6,29 +6,29 @@ class Home {
     public function index (){
         
 
-        if(!isset($_SESSION['user_name'])){
+        // if(!isset($_SESSION['user_name'])){
             $this->view('home');
-        }
-        else{
-            switch ($_SESSION['user_role']) {
-                case 'Itemowner':
-                    redirect('Itemowner/Userdashboard');
-                    break;
+        // }
+        // else{
+        //     switch ($_SESSION['user_role']) {
+        //         case 'Itemowner':
+        //             redirect('Itemowner/Userdashboard');
+        //             break;
                 
-                case 'Technician':
-                    redirect('Technician/Dashboard');
-                    break;
+        //         case 'Technician':
+        //             redirect('Technician/Dashboard');
+        //             break;
 
-                case 'Moderator':
-                    redirect('Moderator/Moderatordashboard');
-                    break;
+        //         case 'Moderator':
+        //             redirect('Moderator/Moderatordashboard');
+        //             break;
 
-                case 'Admin':
-                    redirect('Admin/Admindashboard');
-                    break;
+        //         case 'Admin':
+        //             redirect('Admin/Admindashboard');
+        //             break;
                
-            }
-        }
+        //     }
+        // }
 
     }
     
