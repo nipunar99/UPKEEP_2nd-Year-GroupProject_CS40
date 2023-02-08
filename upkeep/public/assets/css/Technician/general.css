@@ -52,7 +52,7 @@ body{
     font-weight: 600;
     background: #fff;
     user-select: none;
-    overflow-x: hidden;
+    overflow: hidden;
     color: var(--color-dark);
 }
 
@@ -64,6 +64,7 @@ body{
     grid-template-columns: 15rem auto 19rem;
     height: 100vh;
 }
+
 a{
     color: var(--color-dark);
 }
@@ -147,7 +148,7 @@ aside .top{
 .notification {
     color: var(--color-danger);
 }
-
+ 
 aside .logo {
     display: flex;
     gap: 0.8rem;
@@ -228,8 +229,7 @@ aside .sidebar .message-count {
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
-    overflow: scroll;
+    /* overflow: scroll; */
     padding: 1rem;
 }
 main h1{
@@ -332,4 +332,79 @@ main .recent-orders a{
     text-align: center;
     margin: 1rem auto;
     color: var(--color-);
+}
+
+
+/* Scroll bar styles */
+::-webkit-scrollbar{
+    width: 8px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--color-info-dark);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: var(--color-dark);
+}
+
+
+/* Right CSS */
+main .top{
+    display: grid;
+    grid-template-columns: auto 19rem;
+    height: 6%;
+} 
+
+main .top button{
+    display: none;
+}
+
+main .top .right{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+main .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+main .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+main .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
 }

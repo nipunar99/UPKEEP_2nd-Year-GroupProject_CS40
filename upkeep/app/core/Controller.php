@@ -5,8 +5,6 @@ Trait Controller{ // this is a super class. it is extended by all controllers
     public function view($name ,$data = []){
         if(!empty($data)) extract($data);
         $fileName = "../app/views/".$name.".view.php";
-        echo"hello";
-        show($gigDetails);
         if(file_exists($fileName)){
             require $fileName;
         }else {

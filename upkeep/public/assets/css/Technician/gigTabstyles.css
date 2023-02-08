@@ -17,13 +17,14 @@
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
+    overflow: hidden;
+    margin-top: 0;
 }
 
 main h1{
     text-align: center;
 }
-
+ 
 main .date{
     display: inline-block;
     background: var(--color-light);
@@ -37,13 +38,19 @@ main .date input[type="date"]{
     color: var(--color-dark);
 }
 
+main .gigs{
+    overflow-y: scroll;
+    overflow-x: overlay;
+    height: 88%;
+}
+
 main .insight{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3,33%);
     gap: 1.6rem;
     /* overflow-y: scroll; */
-    /* height: 84vh; */
-    padding: 0 1.2rem;
+    /* height: 88%; */
+    padding: 1rem;
     position: relative;
 }
 
@@ -61,7 +68,7 @@ main .insight >div.gig-card:hover{
     box-shadow: none;
 }
 
-main .insight >div span{
+main .insight >div span.btn{
     background: var(--color-primary);
     padding: 0.5rem;
     border-radius: 50%;
@@ -118,7 +125,7 @@ main .insight h3{
 
 
 /* Gig */
-main a{
+main a.btn{
     display: inline-block;
     text-align: center;
     padding: 0.5rem;
@@ -132,9 +139,10 @@ main a{
 }
 
 main .toolbar {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     gap: 2rem;
+    height: 6%;
 }
 
 main .addGig > div h3{
@@ -148,23 +156,25 @@ main a.viewitem{
 
 
 /* Right CSS */
-
-.right{
-    margin-top: 1.4rem;
-    margin-right: 1rem;
-}
-
 main .top{
-    display: inline-flex;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    justify-content: space-around;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: auto 19rem;
+    height: 6%;
 } 
 
 main .top button{
     display: none;
+}
+
+main .top .right{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
 }
 
 main .theme-toggler{
@@ -225,19 +235,7 @@ main .profile-details .updates{
 
 
 
-.profile-photo-gig{
-    width:10rem;
-    height: 10rem;
-    border-radius: 50%;
-    overflow:hidden;
-    display: flex;
-    margin: 3rem auto;
-}
 
-.profile-des{
-    text-align: center;
-    line-height: 1.5rem;
-}
 
 
 /* popup form */
@@ -356,12 +354,32 @@ a.worktags{
     height: max-content;
     padding: 0.2rem;
     border-radius: var(--border-radius-3);
-    box-shadow: 0 0 10px var(--color-info-dark);
+    box-shadow: 0 0 8px var(--color-info-dark);
     margin-top: 4px;
     margin-bottom: 4px;
+    font-size: 0.7rem;
 }
-  
 
+main .insight >div span.checked{
+    color: orange;
+}
+
+/* main .insight >div span.star{
+    display: inline;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+} */
+  
+div.worktagsContainer{
+    overflow: scroll;
+    white-space: nowrap;
+    padding: 0.3rem;
+    /* overflow-x: scroll; */
+}
+
+div.worktagsContainer::-webkit-scrollbar{
+    display: none;
+}
 
 
 

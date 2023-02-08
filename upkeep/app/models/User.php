@@ -93,6 +93,15 @@ class User
         }
     }
 
+    public function getUserById($id){
+        $user = $this->first(['user_id' =>$id]);
+        if($user){
+            return $user;
+        }else{
+            return false;
+        }
+    }
+
     public function preprocess($data){
         $hashpw = password_hash($data['password'], PASSWORD_DEFAULT);
         unset($data['password']);

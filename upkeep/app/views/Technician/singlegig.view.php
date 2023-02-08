@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gig.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
@@ -17,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-    <aside>
+        <aside>
             <div class="top">
                 <script>console.log("Loaded")</script>
 
@@ -59,7 +58,7 @@
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
-                </a>
+                </a> 
 
 
                 <a href="#">
@@ -84,10 +83,9 @@
         </aside>
 
         <main>
-            
-            <!-- <div class="header"> -->
-                <div class="top">
-                    <!-- <h1>GIGS</h1> -->
+            <div class="top">
+                <h1>GIGS</h1>
+                <div class="right">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
                     </button>
@@ -107,8 +105,7 @@
                         </div>
                     </div>
                 </div>
-            <!-- </div>     -->
-
+            </div>
             <div class="gig-container">
                 <div class="left">
                     <div class="gigDetails">
@@ -205,18 +202,110 @@
                             </div>
                     </div>
                 </div>
-
                 <div class="right">
                     <div class="profile-details">
-                        <h1>Profile Details</h1>
+                            <div class="profile-img">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                            </div>
+                            <div class="profile-text">
+                                <h2>Nipuna Rahal</h2>
+                                <?php if(empty($gig->rating)):?>
+                                    <p>No Reviews Yet</p> 
+                                <?php else:?>
+                                    <?php echo "Overall Rating: "?>
+                                        <?php for($i=0;$i<5;$i++):?>
+                                            <?php if((int)round($gig->rating)>$i):?>
+                                                <span class="fa fa-star checked"></span>
+                                            <?php else:?>
+                                                <span class="fa fa-star"></span>
+                                            <?php endif;?>
+                                        <?php endfor;?>
+                                    <?= "(".round($gig->rating,1).")"?>
+                                <?php endif;?>
+                            </div>
+                            <div class="other-details">
+                                <div>
+                                    <h4>Member Since:</h4>
+                                    <p>2020</p><br>
+                                    <h4>Experience:</h4>
+                                    <p>5 Years</p>
+                                </div>
+                                <div>
+                                    <h4>Location:</h4>
+                                    <p>Colombo</p><br>
+                                    <h4>Job Type:</h4>
+                                    <p>Workshop</p>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <h4>Description:</h4>
+                                <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
+                            </div>
+                            <div class="actions">
+                                <a href="#" class="btn btn-primary">View Profile</a>
+                                <a href="#edit" class="btn btn-primary">Edit Gig</a>
+                            </div>
                     </div>
                 </div>
             </div>
-
-            
-            
-        
         </main>
+        
+
+    </div>
+
+    <div id="edit" class="overlay">
+        <div class="popup">
+            <div class="middle">
+                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
+                <h1>Edit Gig</h1>
+            </div>
+            <!-- <div class="form"> -->
+                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
+                    <div class="gigDetails">
+                        <div class="inline">
+                            <div class="input-box inline">
+                                <span class="details">Choose Item</span>
+                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
+                                <select id="item" name="item">
+                                    <option value="<?=$gigDetails[0]->item?>"><?=$gigDetails[0]->item?></option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-box inline">
+                                <span class="details">Location</span>
+                                <input type="text" name="location" id="location" required placeholder="Enter Description about item" value="<?=$gigDetails[0]->location?>">
+                            </div>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Title</span>
+                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) " value="<?=$gigDetails[0]->title?>">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"><?=$gigDetails[0]->description?></textarea>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Work Tags</span>
+                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling" value="<?=$gigDetails[0]->work_tags?>">
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Add Photo</span>
+                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
+                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
+                        </div>
+
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Update">
+                    </div>
+                </form>
+            <!-- </div> -->
+                
+        </div>
     </div>
 
 
