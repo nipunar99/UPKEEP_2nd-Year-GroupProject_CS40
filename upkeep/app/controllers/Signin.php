@@ -29,13 +29,13 @@ class Signin {
                         case 'item_owner':
                             redirect('Itemowner/Userdashboard');
                             break;
-                        case 'admin':   
+                        case 'technician':   
                             redirect('Technician/Dashboard');
                             break;
                         case 'admin':
                             redirect('Admin/Admindashboard');
                             break;
-                        case 'admin':
+                        case 'moderator':
                             redirect('Moderator/Moderatordashboard');
                             break;
                     }
@@ -51,22 +51,4 @@ class Signin {
 
     }
 
-
-    
-    public function itemOwnerSignin(){
-        
-
-    }
-
-    public function technicianSignin(){
-        
-    }
-
-    public function adminSignin(){
-        
-    }
-       
-    public function moderatorSignin(){
-        
-    }
 }
