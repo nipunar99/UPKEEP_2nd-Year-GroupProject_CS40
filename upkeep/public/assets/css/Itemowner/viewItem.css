@@ -455,7 +455,7 @@ main .recent-orders a{
     color: white;
 }
 
-.itembtnsection1 .editbtn{
+.itembtnsection1 .docbtn{
     border: 1px solid var(--color-info-dark);
     background:none;
     color: var(--color-info-dark);

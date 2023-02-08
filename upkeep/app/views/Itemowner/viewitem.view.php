@@ -277,7 +277,7 @@
                 <div class="itembtnsection1">
                     
                     <button class="morebtn">More</button>
-                    <button class="editbtn">Edit</button>
+                    <button class="docbtn">Docs</button>
                     <button class="deletebtn">Delete</button>
                     <!-- <form  method='post'>
                         <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>

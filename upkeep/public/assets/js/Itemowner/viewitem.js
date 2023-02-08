@@ -188,7 +188,7 @@ function ajax_getAllReminders(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log(json.length);
+            console.log(json);
             var html = "";
 
             if (json.length == 0){
@@ -265,7 +265,7 @@ function ajax_getAllMaintenance(){
   
                         html +="<tr><td>"+json[a].description+"</td>";
                         html +="<td>"+json[a].sub_component+"</td>";
-                        html +="<td class='warning' >"+json[a].starqt_date+"</td>";
+                        html +="<td class='warning' >"+json[a].start_date+"</td>";
                         if(json[a].years =='0'){
                             html +="<td>";
                         }else{
