@@ -9,6 +9,22 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+body{
+    background:url(http://localhost/upkeep/upkeep/public/assets/images/landingPage/about-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.content{
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #edf0f399;
+    border-radius: 10px;
+    box-shadow:  5px 5px 12px #929292,
+             -5px -5px 12px #ffffff;
+}
 
 .topic{
     margin: 1rem 0 3rem 0;
@@ -19,12 +35,13 @@
     font-weight: 400;
 }
 .main-container{
-    display: grid;
+    display: flex;
     width: 98%;
     margin: 0 auto;
-    gap: 1rem;
-    grid-template-columns: 50vw auto ;
+    grid-template-columns: 50vw auto;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .sectionform{
@@ -32,7 +49,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
 }
 
 .form-contain{
@@ -47,6 +63,7 @@
 .input-box.forgetpw{
     position: relative;
     left: 300px;
+    display: inline-block;
 }
 
 input small{
@@ -99,9 +116,15 @@ input small{
     background: linear-gradient(-135deg,#0DBCDF,#0095D9);
 }    
 
-.wrongpw::placeholder {
+.imgmain{
+    height: 500px;
+}
+
+h4.error {
     color: red;
-    opacity: 1; 
+    font-size: 1rem;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 h4.error {

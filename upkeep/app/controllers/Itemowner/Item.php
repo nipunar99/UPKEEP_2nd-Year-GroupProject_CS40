@@ -37,6 +37,7 @@ public function index (){
 }
 
 public function selectItem($arr){
+    $_SESSION['item_id'] = $arr['item_id'];
     $data = [];
     $items = new Owneritem;
     $result = $items->where($arr);

@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/items.css">
 </head>
 <body>
@@ -46,7 +45,7 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
@@ -54,13 +53,13 @@
 
                 <a href="#">
                     <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
+                    <h3>Conversation</h3>
                     <span class="message-count">11</span>
                 </a>
 
                 <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
+                    <span class="material-icons-sharp">trending_up</span>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href="#">
@@ -226,5 +225,5 @@
     
     
     <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
-</body>
+</body> 
 </html>
