@@ -19,7 +19,7 @@ class Signin {
             {
                 // if($row->password === $_POST['password']){
                 if(password_verify($_POST['password'] ,$row->password )){
-                    
+                    // show($row);
                     $_SESSION['USER'] = $row->user_id;
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
@@ -29,13 +29,13 @@ class Signin {
                         case 'item_owner':
                             redirect('Itemowner/Userdashboard');
                             break;
-                        case 'admin':   
+                        case 'technician':   
                             redirect('Technician/Dashboard');
                             break;
                         case 'admin':
                             redirect('Admin/Admindashboard');
                             break;
-                        case 'admin':
+                        case 'moderator':
                             redirect('Moderator/Moderatordashboard');
                             break;
                     }
