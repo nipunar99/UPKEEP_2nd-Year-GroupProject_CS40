@@ -1,8 +1,6 @@
-// Dropdown functionalities
-const districtSelect = document.getElementById("itemtype");
+const districtSelect = document.getElementById("status");
 
-const district = ['Refrigerator','Air Conditioner','Washer','TV','Solor Panel',
-'Projector','AMP','Home Theater', 'Other'];
+const district = ['Approved','Pending'];
 
 (function populateDistrict (){
     for(let i=0; i<district.length; i++){
@@ -10,56 +8,25 @@ const district = ['Refrigerator','Air Conditioner','Washer','TV','Solor Panel',
         option.textContent = district[i];
         districtSelect.appendChild(option);
     }
-    districtSelect.value = 'Ampara';
+    districtSelect.value = 'Select the status';
 })();
-
-// Add Item view
 const addItem = document.querySelector(".addItem");
-const modal = document.querySelector(".popupview1");
-const modal1 = document.querySelector(".popupview2");
-const overlay = document.querySelector(".overlayview");
-const btnCloseModal = document.querySelector(".closebtn");
-const btnCloseModal1 = document.querySelector(".closebtn1");
+// const modal = document.querySelector(".popupview1");
+// const modal1 = document.querySelector(".popupview2");
+// const overlay = document.querySelector(".overlayview");
+// const btnCloseModal = document.querySelector(".closebtn");
+// const btnCloseModal1 = document.querySelector(".closebtn1");
 
 
 
 // Show Modal function const showModal
 const showModal = function () {
     console.log("button clicked");
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    // modal.classList.remove("hidden");
+    // overlay.classList.remove("hidden");
 }; 
 
-const showModal1 = function () {
-    console.log("showModal1");
-    modal1.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-}; 
-
-// Close Modal function
-const closeModal = function () {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-
-};
-const closeModal1 = function () {
-    modal1.classList.add("hidden");
-    overlay.classList.add("hidden");
-
-};
-// show modal click event
 addItem.addEventListener("click", showModal);
-
-// close modal click
-btnCloseModal.addEventListener("click", closeModal);
-btnCloseModal1.addEventListener("click", closeModal1);
-overlay.addEventListener("click", closeModal);
-
-
-
-
-// //Ajax for add item details
-
 document.getElementById("nextBtn").addEventListener('click',ajax_addItem);
 
 function ajax_addItem(e){
@@ -115,6 +82,7 @@ function ajax_getItems(){
 
             for (var a = 0; a < json.length; a++) {
                 html += "<div >";
+                html += "<span class='material-icons-sharp'>analytics</span>";
                 html += "<div class='middle'>";
                 html += "<div class='left'>";
                 html += "<h3>"+json[a].item_name+"</h3>";
@@ -127,7 +95,7 @@ function ajax_getItems(){
                 html += "<form  method='post'>";
                 html +="<input  style='display:none;' type='text' name='item_id' value='"+json[a].item_id+"'>";
                 html +="<input  style='display:none;' type='text' name='owner_id'value='"+json[a].owner_id+"'>";
-                html +="<div class='button moreBtn'> <input type='submit' value='More Details' style='background: navajowhite;background: none;'></div></form></div></div></div>";
+                html +="<div class='button'> <input type='submit' value='More Details'></div></form></div></div></div>";
             }
             document.querySelector(".insight").innerHTML = html;
         }

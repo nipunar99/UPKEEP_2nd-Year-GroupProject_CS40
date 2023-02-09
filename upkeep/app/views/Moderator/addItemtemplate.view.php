@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/additemtemplate.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/additemtemplate.css">
 </head>
 <body>
     <div class="container">
@@ -35,7 +35,7 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Suggestion">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
@@ -45,7 +45,7 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaint">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
@@ -60,12 +60,12 @@
                     <h3>Community</h3>
                 </a> -->
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -127,7 +127,10 @@
                                 <span class="details">Item Type</span>
                                 <input type="text" name="item_type" id="" required placeholder="Enter Item Type">
                             </div>
-            
+                            <div class="input-box">
+                                <span class="details">Image</span>
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
+                        </div>
                             <div class="input-box">
                                 <span class="details">Category</span>
                                 <input type="text" name="category" id="" required placeholder="Enter Category">
@@ -158,6 +161,6 @@
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/additemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/additemtemplate.js"></script>
 </body>
 </html>

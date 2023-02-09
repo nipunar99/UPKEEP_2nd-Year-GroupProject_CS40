@@ -10,6 +10,7 @@ class Additemtemplate {
             $data = [];
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $itemtemplate = new Itemtemplates;
+                show($_POST);
                 $itemtemplate->insertItemtemplate($_POST);
                 redirect("Moderator/Itemtemplate");
             }

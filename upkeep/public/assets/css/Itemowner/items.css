@@ -430,7 +430,7 @@ main .mainHeader h1{
     margin-right: 1rem;
     width: 10rem;
     position: relative;
-    left: 850px;
+    left: 1024px;
 
 }
 
@@ -771,4 +771,21 @@ form .itemDetails .middleInput{
 }
 .content form .button input:hover{
     transform: scale(1.1);
+}
+
+.profile-photo img{
+    width: 43px;
+}
+
+.moreBtn{
+    height: 2rem;
+    width: 8rem;
+    background: palevioletred;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+}
+.moreBtn>input{
+    color: white;
 }

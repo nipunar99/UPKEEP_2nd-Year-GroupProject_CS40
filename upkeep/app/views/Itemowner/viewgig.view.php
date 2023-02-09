@@ -202,10 +202,10 @@
                 <div class="right">
                     <div class="profile-details">
                             <div class="profile-img">
-                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                                <img src="<?=ROOT?>/assets/images/profile-2.jpg" alt="">
                             </div>
                             <div class="profile-text">
-                                <h2>Nipuna Rahal</h2>
+                                <h2>Sahan Perera</h2>
                                 <?php if(empty($gig->rating)):?>
                                     <p>No Reviews Yet</p> 
                                 <?php else:?>
