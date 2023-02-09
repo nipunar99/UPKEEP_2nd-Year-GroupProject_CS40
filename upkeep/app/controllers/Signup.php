@@ -7,9 +7,11 @@ class Signup {
         $data =[];
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $user = new User;
-
+ 
             if($user->validate($_POST))
             {
+                $_POST['user_name'] = $user->generateUserName($_POST['first_name'],$_POST['last_name']);
+                $_POST['user_role'] = "item_owner";
                 $user->preprocess($_POST);
                 redirect("Home");
             }
@@ -31,7 +33,7 @@ class Signup {
                 $post =  [
                     'first_name' => $_POST['first_name'],
                     'last_name' => $_POST['last_name'],
-                    'user_name' => $_POST['user_name'],
+                    'user_name' => $user->generateUserName($_POST['first_name'],$_POST['last_name']),
                     'email' => $_POST['email'],
                     'user_role' => 'Technician',
                     'password' => password_hash($_POST['password'],PASSWORD_DEFAULT)
@@ -57,22 +59,23 @@ class Signup {
         if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
-            $moderator = new Moderator;
+            $user = new User;
 
-            if($moderator->validate($_POST))
+            if($user->validate($_POST))
             {
                 $post = [
                     'first_name'=>$_POST['first_name'],
                     'last_name'=>$_POST['last_name'],
-                    'user_name'=>$_POST['user_name'],
+                    'user_name'=>$user->generateUserName($_POST['first_name'],$_POST['last_name']),
                     'email'=>$_POST['email'],
-                    'password'=>password_hash($_POST['password'],PASSWORD_DEFAULT)
+                    'password'=>password_hash($_POST['password'],PASSWORD_DEFAULT),
+                    'user_role'=>'Moderator'
                 ];
-                $moderator->insert($post);
+                $user->insert($post);
                 redirect("Home");
             }
             
-            $data["errors"] = $moderator->errors;
+            $data["errors"] = $user->errors;
         }
         
         $this->view('/Signup/moderatorSignup',$data);
@@ -85,15 +88,18 @@ class Signup {
         //rusith  singin controler method
         $data =[];
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $admin = new Admin;
+            $user = new User;
 
-            if($admin->validate($_POST))
+            if($user->validate($_POST))
             {
-                $admin->insert($_POST);
+                $_POST['user_name'] = $user->generateUserName($_POST['first_name'],$_POST['last_name']);
+                $_POST['user_role'] = "admin";
+                $_POST['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
+                $user->insert($_POST);
                 redirect("Home");
             }
             
-            $data["errors"] = $admin->errors;
+            $data["errors"] = $user->errors;
         }
         
         $this->view('/Signup/adminSignup',$data);// (folder name/php filename)

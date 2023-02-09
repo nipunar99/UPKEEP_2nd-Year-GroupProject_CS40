@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/viewItem.css">
 </head>
 <body>
@@ -45,7 +46,7 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
@@ -67,7 +68,7 @@
                     <h3>Settings</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -75,7 +76,7 @@
             </div>
         </aside>
 
-        <main>
+        <main class="main1">
             <div class="boardtitle">
                 <h1>Items</h1>
             </div>
@@ -118,7 +119,7 @@
                     <h4>Replace or clean Air Conditioner filter</h4>
                 </div>
 
-                <div class="addMaitenanceEm">
+                <div class="addMaitenanceEm" role="button">
                     <span class="material-icons-sharp">add</span>
                         <h3>Add Maintenance task</h3>
                 </div>
@@ -128,77 +129,6 @@
                 <h2>Upcomming Maintenance</h2>
                 
                 <div class="maintenceBoxes">
-                    <div class="maintenceBox">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
-                        <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
-                        </div>
-                        <button class="btn_action">Action</button>
-                    </div>
-
-                    <div class="maintenceBox">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
-                        <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
-                        </div>
-                        <button class="btn_action">Action</button>
-                    </div>
-
-                    <div class="maintenceBox">
-                        <!-- <span class="material-icons-sharp">analytics</span> -->
-                        <h3>Maintenance Schedule</h3>
-                        <div class="middle">
-                            <div>
-                                <span class="material-icons-sharp">chat_bubble_outline</span>
-                                <h4>Clean air filter</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">calendar_today</span>
-                                <h4>21/25/2022</h4>
-                            </div>
-                            <div>
-                                <span class="material-icons-sharp">construction</span>
-                                <h4>Air filter</h4>
-                            </div>
-                            <div class="maintenanceStatus">
-                                <span class="material-icons-sharp">error_outline</span>
-                                <h4>Pending</h4>
-                            </div>
-                        </div>
-                        <button class="btn_action">Action</button>
-                    </div>
 
                 </div>
             </div>
@@ -252,6 +182,7 @@
             </div>
 
         </main>
+
         <!-- End of Main -->
 
         <div class="right">
@@ -346,7 +277,7 @@
                 <div class="itembtnsection1">
                     
                     <button class="morebtn">More</button>
-                    <button class="editbtn">Edit</button>
+                    <a href="<?= ROOT ?>/Itemowner/Documentation"><button class="docbtn" >Docs</button></a>
                     <button class="deletebtn">Delete</button>
                     <!-- <form  method='post'>
                         <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
@@ -365,7 +296,7 @@
             </div>
         </div>
 
-        <!-- Delete form alert -->
+        <!-- End right -->
 
         <div class="overlayview hidden"></div>
 
@@ -380,7 +311,186 @@
             </div>
 
         </div>
+
+        <div class="popupview addMaintenanceForm hidden" id="addMaitenanceFromPopup">
+            <button class="closebtn">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" enctype="multipart/form-data" id="form_reminderDetails">
+                <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="" required placeholder="Enter description">
+                        </div>
+                        
+                        <div class="middleInput">
+                            <div class="input-box">
+                            <span class="details">Sub Component</span>
+                                <input type="text" name="sub_component" id=""  placeholder="Enter Sub component">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Sub Component Image</span>
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Start Date</span>
+                                <input type="date" name="start_date" id="startDate" required placeholder="Enter Brand">
+                            </div>
+
+                        </div>
+
+                        <div class="button">
+                            <input type="submit" value="Add a Maintenance" id="addReminderbtn"> 
+                        </div>
         
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <main class="main2 hidden">
+            <div class="date">
+                <p>14/11/2022</p>
+            </div>
+            
+            <button class="back">Back</button>
+            
+            <div class="tableView maintenanceUp">
+                <h2>Upcomming Maintenance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Sub Component</th>
+                            <th>Due date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AC air filter clean</td>
+                            <td>Air filter</td>
+                            <td class="danger">07/02/2023</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tableView maintenanceMissed">
+                <h2 class="danger">Overdue Maintenance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Sub Component</th>
+                            <th>Due date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AC air filter clean</td>
+                            <td>Air filter</td>
+                            <td class="danger">07/02/2023</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tableView maintenanceList">
+                <h2>Maintenance Tasks List </h2>
+
+                <button class="addMaintainTask">Add Maintain Task</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Sub Component</th>
+                            <th>Start Date</th>
+                            <th>Time frame</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="maintenanceListTbody"></tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <div class="popupview addMaintenanceForm2 hidden" >
+            <button class="closebtn closebtn2">&times;</button>
+
+            <div class="content content1">
+
+                <form id="form_maintenanceDetails">
+                    <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="" required placeholder="Enter description">
+                        </div>
+
+                        <div class="input-box">
+                                <span class="details">Sub Component Image</span>
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
+                        </div>
+
+                        <h2>Time frame</h2>
+                        
+                        <div class="middleInput">
+                            
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
+                            </div>
+
+
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
+                            </div>
+            
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Due date</span>
+                            <input type="date" name="start_date" id="start_date" required placeholder="Enter Brand">
+                        </div>
+
+                        <div class="button">
+                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn"> 
+                            
+                        </div>
+        
+                    </div>
+                </form>
+
+            </div>
+        </div> 
+
+    </div>
         <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/ownerdashboard.css">
 </head>
 <body>
@@ -40,12 +41,12 @@
                     <h3>Item</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/itemowner/TechnicianGigs" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
@@ -122,6 +123,13 @@
             <div class="upMaintenceList">
                 <h2>Upcomming Maintenance</h2>
 
+                <div class="maintenceBoxes"></div>
+                
+            </div>
+
+            <div class="upMaintenceList">
+                <h2>Overdue Maintenance</h2>
+
                 <div class="maintenceBoxes">
                     
                     <div class="maintenceBox show-modal1" role="button">
@@ -178,6 +186,86 @@
 
                     </div>
                     
+                    <div class="maintenceBox show-modal3" role="button">
+                        <h3>Maintenance Schedule</h3>
+                        <div>
+                            <div class="middle">
+                                <div>
+                                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                                    <h4>Clean air filter</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">calendar_today</span>
+                                    <h4>21/25/2022</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">construction</span>
+                                    <h4>Air filter</h4>
+                                </div>
+                                <div class="maintenanceStatus">
+                                    <span class="material-icons-sharp">error_outline</span>
+                                    <h4>Pending</h4>
+                                </div>
+                            </div>
+                            <img src="<?= ROOT ?>/assets/images/component3.png" alt="">
+
+                        </div>
+
+                    </div>
+
+                    <div class="maintenceBox show-modal3" role="button">
+                        <h3>Maintenance Schedule</h3>
+                        <div>
+                            <div class="middle">
+                                <div>
+                                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                                    <h4>Clean air filter</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">calendar_today</span>
+                                    <h4>21/25/2022</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">construction</span>
+                                    <h4>Air filter</h4>
+                                </div>
+                                <div class="maintenanceStatus">
+                                    <span class="material-icons-sharp">error_outline</span>
+                                    <h4>Pending</h4>
+                                </div>
+                            </div>
+                            <img src="<?= ROOT ?>/assets/images/component3.png" alt="">
+
+                        </div>
+
+                    </div>
+
+                    <div class="maintenceBox show-modal3" role="button">
+                        <h3>Maintenance Schedule</h3>
+                        <div>
+                            <div class="middle">
+                                <div>
+                                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                                    <h4>Clean air filter</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">calendar_today</span>
+                                    <h4>21/25/2022</h4>
+                                </div>
+                                <div>
+                                    <span class="material-icons-sharp">construction</span>
+                                    <h4>Air filter</h4>
+                                </div>
+                                <div class="maintenanceStatus">
+                                    <span class="material-icons-sharp">error_outline</span>
+                                    <h4>Pending</h4>
+                                </div>
+                            </div>
+                            <img src="<?= ROOT ?>/assets/images/component3.png" alt="">
+
+                        </div>
+
+                    </div>
                     <div class="maintenceBox show-modal3" role="button">
                         <h3>Maintenance Schedule</h3>
                         <div>
@@ -273,7 +361,7 @@
                             <small class="text-muted">User</small>
                         </div>
                         <div class="profile-photo">
-                            <img src="images/profile-1.jpg" alt="">
+                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                         </div>
                     </div>
                 </div>

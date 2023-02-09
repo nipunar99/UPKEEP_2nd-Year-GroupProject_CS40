@@ -273,6 +273,7 @@ main .insight > div{
     margin-top: 1rem;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    max-width: 92%;
 }
 
 main .insight >div:hover{
@@ -298,13 +299,17 @@ main .insight > div.income span{
 main .insight > div .middle{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-main .insight h3{
+.insight h3{
     margin: 1rem 0 0.6rem;
     font-size: 1rem;
     font-weight: 500;
+    color: var(--color-info-dark);
+}
+.insight h2{
+   color:#05B2E9;;
 }
 
 main .insight .progress{

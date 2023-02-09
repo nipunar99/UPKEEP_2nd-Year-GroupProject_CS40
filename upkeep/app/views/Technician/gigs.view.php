@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
@@ -31,9 +32,14 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?=ROOT?>/Technician/Dashboard" >
+                <a href="<?=ROOT?>/Technician/Dashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
+                </a>
+
+                <a href="#" >
+                    <span class="material-icons-sharp">work</span>
+                    <h3>Find Jobs</h3>
                 </a>
 
                 <a href="#" >
@@ -45,6 +51,7 @@
                     <span class="material-icons-sharp">task</span>
                     <h3>Gigs</h3>
                 </a>
+
 
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
@@ -59,71 +66,93 @@
                 </a>
 
                 <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
+                    <span class="material-icons-sharp">analytics</span>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
-
             </div>
-
 
         </aside>
 
         <main>
-            <h1>GIGS</h1>
-
             <div class="top">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">menu</span>
-                </button>
+                <h1>GIGS</h1>
+                <div class="right">
+                    <button id="menu-btn">
+                        <span class="material-icons-sharp">menu</span>
+                    </button>
 
-                <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
-                </div>
-
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey,<b>Saman</b></p>
-                        <small class="text-muted">Technician</small>
+                    <div class="theme-toggler">
+                        <span class="material-icons-sharp active">light_mode</span>
+                        <span class="material-icons-sharp">dark_mode</span>
                     </div>
-                    <div class="profile-photo">
-                        <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey,<b>Saman</b></p>
+                            <small class="text-muted">Technician</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="toolbar">
-                <a class="show-modal addGig" href="#addgig">Add GIG</a> 
-                <a class="viewitem" href="#">View Available Items</a> 
+                <a class="show-modal addGig btn" href="#addgig">Add GIG</a> 
+                <a class="viewitem btn" href="#">View Available Items</a> 
             </div>
             
-            <?php if(!empty($data['gigList'])) : ?>
-            <div class="insight">
-            <?php foreach($data["gigList"] as $gig) : ?>
-                <div class="gig-card">
-                    <div class="middle">  
-                        <div class='gig-cover'>
-                            <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+            <div class="gigs">
+                <?php if(!empty($data['gigList'])) : ?>
+                <div class="insight">
+                <?php foreach($data["gigList"] as $gig) : ?>
+                        <div class="gig-card">
+                            <div class="middle">  
+                                <div class='gig-cover'>
+                                    <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+                                </div>
+                                <h1><?=$gig->title?></h1>
+                                <?php if(empty($gig->rating)):?>
+                                    <p>No Reviews Yet</p> 
+                                <?php else:?>
+                                    <?php echo "Rating: "?>
+                                        <?php for($i=0;$i<5;$i++):?>
+                                            <?php if((int)round($gig->rating)>$i):?>
+                                                <span class="fa fa-star checked"></span>
+                                            <?php else:?>
+                                                <span class="fa fa-star"></span>
+                                            <?php endif;?>
+                                        <?php endfor;?>
+                                    <?= "(".round($gig->rating,1).")"?>
+                                <?php endif;?>    
+                                <div class="description">
+                                    <p>
+                                        <?=$gig->description?>
+                                    </p>
+                                    <div class="dots">...</div>
+                                </div>
+                                <?php $arr=explode(",",$gig->work_tags);?>
+
+                                <div class="worktagsContainer">
+                                    <?php foreach($arr as $tag) : ?>
+                                    <a class="worktags"><?=$tag?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                                
+                            </div>
+                            <a class="moreDetailsBtn" href="<?=ROOT?>/Technician/Gigs/viewGig/<?=$gig->gig_id?>"><div style="text-align: center; margin-top:8px;"><small class="text-muted">View More</small></div></a>
                         </div>
-                        <h1><?=$gig->title?></h1>
-                        <div class="description">
-                            <p>
-                                <?=$gig->description?>
-                            </p>
-                            <div class="dots">...</div>
-                        </div>
-                        
-                    </div>
-                    <small class="text-muted">More Details</small>
-                </div>
+                    
                 <?php endforeach;?>
+                </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
         <!-- </main>  -->
 
         <!-- End of Main -->
@@ -151,7 +180,7 @@
                                 <!-- <input type="text" name="item" id="item" required placeholder=""> -->
                                 <select id="item" name="item">
                                     <option value="A/C">A/C</option>
-                                    <option value="Refrigerator">Refridgerator</option>
+                                    <option value="Refrigerator">Refrigerator</option>
                                     <option value="Washing Machine">Washing Machine</option>
                                     <option value="Gas Cooker">Gas Cooker</option>
                                 </select>
@@ -179,8 +208,9 @@
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Add Photos</span>
-                            <input type="file" name="image" id="image" placeholder="add images related to your work">
+                            <span class="details">Add Photo</span>
+                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
+                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
                         </div>
 
                     </div>
@@ -200,63 +230,3 @@
 
 
 
-
-
-
-<!-- <div class="popupview hidden">
-        <button class="closebtn">&times;</button>
-        <form action="#">
-            <div class="gigDetails">
-
-                <div class="input-box">
-                    <span class="details">Title</span>
-                    <input type="text" name="" id="" required placeholder="Enter Item Name">
-                </div>
-
-                <div class="input-box">
-                    <span class="details">District</span>
-                    <select name="Select Item Type" id="district" ></select>
-                </div>
-                
-                <div class="middleInput">
-                    <div class="input-box">
-                        <span class="details">Brand</span>
-                        <input type="text" name="" id="" required placeholder="Enter Brand">
-                    </div>
-    
-                    <div class="input-box">
-                        <span class="details">Model</span>
-                        <input type="text" name="" id="" required placeholder="Enter Model">
-                    </div>
-    
-                    <div class="input-box">
-                        <span class="details">Purchase Price(Rs.)</span>
-                        <input type="number" name="" id="" required placeholder="Purchase Price">
-                    </div>
-                    
-                    <div class="input-box">
-                        <span class="details">Description</span>
-                        <input type="text" name="" id="" required placeholder="Enter Description about item">
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Purchase Date</span>
-                        <input type="date" name="" id="" required placeholder="Enter Purchase Date">
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Warrenty Date</span>
-                        <input type="date" name="" id="" required placeholder="Enter Warrenty Date">
-                    </div>
-                </div>
-                
-
-                <div class="button">
-                    <input type="submit" value="Add Item">
-                </div>
-
-            </div>
-        </form>
-    </div>
-    
-    <div class="overlayview hidden"></div> -->
