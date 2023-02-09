@@ -79,6 +79,7 @@ h1{
 
     font-weight: 800;
     font-size: 1.8rem;
+    color: #05B2E9;
 }
 
 h2{
@@ -532,5 +533,5 @@ main .suggestion a ,.complaints a{
 
 
 .name{
-    text-align: left;
+    text-align: center;
 }

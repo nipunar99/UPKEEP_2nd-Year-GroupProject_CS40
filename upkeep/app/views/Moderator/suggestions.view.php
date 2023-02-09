@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/suggestions.css">
+     <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 </head>
 
 <body>
@@ -23,7 +25,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard">
                     <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -31,19 +33,19 @@
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Itemtemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaint">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">summarize</span>
                     <h3>Statistics</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -83,12 +85,15 @@
 
             <div class="insight">
 
-                <div class="item">
+                <div class="swiper mySwiper item">
 
                     <h1>Item Suggestions</h1>
-                    <div class="card-main">
+                    <div class="swiper-wrapper card-main">
+                    
+    <!-- <button class="arrow" onclick="scrollL()"><span class="material-icons-sharp">chevron_left</span></button> -->
+
                         <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                            <div class="card-1" role="button">
+                            <div class="swiper-slide card-1" role="button">
 
                                 <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                                 <h3><b>Non Inverter</b></h3>
@@ -98,9 +103,9 @@
                                     <p class="u">users</p>
                                 </div>
                         </a>
-                            </div>
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                        <div class="card-2" role="button">
+                    </div>
+                    <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
+                        <div class="swiper-slide card-2" role="button">
 
                             <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                             <h3><b>Non Inverter</b></h3>
@@ -109,37 +114,63 @@
                                 <h2 class="warning">25</h2>
                                 <p class="u">users</p>
                             </div>
-                        </a>
+                    </a>
+                </div>
+
+
+                <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
+                    <div class="swiper-slide card-3" role="button">
+
+                        <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                        <h3><b>Non Inverter</b></h3>
+                        <p>Air Conditioner</p>
+                        <div class="c-3">
+                            <h2 class="warning">25</h2>
+                            <p class="u"> users</p>
                         </div>
-            
+                </a>
+            </div>
 
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                        <div class="card-3" role="button">
+            <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
+                <div class="swiper-slide card-4">
 
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-3">
-                                <h2 class="warning">25</h2>
-                                <p class="u"> users</p>
-                            </div>
-                        </a>
-                        </div>
-
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
-                            <div class="card-4" >
+                    <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                    <h3><b>Non Inverter</b></h3>
+                    <p>Air Conditioner</p>
+                    <div class="c-4">
+                        <h2 class="warning">25</h2>
+                        <p class="u"> users</p>
+                    </div>
+            </a>
+    </div>
+    <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
+                            <div class="swiper-slide card-5" >
 
                                 <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                                 <h3><b>Non Inverter</b></h3>
                                 <p>Air Conditioner</p>
-                                <div class="c-4">
+                                <div class="c-5">
                                     <h2 class="warning">25</h2>
                                     <p class="u"> users</p>
                                 </div>
                         </a>    </div>
+                        <!-- <button class="arrow" onclick="scrollR()"><span class="material-icons-sharp">navigate_next</span></button> -->
+                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
+                            <div class="swiper-slide card-6" >
 
-                </div>
-            </div>
+                                <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                                <h3><b>Non Inverter</b></h3>
+                                <p>Air Conditioner</p>
+                                <div class="c-6">
+                                    <h2 class="warning">25</h2>
+                                    <p class="u"> users</p>
+                                </div>
+                        </a>    </div>
+                    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    </div>
 
     <div class="maintenance">
 
@@ -156,7 +187,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="show-r-1" role="button">
+                    <tr class="show-r-1">
                         <td>Description</td>
                         <td>Sub Component</td>
                         <td>Status</td>
@@ -220,6 +251,7 @@
     <div class="overlayview hidden"></div>
     </div>
     <script src="<?= ROOT ?>/assets/js/Moderator/maintenance_suggestions.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 </body>
 
 </html>

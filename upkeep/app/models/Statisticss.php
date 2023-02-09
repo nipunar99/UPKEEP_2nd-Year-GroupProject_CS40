@@ -1,6 +1,6 @@
 <?php 
 
-class Suggestions 
+class Statisticss
 {
     use Model;
 

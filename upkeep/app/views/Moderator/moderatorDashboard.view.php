@@ -44,12 +44,12 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaint">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Statistics" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Statistics</h3>
                 </a>
@@ -154,37 +154,37 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = "name">T_10001 Air Conditioner</td>
+                                <td class = "name">T_10001</td>
                                 <td class="primary">Air Conditioner</td>
-                                <td class="warning">Pending</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10002 Refrigerator</td>
+                                <td class = "name">T_10002 </td>
                                 <td class="primary">Refrigerator</td>
-                                <td class="warning">Pending</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10003 Microwave Oven</td>
+                                <td class = "name">T_10003 </td>
                                 <td class="primary">Microwave Oven</td>
-                                <td class="warning">Pending</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10004 Gas Cooker</td>
+                                <td class = "name">T_10004 </td>
                                 <td class="primary">Gas Cooker</td>
-                                <td class="warning">Pending</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10005 Washing Machine</td>
+                                <td class = "name">T_10005 </td>
                                 <td class="primary">Washing Machine</td>
-                                <td class="warning">Pending</td>
+                                <td class="warning">Text</td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="">See more</a>
+                    <a href="<?= ROOT ?>/Moderator/Suggestion">See more</a>
                 </div>
                 <div class="complaints">
                     <h2>Recent Complaints</h2>
@@ -226,7 +226,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="">See more</a>
+                    <a href="<?= ROOT ?>/Moderator/Complaint">See more</a>
                 </div>
             </div>
         </main> 

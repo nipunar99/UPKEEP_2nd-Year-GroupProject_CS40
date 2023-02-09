@@ -4,19 +4,18 @@ class Itemsuggestions
 {
     use Model;
 
-    protected $table = "itemtemplate";
+    protected $table = "maintenances";
 
     protected $allowedColumns = [
-        "itemtemplate_name",
-        "item_type",
-        "status",
+        "name",
+        "type",
+      
         "description",
-        "category",
-        "lifespan",
+       
         "moderator_id",
         
     ];
-    public function insertItemtemplate($data){
+    public function insertItemtemplate1($data){
 
         try{
             $data["moderator_id"] = $_SESSION['ID'];
@@ -26,6 +25,8 @@ class Itemsuggestions
             echo $e->getMessage();
         }        
         }
+
+      
 }
 
           

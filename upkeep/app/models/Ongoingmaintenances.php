@@ -1,6 +1,6 @@
 <?php 
 
-class Suggestions 
+class Ongoingmaintenances 
 {
     use Model;
 
@@ -9,10 +9,9 @@ class Suggestions
     protected $allowedColumns = [
         "name",
         "type",
-     
+      
         "description",
-       
-        "moderator_id",
+      
         
     ];
     public function insertItemtemplate1($data){

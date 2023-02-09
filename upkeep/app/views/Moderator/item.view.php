@@ -23,27 +23,27 @@
                 <img src="<?= ROOT ?>/assets/images/title.png" alt="">
             </div>
             <div class="sidebar">
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard">
                     <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Suggestion">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
-                <a href="<?= ROOT ?>/Moderator/Item">
+                <a href="#" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaints">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">summarize</span>
                     <h3>Statistics</h3>
                 </a>
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -51,7 +51,7 @@
         </aside>
         <main>
             <div class="mainHeader">
-                <h1>Sub Components</h1>
+                <h1>Item</h1>
                 <div class="right">
                     <div class="theme-toggler">
                         <span class="material-icons-sharp active">light_mode</span>
@@ -72,33 +72,44 @@
             <div class="insight">
                 <div class="card-main">
                     <div class="view-1">
-                        <div class="img">
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                    <?php
+                            if(!empty($result)){
+                                foreach($result as $result)
+                             echo " 
+                        <div class='img'>
+                          <img src=".$result->image.">
                         </div>
-                        <div class="view-1-text">
-                            <h2>Non Inverter</h2>
-                            <div class="name">
+                        <div class='view-1-text'>
+                           
+                                <h2>".$result->item_type."</h2>
+                            <div class='name'>
                                 <h5>Tempalte Name</h5>
-                                <h5><b>T_34235 Air Conditioner</b></h5>
+                                <h5>".$result->itemtemplate_name."</h5>
                             </div>
-                            <div class="type">
+                            <div class='type'>
                                 <h5>Item Type</h5>
-                                <h5><b>Air Conditioner</b></h5>
+                                <h5>".$result->item_type."</h5>
                             </div>
-                            <div class="date">
+                            <div class='date'>
                                 <h5>Added date</h5>
-                                <h5><b>01/11/2022</b> </h5>
+                                <h5>".$result->itemtemplate_name."</h5>
                             </div>
-                            <div class="lifespan">
+                            <div class='lifespan'>
                                 <h5>Esti.li.span</h5>
-                                <h5><b>10 Years</b> </h5>
+                                <h5>10 Years</h5>
                             </div>
+                            
+                            ";
+                            }
+                            ?>
+                            
                         </div>
                         <div class="view-1-button">
                             <button>Edit</button>
-                            <button>Delete</button>
+                            <button class="delete">Delete</button>
                         </div>
                     </div>
+
                     <div class="view-2">
                         <h2>Usage</h2>
                         <div class="view-2-text">
@@ -117,10 +128,65 @@
                 </div>
                 <div class="maintenances">
 
-                    <h1>Maintenances</h1>
-                    <div class="card-main2">
+                    <h1>Sub Categories</h1>
+                   <span> <button class="subcategory">&#43</button></span>
+                    <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <!-- <th>Type</th> -->
+                                <th>Sub category</th>
+                                <!-- <th>Time Frame</th> -->
+                                <th>Description</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr >
+                            
+                                <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
+                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
+                                <!-- <td>Sub Component</td> -->
+                                <!-- <td>Time Frame</td> -->
+                                <td>Description</td>
+                            </tr>
+                            
+                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
+                            <tr>
+                           
+                                <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
+                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
+                                <!-- <td>Sub Component</td> -->
+                                <!-- <td>Time Frame</td> -->
+                                <td>Description</td>
+                                
+                            </tr>
+                            </a>
+                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
+                            <tr>
+                                <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
+                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
+                                <!-- <td>Sub Component</td> -->
+                                <!-- <td>Time Frame</td> -->
+                                <td>Description</td>
+                            </tr>
+                            </a>
+                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
+                            <tr>
+                                <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
+                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
+                                <!-- <td>Sub Component</td> -->
+                                <!-- <td>Time Frame</td> -->
+                                <td>Description</td>
+                            </tr>
+                            </a>
+                        </tbody>
+                    </table>
+                    </div>
+                    <!-- <div class="card-main2"> -->
                         <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
-                        <div class="card-1" role="button">
+                        <!-- <div class="card-1" role="button">
 
                             <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                             <h3><b>Maintenance Schedule 1</b></h3>
@@ -129,11 +195,11 @@
 
                                 <p class="u">Air filter</p>
                                 <h2 class="warning">25</h2>
-                            </div>
+                            </div> -->
                             <!-- </a> -->
-                        </div>
+                        <!-- </div> -->
                         <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
-                        <div class="card-2" role="button">
+                        <!-- <div class="card-2" role="button">
 
                             <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                             <h3><b>Non Inverter</b></h3>
@@ -141,39 +207,39 @@
                             <div class="c-2">
                                 <h2 class="warning">25</h2>
                                 <p class="u">users</p>
-                            </div>
+                            </div> -->
                             <!-- </a> -->
-                        </div>
+                        <!-- </div> -->
 
 
                         <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
-                        <div class="card-3" role="button">
+                        <!-- <div class="card-3" role="button"> -->
 
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                            <!-- <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                             <h3><b>Non Inverter</b></h3>
                             <p>Air Conditioner</p>
                             <div class="c-3">
                                 <h2 class="warning">25</h2>
                                 <p class="u"> users</p>
-                            </div>
+                            </div> -->
                             <!-- </a> -->
-                        </div>
+                        <!-- </div> -->
 
                         <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button"> -->
-                        <div class="card-4">
+                        <!-- <div class="card-4"> -->
 
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                            <!-- <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
                             <h3><b>Non Inverter</b></h3>
                             <p>Air Conditioner</p>
                             <div class="c-4">
                                 <h2 class="warning">25</h2>
                                 <p class="u"> users</p>
-                            </div>
+                            </div> -->
                             <!-- </a>    </div> -->
-
-                        </div>
-                    </div>
-                    </div>
+<!--  -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                </div>
         </main>
         <div class="popupview hidden">
             <button class="closebtn">&times;</button>

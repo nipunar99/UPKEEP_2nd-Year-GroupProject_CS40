@@ -35,17 +35,17 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Suggestion">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Moderator/Item" class="active">
+                <a href="#" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaint">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
@@ -60,7 +60,7 @@
                     <h3>Community</h3>
                 </a> -->
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Statistics</h3>
                 </a>
@@ -113,9 +113,43 @@
                 </div>
                 <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
             </div>
-
+            <div class="item-details">
+             
+                
             <div class="insight">
-                <!-- <div class="itemTemplateList" onchange="showUser(this.th)">
+                <div class="itemTemplateList" onchange="showUser(this.th)">
+                    <table id="templateTable">
+                        <thead>
+                       
+                            <tr>
+                                <th>Item</th>
+                                <th>Item type</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <!-- <th>Description</th> -->
+                                <!-- <th>Esti.lifespan</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+            <?php 
+                if(!empty($result)) {
+                    foreach($result as $row)
+                        echo "
+                        <a href='".ROOT."/Moderator/Item/viewItem/".$row->id."'>
+                            <tr>
+                                <td>".'<div class="image"><img src="http://localhost/upKeep/upkeep/public/assets/images/uploads/'.$row->image.'"</div>', "".'<div class="text">'.$row->itemtemplate_name.'"</div>"<br><ul><li>'.$row->description.'</li></ul>'."</td>
+                                <td>".$row->item_type."</td>
+                                <td>".$row->category."</td>
+                                <td>".$row->status."</td>
+                                                        
+                            </tr>
+                        </a>
+                        ";
+                }
+            ?>
+            
+            <!-- <div class="insight">
+                <div class="itemTemplateList" onchange="showUser(this.th)">
                     <table>
                         <thead>
                             <tr>
@@ -125,30 +159,12 @@
                                 <th>Status</th>
                                 <th>Description</th>
                                 <th>Esti.lifespan</th>
+                                 // <td>".$row->description."</td>
+                                // <td>".$row->lifespan."</td> 
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
-                if(!empty($result)) {
-                    foreach($result as $row)
-                        echo "
-                        <tr>
-                        
-                                <td>".$row->itemtemplate_name."</td>
-                                <td>".$row->item_type."</td>
-                                <td>".$row->category."</td>
-                                <td>".$row->status."</td>
-                                <td>".$row->description."</td>
-                                <td>".$row->lifespan."</td>
                            
-                        </tr>
-                        
-                        
-                        
-                    
-                        ";
-                }
-            ?>
              
             -->
                                 <!-- <td>Name should be added</td>
@@ -190,14 +206,14 @@
                                 <td>N/A</td>
                                 <td>10 years</td>
                             </tr> -->
-                        </tbody>
-                    </table>
+                        <!-- </tbody> -->
+                    <!-- </table> -->
                     <!-- <a href="#">Show All</a> -->
                 </div>
             </div>
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/itemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js"></script>
 </body>
 </html>

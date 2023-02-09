@@ -39,3 +39,27 @@ btnShowRow4.addEventListener("click", showModal);
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
+// function scrollL(){
+//     var left = document.querySelector(".card-main");
+//     left.scrollBy(350,0);
+// }
+// function scrollR(){
+//     var right = document.querySelector(".card-main");
+//     right.scrollBy(-350,0) ;
+// }
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 40,
+    slidesPerGroup: 3,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });

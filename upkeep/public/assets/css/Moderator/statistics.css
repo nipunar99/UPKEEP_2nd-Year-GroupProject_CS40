@@ -52,9 +52,9 @@ p{
     font-size: 0.8rem;
 }
 
-/* b{
+b{
     color: var(--color-dark);
-} */
+}
 *{
     margin: 0;
     padding: 0;
@@ -74,7 +74,7 @@ html{
 
 body{
     font-size: 0.88rem;
-    font-weight: 500;
+    font-weight: 600;
     height: 100vh;
     width: 100vw;
     background-color: #fff;
@@ -84,12 +84,13 @@ body{
     color: var(--color-dark);
 
 }
+
 .container{
     display: grid;
-    grid-template-columns: 15rem auto;
     width: 98%;
     margin: 0 auto;
     gap: 1rem;
+    grid-template-columns: 15rem auto;
     height: 100vh;
 }
 aside{
@@ -148,6 +149,7 @@ aside .sidebar a:hover {
 aside .sidebar a:hover span{
     margin-left: 1rem;
 }
+
 /* main */
 main{
     margin-top: 1.4rem;
@@ -166,7 +168,7 @@ main .mainHeader{
     margin-right: 1rem;
     width: 10rem;
     position: relative;
-    left: 960px;
+    left: 900px;
     display: flex;
     justify-content: space-around;
     gap: 2rem;
@@ -179,7 +181,7 @@ main .mainHeader{
     justify-content:space-between;
     align-items: center;
     height: 1.6rem;
-    width: 3.2rem;
+    width: 4.2rem;
     cursor: pointer;
     border-radius: var(--border-radius-1);
 }
@@ -190,7 +192,6 @@ main .mainHeader{
     height: 100%;
     display: flex;
     align-items: center;
-    color: #363949;
 }
 
 .right .theme-toggler span.active{
@@ -218,165 +219,29 @@ main .mainHeader{
 .insight{
     display: grid;
 }
-.insight .card-main{
-    display: grid;
-    grid-template-columns: 35rem auto;
-    margin: 1rem 4rem;
-    height: 40vh;
-    gap: 4rem;
-}
-.view-1, .view-2-text{
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--card-border-radius);
-    -webkit-border-radius: var(--card-border-radius);
-    -moz-border-radius: var(--card-border-radius);
-    -ms-border-radius: var(--card-border-radius);
-    -o-border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-    height: 35vh;
-    /*height: 50px;
-    */
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-}
-.view-1:hover, .view-2-text:hover{
-    box-shadow: none;
-}
-.view-2{
-    position: absolute;
-    top: 6rem;
-    right: 15rem;
-    width: 500px;
-   
-}
-.view-1 .img{
-    height: 100px;
-    width: 135px;
-    padding: 1rem 1rem;
-    border-radius: var(--border-radius-1);
-    -webkit-border-radius: var(--border-radius-1);
-    -moz-border-radius: var(--border-radius-1);
-    -ms-border-radius: var(--border-radius-1);
-    -o-border-radius: var(--border-radius-1);
-    box-shadow: var(--box-shadow);
+.insight .item h1, .maintenance h1{
     margin-left: 2rem;
-    margin-top: 4rem;
-    position: relative;
-    left: 50px;
+    color: #05B2E9;
+    font-weight: 100px;
+    font-size: 1.5rem;
 }
-.view-1 .view-1-text{
+.pie-chart{
     display: flex;
-    flex-direction: column;
-    position: relative;
-    left: 275px;
-    bottom: 150px;
-}
-.view-1 .view-1-text h2{
-    color:  #05B2E9;
-    /* position: relative; */
-    /* margin-bottom: 3rem;
-    margin-top: 3rem; */
-    /* left: 350px; */
-    /* bottom: 250px; */
-    width: fit-content;
-    /* gap: 2rem; */
-
-    padding-bottom: 1rem;
-}
-
-.view-2 h2{
-   margin-bottom: 2rem;
-   text-align: center;
-   
-}
-.view-1-button{
-    display: flex;
-    /* width: fit-content; */
-    flex-direction:row ;
-    width: fit-content;
-    position: relative;
-    left: 275px;
-    bottom: 150px;
+    flex-direction: row;
+  
     gap: 2rem;
-    border: 1rem red;
-    border-radius:var(--border-radius-1);
-}
-.delete{
-    border: 1px solid red;
-}
-.view-2-text{
-    height: 25vh;
-}
-/* .view-1-text .name{
-    display: flex;
-    flex-direction: column;
-    width: fit-content; 
-    align-items: center;
-
-    position: relative;
-    right: 500px; 
-    bottom: 190px; */
-    /* font-size: 1.2rem; */
-
- /* / } */
-.view-1-text .name, .type, .date, .lifespan{
-    display: flex;
-    flex-direction: column;
-    /* gap: 1rem; */
-    
-    /* position: relative; */
-    /* left: 350px;
-    bottom: 200px; */
-    width: fit-content; 
-    /* gap: 1rem; */
-    padding-bottom: 1rem; 
-    /* font-size: 1.2rem; */
-
- } 
-/* .view-1-text .name, .type .lifespan b{
-    position: relative;
-    left: 30px;
-}
-.view-2-text .date{
-    
-} */
-.users{
-    display: grid;
-    width: fit-content;
-    gap: 5rem;
-    text-align: center;
-    padding: 1rem;
- }
- .users b{
-    font-size: 1.8rem;
- }
- .tasks{
-    display: grid;
-    width: fit-content;
-    position: relative;
-    right: -22rem;
-    top: -10rem;
-    gap: 3remm;
-    text-align: center;
-    padding-bottom: 2rem;
- }
-.tasks .new{
-    padding-bottom: 4rem;
-}
-.card-main2{
-    display: flex;
-    gap: 2rem;
-    margin-left: 1.5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 2 1.2rem;
+    /* overflow: auto;
+    scroll-behavior: smooth; */
     
 }
-.card-main2 > div{
+
+
+.pie-chart > div{
     text-align: center;
     width: 40%;
     background: var(--color-white);
@@ -385,23 +250,53 @@ main .mainHeader{
     padding-bottom: 2rem;
     transition: all 300ms ease;
 }
-.card-main2 >div:hover{
+.pie-chart >div:hover{
     box-shadow: none;
 }
-.c-1 , .c-2, .c-3, .c-4{
+.text-2{
     display: flex;
+    flex-direction: column;
+    width: fit-content;
    position: relative;
-   left: 120px;
+   left: 245px;
+    gap: 1rem;
+    top: 1rem;
+    
+}
+.text-1{
+    display: flex;
+    flex-direction: column;
+   position: relative;
+   width: fit-content;
+   left: 34px;
     gap: 1rem;
 }
 .u{
   margin-top: 6px;
 }
-.card-main2 .warning{
+.card-main .warning{
     color: red;
 }
-.maintenances h1{
+.maintenance table{
+    width: 95%;
+    border-radius: var(--card-border-radius);
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-padding);
+    transition: all 300ms ease;
+    margin-top: 2rem;
     margin-left: 4rem;
+    text-align: center;
+  
+}
+.maintenance table:hover{
+    box-shadow: none;
+}
+
+.maintenance table tbody td{
+    height:2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
 }
 .overlayview{
     position: absolute;
@@ -497,40 +392,19 @@ main .mainHeader{
 .action_btn button:hover{
     transform: scale(1.1);
 }
-
-.table table{
-    width: 95%;
-    border-radius: var(--card-border-radius);
-    background: var(--color-white);
-    box-shadow: var(--box-shadow);
-    padding: var(--card-padding);
-    transition: all 300ms ease;
-    margin-top: 2rem;
-    margin-left: 4rem;
-    text-align: center;
-  
+.text{
+    display: flex;
 }
-.table table:hover{
-    box-shadow: none;
-}
-
-.table table tbody td{
-    height:2.8rem;
-    border-bottom: 1px solid var(--color-light);
-    color: var(--color-dark-variant);
-}
-.table table tbody td img{
-    width: 2.8rem;
-    height: 2.8rem;
-    overflow: hidden;
+.pie-view {
+    /* margin-top: 300px; */
+    display: block;
+    position: relative;
+  left: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-}
-span .subcategory{
-    font-size: 40px;
-    color: #00BEE4;
-    position: absolute;
-    right: 180px;
-    bottom: 290px;
-    
-
+    background-image: conic-gradient(
+        pink 70deg, 
+        lightblue 0 235deg, 
+        orange 0);
 }

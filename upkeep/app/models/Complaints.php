@@ -1,6 +1,6 @@
 <?php 
 
-class Suggestions 
+class Complaints
 {
     use Model;
 
@@ -9,9 +9,9 @@ class Suggestions
     protected $allowedColumns = [
         "name",
         "type",
-     
+      
         "description",
-       
+      
         "moderator_id",
         
     ];

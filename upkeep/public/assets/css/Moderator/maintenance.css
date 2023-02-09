@@ -216,182 +216,37 @@ main .mainHeader{
     width: 44px;
     
 }
-.insight{
-    display: grid;
-}
-.insight .item h1, .maintenance h1{
-    margin-left: 2rem;
-    color: #05B2E9;
-    font-weight: 100px;
-    font-size: 1.5rem;
-}
-.card-main{
-    /* max-width: 1500px; */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    gap: 2rem;
-    height: 30vh;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 2 1.2rem;
-    /* overflow: auto;
-    scroll-behavior: smooth; */
-    
-}
-.card-main::-webkit-scrollbar{
-    -webkit-appearance: none;
-}
-.swiper{
-    margin-bottom: 2rem;
-}
-.arrow{
-    color: #677483;
-    font-size: 50px;
-    cursor: pointer;
-    outline: none;
-    border: none;
-}
-.card-main > div{
-    text-align: center;
-    width: 40%;
-    background: var(--color-white);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    padding-bottom: 2rem;
-    transition: all 300ms ease;
-}
-.card-main >div:hover{
-    box-shadow: none;
-}
-.c-1 , .c-2, .c-3, .c-4, .c-5, .c-6{
-    display: flex;
-   position: relative;
-   left: 190px;
-    gap: 1rem;
-}
-.u{
-  margin-top: 6px;
-}
-.card-main .warning{
-    color: red;
-}
-.maintenance table{
-    width: 95%;
-    border-radius: var(--card-border-radius);
-    background: var(--color-white);
-    box-shadow: var(--box-shadow);
-    padding: var(--card-padding);
-    transition: all 300ms ease;
-    margin-top: 2rem;
-    margin-left: 4rem;
-    text-align: center;
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
   
-}
-.maintenance table:hover{
-    box-shadow: none;
-}
-
-.maintenance table tbody td{
-    height:2.8rem;
-    border-bottom: 1px solid var(--color-light);
-    color: var(--color-dark-variant);
-}
-.overlayview{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(179, 180, 189, 0.5);
-    backdrop-filter: blur(3px);
-    z-index: 5;
-}
-.hidden{
-    display: none;
-}
-.popupview{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45%;
-    background-color: var(--color-white);
-    color: rgb(68, 67, 67);
-    padding: 5rem 2rem 2rem 3rem;
-    padding-left: 3rem;
-    border-radius: 30px;
-    box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    height: 55vh;
-}
-.closebtn {
-    position: absolute;
-    top: 1rem;
-    right: 3rem;
-    font-size: 3rem;
-    color: var(--color-dark);
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-.popup-text{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-left: 4rem;
-}
-.popup-text >div{
-    display: grid;
-    grid-template-columns: 2rem 12rem 18rem;
-    gap: 1.5rem;
-}
-
-.popup-text span{
-    color: var(--color-info-dark);
-    font-weight: 300;
-}
-.popup-text h4{
-    font-size: 1rem;
-    font-weight: 400;
-}
-.actions{
-    margin-top: 4rem;
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-}
-
-.actions button{
-    width: 8rem;
-    height: 3rem;
-    border-radius: 30px;
-    transition: all 200ms ease;
-    background: linear-gradient(#0095D9,#00BEE4);
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #00BEE4;
     color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+  }
+  .data p{
+    border: 2rem #00BEE4;
+    border-radius: var(--border-radius-1);
+    -webkit-border-radius: var(--border-radius-1);
+    -moz-border-radius: var(--border-radius-1);
+    -ms-border-radius: var(--border-radius-1);
+    -o-border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    font-size: 2rem;
+    padding-top: 2rem;
 }
-.actions button:nth-child(1){
-    width: 12rem;
-}
-.actions button:nth-child(2){
-    border: 1px solid rgb(29, 247, 29);
-    background: none;
-    color: rgb(29, 247, 29);
-}
-
-.actions button:nth-child(3){
-    border: 1px solid var(--color-danger);
-    background: none;
-    color: var(--color-danger);
-}
-
-.action_btn button:hover{
-    transform: scale(1.1);
-}
-
