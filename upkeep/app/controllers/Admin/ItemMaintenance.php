@@ -5,12 +5,11 @@ class ItemMaintenance{
         
     public function index(){
 
-        if($_SESSION['USER'] == 'Admin'){
-
-            $this->view('Admin/itemMaintenance');
+        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
+            redirect('/Home');
         }else{
-            redirect("Home/home");
-        }
+            $this->view('Admin/itemMaintenance');
+        }    
     }
         
         
