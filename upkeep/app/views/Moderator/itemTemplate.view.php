@@ -126,27 +126,25 @@
                                 <th>Item type</th>
                                 <th>Category</th>
                                 <th>Status</th>
+                                <th>Action</th>
                                 <!-- <th>Description</th> -->
                                 <!-- <th>Esti.lifespan</th> -->
                             </tr>
                         </thead>
                         <tbody>
-            <?php 
-                if(!empty($result)) {
-                    foreach($result as $row)
-                        echo "
-                        <a href='".ROOT."/Moderator/Item/viewItem/".$row->id."'>
-                            <tr>
-                                <td>".'<div class="image"><img src="http://localhost/upKeep/upkeep/public/assets/images/uploads/'.$row->image.'"</div>', "".'<div class="text">'.$row->itemtemplate_name.'"</div>"<br><ul><li>'.$row->description.'</li></ul>'."</td>
-                                <td>".$row->item_type."</td>
-                                <td>".$row->category."</td>
-                                <td>".$row->status."</td>
-                                                        
-                            </tr>
-                        </a>
-                        ";
-                }
-            ?>
+            
+                <?php if(!empty($result)):?>
+                    <?php foreach($result as $row):?>
+                        <tr>
+                            <td><div class="image"><img src="<?=ROOT?>/assets/images/uploads/<?=$row->image?>"></div></td>
+                            <td><?=$row->item_type?></td>
+                            <td><?=$row->category?></td>
+                            <td><?=$row->status?></td>
+                            <td><a href="<?= ROOT?>/Moderator/Item/viewItem/<?=$row->id?>"><button><span class="material-icons-sharp">view_list</span></button>&nbsp;&nbsp;<button><span class="material-icons-sharp">delete</span></button></td>                 
+                        </tr>
+                    <?php endforeach;?>
+                <?php endif;?>
+            
             
             <!-- <div class="insight">
                 <div class="itemTemplateList" onchange="showUser(this.th)">

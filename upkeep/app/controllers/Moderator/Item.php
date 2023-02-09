@@ -13,7 +13,9 @@ class Item {
 
             $itemtemplates = new Itemtemplates;
               $arr["id"];
+            //   show($arr);
             $result = $itemtemplates->where($arr);
+            // echo $result;
             // $result = $itemtemplates->findAll();
             $data['result'] = $result;
 
@@ -25,7 +27,18 @@ class Item {
 
     }
 
-}
+    public function viewItem($id){
+        $itemtemplates = new Itemtemplates;
+        $arr['id']=$id[0];
+        // show($id);
+        $result = $itemtemplates->where($arr);
+        
+        // print_r($result);
+        $data['result']=$result;
+        $this->view('Moderator/item',$data);
+    }
+    }
+
 // $data = [];
 // $items = new Owneritem;
 // $result = $items->where($arr);

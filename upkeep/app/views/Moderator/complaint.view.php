@@ -102,28 +102,31 @@
                                 <td>Sub Component</td>
                                 <td class="level">level 1</td>
                                 <td>Action</td>
-                                <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
                             </tr>
                             <tr class="show-r-2" role="button">
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td class="level">level 2</td>
                                 <td>Action</td>
-                                <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td> -->
                             </tr>
                             <tr class="show-r-3" role="button">
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td class="level">level 2</td>
                                 <td>Action</td>
-                                <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td> -->
                             </tr>
                             <tr class="show-r-4 " role="button">
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td class="level">level 3</td>
                                 <td>Action</td>
-                                <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button class="send" onclick="myFunction()">View Details</button><button class="send" onclick="myFunctionD()">Delete</button></td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -153,28 +156,32 @@
                                 <td>Sub Component</td>
                                 <td>Status</td>
                                 <td>Action</td>
-                                <td><button>View Details</button><button>Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button>View Details</button><button>Delete</button></td> -->
                             </tr>
                             <tr class="show-r-2" role="button">
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td>Status</td>
                                 <td>Action</td>
-                                <td><button>View Details</button><button>Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button>View Details</button><button>Delete</button></td> -->
                             </tr>
                             <tr class="show-r-3" role="button">
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td>Status</td>
                                 <td>Action</td>
-                                <td><button>View Details</button><button>Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button>View Details</button><button>Delete</button></td> -->
                             </tr>
                             <tr class="show-r-4 " role="button">
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td>Status</td>
                                 <td>Action</td>
-                                <td><button>View Details</button><button>Delete</button></td>
+                                <td><button class="send" onclick="myFunction()"><span class="material-icons-sharp">view_list</span></button>&nbsp;<button class="send" onclick="myFunctionD()"><span class="material-icons-sharp">delete</span></button></td>
+                                <!-- <td><button>View Details</button><button>Delete</button></td> -->
                             </tr>
                         </tbody>
                     </table>

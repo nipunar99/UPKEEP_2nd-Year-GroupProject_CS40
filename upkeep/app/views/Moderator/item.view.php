@@ -77,7 +77,7 @@
                                 foreach($result as $result)
                              echo " 
                         <div class='img'>
-                          <img src=".$result->image.">
+                          <img src=".ROOT.$result->image.">
                         </div>
                         <div class='view-1-text'>
                            

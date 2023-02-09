@@ -29,6 +29,7 @@ h1{
 
     font-weight: 800;
     font-size: 1.8rem;
+    color: #05B2E9;
 }
 
 h2{
@@ -371,5 +372,8 @@ main .mainHeader{
 
 .action_btn button:hover{
     transform: scale(1.1);
+}
+.send{
+    color: #7d8da1;
 }
 
