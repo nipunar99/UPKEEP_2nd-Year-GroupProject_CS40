@@ -51,22 +51,4 @@ class Signin {
 
     }
 
-
-    
-    public function itemOwnerSignin(){
-        
-
-    }
-
-    public function technicianSignin(){
-        
-    }
-
-    public function adminSignin(){
-        
-    }
-       
-    public function moderatorSignin(){
-        
-    }
 }

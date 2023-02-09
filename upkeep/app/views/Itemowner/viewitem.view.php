@@ -46,7 +46,7 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Community>
+                <a href="<?= ROOT ?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
