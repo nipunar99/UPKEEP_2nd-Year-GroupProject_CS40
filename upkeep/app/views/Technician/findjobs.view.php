@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Itemowner/findtechnicians.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/findjobs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -32,55 +32,55 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/Itemowner/Userdashboard/" >
+                <a href="<?=ROOT?>/Technician/Dashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/itemowner/item">
-                    <span class="material-icons-sharp">view_in_ar</span>
-                    <h3>Item</h3>
+                <a href="<?=ROOT?>/Technician/Findjobs" class="active" >
+                    <span class="material-icons-sharp">work</span>
+                    <h3>Find Jobs</h3>
                 </a>
 
-                <a href="#" class="active">
-                    <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                <a href="<?=ROOT?>/Technician/Orders" >
+                    <span class="material-icons-sharp">list_alt</span>
+                    <h3>Orders</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Community">
+                <a href="<?=ROOT?>/Technician/Gigs">
+                    <span class="material-icons-sharp">task</span>
+                    <h3>Gigs</h3>
+                </a>
+
+
+                <a href="<?=ROOT?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
 
 
-                <a href="#">
+                <a href="<?=ROOT?>/Conversation">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Conversation</h3>
                     <span class="message-count">11</span>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">trending_up</span>
+                <a href="<?=ROOT?>/Technician/Statistics">
+                    <span class="material-icons-sharp">analytics</span>
                     <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
-                </a>
-
-                <a href="<?= ROOT ?>/Signout">
+                <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
-
             </div>
 
         </aside>
 
         <main>
             <div class="top">
-                <h1>GIGS</h1>
+                <div><h1>Find Jobs</h1></div>
                 <div class="right">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
@@ -103,102 +103,91 @@
                 </div>
             </div>
 
-            <div class="filter-search">
-                <div>
-                <div class="filter-container">
-                    <div class="filter-item">
-                        <label for="category">Category:</label>
-                        <select id="category">
-                        <option value="all">All</option>
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
-                        </select>
-                    </div>
-                    <div class="filter-item">
-                        <label for="sort">Sort:</label>
-                        <select id="sort">
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
-                        </select>
-                    </div>
-                    <div class="filter-item">
-                        <label for="items">Items:</label>
-                        <select id="items">
-                        <option value="A/C">A/C</option>
-                        <option value="Refridgerator">Refridgerator</option>
-                        </select>
-                    </div>
-                </div>
-                </div>
-                <div class="searchBar">
-                    <input type="search" name="" id="" placeholder="Search item">
-                    <span class="material-icons-sharp">search</span>
-                </div>
+            <div class="Description">
+                <p>The "Find Jobs" feature simplifies job search and dispatch for technicians. 
+                    It enables technicians to quickly locate and track maintenance and repair 
+                    jobs based on location, priority and status. The feature provides job information, 
+                    such as equipment type, issue and customer details, so technicians can arrive 
+                    prepared and ready to resolve the issue. The feature enhances the overall maintenance 
+                    and repair operations, making it easier for technicians to stay organized and prioritize
+                    their tasks.</p>
                 
             </div>
-            
-            <div class="gigs">
-                <?php if(!empty($data['gigList'])) : ?>
-                <div class="insight">
-                <?php foreach($data["gigList"] as $gig) : ?>
-                        <div class="gig-card">
-                            <div class="middle">
-                                <div class="technician-profile">                                    
-                                    <div class="profile-pic">
-                                        <img src="<?=ROOT?>/assets/images/profile-2.jpg">
-                                    </div>
-                                    <div class="profile-info">
-                                        <h3>Sahan Perera</h3>
-                                        <?php if(empty($gig->rating)):?>
-                                            <p>No Reviews Yet |</p> 
-                                        <?php else:?>
-                                            <?php echo "Rating: "?>
-                                                <?php for($i=0;$i<5;$i++):?>
-                                                    <?php if((int)round($gig->rating)>$i):?>
-                                                        <span class="fa fa-star checked"></span>
-                                                    <?php else:?>
-                                                        <span class="fa fa-star"></span>
-                                                    <?php endif;?>
-                                                <?php endfor;?>
-                                            <?= "(".round($gig->rating,1).")"?>
-                                        <?php endif;?>                                    
-                                    </div>
-                                </div>
-                                <div class="gigDesc">
-                                    <h2><?=$gig->title?></h2>  
-                                </div>
-                                  
-                                <?php $arr=explode(",",$gig->work_tags);?>
-
-                                <div class="worktagsContainer">
-                                <h3>Roles</h3>
-                                    <?php foreach($arr as $tag) : ?>
-                                    <a class="worktags"><?=$tag?></a>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="location">
-                                    <span class="material-icons-sharp">location_on</span>
-                                    <h3><?=$gig->location?></h3>
-                                </div>
-                            </div>
-                            <div class="action-bar">
-                                <a href="<?= ROOT ?>/itemowner/ViewGig/selectGig/<?=$gig->gig_id?>" class="view">View</a>
-                            </div>
+            <div class="toolbar">
+                <div class="filter-search">
+                    <div>
+                    <div class="filter-container">
+                        <div class="filter-item">
+                            <label for="category">Category:</label>
+                            <select id="category">
+                            <option value="all">All</option>
+                            <option value="category1">Category 1</option>
+                            <option value="category2">Category 2</option>
+                            </select>
                         </div>
+                        <div class="filter-item">
+                            <label for="sort">Sort:</label>
+                            <select id="sort">
+                            <option value="newest">Newest</option>
+                            <option value="oldest">Oldest</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="items">Items:</label>
+                            <select id="items">
+                            <option value="A/C">A/C</option>
+                            <option value="Refridgerator">Refridgerator</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="searchBar">
+                        <input type="search" name="" id="" placeholder="Search item">
+                        <span class="material-icons-sharp">search</span>
+                    </div>
                     
-                <?php endforeach;?>
                 </div>
-                <?php endif; ?>
             </div>
-        <!-- </main>  -->
 
-        <!-- End of Main -->
+            <!-- <div class="jobs"> -->
+            <div class="recent-orders">
+                <!-- <h4>dataOnly for demonstration purposes</h4> -->
+                <table>
+                    <?php for($i=0;$i<10;$i++):?>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div>
+                                    <img src="<?=ROOT?>/assets/images/noimage.jpg" alt="">
+                                </div>
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <div class="details">
+                                        <h4><span class="material-icons-sharp">place</span>Maharagama</h4>
+                                        <h4><span class="material-icons-sharp">event</span>2023/04/02</h4>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn">Apply Job</a>
+                                        <a class="btn">View Job</a>
+                                    </div>  
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endfor;?>
 
-        <!-- <div class="right"> -->
-            
-            <!-- End of top -->
-
-        <!-- </div> -->
+                    
+                </table>
+                <a href="#">Load More</a>
+            </div>            
+            <!-- </div>     -->
         </main>
     </div>
 

@@ -83,7 +83,7 @@ h2{
 }
 
 h3{
-    font-size: 0.87rem;
+    font-size: 0.6rem;
 }
 
 h4{
@@ -179,6 +179,7 @@ aside .sidebar a{
     position: relative;
     height :3.7rem;
     transition: all 300ms ease;
+    font-size: medium;
 }
 
 aside .sidebar a span{
@@ -248,25 +249,29 @@ main .date p{
 /*start summary */
 
 main .summary{
-    margin: 1.5rem 0;
+    margin: 1rem 2rem;
+    
 }
 
 main .summary h2{
     color: #05B2E9;
     font-size: 1.2rem;
+    margin: 2em 0em;
 }
 
 main .summaryBoxes {
     display: flex;
     gap: 1rem;
-    margin: 1rem 1rem;
+    margin: 3rem 1rem; 
+    height: 35vh;
 }
 
 main .summaryBox {
-    box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);
-    border-radius: 30px;
+    box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%); 
+    border-radius: 30px; 
     transition: all 300ms ease;
-    width: 330px;
+    width: 200px;
+    height: 200px;
 }
 
 main .summaryBox:hover{
@@ -274,14 +279,24 @@ main .summaryBox:hover{
 }
 
 main .summaryBox h2{
-    margin: 1rem 0 0 4rem;
+    margin-top: 1rem;
+    color: #000106;
+    font-weight: 700;
+    font-size: small;
     /* font-size: 0.9rem; */
 }
 
+main.summary.dp{
+    justify-content: center;
+    width: auto;
 
+
+
+}
 main .summary .middle{
     width: 19rem;
     font-weight: 400;
+    margin-top: 1rem;
 }
 
 main .summary .middle small{
@@ -309,8 +324,10 @@ main .summary .middle div{
 main .summaryBox h3{
     color: #46535D;
     font-weight: 500;
+    font-size: 0.89rem;
     
 }
+
 
 .btn_action{
     border-radius: 30px;
@@ -338,6 +355,7 @@ main .summaryBox h3{
     top: 2rem;
 }
 .mainhead{
+    
     display: flex;
     gap: 13.5rem;
     justify-content: space-around;
@@ -356,7 +374,7 @@ main .modarotorList h2{
 }
 
 main .modarotorList{
-    margin-top: 0.9rem;
+    margin-top: 2rem;
 }
 
 main .modarotorList h2{
@@ -380,10 +398,12 @@ main .modarotorList table{
     text-align: center;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    height: 30vh;
 }
 
 main .modarotorList table:hover{
     box-shadow: none;
+    
 }
 
 main table tbody td{
@@ -402,8 +422,8 @@ main .modarotorList a{
 /* Right CSS */
 
 .heading{
-    margin-top: 1.4rem;
-    margin-right: 1rem;
+    /*margin-top: 1.4rem;*/
+    margin-right: -10rem;
 }
 
 .heading .top{
@@ -447,3 +467,107 @@ main .modarotorList a{
     gap: 2rem;
     text-align: right;
 }
+
+.dark-theme{
+    --primary-color:#000106;
+    --secondary-color:#fff;
+}
+
+.main .summary .boxContainer{
+    margin: auto;
+    margin-top: 20%;
+    position: relative;
+    width: 500px;
+    height: 42px;
+    border: 4px solid #2980b9;
+    padding: 0px 10px;
+    border-radius: 50px;
+
+
+}
+.main .summary .elementsContainer{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+
+}
+.main .summary .search{
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 0px 5px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family:"Nunito";
+    color: #424242;
+    font-weight: 500;
+
+
+}
+.main .summary .search:focus{
+    outline: none;
+
+}
+.main .summary .material-icons{
+    font-size: 25;
+    color: #2980b9;
+}
+
+main .top{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    
+    
+    
+}
+main .top .div{
+    display: flex;
+}
+
+main .summary .summaryBox .div{
+    align-items: center;
+}
+main .summary .summaryBox .middle .guy{
+    align-items: center;
+    
+}
+main .top .filter{
+    
+}
+/*Search bar*/
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    padding: 0.5em 2em;
+    font-size: 16px;
+    border-radius: 10px 10px 10px 1px;
+    border: 1px solid gray;
+    flex-grow: 10;
+  }
+  
+  button[type="submit"] {
+    padding: 0.5em 1em;
+    background-color: lightgray;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid gray;
+    cursor: pointer;
+  }
+  /*AddItem btn*/
+  #filter-btn {
+    padding: 1em 5em;
+    background-color: rgb(41, 182, 238);
+    border: 1px solid rgb(10, 12, 10);
+    border-radius: 20px 20px 20px 20px;
+    cursor: pointer;
+  }
+
+  main.summary.dp {
+    margin: 5rem 2rem;
+  }
+  
+  

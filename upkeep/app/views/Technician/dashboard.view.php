@@ -35,12 +35,12 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?=ROOT?>/Technician/Findjobs" >
                     <span class="material-icons-sharp">work</span>
                     <h3>Find Jobs</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?=ROOT?>/Technician/Orders" >
                     <span class="material-icons-sharp">list_alt</span>
                     <h3>Orders</h3>
                 </a>
@@ -51,19 +51,19 @@
                 </a>
 
 
-                <a href="#">
+                <a href="<?=ROOT?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
 
 
-                <a href="#">
+                <a href="<?=ROOT?>/Coversation">
                     <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
+                    <h3>Conversation</h3>
                     <span class="message-count">11</span>
                 </a>
 
-                <a href="#">
+                <a href="<?=ROOT?>/Technician/Statistics">
                     <span class="material-icons-sharp">analytics</span>
                     <h3>Statistics</h3>
                 </a>
