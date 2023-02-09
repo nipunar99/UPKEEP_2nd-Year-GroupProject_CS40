@@ -80,7 +80,7 @@
 
         <main>
             <div class="top">
-                <h1>Find Jobs</h1>
+                <div><h1>Find Jobs</h1></div>
                 <div class="right">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
@@ -103,16 +103,63 @@
                 </div>
             </div>
 
-            <div class="toolbar">
+            <div class="Description">
+                <p>The "Find Jobs" feature simplifies job search and dispatch for technicians. 
+                    It enables technicians to quickly locate and track maintenance and repair 
+                    jobs based on location, priority and status. The feature provides job information, 
+                    such as equipment type, issue and customer details, so technicians can arrive 
+                    prepared and ready to resolve the issue. The feature enhances the overall maintenance 
+                    and repair operations, making it easier for technicians to stay organized and prioritize
+                    their tasks.</p>
                 
             </div>
-            
+            <div class="toolbar">
+                <div class="filter-search">
+                    <div>
+                    <div class="filter-container">
+                        <div class="filter-item">
+                            <label for="category">Category:</label>
+                            <select id="category">
+                            <option value="all">All</option>
+                            <option value="category1">Category 1</option>
+                            <option value="category2">Category 2</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="sort">Sort:</label>
+                            <select id="sort">
+                            <option value="newest">Newest</option>
+                            <option value="oldest">Oldest</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="items">Items:</label>
+                            <select id="items">
+                            <option value="A/C">A/C</option>
+                            <option value="Refridgerator">Refridgerator</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="searchBar">
+                        <input type="search" name="" id="" placeholder="Search item">
+                        <span class="material-icons-sharp">search</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="jobs"> -->
             <div class="recent-orders">
                 <!-- <h4>dataOnly for demonstration purposes</h4> -->
                 <table>
+                    <?php for($i=0;$i<10;$i++):?>
                     <tr>
                         <td>
                             <div class="order">
+                                <div>
+                                    <img src="<?=ROOT?>/assets/images/noimage.jpg" alt="">
+                                </div>
                                 <div class="description">
                                     <h1>Need a A/C Technician</h1>
                                     <p>Need to repair the fans of the air condition which are broken due to rusting. 
@@ -122,37 +169,25 @@
                                     <a>AC Fan</a>
                                 </div>
                                 <div class="action">
-                                    <h4>Date</h4>
-                                    <h4>type</h4>
-                                    <button>Apply Job</button>
+                                    <div class="details">
+                                        <h4><span class="material-icons-sharp">place</span>Maharagama</h4>
+                                        <h4><span class="material-icons-sharp">event</span>2023/04/02</h4>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn">Apply Job</a>
+                                        <a class="btn">View Job</a>
+                                    </div>  
                                 </div>
                             </div>
                         </td>
                     </tr>
+                    <?php endfor;?>
 
-                    <tr>
-                        <td>
-                            <div class="order">
-                                <div class="description">
-                                    <h1>Need a A/C Technician</h1>
-                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
-                                        The fan is making a strange noice when working
-                                    </p>
-                                    <a>AC Repair</a>
-                                    <a>AC Fan</a>
-                                </div>
-                                <div class="action">
-                                    <h4>Date</h4>
-                                    <h4>type</h4>
-                                    <button>Apply Job</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    
                 </table>
-                <a href="#">Show All</a>
+                <a href="#">Load More</a>
             </div>            
-        
+            <!-- </div>     -->
         </main>
     </div>
 
