@@ -36,7 +36,7 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/itemowner/item" >
+                <a href="<?= ROOT ?>/itemowner/item">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item</h3>
                 </a>
@@ -52,7 +52,7 @@
                 </a>
 
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Conversation">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Conversation</h3>
                     <span class="message-count">11</span>
