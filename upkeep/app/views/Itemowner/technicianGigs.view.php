@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="action-bar">
-                                <a href="" class="view">View</a>
+                                <a href="<?= ROOT ?>/itemowner/ViewGig/selectGig/<?=$gig->gig_id?>" class="view">View</a>
                             </div>
                         </div>
                     
