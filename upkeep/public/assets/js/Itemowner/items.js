@@ -115,7 +115,6 @@ function ajax_getItems(){
 
             for (var a = 0; a < json.length; a++) {
                 html += "<div >";
-                html += "<span class='material-icons-sharp'>analytics</span>";
                 html += "<div class='middle'>";
                 html += "<div class='left'>";
                 html += "<h3>"+json[a].item_name+"</h3>";
@@ -128,7 +127,7 @@ function ajax_getItems(){
                 html += "<form  method='post'>";
                 html +="<input  style='display:none;' type='text' name='item_id' value='"+json[a].item_id+"'>";
                 html +="<input  style='display:none;' type='text' name='owner_id'value='"+json[a].owner_id+"'>";
-                html +="<div class='button'> <input type='submit' value='More Details'></div></form></div></div></div>";
+                html +="<div class='button moreBtn'> <input type='submit' value='More Details' style='background: navajowhite;background: none;'></div></form></div></div></div>";
             }
             document.querySelector(".insight").innerHTML = html;
         }
