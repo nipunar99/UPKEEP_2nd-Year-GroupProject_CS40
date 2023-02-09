@@ -4,7 +4,7 @@ class Home {
 
     use Controller;
     public function index (){
-        
+        echo "here";
 
         // if(!isset($_SESSION['user_name'])){
             $this->view('home');

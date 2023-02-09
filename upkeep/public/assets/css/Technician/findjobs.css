@@ -1,0 +1,13 @@
+@import "general.css";
+
+.container{
+    display: grid;
+    grid-template-columns: 15rem auto;
+}
+
+
+/* Recent orders */
+table tr td .order {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
