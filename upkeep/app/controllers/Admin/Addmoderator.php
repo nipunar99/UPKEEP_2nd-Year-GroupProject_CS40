@@ -19,9 +19,14 @@ class Addmoderator {
                 $data["errors"] = $user->errors; */
                 $mod->insert($_POST);
                 redirect("Admin/Addmoderator");
+                
+                
+                
+
 
              }
              $this->view('Admin/addmoderator');
+             
          }
          else{
              redirect("Home/home");
