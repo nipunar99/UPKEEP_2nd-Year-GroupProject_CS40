@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/itemtemplate.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/itemmaintenance.css">
 </head>
 <body>
     <div class="container">
@@ -30,42 +30,42 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
+                <a href="<?=ROOT?>/Admin/Admindashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Moderator/Suggestion">
+                <a href="<?=ROOT?>/Admin/VerifyRequest">
                     <span class="material-icons-sharp">help_outline</span>
-                    <h3>Suggestions</h3>
+                    <h3>Verification Request</h3>
                 </a>
 
-                <a href="#" class="active">
-                    <span class="material-icons-sharp">view_in_ar</span>
-                    <h3>Item Templates</h3>
+                <a href="<?=ROOT?>/Admin/Addmoderator">
+                    <span class="material-icons-sharp">person</span>
+                    <h3>Moderators</h3>
                 </a>
-
-                <a href="<?= ROOT ?>/Moderator/Complaint">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Complaints</h3>
-                </a>
-
-                <!-- <a href="#" >
+                <a href="<?=ROOT?>/Admin/Technician">
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a> -->
+                <a href="<?=ROOT?>/Admin/Complaints">
+                    <span class="material-icons-sharp">error</span>
+                    <h3>Complaints</h3>
+                </a>
 
-                <a href="<?= ROOT ?>/Moderator/Statistics">
-                    <span class="material-icons-sharp">settings</span>
+                <a href="#"class="active">
+                    <span class="material-icons-sharp">view_in_ar</span>
+                    <h3>Item Templates</h3>
+                </a>
+
+                <a href="<?=ROOT?>/Admin/Statistic">
+                    <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                
+                <a href="<?=ROOT?> /Home/home">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -122,29 +122,31 @@
                         <thead>
                        
                             <tr>
-                                <th>Item</th>
+                                <th>Item template Name</th>
                                 <th>Item type</th>
                                 <th>Category</th>
                                 <th>Status</th>
-                                <th>Action</th>
                                 <!-- <th>Description</th> -->
                                 <!-- <th>Esti.lifespan</th> -->
                             </tr>
                         </thead>
                         <tbody>
-            
-                <?php if(!empty($result)):?>
-                    <?php foreach($result as $row):?>
-                        <tr>
-                            <td><div class="image"><img src="<?=ROOT?>/assets/images/uploads/<?=$row->image?>"></div></td>
-                            <td><?=$row->item_type?></td>
-                            <td><?=$row->category?></td>
-                            <td><?=$row->status?></td>
-                            <td><a href="<?= ROOT?>/Moderator/Item/viewItem/<?=$row->id?>"><button><span class="material-icons-sharp">view_list</span></button>&nbsp;&nbsp;<button><span class="material-icons-sharp">delete</span></button></td>                 
-                        </tr>
-                    <?php endforeach;?>
-                <?php endif;?>
-            
+            <?php 
+                if(!empty($result)) {
+                    foreach($result as $row)
+                        echo "
+                        <a href='".ROOT."/Moderator/Item/viewItem/".$row->id."'>
+                            <tr>
+                                <td>".'<div class="image"><img src="http://localhost/upKeep/upkeep/public/assets/images/uploads/'.$row->image.'"</div>', "" .$row->itemtemplate_name.'<br><ul><li>'.$row->description.'</li></ul>'."</td>
+                                <td>".$row->item_type."</td>
+                                <td>".$row->category."</td>
+                                <td>".$row->status."</td>
+                                                        
+                            </tr>
+                        </a>
+                        ";
+                }
+            ?>
             
             <!-- <div class="insight">
                 <div class="itemTemplateList" onchange="showUser(this.th)">

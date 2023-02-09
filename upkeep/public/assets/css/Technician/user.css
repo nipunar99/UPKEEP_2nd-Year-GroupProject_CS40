@@ -181,6 +181,9 @@
     background: var(--color-danger);
 }
 
+.profile-photo>img{
+    width:44px;
+}
 
 /*card for basic info*/
 main .dashItem {

@@ -1,13 +1,12 @@
 <?php 
 
-class Itemtemplates 
+class Items
 {
     use Model;
 
     protected $table = "itemtemplate";
 
     protected $allowedColumns = [
-        "id",
         "itemtemplate_name",
         "item_type",
         "status",
@@ -27,16 +26,6 @@ class Itemtemplates
             echo $e->getMessage();
         }        
         }
-        // public function viewItem($data){
-        //     try{
-        //         $data["moderator_id"] = $_SESSION['ID'];
-        //         $this->insert($data);   
-        //     }
-        //     catch(PDOException $e){
-        //         echo $e->getMessage();
-        //     }        
-            // $sql = "select * from `itemtemplate` where id=:id";
-        // }  
 }
 
           
