@@ -35,7 +35,7 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#" class="active">
+                <a href="<?= ROOT ?>/itemowner/item" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item</h3>
                 </a>
@@ -79,7 +79,7 @@
 
         <main>
             <div class="mainHeader">
-                <h1>Dashboard</h1>
+                <h1>Documentation</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -122,11 +122,11 @@
                 <div class="item">
 
                     <div class="itemImg">
-                        <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/upload/GEO-266.png" alt="">
                         <h2>
-                            Air Conditioner
+                        GEO Inverter Refrigerator
                         </h2>
-                        <h3>Samsung</h3>
+                        <h3>Singer</h3>
                     </div>
 
                     <div class="itemDetails">
@@ -157,8 +157,7 @@
                             </div>
                         </div>
                         <div class="btnDetails">
-                            <button class="addItem">Add an Item</button>
-                            <button class="availItem">Available Items</button>
+                            <button class="addItem">Edit Item Details</button>
                         </div>
                     </div>
                     

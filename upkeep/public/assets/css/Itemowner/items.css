@@ -266,7 +266,7 @@ main .insight{
 }
 
 main .insight > div{
-    max-height: 15rem;
+    max-height: 13rem;
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -400,6 +400,9 @@ main .recent-orders a{
 
 main .mainHeader{
     display: flex;
+}
+main .mainHeader h1{
+    color: #05B2E9;
 }
 main .mainHeader h1{
     position: relative;

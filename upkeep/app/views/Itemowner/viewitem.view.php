@@ -78,19 +78,19 @@
 
         <main class="main1">
             <div class="boardtitle">
-                <h1>Items</h1>
+                <h1>Item</h1>
             </div>
             <div class="date">
                 <p>14/11/2022</p>
             </div>
 
             <div class="insight">
-                
+                    
                 <div class="mainDisplay1">
                     <div class="middle">
                         <span class="material-icons-sharp">construction</span>
                         <div class="left">
-                            <h3><span>12</span></h3>
+                            <h3><span>5</span></h3>
                             <h3>Days more</h3>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                             <h3>Days left</h3>
                         </div>
                     </div>
-                    <h4>Replace or clean Air Conditioner filter</h4>
+                    <h4>Clean the exterior and interior</h4>
                 </div>
 
                 <div class="addMaitenanceEm" role="button">

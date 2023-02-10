@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gig.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Itemowner/gig.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
 
@@ -151,11 +151,11 @@
                             <div class="comment-part">
                                 <div class="user-img-part">
                                     <div class="user-img">
-                                        <img src="/demo/man01.png">
+                                    <img src="<?= ROOT ?>/assets/images/profile-5.jpg" alt="">
                                     </div>
                                     <div class="user-text">
                                         <h4>8 days ago</h4>
-                                        <p>Tom kok</p>
+                                        <p>Shashika Janith</p>
                                         <span>Report</span>
                                     </div>
                                     <div style="clear: both;"></div>
@@ -176,11 +176,11 @@
                             <div class="comment-part">
                                 <div class="user-img-part">
                                     <div class="user-img">
-                                        <img src="/demo/man02.png">
+                                    <img src="<?= ROOT ?>/assets/images/profile-6.jpg" alt="">
                                     </div>
                                     <div class="user-text">
                                         <h4>30 days ago</h4>
-                                        <p>Win Rool</p>
+                                        <p>Lahiru Kavishka</p>
                                         <span>Report</span> 
                                     </div>
                                     <div style="clear: both;"></div>
@@ -239,8 +239,7 @@
                                 <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
                             </div>
                             <div class="actions">
-                                <a href="#" class="btn btn-primary">View Profile</a>
-                                <a href="#edit" class="btn btn-primary">Edit Gig</a>
+                                <a href="#" class="btn btn-primary">Hire Me</a>
                             </div>
                     </div>
                 </div>

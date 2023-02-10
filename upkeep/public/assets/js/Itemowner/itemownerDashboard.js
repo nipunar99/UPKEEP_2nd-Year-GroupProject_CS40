@@ -55,7 +55,7 @@ function ajax_getAllReminders() {
 
             var html="";
             for(var i=0; i<json.length; i++){
-                html+= "<div class='maintenceBox show-modal1' role='button'><h3>Maintenance Schedule</h3>";   
+                html+= "<div class='maintenceBox show-modal"+(i+2)+"' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span>";

@@ -2,7 +2,7 @@
 const districtSelect = document.getElementById("itemtype");
 
 const district = ['Refrigerator','Air Conditioner','Washer','TV','Solor Panel',
-'Projector','AMP','Home Theater', 'Other'];
+'Projector','Camera','PC','Laptop','Vehicle','Other'];
 
 (function populateDistrict (){
     for(let i=0; i<district.length; i++){
@@ -123,7 +123,7 @@ function ajax_getItems(){
                 html += "<div class='progress'>";
                 html += "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[a].image+"'</div>";
                 html += "</div></div>";
-                html += "<div>";
+                html += "<div style='position: relative;top: 1rem;'>";
                 html += "<form  method='post'>";
                 html +="<input  style='display:none;' type='text' name='item_id' value='"+json[a].item_id+"'>";
                 html +="<input  style='display:none;' type='text' name='owner_id'value='"+json[a].owner_id+"'>";

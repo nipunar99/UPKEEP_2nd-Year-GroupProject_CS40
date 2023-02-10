@@ -194,7 +194,7 @@ function ajax_getAllReminders(){
             if (json.length > 0){
                 
                 for (var a = 0; a < json.length; a++) {
-                    html += "<div class='maintenceBox'>";
+                    html += "<div class='maintenceBox show-modal1' role='button'>";
                     html += "<h3>Maintenance Schedule</h3>";
                     html += "<div class='middle'>";
                     html += "<div><span class='material-icons-sharp'>chat_bubble_outline</span>";
@@ -205,7 +205,7 @@ function ajax_getAllReminders(){
                     html += "<h4>"+json[a].sub_component+"</h4></div>";
                     html += "<div class='maintenanceStatus'>";
                     html += "<span class='material-icons-sharp'>error_outline</span>";
-                    html += "<h4>"+json[a].status+"</h4></div>";
+                    html += "<h4>pending</h4></div>";
                     html += "</div><button class='btn_action'>Action</button></div>";
                 }
             }else{
