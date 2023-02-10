@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/findjobs.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/orders.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -37,12 +38,12 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Technician/Findjobs" class="active" >
+                <a href="<?=ROOT?>/Technician/Findjobs" >
                     <span class="material-icons-sharp">work</span>
                     <h3>Find Jobs</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Technician/Orders" >
+                <a href="<?=ROOT?>/Technician/Orders" class="active">
                     <span class="material-icons-sharp">list_alt</span>
                     <h3>Orders</h3>
                 </a>
@@ -80,7 +81,7 @@
 
         <main>
             <div class="top">
-                <div><h1>Find Jobs</h1></div>
+                <div><h1>My Orders</h1></div>
                 <div class="right">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
@@ -103,16 +104,7 @@
                 </div>
             </div>
 
-            <div class="Description">
-                <p>The "Find Jobs" feature simplifies job search and dispatch for technicians. 
-                    It enables technicians to quickly locate and track maintenance and repair 
-                    jobs based on location, priority and status. The feature provides job information, 
-                    such as equipment type, issue and customer details, so technicians can arrive 
-                    prepared and ready to resolve the issue. The feature enhances the overall maintenance 
-                    and repair operations, making it easier for technicians to stay organized and prioritize
-                    their tasks.</p>
-                
-            </div>
+            
             <div class="toolbar">
                 <div class="filter-search">
                     <div>
@@ -149,44 +141,99 @@
                 </div>
             </div>
 
-            <!-- <div class="jobs"> -->
-            <div class="recent-orders">
-                <!-- <h4>dataOnly for demonstration purposes</h4> -->
-                <table>
-                    <?php for($i=0;$i<10;$i++):?>
-                    <tr>
-                        <td>
-                            <div class="order">
-                                <div>
-                                    <img src="<?=ROOT?>/assets/images/noimage.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <h1>Need a A/C Technician</h1>
-                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
-                                        The fan is making a strange noice when working
-                                    </p>
-                                    <a>AC Repair</a>
-                                    <a>AC Fan</a>
-                                </div>
-                                <div class="action">
-                                    <div class="details">
-                                        <h4><span class="material-icons-sharp">place</span>Maharagama</h4>
-                                        <h4><span class="material-icons-sharp">event</span>2023/04/02</h4>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="btn apply">Apply Job</a>
-                                        <a class="btn view">View Job</a>
-                                    </div>  
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php endfor;?>
+            <div class="warpper">
+                <input class="radio" id="one" name="group" type="radio" checked>
+                <input class="radio" id="two" name="group" type="radio">
+                <div class="tabs">
+                    <label class="tab" id="one-tab" for="one">UPCOMMING ORDERS</label>
+                    <label class="tab" id="two-tab" for="two">COMPLETED ORDERS</label>
+                </div>
+                <div class="panels">
+                    <div class="panel" id="one-panel">
+                        <div class="recent-orders">
+                            <table>
+                                <?php for($i=0;$i<10;$i++):?>
+                                <tr>
+                                    <td>
+                                        <div class="order">
+                                            
+                                            <div class="left date">
+                                                <h1>Apr</h1>
+                                                <h4>02</h4>
+                                            </div>
+                                        
+                                            <div class="description">
+                                                <h1>Need a A/C Technician</h1>
+                                                <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                                    The fan is making a strange noice when working
+                                                </p>
+                                                <a>AC Repair</a>
+                                                <a>AC Fan</a>
+                                            </div>
+                                            <div class="action">
+                                                <div class="details">
+                                                    <h4><span class="material-icons-sharp">place</span>Maharagama</h4>
+                                                    <h4><span class="material-icons-sharp">event</span>2023/04/02</h4>
+                                                </div>
+                                                <div class="actions">
+                                                    <a class="btn apply">Complete</a>
+                                                    <a class="btn reschedule">Request Reschedule</a>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php endfor;?>
 
-                    
-                </table>
-                <a href="#">Load More</a>
-            </div>            
+                                
+                            </table>
+                            <a href="#">Load More</a>
+                        </div> 
+                    </div>
+                    <div class="panel" id="two-panel">
+                        <div class="recent-orders">
+                            <table>
+                                <?php for($i=0;$i<10;$i++):?>
+                                <tr>
+                                    <td>
+                                        <div class="order">
+                                            
+                                            <div class="left success">
+                                                <span class="material-icons-sharp">task_alt</span>
+                                            </div>
+                                        
+                                            <div class="description">
+                                                <h1>Need a A/C Technician</h1>
+                                                <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                                    The fan is making a strange noice when working
+                                                </p>
+                                                <a>AC Repair</a>
+                                                <a>AC Fan</a>
+                                            </div>
+                                            <div class="action">
+                                                <div class="details">
+                                                    <h4><span class="material-icons-sharp">place</span>Maharagama</h4>
+                                                    <h4><span class="material-icons-sharp">event</span>2023/04/02</h4>
+                                                </div>
+                                                <div class="actions">
+                                                    <a class="btn view">View Report</a>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php endfor;?>
+
+                                
+                            </table>
+                            <a href="#">Load More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="jobs"> -->
+                       
             <!-- </div>     -->
         </main>
     </div>

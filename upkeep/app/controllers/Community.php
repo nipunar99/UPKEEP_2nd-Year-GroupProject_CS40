@@ -5,7 +5,11 @@ class Community {
     use Controller;
     public function index (){
         if($_SESSION['USER'] == $_SESSION['user_id']){
-            $this->view('community');
+            if($_SESSION['user_role'] == 'technician'){
+                $this->view('Technician/community');
+            }else{
+                $this->view('community');
+            }
         }else{
             redirect("Home/home");
         }

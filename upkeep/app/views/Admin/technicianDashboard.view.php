@@ -75,7 +75,7 @@
         </aside>
 
         <main>
-            <div class="mainhead" style="margin-left:25rem;gap=5rem;margin-top 10px;">
+            <div class="mainhead" style="margin-left:25rem; gap:5rem; margin-top:10px;">
                 
                 <h1>Technician</h1>
 
