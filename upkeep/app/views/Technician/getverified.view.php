@@ -37,7 +37,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Hey,<b>Saman</b></p>
+                        <p>Hey,<b><?=$_SESSION['user_name']?></b></p>
                         <small class="text-muted">Technician</small>
                     </div>
                     <div class="profile-photo">
@@ -65,14 +65,26 @@
                         <div class="icon">
                             <span class="material-icons-sharp">phone_iphone</span>
                         </div>
+                        <h1>Contact Verification</h1>
                     </div>
                     <div class="method-card">
-                        
+                        <div class="icon">
+                            <span class="material-icons-sharp">how_to_reg</span>
+                        </div>
+                        <h1>identity Verification</h1>
                     </div>
                     <div class="method-card">
-                        
+                        <div class="icon">
+                            <span class="material-icons-sharp">person</span>
+                        </div>
+                        <h1>Setup profile</h1>
                     </div>
                 </div>
+                <div class="button">
+                    <a class="btn viewcommunity" href="<?=ROOT?>/technician/dashboard">View Community</a>
+                    <a class="btn logout" href="<?=ROOT?>/Signout">Logout</a>
+                </div>
+
             </div>
                 
         </main>
@@ -89,20 +101,6 @@
             <!-- <div class="form"> -->
                 <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
                     <div class="gigDetails">
-                        <div class="inline">
-                            <div class="input-box inline">
-                                <span class="details">Choose Item</span>
-                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
-                                <select id="item" name="item">
-                                    <option value="<?=$gigDetails[0]->item?>"><?=$gigDetails[0]->item?></option>
-                                </select>
-                            </div>
-                            
-                            <div class="input-box inline">
-                                <span class="details">Location</span>
-                                <input type="text" name="location" id="location" required placeholder="Enter Description about item" value="<?=$gigDetails[0]->location?>">
-                            </div>
-                        </div>
 
                         <div class="input-box">
                             <span class="details">Title</span>
