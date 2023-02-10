@@ -395,7 +395,7 @@ main .mainHeader{
 .text{
     display: flex;
 }
-.pie-view {
+.pie-view1 {
     /* margin-top: 300px; */
     display: block;
     position: relative;
@@ -407,4 +407,18 @@ main .mainHeader{
         pink 70deg, 
         lightblue 0 235deg, 
         orange 0);
+}
+.pie-view2{
+    display: block;
+    position: relative;
+  left: 150px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: conic-gradient(pink 80%, lightblue);
+    /* background-image: conic-gradient(
+        pink 60%, 
+        lightblue 40% , 
+    ); */
+
 }

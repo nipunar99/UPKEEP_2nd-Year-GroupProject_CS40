@@ -10,6 +10,7 @@ class Itemtemplates
         "id",
         "itemtemplate_name",
         "item_type",
+        "image",
         "status",
         "description",
         "category",

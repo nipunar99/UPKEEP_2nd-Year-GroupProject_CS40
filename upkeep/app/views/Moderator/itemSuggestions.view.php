@@ -112,9 +112,9 @@
                     </div>
                     <div class="tasks">
                         <h3 class="new">Current Suggested Tasks</h3>
-                        <h4>Task 1</h4>
-                        <h4>Task 2</h4>
-                        <h4>Task 3</h4>
+                        <h4>34</h4>
+                        <!-- <h4>Task 2</h4>
+                        <h4>Task 3</h4> -->
                     </div>
                 </div>
             </div>

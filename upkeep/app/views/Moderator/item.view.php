@@ -77,26 +77,26 @@
                                 foreach($result as $result)
                              echo " 
                         <div class='img'>
-                          <img src=".ROOT.$result->image.">
+                          <img src=".ROOT."/assets/images/uploads/".$result->image.">
                         </div>
                         <div class='view-1-text'>
                            
                                 <h2>".$result->item_type."</h2>
                             <div class='name'>
                                 <h5>Tempalte Name</h5>
-                                <h5>".$result->itemtemplate_name."</h5>
+                                <p>".$result->itemtemplate_name."</p>
                             </div>
                             <div class='type'>
                                 <h5>Item Type</h5>
-                                <h5>".$result->item_type."</h5>
+                                <p>".$result->item_type."</p>
                             </div>
                             <div class='date'>
                                 <h5>Added date</h5>
-                                <h5>".$result->itemtemplate_name."</h5>
+                                <p>".$result->itemtemplate_name."</p>
                             </div>
                             <div class='lifespan'>
                                 <h5>Esti.li.span</h5>
-                                <h5>10 Years</h5>
+                                <p>1".$result->lifespan."Years</p>
                             </div>
                             
                             ";
@@ -111,7 +111,22 @@
                     </div>
 
                     <div class="view-2">
-                        <h2>Usage</h2>
+                    <div class="text">
+                            <div class="text-1">
+                                <p>Users</p>
+                                <h1>250</h1>
+                                <p>12/11/2021</p>
+                            </div>
+                            <div class="text-2">
+                                <p>Total Users 110</p>
+                                <p>Item Users 10</p>
+                                
+                            </div>
+                        </div>
+                        <div class="pie-view">
+
+                        </div>
+                        <!-- <h2>Usage</h2>
                         <div class="view-2-text">
                             <div class="users">
                                 <h3>Current Users</h3>
@@ -123,7 +138,7 @@
                                 <h4>Task 2</h4>
                                 <h4>Task 3</h4>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="maintenances">

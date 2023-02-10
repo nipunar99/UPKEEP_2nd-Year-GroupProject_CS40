@@ -98,24 +98,24 @@
                                 <p>Banned 10</p>
                             </div>
                         </div>
-                        <div class="pie-view">
+                        <div class="pie-view1">
 
                         </div>
                     </div>
                     <div class="card-2">
                         <div class="text">
                             <div class="text-1">
-                                <p>Total Users</p>
-                                <h1>250</h1>
+                                <p>Total Templates</p>
+                                <h1>66</h1>
                                 <p>12/11/2021</p>
                             </div>
                             <div class="text-2">
-                                <p>Technician 110</p>
-                                <p>Item Owners 130</p>
-                                <p>Banned 10</p>
+                                <p>Item Templates 100</p>
+                                <p>Pending Items 10</p>
+                                
                             </div>
                         </div>
-                        <div class="pie-view">
+                        <div class="pie-view2">
 
                         </div>
                     </div>
