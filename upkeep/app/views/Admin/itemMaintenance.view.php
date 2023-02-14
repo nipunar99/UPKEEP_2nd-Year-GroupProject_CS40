@@ -76,9 +76,9 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
+            <div class="mainHeader"style="gap:1rem;">
                 <h1>Items Templates</h1>
-                <div class="right">
+                <div class="right" style="margin-right:3rem;">
                     <div class="top">
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
@@ -111,7 +111,7 @@
                     <input type="search" name="" id="txtHint" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
-                <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
+                <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Maintenance</button></a>
             </div>
             <div class="item-details">
              

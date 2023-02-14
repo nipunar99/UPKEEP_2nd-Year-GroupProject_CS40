@@ -29,7 +29,7 @@
 
             </div>
 
-            <div class="sidebar">
+            <div class="sidebar" style="font-size:10px;">
                 <a href="<?=ROOT?> /Admin/Admindashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
@@ -109,7 +109,7 @@
             <div class="top">
                     <div class="boxContainer">
                         <form action="">
-                            <input type="text" placeholder="Search..." >
+                            <input type="text" placeholder="Search..." style="border-radius:10px 10px 10px 10px;" >
                             
                             
                             <button type="submit">
@@ -134,61 +134,85 @@
                   
                 <div class="summaryBoxes">
                     
-                    <a href ="<?=ROOT?>/Admin/ItemMaintenance">
+                    
                         <div class="summaryBox">
+                            <a href ="<?=ROOT?>/Admin/ItemMaintenance">
                                 <div class="dp">
                                     <div>
                                         <span class="guy"><h2>Washing Machine</h2></span>
-                                        </div>
+                                    </div>
                                     
                                 </div>
                                 <div class="middle">
                                     <img src="<?=ROOT?>/assets/images/item3.png">
                                     
                                 </div>
+                            </a>
                                 
                         </div>
-                    </a>
+                    
                     <div class="summaryBox">
+                        <a href ="<?=ROOT?>/Admin/ItemMaintenance">
+                            <div class="dp">
+                                <div>
+                                    <span class="guy"><h2>Oven</h2></span>
+                                </div>
+                                
+                            </div>
+                            <div class="middle">
+                                <img src="<?=ROOT?>/assets/images/item4.png">
+                                
+                            </div>
+                        </a>
+                        
+                </div>
+                <div class="summaryBox">
+                    <a href ="<?=ROOT?>/Admin/ItemMaintenance">
                         <div class="dp">
                             <div>
-                                <span class="guy"><h2>Oven</h2></span>
+                                <span class="guy"><h2>AC</h2></span>
+                            </div>
+                            
+                        </div>
+                        <div class="middle">
+                            <img src="<?=ROOT?>/assets/images/item1.png">
+                            
+                        </div>
+                    </a>
+                    
+                </div>
+                    <div class="summaryBox">
+                    <a href ="<?=ROOT?>/Admin/ItemMaintenance">
+                        <div class="dp">
+                            <div>
+                                <span class="guy"><h2>Refrigerator</h2></span>
                                 </div>
                             
                         </div>
                         <div class="middle">
-                            <img src="<?=ROOT?>/assets/images/item4.png">
+                            <img src="<?=ROOT?>/assets/images/item2.png">
                             
                         </div>
+                    </a>
                         
                 </div>
                 <div class="summaryBox">
-                    <div class="dp">
-                        <div>
-                            <span class="guy"><h2>AC</h2></span>
-                            </div>
-                        
-                    </div>
-                    <div class="middle">
-                        <img src="<?=ROOT?>/assets/images/item1.png">
-                        
-                    </div>
-                    
-            </div>
-            <div class="summaryBox">
-                <div class="dp">
-                    <div>
-                        <span class="guy"><h2>Refrigerator</h2></span>
+                    <a href ="<?=ROOT?>/Admin/ItemMaintenance">
+                        <div class="dp">
+                            <div>
+                                <span class="guy"><h2>Refrigerator</h2></span>
+                                </div>
+                            
                         </div>
+                        <div class="middle">
+                            <img src="<?=ROOT?>/assets/images/item2.png">
+                            
+                        </div>
+                    </a>
                     
                 </div>
-                <div class="middle">
-                    <img src="<?=ROOT?>/assets/images/item2.png">
-                    
-                </div>
-                
-        </div>
-                <div class="summaryBox">
+            <div class="summaryBox">
+                <a href ="<?=ROOT?>/Admin/ItemMaintenance">
                     <div class="dp">
                         <div>
                             <span class="guy"><h2>Refrigerator</h2></span>
@@ -199,21 +223,8 @@
                         <img src="<?=ROOT?>/assets/images/item2.png">
                         
                     </div>
-                    
+                </a>
             </div>
-            <div class="summaryBox">
-                <div class="dp">
-                    <div>
-                        <span class="guy"><h2>Refrigerator</h2></span>
-                        </div>
-                    
-                </div>
-                <div class="middle">
-                    <img src="<?=ROOT?>/assets/images/item2.png">
-                    
-                </div>
-                
-        </div>
                     
                 
                 
@@ -227,6 +238,7 @@
                     
                 </div>
             </div>
+        
 
             
 
