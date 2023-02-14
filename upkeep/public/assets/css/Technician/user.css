@@ -54,6 +54,7 @@
     margin-top: 1rem;
 }
 
+
 .right .recent-updates h2{
     margin-bottom: 0.5rem;
 }
@@ -130,8 +131,10 @@
 
 /* Recent order css */
 
-.right .recent-orders{
+.main .recent-orders{
+    height: 50%;
     margin-top: 1rem;
+    overflow-y: scroll;
 }
 
 

@@ -148,12 +148,96 @@
                                     <a>AC Fan</a>
                                 </div>
                                 <div class="action">
+                                    <h4>Date</h4>
                                     <h4>type</h4>
                                     <button>Apply Job</button>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                   
+                    
                 </table>
                 <a href="#">Show All</a>
             </div>
