@@ -44,9 +44,9 @@
                     <span class="material-icons-sharp">person</span>
                     <h3>Moderators</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/Technician">
+                <a href="<?=ROOT?>/Admin/User">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                    <h3>User</h3>
                 </a>
 
                 <a href="<?=ROOT?>/Admin/Complaints">
@@ -199,7 +199,7 @@
                             <h3 style="margin:2rem 0 0 2rem;text-align:left;font-size:15px;color:red;">0702050812</h3>
                         </div>
 
-                        <div class="button-container" style="display: flex;justify-content: space-between;margin:6rem 3rem 0 3rem;">
+                        <div class="button-container" style="display: flex;justify-content: space-between;margin:4rem 2rem 0 3rem;">
                             <button class="first-button" style="margin-right: 10px;
                                 padding: 10px 20px;
                                 font-size: 15px;

@@ -1,219 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/item.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/itemmaintenance.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/itemmaintenance.css">
+
 </head>
+
 <body>
     <div class="container">
+
         <aside>
             <div class="top">
-
-                <div class="logo">
-                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
-                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
-                </div>
-
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                        </span>
-                </div>
-
+                <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
+                <img src="<?= ROOT ?>/assets/images/title.png" alt="">
             </div>
-
             <div class="sidebar">
-                <a href="<?=ROOT?>/Admin/Admindashboard">
+                <a href="<?=ROOT?> /Admin/Admindashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-
-                <a href="<?=ROOT?>/Admin/VerifyRequest">
+                
+                <a href="<?=ROOT?> /Admin/VerifyRequest">
                     <span class="material-icons-sharp">help_outline</span>
-                    <h3>Verification Request</h3>
+                    <h3>Verification Requests </h3>
                 </a>
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
                     <h3>Moderators</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/Technician">
+                <a href="<?=ROOT?>/Admin/User">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                    <h3>User</h3>
                 </a>
-
-                <a href="<?=ROOT?>/Admin/Complaints">
+                
+                <a href="<?=ROOT?> /Admin/Complaints">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#"class="active">
+                <a href="#" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/Statistic">
+                <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
 
-                
-                <a href="<?=ROOT?> /Home/home">
+                <a href="#">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
 
             </div>
-
-
         </aside>
-
         <main>
-            <div class="mainHeader"style="gap:1rem;">
-                <h1>Items Templates</h1>
-                <div class="right" style="margin-right:3rem;">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
+            <div class="mainHeader">
+                <h1>Item Maintenance</h1>
+                <div class="right">
+                    <div class="theme-toggler">
+                        <span class="material-icons-sharp active">light_mode</span>
+                        <span class="material-icons-sharp">dark mode</span>
+                    </div>
+
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey,<b>Saman</b></p>
+                            <small class="text-muted">user</small>
                         </div>
-        
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
+                        <div class="profile-photo">
+                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="insight">
+                <div class="card-main">
+                    <div class="view-1">
+                    <?php
+                            if(!empty($result)){
+                                foreach($result as $result)
+                             echo " 
+                        <div class='img'>
+                          <img src=".ROOT.$result->image.">
+                        </div>
+                        <div class='view-1-text'>
+                           
+                                <h2>".$result->item_type."</h2>
+                            <div class='name'>
+                                <h5>Tempalte Name</h5>
+                                <h5>".$result->itemtemplate_name."</h5>
                             </div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div class='type'>
+                                <h5>Item Type</h5>
+                                <h5>".$result->item_type."</h5>
+                            </div>
+                            <div class='date'>
+                                <h5>Added date</h5>
+                                <h5>".$result->itemtemplate_name."</h5>
+                            </div>
+                            <div class='lifespan'>
+                                <h5>Esti.li.span</h5>
+                                <h5>10 Years</h5>
+                            </div>
+                            
+                            ";
+                            }
+                            ?>
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="view-2">
+                        <h2>Usage</h2>
+                        <div class="view-2-text">
+                            <div class="users">
+                                <h3>Current Users</h3>
+                                <h4>50</h4>
+                            </div>
+                            <div class="tasks">
+                                <h3>Current Suggested Tasks</h3>
+                                <h4>Task 1</h4>
+                                <h4>Task 2</h4>
+                                <h4>Task 3</h4>
                             </div>
                         </div>
                     </div>
-                    <!-- End of top -->
-        
-                    <!-- End of recent updates -->
-        
                 </div>
-    
-            </div>
-            <div class="toolbar">
-                <div class="searchBar">
-                    <input type="search" name="" id="txtHint" placeholder="Search item">
-                    <span class="material-icons-sharp">search</span>
-                </div>
-                <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Maintenance</button></a>
-            </div>
-            <div class="item-details">
-             
-                
-            <div class="insight">
-                <div class="itemTemplateList" onchange="showUser(this.th)">
-                    <table id="templateTable">
-                        <thead>
-                       
-                            <tr>
-                                <th>Item template Name</th>
-                                <th>Item type</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <!-- <th>Description</th> -->
-                                <!-- <th>Esti.lifespan</th> -->
-                            </tr>
-                        </thead>
-                        <tbody>
-            <?php 
-                if(!empty($result)) {
-                    foreach($result as $row)
-                        echo "
-                        <a href='".ROOT."/Moderator/Item/viewItem/".$row->id."'>
-                            <tr>
-                                <td>".'<div class="image"><img src="http://localhost/upKeep/upkeep/public/assets/images/uploads/'.$row->image.'"</div>', "" .$row->itemtemplate_name.'<br><ul><li>'.$row->description.'</li></ul>'."</td>
-                                <td>".$row->item_type."</td>
-                                <td>".$row->category."</td>
-                                <td>".$row->status."</td>
-                                                        
-                            </tr>
-                        </a>
-                        ";
-                }
-            ?>
-            
-            <!-- <div class="insight">
-                <div class="itemTemplateList" onchange="showUser(this.th)">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Item template Name</th>
-                                <th>Item type</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Description</th>
-                                <th>Esti.lifespan</th>
-                                 // <td>".$row->description."</td>
-                                // <td>".$row->lifespan."</td> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-             
-            -->
-                                <!-- <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="warning">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td> -->
-                            
-                            <!-- <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="warning">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="success">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="success">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="success">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr> -->
-                        <!-- </tbody> -->
-                    <!-- </table> -->
-                    <!-- <a href="#">Show All</a> -->
-                </div>
-            </div>
-        </main> 
+                <div class="maintenances">
 
+                    <h2>Maintenance</h2>
+                   <span> <button class="subcategory">&#43</button></span>
+                    
+                    <div class="card-main2">
+                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
+                        <div class="card-1" role="button">
+
+                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                            <h3><b>Maintenance Schedule 1</b></h3>
+                            <p>Clean Air filter</p>
+                            <div class="c-1">
+
+                                <p class="u">Air filter</p>
+                                <h2 class="warning">25</h2>
+                            </div>
+                            </a>
+                        </div>
+                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
+                        <div class="card-2" role="button">
+
+                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                            <h3><b>Non Inverter</b></h3>
+                            <p>Air Conditioner</p>
+                            <div class="c-2">
+                                <h2 class="warning">25</h2>
+                                <p class="u">users</p>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> 
+                        <div class="card-3" role="button">
+
+                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                            <h3><b>Non Inverter</b></h3>
+                            <p>Air Conditioner</p>
+                            <div class="c-3">
+                                <h2 class="warning">25</h2>
+                                <p class="u"> users</p>
+                            </div>
+                            </a>
+                        </div>
+
+                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button"> 
+                        <div class="card-4">
+
+                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                            <h3><b>Non Inverter</b></h3>
+                            <p>Air Conditioner</p>
+                            <div class="c-4">
+                                <h2 class="warning">25</h2>
+                                <p class="u"> users</p>
+                            </div> -->
+                            </a>    </div>
+
+                         </div>
+                    </div>
+                </div>
+        </main>
+        <div class="popupview hidden">
+            <button class="closebtn">&times;</button>
+            <div class="popup-text">
+                <div class="1">
+                    <span class="material-icons-sharp">view_in_ar</span>
+                    <h4>Item name</h4>
+                    <h4><B>Samsung Inverter Windfree AC</B> </h4>
+                </div>
+                <div class="2">
+                    <span class="material-icons-sharp">chat_bubble_outline</span>
+                    <h4>Maintenance task</h4>
+                    <h4><b>Replace HAVC air filters</b></h4>
+                </div>
+                <div class="3">
+                    <span class="material-icons-sharp">construction</span>
+                    <h4>Sub Component</h4>
+                    <h4><b>Air filter</b></h4>
+                </div>
+            </div>
+            <div class="actions">
+                <button>Add to template</button>
+                <button>Edit</button>
+                <button>Reject</button>
+            </div>
+        </div>
+
+
+        <div class="overlayview hidden"></div>
     </div>
-    <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/item.js"></script>
 </body>
+
 </html>

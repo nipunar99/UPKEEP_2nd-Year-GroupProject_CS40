@@ -1,5 +1,5 @@
 <?php
-class Technician{
+class User{
 
     use Controller;
         
@@ -7,7 +7,7 @@ class Technician{
 
         if($_SESSION['USER'] == 'Admin'){
 
-            $this->view('Admin/technicianDashboard');
+            $this->view('Admin/user');
         }else{
             redirect("Home/home");
         }

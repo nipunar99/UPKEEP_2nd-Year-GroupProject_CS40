@@ -44,9 +44,9 @@
                     <span class="material-icons-sharp">person</span>
                     <h3>Moderators</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/Technician">
+                <a href="<?=ROOT?>/Admin/User">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                    <h3>User</h3>
                 </a>
 
                 <a href="<?=ROOT?>/Admin/Complaints">
