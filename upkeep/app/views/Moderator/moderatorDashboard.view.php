@@ -9,33 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/moderatordashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/moderatordashboard.css">
 </head>
 <body>
     <div class="container">
         <aside>
             <div class="top">
 
-                <div class="logo">
+                <!-- <div class="logo"> -->
                     <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
-                </div>
+                <!-- </div> -->
 
-                <div class="close" id="close-btn">
+                <!-- <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
                         </span>
-                </div>
+                </div> -->
 
             </div>
-
             <div class="sidebar">
                 <a href="#" class="active">
-                    <span class="material-icons-sharp">grid_view</span>
+                    <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Suggestion">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
@@ -45,20 +44,20 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaint">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Statistics" >
                     <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                    <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a>
+                    <h3>Logout</h3>
+                </a> -->
 
 <!-- 
                 <a href="#">
@@ -67,10 +66,10 @@
                     <span class="message-count">11</span>
                 </a> -->
 
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
-                </a>
+                </a> -->
 
                 <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
@@ -84,12 +83,12 @@
 
         <main>
             <div class="mainHeader">
-                <h1>Items</h1>
+                <h1>Dashboard</h1>
                 <div class="right">
-                    <div class="top">
-                        <button id="menu-btn">
+                    <!-- <div class="top"> -->
+                        <!-- <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
-                        </button>
+                        </button> -->
         
                         <div class="theme-toggler">
                             <span class="material-icons-sharp active">light_mode</span>
@@ -105,15 +104,15 @@
                                 <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
 
         
                 </div>
     
             </div>
-            <div class="date">
+            <!-- <div class="date">
                 <p>14/11/2022</p>
-            </div>
+            </div> -->
 
             <div class="insight">
                 <div class="mainDisplay1">
@@ -144,84 +143,90 @@
             
             <div class="main-tables">
                 <div class="suggestion">
-                    <h2>Recent Suggestions</h2>
+                    <h2>Recent Item Suggestions</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>Category</th>
+                                <th>Template Name</th>
+                                <th>Item Type</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td class = "name">T_10001</td>
+                                <td class="primary">Air Conditioner</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td class = "name">T_10002 </td>
+                                <td class="primary">Refrigerator</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td class = "name">T_10003 </td>
+                                <td class="primary">Microwave Oven</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td class = "name">T_10004 </td>
+                                <td class="primary">Gas Cooker</td>
+                                <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td class = "name">T_10005 </td>
+                                <td class="primary">Washing Machine</td>
+                                <td class="warning">Text</td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="">See more</a>
+                    <a href="<?= ROOT ?>/Moderator/Suggestion">See more</a>
                 </div>
                 <div class="complaints">
                     <h2>Recent Complaints</h2>
                     <table>
                         <thead>
                             <tr>
+                                <th>Complainer User Name</th>
                                 <th>Date</th>
-                                <th>Category</th>
-                                <th>Description</th>
+                                <th>Type</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Nimal</td>
+                                <td class="primary">2022/06/10</td>
+                                <td class="primary">Gig</td>
                             </tr>
 
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Amal</td>
+                                <td class="primary">2022/05/10</td>
+                                <td class="primary">Community</td>
                             </tr>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Kamal</td>
+                                <td class="primary">2022/04/10</td>
+                                <td class="primary">Gig</td>
                             </tr>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Sunil</td>
+                                <td class="primary">2022/03/10</td>
+                                <td class="primary">Community</td>
                             </tr>
                             <tr>
-                                <td>Repair AC</td>
-                                <td class="primary">A/C doesn't work properly</td>
-                                <td class="warning">Pending</td>
+                                <td>Amila</td>
+                                <td class="primary">2022/02/10</td>
+                                <td class="primary">Gig</td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="">See more</a>
+                    <a href="<?= ROOT ?>/Moderator/Complaint">See more</a>
                 </div>
             </div>
         </main> 

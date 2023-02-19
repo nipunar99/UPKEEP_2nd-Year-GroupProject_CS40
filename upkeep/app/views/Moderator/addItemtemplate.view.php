@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/additemtemplate.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/additemtemplate.css">
 </head>
 <body>
     <div class="container">
@@ -30,12 +30,12 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Suggestion">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Suggestions</h3>
                 </a>
@@ -45,12 +45,12 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Complaint">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#" >
+                <!-- <a href="#" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -58,14 +58,14 @@
                 <a href="#">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
-                </a>
+                </a> -->
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
+                    <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -112,35 +112,42 @@
         
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="name" id="" required placeholder="Enter Item template Name">
+                            <input type="text" name="itemtemplate_name" id="" required placeholder="Enter Item template Name">
                         </div>
         
-                        <div class="input-box">
-                            <span class="details">Status</span>
-                            <select name="" name="status" id="district" ></select>
-                        </div>
+                        
                         
                         <div class="middleInput">
                             <div class="input-box">
-                                <span class="details">Item Type</span>
-                                <input type="text" name="type" id="" required placeholder="Enter Description">
+                                <span class="details">Status</span>
+                                <select name="status" id="status" ></select>
                             </div>
-            
+
+                            <div class="input-box">
+                                <span class="details">Item Type</span>
+                                <input type="text" name="item_type" id="" required placeholder="Enter Item Type">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Image</span>
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
+                        </div>
                             <div class="input-box">
                                 <span class="details">Category</span>
-                                <input type="text" name="category" id="" required placeholder="Enter Model">
+                                <input type="text" name="category" id="" required placeholder="Enter Category">
                             </div>
                             
-                            <div class="input-box">
-                                <span class="details">Description</span>
-                                <input type="text" name="description" id="" required placeholder="Enter Description about item">
-                            </div>
+                            
 
                             <div class="input-box">
                                 <span class="details">Esti. lifespan </span>
-                                <input type="date" name="date" id=""  placeholder="Enter Purchase Date">
+                                <input type="number" name="lifespan" id=""  placeholder="Enter Estimated life span">
                             </div>
 
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
                         </div>
                         
         
@@ -154,6 +161,6 @@
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/additemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/additemtemplate.js"></script>
 </body>
 </html>

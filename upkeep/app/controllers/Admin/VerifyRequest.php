@@ -4,14 +4,10 @@ class VerifyRequest{
     use Controller;
         
     public function index(){
-
-        if($_SESSION['USER'] == 'Admin'){
-
-            $this->view('Admin/VerifyRequest');
+        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
+            redirect('/Home');
         }else{
-            redirect("Home/home");
-        }
-    }
-        
-        
+            $this->view('Admin/verifyRequest');
+        }    
+    }     
 }

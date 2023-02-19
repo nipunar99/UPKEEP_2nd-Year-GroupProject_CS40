@@ -49,6 +49,7 @@
                     <div class="input-box">
                         <span class="details">Password</span>
                         <input type="password" name="password" id="" required placeholder="Enter password">
+                        
                     </div>
                    
              

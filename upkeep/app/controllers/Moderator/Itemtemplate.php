@@ -4,14 +4,14 @@ class Itemtemplate {
 
     use Controller;
     public function index (){
-        // $data = [];
-        if($_SESSION['USER'] == 'Moderators'){
-            $itemtemplates = new Moderatoritemtemplate;
-            // $result = $itemtemplates->findAll();
+         $data = [];
+        if(isset($_SESSION['user_id'])){
+            $arr=[];
+            $itemtemplates = new Itemtemplates;
+            $result = $itemtemplates->findAll();
+            $data['result'] = $result;
 
-            // $data['result'] = $result;
-
-            $this->view('Moderator/itemTemplate');
+            $this->view('Moderator/itemTemplate',$data);
         }else{
             redirect("Home/home");
         }

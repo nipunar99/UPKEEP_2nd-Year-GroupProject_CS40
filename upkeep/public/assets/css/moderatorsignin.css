@@ -47,7 +47,7 @@
 }
 .sectionimg{
     background-color: #F8F3F3;
-   -webkit-clip-path: polygon(0% 0%,100% 0%, 80% 100%, 0% 100%);
+   -webkit-clip-path: polygon(0% 0%,100% 0%, 80% 100%, 0% 100%); 
 }
 
 .sectionimg .title strong{ 

@@ -13,8 +13,8 @@
 </head>
 <body>
     <div class="container">
-        <aside>
-            <div class="top">
+        <aside class="close">
+            <div class="top"> 
 
                 <div class="logo">
                     <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
@@ -35,7 +35,12 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?=ROOT?>/Technician/Findjobs" >
+                    <span class="material-icons-sharp">work</span>
+                    <h3>Find Jobs</h3>
+                </a>
+
+                <a href="<?=ROOT?>/Technician/Orders" >
                     <span class="material-icons-sharp">list_alt</span>
                     <h3>Orders</h3>
                 </a>
@@ -46,21 +51,21 @@
                 </a>
 
 
-                <a href="#">
+                <a href="<?=ROOT?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
 
 
-                <a href="#">
+                <a href="<?=ROOT?>/Coversation">
                     <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
+                    <h3>Conversation</h3>
                     <span class="message-count">11</span>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
+                <a href="<?=ROOT?>/Technician/Statistics">
+                    <span class="material-icons-sharp">analytics</span>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href=<?=ROOT."/Signout"?>>
@@ -73,100 +78,166 @@
 
         </aside>
 
-        <main>
+        <main> 
             <h1>Dashboard</h1>
 
-            <div class="date">
-                <input type="date" name="" id="">
+            <div class="dashItem">
+                <div class="card green">
+                        <div>
+                            <span class="material-icons-sharp customer">groups</span>
+                        </div>  
+                        <h2>35</h2>
+                        <h3>CUSTOMERS</h3>
+                    
+                </div>
+
+                <div class="card blue">
+                        <div>
+                            <span class="material-icons-sharp revenue">payments</span>
+                        </div>  
+                        <h2>Rs. 12000</h2>
+                        <h3>REVENUE</h3>
+                    
+                </div>
+
+                <div class="card yellow">
+                        <div>
+                            <span class="material-icons-sharp queue">work</span>
+                        </div>  
+                        <h2>35</h2>
+                        <h3>JOBS ON QUEUE</h3>
+                    
+                </div>
+
             </div>
+
+
             <div class="recent-orders">
                 <h2>Orders</h2>
-                <h4>dataOnly for demonstration purposes</h4>
+                <!-- <h4>dataOnly for demonstration purposes</h4> -->
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Job type</th>
-                            <th>Item type</th>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <div class="order">
+                                <div class="description">
+                                    <h1>Need a A/C Technician</h1>
+                                    <p>Need to repair the fans of the air condition which are broken due to rusting. 
+                                        The fan is making a strange noice when working
+                                    </p>
+                                    <a>AC Repair</a>
+                                    <a>AC Fan</a>
+                                </div>
+                                <div class="action">
+                                    <h4>Date</h4>
+                                    <h4>type</h4>
+                                    <button>Apply Job</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
-
-                        <tr>
-                            <td>Repair AC</td>
-                            <td>Visit</td>
-                            <td>A/C</td>
-                            <td>10/11</td>
-                            <td class="primary">A/C doesn't work properly</td>
-                            <td class="warning">Pending</td>
-                        </tr>
-
-                    </tbody>
+                   
+                    
                 </table>
                 <a href="#">Show All</a>
             </div>
@@ -176,10 +247,6 @@
 
         <div class="right">
             <div class="top">
-                <div class="notification">
-                    <span class="material-icons-sharp">
-                        notifications</span>
-                </div>
 
                 <div class="theme-toggler">
                     <span class="material-icons-sharp active">light_mode</span>
@@ -188,7 +255,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Hey,<b>Saman</b></p>
+                        <p>Hey,<b><?=$_SESSION['user_name']?></b></p>
                         <small class="text-muted">Technician</small>
                     </div>
                     <div class="profile-photo">
@@ -234,56 +301,33 @@
             </div>
             <!-- End of recent updates -->
 
-            <div class="recent-orders">
-                <h3>Recent Orders</h3>
-
-                <div class="maintenance">
-                    <div class="item online">
-                        <div class="icon">
-                            <span class="material-icons-sharp">shopping_cart</span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>ONLINE ORDERS</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+35%</h5>
-                            <h3>3561</h3>
-                        </div>
-                    </div>
-    
-                    <div class="item online">
-                        <div class="icon">
-                            <span class="material-icons-sharp">shopping_cart</span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>ONLINE ORDERS</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+35%</h5>
-                            <h3>3561</h3>
-                        </div>
-                    </div>
-    
-                    <div class="item offline">
-                        <div class="icon">
-                            <span class="material-icons-sharp">shopping_cart</span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>ONLINE ORDERS</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+35%</h5>
-                            <h3>3561</h3>
-                        </div>
+            <div class="cal">
+                <div class="header">
+                    <p class="current-date"></p>
+                    <div class="icons">
+                    <span id="prev" class="material-icons-sharp">chevron_left</span>
+                    <span id="next" class="material-icons-sharp">chevron_right</span>
                     </div>
                 </div>
+                <div class="calendar">
+                    <ul class="weeks">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                    </ul>
+                    <ul class="days">
+
+                    </ul>
+                </div>
+            </div>
                 
 
-            </div>
         </div>
     </div>
+    <script src="<?=ROOT?>/assets/js/Technician/dashboard.js  "></script>
 </body>
 </html>

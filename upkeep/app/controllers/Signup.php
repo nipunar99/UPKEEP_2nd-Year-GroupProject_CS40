@@ -7,30 +7,38 @@ class Signup {
         $data =[];
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $user = new User;
-
+ 
             if($user->validate($_POST))
             {
-                $user->insert($_POST);
+                $_POST['user_name'] = $user->generateUserName($_POST['first_name'],$_POST['last_name']);
+                $_POST['user_role'] = "item_owner";
+                $user->preprocess($_POST);
                 redirect("Home");
             }
             
             $data["errors"] = $user->errors;
         }
-        
         $this->view('/Signup/itemOwnerSignup',$data);// (folder name/php filename)
-
     }
 
     public function technicianSignup (){
-        
+        if(isset($_SESSION['user_id']))
+            redirect('/Tecnician/Dashboard');
         //Rahal  singin controler method
-        $data =  [];
-
-        if($_SERVER['POST_METHOD']=="POST"){
+        $data = [];
+        if($_SERVER['REQUEST_METHOD']=="POST"){
             $user = new User;
 
             if($user->validate($_POST)){
-                $user->insert($_POST);
+                $post =  [
+                    'first_name' => $_POST['first_name'],
+                    'last_name' => $_POST['last_name'],
+                    'user_name' => $user->generateUserName($_POST['first_name'],$_POST['last_name']),
+                    'email' => $_POST['email'],
+                    'user_role' => 'Technician',
+                    'password' => password_hash($_POST['password'],PASSWORD_DEFAULT)
+                ];
+                $user->insert($post);
                 redirect('Home');
             }
 
@@ -42,20 +50,32 @@ class Signup {
     }
 
     public function moderatorSignup (){
-        
+        if(isset($_SESSION['user_id'])){
+            redirect('/Moderator/Moderatordashboard');
+        }
         //sasini  singin controler method
         $data =[];
         
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $moderator = new Moderator;
 
-            if($moderator->validate($_POST))
+
+            $user = new User;
+
+            if($user->validate($_POST))
             {
-                $moderator->insert($_POST);
+                $post = [
+                    'first_name'=>$_POST['first_name'],
+                    'last_name'=>$_POST['last_name'],
+                    'user_name'=>$user->generateUserName($_POST['first_name'],$_POST['last_name']),
+                    'email'=>$_POST['email'],
+                    'password'=>password_hash($_POST['password'],PASSWORD_DEFAULT),
+                    'user_role'=>'Moderator'
+                ];
+                $user->insert($post);
                 redirect("Home");
             }
             
-            $data["errors"] = $moderator->errors;
+            $data["errors"] = $user->errors;
         }
         
         $this->view('/Signup/moderatorSignup',$data);
@@ -68,15 +88,18 @@ class Signup {
         //rusith  singin controler method
         $data =[];
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $admin = new Admin;
+            $user = new User;
 
-            if($admin->validate($_POST))
+            if($user->validate($_POST))
             {
-                $admin->insert($_POST);
+                $_POST['user_name'] = $user->generateUserName($_POST['first_name'],$_POST['last_name']);
+                $_POST['user_role'] = "admin";
+                $_POST['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
+                $user->insert($_POST);
                 redirect("Home");
             }
             
-            $data["errors"] = $admin->errors;
+            $data["errors"] = $user->errors;
         }
         
         $this->view('/Signup/adminSignup',$data);// (folder name/php filename)

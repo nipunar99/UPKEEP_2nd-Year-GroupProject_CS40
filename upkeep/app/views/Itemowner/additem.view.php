@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/additem.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/additem.css">
 </head>
 <body>
     <div class="container">
@@ -110,7 +110,7 @@
             </div>
 
             <div class="insight">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" id="form_itemDetails">
                     <div class="itemDetails">
         
                         <div class="input-box">
@@ -125,7 +125,7 @@
 
                         <div class="input-box">
                                 <span class="details">Image</span>
-                                <input type="file" name="image" id=""  placeholder="Enter Brand">
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
                         </div>
                         
                         <div class="middleInput">
@@ -159,10 +159,8 @@
                                 <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
                             </div>
                         </div>
-                        
-        
                         <div class="button">
-                            <input type="submit" value="Add Item">
+                            <input type="submit" value="Next" id="itemDetails">
                         </div>
         
                     </div>
@@ -171,6 +169,6 @@
         </main> 
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/itemTypes.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/addItem.js"></script>
 </body>
 </html>

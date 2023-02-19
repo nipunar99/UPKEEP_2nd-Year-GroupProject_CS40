@@ -4,7 +4,31 @@ class Home {
 
     use Controller;
     public function index (){
-        $this->view('home');
-    }
 
+        // if(!isset($_SESSION['user_name'])){
+            $this->viewHtml('home');
+        // }
+        // else{
+        //     switch ($_SESSION['user_role']) {
+        //         case 'Itemowner':
+        //             redirect('Itemowner/Userdashboard');
+        //             break;
+                
+        //         case 'Technician':
+        //             redirect('Technician/Dashboard');
+        //             break;
+
+        //         case 'Moderator':
+        //             redirect('Moderator/Moderatordashboard');
+        //             break;
+
+        //         case 'Admin':
+        //             redirect('Admin/Admindashboard');
+        //             break;
+               
+        //     }
+        // }
+
+    }
+    
 }
