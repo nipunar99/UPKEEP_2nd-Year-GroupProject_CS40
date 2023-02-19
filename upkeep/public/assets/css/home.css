@@ -86,8 +86,8 @@ li a::after{
 }
 
 .logo img{
-  width: 100px;
-  height: auto;
+  width: auto;
+  height: 50px;
 }
 
 
