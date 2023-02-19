@@ -60,7 +60,7 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>

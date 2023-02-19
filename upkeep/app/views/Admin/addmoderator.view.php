@@ -60,7 +60,7 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
@@ -124,9 +124,10 @@
             </div>
 
             <div class="insight">
+                <div style="background-color:#41f1b6;border-radius:50px;width:85%;height:65%;">
                 <form method="post" action="#">
-                    <div class="itemDetails">
-                        <div class="topInput" style="display:flex;gap:11em;">
+                    <div class="itemDetails" style="margin-top:1rem;">
+                        <div class="topInput" style="display:flex;gap:4em;margin-left:4rem;margin-top:1rem;">
                             
                             <div class="input-box">
                                 <span class="details">First Name</span>
@@ -140,7 +141,7 @@
                         </div>
         
 
-                        <div class="middleInput">
+                        <div class="middleInput" style=margin-left:4rem;>
                             <div class="input-box">
                                 <span class="details">Email</span>
                                 <input type="text" name="email" id="" required placeholder="Enter Email">
@@ -169,13 +170,14 @@
                         </div>
                         
         
-                        <div class="button">
+                        <div class="button" style="width: 10rem;">
                         <!-- <a href="Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
                          <input type="submit" value="Add Moderator"> 
                         </div>
         
                     </div>
                 </form>
+                </div>
             </div>
         </main> 
 

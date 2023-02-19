@@ -60,7 +60,7 @@
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
@@ -75,15 +75,13 @@
         </aside>
 
         <main>
-            <div class="mainhead">
+            <div class="mainhead" style="gap:0rem;margin-left:3rem;">
                 
                 <h1>Complaints</h1>
 
-                <div class="heading">
+                <div class="heading" style="margin-right:-5rem;">
                     <div class="tp" style ="display:flex;gap:1rem;">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
+                        
         
                         <div class="theme-toggler">
                             <span class="material-icons-sharp active">light_mode</span>
@@ -108,8 +106,8 @@
             
             <div class="summary">    
                 
-                <h2 style="margin-top:4rem;">Gigs Complaints</h2>
-                <table>
+                <h2 style="margin-top:4rem;margin-bottom:2rem;">Gigs Complaints</h2>
+                <table style="border-radius:20px 20px 20px 20px;background-color:lightgrey">
                     <thead>
                         <tr>
                             <th>Technician</th>
@@ -153,13 +151,13 @@
                 </table>
             </div>
 
-            <div class="modarotorList">
-                <div>
+            <div class="modarotorList" style="margin-top:1rem;">
+                <div style="margin-bottom:2rem;">
                     <h2>Community Complaints</h2>
                     <!-- <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action addMode">Add Moderator</a> -->
                     <!-- <button class="btn_action addMode">Add Moderator</button> -->
                 </div>
-                <table>
+                <table style="border-radius:20px 20px 20px 20px;background-color:lightgrey;">
                     <thead>
                         <tr>
                             <th>User</th>

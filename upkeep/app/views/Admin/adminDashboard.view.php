@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/admindashboard.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminDashboard.css">
 </head>
 <body>
     <div class="container">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#" class="active">
+                <a href="<?=ROOT?>/Admin/AdminDashboard" class="active">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -165,24 +165,20 @@
                 </div>
             </div>
 
-            <div class="modarotorList" styles="gap:50rem;">
+            <div class="modarotorList">
                 <div>
                     <h2>Moderator's Profile details</h2>
-                    <div style="style="margin:1rem;>
-                    <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action addMode">Add Moderator</a></div>
-                    
+                    <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action1 addMode">Add Moderator</a>
                     <!-- <button class="btn_action addMode">Add Moderator</button> -->
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
                             <th>Email</th>
                             <th>NIC</th>
                             <th>Phone Number</th>
                             <th>Address</th>
-                            
                         </tr> 
                        <?php
                         $conn=mysqli_connect("localhost","root","","upkeep");
@@ -191,50 +187,28 @@
                         
                         if($result->num_rows>0)
                             while($row=$result->fetch_assoc())
-                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["last_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."<td><a href='#' button class='remove-button'>Remove</a></td>" ."</tr>";
-                                                                                                                              /* echo "<tr id='row-{$row['nic']}'>"; */
+                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</tr>"
+                            
                         
-                       
-                                ?>
-                        
+                        /* else{
+                            echo "No Result";
+                        } */
+                       // $conn->close();
+                        ?>
                     </thead>
-
-                    <!-- foreach ($table as $row) {
-                    echo "<tr id='row-{$row['nic']}'>";
-                    // echo "<td>" . $row["first_name"] . "</td>";
-                    // echo "<td>" . $row["last"] . "</td>";
-                    // echo "<td>" . $row["email"] . "</td>";
-                    // echo "<td>" . $row["mobile_no"] . "</td>";
-                    // echo "<td>" . $row["address"] . "</td>";
-                    //echo "<td><button class='remove-button' data-nic='{$row['nic']}'>Remove</button></td>";
-                    //echo "</tr>";} -->
-
-
-                    
-  
                     
                    
                 </table>
-                
- 
-
-
-
-
-
-                
-  
-
-  
-  
-
-
-
-
             </div>
 
         </main>
         <!-- End of Main -->
+        <script>
+            
+
+
+
+        </script>
 
 </body>
 </html>
