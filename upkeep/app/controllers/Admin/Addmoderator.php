@@ -8,8 +8,8 @@ class Addmoderator {
         
          if($_SESSION['USER'] == 'Admin'){
             $data =[];
-             if($_SERVER['REQUEST_METHOD'] == "POST"){
-                 $mod = new AddMod;
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                $mod = new AddMod;
                   /* if($mod->validate($_POST))
                   {
                      $mod->insert($_POST);
@@ -20,11 +20,9 @@ class Addmoderator {
                 $mod->insert($_POST);
                 redirect("Admin/Addmoderator");
                 
-                
-                
+                                
+            }
 
-
-             }
              $this->view('Admin/addmoderator');
              
          }

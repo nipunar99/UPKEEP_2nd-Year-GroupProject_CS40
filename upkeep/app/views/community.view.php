@@ -41,7 +41,7 @@
                     <h3>Item</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/itemowner/TechnicianGigs" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -52,7 +52,7 @@
                 </a>
 
 
-                <a href="<?= ROOT ?>/Conversation">
+                <a href="#">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Conversation</h3>
                     <span class="message-count">11</span>
