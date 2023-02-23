@@ -3,29 +3,11 @@
 class TechnicianGigs {
 
     use Controller;
-    // public function index (){
-        
-    //     if($_SESSION['USER'] == $_SESSION['user_id']){
-    //         $this->view('Itemowner/technicianGigs');
-    //     }else{
-    //         redirect("Home/home");
-    //     }
-
-    // }
 
     public function index(){
-        // if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
-        //     redirect('/Home');
-        // }
 
         if($_SESSION['USER'] == $_SESSION['user_id']){
-
-            // $this->view('Itemowner/technicianGigs');
-            $gigs = new Gig;
-            // $gigList = $gigs->getGigsOfTechnician($_SESSION["user_id"]);
-            $gigList = $gigs->findAll();
-            $data['gigList']=$gigList;
-            $this->view(('Itemowner/technicianGigs'),$data);
+            $this->view('Itemowner/technicianGigs');
 
         }else{
             redirect("Home/home");
@@ -34,46 +16,34 @@ class TechnicianGigs {
         
     }
 
-    // public function addgig()
-    // {
-    //     $gig = new Gig;
-    //     //print_r($_POST);
-
-    //     $gig->createGig($_POST,$_SESSION['user_id']);
-    //     redirect("/Technician/Gigs");
-
-    //         // $user->errors["email"] = "email or password not valid";
-    //         // $data["errors"]= $user->errors;
+    public function findAllGigs(){
+        $gigs = new Gig;
+        $gigList = $gigs->findGigs();
+        $tags = $gigList[0]->work_tags;
         
-    // }
-
-    // public function viewGig($id){
-    //     if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
-    //         redirect('/Home');
-    //     }
-
-    //     $gig = new Gig;
-    //     $profile = new User;
-    //     $gigDetails = $gig->getGig($id);
-    //     $profileDetails = $profile->getUserById($gigDetails[0]->user_id);
-
-    //     // echo "here";
-    //     // print_r($gigDetails);
-    //     // print_r($profileDetails);
+        foreach($gigList as $gig){
+            $tags = $gig->work_tags;
+            $spitTags = $this->spiltWordTagstoJson($tags);
+            $gig->work_tags = $spitTags;
+        }
         
-    //     $data['gigDetails']=$gigDetails;
-    //     $data['profileDetails']=$profileDetails;
-    
-    //     // echo "hello";
-    //     // show($data);
-    //     // show($gigDetails);
-    //     // show($data['gigDetails']);
-    //     $this->view('Technician/singlegig',$data);
-    // }
+        $result = json_encode($gigList);
+        echo($result);
+
+    }
+
+    public function spiltWordTagstoJson($tags){
+
+        $words = explode(",", $tags); 
+
+        $json_array = array();
+        foreach ($words as $word) {
+            array_push($json_array, $word); 
+        }
+
+        $json = json_encode($json_array); 
+
+        return $json;
+
+    }
 } 
-
-// $init = new Gigs;
-
-// if($_SERVER['REQUEST_METHOD']=="POST"){
-//     $init->addgig();
-// }

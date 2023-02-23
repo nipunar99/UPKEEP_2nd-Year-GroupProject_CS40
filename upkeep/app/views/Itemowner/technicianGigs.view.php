@@ -138,9 +138,7 @@
             </div>
             
             <div class="gigs">
-                <?php if(!empty($data['gigList'])) : ?>
                 <div class="insight">
-                <?php foreach($data["gigList"] as $gig) : ?>
                         <div class="gig-card">
                             <div class="middle">
                                 <div class="technician-profile">                                    
@@ -149,118 +147,26 @@
                                     </div>
                                     <div class="profile-info">
                                         <h3>Sahan Perera</h3>
-                                        <?php if(empty($gig->rating)):?>
-                                            <p>No Reviews Yet |</p> 
-                                        <?php else:?>
-                                            <?php echo "Rating: "?>
-                                                <?php for($i=0;$i<5;$i++):?>
-                                                    <?php if((int)round($gig->rating)>$i):?>
-                                                        <span class="fa fa-star checked"></span>
-                                                    <?php else:?>
-                                                        <span class="fa fa-star"></span>
-                                                    <?php endif;?>
-                                                <?php endfor;?>
-                                            <?= "(".round($gig->rating,1).")"?>
-                                        <?php endif;?>                                    
+                                        <p>No Reviews Yet |</p> 
+                                        <span class="fa fa-star checked"></span>        
+                                        <span class="fa fa-star"></span>                            
                                     </div>
                                 </div>
-                                <div class="gigDesc">
-                                    <h2><?=$gig->title?></h2>  
-                                </div>
-                                  
-                                <?php $arr=explode(",",$gig->work_tags);?>
-
-                                <div class="worktagsContainer">
-                                <h3>Roles</h3>
-                                    <?php foreach($arr as $tag) : ?>
-                                    <a class="worktags"><?=$tag?></a>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="location">
-                                    <span class="material-icons-sharp">location_on</span>
-                                    <h3><?=$gig->location?></h3>
-                                </div>
+                                <div class="gigDesc"><h2>test</h2></div>
+                                <div class="worktagsContainer"><h3>Roles</h3></div>
+                                <div class="location"><span class="material-icons-sharp">location_on</span><h3>hghdgh</h3></div>
                             </div>
                             <div class="action-bar">
-                                <a href="<?= ROOT ?>/itemowner/ViewGig/selectGig/<?=$gig->gig_id?>" class="view">View</a>
+                                <a href="<?= ROOT ?>/itemowner/ViewGig/selectGig/" class="view">View</a>
                             </div>
                         </div>
-                    
-                <?php endforeach;?>
                 </div>
-                <?php endif; ?>
             </div>
-        <!-- </main>  -->
 
-        <!-- End of Main -->
-
-        <!-- <div class="right"> -->
-            
-            <!-- End of top -->
-
-        <!-- </div> -->
         </main>
-    </div>
+    </div>  
 
-    <div id="addgig" class="overlay">
-        <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Create Gig</h1>
-            </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
-                        <div class="inline">
-                            <div class="input-box inline">
-                                <span class="details">Choose Item</span>
-                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
-                                <select id="item" name="item">
-                                    <option value="A/C">A/C</option>
-                                    <option value="Refrigerator">Refrigerator</option>
-                                    <option value="Washing Machine">Washing Machine</option>
-                                    <option value="Gas Cooker">Gas Cooker</option>
-                                </select>
-                            </div>
-                            
-                            <div class="input-box inline">
-                                <span class="details">Location</span>
-                                <input type="text" name="location" id="location" required placeholder="Enter Description about item">
-                            </div>
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) ">
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"></textarea>
-                        </div>
-        
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Add Photo</span>
-                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            <!-- </div> -->
-                
-        </div>
-    </div>    
-
-    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/Gigs.js"></script>
 
 </body>
 </html>

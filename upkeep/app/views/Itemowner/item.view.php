@@ -135,10 +135,16 @@
                             <span class="details">Item Name</span>
                             <input type="text" name="item_name" id="" required placeholder="Enter Item Name">
                         </div>
-        
-                        <div class="input-box">
-                            <span class="details">Item type</span>
-                            <select name="item_type" id="itemtype" ></select>
+                        
+                        <div class="middleInput"> 
+                            <div class="input-box">
+                                <span class="details">Item type</span>
+                                <select name="item_type" id="itemtype" ></select>
+                            </div>
+                            <div class="input-box hidden" id="altertypeinput">
+                                <span class="details">Enter type</span>
+                                <input type="text" name="alter_type" id="" required placeholder="Enter Type">
+                            </div>
                         </div>
 
                         <div class="input-box">

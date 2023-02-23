@@ -46,13 +46,13 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#" class="active">
+                <a href="<?= ROOT ?>/Community" class="active">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
 
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Conversation">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Conversation</h3>
                     <span class="message-count">11</span>

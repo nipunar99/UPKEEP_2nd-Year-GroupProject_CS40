@@ -39,4 +39,9 @@ class Gig{
             }
         }
     }
+
+    public function findGigs(){
+        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.work_tags,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id";
+        return $this->query($query);
+    }
 }

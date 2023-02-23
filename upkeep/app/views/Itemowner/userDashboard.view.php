@@ -85,37 +85,12 @@
             <div class="insight">
 
                 <div class="mainDisplay1">
-                    <div class="middle">
-                        <span class="material-icons-sharp">construction</span>
-                        <div class="left">
-                            <h3><span>12</span></h3>
-                            <h3>Days more</h3>
-                        </div>
-                    </div>
-                    <h4>Replace or clean Air Conditioner filter</h4>
-
                 </div>
 
                 <div class="mainDisplay2">
-                    <div class="middle">
-                        <span class="material-icons-sharp">today</span>
-                        <div class="left">
-                            <h3><span>12</span></h3>
-                            <h3>Days more</h3>
-                        </div>
-                    </div>
-                    <h4>Warranty Date: 04/05/2024 </h4>
                 </div>
 
                 <div class="mainDisplay3">
-                    <div class="middle">
-                        <span class="material-icons-sharp">remove_moderator</span>
-                        <div class="left">
-                            <h3><span>3</span></h3>
-                            <h3>Days left</h3>
-                        </div>
-                    </div>
-                    <h4>Replace or clean Air Conditioner filter</h4>
                 </div>
 
             </div>
@@ -130,90 +105,7 @@
             <div class="upMaintenceList">
                 <h2 id="overdueh2">Overdue Maintenance</h2>
 
-                <div class="maintenceBoxes">
-                    
-                    <div class="maintenceBox show-modal1" role="button">
-                        <h3>Maintenance Schedule</h3>
-                        <div>
-                            <div class="middle">
-                                <div>
-                                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                                    <h4>Check Compressor</h4>
-                                </div>
-                                <div>
-                                    <span class="material-icons-sharp">calendar_today</span>
-                                    <h4>21/25/2022</h4>
-                                </div>
-                                <div>
-                                    <span class="material-icons-sharp">construction</span>
-                                    <h4>Compressor</h4>
-                                </div>
-                                <div class="maintenanceStatus">
-                                    <span class="material-icons-sharp">error_outline</span>
-                                    <h4>Pending</h4>
-                                </div>
-                            </div>
-                            <img src="<?= ROOT ?>/assets/images/component1.png" alt="">
-
-                        </div>
-
-                    </div>
-
-                    <div class="maintenceBox show-modal2" role="button">
-                        <h3>Maintenance Schedule</h3>
-                        <div>
-                            <div class="middle">
-                                <div>
-                                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                                    <h4>Apply gas</h4>
-                                </div>
-                                <div>
-                                    <span class="material-icons-sharp">calendar_today</span>
-                                    <h4>21/25/2022</h4>
-                                </div>
-                                <div>
-                                    <span class="material-icons-sharp">construction</span>
-                                    <h4>Air filter</h4>
-                                </div>
-                                <div class="maintenanceStatus">
-                                    <span class="material-icons-sharp">error_outline</span>
-                                    <h4>Pending</h4>
-                                </div>
-                            </div>
-                            <img src="<?= ROOT ?>/assets/images/component2.png" alt="">
-
-                        </div>
-
-                    </div>
-                    
-                    <div class="maintenceBox show-modal3" role="button">
-                        <h3>Maintenance Schedule</h3>
-                        <div>
-                            <div class="middle">
-                                <div>
-                                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                                    <h4>Clean air filter</h4>
-                                </div>
-                                <div>
-                                    <span class="material-icons-sharp">calendar_today</span>
-                                    <h4>21/25/2022</h4>
-                                </div>
-                                <div>
-                                    <span class="material-icons-sharp">construction</span>
-                                    <h4>Air filter</h4>
-                                </div>
-                                <div class="maintenanceStatus">
-                                    <span class="material-icons-sharp">error_outline</span>
-                                    <h4>Pending</h4>
-                                </div>
-                            </div>
-                            <img src="<?= ROOT ?>/assets/images/component3.png" alt="">
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <div class="overduemaintenceBoxes"></div>
             </div>
 
             <div class="Suggection">
@@ -350,43 +242,74 @@
         <div class="popupview hidden">
             <button class="closebtn">&times;</button>
 
-            <div class="content">
-                <div>
-                    <span class="material-icons-sharp">view_in_ar</span>
-                    <h3>Item name</h3>
-                    <h2>Samsung Inverter Windfree AC</h2>
+            <div class="maintenaceview">
+                <div class="content">
+                    <div>
+                        <span class="material-icons-sharp">view_in_ar</span>
+                        <h3>Item name</h3>
+                        <h2>Samsung Inverter Windfree AC</h2>
+                    </div>
+
+                    <div>
+                        <span class="material-icons-sharp">chat_bubble_outline</span>
+                        <h3>Maintenance task</h3>
+                        <h2>Replace HVAC air filters</h2>
+                    </div>
+
+                    <div>
+                        <span class="material-icons-sharp">calendar_today</span>
+                        <h3>Due date</h3>
+                        <h2>21/12/2022</h2>
+                    </div>
+
+                    <div>
+                        <span class="material-icons-sharp">construction</span>
+                        <h3>Sub component</h3>
+                        <h2>Air filter</h2>
+                    </div>
+
+                    <div class="maintenanceStatus danger">
+                        <span class="material-icons-sharp">error_outline</span>
+                        <h3>Pending</h3>
+                    </div>
                 </div>
 
-                <div>
-                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                    <h3>Maintenance task</h3>
-                    <h2>Replace HVAC air filters</h2>
-                </div>
-
-                <div>
-                    <span class="material-icons-sharp">calendar_today</span>
-                    <h3>Due date</h3>
-                    <h2>21/12/2022</h2>
-                </div>
-
-                <div>
-                    <span class="material-icons-sharp">construction</span>
-                    <h3>Sub component</h3>
-                    <h2>Air filter</h2>
-                </div>
-
-                <div class="maintenanceStatus danger">
-                    <span class="material-icons-sharp">error_outline</span>
-                    <h3>Pending</h3>
+                <div class="action_btn">
+                    <button onclick="completeTask()">Complete</button>
+                    <button>Edit</button>
+                    <button>Delete</button>
                 </div>
             </div>
 
-            <div class="action_btn">
-                <button>Complete</button>
-                <button>Edit</button>
-                <button>Delete</button>
-            </div>
+            <div class="completeform1 hidden">
+                <form method="post" enctype="multipart/form-data" id="form_reminderDetails">
+                    <h2>Maintenance Details</h2>
+                        <div class="middleInput">
+                            <div class="input-box">
+                            <span class="details">Summary of Maintenance</span>
+                                <input type="text" name="Summary" id=""  required placeholder="Enter Summary">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Complete Date</span>
+                                <input type="date"  name="completedate" required placeholder="Enter complete date">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Cost for Maintenance</span>
+                                <input type="number" min="0" name="cost"  placeholder="Enter Brand">
+                            </div>
 
+                        </div>
+                        <div class="button completebtn">
+                            <input type="submit" value="Done" id="addMaintenancebtn"> 
+                            
+                        </div>
+                </form>
+
+                <div class="action_btn">
+                    <button onclick="cancelcompleteTask()" class="cancelbtn">Cancel</button>
+                </div>
+                
+            </div>
         </div>
 
         <div class="overlayview hidden"></div>

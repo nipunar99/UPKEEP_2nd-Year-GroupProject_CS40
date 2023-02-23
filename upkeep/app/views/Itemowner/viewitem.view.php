@@ -87,36 +87,15 @@
             <div class="insight">
                     
                 <div class="mainDisplay1">
-                    <div class="middle">
-                        <span class="material-icons-sharp">construction</span>
-                        <div class="left">
-                            <h3><span>5</span></h3>
-                            <h3>Days more</h3>
-                        </div>
-                    </div>
-                    <h4>Replace or clean Air Conditioner filter</h4>
+                    
                 </div>
 
                 <div class="mainDisplay2">
-                    <div class="middle">
-                        <span class="material-icons-sharp">today</span>
-                        <div class="left">
-                            <h3><span>254</span></h3>
-                            <h3>Days more</h3>
-                        </div>
-                    </div>
-                    <h4>Warranty Date: 04/05/2024 </h4>
+                    
                 </div>
 
                 <div class="mainDisplay3">
-                    <div class="middle">
-                        <span class="material-icons-sharp">remove_moderator</span>
-                        <div class="left">
-                            <h3><span>3</span></h3>
-                            <h3>Days left</h3>
-                        </div>
-                    </div>
-                    <h4>Clean the exterior and interior</h4>
+                    
                 </div>
 
                 <div class="addMaitenanceEm" role="button">
@@ -133,6 +112,13 @@
                 </div>
             </div>
 
+            <div class="upMaintenceList">
+                <h2 id="overdueh2">Overdue Maintenance</h2>
+
+                <div class="overduemaintenceBoxes"></div>
+            </div>
+
+            
             <div class="recent-orders">
                 <h2>Suggections  maintenance for your device</h2>
                 <table>
@@ -279,13 +265,6 @@
                     <button class="morebtn">More</button>
                     <a href="<?= ROOT ?>/Itemowner/Documentation"><button class="docbtn" >Docs</button></a>
                     <button class="deletebtn">Delete</button>
-                    <!-- <form  method='post'>
-                        <input  style='display:none;' type='text' name='item_id' value='".$row->item_id."'>
-                        <input  style='display:none;' type='text' name='owner_id' value='".$row->owner_id."'>
-                        <div class='deletebtn'>
-                            <input type='submit' value='Delete'>
-                        </div>
-                    </form> -->
                 </div>
 
                 <div class="itembtnsection2">
@@ -342,8 +321,8 @@
 
                         </div>
 
-                        <div class="button">
-                            <input type="submit" value="Add a Maintenance" id="addReminderbtn"> 
+                        <div onclick="addreminder()" class="button">
+                            <input type="button" value="Add a Maintenance" id="addReminderbtn"> 
                         </div>
         
                     </div>

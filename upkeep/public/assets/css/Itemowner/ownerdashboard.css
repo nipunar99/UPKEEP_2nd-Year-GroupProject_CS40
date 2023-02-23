@@ -90,7 +90,7 @@ aside .sidebar .message-count {
 
 main{
     margin-top: 4.4rem;
-    max-height: 97vh;
+    max-height: 91.7vh;
     overflow-y: scroll;
 }
 main h1{
@@ -205,7 +205,7 @@ main .upMaintenceList h2{
     font-size: 1.2rem;
 }
 
-main .maintenceBoxes {
+main .maintenceBoxes,.overduemaintenceBoxes {
     display: flex;
     gap: 1rem;
     margin: 1rem 1rem;
@@ -419,7 +419,7 @@ main .Suggection a{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(179, 180, 189, 0.5);
+    background-color: rgba(30,41,51,.45);
     backdrop-filter: blur(3px);
     z-index: 5;
 }
@@ -439,7 +439,7 @@ main .Suggection a{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    height: 60vh;
+    /* height: 60vh; */
 }
 .content {
     display: flex;
@@ -487,7 +487,7 @@ main .Suggection a{
     justify-content: center;
 }
 
-.action_btn button{
+.action_btn button ,#addMaintenancebtn{
     width: 8rem;
     height: 3rem;
     border-radius: 30px;
@@ -505,7 +505,7 @@ main .Suggection a{
     color: rgb(29, 247, 29);
 }
 
-.action_btn button:nth-child(3){
+.action_btn button:qnth-child(3){
     border: 1px solid var(--color-danger);
     background: none;
     color: var(--color-danger);
@@ -514,6 +514,25 @@ main .Suggection a{
 .action_btn button:hover{
     transform: scale(1.1);
 }
+.completebtn{
+    display: inline-block;
+    position: relative;
+    left: 55%;
+}
+.action_btn>.cancelbtn{
+    display: inline-block;
+    position: absolute;
+    left: 76%;
+    bottom: 15%;
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+
+}
+
+
+
+
 
 /* calender CSS*/
 
@@ -607,4 +626,65 @@ background: #05B2E9;;
 }
 .days li:not(.active):hover::before{
 background: #f2f2f2;
+}
+
+
+/* form css */
+form .input-box{
+    margin-bottom: 15px;
+    width: 18rem;
+}
+.input-box select{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: black;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+}
+
+
+form .middleInput{
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+}
+
+form .middleInput .input-box{
+    width: 14rem;
+}
+
+form .middleInput select{
+    width: 20%;
+}
+
+.input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+    font-family: 'Poppins';
+    font-weight: 300;
+}
+
+.input-box input:focus,
+.input-box input:valid{
+    /* change */
+    border-color: #9b59b6;
+    font-size: 1.1rem;
 }

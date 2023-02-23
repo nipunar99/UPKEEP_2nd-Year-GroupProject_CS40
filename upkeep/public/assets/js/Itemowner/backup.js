@@ -2,7 +2,6 @@
 let deleteTaskNum = "";
 let reminderid = ""; 
 let submintFormNum = "";
-var firstIndex = 0;
 
 document.addEventListener("DOMContentLoaded",function(){
     ajax_getAllReminders();
@@ -23,8 +22,7 @@ function ajax_getAllReminders() {
             const res = xhr.responseText;
             const json = JSON.parse(res);
             var html="";
-            var i= 0;
-            for( i=0; i<json.length; i++){
+            for(var i=0; i<json.length; i++){
                 html+= "<div onclick='loadupcomeview("+(i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
@@ -72,7 +70,6 @@ function ajax_getAllReminders() {
                 html+= "</div>";
             }
             document.querySelector(".maintenceBoxes").innerHTML=html;
-            firstIndex = i;
         }
 
     }
@@ -91,7 +88,7 @@ function ajax_getAllOverdueReminders() {
             console.log(json);
             var html="";
             for(var i=0; i<json.length; i++){
-                html+= "<div onclick='loadupcomeview("+(firstIndex+i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
+                html+= "<div onclick='loadoverdueview("+(i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span>";
@@ -101,18 +98,18 @@ function ajax_getAllOverdueReminders() {
                 html+= "<h4>Pending</h4></div></div>";
                 html+= "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
-                html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
+                html+= "<div  class='overduepopupview"+(i+1)+" hidden popupview'><button onclick='unloadoverdueview("+(i+1)+")' class='closebtn'>&times;</button>";
                 
-                html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
+                html+= "<div class='overduemaintenaceview"+(i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
                 html+= "<h2 id='itemid'style='display: none;'>"+json[i].item_id+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<div class='action_btn'><button onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button onclick='completeOverdueTask("+(i+1)+")'>Complete</button> <button>Edit</button> <button id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
-                html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
-                html+= "<form method='post' id='form_completeTask"+(firstIndex+i+1)+"'>";
+                html+= "<div class='overduecompleteform"+(i+1)+" hidden'>";
+                html+= "<form method='post' id='form_completeTask"+(i+1)+"'>";
                 html+= "    <h2>Maintenance Details</h2>";
                 html+= "        <div class='middleInput'>";
                 html+= "            <div class='input-box'>";
@@ -128,12 +125,12 @@ function ajax_getAllOverdueReminders() {
                 html+= "                <input type='number' min='0' name='cost'  placeholder='Enter Brand'>";
                 html+= "            </div>";
                 html+= "        </div>";
-                html+= "        <div onclick='submitTask("+(firstIndex+i+1)+")' class='button completebtn'>";
+                html+= "        <div onclick='submitTask("+(i+1)+")' class='button completebtn'>";
                 html+= "            <input type='button' value='Done' class='completeTaskbtn'>";       
                 html+= "        </div>";
                 html+= "</form>";
                 html+= "<div class='action_btn'>";
-                html+= "    <button onclick='cancelcompleteTask("+(firstIndex+i+1)+")' class='cancelbtn'>Cancel</button>";
+                html+= "    <button onclick='cancelcompleteTask("+(i+1)+")' class='cancelbtn'>Cancel</button>";
                 html+= "</div> </div>";
                 html+= "</div>";
             }
@@ -222,8 +219,7 @@ function deleteTask(number,id){
     deleteTaskNum = number;
     reminderid = id;
     ajax_deleteTask();
-    ajax_getAllReminders();
-    ajax_getAllOverdueReminders();
+    ajax_getAllReminders()
 }
 
 function ajax_deleteTask() {
@@ -335,6 +331,14 @@ function display3details(){
 
 
 
+
+
+
+
+
+//.................for Overdue popup views
+
+
 let element= "";
 
 function loadupcomeview(popup){
@@ -364,10 +368,27 @@ function cancelcompleteTask(window){
     document.querySelector(".completeform"+window+"").classList.add("hidden");
 
 }
+// .............................................
 
+//.................for Overdue popup views
+function loadoverdueview(popup){
+    element = ".overduepopupview"+popup+"";
+    
+    document.querySelector(element).classList.remove("hidden");;
+    overlay.classList.remove("hidden");
+}
+function unloadoverdueview(popup){
+    element = ".overduepopupview"+popup+"";
+    
+    document.querySelector(element).classList.add("hidden");;
+    overlay.classList.add("hidden");
+}
+function completeOverdueTask(window){
+    
+    document.querySelector(".overduemaintenaceview"+window+"").classList.add("hidden");
+    document.querySelector(".overduecompleteform"+window+"").classList.remove("hidden");
 
-
-
+}
 
 
 

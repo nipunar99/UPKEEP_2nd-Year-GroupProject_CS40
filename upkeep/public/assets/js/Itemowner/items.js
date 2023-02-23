@@ -13,6 +13,22 @@ const district = ['Refrigerator','Air Conditioner','Washer','TV','Solor Panel',
     districtSelect.value = 'Ampara';
 })();
 
+// Add form elements......................................................................
+
+const select = document.getElementById('itemtype');
+const input = document.getElementById('altertypeinput');
+
+select.addEventListener('change', function() {
+  if (select.value === 'Other') {
+    input.classList.remove("hidden");
+  } else {
+    input.classList.add("hidden");
+  }
+});
+
+
+//......................................................................
+
 // Add Item view
 const addItem = document.querySelector(".addItem");
 const modal = document.querySelector(".popupview1");

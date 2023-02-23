@@ -148,9 +148,13 @@ main .insight {
     margin: .50rem 0 0rem;
     height: 2.5rem;
 }
+.worktagsContainer{
+    display: flex;
+    gap: 0.5rem;
+}
 .worktagsContainer>h3{
     font-size: 0.7rem;
-    color: var(--color-dark-variant);
+    color: var(--color-success);
     font-weight: 500;
     margin: .5rem 0 0.3rem !important;
 }
