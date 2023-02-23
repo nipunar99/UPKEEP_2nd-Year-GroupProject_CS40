@@ -79,6 +79,23 @@
                         <div class='img'>
                           <img src=".ROOT."/assets/images/uploads/".$result->image.">
                         </div>
+                       
+                            ";
+                            }
+                            ?>
+                            
+                        </div>
+                        <div class="view-1-button">
+                            <button>Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+                    </div>
+                    <div class="view-3">
+                    <?php
+                            if(!empty($result)){
+                                foreach($result as $result)
+                             echo " 
+                        
                         <div class='view-1-text'>
                            
                                 <h2>".$result->item_type."</h2>
@@ -109,7 +126,7 @@
                             <button class="delete">Delete</button>
                         </div>
                     </div>
-
+                <div class="view-3"></div>
                     <div class="view-2">
                     <div class="text">
                             <div class="text-1">

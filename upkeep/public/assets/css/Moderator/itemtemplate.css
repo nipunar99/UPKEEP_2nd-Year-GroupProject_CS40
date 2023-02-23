@@ -38,6 +38,7 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    /* overflow-x: auto; */
 }
 
 html{
@@ -342,6 +343,9 @@ main table thead th{
     color:#626473;
     font-size: 1rem;
 }
+tr{
+    
+}
 
 main table tbody td{
     height:3rem;
@@ -379,7 +383,22 @@ main .mainHeader h1{
     position: relative;
     left: 414px;
 } 
-
+main .more{
+    display: flex;
+    
+}
+.view{
+    
+    /* height:min-content; */
+    /* height: 30%; */
+    position: relative;
+    bottom: 0rem;
+    /* height: 10rem; */
+}
+.delete{
+    position: relative;
+    top: -1rem;
+}
 .searchBar{
     display: flex;
     justify-content:center;
@@ -464,6 +483,48 @@ main .mainHeader h1{
     position: relative;
     left: 6rem;
 }
+/* .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  } */
+  
+  /* .dropdown-content option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown option:hover
+   {background-color: #ddd;
+
+}
+  .show 
+  {display: block;
+} */
 /* ul{
     position: absolute;
 } */
@@ -533,3 +594,54 @@ main .mainHeader h1{
 .details>div>div{
     margin-bottom: 1rem;
 } */
+th .status {
+    /* background-color: #4CAF50; */
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* .dropdown {
+    position: relative;
+    display: inline-block;
+  } */
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content .a:hover {background-color: #6e1717}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+  select{
+    border:none;
+    padding: 10px 20px;
+    border-radius:5px;
+    font-weight: 700;
+    color:#626473;
+    /* font-size: 1rem; */
+  }
+  
+  select:focus{
+    outline:none;
+  }

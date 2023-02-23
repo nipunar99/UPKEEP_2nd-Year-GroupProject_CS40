@@ -11,6 +11,8 @@ Trait Model {
     protected $offset = 0;
     public $errors =  [];
 
+    
+
     public function findAll(){
         
         $query = "select * from $this->table limit $this->limit offset $this->offset"; 
@@ -18,6 +20,10 @@ Trait Model {
         // make the query
         return $this->query($query);
 
+    }
+    public function find(){
+        $query = "select * from $this->table";
+        return $this->query($query);
     }
 
     public function where($data , $data_not=[]){

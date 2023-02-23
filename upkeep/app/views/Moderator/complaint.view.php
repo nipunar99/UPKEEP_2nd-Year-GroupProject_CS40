@@ -91,7 +91,7 @@
                             <tr>
                                 <th>Technician</th>
                                 <th>Item type</th>
-                                <th>Description</th>
+                                <th>Status</th>
                                 <th>Date</th>
                                 <th>Action</th>
                             </tr>

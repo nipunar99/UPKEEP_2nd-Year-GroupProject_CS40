@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/itemtemplate.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
@@ -24,13 +26,13 @@
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
-                        </span>
+                    </span>
                 </div>
 
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -83,12 +85,12 @@
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
                         </button>
-        
+
                         <div class="theme-toggler">
                             <span class="material-icons-sharp active">light_mode</span>
                             <span class="material-icons-sharp">dark_mode</span>
                         </div>
-        
+
                         <div class="profile">
                             <div class="info">
                                 <p>Hey,<b>Saman</b></p>
@@ -100,53 +102,108 @@
                         </div>
                     </div>
                     <!-- End of top -->
-        
+
                     <!-- End of recent updates -->
-        
+
                 </div>
-    
+
             </div>
             <div class="toolbar">
                 <div class="searchBar">
-                    <input type="search" name="" id="txtHint" placeholder="Search item">
+                    <input type="search" name="" id="txtHint" placeholder="Search item" onkeyup="myFunction()">
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
-            </div>
-            <div class="item-details">
-             
+                <!-- <div class="dropdown">
                 
-            <div class="insight">
-                <div class="itemTemplateList" onchange="showUser(this.th)">
-                    <table id="templateTable">
-                        <thead>
-                       
-                            <tr>
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                 <div id="myDropdown" class="dropdown-content"> 
+                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                    <button class="#item_type">Item Type</button>
+                    <button class="#category">Category</button>
+                    <button class="#status">Status</button>
+                    </div> -->
+                <!-- </div>  -->
+                <!-- <div class="dropdown">
+                <button onclick="myFunction1()" class="dropbtn">Filter</button>
+                <select id="myDropdown" class="dropdown-content" name="filter">
+                    <optgroup label="Category"></optgroup> -->
+
+                <!-- <option value="option2">Status</option> -->
+                <!-- <optgroup label="Status">
+                        <option value="nested-option1">Pending</option>
+                        <option value="nested-option2">Approved</option>
+                    </optgroup> -->
+                <!-- <option value="option3">Option 3</option> -->
+                <!-- </select> -->
+            </div>
+
+
+            <!-- </div> -->
+
+            <div class="item-details">
+
+
+                <div class="insight">
+                    <div class="itemTemplateList" >
+                        <table id="templateTable">
+                            <thead>
+
+                                <!-- <tr> -->
                                 <th>Item</th>
                                 <th>Item type</th>
-                                <th>Category</th>
-                                <th>Status</th>
+                                <th class="category">Category
+                                <!-- <select name="category" id="category"> -->
+                                    <!-- <optgroup label="status"> -->
+                                        <!-- <option value="Status">Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="approved">Approved</option> -->
+                                    <!-- </optgroup> -->
+                                         </th>
+                                <th><select name="status" id="status">
+                                    <!-- <optgroup label="status"> -->
+                                        <option value="Status">Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="approved">Approved</option>
+                                    <!-- </optgroup> -->
+                                </select> 
+                                
+                                    <!-- <div class="dropdown-content">
+                                    <a href="#">Link 1</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+                                    </div> -->
+                                </th>
+                                <!-- <select class="table-filter" onchange="filter_rows()">
+                                            <option value="all"></option>
+                                         </select> -->
                                 <th>Action</th>
                                 <!-- <th>Description</th> -->
                                 <!-- <th>Esti.lifespan</th> -->
-                            </tr>
-                        </thead>
-                        <tbody>
-            
-                <?php if(!empty($result)):?>
-                    <?php foreach($result as $row):?>
-                        <tr>
-                            <td><div class="image"><img src="<?=ROOT?>/assets/images/uploads/<?=$row->image?>"></div></td>
-                            <td><?=$row->item_type?></td>
-                            <td><?=$row->category?></td>
-                            <td><?=$row->status?></td>
-                            <td><a href="<?= ROOT?>/Moderator/Item/viewItem/<?=$row->id?>"><button><span class="material-icons-sharp">view_list</span></button>&nbsp;&nbsp;<button><span class="material-icons-sharp">delete</span></button></td>                 
-                        </tr>
-                    <?php endforeach;?>
-                <?php endif;?>
-               
-            
-            <!-- <div class="insight">
+                                <!-- </tr> -->
+                            </thead>
+                            <tbody>
+
+                                <?php if (!empty($result)) : ?>
+                                    <?php foreach ($result as $row) : ?>
+                                        <tr>
+                                            <td>
+                                                <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/<?= $row->image ?>"></div>
+                                            </td>
+                                            <td><?= $row->item_type ?></td>
+                                            <td class="category"><?= $row->category ?></td>
+                                            <td class="status"><?= $row->status ?></td>
+                                            <td>
+                                                <div class="more">
+                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/<?= $row->id ?>"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+
+
+                                <!-- <div class="insight">
                 <div class="itemTemplateList" onchange="showUser(this.th)">
                     <table>
                         <thead>
@@ -171,8 +228,8 @@
                                 <td class="warning">Pending</td>
                                 <td>N/A</td>
                                 <td>10 years</td> -->
-                            
-                            <!-- <tr>
+
+                                <!-- <tr>
                                 <td>Name should be added</td>
                                 <td>Refrigerator</td>
                                 <td>non freeze refrigerator</td>
@@ -204,14 +261,21 @@
                                 <td>N/A</td>
                                 <td>10 years</td>
                             </tr> -->
-                        <!-- </tbody> -->
-                    <!-- </table> -->
-                    <!-- <a href="#">Show All</a> -->
+                                <!-- </tbody> -->
+                                <!-- </table> -->
+                                <!-- <a href="#">Show All</a> -->
+                    </div>
                 </div>
-            </div>
-        </main> 
+        </main>
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
+        window.onload = () => {
+            console.log(document.querySelector("#templlateTable > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
+        };
+
+        getUniqueValuesFromColumn()
+    </script>
 </body>
+
 </html>

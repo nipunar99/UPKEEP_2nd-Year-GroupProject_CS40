@@ -8,7 +8,7 @@ class Itemtemplate {
         if(isset($_SESSION['user_id'])){
             $arr=[];
             $itemtemplates = new Itemtemplates;
-            $result = $itemtemplates->findAll();
+            $result = $itemtemplates->find();
             $data['result'] = $result;
 
             $this->view('Moderator/itemTemplate',$data);

@@ -225,7 +225,7 @@ main .mainHeader{
     height: 40vh;
     gap: 4rem;
 }
-.view-1, .view-2-text{
+.view-1,.view-3, .view-2-text{
     display: flex;
     flex-direction: column;
     border-radius: var(--card-border-radius);
@@ -246,10 +246,18 @@ main .mainHeader{
 .view-1:hover, .view-2-text:hover{
     box-shadow: none;
 }
-.view-2{
+.view-3{
     position: absolute;
     top: 6rem;
     right: 25rem;
+    width: 500px;
+    text-align: center;
+    width: 20%;
+}
+.view-2{
+    position: absolute;
+    top: 6rem;
+    right: 45rem;
     width: 500px;
     text-align: center;
     width: 20%;

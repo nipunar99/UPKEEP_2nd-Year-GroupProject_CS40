@@ -4,15 +4,15 @@ class Complaints
 {
     use Model;
 
-    protected $table = "maintenances";
+    protected $table = "complaint";
 
     protected $allowedColumns = [
-        "name",
-        "type",
-      
+        "complaint_ID",
+        "date",
+        "category",
         "description",
-      
-        "moderator_id",
+        "status",
+        "owner_id"
         
     ];
     public function insertItemtemplate1($data){

@@ -15,7 +15,7 @@ class Item {
               $arr["id"];
             //   show($arr);
             $result = $itemtemplates->where($arr);
-            // echo $result;
+             echo $result;
             // $result = $itemtemplates->findAll();
             $data['result'] = $result;
 
