@@ -8,14 +8,21 @@ class Itemtemplate {
         if(isset($_SESSION['user_id'])){
             $arr=[];
             $itemtemplates = new Itemtemplates;
-            $result = $itemtemplates->find();
-            $data['result'] = $result;
+            $result = $itemtemplates->completeItemTemplate();
+            // $json = json_encode($result);
+            // echo($json);
 
-            $this->view('Moderator/itemTemplate',$data);
+              $data['result'] = $result;
+
+             $this->view('Moderator/itemTemplate',$result);
+             print_r($result);
+
         }else{
             redirect("Home/home");
         }
 
     }
+
+  
 
 }

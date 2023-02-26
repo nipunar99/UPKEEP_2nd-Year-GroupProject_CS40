@@ -79,54 +79,37 @@
                         <div class='img'>
                           <img src=".ROOT."/assets/images/uploads/".$result->image.">
                         </div>
-                       
-                            ";
-                            }
-                            ?>
-                            
-                        </div>
-                        <div class="view-1-button">
-                            <button>Edit</button>
-                            <button class="delete">Delete</button>
-                        </div>
-                    </div>
-                    <div class="view-3">
-                    <?php
-                            if(!empty($result)){
-                                foreach($result as $result)
-                             echo " 
-                        
                         <div class='view-1-text'>
                            
-                                <h2>".$result->item_type."</h2>
+                                <h2>".$result->itemtemplate_name."</h2>
                             <div class='name'>
                                 <h5>Tempalte Name</h5>
-                                <p>".$result->itemtemplate_name."</p>
+                                <p>".$result->type_name."</p>
                             </div>
                             <div class='type'>
                                 <h5>Item Type</h5>
-                                <p>".$result->item_type."</p>
+                                <p>".$result->type_name."</p>
                             </div>
-                            <div class='date'>
-                                <h5>Added date</h5>
-                                <p>".$result->itemtemplate_name."</p>
-                            </div>
-                            <div class='lifespan'>
-                                <h5>Esti.li.span</h5>
-                                <p>1".$result->lifespan."Years</p>
-                            </div>
-                            
+                           
+                      
+                    </div>
+                    
                             ";
+                            
                             }
                             ?>
                             
-                        </div>
-                        <div class="view-1-button">
+                       
+                         <div class="view-1-button">
                             <button>Edit</button>
                             <button class="delete">Delete</button>
                         </div>
                     </div>
-                <div class="view-3"></div>
+                    <!-- <div class="view-3"> -->
+                    
+                        
+                       
+                <!-- <div class="view-3"></div> -->
                     <div class="view-2">
                     <div class="text">
                             <div class="text-1">

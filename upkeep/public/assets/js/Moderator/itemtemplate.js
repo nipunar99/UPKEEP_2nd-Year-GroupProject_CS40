@@ -279,60 +279,222 @@ for (var i = elements.length; i--;) {
 // });
 
 //status filter
-var dropdown = document.getElementById("status");
+// var dropdown = document.getElementById("status");
 
-dropdown.addEventListener("change", function() {
+// dropdown.addEventListener("change", function() {
   
-  var selectedValue = dropdown.value;
-  console.log(selectedValue);
+//   var selectedValue = dropdown.value;
+//   console.log(selectedValue);
 
   
-  var table = document.getElementById("templateTable");
-  var rows = table.getElementsByTagName("tr");
-  console.log(rows);
+//   var table = document.getElementById("templateTable");
+//   var rows = table.getElementsByTagName("tr");
+//   console.log(rows);
   // var column = document.getElementById("status");
   // var cells = table.getElementsByTagName("td[3]");
   // console.log(cells);
-  for (var i = 0; i < rows.length; i++) {
-    const rowData = [];
-     var row = rows[i+1];
-     console.log(row);
+//   for (var i = 0; i < rows.length; i++) {
+//     const rowData = [];
+//      var row = rows[i+1];
+//      console.log(row);
    
-    const cellData = row.cells[3].textContent;
+//     const cellData = row.cells[3].textContent;
    
-    console.log(cellData);
-     if (cellData == selectedValue[0].toUpperCase()+selectedValue.slice(1)) {
+//     console.log(cellData);
+//      if (cellData == selectedValue[0].toUpperCase()+selectedValue.slice(1)) {
    
-      row.style.display = "";
-       console.log(row);
+//       row.style.display = "";
+//        console.log(row);
 
   
-  }
-  else if(selectedValue==="Status"){
-   row.style.display = "";
-  }
-}
-});
+//   }
+//   else if(selectedValue==="Status"){
+//    row.style.display = "";
+//   }
+// }
+// });
 
 //category filter
-var dropdownCategory = document.getElementById("category");
+// var dropdownCategory = document.getElementById("category");
 
-// add an event listener to the input element in the table column
-dropdownCategory.querySelector("input").addEventListener("input", function() {
-  // get the user input value
-  var inputValue = this.value;
-  var dropdown = dropdownCategory.querySelector("select");
+// // add an event listener to the input element in the table column
+// dropdownCategory.querySelector("input").addEventListener("input", function() {
+//   // get the user input value
+//   var inputValue = this.value;
+//   var dropdown = dropdownCategory.querySelector("select");
 
-  var optionExists = Array.from(dropdown.options).some(function(option) {
-    return option.value === inputValue;
-  });
-  if (!optionExists) {
-    var newOption = document.createElement("option");
-    newOption.value = inputValue;
-    newOption.textContent = inputValue;
-    dropdown.appendChild(newOption);
+//   var optionExists = Array.from(dropdown.options).some(function(option) {
+//     return option.value === inputValue;
+//   });
+//   if (!optionExists) {
+//     var newOption = document.createElement("option");
+//     newOption.value = inputValue;
+//     newOption.textContent = inputValue;
+//     dropdown.appendChild(newOption);
+//   }
+// });
+function sortTable(n){
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("templateTable");
+  switching = true;
+   //Set the sorting direction to ascending:
+   dir = "asc";
+    /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+     /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          console.log(x);
+          console.log(y);
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          console.log(x);
+          console.log(y);
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
   }
+}
+// //Ajax for add item details
+
+// document.getElementsByClassName(".button").addEventListener('click',ajax_addItem);
+
+// function ajax_addItem(e){
+//     e.preventDefault();
+
+//     const formItemDetails = document.getElementById("form_itemDetails");
+
+//     const form = new FormData(formItemDetails);
+//     form.append("action","addItem");
+//     // const urlparams = new URLSearchParams(form);
+
+    
+//     const xhr = new XMLHttpRequest();
+
+//     xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate");
+    // xhr.setRequestHeader("Content-Type","application/json");             
+    // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+//     xhr.onload = function(){
+//         if(xhr.status == 200){
+//             const res = xhr.responseText;
+//             console.log(res);
+//         }
+//     }
+
+//     xhr.send(form);
+    
+//     // closeModal();
+//     ajax_getItems();
+//     formItemDetails.reset();
+//     // showModal1();
+
+// }
+document.getElementsByClassName(".button").addEventListener('click',function(){
+  // closeModal1();
+  ajax_getItems();
 });
+
+document.addEventListener("DOMContentLoaded",function(){
+  ajax_getItems();
+});
+
+function ajax_getItems(){
+  const xhr = new XMLHttpRequest();
+xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/completeItemTemplate","true");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){  
+            const res = xhr.responseText;
+            //  const json = JSON.parse(res);
+            // console.log(json);
+            try {
+              const json = JSON.parse(res);
+              console.log(json);
+          }
+          catch (error) {
+              console.log('Error parsing JSON:', error, res);
+          }
+            var html = "";
+            
+            for (var i = 0; i < json.length; i++) {
+                html += "<tbody>";
+                html +=               "<tr>";
+                html += "                <td class='template_name'>";                                
+                html += "                     <div class='image'>";
+                html +="<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads'"+json[i].image+">";
+                html +="</div>";
+                html += "                        <div class='name'>";
+                html += ""+json[i].itemtemplate_name+">";
+                html += "                    </div>";
+                html += "                     </td>";
+                html += "                <td><"+json[i].type_name+"></td>        ";
+                html += "                        <td class='status'><"+json[i].type_name+"></td>";
+                html += "                        <td><"+json[i].description+"></td>";        
+                html += "                       <td>";
+               html+=" <div class='more'>  ";                         
+                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/app/Moderator/Item/viewItem/'"+json[i].id+"><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
+                html += "                </div>";
+                html += "                <td>";
+                html += "                <tr>";
+                // let tags = JSON.parse(json[i].work_tags);
+                // for(var j = 0; j < tags.length; j++) {
+                //     html += "<h3>"+tags[j]+"</h3>"
+                //     // console.log(tags[j]);
+                //}                
+                // html +=                 "</div>";
+                // html += "                <div class='location'><span class='material-icons-sharp'>location_on</span><h3>"+json[i].location+"</h3></div>";
+                // html += "            </div>";
+                // html += "            <div class='action-bar'>";
+                // html += "                <a href='http://localhost/upkeep/upkeep/public/itemowner/ViewGig/selectGig/"+json[i].gig_id+"' class='view'>View</a>";
+                // html += "            </div>";
+                // html += "        </div>";
+            }
+            document.querySelector(".insight").innerHTML = html;
+        }
+    }
+    xhr.send();
+
+}
+
+
+
 
 
 

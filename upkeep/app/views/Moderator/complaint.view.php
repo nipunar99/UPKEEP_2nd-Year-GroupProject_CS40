@@ -83,6 +83,15 @@
 
             <div class="insight">
             <div class="maintenance">
+            <div class="tabs">
+                    <label class="tab" id="one-tab" for="one">Gigs Complaints</label>
+                    <label class="tab" id="two-tab" for="two">Community Complaints</label>
+                </div>
+                <div class="tabs">
+                        <button class="tablinks" onclick="openComplaints(event, 'Gigs')">Gigs Compllaints</button>
+                        <button class="tablinks" onclick="openComplaints(event, 'Community')">Community Complaints</button>
+                       
+                </div>
                 <h1>Gigs Complaints</h1>
 
                 <div class="table">

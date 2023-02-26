@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/itemtemplate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -150,9 +151,9 @@
                             <thead>
 
                                 <!-- <tr> -->
-                                <th>Item</th>
-                                <th>Item type</th>
-                                <th class="category">Category
+                                <!-- <th>Item</th> -->
+                                <th  onclick="sortTable(0)">Item</th>
+                                <th class="category"  onclick="sortTable(1)">Item Type
                                 <!-- <select name="category" id="category"> -->
                                     <!-- <optgroup label="status"> -->
                                         <!-- <option value="Status">Status</option>
@@ -160,13 +161,13 @@
                                         <option value="approved">Approved</option> -->
                                     <!-- </optgroup> -->
                                          </th>
-                                <th><select name="status" id="status">
+                                <th  onclick="sortTable(2)">Status<select name="status" id="status">
                                     <!-- <optgroup label="status"> -->
-                                        <option value="Status">Status</option>
+                                        <!-- <option value="Status">Status</option>
                                         <option value="pending">Pending</option>
-                                        <option value="approved">Approved</option>
+                                        <option value="approved">Approved</option> -->
                                     <!-- </optgroup> -->
-                                </select> 
+                                <!-- </select>  -->
                                 
                                     <!-- <div class="dropdown-content">
                                     <a href="#">Link 1</a>
@@ -174,34 +175,36 @@
   <a href="#">Link 3</a>
                                     </div> -->
                                 </th>
+                                <th  class="description">Description</th>
                                 <!-- <select class="table-filter" onchange="filter_rows()">
                                             <option value="all"></option>
                                          </select> -->
                                 <th>Action</th>
-                                <!-- <th>Description</th> -->
+                                <!--  -->
                                 <!-- <th>Esti.lifespan</th> -->
                                 <!-- </tr> -->
                             </thead>
                             <tbody>
 
-                                <?php if (!empty($result)) : ?>
-                                    <?php foreach ($result as $row) : ?>
+                              
                                         <tr>
-                                            <td>
-                                                <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/<?= $row->image ?>"></div>
+                                            <!-- <td><input type="checkbox" name="name1" /></td> -->
+                                            <td class="template_name">
+                                                <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
+                                                <div class="name">new</div>
                                             </td>
-                                            <td><?= $row->item_type ?></td>
-                                            <td class="category"><?= $row->category ?></td>
-                                            <td class="status"><?= $row->status ?></td>
+                                            <td>abc</td>
+                                            <!-- <td class="category"><?= $row->category ?></td> -->
+                                            <td class="status">pending</td>
+                                            <td>btre </td>
                                             <td>
                                                 <div class="more">
-                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/<?= $row->id ?>"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
+                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/28"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
                                                 </div>
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
+                                   
+</tbody>
 
                                 <!-- <div class="insight">
                 <div class="itemTemplateList" onchange="showUser(this.th)">
@@ -270,11 +273,11 @@
 
     </div>
     <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
-        window.onload = () => {
-            console.log(document.querySelector("#templlateTable > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
-        };
+        // window.onload = () => {
+        //     console.log(document.querySelector("#templlateTable > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
+        // };
 
-        getUniqueValuesFromColumn()
+        // getUniqueValuesFromColumn()
     </script>
 </body>
 

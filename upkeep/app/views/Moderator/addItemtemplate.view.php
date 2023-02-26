@@ -107,7 +107,7 @@
             </div>
 
             <div class="insight">
-                <form method="post" action="#">
+                <form method="post" action="#" id="form_itemDetails">
                     <div class="itemDetails">
         
                         <div class="input-box">
@@ -123,25 +123,25 @@
                                 <select name="status" id="status" ></select>
                             </div>
 
-                            <div class="input-box">
+                            <!-- <div class="input-box">
                                 <span class="details">Item Type</span>
                                 <input type="text" name="item_type" id="" required placeholder="Enter Item Type">
-                            </div>
+                            </div> -->
                             <div class="input-box">
                                 <span class="details">Image</span>
                                 <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
                         </div>
                             <div class="input-box">
-                                <span class="details">Category</span>
-                                <input type="text" name="category" id="" required placeholder="Enter Category">
+                                <span class="details">Type ID</span>
+                                <input type="text" name="type_id" id="" required placeholder="Enter type id">
                             </div>
                             
                             
 
-                            <div class="input-box">
+                            <!-- <div class="input-box">
                                 <span class="details">Esti. lifespan </span>
                                 <input type="number" name="lifespan" id=""  placeholder="Enter Estimated life span">
-                            </div>
+                            </div> -->
 
                         </div>
 

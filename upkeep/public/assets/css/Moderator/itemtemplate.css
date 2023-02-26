@@ -343,9 +343,6 @@ main table thead th{
     color:#626473;
     font-size: 1rem;
 }
-tr{
-    
-}
 
 main table tbody td{
     height:3rem;
@@ -391,13 +388,18 @@ main .more{
     
     /* height:min-content; */
     /* height: 30%; */
-    position: relative;
-    bottom: 0rem;
+    /* position: relative;
+    bottom: 0rem; */
     /* height: 10rem; */
+    display: flex;
 }
 .delete{
-    position: relative;
+    /* position: relative; */
     top: -1rem;
+}
+.description{
+    width:20%;
+
 }
 .searchBar{
     display: flex;
@@ -478,10 +480,30 @@ main .more{
     /* margin-bottom: 2rem; */
 
 }
+td .template_name{
+    gap: 1rem;
+}
 .image{
     display: flex;
     position: relative;
-    left: 6rem;
+    left: 8rem;
+    /* gap: 1rem; */
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    /* position: relative;
+    left: 9rem; */
+    
+}
+.status{
+    position: relative;
+    left: -1rem;
+}
+.more{
+    display: grid;
+    position: relative;
+    left: 7rem;
 }
 /* .dropbtn {
     background-color: #3498DB;

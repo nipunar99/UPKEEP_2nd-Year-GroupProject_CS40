@@ -22,7 +22,7 @@ Trait Model {
 
     }
     public function find(){
-        $query = "select * from $this->table";
+        $query = "select * from $this->table " ;
         return $this->query($query);
     }
 
