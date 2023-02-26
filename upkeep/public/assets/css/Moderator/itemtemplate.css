@@ -480,14 +480,15 @@ main .more{
     /* margin-bottom: 2rem; */
 
 }
-td .template_name{
-    gap: 1rem;
-}
+ /* .template_name{
+    display: grid;
+    grid-template-columns: auto auto;
+} */
 .image{
     display: flex;
     position: relative;
-    left: 8rem;
-    /* gap: 1rem; */
+    left: 11rem;
+    gap: 1rem;
 }
 .name{
     display: flex;

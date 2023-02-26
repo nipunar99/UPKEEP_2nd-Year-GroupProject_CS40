@@ -18,7 +18,7 @@
     <div class="container">
         <aside>
             <div class="top">
-
+                <!-- <script>console.log("Loaded")</script> -->
                 <div class="logo">
                     <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
@@ -184,7 +184,7 @@
                                 <!-- <th>Esti.lifespan</th> -->
                                 <!-- </tr> -->
                             </thead>
-                            <tbody>
+                            <tbody class="details">
 
                               
                                         <tr>
@@ -199,7 +199,7 @@
                                             <td>btre </td>
                                             <td>
                                                 <div class="more">
-                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/28"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
+                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
                                                 </div>
                                             </td>
                                         </tr>

@@ -22,19 +22,7 @@
 //  function dosomething(event){
 //     console.log(event);
 //  }
-elements = document.getElementsByTagName("td")
-for (var i = elements.length; i--;) {
-  if (elements[i].innerHTML === "Pending") {
-   //  elements[i].style.color = "red";
-   elements[i].classList.add("danger");
 
-  }
-  if (elements[i].innerHTML === "Approved") {
-   //  elements[i].style.color = "green";  
-    elements[i].classList.add("success");  
-  }
-  
-}
 
 // function myFunction1() {
 //   document.getElementById("myDropdown").classList.toggle("show");
@@ -426,50 +414,72 @@ function sortTable(n){
 //     // showModal1();
 
 // }
-document.getElementsByClassName(".button").addEventListener('click',function(){
-  // closeModal1();
-  ajax_getItems();
-});
+// ;document.getElementsByClassName(".button").addEventListener('click',function(){
+//   // closeModal1();
+//   ajax_getItems();
+// })
 
 document.addEventListener("DOMContentLoaded",function(){
   ajax_getItems();
 });
+{/* <tbody class="details"> */}
 
+                              
+{/* <tr>
+    <!-- <td><input type="checkbox" name="name1" /></td> -->
+    <td class="template_name">
+        <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
+        <div class="name">new</div>
+    </td>
+    <td>abc</td>
+    <!-- <td class="category"><?= $row->category ?></td> -->
+    <td class="status">pending</td>
+    <td>btre </td>
+    <td>
+        <div class="more">
+            <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
+        </div>
+    </td>
+</tr> */}
+
+// </tbody>
 function ajax_getItems(){
   const xhr = new XMLHttpRequest();
-xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/completeItemTemplate","true");
+xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/completeItemTemplates","true");
 
     xhr.onload = function(){
         if(xhr.status == 200){  
             const res = xhr.responseText;
             //  const json = JSON.parse(res);
             // console.log(json);
-            try {
+            // try {
               const json = JSON.parse(res);
               console.log(json);
-          }
-          catch (error) {
-              console.log('Error parsing JSON:', error, res);
-          }
+          // }
+          // catch (error) {
+              // console.log('Error parsing JSON:', error, res);
+          // }
             var html = "";
             
             for (var i = 0; i < json.length; i++) {
-                html += "<tbody>";
+                // html += "<tbody>";
                 html +=               "<tr>";
                 html += "                <td class='template_name'>";                                
                 html += "                     <div class='image'>";
-                html +="<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads'"+json[i].image+">";
+                html +="<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/"+json[i].image+"'>";
+                // console.log(json[i].id);
                 html +="</div>";
-                html += "                        <div class='name'>";
-                html += ""+json[i].itemtemplate_name+">";
+                html += "                        <div class='name'>"+json[i].itemtemplate_name+"";
+                
                 html += "                    </div>";
                 html += "                     </td>";
-                html += "                <td><"+json[i].type_name+"></td>        ";
-                html += "                        <td class='status'><"+json[i].type_name+"></td>";
-                html += "                        <td><"+json[i].description+"></td>";        
+                // html += "                <td><"+json[i].type_name+"</td>";
+                html += "                        <td>"+json[i].type_name+"</td>";
+                html += " <td class='status'>"+json[i].status+"</td>";
+                html += "                        <td>"+json[i].description+"</td>";        
                 html += "                       <td>";
                html+=" <div class='more'>  ";                         
-                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/app/Moderator/Item/viewItem/'"+json[i].id+"><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
+                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/app/Moderator/Item/viewItem/"+json[i].id+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
                 html += "                </div>";
                 html += "                <td>";
                 html += "                <tr>";
@@ -486,11 +496,25 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
                 // html += "            </div>";
                 // html += "        </div>";
             }
-            document.querySelector(".insight").innerHTML = html;
+            document.querySelector(".details").innerHTML = html;
         }
     }
     xhr.send();
-
+    elements = document.getElementsByTagName("td")
+    for (var i = elements.length; i--;) {
+      if (elements[i].innerHTML === "Pending") {
+        //  elements[i].style.color = "red";
+        elements[i].classList.add("danger");
+       console.log("a");
+    
+      }
+      if (elements[i].innerHTML === "Approved") {
+       //  elements[i].style.color = "green";  
+        elements[i].classList.add("success");  
+        console.log("b");
+      }
+      
+    }
 }
 
 
