@@ -18,7 +18,6 @@
     <div class="container">
         <aside>
             <div class="top">
-                <!-- <script>console.log("Loaded")</script> -->
                 <div class="logo">
                     <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
@@ -52,17 +51,6 @@
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
-
-                <!-- <a href="#" >
-                    <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
-                </a>
-
-                <a href="#">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a> -->
-
                 <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Statistics</h3>
@@ -102,10 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End of top -->
-
-                    <!-- End of recent updates -->
-
+                   
                 </div>
 
             </div>
@@ -115,32 +100,8 @@
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
-                <!-- <div class="dropdown">
-                
-                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                 <div id="myDropdown" class="dropdown-content"> 
-                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                    <button class="#item_type">Item Type</button>
-                    <button class="#category">Category</button>
-                    <button class="#status">Status</button>
-                    </div> -->
-                <!-- </div>  -->
-                <!-- <div class="dropdown">
-                <button onclick="myFunction1()" class="dropbtn">Filter</button>
-                <select id="myDropdown" class="dropdown-content" name="filter">
-                    <optgroup label="Category"></optgroup> -->
-
-                <!-- <option value="option2">Status</option> -->
-                <!-- <optgroup label="Status">
-                        <option value="nested-option1">Pending</option>
-                        <option value="nested-option2">Approved</option>
-                    </optgroup> -->
-                <!-- <option value="option3">Option 3</option> -->
-                <!-- </select> -->
             </div>
 
-
-            <!-- </div> -->
 
             <div class="item-details">
 
@@ -150,52 +111,24 @@
                         <table id="templateTable">
                             <thead>
 
-                                <!-- <tr> -->
-                                <!-- <th>Item</th> -->
+                               
                                 <th  onclick="sortTable(0)">Item</th>
-                                <th class="category"  onclick="sortTable(1)">Item Type
-                                <!-- <select name="category" id="category"> -->
-                                    <!-- <optgroup label="status"> -->
-                                        <!-- <option value="Status">Status</option>
-                                        <option value="pending">Pending</option>
-                                        <option value="approved">Approved</option> -->
-                                    <!-- </optgroup> -->
-                                         </th>
-                                <th  onclick="sortTable(2)">Status<select name="status" id="status">
-                                    <!-- <optgroup label="status"> -->
-                                        <!-- <option value="Status">Status</option>
-                                        <option value="pending">Pending</option>
-                                        <option value="approved">Approved</option> -->
-                                    <!-- </optgroup> -->
-                                <!-- </select>  -->
-                                
-                                    <!-- <div class="dropdown-content">
-                                    <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <a href="#">Link 3</a>
-                                    </div> -->
-                                </th>
+                                <th class="category"  onclick="sortTable(1)">Item Type   </th>       
+                                <th  onclick="sortTable(2)" class="status">Status<select name="status" id="status"> </th>
                                 <th  class="description">Description</th>
-                                <!-- <select class="table-filter" onchange="filter_rows()">
-                                            <option value="all"></option>
-                                         </select> -->
                                 <th>Action</th>
-                                <!--  -->
-                                <!-- <th>Esti.lifespan</th> -->
-                                <!-- </tr> -->
                             </thead>
                             <tbody class="details">
 
                               
                                         <tr>
-                                            <!-- <td><input type="checkbox" name="name1" /></td> -->
+                                           
                                             <td class="template_name">
                                                 <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
                                                 <div class="name">new</div>
                                             </td>
                                             <td>abc</td>
-                                            <!-- <td class="category"><?= $row->category ?></td> -->
-                                            <td class="status">pending</td>
+                                            <td id="status" class="primary">pending</td>
                                             <td>btre </td>
                                             <td>
                                                 <div class="more">
@@ -204,80 +137,13 @@
                                             </td>
                                         </tr>
                                    
-</tbody>
-
-                                <!-- <div class="insight">
-                <div class="itemTemplateList" onchange="showUser(this.th)">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Item template Name</th>
-                                <th>Item type</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Description</th>
-                                <th>Esti.lifespan</th>
-                                 // <td>".$row->description."</td>
-                                // <td>".$row->lifespan."</td> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-             
-            -->
-                                <!-- <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="warning">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td> -->
-
-                                <!-- <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="warning">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="success">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="success">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr>
-                            <tr>
-                                <td>Name should be added</td>
-                                <td>Refrigerator</td>
-                                <td>non freeze refrigerator</td>
-                                <td class="success">Pending</td>
-                                <td>N/A</td>
-                                <td>10 years</td>
-                            </tr> -->
-                                <!-- </tbody> -->
-                                <!-- </table> -->
-                                <!-- <a href="#">Show All</a> -->
+                            </tbody>
                     </div>
                 </div>
         </main>
 
     </div>
     <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
-        // window.onload = () => {
-        //     console.log(document.querySelector("#templlateTable > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
-        // };
-
-        // getUniqueValuesFromColumn()
     </script>
 </body>
 

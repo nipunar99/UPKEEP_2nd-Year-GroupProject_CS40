@@ -497,7 +497,7 @@ main .more{
     left: 9rem; */
     
 }
-.status{
+#status{
     position: relative;
     left: -1rem;
 }
@@ -620,7 +620,7 @@ main .more{
 th .status {
     /* background-color: #4CAF50; */
     color: white;
-    padding: 16px;
+    padding: 14px;
     font-size: 16px;
     border: none;
     cursor: pointer;
