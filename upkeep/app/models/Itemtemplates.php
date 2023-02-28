@@ -32,7 +32,8 @@ class Itemtemplates
             return $this->query($query);
         }
        public function item($id){
-        $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate i inner JOIN item_type i_type on  i_type.type_id = i.type_id where id = '$id'";
+        
+        $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate  i inner JOIN item_type  i_type on  i_type.type_id = i.type_id where id = $id[0]";
         return $this->query($query);
     
 

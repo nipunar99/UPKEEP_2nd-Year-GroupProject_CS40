@@ -3,6 +3,13 @@
  class Item {
 
      use Controller;
+     public function index(){
+        if(isset($_SESSION['user_id'])){
+            // $this->view('Moderator/item');
+        }else{
+            redirect("Home/home");
+        } 
+     }
    //  public function index ($arr){
     //      $data = [];
         
@@ -33,14 +40,31 @@
         
    // }
     public function viewItem($id){
-        $item = new Itemtemplates;
-        $arr['id']=$id[0];
+        if(isset($_SESSION['user_id'])){
+        // $arr['id']=$id[0];
         // show($id);
-        $result = $item->item($arr['id']);
-        
+        // $result = $item->item($arr['id']);
+        // $result1 = json_encode($result);
+        // echo($result1);
         // print_r($result);
-        $data['result']=$result;
-        $this->view('Moderator/item',$data);
+        // $data['result']=$result;
+        // $this->view('Moderator/item',$data);
+        // if($_SESSION['USER'] == $_SESSION['user_id']){
+      
+            $item = new Itemtemplates;
+            // $profile = new User;
+     
+            // $profileDetails = $profile->getUserById($[0]->user_id);
+            
+            
+            $result =json_encode($item->item($id));
+            $data['result'] = $result;
+             print_r($data['result']);
+            // $data['profileDetails']=$profileDetails;
+            $this->view('Moderator/item',$data);
+        }else{
+            redirect("Home/home");
+        }
     }
 }
 

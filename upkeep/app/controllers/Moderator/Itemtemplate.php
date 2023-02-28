@@ -10,18 +10,7 @@ class Itemtemplate {
         }else{
             redirect("Home/home");
         }
-            // $arr=[];
-            
-            // 
-            // $json = json_encode($result);
-            // echo($json);
-
-            //   $data['result'] = $result;
-
-             
-            //  print_r($result);
-
-       
+          
 
     }
     public function completeItemtemplates(){

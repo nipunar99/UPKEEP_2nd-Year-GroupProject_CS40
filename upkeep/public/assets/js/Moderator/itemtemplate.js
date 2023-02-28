@@ -91,10 +91,11 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
                 html += "                        <td>"+json[i].description+"</td>";        
                 html += "                       <td>";
                html+=" <div class='more'>  ";                         
-                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/app/Moderator/Item/viewItem/"+json[i].id+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
+                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/"+json[i].id+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
                 html += "                </div>";
                 html += "                <td>";
                 html += "                <tr>";
+                var id = json[i].id;
               
             }
             document.querySelector(".details").innerHTML = html;
