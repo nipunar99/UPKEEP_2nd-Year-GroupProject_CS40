@@ -169,12 +169,14 @@
 
                         </div>
                         
-        
-                        <div class="button" style="width: 10rem;">
-                        <!-- <a href="Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
-                         <input type="submit" value="Add Moderator"> 
-                        </div>
-        
+                        <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">
+                            <div class="button" style="width: 10rem;">
+                            <!-- <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
+                            
+                                <input type="submit" value="Add Moderato"> 
+                             
+                            </div>
+                        </a>
                     </div>
                 </form>
                 </div>

@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha384-yacmIiZmY4ZpH4tA+8tbaThL5vi5r5pOuOvUV8X7VjQoC2Oaa/+GhBw8b7W1G6mv" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
     <aside>
             <div class="top">
-                <script>console.log("Loaded")</script>
+                
 
                 <div class="logo">
                     <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
@@ -33,53 +34,55 @@
             </div>
 
             <div class="sidebar">
-                <a href="<?=ROOT?>/Technician/Dashboard">
+                
+                <a href="<?=ROOT?>/Admin/AdminDashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Technician/Findjobs" >
-                    <span class="material-icons-sharp">work</span>
-                    <h3>Find Jobs</h3>
+                <a href="<?=ROOT?>/Admin/VerifyRequest">
+                    <span class="material-icons-sharp">help_outline</span>
+                    <h3>Verification Request</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Technician/Orders" >
-                    <span class="material-icons-sharp">list_alt</span>
-                    <h3>Orders</h3>
+                <a href="<?=ROOT?>/Admin/Addmoderator">
+                    <span class="material-icons-sharp">person</span>
+                    <h3>Moderators</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">person</span>
+                    <h3>User</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Technician/Gigs" class="active">
-                    <span class="material-icons-sharp">task</span>
-                    <h3>Gigs</h3>
+                <a href="<?=ROOT?>/Admin/Complaints">
+                    <span class="material-icons-sharp">error</span>
+                    <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Community">
+                <a href="<?=ROOT?>/Admin/ItemTemplate">
+                    <span class="material-icons-sharp">view_in_ar</span>
+                    <h3>Item Templates</h3>
+                </a>
+
+                <a href="<?=ROOT?>/Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a>
-
-                <a href="<?=ROOT?>/Conversation">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Conversation</h3>
-                    <span class="message-count">11</span>
-                </a>
-
-                <a href="<?=ROOT?>/Technician/Statistics">
-                    <span class="material-icons-sharp">analytics</span>
                     <h3>Statistics</h3>
                 </a>
-
-                <a href=<?=ROOT."/Signout"?>>
+                
+                <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
-            </div>
 
+            </div>
         </aside>
+
+        
+        
 
         <main>
             <div class="top">
-                <h1>GIGS</h1>
+                <h1>USER</h1>
                 <div class="right">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
@@ -102,56 +105,159 @@
                 </div>
             </div>
 
-            <div class="toolbar">
-                <a class="show-modal addGig btn" href="#addgig">Add GIG</a> 
-                <a class="viewitem btn" href="#">View Available Items</a> 
-            </div>
-            
-            <div class="gigs">
-                <?php if(!empty($data['gigList'])) : ?>
-                <div class="insight">
-                <?php foreach($data["gigList"] as $gig) : ?>
-                        <div class="gig-card">
-                            <div class="middle">  
-                                <div class='gig-cover'>
-                                    <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
-                                </div>
-                                <h1><?=$gig->title?></h1>
-                                <?php if(empty($gig->rating)):?>
-                                    <p>No Reviews Yet</p> 
-                                <?php else:?>
-                                    <?php echo "Rating: "?>
-                                        <?php for($i=0;$i<5;$i++):?>
-                                            <?php if((int)round($gig->rating)>$i):?>
-                                                <span class="fa fa-star checked"></span>
-                                            <?php else:?>
-                                                <span class="fa fa-star"></span>
-                                            <?php endif;?>
-                                        <?php endfor;?>
-                                    <?= "(".round($gig->rating,1).")"?>
-                                <?php endif;?>    
-                                <div class="description">
-                                    <p>
-                                        <?=$gig->description?>
-                                    </p>
-                                    <div class="dots">...</div>
-                                </div>
-                                <?php $arr=explode(",",$gig->work_tags);?>
-
-                                <div class="worktagsContainer">
-                                    <?php foreach($arr as $tag) : ?>
-                                    <a class="worktags"><?=$tag?></a>
-                                    <?php endforeach; ?>
-                                </div>
-                                
-                            </div>
-                            <a class="moreDetailsBtn" href="<?=ROOT?>/Technician/Gigs/viewGig/<?=$gig->gig_id?>"><div style="text-align: center; margin-top:8px;"><small class="text-muted">View More</small></div></a>
-                        </div>
+            <div class="table-header">
+                <div class="button-container">
+                    <button class="add-technician-button">Add New Technician</button>
+                    <div class="search-bar-container">
+                    <input type="text" placeholder="Search...">
+                    <button class="search-button">Search</button>
+                    </div>
+                    <div class="filter-container">
+                    <button class="filter-btn"><i class="fa fa-filter" style="margin-right:0.6rem;"></i>Filter</button>
+                    <select>
+                        <option value="">\/</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
                     
-                <?php endforeach;?>
+                    </div>
+                    <button class="remove-button">Remove</button>
                 </div>
-                <?php endif; ?>
             </div>
+
+
+   
+
+        <table class="technician-table">
+        <thead>
+            <tr>
+            <th>Technician Name</th>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Age</th>
+            <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>John Doe</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>John Doe</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+            <tr>
+            <td><div class="profile-container">
+                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
+                <span>Rusith Siriwardhana</span>
+                </div>
+            </td>
+            <td>T001</td>
+            <td>A/C repair</td>
+            <td>53</td>
+            <td>Male</td>
+            </tr>
+        </tbody>
+        </table>
+
+
+            
+            
+            
         <!-- </main>  -->
 
         <!-- End of Main -->
@@ -164,65 +270,7 @@
         </main>
     </div>
 
-    <div id="addgig" class="overlay">
-        <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Create Gig</h1>
-            </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
-                        <div class="inline">
-                            <div class="input-box inline">
-                                <span class="details">Choose Item</span>
-                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
-                                <select id="item" name="item">
-                                    <option value="A/C">A/C</option>
-                                    <option value="Refrigerator">Refrigerator</option>
-                                    <option value="Washing Machine">Washing Machine</option>
-                                    <option value="Gas Cooker">Gas Cooker</option>
-                                </select>
-                            </div>
-                            
-                            <div class="input-box inline">
-                                <span class="details">Location</span>
-                                <input type="text" name="location" id="location" required placeholder="Enter Description about item">
-                            </div>
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) ">
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"></textarea>
-                        </div>
-        
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Add Photo</span>
-                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            <!-- </div> -->
-                
-        </div>
-    </div>    
-
-    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+    
 
 </body>
 </html>

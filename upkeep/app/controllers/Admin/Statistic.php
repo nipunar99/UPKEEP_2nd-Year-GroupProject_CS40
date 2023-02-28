@@ -4,13 +4,13 @@ class Statistic{
     use Controller;
         
     public function index(){
-
-        if($_SESSION['USER'] == 'Admin'){
-
-            $this->view('Admin/statistic');
+        
+        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
+            redirect('/Home');
         }else{
-            redirect("Home/home");
-        }
+            $this->view('Admin/statistic');
+        }    
+    
     }
         
         

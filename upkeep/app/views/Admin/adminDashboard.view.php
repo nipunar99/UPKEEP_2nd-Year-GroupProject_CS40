@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminDashboard.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/admindashboard.css">
 </head>
 <body>
     <div class="container">
@@ -170,10 +170,11 @@
                     <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action1 addMode">Add Moderator</a>
                     <!-- <button class="btn_action addMode">Add Moderator</button> -->
                 </div>
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>Email</th>
                             <th>NIC</th>
                             <th>Phone Number</th>
@@ -186,7 +187,7 @@
                         
                         if($result->num_rows>0)
                             while($row=$result->fetch_assoc())
-                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</tr>"
+                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["last_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</tr>"
                             
                         
                         /* else{
@@ -202,12 +203,7 @@
 
         </main>
         <!-- End of Main -->
-        <script>
-            
-
-
-
-        </script>
+        
 
 </body>
 </html>

@@ -6,13 +6,17 @@ use Model;
 protected $table ="moderators";
 
 protected $allowedColumns = [
-    "nic",
-    "mod_name",
+    "user_id",
+    "user_name",
+    "first_name",
+    "last_name",
     "email",
     "password",
-    "join_date",
+    "mobile_no",
+    "account_status",
+    "nic",
     "address",
-    "user_role",
+    
 
     
 ];

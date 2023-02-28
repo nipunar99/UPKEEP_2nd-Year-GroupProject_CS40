@@ -1,0 +1,163 @@
+.technician-table {
+    border-collapse: separate; /* Set border-collapse to separate to add border-spacing */
+    border-spacing: 0; /* Set border-spacing to 0 to remove default spacing */
+    width: 100%;
+  }
+  
+  .technician-table th,
+  .technician-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
+    color: #1E3A8A; /* Set font color to dark blue */
+  }
+  
+  .technician-table th:first-child,
+  .technician-table td:first-child {
+    border-top-left-radius: 8px; /* Add border radius to the top-left corner */
+    border-bottom-left-radius: 8px; /* Add border radius to the bottom-left corner */
+  }
+  
+  .technician-table th:last-child,
+  .technician-table td:last-child {
+    border-top-right-radius: 8px; /* Add border radius to the top-right corner */
+    border-bottom-right-radius: 8px; /* Add border radius to the bottom-right corner */
+  }
+  
+  .technician-table th {
+    background-color: #fff; /* Set background color of th to white */
+    color: #000000; /* Set font color of th to dark blue */
+    font-size:15px;
+  }
+  
+  .technician-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  .technician-table tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  .technician-table tbody tr:last-child td {
+    border-bottom: none; /* Remove the border-bottom from the last row */
+  }
+
+  
+
+  .table-header {
+    background-color: #fff;
+    padding: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    gap: 3rem ;
+  }
+  
+  .add-technician-button,
+  .search-button,
+  .filter-button,
+  .remove-button {
+    height: 28px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  .add-technician-button {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .add-technician-button:hover {
+    background-color: #333;
+  }
+  
+  .search-bar-container {
+    position: relative;
+    display: flex;
+  }
+  
+  .search-bar-container input[type="text"],
+  .search-button,
+  .filter-container select,
+  .filter-button,
+  .remove-button {
+    height: 28px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 14px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .search-bar-container input[type="text"] {
+    border: 1px solid #ccc;
+    margin-right: 16px;
+    flex: 1;
+  }
+  
+  .search-button {
+    position: relative;
+    background-color: #0074D9;
+    color: #fff;
+    border-radius: 14px;
+  }
+  
+  .search-button:hover {
+    background-color: #005EA4;
+  }
+  
+  .filter-container select {
+    width: 120px;
+    margin-right: 16px;
+  }
+  
+  .filter-button {
+    width: 60px;
+    height: 28px;
+    background-color: #F5F5F5;
+    border: none;
+    margin-right: 16px;
+    background-color: grey;
+    
+  }
+  
+  .filter-button:hover {
+    background-color: #E5E5E5;
+  }
+  
+  .remove-button {
+    background-color: #FF4136;
+    color: #fff;
+  }
+  
+  .remove-button:hover {
+    background-color: #D30F0A;
+  }
+
+  .profile-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-container img {
+    border-radius: 50%;
+    margin-right: 8px;
+    width:8%;
+    height:5.5vh;
+  }
+  
+  .profile-container span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  

@@ -156,7 +156,7 @@ main a.viewitem{
 
 
 /* Right CSS */
-main .top{
+main .top1{
     display: grid;
     grid-template-columns: auto 19rem;
     height: 6%;
@@ -166,7 +166,7 @@ main .top button{
     display: none;
 }
 
-main .top .right{
+main .top1 .right{
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -203,7 +203,7 @@ main .theme-toggler span.active{
     border-radius: var(--border-radius-1);
 }
 
-main .top .profile{
+main .top1 .profile{
     display: flex;
     gap: 2rem;
     text-align: right;

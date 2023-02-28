@@ -87,55 +87,28 @@
             </div>
             <div class="insight">
                 <div class="card-main">
-                    <div class="view-1">
-                    <?php
-                            if(!empty($result)){
-                                foreach($result as $result)
-                             echo " 
-                        <div class='img'>
-                          <img src=".ROOT.$result->image.">
-                        </div>
-                        <div class='view-1-text'>
-                           
-                                <h2>".$result->item_type."</h2>
-                            <div class='name'>
-                                <h5>Tempalte Name</h5>
-                                <h5>".$result->itemtemplate_name."</h5>
-                            </div>
-                            <div class='type'>
-                                <h5>Item Type</h5>
-                                <h5>".$result->item_type."</h5>
-                            </div>
-                            <div class='date'>
-                                <h5>Added date</h5>
-                                <h5>".$result->itemtemplate_name."</h5>
-                            </div>
-                            <div class='lifespan'>
-                                <h5>Esti.li.span</h5>
-                                <h5>10 Years</h5>
-                            </div>
-                            
-                            ";
-                            }
-                            ?>
-                            
-                        </div>
-                        
+                <div class="item-container">
+                    <div class="item-photo">
+                        <img src="<?= ROOT ?>/assets/images/item1.png" alt="Item Photo">
+                    </div>
+                    <div class="item-details">
+                        <h2>Item Name</h2>
+                        <p>Item Description</p>
+                        <p>Price: $10.99</p>
+                        <button>Add to Cart</button>
+                    </div>
                     </div>
 
-                    <div class="view-2">
-                        <h2>Usage</h2>
-                        <div class="view-2-text">
-                            <div class="users">
-                                <h3>Current Users</h3>
-                                <h4>50</h4>
+                <div class="view-2">
+                    <h2>Usage</h2>
+                    <div class="view-2-text">
+                        <div class="users">
+                            <h3>Users</h3>
+                            <h4>50 users are using</h4>
+                            <h4>123 posts</h4>
+                            <h4>25 suggested task</h4>
                             </div>
-                            <div class="tasks">
-                                <h3>Current Suggested Tasks</h3>
-                                <h4>Task 1</h4>
-                                <h4>Task 2</h4>
-                                <h4>Task 3</h4>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -145,59 +118,92 @@
                    <span> <button class="subcategory">&#43</button></span>
                     
                     <div class="card-main2">
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                        <div class="card-1" role="button">
-
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Maintenance Schedule 1</b></h3>
-                            <p>Clean Air filter</p>
-                            <div class="c-1">
-
-                                <p class="u">Air filter</p>
-                                <h2 class="warning">25</h2>
+                    <div class='card-1'>
+                        
+                        <div class="maintenance-container">
+                            
+                            <div class="maintenance-details">
+                                <h4>Maintenance Schedule1</h4>
+                                        <ul>
+                                        <li>Clean Air Filter</li>
+                                        <li>23/10/2023</li>
+                                        <li style="color:red;">pending</li>
+                                        </ul>
                             </div>
-                            </a>
-                        </div>
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                        <div class="card-2" role="button">
-
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-2">
-                                <h2 class="warning">25</h2>
-                                <p class="u">users</p>
+                            <div class="maintenance-photo">
+                                <img src="<?= ROOT ?>/assets/images/component1.png" alt="Maintenance Photo">
+                                <button class="maintenance-button">Action</button>
                             </div>
-                            </a>
                         </div>
+                    </div>
 
 
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> 
-                        <div class="card-3" role="button">
+                        
 
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-3">
-                                <h2 class="warning">25</h2>
-                                <p class="u"> users</p>
+
+                        
+
+                        
+                        <div class="card-2">
+
+                            <div class="maintenance-container">
+                            
+                                <div class="maintenance-details">
+                                    <h4>Maintenance Schedule 2</h4>
+                                        <ul>
+                                        <li>Clean Air Filter</li>
+                                        <li>23/10/2023</li>
+                                        <li style="color:red;">pending</li>
+                                        </ul>
+                                </div>
+                                <div class="maintenance-photo">
+                                    <img src="<?= ROOT ?>/assets/images/component2.png" alt="Maintenance Photo">
+                                    <button class="maintenance-button">Action</button>
+                                </div>
                             </div>
-                            </a>
+
                         </div>
 
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button"> 
+                        <div class="card-3">
+
+                            <div class="maintenance-container">
+                            
+                                <div class="maintenance-details">
+                                    <h4>Maintenance Schedule 3</h4>
+                                        <ul>
+                                        <li>Clean Air Filter</li>
+                                        <li>23/10/2023</li>
+                                        <li style="color:red;">pending</li>
+                                        </ul>
+                                </div>
+                                <div class="maintenance-photo">
+                                    <img src="<?= ROOT ?>/assets/images/component3.png" alt="Maintenance Photo">
+                                    <button class="maintenance-button">Action</button>
+                                </div>
+                            </div>
+
+                        </div>
+
                         <div class="card-4">
 
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-4">
-                                <h2 class="warning">25</h2>
-                                <p class="u"> users</p>
-                            </div> -->
-                            </a>    </div>
+                            <div class="maintenance-container">
+                            
+                                <div class="maintenance-details">
+                                    
+                                    <h4>Maintenance Schedule 4</h4>
+                                    <ul>
+                                    <li>Clean Air Filter</li>
+                                    <li>23/10/2023</li>
+                                    <li style="color:red;">pending</li>
+                                    </ul>
+                                </div>
+                                <div class="maintenance-photo">
+                                    <img src="<?= ROOT ?>/assets/images/component4.png" alt="Maintenance Photo">
+                                    <button class="maintenance-button">Action</button>
+                                </div>
+                            </div>
 
-                         </div>
+                        </div>
                     </div>
                 </div>
         </main>

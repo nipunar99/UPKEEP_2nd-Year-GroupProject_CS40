@@ -38,6 +38,7 @@ h2{
 
 h3{
     font-size: 0.87rem;
+   
 }
 
 small{
@@ -220,11 +221,29 @@ main .mainHeader{
 }
 .insight .card-main{
     display: grid;
-    grid-template-columns: 35rem auto;
-    margin: 1rem 4rem;
+    grid-template-columns: 35rem;
+    margin: 1rem 2rem;
     height: 40vh;
-    gap: 4rem;
+    gap: 1rem;
 }
+.item-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .item-photo img {
+    width: 60%;
+    height: auto;
+  }
+  
+  .item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
 .view-1, .view-2-text{
     display: flex;
     flex-direction: column;
@@ -250,7 +269,7 @@ main .mainHeader{
     position: absolute;
     top: 6rem;
     right: 15rem;
-    width: 500px;
+    width: 300px;
    
 }
 .view-1 .img{
@@ -289,7 +308,7 @@ main .mainHeader{
 }
 
 .view-2 h2{
-   margin-bottom: 2rem;
+   margin-bottom: 1rem;
    text-align: center;
    
 }
@@ -347,8 +366,8 @@ main .mainHeader{
 .users{
     display: grid;
     width: fit-content;
-    gap: 5rem;
-    text-align: center;
+    gap: 1rem;
+    text-align: left;
     padding: 1rem;
  }
  .users b{
@@ -378,16 +397,62 @@ main .mainHeader{
 }
 .card-main2 > div{
     text-align: center;
-    width: 40%;
+    width: 30%;
     background: var(--color-white);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     transition: all 300ms ease;
+    
 }
 .card-main2 >div:hover{
     box-shadow: none;
 }
+.maintenance-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    align-items: left;
+  }
+  
+  .maintenance-photo img {
+    width: 100%;
+    height: auto;
+  }
+  .maintenance-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    background-color: #13d86c;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .maintenance-details {
+    padding: 0 20px;
+  }
+  
+  
+  
+  
+  
+  
+  .maintenance-details {
+    padding: 0 10px;
+    text-align: left;
+    font-size: smaller;
+    
+  }
+  .maintenance-details h4 {
+    text-align: left;
+    font-size:10px;
+  }
+  
+  
 .c-1 , .c-2, .c-3, .c-4{
     display: flex;
    position: relative;
