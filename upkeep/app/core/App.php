@@ -14,6 +14,8 @@ class App{
     }
 
     public function loadController(){
+        date_default_timezone_set('Asia/Colombo');// set the default time to Asia/Colombo
+
         $URL = $this->split_url();
         $fileName ="../app/controllers/".ucfirst($this->controller).".php";
     

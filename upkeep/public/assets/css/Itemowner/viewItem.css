@@ -593,14 +593,22 @@ main .recent-orders a{
     height: 3rem;
     border-radius: 30px;
     transition: all 200ms ease;
-    background: linear-gradient(#0095D9,#00BEE4);
-    color:var(--color-white);
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-.action_btn button:first-child{
+.complete{
+    background: linear-gradient(#0095D9,#00BEE4);
+    color:var(--color-white);
+}
+
+.edit{
+    border: 1px solid rgb(29, 247, 29);
+    background: none;
+    color: rgb(29, 247, 29);
+}
+.cancel{
     border: 1px solid var(--color-danger);
     background: none;
     color: var(--color-danger);
@@ -610,6 +618,36 @@ main .recent-orders a{
     transform: scale(1.1);
 }
 
+.confirmbtn {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;
+    transition: all 200ms ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.completebtn{
+    display: inline-block;
+    position: relative;
+    left: 55%;
+}
+.cancelbtn{
+    display: inline-block;
+    position: absolute;
+    left: 76%;
+    bottom: 25%;
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+}
 
 /*  add maintenance form styles */
 form .input-box{

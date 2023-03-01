@@ -492,8 +492,6 @@ main .Suggection a{
     height: 3rem;
     border-radius: 30px;
     transition: all 200ms ease;
-    background: linear-gradient(#0095D9,#00BEE4);
-    color: white;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -529,9 +527,34 @@ main .Suggection a{
     color: var(--color-danger);
 
 }
+.deletebtn{
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+}
+.confirmbtn{ 
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;
+    transition: all 200ms ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
 
-
-
+}
+.completeTaskbtn{
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;
+    transition: all 200ms ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+}
 
 
 /* calender CSS*/

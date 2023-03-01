@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/conversation.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/conversation.css">
 </head>
 <body>
     <div class="container">
@@ -86,35 +86,54 @@
             </div>
 
             <div class="massagebox">
-               <div class="title">
+                <div class="title">
                     <img src="<?= ROOT ?>/assets/images/profile-1.jpg"  alt=""class="user">
                     <div class="titleDetails">
                         <h3>Kavindu Pramod</h3>
                         <h4>Avg. response time : <b>1 day</b></h4>
                     </div>
                     
-               </div>
-               <div class="msgtextarea"> 
-               </div>
-               <div class="typearea">
-                    <span class="material-icons-sharp">emoji_emotions</span>
-                    <input type="search" name="" id="" placeholder="Type a massage">
-                    <button class="btnSend"><span class="material-icons-sharp">send</span>Send</button>
-                </div> 
-                
-                <div class="replay">
-                    <p>
-                    Hi I am Kavindu... May I know if the IC unit of the A/C can be repaired
-                    </p>
                 </div>
+                <div class="msgtextarea"> 
 
-                <div class="replay reply2">
-                    <p>
-                    Hi I am Chamarpaired
-                    </p>
+                    <div class="outgoing chat">
+                        <div class="details outgoingdetails">
+                            <p>Lore</p>
+                            <h4>11.00 a.m.</h4>
+                        </div>
+                    </div>
+                    <div class="incomming chat">
+                        <img src="" alt="">
+                        <div class="details incommingdetails">
+                            <p>test</p>
+                            <h4>11.00 a.m.</h4>
+                        </div>
+                    </div>
+                    <div class="incomming chat">
+                        <img src="" alt="">
+                        <div class="details incommingdetails">
+                            <p>affLorem ipsum dolor sit amet consectetur adipisicing elit. Modi nemo, sapiente sed inventore obcaecati aperiam nobis totam voluptatibus soluta. Et consectetur, quae magni illum ducimus officia nesciunt. Eveniet, ut mollitia!</p>
+                        </div>
+                    </div>
+                    <div class="outgoing chat">
+                        <div class="details outgoingdetails">
+                            <p>Lorem ipsum dolor sit em ipsum dolor sit amet consectetur ad </p>
+                        </div>
+                    </div>
+                    <div class="incomming chat">
+                        <img src="" alt="">
+                        <div class="details incommingdetails">
+                            <p>affLorem ipsum dolor sit amet consectetur adipisicing elit. Modi nemo, sapiente sed inventore obcaecati aperiam nobis totam voluptatibus soluta. Et consectetur, quae magni illum ducimus officia nesciunt. Eveniet, ut mollitia!</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
+            <div class="typearea">
+                <span class="material-icons-sharp">emoji_emotions</span>
+                <input class="msgDetails" type="text" name="" id="" placeholder="Type a massage">
+                <button class="btnSend"><span class="material-icons-sharp">send</span>Send</button>
+            </div> 
         </main>
 
         <!-- End of Main -->
@@ -149,63 +168,15 @@
                     <input type="search" name="" id="" placeholder="Search">
                     <span class="material-icons-sharp">search</span>
                 </div>
-                <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-1.jpg"  alt=""class="user">
-                    <h3>Kavindu Pramod</h3>
-                    <h4>9.35 P.M.</h4>
-               </div>
-               <hr>
+                
+                <div class="users">
+                    <p>Loading</p>
+                </div>
 
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-2.jpg"  alt=""class="user">
-                    <h3>Nimna Induwara</h3>
-                    <h4>11.14 A.M.</h4>
-               </div>
-               <hr>
-
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-3.jpg"  alt=""class="user">
-                    <h3>Nipuna Rahal</h3>
-                    <h4>Yesterday</h4>
-               </div>
-               <hr>
-
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-4.jpg"  alt=""class="user">
-                    <h3>Vishva Colombage</h3>
-                    <h4>Yesterday</h4>
-               </div>
-               <hr>
-
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-5.jpg"  alt=""class="user">
-                    <h3>Sashika Janith</h3>
-                    <h4>Yesterday</h4>
-               </div>
-               <hr>
-
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-6.jpg"  alt=""class="user">
-                    <h3>Lahiru Kavishka</h3>
-                    <h4>Yesterday</h4>
-               </div>
-               <hr>
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-7.jpg"  alt=""class="user">
-                    <h3>Avishka Sathyanjana</h3>
-                    <h4>2/8</h4>
-               </div>
-               <hr>
-               <div class="title">
-                    <img src="<?= ROOT ?>/assets/images/profile-8.jpg"  alt=""class="user">
-                    <h3>Hiran Mathisha</h3>
-                    <h4>2/7</h4>
-               </div>
-               <hr>
             </div>
         </div>
 
     </div>
-        <!-- <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script> -->
+        <script src="<?= ROOT ?>/assets/js/conversation.js"></script>
 </body>
 </html>

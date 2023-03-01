@@ -218,7 +218,7 @@ function ajax_getAllReminders(){
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<div class='action_btn'><button onclick='completeTask("+(i+1)+")'>Complete</button> <button>Edit</button> <button id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button class='complete' onclick='completeTask("+(i+1)+")'>Complete</button> <button class='edit' >Edit</button> <button class='cancel' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(i+1)+"'>";
@@ -238,11 +238,11 @@ function ajax_getAllReminders(){
                 html+= "            </div>";
                 html+= "        </div>";
                 html+= "        <div onclick='submitTask("+(i+1)+")' class='button completebtn'>";
-                html+= "            <input type='button' value='Done' class='completeTaskbtn'>";       
+                html+= "            <input type='button' value='Done' class='completeTaskbtn confirmbtn'>";       
                 html+= "        </div>";
                 html+= "</form>";
                 html+= "<div class='action_btn'>";
-                html+= "    <button onclick='cancelcompleteTask("+(i+1)+")' class='cancelbtn'>Cancel</button>";
+                html+= "    <button onclick='cancelcompleteTask("+(i+1)+")' class='cancelbtn cancel'>Cancel</button>";
                 html+= "</div> </div>";
                 html+= "</div>";
                 }

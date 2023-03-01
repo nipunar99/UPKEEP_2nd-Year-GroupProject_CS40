@@ -43,7 +43,7 @@ function ajax_getAllReminders() {
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<div class='action_btn'><button onclick='completeTask("+(i+1)+")'>Complete</button> <button>Edit</button> <button id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(i+1)+")'>Complete</button> <button>Edit</button> <button class='deletebtn' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(i+1)+"'>";
@@ -63,7 +63,7 @@ function ajax_getAllReminders() {
                 html+= "            </div>";
                 html+= "        </div>";
                 html+= "        <div onclick='submitTask("+(i+1)+")' class='button completebtn'>";
-                html+= "            <input type='button' value='Done' class='completeTaskbtn'>";       
+                html+= "            <input type='button' value='Done' class='completeTaskbtn confirmbtn action_btn'>";       
                 html+= "        </div>";
                 html+= "</form>";
                 html+= "<div class='action_btn'>";
@@ -109,7 +109,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<div class='action_btn'><button onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button class='deletebtn' id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(firstIndex+i+1)+"'>";
