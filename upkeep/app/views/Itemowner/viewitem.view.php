@@ -272,6 +272,11 @@
                     <button class="communitybtn">Community</button>
                 </div>
 
+                <div class="itembtnsection3">
+                    <button class="disposebtn">Dispose Guide</button>
+                    <button class="communitybtn">Community</button>
+                </div>
+
             </div>
         </div>
 
@@ -331,6 +336,69 @@
             </div>
         </div>
 
+        
+        <div class="popupview addMaintenanceForm2 hidden" >
+            <button class="closebtn closebtn2">&times;</button>
+            
+            <div class="content content1">
+                
+                <form id="form_maintenanceDetails">
+                    <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="" required placeholder="Enter description">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
+                        </div>
+
+                        <h2>Time frame</h2>
+                        
+                        <div class="middleInput">
+                            
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
+                            </div>
+
+
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
+                            </div>
+                            
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
+                            </div>
+            
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Due date</span>
+                            <input type="date" name="start_date" id="start_date" required placeholder="Enter Brand">
+                        </div>
+                        
+                        <div class="button">
+                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn"> 
+                            
+                        </div>
+                        
+                    </div>
+                </form>
+                
+            </div>
+        </div> 
+        
         <main class="main2 hidden">
             <div class="date">
                 <p>14/11/2022</p>
@@ -361,7 +429,7 @@
                     </tbody>
                 </table>
             </div>
-
+        
             <div class="tableView maintenanceMissed">
                 <h2 class="danger">Overdue Maintenance</h2>
                 <table>
@@ -385,10 +453,10 @@
                     </tbody>
                 </table>
             </div>
-
+        
             <div class="tableView maintenanceList">
                 <h2>Maintenance Tasks List </h2>
-
+        
                 <button class="addMaintainTask">Add Maintain Task</button>
                 <table>
                     <thead>
@@ -404,72 +472,24 @@
                     <tbody class="maintenanceListTbody"></tbody>
                 </table>
             </div>
-
+        
         </main>
 
-        <div class="popupview addMaintenanceForm2 hidden" >
-            <button class="closebtn closebtn2">&times;</button>
-
-            <div class="content content1">
-
-                <form id="form_maintenanceDetails">
-                    <h2>Maintenance Details</h2>
-                    <div class="itemDetails">
-
-                        <div class="input-box">
-                            <span class="details">Sub Component</span>
-                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <input type="text" name="description" id="" required placeholder="Enter description">
-                        </div>
-
-                        <div class="input-box">
-                                <span class="details">Sub Component Image</span>
-                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
-                        </div>
-
-                        <h2>Time frame</h2>
-                        
-                        <div class="middleInput">
-                            
-                            <div class="input-box">
-                                <span class="details">Yearly</span>
-                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
-                            </div>
-
-
-                            <div class="input-box">
-                                <span class="details">Monthly</span>
-                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
-                            </div>
-
-                            <div class="input-box">
-                                <span class="details">Weekly</span>
-                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
-                            </div>
-            
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Due date</span>
-                            <input type="date" name="start_date" id="start_date" required placeholder="Enter Brand">
-                        </div>
-
-                        <div class="button">
-                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn"> 
-                            
-                        </div>
-        
-                    </div>
-                </form>
-
+        <main class="main3 hidden">
+            <div class="date">
+                <p>14/11/2022</p>
             </div>
-        </div> 
+            
+            <button class="back2">Back</button>
+            
+            <div class="disposalMain">
+                <h2>Disposal Guide</h2>
+            </div>
+
+        
+        </main>
 
     </div>
-        <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
 </body>
 </html>

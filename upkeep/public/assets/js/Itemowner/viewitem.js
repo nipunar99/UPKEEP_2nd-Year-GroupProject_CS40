@@ -12,11 +12,16 @@ const addMaintainTaskbtn = document.querySelector(".addMaintainTask");
 const docsbtn =  document.querySelector(".docbtn");
 
 const allMaintenance = document.querySelector(".morebtn");
+const disposeguide = document.querySelector(".disposebtn");
 const main1 = document.querySelector(".main1");
 const main2 = document.querySelector(".main2");
+const main3 = document.querySelector(".main3");
 const right = document.querySelector(".right");
 const container = document.querySelector(".container");
 const backbtn = document.querySelector(".back");
+const backbtn2 = document.querySelector(".back2");
+
+
 var firstIndex = 0;
 
 //............... Add maintenance form constraints...............
@@ -97,20 +102,40 @@ const showModal = function () {
 // Load all maintanance
 
 allMaintenance.addEventListener ("click", () => {
-    console.log("button clicked");
     main1.classList.add("hidden");
     right.classList.add("hidden");
     main2.classList.remove("hidden");
     container.classList.add("newgrid-container");
 })
 
+//......................................................
+// Load all maintanance
+
+disposeguide.addEventListener ("click", () => {
+    main1.classList.add("hidden");
+    right.classList.add("hidden");
+    main2.classList.add("hidden");
+    main3.classList.remove("hidden");
+    container.classList.add("newgrid-container");
+})
+//......................................................
+
+
 // Close all maintanence
 backbtn.addEventListener("click", () => {
     main1.classList.remove("hidden");
     right.classList.remove("hidden");
     main2.classList.add("hidden");
+    main3.classList.add("hidden");
     container.classList.remove("newgrid-container");
-})
+});
+
+backbtn2.addEventListener("click", () => {
+    main1.classList.remove("hidden");
+    right.classList.remove("hidden");
+    main3.classList.add("hidden");
+    container.classList.remove("newgrid-container");
+});
 
 // Add maintain task
 
@@ -118,7 +143,7 @@ addMaintainTaskbtn.addEventListener("click", () => {
     console.log("addMaintainTaskbtn clicked");
     addMaintenanceForm2.classList.remove("hidden");
     overlay.classList.remove("hidden");
-})
+});
 
 
 
