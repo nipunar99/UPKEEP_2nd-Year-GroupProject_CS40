@@ -65,6 +65,7 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
             var html = "";
             
             for (var i = 0; i < json.length; i++) {
+              console.log(json.length);
                 // html += "<tbody>";
                 html +=               "<tr>";
                 html += "                <td class='template_name'>";                                
@@ -90,8 +91,11 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
                 html += ""+json[i].status+"</td>";
                 html += "                        <td>"+json[i].description+"</td>";        
                 html += "                       <td>";
-               html+=" <div class='more'>  ";                         
-                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/"+json[i].id+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
+               html+=" <div class='more'>  "; 
+               var id = encodeURIComponent(json[i].id);
+var name = encodeURIComponent(json[i].itemtemplate_name);                        
+                // html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/?param1="+json[i].id+"+&param2="+json[i].itemtemplate_name+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
+               html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/?id=id'&name= name'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>"
                 html += "                </div>";
                 html += "                <td>";
                 html += "                <tr>";

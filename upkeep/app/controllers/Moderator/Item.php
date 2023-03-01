@@ -39,7 +39,7 @@
         
         
    // }
-    public function viewItem($id){
+    public function viewItem($id,$itemtemplate_name){
         if(isset($_SESSION['user_id'])){
         // $arr['id']=$id[0];
         // show($id);
@@ -53,13 +53,20 @@
       
             $item = new Itemtemplates;
             // $profile = new User;
+            // $arr=[];
+            // $arr["id"] = ['id'];
      
             // $profileDetails = $profile->getUserById($[0]->user_id);
             
             
-            $result =json_encode($item->item($id));
-            $data['result'] = $result;
-             print_r($data['result']);
+            $result1 =json_encode($item->item($id));
+            // $category_name = $item->$itemtemplate_name;
+            // echo $category_name;
+             $result2 = json_encode($item->category($itemtemplate_name));
+            // echo $category_name;
+            // $result2 =json_encode($item->where($category_name));
+            $data['result'] = $result1 +$result2;
+              print_r($data['result']);
             // $data['profileDetails']=$profileDetails;
             $this->view('Moderator/item',$data);
         }else{

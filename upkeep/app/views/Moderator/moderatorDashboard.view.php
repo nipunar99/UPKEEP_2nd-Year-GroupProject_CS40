@@ -232,5 +232,6 @@
         </main> 
 
     </div>
+    <script src="<?= ROOT ?>/assets/js/Moderator/moderatordashboard.js"></script>
 </body>
 </html>
