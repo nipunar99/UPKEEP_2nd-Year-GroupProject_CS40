@@ -13,8 +13,7 @@
 <body>
     <header>
         <div class="logo">
-        <img src="<?= ROOT ?>/assets/images/headerlogo.svg" alt="">
-        <!-- <img src="<?= ROOT ?>/assets/images/landingPage/title.png" alt=""> -->
+        <img src="<?= ROOT ?>/assets/images/headerlogo2.svg" alt="">
         </div>
 
         <div class="nav">

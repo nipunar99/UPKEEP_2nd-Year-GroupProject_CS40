@@ -1,0 +1,124 @@
+@import "general.css";
+
+.form-container {
+	width: 100%;
+	height: 100%;
+	padding: 0.5rem;
+}
+
+.form-container form {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	border: solid 2px var(--color-info-light);
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+.form-container h1 {
+	text-align: center;
+	font-size: 1.5rem;
+	margin-bottom: 20px;
+}
+
+.form-container .step {
+	grid-row-start: 1;
+	grid-column-start: 1;
+	/* display: flex; */
+	flex-direction: column;
+	width: 100%;
+	height: max-content;
+	overflow: hidden;
+	left: 0%;
+	transition: 0.5s;
+	margin-top: 2rem;
+	opacity: 1;
+}
+
+.form-container .step.hideleft {
+	left: -100%;
+	opacity: 0;
+	display: none;
+}
+
+.form-container .step.hideright {
+	left: 100%;
+	opacity: 0;
+	display: none;
+}
+
+.form-container .progress-bar {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* counter-reset: step; */
+	margin: 2rem 9rem 2rem 9rem;
+}
+
+.form-container .progress-bar::before,
+.progress {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	height: clamp(0.1rem, 0.2rem, 0.3rem);
+	background-color: #c2c2c2;
+	z-index: 0;
+}
+
+.progress-bar .progress-step {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-color: #c2c2c2;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	vertical-align: middle;
+	transition: 0.5s;
+	padding: 0.1rem;
+	font-size: 1rem;
+	color: var(--color-dark);
+}
+
+.progress-bar .progress-step::before {
+	/* content: counter(step); */
+	counter-increment: step;
+}
+
+.progress-bar .progress-step::after {
+	/* content: attr(data-step-title); */
+	position: absolute;
+	top: calc(100% + 0.5rem);
+}
+
+.progress-bar .progress-step span {
+	margin: auto;
+	font-size: 1.5rem;
+}
+.progress-bar .progress-step.active {
+	background-color: var(--color-primary);
+	color: #fff;
+}
+
+.progress-bar .progress-step.active.current {
+	color: var(--color-dark);
+	background-color: #fff;
+	border: solid rgb(255, 255, 255) 0.2rem;
+	outline: solid var(--color-primary) 0.2rem;
+}
+
+.progress-bar .progress-step .step-title {
+	margin: 0;
+}
+
+.progress {
+	width: 0%;
+	background-color: var(--color-primary);
+	transition: 0.5s;
+}
