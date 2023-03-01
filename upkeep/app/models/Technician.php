@@ -12,4 +12,12 @@ class Technician{
         return $tech;
     }
 
+    public function isVerified($id){
+        $tech=$this->getTechnicianById($id);
+        if($tech['contact_verification']!=null && $tech['identity_verification']!=null){
+            return true;
+        }
+        return false;
+    }
+
 }

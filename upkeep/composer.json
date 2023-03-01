@@ -1,0 +1,5 @@
+{
+    "require": {
+        "telesign/telesign": "^3.0"
+    }
+}

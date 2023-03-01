@@ -10,6 +10,7 @@
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gig.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/multistep.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/verifypage.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
@@ -80,7 +81,7 @@
                         <h1>Setup profile</h1>
                     </div>
                 </div>
-                <div class="button">
+                <div class="buttonContainer">
                     <a class="btn viewcommunity" href="<?=ROOT?>/technician/dashboard">View Community</a>
                     <a class="btn logout" href="<?=ROOT?>/Signout">Logout</a>
                 </div>
@@ -94,47 +95,45 @@
 
     <div id="edit" class="overlay">
         <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Edit Gig</h1>
-            </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
-
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) " value="<?=$gigDetails[0]->title?>">
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"><?=$gigDetails[0]->description?></textarea>
-                        </div>
+        <div>
+    <h1>Contact Verification!</h1>
+    <div id="multi-step-form-container">
         
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling" value="<?=$gigDetails[0]->work_tags?>">
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Add Photo</span>
-                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Update">
-                    </div>
-                </form>
-            <!-- </div> -->
-                
+        <!-- Step Wise Form Content -->
+        <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+            <!-- Step 1 Content -->
+            <section id="step-1" class="form-step">
+                <h2 class="font-normal">Account Basic Details</h2>
+                <!-- Step 1 input fields -->
+                <div class="mt-3">
+                    Step 1 input fields goes here..
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
+                </div>
+            </section>
+            <!-- Step 2 Content, default hidden on page load. -->
+            <section id="step-2" class="form-step d-none">
+                <h2 class="font-normal">Social Profiles</h2>
+                <!-- Step 2 input fields -->
+                <div class="mt-3">
+                    Step 2 input fields goes here..
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
+                </div>
+            </section>
+        </form>
+    </div>
+</div>
+    
         </div>
     </div>
 
 
     <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/multistep.js"></script>
 
 </body>
 </html>

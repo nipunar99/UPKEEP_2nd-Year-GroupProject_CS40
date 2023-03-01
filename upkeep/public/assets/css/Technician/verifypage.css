@@ -192,7 +192,7 @@ main .right .verification-methods .method-card:hover{
 
 /* button styles */
 
-main .right .button{
+main .right .buttonContainer{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -219,3 +219,14 @@ main .right a.btn.logout{
     color: var(--color-dark);
     
 }
+
+
+/* custom overlay styles */
+.overlay .popup h1{
+    display: block;
+}
+
+#multi-step-form-container{
+    margin-top: 1rem;
+}
+
