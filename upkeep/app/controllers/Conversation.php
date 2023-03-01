@@ -20,9 +20,12 @@ class Conversation {
     }
     
     public function loadUser(){
-        $user = new Messages();
-        $users = $user->latestMessage();
-        show($users[0]->user_id);
+        $user = new User();
+        $users = $user->findAll();
+
+        // $user = new Messages();
+        // $users = $user->latestMessage();
+        // show($users[0]->user_id);
 
         $json  = json_encode($users);
         echo($json);
