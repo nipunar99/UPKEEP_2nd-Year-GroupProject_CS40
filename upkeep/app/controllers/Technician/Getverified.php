@@ -4,13 +4,13 @@
 class Getverified{
 
     Use Controller;
+    Use Auth;
 
     public function index(){
-        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
-            redirect('/Home');
-        }else{
-            $this->view('Technician/getverified');
-        }    
+        $this->technicianAuth();
+
+        $this->view('Technician/getverified');
+        
     }
 
 }

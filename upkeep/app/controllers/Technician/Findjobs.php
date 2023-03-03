@@ -3,13 +3,12 @@
 class Findjobs{
 
     Use Controller;
+    Use Auth;
 
     public function index(){
-        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
-            redirect('/Home');
-        }else{
-            $this->view('Technician/findjobs');
-        }    
+        $this->technicianAuth();
+            
+        $this->view('Technician/findjobs');
     }
 
 }
