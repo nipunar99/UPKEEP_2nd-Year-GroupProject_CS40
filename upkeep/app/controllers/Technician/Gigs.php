@@ -2,13 +2,12 @@
 
 class Gigs{
     use Controller;
+    use Auth;
 
     public static $enter = 0;
 
     public function index(){
-        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
-            redirect('/Home');
-        }
+        // $this->technicianAuth();
 
 
         $gigs = new Gig;

@@ -20,18 +20,24 @@ class Signin {
                 // if($row->password === $_POST['password']){
                 if(password_verify($_POST['password'] ,$row->password )){
                     // show($row);
-                    $_SESSION['USER'] = $row->user_id;
+                    $_SESSION['USER'] = $row;
                     $_SESSION['user_id'] = $row->user_id;
                     $_SESSION['user_name'] = $row->user_name;
                     $_SESSION['user_role'] = $row->user_role;
                     $_SESSION['logged_in'] = true;
-                    show($_SESSION);
                     switch($_SESSION['user_role']){
                         case 'item_owner':
                             redirect('Itemowner/Userdashboard');
                             break;
                         case 'technician':   
-                            redirect('Technician/Dashboard');
+                            $tech = new Technician;
+                            $verified = $tech->isVerified($_SESSION['user_id']);
+                            $_SESSION['verified'] = $verified;
+                            if($verified){
+                                redirect('Technician/Dashboard');
+                            }else{
+                                redirect('Technician/Getverified');
+                            }
                             break;
                         case 'admin':
                             redirect('Admin/Admindashboard');

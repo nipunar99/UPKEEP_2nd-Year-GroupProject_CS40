@@ -183,15 +183,32 @@
                     <div class="step-label">
                     </div>
                 </div>  
-                <form>
+                <form id="addgigform">
                     <div class="step" id="step1">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Enter title" />
-                        <label for="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
+                        <h2>Basic details about Your service</h2>
+                        <label for="item">Select Items:</label>
+                            <select id="item" name="item">
+                                <option value="A/C">A/C</option>
+                                <option value="Refrigerator">Refrigerator</option>
+                                <option value="Washing Machine">Washing Machine</option>
+                                <option value="Gas Cooker">Gas Cooker</option>
+                            </select>
+                            
+                        <label for="location">Select Location:</label>
+                        <input type="text" name="location" id="location" required placeholder="Enter Locations that you can provide service">
 
-                        <div class="buttons">
-                            <button class="next" id="nxtbtn">Next</button>
+                        <label for="service_method">Select Service method:</label>
+                            <select id="service_method" name="service_method">
+                                <option value="Visits">Visits</option>
+                                <option value="Workshop">Workshop</option>
+                            </select>
+                        
+                        <label for="work_tags">Worktags::</label>
+                        <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+
+
+                        <div class="btn-container">
+                            <button class="next">Next</button>
                         </div>
                     </div>
 
@@ -201,28 +218,32 @@
                         <label for="description">Description</label>
                         <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
 
-                        <div class="buttons">
-                            <button class="next" id="nxtbtn">Next</button>
+                        <div class="btn-container">
                             <button class="prev">Previous</button>
+                            <button class="next">Next</button>
                         </div>
                     </div>
 
                     <div class="step hideright" id="step2">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Enter title" />
-                        <label for="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
-
-                        <div class="buttons">
+                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                        <div class="image-upload-wrap">
+                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>Your Selected image will be shown here!</h3>
+                        </div>
+                        </div>
+                        <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                        </div>
+                        </div>
+                        <div class="btn-container">
                             <button class="prev">Previous</button>
+                            <button class="submitBtn" id="submitBtn">Submit</button>
                         </div>
                     </div>
-
-                   
                 </form>
-                <div class="btn-container">
-                    <button class="prev">Previous</button>
-                </div>
             </div>
             
 
@@ -232,7 +253,8 @@
 
     <script src="<?= ROOT ?>/assets/js/Technician/gigs.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/multi.js"></script>
-
+    <script src="<?= ROOT ?>/assets/js/Technician/image.js"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </body>
 </html>
 
