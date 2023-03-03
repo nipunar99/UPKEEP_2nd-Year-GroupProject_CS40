@@ -483,7 +483,33 @@
             <button class="back2">Back</button>
             
             <div class="disposalMain">
-                <h2>Disposal Guide</h2>
+                <h1>Disposal Guide</h1>
+                <div class="buttonmenu">
+                    <button class="predisposalbtn">Pre Disposal</button>
+                    <button class="reusebtn">Reuse</button>
+                    <button class="resellbtn">Resell</button>
+                    <button class="scrapbtn">Scrap</button>
+                </div>
+                <div class="disposalMenu">
+                    <div class="predisposal">
+                        <h1>Pre Disposal</h1>
+                        <div class="inputarea">
+                            <input type="text"  class="prompt" name="" id="">
+                            <button class="send"><span class="material-icons-sharp">send</span></button>
+                        </div>
+                        <textarea class="textArea"></textarea>
+                    </div>
+                    <div class="reuse hidden">
+                        <h2>reuse</h2>
+                    </div>
+                    <div class="resell hidden">
+                        <h2>resell</h2>
+                    </div>
+                    <div class="scrap hidden">
+                        <h2>scrap</h2>
+                    </div>
+                </div>
+
             </div>
 
         
@@ -491,5 +517,7 @@
 
     </div>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/sse.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/script.js"></script>
 </body>
 </html>

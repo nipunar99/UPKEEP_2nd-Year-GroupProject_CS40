@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => 'edf3c2a27522e2802678353e0b3f17b3e6fccde9',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => 'edf3c2a27522e2802678353e0b3f17b3e6fccde9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -52,6 +52,15 @@
             'reference' => '67c26b443f348a51926030c83481b85718457d3d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../guzzlehttp/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'orhanerday/open-ai' => array(
+            'pretty_version' => '4.0',
+            'version' => '4.0.0.0',
+            'reference' => '4cba4706cf1d0b06a9bd766f3bd439fc8f93dfb3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../orhanerday/open-ai',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

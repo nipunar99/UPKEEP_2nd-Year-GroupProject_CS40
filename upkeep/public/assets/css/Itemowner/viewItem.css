@@ -853,18 +853,77 @@ form .middleInput select{
     width: 54%;
 }
 
-.disposalMain{
-    margin-top: 1.5rem;
+.disposalMain, .disposalMenu>div{
     height: 85vh;
-    background: var(--color-white);
     width: 100%;
-    border-radius: var(--card-border-radius);
-    padding: var(--card-padding);
     text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
     width: 96%;
     position: relative;
     left: 2%;
 }
 
+.buttonmenu{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonmenu button{
+    margin-bottom: 0.5rem;
+    width: 9.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 2.5rem;
+    border-radius: 10px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+}
+
+.disposalMenu>div{
+    transition: all 300ms ease;
+    height: 77vh;
+    box-shadow: var(--box-shadow);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    background: var(--color-white);
+}
+
+.disposalMain h1{
+    font-weight: 700;
+    color: #05B2E9;
+    font-size: 1.6rem;
+}
+
+textarea{
+    width: calc(100% - 5vh);
+    min-height: 58vh;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    padding-right: 140px;
+    line-height: 180%;
+    vertical-align: top;
+    cursor: auto;
+    resize: none;
+    outline: none;
+    border:none;
+    margin-top: 1rem;
+    border-radius: var(--border-radius-1); 
+    box-shadow: var(--box-shadow);
+}
+
+.prompt{
+    border: 0px;
+    outline: none;
+    width: calc(100% - 9vw);
+    padding: 12px 60px 12px 20px;
+    font-size: 17px;
+    box-shadow: var(--box-shadow);
+    margin-left: 2rem;
+}
+
+.inputarea{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}

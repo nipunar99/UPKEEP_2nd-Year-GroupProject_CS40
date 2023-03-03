@@ -31,6 +31,10 @@ class ComposerStaticInitb8701e05b783718c1490487d0277256e
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
         ),
+        'O' => 
+        array (
+            'Orhanerday\\OpenAi\\' => 18,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -58,12 +62,16 @@ class ComposerStaticInitb8701e05b783718c1490487d0277256e
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'Orhanerday\\OpenAi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/orhanerday/open-ai/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

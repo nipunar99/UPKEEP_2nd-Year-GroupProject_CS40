@@ -136,6 +136,43 @@ backbtn2.addEventListener("click", () => {
     main3.classList.add("hidden");
     container.classList.remove("newgrid-container");
 });
+//................................................................
+
+//..................How pre disposal
+const predisposal = document.querySelector(".predisposal");
+const reuse = document.querySelector(".reuse");
+const resell = document.querySelector(".resell");
+const scrap = document.querySelector(".scrap");
+
+document.querySelector(".predisposalbtn").addEventListener("click", () => {
+    predisposal.classList.remove("hidden");
+    reuse.classList.add("hidden");
+    resell.classList.add("hidden");
+    scrap.classList.add("hidden");
+});
+
+document.querySelector(".reusebtn").addEventListener("click", () => {
+    predisposal.classList.add("hidden");
+    reuse.classList.remove("hidden");
+    resell.classList.add("hidden");
+    scrap.classList.add("hidden");
+});
+
+document.querySelector(".resellbtn").addEventListener("click", () => {
+    predisposal.classList.add("hidden");
+    reuse.classList.add("hidden");
+    resell.classList.remove("hidden");
+    scrap.classList.add("hidden");
+});
+
+document.querySelector(".scrapbtn").addEventListener("click", () => {
+    predisposal.classList.add("hidden");
+    reuse.classList.add("hidden");
+    resell.classList.add("hidden");
+    scrap.classList.remove("hidden");
+});
+
+//................................................................
 
 // Add maintain task
 
