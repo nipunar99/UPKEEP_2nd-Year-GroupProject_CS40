@@ -1,3 +1,4 @@
+var disposalPlacesjson = null;
 const deleteMsg = document.querySelector(".deleteMsg");
 const confirmbtn = document.querySelector(".confirmbtn");
 const reminderbtn = document.querySelector("#addReminderbtn");
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded",function(){
     display1details();
     display3details();
     display2details();
+    disposalPlaces();
 });
 
 
@@ -635,4 +637,44 @@ function ajax_deleteTask() {
     }
     xhr.send(urlparams);
     unloadupcomeview(deleteTaskNum);
+}
+
+function disposalPlaces(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/disposalplaces");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            disposalPlacesjson = JSON.parse(res);
+            var html = "";
+
+            if (disposalPlacesjson.status != "empty"){
+                for (var i = 0; i < disposalPlacesjson.length; i++) {
+                    html += " <div class='disposeplace"+i+"' onclick='loadMap("+i+")'>"
+                    html += "   <h2>"+disposalPlacesjson[i].place_name+"</h2>"
+                    html += "   <p>"+disposalPlacesjson[i].city+"</p>"
+                    html += " </div>"
+                }
+            }else{
+                html += "<h2>No data available</h2>";
+            }
+            
+            document.querySelector(".diposalplaces").innerHTML = html;
+        }
+    }
+    xhr.send();
+}
+
+function loadMap(index){
+    for (var i = 0; i < disposalPlacesjson.length; i++) {
+        document.querySelector(".disposeplace"+i+"").classList.remove("placeSelect");
+    }
+
+    document.querySelector(".mapdiv").innerHTML = disposalPlacesjson[index].iframe_link;
+    document.getElementsByTagName("iframe")[0].width= '700';
+
+    document.querySelector(".disposeplace"+index+"").classList.add("placeSelect");
+
 }

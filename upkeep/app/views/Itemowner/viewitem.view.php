@@ -500,14 +500,23 @@
                         <textarea class="textArea"></textarea>
                     </div>
                     <div class="reuse hidden">
-                        <h2>reuse</h2>
+                        <h1>reuse</h1>
                     </div>
                     <div class="resell hidden">
-                        <h2>resell</h2>
+                        <h1>resell</h1>
                     </div>
                     <div class="scrap hidden">
-                        <h2>scrap</h2>
+
+                        <h1>Scrap</h1>
+                        <div class="mapContainer">
+                            <div class="mapdiv">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.392816511548!2d80.0781035146864!3d6.343145095409712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae22ac34166e76f%3A0x6e0e0605a3a77ead!2zVXJhZ2FzbWFuaGFuZGl5YSBKdW5jdGlvbiAtIOC2jOC2u-C2nOC3g-C3iuC2uOC2guC3hOC2seC3iuC2r-C3kuC2ug!5e0!3m2!1sen!2slk!4v1677867424230!5m2!1sen!2slk" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <div class="diposalplaces">
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
             </div>

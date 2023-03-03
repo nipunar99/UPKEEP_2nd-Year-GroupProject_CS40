@@ -4,7 +4,7 @@ class ViewGig {
 
     use Controller;
     public function index (){
-        if($_SESSION['USER'] == $_SESSION['user_id']){
+        if($_SESSION['user_id'] == $_SESSION['user_id']){
             // $this->view('Itemowner/viewgig');
         }else{
             redirect("Home/home");

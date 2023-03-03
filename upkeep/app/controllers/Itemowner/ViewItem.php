@@ -6,7 +6,7 @@ class ViewItem {
     
     public function index (){
         $data =[];
-        if($_SESSION['USER'] == $_SESSION['user_id']){
+        if($_SESSION['user_id'] == $_SESSION['user_id']){
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 if(isset($_POST['action']) && $_POST['action']=="deleteItem"){
     
@@ -145,6 +145,18 @@ class ViewItem {
 
         return $interval->days; 
 
+    }
+
+    public function disposalplaces(){
+        $arr = [];
+        $arr["item_id"] = $_SESSION['item_id'];
+        // show($arr); 
+        $disposalMaps = new DisposalMaps;
+        $result = $disposalMaps->findAll();
+        // show($result);
+        $json = json_encode($result);
+        echo($json);
+        
     }
 
 }

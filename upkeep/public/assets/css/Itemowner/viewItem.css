@@ -927,3 +927,59 @@ textarea{
     gap: 3rem;
     align-items: center;
 }
+
+.mapContainer{
+    /* background: black; */
+    display: flex;
+    height: 90%;
+    margin-top: .5rem;
+}
+
+.diposalplaces{
+    /* background: #00ffa8; */
+    height: 100%;
+    width: 35%;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+.mapdiv{
+    /* background: red; */
+    height: 100%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.diposalplaces>div{
+    height: 7rem;
+    width: 90%;
+    box-shadow: var(--box-shadow);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+
+}
+
+.diposalplaces>div:hover{
+    transform: scale(1.04);
+}
+
+.diposalplaces>div p{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.diposalplaces>div h2{
+    font-weight: 600;
+}
+iframe{
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+}
+
+.placeSelect{
+    background: #e7e7e7;
+}

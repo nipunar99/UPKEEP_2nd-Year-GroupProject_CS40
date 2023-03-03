@@ -6,7 +6,7 @@ class Additem {
     
     public function index (){
         
-        if($_SESSION['USER'] == $_SESSION['user_id']){
+        if($_SESSION['user_id'] == $_SESSION['user_id']){
 
             // if($_SERVER['REQUEST_METHOD'] == "POST"){
             //     // $item = new Owneritem;

@@ -6,7 +6,7 @@ class Conversation {
     public function index (){
         $_SESSION["receiver_id"]= 0;
 
-        if($_SESSION['USER'] == $_SESSION['user_id']){
+        if($_SESSION['user_id'] == $_SESSION['user_id']){
             if($_SESSION['user_role'] == 'technician'){
                 $this->view('Technician/conversation');
             }
