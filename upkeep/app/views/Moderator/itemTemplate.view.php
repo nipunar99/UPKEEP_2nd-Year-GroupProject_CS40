@@ -110,19 +110,20 @@
                     <div class="itemTemplateList" >
                         <table id="templateTable">
                             <thead>
-
-                               
+<tr>
+                               <th></th>
                                 <th  onclick="sortTable(0)">Item</th>
                                 <th class="category"  onclick="sortTable(1)">Item Type   </th>       
                                 <th  onclick="sortTable(2)" class="status">Status<select name="status" id="status"> </th>
                                 <th  class="description">Description</th>
                                 <th>Action</th>
+                                </tr>
                             </thead>
                             <tbody class="details">
 
                               
                                         <tr>
-                                           
+                                           <td><input type="checkbox" name="id"></td>
                                             <td class="template_name">
                                                 <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
                                                 <div class="name">new</div>
@@ -132,7 +133,8 @@
                                             <td>btre </td>
                                             <td>
                                                 <div class="more">
-                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem/"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button><span class="material-icons-sharp">delete</span></button></div>
+                                                    <!-- <div class="view"><button onclick='passItemDetails("+i+")'><span class="material-icons-sharp">view_list</span></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div> -->
+                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem"><span class="material-icons-sharp">view_list</span></a></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -140,9 +142,14 @@
                             </tbody>
                     </div>
                 </div>
+</div>
         </main>
-
+       
     </div>
+
+
+   
+   
     <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
     </script>
 </body>

@@ -51,6 +51,5 @@ class Owneritem {
         $this->query($query,$data);
         return false;
     }
-
-
+  
 }

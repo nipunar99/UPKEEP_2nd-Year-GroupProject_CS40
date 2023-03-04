@@ -71,11 +71,13 @@
             </div>
             <div class="insight">
             <div class="topnav">
-  <a class="active" href="#home">Main</a>
-  <a href="#1">Sub Component 1</a>
-  <a href="#2">Sub Component 2</a>
-  <a href="#3">Sub Component 3</a>
+                <!-- <div class="name">name</div> --> 
+  <a class="active" href="#home">Yearly</a>
+  <a href="#1">Monthly</a>
+  <a href="#2">Weekly</a>
+  <!-- <a href="#3">Sub Component 3</a> -->
 </div>
+<span> <button class="subcategory" onclick="open_form()">&#43</button></span>
 <div class="data">
     <!-- <table>
         <thead></thead>
@@ -88,7 +90,42 @@
         </tbody>
     </table> -->
 </div>
+
             </div>
+            <div class="popupview hidden">
+            <button class="closebtn">&times;</button>
+
+            <div class="content">
+
+                <form method="post" enctype="multipart/form-data" id="form_itemDetails">
+                <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        <div class="input-box">
+                            <span class="details">Enter maintenance task</span>
+                            <input type="text" name="item_name" id="" required placeholder="Description">
+                        </div>
+                        
+                        <div class="middleInput"> 
+                            <div class="input-box">
+                            <select name="maintain" id="maintain"><span class="details">Select time period</span>
+                                    <option value="red">Yearly</option>
+                                    <option value="green">Monthly</option>
+                                    <option value="blue">Weekly</option>
+                                    </select>        
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <input type="submit" value="Submit" id="Btn"> 
+                            <!-- itemDetails -->
+                        </div>
+        
+                    </div>
+                </form>
+            </div>
+            <div class="overlayview hidden"></div>
+            <script src="<?= ROOT ?>/assets/js/Moderator/maintenances.js">
+    </script>
 </body>
 
 </html>

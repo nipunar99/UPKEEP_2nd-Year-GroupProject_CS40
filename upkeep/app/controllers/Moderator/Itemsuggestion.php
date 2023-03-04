@@ -7,7 +7,7 @@ class Itemsuggestion {
          $data = [];
         if(isset($_SESSION['user_id'])){
             $arr=[];
-            $suggestions = new Itemsuggestions;
+            $suggestions = new Owneritem;
             $result = $suggestions->findAll();
             $data['result'] = $result;
 

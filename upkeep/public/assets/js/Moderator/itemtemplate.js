@@ -1,4 +1,5 @@
-
+// Global varible for itemtemplate details
+var itemtemplateDetails = null; 
 // elements = document.getElementById('status'+i)
 //     for (var i = elements.length; i--;) {
 //       if (elements[i].innerHTML === "Pending") {
@@ -25,7 +26,7 @@
     table = document.getElementById("templateTable");
     tr = table.getElementsByTagName("tr");
     for (i =0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -37,8 +38,49 @@
       }       
     }
   }
+  
+  
+// "use strict";
+function fun(){
+// Get all DOM and store in variable
+const modal = document.querySelector(".popupview");
+const overlay = document.querySelector(".overlayview");
+const btnCloseModal = document.querySelector(".closebtn");
+const btnShowRow1 = document.querySelector(".delete");
 
 
+
+
+// Show Modal function const showModal
+const showModal = function () {
+    console.log("button clicked");
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+}; 
+
+// Close Modal function
+const closeModal = function () {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+    // removeEvent();
+};
+
+
+// show modal click event
+btnShowRow1.addEventListener("click", showModal);
+
+// close modal click
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+}
+// function scrollL(){
+//     var left = document.querySelector(".card-main");
+//     left.scrollBy(350,0);
+// }
+// function scrollR(){
+//     var right = document.querySelector(".card-main");
+//     right.scrollBy(-350,0) ;
+// }
 
 
 
@@ -57,7 +99,8 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
             // console.log(json);
             // try {
               const json = JSON.parse(res);
-              console.log(json);
+              itemtemplateDetails = JSON.parse(res);
+              // console.log(itemtemplateDetails[1]);
           // }
           // catch (error) {
               // console.log('Error parsing JSON:', error, res);
@@ -68,6 +111,7 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
               console.log(json.length);
                 // html += "<tbody>";
                 html +=               "<tr>";
+                html += "<td><input type='checkbox' name='id'></td>";
                 html += "                <td class='template_name'>";                                
                 html += "                     <div class='image'>";
                 html +="<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/"+json[i].image+"'>";
@@ -92,14 +136,15 @@ xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/co
                 html += "                        <td>"+json[i].description+"</td>";        
                 html += "                       <td>";
                html+=" <div class='more'>  "; 
-               var id = encodeURIComponent(json[i].id);
-var name = encodeURIComponent(json[i].itemtemplate_name);                        
-                // html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/?param1="+json[i].id+"+&param2="+json[i].itemtemplate_name+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
-               html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/?id=id'&name= name'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>"
+//                var id = encodeURIComponent(json[i].id);
+// var name = encodeURIComponent(json[i].itemtemplate_name);                        
+                html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/"+json[i].id+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button type='button' onclick='fun()'><span class='material-icons-sharp'>delete</span></button></div>";
+              //  html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/?id=id'&name= name'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>"
+                // html += "<div class='view'><button onclick='passItemDetails("+i+")'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button type='button' onclick='fun()'><span class='material-icons-sharp'>delete</span></button></div>";
                 html += "                </div>";
                 html += "                <td>";
                 html += "                <tr>";
-                var id = json[i].id;
+                // var id = json[i].id;
               
             }
             document.querySelector(".details").innerHTML = html;
@@ -109,6 +154,25 @@ var name = encodeURIComponent(json[i].itemtemplate_name);
    
     
 }
+
+function passItemDetails(i){
+ 
+    const xhr = new XMLHttpRequest();
+   var x =  console.log(itemtemplateDetails[i].itemtemplate_name);
+  var y =  console.log(itemtemplateDetails[i].id);
+
+
+    xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/","true");
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+console.log(itemtemplateDetails[i]);
+      xhr.onload = function(){
+        if(xhr.status == 200){  
+            const res = xhr.responseText;
+        }
+      }       
+      xhr.send();
+}
+
 function sortTable(n){
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("templateTable");
@@ -171,8 +235,28 @@ function sortTable(n){
   }
 }
 
+document.getElementById("delete-row-btn").onclick = function() {
+  var row = document.getElementById("delete-row-btn").parentNode.parentNode;
+
+  var xhr = new XMLHttpRequest();
+xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/deleteTemplate");
+// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    // If the request was successful, delete the row from the table
+    row.parentNode.removeChild(row);
+  // } else {
+    // If the request failed, display an error message
+  //   alert("Failed to delete row");
+  // }
+};
+xhr.send("row_id=" + row.id);
+$row_id = $_POST["row_id"];
+// Your code to delete the row from the database goes here
 
 
+};
+}
 
 
 

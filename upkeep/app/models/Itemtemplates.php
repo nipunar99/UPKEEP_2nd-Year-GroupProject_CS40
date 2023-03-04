@@ -28,7 +28,7 @@ class Itemtemplates
         }
 
         public function completeItemTemplate(){
-            $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate i inner JOIN item_type i_type on  i_type.type_id = i.type_id where parent_id is null ";
+            $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate i inner JOIN item_type i_type on  i_type.type_id = i.type_id where parent_id IS NULL ";
             return $this->query($query);
         }
        public function item($id){

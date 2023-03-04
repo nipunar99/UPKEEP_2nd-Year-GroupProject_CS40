@@ -9,11 +9,11 @@ class Maintenance {
          $data = [];
         if(isset($_SESSION['user_id'])){
             $arr=[];
-            $suggestions = new Maintenances;
-            $result = $suggestions->findAll();
-            $data['result'] = $result;
+            $suggestions = new Maintenance_templates;
+            // $result = $suggestions->findAll();
+            // $data['result'] = $result;
 
-            $this->view('Moderator/maintenance',$data);
+            $this->view('Moderator/maintenance');
         }else{
             redirect("Home/home");
         }

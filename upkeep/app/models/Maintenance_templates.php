@@ -1,17 +1,22 @@
 <?php 
 
-class Ongoingmaintenances 
+class Maintenance_templates 
 {
     use Model;
 
-    protected $table = "maintenances";
+    protected $table = "maintenance_templates";
 
     protected $allowedColumns = [
-        "name",
-        "type",
-      
+       "item_template_id",
+        "sub_component",
+        "image",
         "description",
-      
+        "years",
+        "months",
+        "weeks",
+        "status"
+       
+       
         
     ];
     public function insertItemtemplate1($data){
