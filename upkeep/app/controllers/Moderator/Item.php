@@ -56,7 +56,7 @@
             //  $result1 =json_encode($item->where($arr));
             // $result1 =json_encode($item->item($arr));
             $result1 =json_encode($item->item($id));
-             show($result1);
+            //  show($result1);
            
             
               $data['result'] = $result1;

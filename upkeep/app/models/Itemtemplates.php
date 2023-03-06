@@ -64,6 +64,15 @@ class Itemtemplates
         //     }        
             // $sql = "select * from `itemtemplate` where id=:id";
         // }  
+
+        public function delete($id, $id_column = "id"){
+        
+            $data[$id_column] = $id;
+            $query = "delete from $this->table where $id_column = :$id_column";
+    
+            $this->query($query,$data);
+            return false;
+        }
 }
 
           

@@ -257,8 +257,19 @@ main .toolbar .addItem{
 }
 /* main .toolbar .availItem{
     background: #B3B4BB;
-} */
-
+}
+ */
+main .toolbar .filter{
+    height: 2.5rem;
+}
+main .toolbar .filter_table{
+    background: linear-gradient(to right, rgba(0, 217, 101, 0.7), rgba(0,190,228,0.5));
+    width: 10rem;
+    display: flex;
+}
+main .toolbar .fil{
+    margin-left: 1rem;
+}
 main .insight{
     padding: 0 1.2rem;
 }
@@ -467,7 +478,7 @@ main .more{
 .image{
     display: flex;
     position: relative;
-    left: 11rem;
+    left: 7rem;
     gap: 1rem;
 }
 .name{
@@ -686,7 +697,7 @@ th .status {
     border: none;
     background: none;
 }
-.popup-text{
+.delete{
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -742,4 +753,3 @@ th .status {
 .action_btn button:hover{
     transform: scale(1.1);
 }
-
