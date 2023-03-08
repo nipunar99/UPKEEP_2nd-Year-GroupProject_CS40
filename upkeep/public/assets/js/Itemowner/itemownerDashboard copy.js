@@ -5,7 +5,6 @@ let submintFormNum = "";
 var firstIndex = 0;
 
 
-
 //...............................slide bar.......................
 const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded",function(){
 function ajax_getAllReminders() {
     const xhr = new XMLHttpRequest();
 
-    xhr.open('GET',""+ROOT+"/Itemowner/Userdashboard/getAllReminders");
+    xhr.open('GET',"http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/getAllReminders");
 
     xhr.onload = function () {
         if(xhr.status == 200){
@@ -48,7 +47,7 @@ function ajax_getAllReminders() {
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
                 html+= "<div class='maintenanceStatus'><span class='material-icons-sharp'>error_outline</span>";
                 html+= "<h4>Pending</h4></div></div>";
-                html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
+                html+= "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
                 html+= "<div  class='upcomepopupview"+(i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
                 
@@ -97,7 +96,7 @@ function ajax_getAllReminders() {
 function ajax_getAllOverdueReminders() {
     const xhr = new XMLHttpRequest();
 
-    xhr.open('GET',""+ROOT+"/Itemowner/Userdashboard/getAllOverdueReminders");
+    xhr.open('GET',"http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/getAllOverdueReminders");
 
     xhr.onload = function () {
         if(xhr.status == 200){
@@ -114,7 +113,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
                 html+= "<div class='maintenanceStatus'><span class='material-icons-sharp'>error_outline</span>";
                 html+= "<h4>Pending</h4></div></div>";
-                html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
+                html+= "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
                 html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
                 
@@ -216,7 +215,7 @@ function ajax_completeTask() {
     form.append("action", "completeTask");
     form.append("item_id", itemid);
     const xhr = new XMLHttpRequest();
-    xhr.open("POST",""+ROOT+"/Itemowner/Userdashboard/completeTask");
+    xhr.open("POST","http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/completeTask");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -248,7 +247,7 @@ function ajax_deleteTask() {
     const urlparams = new URLSearchParams(form);
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST",""+ROOT+"/Itemowner/Userdashboard/deleteTask");
+    xhr.open("POST","http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/deleteTask");
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
     xhr.onload = function(){
@@ -265,7 +264,7 @@ function ajax_deleteTask() {
 function display1details(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display1details");
+    xhr.open("GET","http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/display1details");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -294,7 +293,7 @@ function display1details(){
 function display2details(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display2details");
+    xhr.open("GET","http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/display2details");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -324,7 +323,7 @@ function display2details(){
 function display3details(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display3details");
+    xhr.open("GET","http://192.168.8.100/upkeep/upkeep/public/Itemowner/Userdashboard/display3details");
 
     xhr.onload = function(){
         if(xhr.status == 200){

@@ -29,6 +29,19 @@ select.addEventListener('change', function() {
 
 //......................................................................
 
+//...............................slide bar.......................
+const sideMenu = document.querySelector("aside");
+const menuBtn = document.querySelector("#menu-btn");
+const closeBtn = document.querySelector("#close-btn");
+
+menuBtn.addEventListener("click", () => {
+    sideMenu.style.display = "block";
+})
+ closeBtn.addEventListener("click", () => {
+    sideMenu.style.display = "none";
+})
+//...............................................................
+
 // Add Item view
 const addItem = document.querySelector(".addItem");
 const modal = document.querySelector(".popupview1");
@@ -90,7 +103,7 @@ function ajax_addItem(e){
     
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/Item");
+    xhr.open("POST",""+ROOT+"/Itemowner/Item");
     // xhr.setRequestHeader("Content-Type","application/json");             
     // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
@@ -121,7 +134,7 @@ document.addEventListener("DOMContentLoaded",function(){ajax_getItems()});
 function ajax_getItems(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/Item/getAllItem");
+    xhr.open("GET",""+ROOT+"/Itemowner/Item/getAllItem");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -137,9 +150,9 @@ function ajax_getItems(){
                 html += "<h2>"+json[a].item_type+"</h1>";
                 html += "</div>";
                 html += "<div class='progress'>";
-                html += "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[a].image+"'</div>";
+                html += "<img src='"+ROOT+"/assets/images/uploads/"+json[a].image+"'</div>";
                 html += "</div></div>";
-                html += "<div style='position: relative;top: 1rem;'>";
+                html += "<div style='position: relative;top: 1rem; margin-top: 0.5rem;'>";
                 html += "<form  method='post'>";
                 html +="<input  style='display:none;' type='text' name='item_id' value='"+json[a].item_id+"'>";
                 html +="<input  style='display:none;' type='text' name='owner_id'value='"+json[a].owner_id+"'>";

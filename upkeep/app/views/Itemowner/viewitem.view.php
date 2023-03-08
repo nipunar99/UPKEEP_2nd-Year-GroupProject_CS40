@@ -170,6 +170,9 @@
         </main>
 
         <!-- End of Main -->
+        <div class="itempannelbtn">
+            <span class="material-icons-sharp arrowback">arrow_back_ios</span>
+        </div>
 
         <div class="right">
             <div class="heading">
@@ -196,13 +199,14 @@
             </div>
 
             <div class="item-details">
+            <button class="closebtn itempannelclosebtn">&times;</button>
             <?php 
                 if(!empty($result)){
                 foreach ($result as $row)
                     // show($row);
                         echo "
                             <div class='image-container'>
-                            <img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/".$row->image."'>
+                            <img src='".ROOT."/assets/images/uploads/".$row->image."'>
                             </div>
 
                             <h2>".$row->item_name."</h2>
@@ -525,6 +529,9 @@
         </main>
 
     </div>
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/sse.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/script.js"></script>

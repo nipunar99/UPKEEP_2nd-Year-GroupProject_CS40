@@ -12,6 +12,10 @@ const addMaintenanceForm2 = document.querySelector(".addMaintenanceForm2");
 const addMaintainTaskbtn = document.querySelector(".addMaintainTask");
 const docsbtn =  document.querySelector(".docbtn");
 
+const itempannelbtn =  document.querySelector(".itempannelbtn");
+const itempannel = document.querySelector(".right");
+const itempannelclosebtn = document.querySelector(".itempannelclosebtn");
+
 const allMaintenance = document.querySelector(".morebtn");
 const disposeguide = document.querySelector(".disposebtn");
 const main1 = document.querySelector(".main1");
@@ -21,6 +25,34 @@ const right = document.querySelector(".right");
 const container = document.querySelector(".container");
 const backbtn = document.querySelector(".back");
 const backbtn2 = document.querySelector(".back2");
+
+//...............................slide bar.......................
+const sideMenu = document.querySelector("aside");
+const menuBtn = document.querySelector("#menu-btn");
+const closeBtn = document.querySelector("#close-btn");
+
+menuBtn.addEventListener("click", () => {
+    sideMenu.style.display = "block";
+})
+ closeBtn.addEventListener("click", () => {
+    sideMenu.style.display = "none";
+})
+//...............................................................
+
+
+//.......................open item pannel.......................
+itempannelbtn.addEventListener('click', () => {
+    itempannel.classList.add("animateOpenRight");
+    itempannel.classList.remove("animateCloseRight");
+})
+//........................................................
+
+//.......................Close item pannel.......................
+itempannelclosebtn.addEventListener('click', () => {
+    itempannel.classList.remove("animateOpenRight");
+    itempannel.classList.add("animateCloseRight");
+})
+//........................................................
 
 
 var firstIndex = 0;
@@ -253,7 +285,7 @@ function ajax_addReminder(e){
 function ajax_getAllReminders(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/getAllReminders");
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/getAllReminders");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -272,7 +304,7 @@ function ajax_getAllReminders(){
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
                 html+= "<div class='maintenanceStatus'><span class='material-icons-sharp'>error_outline</span>";
                 html+= "<h4>Pending</h4></div></div>";
-                html+= "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[i].image+"'></div></div>";
+                html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
                 html+= "<div  class='upcomepopupview"+(i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
                 
@@ -324,7 +356,7 @@ function ajax_getAllReminders(){
 function ajax_getAllOverdueReminders() {
     const xhr = new XMLHttpRequest();
 
-    xhr.open('GET',"http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/getAllOverdueReminders");
+    xhr.open('GET',""+ROOT+"/Itemowner/ViewItem/getAllOverdueReminders");
 
     xhr.onload = function () {
         if(xhr.status == 200){
@@ -341,7 +373,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
                 html+= "<div class='maintenanceStatus'><span class='material-icons-sharp'>error_outline</span>";
                 html+= "<h4>Pending</h4></div></div>";
-                html+= "<img src='http://localhost/UpKeep/upkeep/public/assets/images/uploads/"+json[i].image+"'></div></div>";
+                html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
                 html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
                 
@@ -396,7 +428,7 @@ function ajax_addMaintenance(e){
     form.append("action", "addMaintenance");
 
     const xhr = new XMLHttpRequest();
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem");
+    xhr.open("POST",""+ROOT+"/Itemowner/ViewItem");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -415,7 +447,7 @@ function ajax_addMaintenance(e){
 function ajax_getAllMaintenance(){
 
     const xhr = new XMLHttpRequest();
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/getAllMaintenance");
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/getAllMaintenance");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -466,7 +498,7 @@ function ajax_getAllMaintenance(){
 function display1details(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/display1details");
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/display1details");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -497,7 +529,7 @@ function display1details(){
 function display2details(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/display2details");
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/display2details");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -529,7 +561,7 @@ function display3details(){
 
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/display3details");
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/display3details");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -597,7 +629,7 @@ function ajax_completeTask() {
     form.append("action", "completeTask");
     form.append("item_id", itemid);
     const xhr = new XMLHttpRequest();
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/Userdashboard/completeTask");
+    xhr.open("POST",""+ROOT+"/Itemowner/Userdashboard/completeTask");
 
     xhr.onload = function(){
         if(xhr.status == 200){
@@ -626,7 +658,7 @@ function ajax_deleteTask() {
     const urlparams = new URLSearchParams(form);
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/Userdashboard/deleteTask");
+    xhr.open("POST",""+ROOT+"/Itemowner/Userdashboard/deleteTask");
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
     xhr.onload = function(){
@@ -642,7 +674,7 @@ function ajax_deleteTask() {
 function disposalPlaces(){
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET","http://localhost/upkeep/upkeep/public/Itemowner/ViewItem/disposalplaces");
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/disposalplaces");
 
     xhr.onload = function(){
         if(xhr.status == 200){

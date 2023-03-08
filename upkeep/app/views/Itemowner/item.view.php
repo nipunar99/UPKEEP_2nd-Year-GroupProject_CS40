@@ -229,7 +229,9 @@
         
     <div class="overlayview hidden"></div>
     
-    
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
 </body> 
 </html>

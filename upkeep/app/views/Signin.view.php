@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/signin.css">
     <title>Sign in</title>
 </head>
-<body>
+<body style="background: url(<?= ROOT ?>/assets/images/landingPage/about-bg.png) no-repeat;background-size: cover;background-position: center;">
     <div class="main-container">
         <div class="content">
             <div class="sectionform">
 
                 <div class="topic">
+                    <img src="<?= ROOT ?>/assets/images/headerlogo.png" style="display: none;"  alt="" >
                     <h1>Welcome Back</h1>
                     <h4>Please enter your details.</h4>
                 </div>

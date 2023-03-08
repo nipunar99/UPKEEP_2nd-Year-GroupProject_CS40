@@ -314,6 +314,11 @@
 
         <div class="overlayview hidden"></div>
     </div>
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
+
+<!-- <script src="<?= ROOT ?>/assets/js/Itemowner/itemownerDashboard copy.js"></script> -->
         <script src="<?= ROOT ?>/assets/js/Itemowner/itemownerDashboard.js"></script>
 </body>
 </html>
