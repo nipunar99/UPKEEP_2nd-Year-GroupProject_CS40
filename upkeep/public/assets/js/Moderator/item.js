@@ -1,17 +1,38 @@
 // "use strict";
 
 // Get all DOM and store in variable
-const modal = document.querySelector(".popupview");
-const overlay = document.querySelector(".overlayview");
-const btnCloseModal = document.querySelector(".closebtn");
-const btnShowRow1 = document.querySelector(".card-1");
-const btnShowRow2 = document.querySelector(".card-2");
-const btnShowRow3 = document.querySelector(".card-3");
-const btnShowRow4 = document.querySelector(".card-4");
+// const modal = document.querySelector(".popupview");
+// const overlay = document.querySelector(".overlayview");
+// const btnCloseModal = document.querySelector(".closebtn");
+// const btnShowRow1 = document.querySelector(".card-1");
+// const btnShowRow2 = document.querySelector(".card-2");
+// const btnShowRow3 = document.querySelector(".card-3");
+// const btnShowRow4 = document.querySelector(".card-4");
 
 
 
 // Show Modal function const showModal
+
+
+
+// show modal click event
+// btnShowRow1.addEventListener("click", showModal);
+// btnShowRow2.addEventListener("click", showModal);
+// btnShowRow3.addEventListener("click", showModal);
+// btnShowRow4.addEventListener("click", showModal);
+
+
+
+
+// close modal click
+
+
+// function showPopup() {
+const modal = document.querySelector(".popupview");
+const overlay = document.querySelector(".overlayview");
+
+const btnShowRow1 = document.querySelector(".subcategory");
+
 const showModal = function () {
     console.log("button clicked");
     modal.classList.remove("hidden");
@@ -24,20 +45,24 @@ const closeModal = function () {
     overlay.classList.add("hidden");
     // removeEvent();
 };
-
-
-// show modal click event
 btnShowRow1.addEventListener("click", showModal);
-btnShowRow2.addEventListener("click", showModal);
-btnShowRow3.addEventListener("click", showModal);
-btnShowRow4.addEventListener("click", showModal);
-
-
-
-
-// close modal click
-btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+ // }
+  
+ const districtSelect = document.getElementById("status");
+
+ const district = ['Approved','Pending'];
+ 
+ (function populateDistrict (){
+     for(let i=0; i<district.length; i++){
+         const option = document.createElement('option');
+         option.textContent = district[i];
+         districtSelect.appendChild(option);
+     }
+     districtSelect.value = 'Select the status';
+ })();
+
+
 // document.addEventListener("DOMContentLoaded",function(){
 //     ajax_getItems();
 //   });

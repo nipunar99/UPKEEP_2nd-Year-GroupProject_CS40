@@ -11,9 +11,11 @@ class Itemtemplates
         "itemtemplate_name",
         "item_type",
         "type_id",
+        "category",
         "status",
         "description",
         "moderator_id",
+        "parent_id"
         
     ];
     public function insertItemtemplate($data){
@@ -26,14 +28,28 @@ class Itemtemplates
             echo $e->getMessage();
         }        
         }
+        public function insertCategory($name,$status,$image, $type_id,$category,$description,$parent_id){
 
+            // $keys = array_keys($data);
+            // echo($keys);
+    
+          //  $query = "insert into $this->table (itemtemplate_name,image,status,type_id, category, parent_id) values ($keys->itemtemplate_name, ";
+            
+         //   $this->query($query,$data);
+
+
+         $query = "insert into $this->table (itemtemplate_name,status,image,type_id, category,description, parent_id) values('$name','$status','$image', $type_id,'$category','$description',$parent_id)";
+         return $this->query($query);
+            // return false;
+    
+        }
         public function completeItemTemplate(){
             $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate i inner JOIN item_type i_type on  i_type.type_id = i.type_id where parent_id IS NULL ";
             return $this->query($query);
         }
        public function item($id){
         
-        $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate  i inner JOIN item_type  i_type on  i_type.type_id = i.type_id where id = $id[0]";
+        $query = "select i.image,i.id,i.category, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate  i inner JOIN item_type  i_type on  i_type.type_id = i.type_id where id = $id[0]";
         return $this->query($query);
         // $qu = "select itemtemplate_name where id = $id";
         // return(category($qu));
@@ -45,8 +61,8 @@ class Itemtemplates
         $query = "select category where  itemtemplate_name = $category_name[0]";
         return $this->query($query);
        }
-       public function category($category_name){
-        $query = "select category where  itemtemplate_name = $category_name[0]";
+       public function category($itemtemplate_name,$category_name){
+        $query = "select itemtemplate.category,itemtemplate.description, item_type.type_name from itemtemplate  inner JOIN item_type on  item_type.type_id = itemtemplate.type_id where  itemtemplate_name = '$itemtemplate_name' AND type_name = '$category_name'";
         return $this->query($query);
        }
 

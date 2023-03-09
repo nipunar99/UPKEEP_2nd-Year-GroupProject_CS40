@@ -6,7 +6,40 @@
      public function index(){
         if(isset($_SESSION['user_id'])){
             // $this->view('Moderator/item');
-        }else{
+          //  if($_SERVER['REQUEST_METHOD'] == "POST"){
+                // if(isset($_POST['action']) && $_POST['action']=="addItem"){
+    
+                    //unset($_POST['action']);
+                    // $name = $_POST['itemtemplate_name'];
+                    // $status = $_POST['status'];
+                    // $image = $_POST['image'];
+                    // $type_name = $_POST['type_id'];
+                    // if($type_name=="House Hold")
+                    // {
+                    //     $type_id = 1;
+                    // }
+                    // elseif($type_name=="Office"){
+                    //     $type_id = 2;
+                    // }
+                    // elseif($type_name=="Office"){
+                    //     $type_id = 3;
+                    // }
+                    // else{
+                    //     $type_id = 4;
+                    // }
+                    
+                    // $category = $_POST['category'];
+                    // $description = $_POST['description'];
+                    // $parent_id = 1;
+                    // $item = new Itemtemplates;
+                    // echo($_POST);
+                 //   arr['data']=[$name,$status ,$immage, $type_id,$category,$description,$parent_id];
+                    // $item->insertCategory($name,$status,$image, $type_id,$category,$description,$parent_id);
+                    // redirect("Moderator/Itemtemplate");
+                // }   
+            } 
+        // }
+        else{
             redirect("Home/home");
         } 
      }
@@ -47,7 +80,35 @@
     //     }
     // }
     public function viewItem($id){
-        if(isset($_SESSION['user_id'])){
+        if(isset($_SESSION['user_id']) &&  ($_SERVER['REQUEST_METHOD'] == "POST")){
+            $name = $_POST['itemtemplate_name'];
+            $status = $_POST['status'];
+            $image = $_POST['image'];
+            $type_name = $_POST['type_id'];
+            if($type_name=="House Hold")
+            {
+                $type_id = 1;
+            }
+            elseif($type_name=="Office"){
+                $type_id = 2;
+            }
+            elseif($type_name=="Vehicle"){
+                $type_id = 3;
+            }
+            else{
+                $type_id = 4;
+            }
+            
+            $category = $_POST['category'];
+            $description = $_POST['description'];
+            $parent_id = 1;
+            $item = new Itemtemplates;
+            echo($_POST);
+         //   arr['data']=[$name,$status ,$immage, $type_id,$category,$description,$parent_id];
+            $item->insertCategory($name,$status,$image, $type_id,$category,$description,$parent_id);
+            redirect("Moderator/Itemtemplate");
+         }
+        elseif(isset($_SESSION['user_id'])){
             $arr = [];
             $arr["id"] = $id[0];
             $item = new Itemtemplates;
@@ -56,17 +117,39 @@
             //  $result1 =json_encode($item->where($arr));
             // $result1 =json_encode($item->item($arr));
             $result1 =json_encode($item->item($id));
-            //  show($result1);
+            //   show($result1);
            
             
               $data['result'] = $result1;
-
            
-             $this->view('Moderator/item',$data);
+            $result = json_decode($data['result']);
+            
+            $itemtemplate_name =$result[0]->itemtemplate_name;
+            $category_name = $result[0]->type_name;
+            $result2 = $this->findCategory($itemtemplate_name,$category_name);
+            // show($result2);
+            $data1['results'] = $result2;
+            // show($data+$data1);
+            // $Data = $data+$data1
+           
+             $this->view('Moderator/item',$data+$data1);
+
+             
+            
+           
         }else{
             redirect("Home/home");
         }
     }
+    public function findCategory($itemtemplate_name,$category_name){
+        $items = new Itemtemplates;
+        $result =$items->category($itemtemplate_name,$category_name);
+    // show($result);
+   
+    return($result);
+    }
+
+    
 
 }
 

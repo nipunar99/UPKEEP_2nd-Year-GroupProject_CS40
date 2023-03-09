@@ -75,7 +75,9 @@
                         <?php 
                                 $result = json_decode($data['result']);
                                 $result_obj = $result[0];
+                                
                         ?>
+                       
                         <div class='img'>
                             <img src="<?= ROOT ?>/assets/images/uploads/<?= $result_obj->image?>">
                         </div>
@@ -158,59 +160,67 @@
                 <div class="maintenances">
 
                     <h1>Sub Categories</h1>
-                    <span> <button class="subcategory">&#43</button></span>
+                    <span> <button id="popup-btn" class="subcategory">&#43</button></span>
                     <div class="table">
-                        <table>
+                        <table id="categoryTable">
                             <thead>
                                 <tr>
-                                    <!-- <th>Type</th> -->
+                                    <th></th> 
                                     <th>Sub category</th>
                                     <!-- <th>Time Frame</th> -->
                                     <th>Description</th>
+                                    <th>Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">  
+                            <?php if(!empty($results)):?>
+                    <?php foreach($results as $row):?>
 
                                 <tr>
-
+                                <td><input type="checkbox" name="id" class="item_id"></td>
                                     <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
-                                    <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"> Type</a></td>
+                                    <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"><?=$row->category?></a></td>
                                     <!-- <td>Sub Component</td> -->
                                     <!-- <td>Time Frame</td> -->
-                                    <td>Description</td>
+                                    <td><?= $row->description?></td>
+                                    <td>
+                                                <div class="more">
+                                                    <!-- <div class="view"><button onclick='passItemDetails("+i+")'><span class="material-icons-sharp">view_list</span></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div> -->
+                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/editItem"><span class="material-icons-sharp">edit</span></a></button></div>
+                                                </div>
+                                            </td>
                                 </tr>
-</a>
-                                <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                                    <tr>
+</a><?php endforeach;?>
+                <?php endif;?>
+                            
+                                    <!-- <tr> -->
 
                                         <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
-                                        <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"> Type</a></td>
+                                        <!-- <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"><?= $result_obj1->category?> </a></td> -->
                                         <!-- <td>Sub Component</td> -->
                                         <!-- <td>Time Frame</td> -->
-                                        <td>Description</td>
+                                        <!-- <td><?= $result_obj1->description?></td> -->
 
-                                    </tr>
-                                </a>
-                                <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                                    <tr>
+                                    <!-- </tr> -->
+                              
+                                    <!-- <tr> -->
                                         <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
-                                        <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"> Type</a></td>
+                                        <!-- <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"> Type</a></td> -->
                                         <!-- <td>Sub Component</td> -->
                                         <!-- <td>Time Frame</td> -->
-                                        <td>Description</td>
-                                    </tr>
-                                </a>
-                                <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                                    <tr>
+                                        <!-- <td>Description</td> -->
+                                    <!-- </tr> -->
+                              
+                                
+                                    <!-- <tr> -->
                                         <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
-                                        <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"> Type</a></td>
+                                        <!-- <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"> Type</a></td> -->
                                         <!-- <td>Sub Component</td> -->
                                         <!-- <td>Time Frame</td> -->
-                                        <td>Description</td>
-                                    </tr>
-                                </a>
+                                        <!-- <td>Description</td> -->
+                                    <!-- </tr> -->
+                               
                             </tbody>
                         </table>
                     </div>
@@ -271,7 +281,7 @@
                     <!-- </div> -->
                 </div>
         </main>
-        <div class="popupview hidden">
+        <!-- <div class="popupview hidden">
             <button class="closebtn">&times;</button>
             <div class="popup-text">
                 <div class="1">
@@ -295,7 +305,59 @@
                 <button>Edit</button>
                 <button>Reject</button>
             </div>
-        </div>
+        </div> -->
+       
+
+        <div class="popupview hidden">
+        <form id="popup-form" method="post" action="#" class="fm">
+        <div class="itemDetails">
+                    <div class="topInput">
+                      
+                        <div class="input-box">
+                            <span class="details">Item template Name</span>
+                            <input type="text" name="itemtemplate_name" value="<?= $result_obj->itemtemplate_name?>" id=""  readonly>
+                        </div>
+
+ </div>
+
+                        <div class="middleInput">
+                            <div class="input-box">
+                                <span class="details">Status</span>
+                                <select name="status" id="status"></select>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Image</span>
+                                <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Type Name</span>
+                                <input type="text" name="type_id" id="" value="<?= $result_obj->type_name?>" readonly>
+                            </div>
+                          
+
+
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Category</span>
+                            <input type="text" name="category" id="" required placeholder="Enter Category">
+
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
+                        </div>
+
+
+                        <div class="button">
+                            <input type="submit" value="Add Item">
+                        </div>
+
+                    </div>
+  <!-- text input field with "readonly" attribute -->
+ 
+</form>
+</div>
 
 
         <div class="overlayview hidden"></div>

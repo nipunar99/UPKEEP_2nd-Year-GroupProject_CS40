@@ -61,7 +61,7 @@ p{
     outline: 0;
     border: 0;
     text-decoration: none;
-    appearance: none;
+ //   appearance: none;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -481,7 +481,7 @@ main .mainHeader{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 45%;
+    width: 50%;
     background-color: var(--color-white);
     color: rgb(68, 67, 67);
     padding: 5rem 2rem 2rem 3rem;
@@ -489,7 +489,7 @@ main .mainHeader{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    height: 55vh;
+    height: 87vh;
 }
 .closebtn {
     position: absolute;
@@ -500,6 +500,14 @@ main .mainHeader{
     cursor: pointer;
     border: none;
     background: none;
+}
+textarea{
+    display:block;
+    width: 50rem;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
 }
 .popup-text{
     display: flex;
@@ -594,3 +602,96 @@ span .subcategory{
     
 
 }
+.itemDetails .input-box{
+    margin-bottom: 15px;
+    width: 18rem;
+}
+.itemDetails .input-box span{
+    font-size: 1.2rem;
+    color: #B3B4BB;
+}
+
+
+form .itemDetails >.input-box:first-child {
+    width: 46rem;
+}
+form .itemDetails >.input-box:nth-child(2) {
+    width: 18rem;
+}
+form .itemDetails .middleInput{
+    display: grid;
+    grid-template-columns:repeat(2,1fr)
+}
+
+.itemDetails .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.itemDetails .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+}
+
+.itemDetails .input-box input:focus,
+.itemDetails .input-box input:valid{
+    /* change */
+    border-color: #9b59b6;
+    font-size: 1.1rem;
+}
+
+form .button{
+    position: relative;
+    left: 40rem;
+    height: 45px;
+    margin: 45px 0;
+    top: 10px;
+    width: 8rem;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+    transition: all 300ms ease;
+}
+
+form .button input:hover{
+    transform: scale(1.1);
+}  
+.input-box select{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: black;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+}  
+.more{
+    display: grid;
+    position: relative;
+    left: 7rem;
+}
+.view{
+    display:flex;
+}
+/* Right CSS */
