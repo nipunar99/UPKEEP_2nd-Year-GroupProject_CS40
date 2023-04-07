@@ -118,7 +118,7 @@
                 <div class="mainDisplay1">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
-                            <h2>25</h2>
+                            <h2>15</h2>
                             <h3>Total Templates</h3>
                     </div>
                 </div>

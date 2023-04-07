@@ -80,7 +80,48 @@
     //     }
     // }
     public function viewItem($id){
-        if(isset($_SESSION['user_id']) &&  ($_SERVER['REQUEST_METHOD'] == "POST")){
+        if(isset($_SESSION['user_id']) &&  ($_SERVER['REQUEST_METHOD'] == "POST") ){
+            if(($_POST['id'] != 0)){
+                $id = $_POST['id'];
+                $type_name = $_POST['type_id'];
+                if($type_name=="House Hold")
+                {
+                    $type_id = 1;
+                }
+                elseif($type_name=="Office"){
+                    $type_id = 2;
+                }
+                elseif($type_name=="Vehicle"){
+                    $type_id = 3;
+                }
+                else{
+                    $type_id = 4;
+                }
+                    if($_POST['category'] == "main")
+                    {
+                        $parent_id = 0;
+                    }
+                    else{
+                        $parent_id = 1;
+                    }
+             
+                $item = new Itemtemplates;
+              
+                $data = array(
+                    'id' => $_POST['id'],  
+                    'status' => $_POST['status'],
+                    'category' => $_POST['category'],
+                    'description' => $_POST['description'],
+                    'parent_id' => $parent_id,
+                    'image' => $_POST['image']
+
+                );
+                $result = json_encode($item->update($id,$data,$id="id"));
+                redirect("Moderator/Itemtemplate");
+
+            }
+            else
+            {
             $name = $_POST['itemtemplate_name'];
             $status = $_POST['status'];
             $image = $_POST['image'];
@@ -104,10 +145,13 @@
             $parent_id = 1;
             $item = new Itemtemplates;
             echo($_POST);
+
          //   arr['data']=[$name,$status ,$immage, $type_id,$category,$description,$parent_id];
-            $item->insertCategory($name,$status,$image, $type_id,$category,$description,$parent_id);
+        $result = json_encode($item->insertCategory($name,$status,$image, $type_id,$category,$description,$parent_id));
+        $data['result'] = $result;
             redirect("Moderator/Itemtemplate");
          }
+        }
         elseif(isset($_SESSION['user_id'])){
             $arr = [];
             $arr["id"] = $id[0];
@@ -128,7 +172,10 @@
             $category_name = $result[0]->type_name;
             $result2 = $this->findCategory($itemtemplate_name,$category_name);
             // show($result2);
+
             $data1['results'] = $result2;
+            
+            // $result_cat = json_decode($data1['results']);
             // show($data+$data1);
             // $Data = $data+$data1
            

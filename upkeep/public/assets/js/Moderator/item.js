@@ -24,13 +24,9 @@
 
 
 
-// close modal click
 
-
-// function showPopup() {
-const modal = document.querySelector(".popupview");
+const modal = document.querySelector(".popupview1");
 const overlay = document.querySelector(".overlayview");
-
 const btnShowRow1 = document.querySelector(".subcategory");
 
 const showModal = function () {
@@ -47,10 +43,54 @@ const closeModal = function () {
 };
 btnShowRow1.addEventListener("click", showModal);
 overlay.addEventListener("click", closeModal);
- // }
-  
- const districtSelect = document.getElementById("status");
+ 
+ 
+const modals = document.querySelector(".popupview2");
+const btnShowRows = document.querySelectorAll(".view");
+const rowIdInput = document.querySelector('#rowid-input');
+const table = document.getElementById('categoryTable');
+const rows = table.getElementsByTagName("tr");
 
+
+const showModals = function () {
+    console.log("button clicked");
+    modals.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+}; 
+
+const closeModals = function () {
+    modals.classList.add("hidden");
+    overlay.classList.add("hidden");
+};
+
+btnShowRows.forEach(function(button) {
+    button.addEventListener('click', function() {
+   
+      var row = button.closest('tr');
+  
+      // Get the row ID
+      var rowId = row.id;
+  
+      // Get the values from the row
+      var cell1 = row.getElementsByTagName("td")[1].innerHTML;
+      console.log(cell1);
+      // ... repeat for other cells in the row
+  
+      // Set the values in the popup form
+      document.getElementById("rowid-input").value = cell1;
+    
+    });
+  });
+
+ for (let i = 0; i < btnShowRows.length; i++) {
+   
+     btnShowRows[i].addEventListener("click", showModals);
+ }
+
+
+overlay.addEventListener("click", closeModals);
+  
+ const districtSelect = document.getElementById("status1");
  const district = ['Approved','Pending'];
  
  (function populateDistrict (){
@@ -58,65 +98,97 @@ overlay.addEventListener("click", closeModal);
          const option = document.createElement('option');
          option.textContent = district[i];
          districtSelect.appendChild(option);
+        
      }
      districtSelect.value = 'Select the status';
  })();
+ const districtSelects = document.getElementById("status2");
 
+ const districts = ['Approved','Pending'];
+ 
+ (function populateDistrict (){
+     for(let i=0; i<districts.length; i++){
+         const option = document.createElement('option');
+         option.textContent = districts[i];
+       
+         districtSelects.appendChild(option);
+     }
+     districtSelects.value = 'Select the status';
+ })();
+ function toggleDeleteButton() {
+    // var checkbox = document.getElementById("myCheckbox");
+    var checkboxes = document.querySelectorAll("input[type='checkbox']");
+    var deleteButton = document.getElementById("deleteButton");
+    var showButton = false;
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            showButton = true;
+            break;
+        }
+    }
+    if (showButton) {
+        deleteButton.style.display = "block";
+        console.log("show");
+    } else {
+        deleteButton.style.display = "none";
+        console.log("no");
+    }
+}
 
 // document.addEventListener("DOMContentLoaded",function(){
 //     ajax_getItems();
 //   });
-  // function ajax_getItems(){
-  //   const xhr = new XMLHttpRequest();
-  // xhr.open("","http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/","true");
+//   function ajax_getItems(){
+//     const xhr = new XMLHttpRequest();
+//   xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem","true");
   
-  //     xhr.onload = function(){
-  //         if(xhr.status == 200){  
-  //             const res = xhr.responseText;
-  //             //  const json = JSON.parse(res);
-  //             // console.log(json);
-  //             // try {
-  //               const json = JSON.parse(res);
-  //               console.log(json);
-  //           // }
-  //           // catch (error) {
-  //               // console.log('Error parsing JSON:', error, res);
-  //           // }
-  //             var html = "";
+//       xhr.onload = function(){
+//           if(xhr.status == 200){  
+//               const res = xhr.responseText;
+//               //  const json = JSON.parse(res);
+//               // console.log(json);
+//               // try {
+//                 const json = JSON.parse(res);
+//                 itemtemplateDetails = JSON.parse(res);
+//                 console.log(json);
+//             // }
+//             // catch (error) {
+//                 // console.log('Error parsing JSON:', error, res);
+//             // }
+//               var html = "";
               
-  //             for (var i = 0; i < json.length; i++) {
-  //                 // html += "<tbody>";
-  //                 html +=               "<div class='view-1'>";
-  //                 html += "                <div class='img'>";                                
-  //                 html += "                     <img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/"+json[i].image+"'>";
-                  
-  //                 // console.log(json[i].id);
-  //                 html +="</div>";
-  //                 html += "   <div class='view-1-text'>                    ";
-                  
-  //                 html += "                      <h2>"+json[i].itemtemplate_name+"</h2>";
-  //                 html += "                     <div class='name'>";
-  //                 // html += "                <td><"+json[i].type_name+"</td>";
-  //                 html += "                          <h5>Template Name</h5>";
-  //                 html += "<p>"+json[i].type_name+"</p>";
+//               for (var i = 0; i < json.length; i++) {
+
+//                 console.log(json.length);
+//                   // html += "<tbody>";
+//                   html += "<tr>";
+//                   html += "<td><input type='checkbox' name='id' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
+
+//                   html += "                <td role='button'>";
+//                   html += "                    <a href='http://localhost/upkeep/upkeep/public/Moderator/Maintenance'>"+json[i].category+"</a></td>";
+//                //   html += "<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/" + json[i].image + "'>";
+//                 //    console.log(json[i].id);
                 
-  //                 html += "</div>";
-  //                 html += "                        <div class='type'>";        
-  //                 html += "                        <h5>Item Type</h5>";
-  //                html+=" <p>"+json[i].type_name+"</p> ";                         
-  //               //  html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/app/Moderator/Item/viewItem/"+json[i].id+"'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>";
-  //                 html += "                </div>";
-  //                 html += "                </div>";
-  //               //  html += "                <tr>";
-                
-  //             }
-  //             document.querySelector(".insight").innerHTML = html;
-  //         }
-  //     }
-  //     xhr.send();
+//                   html += "                     <td>"+json[i].description+"</td>";
+          
+                  
+//                   html += "                     <td>";
+//                   // html += "                <td><"+json[i].type_name+"</td>";
+//                   html += "     <div class='view'><button><span class='material-icons-sharp'>edit</span></button></div>                   ";
+                 
+//                   html +=  "</td>";
+                 
+//                   html += "                </tr>";
+//                   // var id = json[i].id;
+          
+//               }
+//               document.querySelector(".category").innerHTML = html;
+//           }
+//       }
+//       xhr.send();
      
       
-  // }
+//   }
  
    
     

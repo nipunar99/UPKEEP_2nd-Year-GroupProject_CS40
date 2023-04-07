@@ -57,12 +57,12 @@ class Itemtemplates
     
 
        }
-       public function name($category_name){
-        $query = "select category where  itemtemplate_name = $category_name[0]";
-        return $this->query($query);
-       }
+    //    public function name($category_name){
+    //     $query = "select category where  itemtemplate_name = $category_name[0]";
+    //     return $this->query($query);
+    //    }
        public function category($itemtemplate_name,$category_name){
-        $query = "select itemtemplate.category,itemtemplate.description, item_type.type_name from itemtemplate  inner JOIN item_type on  item_type.type_id = itemtemplate.type_id where  itemtemplate_name = '$itemtemplate_name' AND type_name = '$category_name'";
+        $query = "select itemtemplate.category,itemtemplate.description, item_type.type_name,itemtemplate.id from itemtemplate  inner JOIN item_type on  item_type.type_id = itemtemplate.type_id where  itemtemplate_name = '$itemtemplate_name' AND type_name = '$category_name'";
         return $this->query($query);
        }
 

@@ -61,7 +61,7 @@ p{
     outline: 0;
     border: 0;
     text-decoration: none;
- //   appearance: none;
+
     list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -602,6 +602,22 @@ span .subcategory{
     
 
 }
+span .subcategory{
+    font-size: 40px;
+    color: #00BEE4;
+    position: absolute;
+    right: 180px;
+    bottom: 290px;
+    
+
+}
+.del{
+    font-size: 40px;
+    color: #00BEE4;
+    position: absolute;
+    right: 279 px;
+    bottom: 290px;
+}
 .itemDetails .input-box{
     margin-bottom: 15px;
     width: 18rem;
@@ -686,12 +702,17 @@ form .button input:hover{
     border-bottom-width: 2px;
     transition: all 300ms ease;
 }  
-.more{
+/* .more{
     display: grid;
     position: relative;
     left: 7rem;
-}
+} */
 .view{
     display:flex;
+    position: relative;
+    right: -6rem;
 }
 /* Right CSS */
+.hidden_id{
+    display: none;
+}

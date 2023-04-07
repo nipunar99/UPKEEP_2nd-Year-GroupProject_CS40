@@ -21,7 +21,7 @@ class Itemtemplate {
         
         
         $result1 = json_encode($result);
-        echo($result1);
+         echo($result1);
 
     }
    public function deleteItems(){
