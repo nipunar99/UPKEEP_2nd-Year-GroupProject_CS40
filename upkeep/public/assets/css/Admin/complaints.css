@@ -63,6 +63,60 @@ body{
     grid-template-columns: 15rem auto ;
     height: 100vh;
 }
+.mainhead{
+    display: flex;
+    gap: 13.5rem;
+    justify-content: space-around;
+    margin: 10px 5rem 0px 20rem;
+}
+main h1{
+    text-align: center;
+}
+.heading{
+    margin-top: 10px;
+    margin-right: 1rem;
+}
+.heading .top{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+} 
+
+.heading .top button{
+    display: none;
+}
+
+.heading .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
 a{
     color: var(--color-dark);
 }
@@ -223,7 +277,7 @@ aside .sidebar .message-count {
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
+    /* margin-top: 1.4rem; */
     height: 97vh;
     overflow-y: scroll;
 }
@@ -421,7 +475,7 @@ main .modarotorList a{
 
 .heading{
     margin-top: 0rem;
-    margin-right: -10rem;
+    margin-right: -5rem;
 }
 
 .heading .top{

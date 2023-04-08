@@ -70,18 +70,32 @@
 
         <main>
 
-            <div class="mainHeader">
+        <div class="mainhead">
+                
+                <h1>Add Moderator</h1>
 
-                <h1>Statistics</h1>
+                <div class="heading">
+                    <div class="top">
+                        <button id="menu-btn">
+                            <span class="material-icons-sharp">menu</span>
+                        </button>
+        
+                        <div class="theme-toggler">
+                            <span class="material-icons-sharp active">light_mode</span>
+                            <span class="material-icons-sharp">dark_mode</span>
+                        </div>
 
-                <div class="right">
-
-                    
-
-                    
-
+                        <div class="profile">
+                            <div class="info">
+                                <p>Hey,<b>Saman</b></p>
+                                <small class="text-muted">User</small>
+                            </div>
+                            <div class="profile-photo">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
             <div class="insight">

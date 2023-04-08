@@ -91,9 +91,11 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
-                <h1>Item Templates</h1>
-                <div class="right">
+        <div class="mainhead">
+                
+                <h1>item Templates</h1>
+
+                <div class="heading">
                     <div class="top">
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
@@ -103,24 +105,18 @@
                             <span class="material-icons-sharp active">light_mode</span>
                             <span class="material-icons-sharp">dark_mode</span>
                         </div>
-        
+
                         <div class="profile">
                             <div class="info">
                                 <p>Hey,<b>Saman</b></p>
                                 <small class="text-muted">User</small>
                             </div>
                             <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.png" alt="">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
                     </div>
-                    <!-- End of top -->
-        
-                    <!-- End of recent updates -->
-                    
-        
                 </div>
-    
             </div>
 
             <div class="search-bar" style="margin-top:3rem;">

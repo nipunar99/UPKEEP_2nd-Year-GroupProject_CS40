@@ -65,6 +65,60 @@ body{
     grid-template-columns: 15rem auto;
     height: 100vh;
 }
+.mainhead{
+    display: flex;
+    gap: 10rem;
+    justify-content: space-around;
+    margin: 5px 0rem 0px 25rem;
+}
+main h1{
+    text-align: center;
+}
+.heading{
+    margin-top: 10px;
+    margin-right: 0rem;
+}
+.heading .top{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+} 
+
+.heading .top button{
+    display: none;
+}
+
+.heading .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
 a{
     color: var(--color-dark);
 }
@@ -225,7 +279,7 @@ aside .sidebar .message-count {
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
+    margin-top: 1.rem;
 }
 main h1{
     text-align: center;

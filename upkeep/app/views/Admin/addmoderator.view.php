@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet1" href="<?=ROOT?>/assets/css/Admin/admindashboard.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/addmoderator.css">
 </head>
 
@@ -91,9 +92,11 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
+            <div class="mainhead">
+                
                 <h1>Add Moderator</h1>
-                <div class="right">
+
+                <div class="heading">
                     <div class="top">
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
@@ -103,25 +106,21 @@
                             <span class="material-icons-sharp active">light_mode</span>
                             <span class="material-icons-sharp">dark_mode</span>
                         </div>
-        
+
                         <div class="profile">
                             <div class="info">
                                 <p>Hey,<b>Saman</b></p>
                                 <small class="text-muted">User</small>
                             </div>
                             <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.png" alt="">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
                     </div>
-                    <!-- End of top -->
-        
-                    <!-- End of recent updates -->
-                    
-        
                 </div>
-    
             </div>
+                
+            
 
             <div class="insight">
                 <div style="background-color:#41f1b6;border-radius:50px;width:85%;height:65%;">
@@ -173,7 +172,7 @@
                             <div class="button" style="width: 10rem;">
                             <!-- <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
                             
-                                <input type="submit" value="Add Moderato"> 
+                                <input type="submit" value="Add Moderator"> 
                              
                             </div>
                         </a>

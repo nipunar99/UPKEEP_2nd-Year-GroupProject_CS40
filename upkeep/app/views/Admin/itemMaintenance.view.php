@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/item.css">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,36 +66,55 @@
             </div>
         </aside>
         <main>
-            <div class="mainHeader">
+        <div class="mainhead">
+                
                 <h1>Item Maintenance</h1>
-                <div class="right">
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark mode</span>
-                    </div>
 
-                    <div class="profile">
-                        <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">user</small>
+                <div class="heading">
+                    <div class="top">
+                        <button id="menu-btn">
+                            <span class="material-icons-sharp">menu</span>
+                        </button>
+        
+                        <div class="theme-toggler">
+                            <span class="material-icons-sharp active">light_mode</span>
+                            <span class="material-icons-sharp">dark_mode</span>
                         </div>
-                        <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+
+                        <div class="profile">
+                            <div class="info">
+                                <p>Hey,<b>Saman</b></p>
+                                <small class="text-muted">User</small>
+                            </div>
+                            <div class="profile-photo">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>
             <div class="insight">
                 <div class="card-main">
                 <div class="item-container">
                     <div class="item-photo">
-                        <img src="<?= ROOT ?>/assets/images/item1.png" alt="Item Photo">
+                        <img src="<?= ROOT ?>/assets/images/item2.png" alt="Item Photo">
                     </div>
                     <div class="item-details">
                         <h2>Item Name</h2>
                         <p>Item Description</p>
                         <p>Price: $10.99</p>
-                        <button>Add to Cart</button>
+                        
+                            <div class="btn">
+                                <a href="#">
+                                        <button class="edit">Edit</button>
+                                </a>   
+                                
+                                <a href="#">
+                                        <button class="delete">Delete</button>
+                                </a>
+                            </div>
+                        
+                        
                     </div>
                     </div>
 
@@ -115,7 +134,9 @@
                 <div class="maintenances">
 
                     <h2>Maintenance</h2>
-                   <span> <button class="subcategory">&#43</button></span>
+                    <a href ="#">
+                        <span> <button class="addmaintenance">Add Maintenance</button></span>
+                    </a>
                     
                     <div class="card-main2">
                     <div class='card-1'>

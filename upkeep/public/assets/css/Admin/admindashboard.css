@@ -336,6 +336,7 @@ main .summaryBox h3{
     display: flex;
     gap: 13.5rem;
     justify-content: space-around;
+    margin: 10px 0rem 0px 3rem;
 }
 main .summaryBox .maintenanceStatus span{
     color: #F46060;

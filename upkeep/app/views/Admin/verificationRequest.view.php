@@ -75,56 +75,50 @@
 
         </aside>
 
-        <main style="margin-right:5rem;">
-            <h1 style="margin-left:8rem;">Verification Request</h1>
+        <main>
+            <h1>Verification Request</h1>
             <div>
-                <h2 style="margin:3rem 0 1rem 0;font-size:large;">NIC Details</h2>
+                <h2>NIC Details</h2>
             </div>
 
-            <div class="grid-container"style="height:10vh;grid-template-columns: 1fr 1fr 1fr;width:90%;gap:5rem;">
+            <div class="grid-container">
                 
                 
-                    <div class="item" style="background-color:lightyellow;height:35vh;width:125%;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 150px;height: 150px;border-radius: 20%;text-align: center;margin:1rem;" 
+                    <div class="item">
+                        <div class="photo-container">
+                                <img 
                                     src="<?=ROOT?>/assets/images/frontId.png" alt="Profile photo">
 
                                 
                         </div>
                         <div>
-                            <h3 style="text-align:center;margin-top :2rem;">Front Photo Of NIC</h3>
+                            <h3>Front Photo Of NIC</h3>
                         </div>
                        
                             
                             
                     </div>
 
-                    <div class="item" style="background-color:lightyellow;height:35vh;width:125%;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 150px;height: 150px;border-radius: 20%;text-align: center;margin:1rem;" 
+                    <div class="item">
+                        <div class="photo-container">
+                                <img 
                                     src="<?=ROOT?>/assets/images/rearId.png" alt="Profile photo">
                         </div>
                         <div>
-                            <h3 style="text-align:center;margin-top :2rem;">Back Photo Of NIC</h3>
+                            <h3>Back Photo Of NIC</h3>
                         </div>
                             
                             
                     </div>
 
-                    <div class="item" style="background-color:lightyellow;height:35vh;width:125%;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 150px;height: 150px;border-radius: 20%;text-align: center;margin:1rem;" 
+                    <div class="item">
+                        <div class="photo-container">
+                                <img  
                                     src="<?=ROOT?>/assets/images/bothId.jpg" alt="Profile photo">
                         </div>
 
                         <div>
-                            <h3 style="text-align:center;margin-top :2rem;">Photo With ID</h3>
+                            <h3>Photo With ID</h3>
                         </div>
                         
                             
@@ -132,12 +126,14 @@
                     </div>
 
             </div>
-            <h2 style="font-size:medium;margin-top:14rem;">Personal Details...</h2>
-            <div class="grid-container"style="height:10vh;grid-template-columns: 1fr;width:100%;">
+            <div class="pd">
+                <h2>Personal Details...</h2>
+            </div>
+            <div class="grid-container-1">
                 
                 
-                    <div class="item" style="background-color:#d1cfcfb4;height:25vh;width:100%;border-radius:30px 30px 30px 30px;margin-top:1rem;">
-                        <p style="margin-top:2rem;font-size:medium;text-align:center;">My name is rusith siriwardhana,I have followed the technician course at Maharagama Youth Center...
+                    <div class="item-1">
+                        <p>My name is rusith siriwardhana,I have followed the technician course at Maharagama Youth Center...
                             And also I have 5year experience.</p>
                         
                        
@@ -155,7 +151,7 @@
         <!-- End of Main -->
 
         <div class="right">
-            <div class="top">
+            <!-- <div class="top">
                 <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
                 </button>
@@ -171,52 +167,63 @@
                         <small class="text-muted">Technician</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="images/profile-1.jpg" alt="">
+                        <img src="images/profile-1.png" alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+
+            <div class="heading">
+                    <div class="top">
+                        <button id="menu-btn">
+                            <span class="material-icons-sharp">menu</span>
+                        </button>
+        
+                        <div class="theme-toggler">
+                            <span class="material-icons-sharp active">light_mode</span>
+                            <span class="material-icons-sharp">dark_mode</span>
+                        </div>
+
+                        <div class="profile">
+                            <div class="info">
+                                <p>Hey,<b>Saman</b></p>
+                                <small class="text-muted">User</small>
+                            </div>
+                            <div class="profile-photo">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!-- End of top -->
 
-            <div class="grid-container"style="height:10vh;grid-template-columns: 1fr;width:100%;">
+            <div class="grid-container-2">
                 
                 
-                    <div class="item" style="margin-top:1rem;background-color: rgb(248, 244, 244);box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);height:75vh;width:70%;border-radius:30px 30px 30px 30px;">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 150px;height: 150px;border-radius: 50%;text-align: center;margin:1rem;" 
+                    <div class="item-2">
+                        <div class="photo-container-1">
+                                <img 
                                     src="<?=ROOT?>/assets/images/profile-2.jpg" alt="Profile photo">
 
                                 
                         </div>
 
                         <div>
-                            <h3 style="text-align:center;font-size:20px;">Rusith Siriwardhana</h3>
-                            <h3 style="text-align:center;font-size:12px;">Auto Mobile|Maharagama</h3>
+                            <h3>Rusith Siriwardhana</h3>
+                            <h4>Auto Mobile|Maharagama</h4>
                         </div>
                         <div>
-                            <h3 style="margin:4rem 0 0 2rem;text-align:left;font-size:15px;color:lightgreen;">rusith@gmail.com</h3>
-                            <h3 style="margin:2rem 0 0 2rem;text-align:left;font-size:15px;color:red;">0702050812</h3>
+                            <h5>rusith@gmail.com</h5>
+                            <h6>0702050812</h6>
                         </div>
 
-                        <div class="button-container" style="display: flex;justify-content: space-between;margin:4rem 2rem 0 3rem;">
-                            <button class="first-button" style="margin-right: 10px;
-                                padding: 10px 20px;
-                                font-size: 15px;
-                                font-weight: bold;
-                                background-color: #4CAF50;
-                                color: white;
-                                border: none;
-                                border-radius: 15px;
-                                cursor: pointer;">Verify</button>
-                            <button class="second-button" style="padding: 10px 20px;
-                                font-size: 15px;
-                                font-weight: bold;
-                                background-color: #f44336;
-                                color: white;
-                                border: none;
-                                border-radius: 15px;
-                                cursor: pointer;">Reject</button>
+                        <div class="button-container">
+                            <button class="first-button">Verify</button>
+                                <a href="#">
+                                    <button class="second-button">Reject
+                                    </button>
+                                </a>
                         
                         </div>
 
@@ -228,7 +235,44 @@
 
             </div>
         </div>
+
     </div>
+
+    <div class="popupview hidden">
+            
+            <button class="closebtn">&times;</button>
+            
+            <div class="popup-text">
+                <h1>Reject</h1>
+                
+                <div class="grid-container-1">
+                    <h3>select Reason</h3>
+                
+                    <div class="item-1">
+                        <p>My name is rusith siriwardhana</p>
+                        
+                       
+                            
+                            
+                    </div>
+
+            </div>
+                
+                
+                
+                
+                
+            </div>
+            <div class="actions">
+                
+                <button>Request Resubmission</button>
+            </div>
+        </div>
+
+
+        <div class="overlayview hidden"></div>
+    </div>
+    <script src="<?= ROOT ?>/assets/js/Admin/reject.js"></script>
 
 
     

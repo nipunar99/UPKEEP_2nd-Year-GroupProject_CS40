@@ -156,22 +156,24 @@ main a.viewitem{
 
 
 /* Right CSS */
-main .top1{
+main .top{
     display: grid;
     grid-template-columns: auto 19rem;
     height: 6%;
+    margin-right: 2rem;
+    /* margin-top: 10px; */
 } 
 
 main .top button{
     display: none;
 }
 
-main .top1 .right{
+main .top .right{
     display: flex;
     flex-direction: row;
     gap: 2rem;
     margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     text-align: center;
     align-content: center;
     justify-content: center;

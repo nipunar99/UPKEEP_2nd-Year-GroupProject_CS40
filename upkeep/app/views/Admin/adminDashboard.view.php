@@ -96,7 +96,7 @@
                                 <small class="text-muted">User</small>
                             </div>
                             <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.png" alt="">
+                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,20 @@
                             <th>NIC</th>
                             <th>Phone Number</th>
                             <th>Address</th>
+                            <th>Delete</th>
+                        
+
+                            <form action="<?=ROOT?>/models/Admin/delete.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                <th> <input type="submit" name="delete" class="btn btn-danger" value="DELETE"> </th>
+                            </form>
                         </tr> 
+
+                        <td>
+                                <form action="<?=ROOT?>/models/Admin/delete.php" method="POST">
+                                    <button type="submit" name="delete_student" value="<?=$row->id;?>" class="btn btn-danger">Delete</button>
+                                </form>
+                        </td>
                        <?php
                         $conn=mysqli_connect("localhost","root","","upkeep");
                         $sql="SELECT * FROM moderators";
@@ -187,7 +200,7 @@
                         
                         if($result->num_rows>0)
                             while($row=$result->fetch_assoc())
-                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["last_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</tr>"
+                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["last_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</td> </tr>"
                             
                         
                         /* else{

@@ -25,11 +25,65 @@
 
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
+.mainhead{
+    display: flex;
+    gap: 13.5rem;
+    justify-content: space-around;
+    margin: 10px 0px 0px 25rem;
+}
+main h1{
+    text-align: center;
+}
+.heading{
+    margin-top: 10px;
+    margin-right: 1rem;
+}
+.heading .top{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+} 
+
+.heading .top button{
+    display: none;
+}
+
+.heading .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
 h1{
 
     font-weight: 800;
     font-size: 1.8rem;
-    color: #00BEE4;
+    color: black
 }
 
 h2{
@@ -150,9 +204,9 @@ aside .sidebar a:hover span{
     margin-left: 1rem;
 }
 /* main */
-main{
+/* main{
     margin-top: 1.4rem;
-}
+} */
 main .mainHeader{
     display: flex;
 }
@@ -225,18 +279,43 @@ main .mainHeader{
     margin: 1rem 2rem;
     height: 40vh;
     gap: 1rem;
+    
 }
 .item-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: 20px 20px 20px 20px;
   }
   
   .item-photo img {
-    width: 60%;
+    width: 70%;
     height: auto;
+    margin-left:2rem ;
+    margin-top: 2rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 20px 20px 20px 20px;
   }
-  
+.btn {
+    display: flex;
+    gap: 3rem;
+    margin-top: 8rem;
+    
+}
+  .item-container .edit {
+    color: #eaf1f5;
+    background-color: #0095D9;
+    border-radius: 10px 10px 10px 10px;
+    font-size: large;
+    width: 50px;
+  }
+  .item-container .delete {
+    color: white;
+    background-color: red;
+    border-radius: 10px 10px 10px 10px;
+    font-size: large;
+  }  
   .item-details {
     display: flex;
     flex-direction: column;
@@ -590,9 +669,12 @@ main .mainHeader{
     overflow: hidden;
     border-radius: 50%;
 }
-span .subcategory{
-    font-size: 40px;
-    color: #00BEE4;
+span .addmaintenance{
+    font-size: 20px;
+    color: white;
+    background-color: #00BEE4;
+    border-radius: 10px 10px 10px 10px;
+    height: 5vh;
     position: absolute;
     right: 180px;
     bottom: 290px;
