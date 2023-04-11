@@ -12,7 +12,7 @@ button.onclick = () => {
         (textarea.innerHTML == '') ? communicator = 'You: ' : communicator = '\n\nYou: '
         textarea.innerHTML += communicator + prompt
         // use SSE to get server Events
-        var source = new SSE("http://localhost/upkeep/upkeep/public/Itemowner/request?prompt=" + prompt);
+        var source = new SSE(""+ROOT+"/Itemowner/request?prompt=" + prompt);
         input.value = ''
         input.focus()
         source.addEventListener('message', function (e) {

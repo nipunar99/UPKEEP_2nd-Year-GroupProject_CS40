@@ -58,7 +58,7 @@
                     <span class="message-count">11</span>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/itemowner/statistic">
                     <span class="material-icons-sharp">trending_up</span>
                     <h3>Statistics</h3>
                 </a>

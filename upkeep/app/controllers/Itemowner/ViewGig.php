@@ -12,7 +12,7 @@ class ViewGig {
     }
 
     public function selectGig($id){
-        if($_SESSION['USER'] == $_SESSION['user_id']){
+        if($_SESSION['user_id'] == $_SESSION['user_id']){
       
             $gig = new Gig;
             $profile = new User;

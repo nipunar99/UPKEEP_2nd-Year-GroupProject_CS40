@@ -79,7 +79,7 @@
         </aside>
 
         <main>
-            <div class="top">
+            <div class="top mainHeader">
                 <h1>GIGS</h1>
                 <div class="right">
                     <button id="menu-btn">
@@ -105,30 +105,30 @@
 
             <div class="filter-search">
                 <div>
-                <div class="filter-container">
-                    <div class="filter-item">
-                        <label for="category">Category:</label>
-                        <select id="category">
-                        <option value="all">All</option>
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
-                        </select>
+                    <div class="filter-container">
+                        <div class="filter-item">
+                            <label for="category">Category:</label>
+                            <select id="category">
+                            <option value="all">All</option>
+                            <option value="category1">Category 1</option>
+                            <option value="category2">Category 2</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="sort">Sort:</label>
+                            <select id="sort">
+                            <option value="newest">Newest</option>
+                            <option value="oldest">Oldest</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="items">Items:</label>
+                            <select id="items">
+                            <option value="A/C">A/C</option>
+                            <option value="Refridgerator">Refridgerator</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="filter-item">
-                        <label for="sort">Sort:</label>
-                        <select id="sort">
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
-                        </select>
-                    </div>
-                    <div class="filter-item">
-                        <label for="items">Items:</label>
-                        <select id="items">
-                        <option value="A/C">A/C</option>
-                        <option value="Refridgerator">Refridgerator</option>
-                        </select>
-                    </div>
-                </div>
                 </div>
                 <div class="searchBar">
                     <input type="search" name="" id="" placeholder="Search item">

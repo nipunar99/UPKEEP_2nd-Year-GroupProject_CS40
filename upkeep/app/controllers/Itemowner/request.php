@@ -8,7 +8,7 @@ require $grandparent_dir. '/vendor/autoload.php';
 use Orhanerday\OpenAi\OpenAi;
 
 // Set up the API client
-$open_ai = new OpenAi('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');
+$open_ai = new OpenAi('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');
 
 $prompt = $_GET['prompt'];
 

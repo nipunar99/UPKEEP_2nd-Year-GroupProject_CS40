@@ -82,26 +82,7 @@
         <main>
             <div class="top">
                 <h1>GIGS</h1>
-                <div class="right">
-                    <button id="menu-btn">
-                        <span class="material-icons-sharp">menu</span>
-                    </button>
-
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
-                    </div>
-
-                    <div class="profile">
-                        <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">Technician</small>
-                        </div>
-                        <div class="profile-photo">
-                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="gig-container">
                 <div class="left">
@@ -199,52 +180,76 @@
                             </div>
                     </div>
                 </div>
-                <div class="right">
-                    <div class="profile-details">
-                            <div class="profile-img">
-                                <img src="<?=ROOT?>/assets/images/profile-2.jpg" alt="">
-                            </div>
-                            <div class="profile-text">
-                                <h2>Sahan Perera</h2>
-                                <?php if(empty($gig->rating)):?>
-                                    <p>No Reviews Yet</p> 
-                                <?php else:?>
-                                    <?php echo "Overall Rating: "?>
-                                        <?php for($i=0;$i<5;$i++):?>
-                                            <?php if((int)round($gig->rating)>$i):?>
-                                                <span class="fa fa-star checked"></span>
-                                            <?php else:?>
-                                                <span class="fa fa-star"></span>
-                                            <?php endif;?>
-                                        <?php endfor;?>
-                                    <?= "(".round($gig->rating,1).")"?>
-                                <?php endif;?>
-                            </div>
-                            <div class="other-details">
-                                <div>
-                                    <h4>Member Since:</h4>
-                                    <p>2020</p><br>
-                                    <h4>Experience:</h4>
-                                    <p>5 Years</p>
-                                </div>
-                                <div>
-                                    <h4>Location:</h4>
-                                    <p>Colombo</p><br>
-                                    <h4>Job Type:</h4>
-                                    <p>Workshop</p>
-                                </div>
-                            </div>
-                            <div class="description">
-                                <h4>Description:</h4>
-                                <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
-                            </div>
-                            <div class="actions">
-                                <a href="#" class="btn btn-primary hirebtn">Hire Me</a>
-                            </div>
+                
+            </div>    
+        </main>
+
+        <div class="right">
+            <div class="heading">
+                <div class="top">
+                    <button id="menu-btn">
+                        <span class="material-icons-sharp">menu</span>
+                    </button>
+
+                    <div class="theme-toggler">
+                        <span class="material-icons-sharp active">light_mode</span>
+                        <span class="material-icons-sharp">dark_mode</span>
+                    </div>
+
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey,<b>Saman</b></p>
+                            <small class="text-muted">Technician</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+            <div class="profile-details">
+                    <div class="profile-img">
+                        <img src="<?=ROOT?>/assets/images/profile-2.jpg" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h2>Sahan Perera</h2>
+                        <?php if(empty($gig->rating)):?>
+                            <p>No Reviews Yet</p> 
+                        <?php else:?>
+                            <?php echo "Overall Rating: "?>
+                                <?php for($i=0;$i<5;$i++):?>
+                                    <?php if((int)round($gig->rating)>$i):?>
+                                        <span class="fa fa-star checked"></span>
+                                    <?php else:?>
+                                        <span class="fa fa-star"></span>
+                                    <?php endif;?>
+                                <?php endfor;?>
+                            <?= "(".round($gig->rating,1).")"?>
+                        <?php endif;?>
+                    </div>
+                    <div class="other-details">
+                        <div>
+                            <h4>Member Since:</h4>
+                            <p>2020</p><br>
+                            <h4>Experience:</h4>
+                            <p>5 Years</p>
+                        </div>
+                        <div>
+                            <h4>Location:</h4>
+                            <p>Colombo</p><br>
+                            <h4>Job Type:</h4>
+                            <p>Workshop</p>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <h4>Description:</h4>
+                        <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
+                    </div>
+                    <div class="actions">
+                        <a href="#" class="btn btn-primary hirebtn">Hire Me</a>
+                    </div>
+            </div>
+        </div>
         
 
     </div>

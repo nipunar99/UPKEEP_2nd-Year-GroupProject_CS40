@@ -16,6 +16,8 @@ const itempannelbtn =  document.querySelector(".itempannelbtn");
 const itempannel = document.querySelector(".right");
 const itempannelclosebtn = document.querySelector(".itempannelclosebtn");
 
+const closeMapebtn = document.querySelector("#closeMap");
+
 const allMaintenance = document.querySelector(".morebtn");
 const disposeguide = document.querySelector(".disposebtn");
 const main1 = document.querySelector(".main1");
@@ -700,13 +702,26 @@ function disposalPlaces(){
 }
 
 function loadMap(index){
+    var closebtnmap = "<div onclick = 'closeMapfunc()' class='closebtn closeMapBtn' id='closeMap'><span class='material-icons-sharp'>close</span></div>";
     for (var i = 0; i < disposalPlacesjson.length; i++) {
         document.querySelector(".disposeplace"+i+"").classList.remove("placeSelect");
+
     }
 
-    document.querySelector(".mapdiv").innerHTML = disposalPlacesjson[index].iframe_link;
+    document.querySelector(".mapdiv").innerHTML = disposalPlacesjson[index].iframe_link +closebtnmap;
     document.getElementsByTagName("iframe")[0].width= '700';
 
     document.querySelector(".disposeplace"+index+"").classList.add("placeSelect");
+    document.querySelector(".mapdiv").classList.remove("animateCloseMap");
+    document.querySelector(".mapdiv").classList.add("animateOpenMap");
 
 }
+
+//.......................Close Map.......................
+
+function closeMapfunc(){
+    console.log("close");
+    document.querySelector(".mapdiv").classList.remove("animateOpenMap");
+    document.querySelector(".mapdiv").classList.add("animateCloseMap");
+}
+//........................................................
