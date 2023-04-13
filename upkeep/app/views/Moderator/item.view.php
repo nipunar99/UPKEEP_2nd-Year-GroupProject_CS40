@@ -157,10 +157,11 @@
                         </div> -->
                     </div>
                 </div>
+                <!-- <form action="" method="post"> -->
                 <div class="maintenances">
 
                     <h1>Sub Categories</h1>
-                    <button id="deleteButton" style="display: none;" class="del"><span class="material-icons-sharp">delete</span></button>
+                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span class="material-icons-sharp">delete</span></button>
                     <span> <button id="popup-btn" class="subcategory">&#43</button></span>
                     <div class="table">
                         <table id="categoryTable">
@@ -179,7 +180,7 @@
                             <?php if(!empty($results)):?>
                     <?php foreach($results as $row):?>
                                 <tr>
-                                <td><input type="checkbox" name="id" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
+                                <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
                                 <td class="hidden_id"><?=$row->id?></td>
                                     <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
                                     <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance"><?=$row->category?></a></td>
@@ -203,6 +204,8 @@
                     </div>
                    
                 </div>
+               
+                <!-- </form> -->
         </main>
         <!-- <div class="popupview hidden">
             <button class="closebtn">&times;</button>

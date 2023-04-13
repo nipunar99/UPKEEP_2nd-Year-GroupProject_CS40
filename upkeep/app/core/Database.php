@@ -8,7 +8,6 @@ Trait Database {
         $string = "mysql:hostname =".DBHOST.";dbname=".DBNAME;
         try{
             $con = new PDO($string,DBUSER,DBPASS);
-
             $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $con;
         }
@@ -23,6 +22,8 @@ Trait Database {
         $stm = $con->prepare($query);
 
         $check = $stm->execute($data);
+        $itemtemplate_id = $con->lastInsertId('itemtemplate');
+        $_SESSION['id'] = $itemtemplate_id;
         if($check){
             $result = $stm->fetchAll(PDO::FETCH_OBJ);
             if(is_array($result) && count($result)){

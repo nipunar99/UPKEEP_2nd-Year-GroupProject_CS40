@@ -583,9 +583,10 @@ textarea{
 }
 
 .table table tbody td{
-    height:2.8rem;
+    height:3.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+    width: 2rem;
 }
 .table table tbody td img{
     width: 2.8rem;

@@ -10,3 +10,4 @@ const district = ['Approved','Pending'];
     }
     districtSelect.value = 'Select the status';
 })();
+

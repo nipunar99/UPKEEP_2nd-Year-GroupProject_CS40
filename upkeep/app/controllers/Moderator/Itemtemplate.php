@@ -21,6 +21,7 @@ class Itemtemplate {
         
         
         $result1 = json_encode($result);
+       
          echo($result1);
 
     }

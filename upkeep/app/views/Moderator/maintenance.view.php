@@ -77,13 +77,13 @@
   <a href="#2">Weekly</a>
   <!-- <a href="#3">Sub Component 3</a> -->
 </div>
-<span> <button class="subcategory" onclick="open_form()">&#43</button></span>
+<span> <button class="subcategory" >&#43</button></span>
 <div class="data">
     <!-- <table>
         <thead></thead>
         <tbody>
         <tr> -->
-           <p>task 1</p> 
+          <p>task 1</p> 
           <p>task 2</p>  
             
         <!-- </tr>

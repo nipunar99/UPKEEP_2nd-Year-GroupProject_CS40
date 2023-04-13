@@ -1,8 +1,8 @@
-function open_form(){
+
 
 const modal = document.querySelector(".popupview");
 const overlay = document.querySelector(".overlayview");
-const btnCloseModal = document.querySelector(".closebtn");
+//const btnCloseModal = document.querySelector(".closebtn");
 const btnShowRow1 = document.querySelector(".subcategory");
 
 
@@ -27,4 +27,3 @@ btnShowRow1.addEventListener("click", showModal);
 // close modal click
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
-}

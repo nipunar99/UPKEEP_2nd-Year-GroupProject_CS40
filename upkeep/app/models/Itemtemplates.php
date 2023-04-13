@@ -45,6 +45,7 @@ class Itemtemplates
         }
         public function completeItemTemplate(){
             $query = "select i.image,i.id, i.itemtemplate_name, i_type.type_name, i.description, i.status from itemtemplate i inner JOIN item_type i_type on  i_type.type_id = i.type_id where parent_id IS NULL ";
+          
             return $this->query($query);
         }
        public function item($id){
@@ -70,6 +71,11 @@ class Itemtemplates
          $query = "select * from itemtemplate where status='Pending'";
          return $this->query($query);
         }
+
+        public function deletecategory($id){
+            $query = "delete from itemtemplate where id = '$id'";
+            return $this->query($query);
+        }
         // public function viewItem($data){
         //     try{
         //         $data["moderator_id"] = $_SESSION['ID'];
@@ -81,14 +87,14 @@ class Itemtemplates
             // $sql = "select * from `itemtemplate` where id=:id";
         // }  
 
-        public function delete($id, $id_column = "id"){
+        // public function delete($id, $id_column = "id"){
         
-            $data[$id_column] = $id;
-            $query = "delete from $this->table where $id_column = :$id_column";
+        //     $data[$id_column] = $id;
+        //     $query = "delete from $this->table where $id_column = :$id_column";
     
-            $this->query($query,$data);
-            return false;
-        }
+        //     $this->query($query,$data);
+        //     return false;
+        // }
 }
 
           

@@ -1,20 +1,6 @@
 // Global varible for itemtemplate details
 var itemtemplateDetails = null;
-// elements = document.getElementById('status'+i)
-//     for (var i = elements.length; i--;) {
-//       if (elements[i].innerHTML === "Pending") {
-//         //  elements[i].style.color = "red";
-//         elements[i].classList.add("danger");
-//        console.log("a");
 
-//       }
-//       if (elements[i].innerHTML === "Approved") {
-//        //  elements[i].style.color = "green";  
-//         elements[i].classList.add("success");  
-//         console.log("b");
-//       }
-
-//     }
 
 
 

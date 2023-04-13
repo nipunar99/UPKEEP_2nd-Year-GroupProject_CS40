@@ -1,25 +1,4 @@
-// "use strict";
 
-// Get all DOM and store in variable
-// const modal = document.querySelector(".popupview");
-// const overlay = document.querySelector(".overlayview");
-// const btnCloseModal = document.querySelector(".closebtn");
-// const btnShowRow1 = document.querySelector(".card-1");
-// const btnShowRow2 = document.querySelector(".card-2");
-// const btnShowRow3 = document.querySelector(".card-3");
-// const btnShowRow4 = document.querySelector(".card-4");
-
-
-
-// Show Modal function const showModal
-
-
-
-// show modal click event
-// btnShowRow1.addEventListener("click", showModal);
-// btnShowRow2.addEventListener("click", showModal);
-// btnShowRow3.addEventListener("click", showModal);
-// btnShowRow4.addEventListener("click", showModal);
 
 
 
@@ -115,93 +94,108 @@ overlay.addEventListener("click", closeModals);
      }
      districtSelects.value = 'Select the status';
  })();
- function toggleDeleteButton() {
-    // var checkbox = document.getElementById("myCheckbox");
+//  function toggleDeleteButton() {
+//     // var checkbox = document.getElementById("myCheckbox");
+//     var table = document.getElementById("categoryTable");
+//     var checkboxes = document.querySelectorAll("input[type='checkbox']");
+//     var deleteButton = document.getElementById("deleteButton");
+//     var showButton = false;
+//     for (var i = 0; i < checkboxes.length; i++) {
+//         if (checkboxes[i].checked) {
+//             var row = checkboxes[i].parentNode.parentNode;
+//             table.deleteRow(row.rowIndex);
+           
+//             break;
+//         }
+//     }
+//     if (showButton) {
+//         deleteButton.style.display = "block";
+//         console.log("show");
+//     } else {
+//         deleteButton.style.display = "none";
+//         console.log("no");
+//     }
+// }
+function toggleDeleteButton() {
+    var table = document.getElementById("categoryTable");
     var checkboxes = document.querySelectorAll("input[type='checkbox']");
     var deleteButton = document.getElementById("deleteButton");
-    var showButton = false;
+    var checkedCount = 0;
+
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-            showButton = true;
-            break;
+            checkedCount++;
         }
     }
-    if (showButton) {
+
+    if (checkedCount > 0) {
         deleteButton.style.display = "block";
-        console.log("show");
+        deleteButton.addEventListener("click", function() {
+            var checkedIds = [];
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    var row = checkboxes[i].parentNode.parentNode;
+                    var id = row.querySelector(".hidden_id").textContent;
+                    checkedIds.push(id);
+                    table.deleteRow(row.rowIndex);
+                }
+            }
+            // for (var i = checkboxes.length - 1; i >= 0; i--) {
+            //     if (checkboxes[i].checked) {
+            //         var row = checkboxes[i].parentNode.parentNode;
+            //         if (row) {
+            //             var id = row.querySelector(".hidden_id").textContent;
+            //             checkedIds.push(id);
+            //             table.deleteRow(row.rowIndex);
+            //         }
+            //     }
+            // }
+            
+
+            if (checkedIds.length > 0) {
+                
+                    // Create a new XMLHttpRequest object
+                    var xhr = new XMLHttpRequest();
+                    
+                    // Define the URL to send the request to
+                    var url = "http://localhost/upkeep/upkeep/public/Moderator/Item/delCategory";
+                    
+                    // Define the request method (GET or POST)
+                    var method = "POST";
+                    
+                    // Define the request parameters
+                    var params = "ids=" + JSON.stringify(checkedIds);
+                    console.log(params);
+                    
+                    // Open the request and set the method and URL
+                    xhr.open(method, url);
+                    
+                    // Set the request headers (if needed)
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    
+                    // Define the function to handle the response from the server
+                    xhr.onreadystatechange = function() {
+                      if (xhr.readyState === 4 && xhr.status === 200) {
+                        // Handle the response from the server (if needed)
+                        console.log(xhr.responseText);
+                        // table.innerHTML = xhr.responseText;
+                      }
+                    };
+                    
+                    // Send the request with the parameters
+                    xhr.send(params);
+                  
+                  
+                // Send the checkedIds array to the server using AJAX to delete the corresponding records
+                // Alternatively, you can submit a form with hidden inputs to pass the checkedIds array to the server using POST method
+            }
+
+            deleteButton.style.display = "none";
+        });
     } else {
         deleteButton.style.display = "none";
-        console.log("no");
     }
 }
 
-// document.addEventListener("DOMContentLoaded",function(){
-//     ajax_getItems();
-//   });
-//   function ajax_getItems(){
-//     const xhr = new XMLHttpRequest();
-//   xhr.open("POST","http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem","true");
-  
-//       xhr.onload = function(){
-//           if(xhr.status == 200){  
-//               const res = xhr.responseText;
-//               //  const json = JSON.parse(res);
-//               // console.log(json);
-//               // try {
-//                 const json = JSON.parse(res);
-//                 itemtemplateDetails = JSON.parse(res);
-//                 console.log(json);
-//             // }
-//             // catch (error) {
-//                 // console.log('Error parsing JSON:', error, res);
-//             // }
-//               var html = "";
-              
-//               for (var i = 0; i < json.length; i++) {
-
-//                 console.log(json.length);
-//                   // html += "<tbody>";
-//                   html += "<tr>";
-//                   html += "<td><input type='checkbox' name='id' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
-
-//                   html += "                <td role='button'>";
-//                   html += "                    <a href='http://localhost/upkeep/upkeep/public/Moderator/Maintenance'>"+json[i].category+"</a></td>";
-//                //   html += "<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/" + json[i].image + "'>";
-//                 //    console.log(json[i].id);
-                
-//                   html += "                     <td>"+json[i].description+"</td>";
-          
-                  
-//                   html += "                     <td>";
-//                   // html += "                <td><"+json[i].type_name+"</td>";
-//                   html += "     <div class='view'><button><span class='material-icons-sharp'>edit</span></button></div>                   ";
-                 
-//                   html +=  "</td>";
-                 
-//                   html += "                </tr>";
-//                   // var id = json[i].id;
-          
-//               }
-//               document.querySelector(".category").innerHTML = html;
-//           }
-//       }
-//       xhr.send();
-     
-      
-//   }
- 
-   
-    
-      
-    
-    
-          
-            
-       
-        
-           
-            
-       
-       
-  
 

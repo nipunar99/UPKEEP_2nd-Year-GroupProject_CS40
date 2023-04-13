@@ -70,7 +70,7 @@
 
         <main>
             <div class="mainHeader">
-                <h1>Items Templates</h1>
+                <h1>Add Disposal Places</h1>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -106,39 +106,32 @@
                     <div class="topInput">
                       
                         <div class="input-box">
-                            <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" id="" required placeholder="Enter Item template Name">
+                            <span class="details">Place Name</span>
+                            <input type="text" name="place_name" id="" required placeholder="Enter place Name">
                         </div>
 
  </div>
 
                         <div class="middleInput">
-                            <div class="input-box">
-                                <span class="details">Status</span>
-                                <select name="status" id="status"></select>
+                            
+                        <div class="input-box">
+                                <span class="details">City</span>
+                                <input type="text" name="city" id="" required placeholder="Enter city">
                             </div>
-
-                            <div class="input-box">
-                                <span class="details">Image</span>
-                                <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Type ID</span>
-                                <input type="text" name="type_id" id="" required placeholder="Enter type id">
-                            </div>
+                           
                           
 
 
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
+                            <span class="details">Iframe Link</span>
+                            <textarea rows="3" cols="100" name="iframe_link" id="" required placeholder="Enter iframe link"></textarea>
                         </div>
 
 
-                        <div class="button">
-                            <input type="submit" value="Add Item" id="submitBtn">
+                        <div class="button-2">
+                            <input type="submit" value="Add disposal places" id="submitBtn">
                             <!-- <button id="show-btn" onclick="showButton()">Add item</button> -->
                          
                         </div>
@@ -149,7 +142,7 @@
         </main>
 
     </div>
-    <script src="<?= ROOT ?>/assets/js/Moderator/additemtemplate.js"></script>
+   
 </body>
 
 </html>

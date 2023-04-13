@@ -5,82 +5,31 @@
      use Controller;
      public function index(){
         if(isset($_SESSION['user_id'])){
-            // $this->view('Moderator/item');
-          //  if($_SERVER['REQUEST_METHOD'] == "POST"){
-                // if(isset($_POST['action']) && $_POST['action']=="addItem"){
-    
-                    //unset($_POST['action']);
-                    // $name = $_POST['itemtemplate_name'];
-                    // $status = $_POST['status'];
-                    // $image = $_POST['image'];
-                    // $type_name = $_POST['type_id'];
-                    // if($type_name=="House Hold")
-                    // {
-                    //     $type_id = 1;
-                    // }
-                    // elseif($type_name=="Office"){
-                    //     $type_id = 2;
-                    // }
-                    // elseif($type_name=="Office"){
-                    //     $type_id = 3;
-                    // }
-                    // else{
-                    //     $type_id = 4;
-                    // }
-                    
-                    // $category = $_POST['category'];
-                    // $description = $_POST['description'];
-                    // $parent_id = 1;
-                    // $item = new Itemtemplates;
-                    // echo($_POST);
-                 //   arr['data']=[$name,$status ,$immage, $type_id,$category,$description,$parent_id];
-                    // $item->insertCategory($name,$status,$image, $type_id,$category,$description,$parent_id);
-                    // redirect("Moderator/Itemtemplate");
-                // }   
+           
+            
             } 
         // }
         else{
             redirect("Home/home");
         } 
      }
+   public function delCategory(){
+    $ids = json_decode($_POST['ids']);
+    // if(isset($_POST['deleteButton'])){
+    //     $selectRows = $_POST['id'];
+    //     if(!empty($selectRows))
+    //     {
+            foreach($ids as $id)
+            { print $id;
+                $item = new Itemtemplates;
+                $item->deletecategory($id);
+            }
+        redirect("Moderator/item");
+    
+   }
    
-        
-   // }
-    // public function viewItem($id,$itemtemplate_name){
-    //     if(isset($_SESSION['user_id'])){
-
-        // $result = $item->item($arr['id']);
-        // $result1 = json_encode($result);
-        // echo($result1);
-        // print_r($result);
-        // $data['result']=$result;
-        // $this->view('Moderator/item',$data);
-        // if($_SESSION['USER'] == $_SESSION['user_id']){
-      
-            // $item = new Itemtemplates;
-           
-            
-            //  $result1 =json_encode($item->item($id));
-            
-            // $category_name = $item->$itemtemplate_name;
-            // echo $category_name;
-
-            //   $result2 = json_encode($item->category($itemtemplate_name));
-            
-             // echo $category_name;
-            // $result2 =json_encode($item->where($category_name));
-            
-    //          $data['result'] = $result1 +$result2;
-
-    //            print_r($data['result']);
-           
-    //          $this->view('Moderator/item',$data);
-    //     }else{
-    //         redirect("Home/home");
-    //     }
-    // }
     public function viewItem($id){
-        if(isset($_SESSION['user_id']) &&  ($_SERVER['REQUEST_METHOD'] == "POST") ){
+        if(isset($_SESSION['user_id']) &&  ($_SERVER['REQUEST_METHOD'] == "POST")) {
             if(($_POST['id'] != 0)){
                 $id = $_POST['id'];
                 $type_name = $_POST['type_id'];
@@ -152,7 +101,7 @@
             redirect("Moderator/Itemtemplate");
          }
         }
-        elseif(isset($_SESSION['user_id'])){
+        elseif(isset($_SESSION['user_id']) ){
             $arr = [];
             $arr["id"] = $id[0];
             $item = new Itemtemplates;
