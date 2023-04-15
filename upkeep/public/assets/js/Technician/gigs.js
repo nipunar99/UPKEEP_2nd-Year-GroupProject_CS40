@@ -49,9 +49,4 @@ function ajax_addGig(e) {
 		}
 	};
 
-	// xhr.onload = function () {
-	//     if (this.status === 200) {
-
-	//     }
-	// };
 }

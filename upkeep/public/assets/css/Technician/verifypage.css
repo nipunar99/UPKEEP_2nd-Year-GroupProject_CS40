@@ -1,4 +1,5 @@
 @import "general.css";
+@import "popupform.css";
 
 /* header of the page */
 
@@ -230,3 +231,25 @@ main .right a.btn.logout{
     margin-top: 1rem;
 }
 
+ /* Popup form custom styles */
+ .popup .warning#note{
+    text-align: justify;
+    color: var(--color-warning);
+    width: 70%;
+    border: solid var(--color-warning) 1px;
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem;
+    margin-left: 0;
+    margin-right: 0;
+ }
+
+ .popup .warning{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+
+
+ .number .input-box{
+    display: inline-flex;
+ }
