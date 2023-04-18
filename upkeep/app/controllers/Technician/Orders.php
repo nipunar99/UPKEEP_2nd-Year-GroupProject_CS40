@@ -1,15 +1,15 @@
 <?php
 
+
 class Orders{
 
-    Use Controller;
+    use Controller;
+    use Auth;
 
-    public function index(){
-        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="technician"){
-            redirect('/Home');
-        }else{
-            $this->view('Technician/orders');
-        }    
+    public function index()
+    {
+        $this->technicianAuth();
+        $this->view('Technician/orders');
     }
-
 }
+

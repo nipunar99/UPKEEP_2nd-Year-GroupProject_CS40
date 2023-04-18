@@ -1,4 +1,5 @@
 @import "general.css";
+@import "popupform.css";
 
 /* header of the page */
 
@@ -7,89 +8,16 @@
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    gap: 0;
 }
-
-.container .top{
-    display: grid;
-    grid-template-columns: 15rem auto 19rem;
-    height: 5rem;
-    justify-content: space-between;
-    padding: 1rem;
-} 
-
-.container .top button{
-    display: none;
-}
-
-.container .top .right{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
-}
-
-.container .theme-toggler{
-    background: var(--color-light);
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    height: 1.6rem;
-    width: 4.2rem;
-    cursor: pointer;
-    border-radius: var(--border-radius-1);
-}
-
-.container .theme-toggler span{
-    font-size: 1.2rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container .theme-toggler span.active{
-    background: var(--color-primary);
-    color: white;
-    border-radius: var(--border-radius-1);
-}
-
-.container .top .profile{
-    display: flex;
-    gap: 2rem;
-    text-align: right;
-}
-
-.container .top .header-logo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.container .top .header-logo a{
-    display: flex;
-    flex-direction: row;
-}
-
-.container .top .header-logo a img{
-    height: 3rem;
-    width: auto;
-}
-
 
 /* main style */
 
 main{
     display:grid;
     grid-template-columns: 40% auto;
-    height: 80%;
+    padding: 1rem;
+    height: calc(100% - 64px);
 }
 
 main .left .congrats{
@@ -101,9 +29,8 @@ main .left .congrats{
     height: 100%;
     width: 100%;
     padding: 1rem;
-    margin: 1rem;
     border-radius: var(--card-border-radius);
-    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.5);
+    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.3);
 }
 
 main .left .congrats h1{
@@ -138,25 +65,36 @@ main .right .verification-methods{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 60%;
-    margin: 1rem;
     padding: 1rem;
 }
 
 main .right .verification-methods .method-card{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     height: 90%;
     width: 90%;
-    padding: 1rem;
+    /*padding: 1rem;*/
     margin: 1rem;
+    border: 1px solid var(--color-info-light);
     border-radius: var(--card-border-radius);
-    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.5);
+    /*box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.5);*/
     transition: all 300ms ease;
     margin-bottom: 2rem;
+    overflow: hidden;
 
+}
+
+main .right .verification-methods .method-card:hover{
+    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.5);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+main .right .verification-methods .method-card:hover .icon{
+    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.3);
 }
 
 main .right .verification-methods .method-card .icon{
@@ -165,12 +103,13 @@ main .right .verification-methods .method-card .icon{
     align-items: center;
     height: 8rem;
     width: 8rem;
+    border: 1px solid var(--color-info-light);
     border-radius: 50%;
-    background: var(--color-white);
     color: var(--color-primary);
+    background: var(--color-white);
     font-size: 5rem;
     margin-bottom: 1rem;
-    box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.25);
+    /*box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.25);*/
 }
 
 main .right .verification-methods .method-card .icon span{
@@ -184,24 +123,60 @@ main .right .verification-methods .method-card h1{
     color: var(--color-dark);
 }
 
-main .right .verification-methods .method-card:hover{
-    box-shadow: none;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+main .right .verification-methods .method-card .step{
+    border-bottom: 1px solid var(--color-info-light);
+    width: 100%;
+    padding: 0.5rem 0 0.5rem 0;
 }
 
-/* button styles */
+main .right .verification-methods .method-card .action{
+    width: 100%;
+    /*border-top: 1px solid var(--color-info-light);*/
+    padding-top: 0.5rem;
+}
 
-main .right .buttonContainer{
+main .right .verification-methods .method-card .action button{
+    width: 100%;
+    border-radius: 0;
+}
+
+.buttonContainer{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     height: 10%;
     width: 100%;
     margin: 1rem;
     gap:2rem;
 }
+
+a#skip{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+a#skip::hover{
+    pointer: cursor;
+    color: var(--color-info-dark);
+}
+
+
+a#skip h3, a#skip span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a#skip::hover h3, a#skip:hover span{
+    pointer: cursor;
+    color: var(--color-info-dark);
+}
+
+/* button styles */
+
+
 
 main .right a.btn{
     background: var(--color-primary);
@@ -230,3 +205,25 @@ main .right a.btn.logout{
     margin-top: 1rem;
 }
 
+ /* Popup form custom styles */
+ .popup .warning#note{
+    text-align: justify;
+    color: var(--color-warning);
+    width: 70%;
+    border: solid var(--color-warning) 1px;
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem;
+    margin-left: 0;
+    margin-right: 0;
+ }
+
+ .popup .warning{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+
+
+ .number .input-box{
+    display: inline-flex;
+ }

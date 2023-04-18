@@ -1,14 +1,15 @@
 <?php
 
-class Findjobs{
+class Findjobs
+{
 
-    Use Controller;
-    Use Auth;
+    use Controller;
+    use Auth;
 
     public function index(){
-        $this->technicianAuth();
-            
-        $this->view('Technician/findjobs');
-    }
 
+        $this->technicianAuth();
+        $this->view('Technician/findjobs');
+        
+    }
 }

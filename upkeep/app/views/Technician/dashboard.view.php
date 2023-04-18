@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href=<?=ROOT."/assets/css/Technician/user.css"?>>
+    <link rel="stylesheet" href=<?=ROOT."/assets/css/Technician/technicianDashboard.css"?>>
 </head>
 <body>
     <div class="container">
@@ -329,5 +329,6 @@
         </div>
     </div>
     <script src="<?=ROOT?>/assets/js/Technician/dashboard.js  "></script>
+    <script src="<?=ROOT?>/assets/js/Technician/fetch.js  "></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,20 +12,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/admindashboard.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
             <div class="top">
 
                 <div class="logo">
-                    <img src="<?=ROOT?>/assets/images/logo.png" alt="">
-                    <img src="<?=ROOT?>/assets/images/title.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
-                        </span>
+                    </span>
                 </div>
 
             </div>
@@ -35,12 +37,12 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/VerifyRequest">
+                <a href="<?= ROOT ?>/Admin/VerifyRequest">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Verification Request</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/Addmoderator">
+                <a href="<?= ROOT ?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
                     <h3>Moderators</h3>
                 </a>
@@ -49,21 +51,21 @@
                     <h3>User</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/Complaints">
+                <a href="<?= ROOT ?>/Admin/Complaints">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/ItemTemplate">
+                <a href="<?= ROOT ?>/Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/Statistic">
+                <a href="<?= ROOT ?>/Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
-                
+
                 <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
@@ -84,7 +86,7 @@
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
                         </button>
-        
+
                         <div class="theme-toggler">
                             <span class="material-icons-sharp active">light_mode</span>
                             <span class="material-icons-sharp">dark_mode</span>
@@ -101,9 +103,9 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
 
             <div class="summary">
                 <h2>Summary Of Details</h2>
@@ -209,8 +211,22 @@
                        // $conn->close();
                         ?>
                     </thead>
-                    
-                   
+
+                    <!-- foreach ($table as $row) {
+                    echo "<tr id='row-{$row['nic']}'>";
+                    // echo "<td>" . $row["first_name"] . "</td>";
+                    // echo "<td>" . $row["last"] . "</td>";
+                    // echo "<td>" . $row["email"] . "</td>";
+                    // echo "<td>" . $row["mobile_no"] . "</td>";
+                    // echo "<td>" . $row["address"] . "</td>";
+                    //echo "<td><button class='remove-button' data-nic='{$row['nic']}'>Remove</button></td>";
+                    //echo "</tr>";} -->
+
+
+
+
+
+
                 </table>
             </div>
 
@@ -219,4 +235,5 @@
         
 
 </body>
+
 </html>

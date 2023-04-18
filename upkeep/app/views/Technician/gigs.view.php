@@ -110,9 +110,9 @@
             </div>
             
             <div class="gigs">
-                <?php if(!empty($data['gigList'])) : ?>
+                <?php if(!empty($gigList)) : ?>
                 <div class="insight">
-                <?php foreach($data["gigList"] as $gig) : ?>
+                <?php foreach($gigList as $gig) : ?>
                         <div class="gig-card">
                             <div class="middle">  
                                 <div class='gig-cover'>
@@ -166,8 +166,8 @@
         </main>
     </div>
 
-    <div id="addgig" class="overlay hidden"></div>
-    <div class="popup hidden">
+    <div id="overlay" class="overlay hidden"></div>
+    <div class="popup hidden" id="add-gig">
             <div class="middle">
                 <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
                 <h1>Create Your Gig!</h1>
@@ -249,8 +249,13 @@
 
             
                 
-    </div>    
-
+    </div>
+    <script>
+        const ROOT = "<?= ROOT ?>";
+        const gigList = <?= json_encode($gigList) ?>;
+        console.log(gigList);
+    </script>
+    <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/gigs.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/multi.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/image.js"></script>

@@ -1,4 +1,4 @@
-const overlay = document.querySelector(".overlay"); //popup overlay
+//const overlay = document.querySelector(".overlay"); //popup overlay
 const popup = document.querySelector(".popup"); // popup form
 const addGigBtn = document.querySelector(".addGig"); //add gig button
 const closeBtn = document.getElementById("formClose"); //close buttons
@@ -11,10 +11,13 @@ formSubmitBtn.addEventListener("click", ajax_addGig); //event listner for submit
 
 //functions for show and hide popup
 function showPopup(e) {
-	console.log("button clicked");
-	e.preventDefault();
-	overlay.classList.remove("hidden");
-	popup.classList.remove("hidden");
+	// console.log("button clicked");
+	// e.preventDefault();
+	// overlay.classList.remove("hidden");
+	// popup.classList.remove("hidden");
+	e.preventDefault()
+	openPopup('add-gig');
+
 }
 
 function hidePopup(e) {
@@ -41,17 +44,13 @@ function ajax_addGig(e) {
 
 	xhr.send(form);
 
-	xhr.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
+	xhr.onload = function () {
+		if (xhr.status == 200) {
 			// handle server response
+
 			console.log("success");
 			console.log(this.responseText);
 		}
 	};
 
-	// xhr.onload = function () {
-	//     if (this.status === 200) {
-
-	//     }
-	// };
 }

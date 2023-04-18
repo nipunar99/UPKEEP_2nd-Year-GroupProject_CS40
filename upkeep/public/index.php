@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+define("ROOTPATH",__DIR__.DIRECTORY_SEPARATOR);
+
 ///Compatible php versio checker
 $minPHPversion =  '8.0';
 if(phpversion()<$minPHPversion){

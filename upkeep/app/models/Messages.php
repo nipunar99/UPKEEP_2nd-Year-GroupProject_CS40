@@ -1,6 +1,6 @@
 <?php 
 
-class Messages {
+class  Messages {
 
     use Model;
 
