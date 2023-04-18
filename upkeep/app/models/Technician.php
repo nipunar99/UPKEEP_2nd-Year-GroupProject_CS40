@@ -23,10 +23,18 @@ class Technician
         return false;
     }
 
+<<<<<<< Updated upstream
+
+    public function updateContactVerification($id)
+    {
+        $arr['contact_verification'] = 1;
+        $this->update($id,$arr,'user_id');
+=======
     public function updateContactVerification($id)
     {
         $arr['user_id'] = $id;
         $arr['contact_verification'] = 1;
         $this->update($arr);
+>>>>>>> Stashed changes
     }
 }

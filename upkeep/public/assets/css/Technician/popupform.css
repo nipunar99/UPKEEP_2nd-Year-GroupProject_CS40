@@ -1,4 +1,6 @@
 /* styles for popups */
+<<<<<<< Updated upstream
+=======
 .popup-container{
     position: absolute;
     top: 0;
@@ -10,6 +12,7 @@
 
 }
 
+>>>>>>> Stashed changes
 .popup {
     position: fixed;
     display: flex;
@@ -17,7 +20,12 @@
 	margin: auto;
 	width: 500px;
     max-width: 90%;
+<<<<<<< Updated upstream
+    height: max-content;
+	max-height: 80%;
+=======
 	height: 80%;
+>>>>>>> Stashed changes
 	background-color: rgb(255, 255, 255);
 	border-radius: var(--border-radius-3);
 	box-shadow: 0 0 20px rgb(99, 99, 99);
@@ -27,6 +35,10 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+<<<<<<< Updated upstream
+    overflow: auto;
+=======
+>>>>>>> Stashed changes
 
 }
 
@@ -43,7 +55,13 @@
 
 .popup a.close {
 	display: flex;
+<<<<<<< Updated upstream
+    position: absolute;
+    right: 10;
+    top: 10;
+=======
     justify-content: end;
+>>>>>>> Stashed changes
 	color: var(--color-dark);
 }
 
@@ -194,9 +212,16 @@ button {
 	border-radius: 17px;
 	color: var(--color-white);
 }
+<<<<<<< Updated upstream
+/*give styles for disabled button*/
+button:disabled{
+    background: #ccc;
+    cursor: default;
+=======
 
 button.disabled{
     background:#ccc;
+>>>>>>> Stashed changes
 }
 
 button:hover {
@@ -204,7 +229,11 @@ button:hover {
     cursor: pointer;
 }
 
+<<<<<<< Updated upstream
+button:disabled:hover{
+=======
 button.disabled:hover{
+>>>>>>> Stashed changes
     background: #ccc;
     cursor: default;
 }
@@ -224,7 +253,11 @@ form.mobile-verify{
 }
 
 /* hidden style */
+<<<<<<< Updated upstream
+form>div.hidden {
+=======
 form.hidden {
+>>>>>>> Stashed changes
     display: none;
 }
 
@@ -258,9 +291,48 @@ form.hidden {
     border-color: var(--color-danger);
 }
 
+<<<<<<< Updated upstream
+.input-field.error small{
+    visibility: visible!important;
+}
+
+.input-field.successs .mnumber-box{
+    border-color: var(--color-success);
+}
+
+.input-field.successs .mnumber-box input{
+    border-color: var(--color-success);
+}
+
+/*successfull styles*/
+.popup .content{
+    height: 100%;
+}
+
+.popup .content.hidden{
+    display: none;
+}
+
+
+#success-icon{
+
+    font-size: 10rem ;
+    color: var(--color-success);
+}
+
+.popup .content#success h1{
+    font-size: 3rem;
+}
+
+
+
+
+
+=======
 .input-field.error small.error{
     visibility: visible!important;
 }
 
+>>>>>>> Stashed changes
 
 

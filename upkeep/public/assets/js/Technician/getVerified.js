@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+window.onload = function(){
+    console.log("hello");
+}
+
+const
+=======
 // UI elements
 const mobile_number = document.getElementById('mobile_number');
 const otpnums = document.getElementsByClassName('otp-num');
@@ -144,3 +151,4 @@ phone.addEventListener('input',function(){
   }
 });
 
+>>>>>>> Stashed changes
