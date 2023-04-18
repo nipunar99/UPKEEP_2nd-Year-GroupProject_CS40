@@ -46,13 +46,13 @@
                     <h3>Technician</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/community" class="active">
+                <a href="<?= ROOT ?>/Community" class="active">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
 
 
-                <a href="<?= ROOT ?>/conversation">
+                <a href="#">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Conversation</h3>
                     <span class="message-count">11</span>
@@ -99,11 +99,6 @@
     
                     <div class="post-input-container">
                         <textarea rows="3" placeholder="What's on your mind, Mewan?"></textarea>
-                        <div class="add-post-links">
-                            <a href="#"><img src="<?= ROOT ?>/assets/images/live-video.png"> Live Video</a>
-                            <a href="#"><img src="<?= ROOT ?>/assets/images/photo.png"> Photo/Video</a>
-                            <a href="#"><img src="<?= ROOT ?>/assets/images/feeling.png"> Feling/Activity</a>
-                        </div>
                     </div>
                 </div>
     
@@ -241,8 +236,13 @@
 
         </main>
         <!-- End of Main -->
+        <div class="itempannelbtn">
+            <span class="material-icons-sharp arrowback">arrow_back_ios</span>
+        </div>
 
         <div class="right">
+        <button class="closebtn itempannelclosebtn">×</button>
+
             <div class="heading">
                 <div class="top">
                     <button id="menu-btn">
@@ -338,5 +338,10 @@
             </div>
 
         </div>
+        
+        <?php
+            echo "<script> var ROOT = '".ROOT."'; </script>";
+        ?>
+        <script src="<?= ROOT ?>/assets/js/community.js"></script>
 </body>
 </html>

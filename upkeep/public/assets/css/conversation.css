@@ -1,5 +1,6 @@
 aside{
     height: 100vh;
+    overflow-y: scroll;
 }
 
 aside .top{
@@ -120,6 +121,7 @@ h2{
 .right{
     margin-top: 1.4rem;
     margin-right: 1rem;
+    overflow: hidden;
 }
 
 .right .top{
@@ -181,14 +183,25 @@ h2{
     /* border-radius: var(--card-border-radius); */
     /* box-shadow: var(--box-shadow); */
     transition: all 300ms ease;
-    height: 87vh;
-    padding-top: 0;
+    padding: 0;
 }
 
 .right .conversationDetails .image-container{
     padding: 20px;
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
+}
+
+.details {
+    margin: 1rem 0;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px 10px 0 10px;
+    left: 25rem;
+    font-weight: 400;
+    box-shadow: var(--box-shadow);
+
+    display: inline-block;
 }
 
 .details>div:nth-child(4) {
@@ -205,6 +218,26 @@ h2{
 }
 .details>div>div{
     margin-bottom: 1rem;
+}
+
+.incommingdetails{
+    border-radius: 10px 10px 10px 0;
+    background: #808080;
+    position: relative;
+    left: 0;
+}
+
+.details h4{
+    position: absolute;
+    right: 1rem;
+    bottom: 0rem;
+    color: white;
+}
+.outgoingdetails{
+    background: #50AFE4;
+    position: relative;
+    left: 0;
+    text-align: initial;
 }
 
 .itembtnsection1{
@@ -262,21 +295,22 @@ h2{
     font-size: 1.1rem
 }
 .massagebox{
-    min-height: 83vh;
+    min-height: 74vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .massagebox .title{
+    
     display: flex;
     gap: 1rem;
-    background: #50afe4db;
     border-radius: 10px 10px 0 0;
     max-height: 10rem;
     padding: 1rem;
     margin-top: 1rem;
     width: 63vw;
+    box-shadow: 0rem 0.7rem 3rem #b3b3b3;
 }
 .title h3{
     font-size: 1rem;
@@ -287,7 +321,7 @@ h2{
 .massagebox .title h3{
     font-size: 1rem;
     font-weight: 600;
-    color: #dde5eb;
+    color: #5f5f5f;
     
 }
 h4{
@@ -304,8 +338,9 @@ h4{
 }
 .msgtextarea{
     width: 63vw;
-    min-height: 66vh;
+    height: 62vh;
     border-radius: 30px;
+    overflow-y: scroll;
     box-shadow: var(--box-shadow);
 }
 .typearea{
@@ -318,16 +353,17 @@ h4{
     border-radius: 30px;
     padding: 0 1rem;
     color: #6F6F6F;    
-    position: relative;
-    bottom: 4rem;
+    /* position: relative;
+    bottom: 4rem; */
     width: 93%;    
     height: 3rem;
+    margin-top: 1rem;
 
 }
-.typearea input[type="search"]{
+.typearea input[type="text"]{
     width: 35rem;
     height: 2rem;
-
+    background: none;
     font-family: 'Poppins', sans-serif;
 }
 button{
@@ -350,7 +386,7 @@ button{
     border-radius: 30px;
     padding: 0 1rem;
     color: #6F6F6F;
-    width: 125%;  
+    width: 92%;  
     height: 3rem;
 
 }
@@ -362,13 +398,18 @@ button{
 }
 
 .conversationDetails .title {
+
     display: grid;
-    grid-template-columns:3rem auto 5rem;;
+    grid-template-columns: 3rem 14rem;
     justify-content: space-between;
     align-items: center;
-    width: 123%;
-    margin: 1.2rem 0;
+    width: 100%;
+    margin: 0;
+    min-height: 70px;
+}
 
+.conversationDetails .title:hover {
+    background-color: #8080801a;
 }
 
 .conversationDetails .title img{
@@ -381,8 +422,11 @@ button{
 .conversationDetails .title h4{
     font-weight: 600;
 }
+.conversationDetails .title .userdetails{
+    display: grid;
+    grid-template-columns: 9rem 5rem;
+}
 hr{
-    width: 125%;
     height: 1px;
     background: #c7d0df70;
 }
@@ -391,27 +435,31 @@ hr{
     font-weight: 400
 }
 
-.replay{
-    position: relative;
-    bottom: 37rem;
-    width: 19rem;
-    height: 5rem;
-    background: #50AFE4;
-    padding: 1rem;
-    border-radius: 25px 25px 0 25px;
-    left: 25rem;
-    font-weight: 400;
-}
-.replay p {
+
+
+.incomming p {
     color: white;
 }
 
-.reply2{
-    bottom: 36rem;
-    left: -25rem;
-    border-radius: 25px 25px 25px 0;
-    background: #808080;
+.outgoing  {
+    max-width: calc(100% - 45rem);
+    margin-left: auto;
+    text-align: end;
 }
+
+.incomming {
+    
+    max-width: calc(100% - 40rem);
+    margin-right: auto;
+
+}
+.chat p{
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    min-width: 5rem;
+}
+
 .btnSend{
     position: relative;
     left: 5rem;
@@ -420,4 +468,10 @@ hr{
     align-items: ceter;
     align-items: center;
     gap: 0.6rem;
+}
+.users{
+    margin-top: 1rem;
+    overflow-y: scroll;
+    /* height: 24rem; */
+    width: 100%;
 }

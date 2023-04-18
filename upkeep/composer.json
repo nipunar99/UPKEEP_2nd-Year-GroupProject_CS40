@@ -1,0 +1,6 @@
+{
+    "require": {
+        "telesign/telesign": "^3.0",
+        "orhanerday/open-ai": "^4.0"
+    }
+}

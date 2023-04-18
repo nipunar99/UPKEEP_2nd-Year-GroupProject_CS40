@@ -107,9 +107,7 @@ section{
   display: flex;
   align-items: center;
   justify-content: center;
-  background:url(http://localhost/upkeep/upkeep/public/assets/images/landingPage/home-bg-img.png) no-repeat;
-  background-size: cover;
-  background-position: center;
+
 }
 
 .content>div{
@@ -227,9 +225,6 @@ section{
 }
 
 .about{
-  background:url(http://localhost/upkeep/upkeep/public/assets/images/landingPage/about-bg.png) no-repeat;
-  background-size: cover;
-  background-position: center;
   padding-bottom: 3rem;
 }
 
@@ -275,11 +270,11 @@ section{
   flex-wrap: wrap;
 }
 
-.features{
+/* .features{
   background:url(http://localhost/upkeep/upkeep/public/assets/images/landingPage/feature-bg.png) no-repeat;
   background-size: cover;
   background-position: center;
-}
+} */
 
 .features .box-container .box{
   flex:1 1 30rem;
@@ -391,10 +386,6 @@ section{
 
 .footer{
   padding-top: 3rem;
-  background:url(http://localhost/upkeep/upkeep/public/assets/images/landingPage/footer-bg.png) no-repeat;
-  background-size: cover;
-  background-position: center;
-  
 }
 
 .footer .box-container{
@@ -461,4 +452,94 @@ section{
   border-top: .1rem solid #fff5;
   padding:2.5rem 1rem;
   text-align: center;
+}
+
+
+
+/*................ Media query table size................*/
+@media screen and (max-width: 1200px) {
+
+  html {
+    font-size: 50.5%;
+  }
+  header{
+    padding: 2rem 1%;
+    justify-content: space-around;
+  }
+
+  ul {
+    /* display: none; */
+  }
+  .logo img {
+    height: 32px;
+  }
+
+  section {
+    min-height: 66vh;
+    padding-top: 11.5rem;
+  }
+
+  .home .content h3 {
+    padding-left: 3rem;
+    display: inline-block;
+    font-size: 4rem;
+    padding-left: 3rem;
+    padding-top: 3rem;
+  }
+  .home .content p {
+    font-size: 1.5rem;
+    padding: 2rem 2rem;
+  }
+
+  .content>div {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 3rem;
+  }
+
+
+}
+
+/*................ Media query mobile................*/
+@media screen and (max-width: 768px) {
+
+  html {
+    font-size: 50.5%;
+  }
+  header{
+    padding: 2rem 1%;
+    justify-content: space-around;
+  }
+
+  ul {
+    display: none;
+  }
+  .logo img {
+    height: 32px;
+  }
+
+  section {
+    min-height: 66vh;
+    padding-top: 11.5rem;
+  }
+
+  .home .content h3 {
+    padding-left: 3rem;
+    display: inline-block;
+    font-size: 4rem;
+    padding-left: 3rem;
+    padding-top: 3rem;
+  }
+  .home .content p {
+    font-size: 1.5rem;
+    padding: 2rem 2rem;
+  }
+
+  .content>div {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 3rem;
+  }
 }

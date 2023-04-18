@@ -562,7 +562,7 @@ main .mainHeader h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(179, 180, 189, 0.5);
+    background-color: rgba(30,41,51,.45);
     backdrop-filter: blur(3px);
     z-index: 5;
 }
@@ -791,4 +791,214 @@ form .itemDetails .middleInput{
 }
 .moreBtn>input{
     color: white;
+}
+
+/*................ Media query................*/
+@media screen and (max-width: 1200px) {
+    .container{
+        width: 94%;
+    }
+
+    aside .logo img:nth-child(2){
+        display: none;
+    }
+
+    aside h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.5rem;
+    }
+    main .insight {
+        flex-wrap: wrap;
+    }
+
+    .cal {
+        width: 267px;
+        height: 286px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgb(0 0 0 / 12%);
+        font-size: 14px;
+        margin-top: 1rem;
+    }
+
+    thead tr th:nth-child(5){
+        display: none;
+    }
+
+    tbody tr td:nth-child(5){
+        display: none;
+    }
+}
+
+/*................ Media query................*/
+@media screen and (max-width: 768px) {
+    .container{
+        width: 100%;
+        display: block;
+    }
+    main .insight {
+        display: block;
+    }
+
+    aside{
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    main .toolbar {
+        flex-wrap: wrap;
+    }
+
+    main .mainHeader h1 {
+        position: relative;
+        left: 125px;
+        display: inline;
+    }
+
+    @keyframes showMenu{
+        to{
+            left: 0;
+        }
+    }
+
+    aside .logo img:nth-child(2){
+        display: inline;
+    }
+
+    aside h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        bottom: 3rem;
+    }
+
+    .mainHeader{
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+    .right{
+        position: static;
+    }
+    .right .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 .8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+        display: flex;
+        justify-content: right;
+    }
+    
+    .right .top .theme-toggler{
+        display: none;
+    }
+
+    .right .top button{
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+    .right .top button span{
+        font-size: 2rem;
+    }
+
+    /* Unique  */
+
+    .searchBar input[type="search"] {
+        width: 70vw;
+    }
+
+    main .toolbar button {
+        margin: .5rem 3rem;
+    }
+
+    main .insight > div {
+        min-height: 13rem;
+        max-height: 20rem;
+    }
+
+    /* maintenance popup */
+
+    .popupview {
+        width: 95%;
+        top: 52%;
+        padding: 1rem;
+        min-height: 63vh;
+    }
+
+    .content >div {
+        display: flex;
+        grid-template-columns: 2rem auto;
+        gap: 2rem;
+        width: 100%;
+    }
+    .content h3 {
+        display: none;
+    }
+
+    .content>div h2{
+        font-size: 1rem;
+    }
+    button{
+        font-size: 1rem !important;
+    }
+    .closebtn {
+        font-size: 2.5rem !important;
+    }
+    form .itemDetails >.input-box:first-child {
+        width: 50vw;
+    }
+
+    form .itemDetails .middleInput {
+        display: block;
+    }
+    /* form .middleInput {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form .middleInput .input-box {
+        width: 26rem;
+    } */
+
+    form{
+        overflow-y: scroll;
+        width: 80vw;
+        height: 60vh;
+    }
+
+    .content form .button {
+        position: relative;
+        left: 48vw;
+    }
 }

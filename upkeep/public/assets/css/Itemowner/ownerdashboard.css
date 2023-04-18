@@ -90,7 +90,7 @@ aside .sidebar .message-count {
 
 main{
     margin-top: 4.4rem;
-    max-height: 97vh;
+    max-height: 91.7vh;
     overflow-y: scroll;
 }
 main h1{
@@ -136,7 +136,6 @@ main .insight >.mainDisplay2{
     transition: all 300ms ease;
 }
 main .insight >.mainDisplay3{
-    margin-left: 23px;
     animation: wave 2s ease-in-out 1s infinite;
     animation-fill-mode: backwards;
 }
@@ -205,7 +204,7 @@ main .upMaintenceList h2{
     font-size: 1.2rem;
 }
 
-main .maintenceBoxes {
+main .maintenceBoxes,.overduemaintenceBoxes {
     display: flex;
     gap: 1rem;
     margin: 1rem 1rem;
@@ -419,7 +418,7 @@ main .Suggection a{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(179, 180, 189, 0.5);
+    background-color: rgba(30,41,51,.45);
     backdrop-filter: blur(3px);
     z-index: 5;
 }
@@ -439,7 +438,7 @@ main .Suggection a{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    height: 60vh;
+    /* height: 60vh; */
 }
 .content {
     display: flex;
@@ -487,13 +486,11 @@ main .Suggection a{
     justify-content: center;
 }
 
-.action_btn button{
+.action_btn button ,#addMaintenancebtn{
     width: 8rem;
     height: 3rem;
     border-radius: 30px;
     transition: all 200ms ease;
-    background: linear-gradient(#0095D9,#00BEE4);
-    color: white;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -505,7 +502,7 @@ main .Suggection a{
     color: rgb(29, 247, 29);
 }
 
-.action_btn button:nth-child(3){
+.action_btn button:qnth-child(3){
     border: 1px solid var(--color-danger);
     background: none;
     color: var(--color-danger);
@@ -514,6 +511,50 @@ main .Suggection a{
 .action_btn button:hover{
     transform: scale(1.1);
 }
+.completebtn{
+    display: inline-block;
+    position: relative;
+    left: 55%;
+}
+.action_btn>.cancelbtn{
+    display: inline-block;
+    position: absolute;
+    left: 76%;
+    bottom: 15%;
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+
+}
+.deletebtn{
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+}
+.confirmbtn{ 
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;
+    transition: all 200ms ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+
+}
+.completeTaskbtn{
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;
+    transition: all 200ms ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(#0095D9,#00BEE4);
+    color: white;
+}
+
 
 /* calender CSS*/
 
@@ -607,4 +648,250 @@ background: #05B2E9;;
 }
 .days li:not(.active):hover::before{
 background: #f2f2f2;
+}
+
+
+/* form css */
+form .input-box{
+    margin-bottom: 15px;
+    width: 18rem;
+}
+.input-box select{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: black;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+}
+
+
+form .middleInput{
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+}
+
+form .middleInput .input-box{
+    width: 14rem;
+}
+
+form .middleInput select{
+    width: 20%;
+}
+
+.input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+    font-family: 'Poppins';
+    font-weight: 300;
+}
+
+.input-box input:focus,
+.input-box input:valid{
+    /* change */
+    border-color: #9b59b6;
+    font-size: 1.1rem;
+}
+
+
+/*................ Media query................*/
+@media screen and (max-width: 1200px) {
+    .container{
+        width: 94%;
+        grid-template-columns: 7rem auto 20rem;
+    }
+
+    aside .logo img:nth-child(2){
+        display: none;
+    }
+
+    aside h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.5rem;
+    }
+    main .insight {
+        flex-wrap: wrap;
+    }
+
+    .cal {
+        width: 267px;
+        height: 286px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgb(0 0 0 / 12%);
+        font-size: 14px;
+        margin-top: 1rem;
+    }
+
+    thead tr th:nth-child(5){
+        display: none;
+    }
+
+    tbody tr td:nth-child(5){
+        display: none;
+    }
+}
+
+/*................ Media query................*/
+@media screen and (max-width: 768px) {
+    .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns:1fr;
+    }
+    main .insight {
+        display: block;
+    }
+
+    aside{
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu{
+        to{
+            left: 0;
+        }
+    }
+
+    aside .logo img:nth-child(2){
+        display: inline;
+    }
+
+    aside h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        bottom: 3rem;
+    }
+
+    .right{
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+    .right .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 .8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+        display: flex;
+        justify-content: right;
+    }
+    
+    .right .top .theme-toggler{
+        display: none;
+    }
+
+    .right .top button{
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+    .right .top button span{
+        font-size: 2rem;
+    }
+
+
+    /* Unique */
+
+    main .upMaintenceList h2 {
+        text-align: center;
+    }
+
+    main .Suggection h2 {
+        text-align: center;
+    }
+
+    /* maintenance popup */
+
+    .popupview {
+        width: 95%;
+    }
+
+    .content >div {
+        display: flex;
+        grid-template-columns: 2rem auto;
+        gap: 2rem;
+        width: 100%;
+    }
+    .content h3 {
+        display: none;
+    }
+
+    .content>div h2{
+        font-size: 1rem;
+    }
+    button{
+        font-size: 1rem !important;
+    }
+    .closebtn {
+        font-size: 2.5rem !important;
+    }
+    
+    form .middleInput {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form .middleInput .input-box {
+        width: 26rem;
+    }
+
+    .completeTaskbtn {
+        position: relative;
+        right: 70%;
+        bottom: 1rem;
+    }
+    .action_btn>.cancelbtn {
+        left: 66%;
+    }
 }

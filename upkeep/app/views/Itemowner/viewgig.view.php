@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Itemowner/gig.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Itemowner/viewgig.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
 
@@ -82,26 +82,7 @@
         <main>
             <div class="top">
                 <h1>GIGS</h1>
-                <div class="right">
-                    <button id="menu-btn">
-                        <span class="material-icons-sharp">menu</span>
-                    </button>
-
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
-                    </div>
-
-                    <div class="profile">
-                        <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">Technician</small>
-                        </div>
-                        <div class="profile-photo">
-                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="gig-container">
                 <div class="left">
@@ -199,113 +180,155 @@
                             </div>
                     </div>
                 </div>
-                <div class="right">
-                    <div class="profile-details">
-                            <div class="profile-img">
-                                <img src="<?=ROOT?>/assets/images/profile-2.jpg" alt="">
-                            </div>
-                            <div class="profile-text">
-                                <h2>Sahan Perera</h2>
-                                <?php if(empty($gig->rating)):?>
-                                    <p>No Reviews Yet</p> 
-                                <?php else:?>
-                                    <?php echo "Overall Rating: "?>
-                                        <?php for($i=0;$i<5;$i++):?>
-                                            <?php if((int)round($gig->rating)>$i):?>
-                                                <span class="fa fa-star checked"></span>
-                                            <?php else:?>
-                                                <span class="fa fa-star"></span>
-                                            <?php endif;?>
-                                        <?php endfor;?>
-                                    <?= "(".round($gig->rating,1).")"?>
-                                <?php endif;?>
-                            </div>
-                            <div class="other-details">
-                                <div>
-                                    <h4>Member Since:</h4>
-                                    <p>2020</p><br>
-                                    <h4>Experience:</h4>
-                                    <p>5 Years</p>
-                                </div>
-                                <div>
-                                    <h4>Location:</h4>
-                                    <p>Colombo</p><br>
-                                    <h4>Job Type:</h4>
-                                    <p>Workshop</p>
-                                </div>
-                            </div>
-                            <div class="description">
-                                <h4>Description:</h4>
-                                <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
-                            </div>
-                            <div class="actions">
-                                <a href="#" class="btn btn-primary">Hire Me</a>
-                            </div>
+                
+            </div>    
+        </main>
+
+        <div class="right">
+            <div class="heading">
+                <div class="top">
+                    <button id="menu-btn">
+                        <span class="material-icons-sharp">menu</span>
+                    </button>
+
+                    <div class="theme-toggler">
+                        <span class="material-icons-sharp active">light_mode</span>
+                        <span class="material-icons-sharp">dark_mode</span>
+                    </div>
+
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey,<b>Saman</b></p>
+                            <small class="text-muted">Technician</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+            <div class="profile-details">
+                    <div class="profile-img">
+                        <img src="<?=ROOT?>/assets/images/profile-2.jpg" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h2>Sahan Perera</h2>
+                        <?php if(empty($gig->rating)):?>
+                            <p>No Reviews Yet</p> 
+                        <?php else:?>
+                            <?php echo "Overall Rating: "?>
+                                <?php for($i=0;$i<5;$i++):?>
+                                    <?php if((int)round($gig->rating)>$i):?>
+                                        <span class="fa fa-star checked"></span>
+                                    <?php else:?>
+                                        <span class="fa fa-star"></span>
+                                    <?php endif;?>
+                                <?php endfor;?>
+                            <?= "(".round($gig->rating,1).")"?>
+                        <?php endif;?>
+                    </div>
+                    <div class="other-details">
+                        <div>
+                            <h4>Member Since:</h4>
+                            <p>2020</p><br>
+                            <h4>Experience:</h4>
+                            <p>5 Years</p>
+                        </div>
+                        <div>
+                            <h4>Location:</h4>
+                            <p>Colombo</p><br>
+                            <h4>Job Type:</h4>
+                            <p>Workshop</p>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <h4>Description:</h4>
+                        <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
+                    </div>
+                    <div class="actions">
+                        <a href="#" class="btn btn-primary hirebtn">Hire Me</a>
+                    </div>
+            </div>
+        </div>
         
 
     </div>
 
-    <div id="edit" class="overlay">
-        <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Edit Gig</h1>
-            </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
-                        <div class="inline">
-                            <div class="input-box inline">
-                                <span class="details">Choose Item</span>
-                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
-                                <select id="item" name="item">
-                                    <option value="<?=$gigDetails[0]->item?>"><?=$gigDetails[0]->item?></option>
-                                </select>
+    <div class="overlayview hidden"></div>
+
+    <div class="popupview popupview1 hidden">
+            <button class="closebtn">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" id="form_JobDetails">
+                <h2>Job Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="middleInput">
+
+                            <div class="input-box">
+                                <span class="details">Item Name</span>
+                                <select  name="item_name" id="itemname" required></select>
                             </div>
                             
-                            <div class="input-box inline">
-                                <span class="details">Location</span>
-                                <input type="text" name="location" id="location" required placeholder="Enter Description about item" value="<?=$gigDetails[0]->location?>">
+                            <div class="input-box">
+                                <span class="details">Item Id</span>
+                                <input type="text" name="item_id" id="itemid" required>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Description</span>
+                                <input type="text" name="description" id="" required placeholder="Enter Description">
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Job type</span>
+                                <select name="job_type" id="jobtype" ></select>
+                            </div>
+                        </div>   
+
+                        <div class="middlethree">
+                            <div class="input-box">
+                                <span class="details">Address</span>
+                                <input type="text" name="address" id="" required placeholder="Enter Location">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">District</span>
+                                <select  name="district" id="district"required ></select>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">City</span>
+                                <select  name="city" id="city" required ></select>
                             </div>
                         </div>
 
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) " value="<?=$gigDetails[0]->title?>">
+                        <div class="middleInput">
+                            <div class="input-box">
+                                <span class="details">Date</span>
+                                <input type="date" name="date" id="schedule_date"  placeholder="Enter Schedule Date">
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Time</span>
+                                <input type="time" name="time" id="schedule_time"  placeholder="Enter Schedule Time">
+                            </div>               
+                            <div class="input-box">
+                                <span class="details">Contact No</span>
+                                <input type="number" name="contact_no" id=""  placeholder="Enter Contact No">
+                            </div>
                         </div>
                         
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"><?=$gigDetails[0]->description?></textarea>
+                        <div onclick="submitPost()" class="button">
+                            <input type="button"  value="Post Job" id="nextBtn"> 
                         </div>
         
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling" value="<?=$gigDetails[0]->work_tags?>">
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Add Photo</span>
-                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Update">
                     </div>
                 </form>
-            <!-- </div> -->
-                
+
+            </div>
         </div>
-    </div>
-
-
-    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+    
+        <script src="<?= ROOT ?>/assets/js/Itemowner/viewgig.js"></script>
 
 </body>
 </html>

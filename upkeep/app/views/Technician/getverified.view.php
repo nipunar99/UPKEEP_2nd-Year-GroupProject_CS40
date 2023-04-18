@@ -9,7 +9,9 @@
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gig.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/multi.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/verifypage.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
@@ -80,7 +82,7 @@
                         <h1>Setup profile</h1>
                     </div>
                 </div>
-                <div class="button">
+                <div class="buttonContainer">
                     <a class="btn viewcommunity" href="<?=ROOT?>/technician/dashboard">View Community</a>
                     <a class="btn logout" href="<?=ROOT?>/Signout">Logout</a>
                 </div>
@@ -92,49 +94,141 @@
 
     </div>
 
-    <div id="edit" class="overlay">
-        <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Edit Gig</h1>
-            </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
+    <div id="addgig" class="overlay hidden"></div>
 
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) " value="<?=$gigDetails[0]->title?>">
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"><?=$gigDetails[0]->description?></textarea>
-                        </div>
-        
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling" value="<?=$gigDetails[0]->work_tags?>">
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Add Photo</span>
-                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Update">
-                    </div>
-                </form>
-            <!-- </div> -->
-                
+    <div class="popup hidden" id="otp_form">
+        <div class="middle">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <h1>Create Your Gig!</h1>
         </div>
-    </div>
+        <div class="form-container">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                    <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
+                    <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
+                    <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
+                </div>
+                <div class="step-label">
+                </div>
+            </div>  
+                <form id="otp_form">
+                <div class="step" id="step1">
+                    <h2>Basic details about Your service</h2>
+                    <label for="item">Select Items:</label>
+                        <select id="item" name="item">
+                            <option value="A/C">A/C</option>
+                            <option value="Refrigerator">Refrigerator</option>
+                            <option value="Washing Machine">Washing Machine</option>
+                            <option value="Gas Cooker">Gas Cooker</option>
+                        </select>
+                        
+                    <label for="location">Select Location:</label>
+                    <input type="text" name="location" id="location" required placeholder="Enter Locations that you can provide service">
+
+                    <label for="service_method">Select Service method:</label>
+                        <select id="service_method" name="service_method">
+                            <option value="Visits">Visits</option>
+                            <option value="Workshop">Workshop</option>
+                        </select>
+                    
+                    <label for="work_tags">Worktags::</label>
+                    <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+
+                    <div class="btn-container">
+                        <button class="next">Next</button>
+                    </div>
+                    </div>          
+                </form>
+
+        </div> 
+    </div>   
+
+    <!-- <div class="popup hidden" id="verification_request_form">
+        <div class="middle">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <h1>Create Your Gig!</h1>
+        </div>
+        <div class="form-container">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                    <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
+                    <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
+                    <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
+                </div>
+                <div class="step-label">
+                </div>
+            </div>  
+            <form id="verifyrequestform">
+                <div class="step" id="step1">
+                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>Your Selected image will be shown here!</h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button class="prev">Previous</button>
+                        <button class="submitBtn" id="submitBtn">Submit</button>
+                    </div>
+                </div>
+
+                <div class="step hideright" id="step2">
+                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>Your Selected image will be shown here!</h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button class="prev">Previous</button>
+                        <button class="submitBtn" id="submitBtn">Submit</button>
+                    </div>
+                </div>
+
+                <div class="step hideright" id="step3">
+                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>Your Selected image will be shown here!</h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button class="prev">Previous</button>
+                        <button class="submitBtn" id="submitBtn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>          
+    </div>     -->
+
+    
 
 
-    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/getVerified.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/multi.js"></script>
 
 </body>
 </html>
