@@ -32,8 +32,14 @@ Trait Model {
             $query .= $key . "!= :" . $key . " && ";
         }
 
+        //select * from users where user_role = :user_role 
+
+
         $query = trim($query, " && ");
         $query .= " limit $this->limit offset $this->offset"; // make the query
+
+        
+        echo $query;
 
         $data = array_merge($data,$data_not); // mearge data arrays to put the query function as parameter
         

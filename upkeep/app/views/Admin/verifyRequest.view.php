@@ -48,9 +48,9 @@
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/User">
+                <a href="<?=ROOT?>/Admin/UserTab">
                     <span class="material-icons-sharp">person</span>
                     <h3>User</h3>
                 </a>
@@ -161,7 +161,7 @@
                 </a>
                 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -182,7 +182,7 @@
 
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -203,7 +203,7 @@
 
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -224,7 +224,7 @@
 
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -243,27 +243,7 @@
                     </div>
                 </a>
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
-
-                            </div>
-                    </div>
-                </a>
-
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -283,7 +263,7 @@
                 </a>
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -303,26 +283,7 @@
                 </a>
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
-
-                            </div>
-                    </div>
-                </a>
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">
@@ -342,7 +303,46 @@
                 </a>
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);"">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
+                        <div class="photo-container" style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;">
+                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
+                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
+                            </div>
+                            <div class="details-container"style="text-align: center;">
+                                <h2>Rusith</h2>
+                                <p>Auto Mobile|Maharagama</p>
+                            </div>
+                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
+                                <p>rusith123rusith@gmail.com</p>
+                                <p>0702050912</p>
+
+                            </div>
+                    </div>
+                </a>
+                <a href="<?=ROOT?>/Admin/VerificationRequest">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
+                        <div class="photo-container" style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;">
+                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
+                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
+                            </div>
+                            <div class="details-container"style="text-align: center;">
+                                <h2>Rusith</h2>
+                                <p>Auto Mobile|Maharagama</p>
+                            </div>
+                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
+                                <p>rusith123rusith@gmail.com</p>
+                                <p>0702050912</p>
+
+                            </div>
+                    </div>
+                </a>
+
+                <a href="<?=ROOT?>/Admin/VerificationRequest">
+                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
                                     align-items: center;">

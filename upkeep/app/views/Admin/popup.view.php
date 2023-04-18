@@ -43,9 +43,9 @@
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/User">
+                <a href="<?=ROOT?>/Admin/UserTab">
                     <span class="material-icons-sharp">person</span>
                     <h3>User</h3>
                 </a>

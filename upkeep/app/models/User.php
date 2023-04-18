@@ -123,4 +123,42 @@ class User
         $user_name=$user_name.$n;
         return $user_name;
     }
+
+
+//Moderator functions
+    
+
+    public function getTotalUser(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $data['user_role1']='item_owner';
+        $data['user_role2']='technician';
+        $bb = $this->query($query2);
+
+        return $bb;
+
+
+
+    }
+
+    public function getVerifyTechnician(){
+        $query = "Select u.user_id, u.first_name, u.last_name, u.email, t.identity_verification from users u INNER JOIN technicians t ON u.user_id=t.user_id  Where user_role =:user_role";
+        $data['user_role']='technician';
+        $aa = $this->query($query,$data);
+        return $aa;
+    }
+
+    public function getBannedAcc(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT account_status, COUNT(account_status) AS count FROM moderators GROUP BY account_status";
+        $data['account_status']='banned';
+        
+        $cc = $this->query($query);
+
+        return $cc;
+
+
+
+    }
+
 }

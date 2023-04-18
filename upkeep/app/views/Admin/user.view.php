@@ -47,7 +47,7 @@
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
                 <a href="#" class="active">
                     <span class="material-icons-sharp">person</span>
@@ -81,178 +81,109 @@
         
 
         <main>
-            <div class="top">
-                <h1>USER</h1>
-                <div class="right">
-                    <button id="menu-btn">
-                        <span class="material-icons-sharp">menu</span>
-                    </button>
+            <div class="header">
+                <div class="left">
 
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="middle">
+                    <h1>Users</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
 
                     <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">Technician</small>
+                            <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
+                            <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="content">
+                <div class="action-bar">
+                    <div class="button-container">
+                        <div class="search-bar-container">
+                            <input type="text" placeholder="Search...">
+                            <button class="search-button">Search</button>
+                        </div>
+                        <button class="remove-button">Remove</button>
+                    </div>
+                </div>
 
-            <div class="table-header">
-                <div class="button-container">
-                    <button class="add-technician-button">Add New Technician</button>
-                    <div class="search-bar-container">
-                    <input type="text" placeholder="Search...">
-                    <button class="search-button">Search</button>
-                    </div>
-                    <div class="filter-container">
-                    <button class="filter-btn"><i class="fa fa-filter" style="margin-right:0.6rem;"></i>Filter</button>
-                    <select>
-                        <option value="">\/</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                    
-                    </div>
-                    <button class="remove-button">Remove</button>
+                <div class="table-container">
+                    <table class="technician-table">
+                        <thead>
+                            <tr>
+                            <th>User_ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>identity_verification</th>
+                            <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for($i=0;$i<count($technician);$i++):?>
+                                <tr>                                         
+                                    <td><?=$technician[$i]->first_name." ".$technician[$i]->last_name ?></td>
+                                    <td><?=$technician[$i]->user_id ?></td>
+                                    <td><?=$technician[$i]->email ?></td>
+                                    <td><?=$technician[$i]->identity_verification ?></td>
+                                    <td><button><span class="material-icons-sharp">person</span></buttom></td>
+                                </tr>
+                            <?php endfor;?>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-
-   
-
-        <table class="technician-table">
-        <thead>
-            <tr>
-            <th>Technician Name</th>
-            <th>Id</th>
-            <th>Type</th>
-            <th>Age</th>
-            <th>Gender</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>John Doe</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>John Doe</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-            <tr>
-            <td><div class="profile-container">
-                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Technician profile picture">
-                <span>Rusith Siriwardhana</span>
-                </div>
-            </td>
-            <td>T001</td>
-            <td>A/C repair</td>
-            <td>53</td>
-            <td>Male</td>
-            </tr>
-        </tbody>
-        </table>
 
 
             
@@ -269,6 +200,39 @@
         <!-- </div> -->
         </main>
     </div>
+
+    <div class="popupview hidden">
+            
+            <button class="closebtn">&times;</button>
+            
+            <div class="popup-text">
+                <h1>Reject</h1>
+                
+                <div class="grid-container-1">
+                    <h3>select Reason</h3>
+                
+                    <div class="item-1">
+                        <p>My name is rusith siriwardhana</p>
+                        
+                       
+                            
+                            
+                    </div>
+
+            </div>
+                
+                
+                
+                
+                
+            </div>
+            
+        </div>
+
+
+        <div class="overlayview hidden"></div>
+    </div>
+    <script src="<?= ROOT ?>/assets/js/Admin/reject.js"></script>
 
     
 

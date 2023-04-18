@@ -8,7 +8,9 @@ class Complaints{
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
             redirect('/Home');
         }else{
-            $this->view('Admin/complaints');
+            $complaint = new Complaint;
+            $complaint->getAllComplaints();
+            $this->view('Admin/complaints',$data);
         }    
     }
         

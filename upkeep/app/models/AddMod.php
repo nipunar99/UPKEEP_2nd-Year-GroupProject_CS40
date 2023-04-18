@@ -20,6 +20,8 @@ protected $allowedColumns = [
 
     
 ];
+
+
 public function validate($data){
     $this->errors =[];
     
@@ -43,5 +45,16 @@ public function getUserByEmail($email){
         return false;
     }
 }
+
+function get_table_data() {
+    // Connect to the database 
+    $conn = new mysqli("localhost", "", "", "upkeep"); 
+    // Query the database 
+    $result = $conn->query("SELECT * FROM moderators"); 
+    // Close the connection 
+    $conn->close(); 
+    // Return the result
+    return $result;
+   }
 
 }

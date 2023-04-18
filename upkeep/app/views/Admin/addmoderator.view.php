@@ -44,9 +44,9 @@
 
                 <a href="#" class="active">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/User">
+                <a href="<?=ROOT?>/Admin/UserTab">
                     <span class="material-icons-sharp">person</span>
                     <h3>User</h3>
                 </a>
@@ -65,21 +65,6 @@
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
-
-                
-                
-
-                
-                
-
-<!-- 
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
-                    <span class="message-count">11</span>
-                </a> -->
-
-                
 
                 <a href="#">
                     <span class="material-icons-sharp">logout</span>
@@ -123,61 +108,61 @@
             
 
             <div class="insight">
-                <div style="background-color:#41f1b6;border-radius:50px;width:85%;height:65%;">
-                <form method="post" action="#">
-                    <div class="itemDetails" style="margin-top:1rem;">
-                        <div class="topInput" style="display:flex;gap:4em;margin-left:4rem;margin-top:1rem;">
-                            
-                            <div class="input-box">
-                                <span class="details">First Name</span>
-                                <input type="text" name="first_name" id="" required placeholder="Enter First Name">
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Last Name</span>
-                                <input type="text" name="last_name" id="" required placeholder="Enter Last Name">
-                            </div>
-                            
-                        </div>
-        
-
-                        <div class="middleInput" style=margin-left:4rem;>
-                            <div class="input-box">
-                                <span class="details">Email</span>
-                                <input type="text" name="email" id="" required placeholder="Enter Email">
+                <div class="style">
+                    <form method="post" action="#">
+                        <div class="itemDetails" style="margin-top:1rem;">
+                            <div class="topInput" style="display:flex;gap:4em;margin-left:4rem;margin-top:1rem;">
+                                
+                                <div class="input-box">
+                                    <span class="details">First Name</span>
+                                    <input type="text" name="first_name" id="" required placeholder="Enter First Name">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Last Name</span>
+                                    <input type="text" name="last_name" id="" required placeholder="Enter Last Name">
+                                </div>
+                                
                             </div>
             
-                            <div class="input-box">
-                                <span class="details">NIC</span>
-                                <input type="text" name="nic" id="" required placeholder="Enter Nic">
-                            </div>
-            
-                            <div class="input-box">
-                                <span class="details">Password</span>
-                                <input type="text" name="password" id="" required placeholder="Enter Password">
-                            </div>
 
-                            <div class="input-box">
-                                <span class="details">Phone Number</span>
-                                <input type="text" name="mobile_no" id="" required placeholder="Phone Number">
-                            </div>
+                            <div class="middleInput" style=margin-left:4rem;>
+                                <div class="input-box">
+                                    <span class="details">Email</span>
+                                    <input type="text" name="email" id="" required placeholder="Enter Email">
+                                </div>
+                
+                                <div class="input-box">
+                                    <span class="details">NIC</span>
+                                    <input type="text" name="nic" id="" required placeholder="Enter Nic">
+                                </div>
+                
+                                <div class="input-box">
+                                    <span class="details">Password</span>
+                                    <input type="text" name="password" id="" required placeholder="Enter Password">
+                                </div>
 
-                            <div class="input-box">
-                                <span class="details">Address</span>
-                                <input type="text" name="address" id="" required placeholder="Address">
-                            </div>
+                                <div class="input-box">
+                                    <span class="details">Phone Number</span>
+                                    <input type="text" name="mobile_no" id="" required placeholder="Phone Number">
+                                </div>
 
-                        </div>
-                        
-                        <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">
-                            <div class="button" style="width: 10rem;">
-                            <!-- <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
+                                <div class="input-box">
+                                    <span class="details">Address</span>
+                                    <input type="text" name="address" id="" required placeholder="Address">
+                                </div>
+
+                            </div>
                             
-                                <input type="submit" value="Add Moderator"> 
-                             
-                            </div>
-                        </a>
-                    </div>
-                </form>
+                            <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">
+                                <div class="button" style="width: 10rem;">
+                                <!-- <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
+                                
+                                    <input type="submit" value="Add Moderator"> 
+                                
+                                </div>
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </main> 

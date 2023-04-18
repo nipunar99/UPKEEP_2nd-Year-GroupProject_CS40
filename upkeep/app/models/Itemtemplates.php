@@ -37,7 +37,27 @@ class Itemtemplates
         //     }        
             // $sql = "select * from `itemtemplate` where id=:id";
         // }  
-}
+
+    public function getApprovedItems(){
+        $query2 ="SELECT status, COUNT(status) AS count FROM itemtemplate GROUP BY status";
+        $data['status1']='Approved';
+        // $query = "SELECT * FROM itemtemplate WHERE status =:status";
+        $data['status2']='Pending';
+        return $this->query($query2);
+
+
+
+
+    }
+
+
+
+
+
+
+
+    }
+
 
           
         

@@ -42,7 +42,7 @@
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
                 <a href="#" class="active">
                     <span class="material-icons-sharp">person</span>

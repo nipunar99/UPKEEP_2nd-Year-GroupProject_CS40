@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/admindashboard.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/modifyform.css">
 </head>
 
 <body>
@@ -44,9 +45,9 @@
 
                 <a href="<?= ROOT ?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/User">
+                <a href="<?=ROOT?>/Admin/UserTab">
                     <span class="material-icons-sharp">person</span>
                     <h3>User</h3>
                 </a>
@@ -116,15 +117,15 @@
                         <div class="middle">
                             <div>
                                 <span class="material-icons-sharp">person</span>
-                                <h4>Item owners : 120 Acounts</h4>
+                                <h4>Item owners : <?=$user_counts[0]->count?> Acounts</h4>
                             </div>
                             <div>
                                 <span class="material-icons-sharp">manage_accounts</span>
-                                <h4>Technician : 120 Acounts</h4>
+                                <h4>Technician : <?=$user_counts[1]->count?> Acounts</h4>
                             </div>
                             <div class="maintenanceStatus">
                                 <span class="material-icons-sharp">person_off</span>
-                                <h4>Banned accounts : 10 Accounts</h4>
+                                <h4>Banned accounts : <?=$banned_users[1]->count?> Accounts</h4>
                             </div>
                         </div>
                         <button class="btn_action action1">See more</button>
@@ -136,11 +137,11 @@
                         <div class="middle">
                             <div>
                                 <span class="material-icons-sharp">construction</span>
-                                <h4>Total Items : 55 Items</h4>
+                                <h4>Total Items : <?=$item_counts[0]->count?> Items</h4>
                             </div>
                             <div class="maintenanceStatus">
                                 <span class="material-icons-sharp">construction</span>
-                                <h4>Pending templates : 11 Items</h4>
+                                <h4>Pending templates : <?=$item_counts[1]->count?> Items</h4>
                             </div>
                         </div>
                         <button class="btn_action action2">See more</button>
@@ -150,15 +151,15 @@
                         <div class="middle">
                             <div>
                                 <span class="material-icons-sharp">person</span>
-                                <h4>New Regestration : 65 Acounts</h4>
+                                <h4>New Registration :  Acounts</h4>
                             </div>
                             <div>
                                 <span class="material-icons-sharp">manage_accounts</span>
-                                <h4>Pending Approvals : 15 Acounts</h4>
+                                <h4>Pending Approvals :  Acounts</h4>
                             </div>
                             <div class="maintenanceStatus">
                                 <span class="material-icons-sharp">person_off</span>
-                                <h4>Rejected : 5 Accounts</h4>
+                                <h4>Rejected : Accounts</h4>
                             </div>
                         </div>
                         <button class="btn_action action1">See more</button>
@@ -169,71 +170,99 @@
             <div class="modarotorList">
                 <div>
                     <h2>Moderator's Profile details</h2>
-                    <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action1 addMode">Add Moderator</a>
+                    <a id="btn_mod" class="btn_action1 addMode">Add Moderator</a>
                     <!-- <button class="btn_action addMode">Add Moderator</button> -->
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr>
+                
+                
+                <table class="moderator-table">
+                    
+                    <tr>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
-                            <th>NIC</th>
+                            
                             <th>Phone Number</th>
                             <th>Address</th>
-                            <th>Delete</th>
-                        
-
-                            <form action="<?=ROOT?>/models/Admin/delete.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                <th> <input type="submit" name="delete" class="btn btn-danger" value="DELETE"> </th>
-                            </form>
-                        </tr> 
-
-                        <td>
-                                <form action="<?=ROOT?>/models/Admin/delete.php" method="POST">
-                                    <button type="submit" name="delete_student" value="<?=$row->id;?>" class="btn btn-danger">Delete</button>
-                                </form>
-                        </td>
-                       <?php
-                        $conn=mysqli_connect("localhost","root","","upkeep");
-                        $sql="SELECT * FROM moderators";
-                        $result=$conn->query($sql);
-                        
-                        if($result->num_rows>0)
-                            while($row=$result->fetch_assoc())
-                                echo "<tr><td>" .$row["first_name"] ."</td><td>" .$row["last_name"] ."</td><td>" .$row["email"] ."</td><td>" .$row["nic"] ."</td><td>" .$row["mobile_no"] ."</td><td>" .$row["address"] ."</td> </tr>"
                             
-                        
-                        /* else{
-                            echo "No Result";
-                        } */
-                       // $conn->close();
-                        ?>
-                    </thead>
-
-                    <!-- foreach ($table as $row) {
-                    echo "<tr id='row-{$row['nic']}'>";
-                    // echo "<td>" . $row["first_name"] . "</td>";
-                    // echo "<td>" . $row["last"] . "</td>";
-                    // echo "<td>" . $row["email"] . "</td>";
-                    // echo "<td>" . $row["mobile_no"] . "</td>";
-                    // echo "<td>" . $row["address"] . "</td>";
-                    //echo "<td><button class='remove-button' data-nic='{$row['nic']}'>Remove</button></td>";
-                    //echo "</tr>";} -->
-
-
-
-
-
-
+                    </tr>
+                    <?php for($i=0;$i<count($moderators);$i++):?>
+                        <tr>
+                            <td><?=$moderators[$i]->first_name ?></td>
+                            <td><?=$moderators[$i]->last_name ?></td>
+                            <td><?=$moderators[$i]->email ?></td>
+                            <td><?=$moderators[$i]->mobile_no ?></td>
+                            <td><?=$moderators[$i]->address ?></td>    
+                        </tr>
+                    <?php endfor;?>
                 </table>
             </div>
 
         </main>
         <!-- End of Main -->
+
+
+        <div class="overlay hidden" id="overlay"></div>
+        <div class="popup hidden" id="addmoderator">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Add Moderator</h1>
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>First Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>Last Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>NIC</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Adrress</label>
+                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
+                            <small class="error">&nbsperror</small>
+                        </div>
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Phone Number</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="btn-container">
+                            <button id="OTP-send">Add Moderator</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         
+        <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/dashboard.js"></script>
+
 
 </body>
 
 </html>
+
+
+

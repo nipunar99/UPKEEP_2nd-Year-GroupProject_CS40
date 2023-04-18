@@ -42,9 +42,9 @@
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/User">
+                <a href="<?=ROOT?>/Admin/UserTab">
                     <span class="material-icons-sharp">person</span>
                     <h3>User</h3>
                 </a>
@@ -75,30 +75,7 @@
         </aside>
 
         <main>
-            <!-- <div class="mainhead" style="gap:0rem;margin-left:3rem;">
-                
-                <h1>Complaints</h1>
-
-                <div class="heading" style="margin-right:-5rem;">
-                    <div class="tp" style ="display:flex;gap:1rem;">
-                        
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
-                        </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Saman</p>
-                                <!-- <small class="text-muted">User</small> -->
-                            <!-- </div>
-                            
-                        </div>
-                    </div>
-                </div> -->
-                
-            <!-- </div> --> 
+            
 
             <div class="mainhead">
                 
@@ -134,28 +111,27 @@
             
             <div class="summary">    
                 
-                <h2 style="margin-top:4rem;margin-bottom:2rem;">Gigs Complaints</h2>
-                <table style="border-radius:20px 20px 20px 20px;background-color:lightgrey">
+                <h2 >Gigs Complaints</h2>
+                <table class="table-1">
                     <thead>
                         <tr>
                             <th>Technician</th>
                             <th>Item Type</th>
                             <th>Description</th>
                             <th>Date</th>
-                            <td class="highlight">Number of Complaints</td>
-                                <style>
-                                .highlight {
-                                    color: red;
-                                }
-                                </style>
+                            <th class="highlight">Number of Complaints</th>
+
+
+                               
                             
                         </tr> 
+                        
                         <tr>
                             <td>Kasun</td>
                             <td>A/C</td>
                             <td>Harmful activities</td>
                             <td>2020/01/02</td>
-                            <td>25</td>
+                            <td class="highlight">25</td>
                             
                         </tr>
                         <tr>
@@ -163,14 +139,14 @@
                             <td>A/C</td>
                             <td>Harmful activities</td>
                             <td>2020/01/02</td>
-                            <td>25</td>
+                            <td class="highlight">25</td>
                         </tr>
                         <tr>
                             <td>Kasun</td>
                             <td>A/C</td>
                             <td>Harmful activities</td>
                             <td>2020/01/02</td>
-                            <td>25</td>
+                            <td class="highlight">25</td>
                         </tr>
                        
                     </thead>
@@ -179,25 +155,21 @@
                 </table>
             </div>
 
-            <div class="modarotorList" style="margin-top:1rem;">
+            <div class="modarotorList">
                 <div style="margin-bottom:2rem;">
                     <h2>Community Complaints</h2>
                     <!-- <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action addMode">Add Moderator</a> -->
                     <!-- <button class="btn_action addMode">Add Moderator</button> -->
                 </div>
-                <table style="border-radius:20px 20px 20px 20px;background-color:lightgrey;">
+                <table class="table-2">
                     <thead>
                         <tr>
                             <th>User</th>
                             <th>Post ID</th>
                             <th>Description</th>
                             <th>Date</th>
-                            <td class="highlight">Number of Complaints</td>
-                                <style>
-                                .highlight {
-                                    color: red;
-                                }
-                                </style>
+                            <th class="highlight">Number of Complaints</th>
+                                
 
                            
                         </tr> 
@@ -206,7 +178,7 @@
                             <td>001</td>
                             <td>not working properly</td>
                             <td>2020/01/02</td>
-                            <td>10</td>
+                            <td class="highlight">10</td>
 
 
 
@@ -217,7 +189,7 @@
                             <td>002</td>
                             <td>not working properly</td>
                             <td>2020/01/02</td>
-                            <td>20</td>
+                            <td class="highlight">20</td>
                             
                         </tr>
                         <tr>
@@ -225,7 +197,7 @@
                             <td>003</td>
                             <td>not working properly</td>
                             <td>2020/01/02</td>
-                            <td>20</td>
+                            <td class="highlight">20</td>
                         </tr>
                        
                     </thead>

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import "./Technician/popupform.css";
+@import "./Admin/addmoderator.css";
 /* Root variables */
 
 :root{
@@ -15,6 +17,9 @@
     --color-primary-variant:#111e88;
     --color-dark-variant: #677483;
     --color-background:#f6f6f9;
+    --color-button-gradient: linear-gradient(to right, rgba(0, 149, 217, 0.7), rgba(0, 190, 228, 0.5));
+	--color-button-gradient-hover: linear-gradient(to left, rgba(0, 149, 217, 0.7), rgba(0, 190, 228, 0.5));
+
 
     --card-border-radius: 1.5rem;
     --border-radius-1: 0.4rem;
@@ -388,17 +393,18 @@ main .modarotorList div button{
     width: 8rem;
 }
 
-main .modarotorList table{
+main .modarotorList .moderator-table{
     border-collapse: separate;
     border-spacing: 5px 10px;
     background: var(--color-white);
-    width:100%;
+    width:98%;
     height: 35vh;
-    border-radius: 30px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
     padding: var(--card-padding);
     text-align: center;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+     
 }
 th {
     background-color: #E0E0E0; /* medium gray */
@@ -407,10 +413,10 @@ th {
   }
 
   td {
-    background-color: #f0e8ba; /* medium gray */
+    background-color: #97a1a1; /* medium gray */
     color: #333;
     
-  }
+  } */
   
   
   
@@ -488,3 +494,47 @@ main .modarotorList a{
     --primary-color:#000106;
     --secondary-color:#fff;
 }
+
+main .moderator-table {
+    border-collapse: separate; /* Set border-collapse to separate to add border-spacing */
+    border-spacing: 0; /* Set border-spacing to 0 to remove default spacing */
+    width: 98%;
+    text-align: center;
+    margin-bottom: auto;
+    justify-content: center;
+    
+    
+  }
+  
+  .moderator-table th,
+  .moderator-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
+    color: #0d0d0f; /* Set font color to dark blue */
+  }
+  
+  .moderator-table th:first-child,
+  .moderator-table td:first-child {
+    border-top-left-radius: 10px; /* Add border radius to the top-left corner */
+    border-bottom-left-radius: 8px; /* Add border radius to the bottom-left corner */
+  }
+  
+  .moderator-table th:last-child,
+  .moderator-table td:last-child {
+    border-top-right-radius: 8px ; /* Add border radius to the top-right corner */
+    border-bottom-right-radius: 8px; /* Add border radius to the bottom-right corner */
+    
+  }
+  
+  .moderator-table th {
+    background-color: #6f50f8; /* Set background color of th to white */
+    color: rgb(8, 8, 17); /* Set font color of th to dark blue */
+    font-size:15px;
+  }
+  
+  
+
+  
+
+  

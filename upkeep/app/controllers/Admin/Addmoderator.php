@@ -35,6 +35,15 @@ class Addmoderator {
         }    
     
     }
+
+//     require_once 'localhost/upkeep/upkeep/app/models/AddMod.php';
+
+//     // Call the model function to retrieve the data
+//     $table_data = get_table_data();
+
+//     // Pass the data to the view
+//     require_once 'localhost/upkeep/upkeep/app/views/Admin/adminDashboard.view.php';
+// 
 }
 
 

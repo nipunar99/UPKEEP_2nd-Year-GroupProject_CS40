@@ -17,24 +17,6 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
 
 </head>
-<<<<<<< Updated upstream
-=======
-
-<body>
-    <div class="container">
-        <div class="top">
-            <div class="header-logo">
-                <a href="<?= ROOT ?>/technician/dashboard">
-                    <img src="<?= ROOT ?>/assets/images/headerlogo.png" alt="">
-                    <!-- <img src="<?= ROOT ?>/assets/images/title.png" alt=""> -->
-                </a>
-            </div>
-            <div></div>
-            <div class="right">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">menu</span>
-                </button>
->>>>>>> Stashed changes
 
 <body>
 
@@ -55,19 +37,11 @@
                 <div class="profile">
                     <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                     <div class="info">
-<<<<<<< Updated upstream
                         <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
                         <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
                     </div>
                     <div class="profile-photo">
                         <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
-=======
-                        <p>Hey,<b><?= $_SESSION['user_name'] ?></b></p>
-                        <small class="text-muted">Technician</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="<?= ROOT ?>/assets/images/user.png" alt="">
->>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
@@ -125,12 +99,7 @@
                     </div>
                 </div>
                 <div class="buttonContainer">
-<<<<<<< Updated upstream
                     <a href="#" id="skip"><h3 class="text-muted">Skip for Now!</h3><span class="material-icons-sharp text-muted">arrow_forward_ios</span></a>
-=======
-                    <a class="btn viewcommunity" href="<?= ROOT ?>/technician/dashboard">View Community</a>
-                    <a class="btn logout" href="<?= ROOT ?>/Signout">Logout</a>
->>>>>>> Stashed changes
                 </div>
 
             </div>
@@ -140,24 +109,16 @@
 
     </div>
 
-<<<<<<< Updated upstream
     <div class="overlay hidden" id="overlay"></div>
     <div class="popup hidden" id="contact-verification">
         <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
         <div class="content">
-=======
-    <div class="overlay"></div>
-<!--    <div class="popup-container hidden">-->
-        <div class="popup">
-            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
->>>>>>> Stashed changes
             <div class="middle">
                 <div class="image-container">
                     <img src="<?= ROOT ?>/assets/images/technicianUI/enter_mobile.jpg" alt="" class="close">
                 </div>
                 <h1>Contact Verification</h1><br>
                 <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
-<<<<<<< Updated upstream
                     <div class = "mobile-number-input" id="step1">
                         <p>Please enter your mobile number. We'll send an OTP (one-time password) to this number via SMS for verification</p><br>
 
@@ -221,74 +182,16 @@
             </div>
         </div>
     </div>
-=======
-                    <p>Please enter your mobile number. We'll send an OTP (one-time password) to this number via SMS for verification</p><br>
-
-                    <div class="input-field">
-                        <label>Enter Your Mobile Number</label>
-                        <div class="mnumber-box">
-                            <input class="country" type="text" id="country_code" name="country_code" value="+94" maxlength="4" size="8" readonly>
-                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" placeholder="712345678" pattern="[1-9]{1}[0-9]{8}" maxlength="9" size="9">
-                        </div>
-                        <small class="error">&nbsperror</small>
-                    </div>
-                    <div class="warning">
-                        <p class="warning" id="note">NOTE: The mobile number you enter here will be used as your default mobile number for future work.
-                        </p><br>
-                    </div>
-                    <br>
-                    <div class="btn-container">
-                        <button id="OTP-send">SEND OTP</button>
-                    </div>
-                </form>
-
-                <form class="mobile-verify hidden" id="mobile-otp" method="post" enctype="">
-                    <p>We have sent a One-Time Password (OTP) to your mobile device.
-                        Please enter the OTP in the field below to verify your identity and complete the process</p><br>
-
-                    <div class="input-field">
-                        <label>Enter the OTP</label>
-                        <div class="mnumber-box otp">
-                            <input type="text" class="otp-num" id="num1" value="" maxlength="1" size="1" pattern="[0-9]{1}" required>
-                            <input type="text" class="otp-num" id="num2" value="" maxlength="1" size="1" pattern="[0-9]{1}" required>
-                            <input type="text" class="otp-num" id="num3" value="" maxlength="1" size="1" pattern="[0-9]{1}" required>
-                            <input type="text" class="otp-num" id="num4" value="" maxlength="1" size="1" pattern="[0-9]{1}" required>
-                            <input type="text" class="otp-num" id="num5" value="" maxlength="1" size="1" pattern="[0-9]{1}" required>
-                            <input type="text" class="otp-num" id="num6" value="" maxlength="1" size="1" pattern="[0-9]{1}" required>
-                        </div>
-                        <small class>&nbsp</small>
-                    </div>
-
-                    <div class="warning">
-                        <p class="" id="note">Didn't Recieve the OTP? <a href="#">Resend OTP</a>
-                        </p><br>
-                    </div>
-                    <br>
-                    <div class="btn-container">
-                        <button class="disabled" id="OTP-verify">VERIFY</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-<!--    </div>-->
->>>>>>> Stashed changes
 
 
 
     <script>
-<<<<<<< Updated upstream
         console.log('hello');
         const ROOT = '<?= ROOT ?>';
         const technician_data = JSON.parse(<?= json_encode($technician) ?>);
         console.log(<?=$technician?>)
     </script>
     <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
-=======
-        const ROOT = '<?= ROOT ?>';
-    </script>
-    <script src="<?= ROOT ?>/assets/js/Technician/getVerified.js"></script>
->>>>>>> Stashed changes
     <script src="<?= ROOT ?>/assets/js/Technician/multi.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/getVerified.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/otp.js"></script>

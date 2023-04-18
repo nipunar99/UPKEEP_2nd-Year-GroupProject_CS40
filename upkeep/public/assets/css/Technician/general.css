@@ -100,7 +100,6 @@ small {
 	font-size: 0.75rem;
 }
 
-<<<<<<< Updated upstream
 .text-muted {
 	color: var(--color-info-dark);
 }
@@ -145,59 +144,6 @@ aside .top {
 	color: var(--color-danger);
 }
 
-=======
-.profile-photo {
-	width: 2.8rem;
-	height: 2.8rem;
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-.text-muted {
-	color: var(--color-info-dark);
-}
-
-p {
-	color: var(--color-dark-variant);
-	font-size: 0.8rem;
-}
-
-b {
-	color: var(--color-dark);
-}
-
-.primary {
-	color: var(--color-primary);
-}
-
-.danger {
-	color: var(--color-danger);
-}
-
-.success {
-	color: var(--color-success);
-}
-
-.warning {
-	color: var(--color-warning);
-}
-
-aside {
-	height: 100vh;
-}
-
-aside .top {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-top: 1.4rem;
-}
-
-.notification {
-	color: var(--color-danger);
-}
-
->>>>>>> Stashed changes
 aside .logo {
 	display: flex;
 	gap: 0.8rem;
@@ -341,7 +287,6 @@ main .top .right {
 	justify-content: center;
 }
 
-<<<<<<< Updated upstream
 
 
 main .top .profile {
@@ -504,32 +449,6 @@ input[type=number]::-webkit-outer-spin-button{
 	/*border-radius: var(--border-radius-2);*/
 	padding: 0.5rem;
 	vertical-align: middle;
-=======
-main .theme-toggler {
-	background: var(--color-light);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 1.6rem;
-	width: 4.2rem;
-	cursor: pointer;
-	border-radius: var(--border-radius-1);
-}
-
-main .theme-toggler span {
-	font-size: 1.2rem;
-	width: 50%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-main .theme-toggler span.active {
-	background: var(--color-primary);
-	color: white;
-	border-radius: var(--border-radius-1);
->>>>>>> Stashed changes
 }
 
 main .top .profile {

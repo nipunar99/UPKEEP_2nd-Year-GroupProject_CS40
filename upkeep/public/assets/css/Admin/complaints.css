@@ -309,6 +309,7 @@ main .summary{
 main .summary h2{
     color: #05B2E9;
     font-size: 1.2rem;
+    margin-top:4rem;margin-bottom:2rem;
 }
 
 main .summaryBoxes {
@@ -414,7 +415,7 @@ main .modarotorList h2{
 }
 
 main .modarotorList{
-    margin-top: -2rem;
+    margin-top: 1rem;
 }
 
 main .modarotorList h2{
@@ -433,24 +434,36 @@ main .modarotorList div button{
 main .modarotorList table{
     background: var(--color-white);
     width:100%;
-    border-radius: var(--card-border-radius);
+    
     padding: var(--card-padding);
     text-align: center;
     /* box-shadow: var(--box-shadow); */
     transition: all 300ms ease;
     height: 30vh;
     overflow-y: scroll;
+
+    border-radius:20px 20px 20px 20px;background-color:lightgrey;
 }
 main .summary table{
     background: var(--color-white);
     width:100%;
-    border-radius: var(--card-border-radius);
+    
     padding: var(--card-padding);
     text-align: center;
-    /* box-shadow: var(--box-shadow); */
+   
     transition: all 300ms ease;
     height:30vh;
+
+    border-radius:20px 20px 20px 20px;background-color:lightgrey
    
+}
+main .summary .table-1 .highlight{
+    color: red;
+
+}
+main .modarotorList .table-2 .highlight{
+    color: red;
+
 }
 
 main .modarotorList table:hover{

@@ -277,7 +277,7 @@ main .mainHeader{
     margin-left: 2rem;
     color: #05B2E9;
     font-weight: 100px;
-    font-size: 1.5rem;
+    font-size: x-large;
 }
 .pie-chart{
     display: flex;
@@ -463,12 +463,19 @@ main .mainHeader{
         rgb(23, 235, 15) 0);
 }
 .colored {
-    background-color: #f0261f;
-    border-radius: 80%;
+    background-color: #ee332c;
+    border-radius:1rem 1rem 1rem 1rem;
     text-emphasis-color: black;
   }
 .colorgreen{
-    background-color: limegreen;
-    border-radius: 150%;
+    background-color: rgb(56, 224, 56);
+    border-radius:1rem 1rem 1rem 1rem;
 }
   
+/* .table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}*/
+
+.table tbody tr:nth-child(even) {
+    background-color: #d8d5d5;
+} 

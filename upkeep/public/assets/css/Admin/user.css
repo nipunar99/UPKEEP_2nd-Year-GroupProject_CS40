@@ -1,33 +1,68 @@
+@import "./general.css";
+
+.container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15rem auto;
+}
+
+main{
+  height: 100%;
+  padding: 0;
+}
+
+main>.content{
+  height: calc(100% - 64px);
+}
+
+.action-bar{
+  height:64px;
+  padding: 1rem;
+}
+
+
+/* data table styles */
+.table-container{
+  margin: 0 1rem 0 1rem;
+  /* border: 1px solid; */
+  border-radius: var(--border-radius-2);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  height: calc(100% - 80px);
+}
+
+
 .technician-table {
     border-collapse: separate; /* Set border-collapse to separate to add border-spacing */
     border-spacing: 0; /* Set border-spacing to 0 to remove default spacing */
     width: 100%;
+    text-align: center;
+    margin-bottom: auto;
+    justify-content: center;
+    
+  }
+
+  tr:hover {
+    background-color: rgb(126, 99, 99);
   }
   
-  .technician-table th,
-  .technician-table td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
-    color: #1E3A8A; /* Set font color to dark blue */
-  }
   
-  .technician-table th:first-child,
-  .technician-table td:first-child {
-    border-top-left-radius: 8px; /* Add border radius to the top-left corner */
-    border-bottom-left-radius: 8px; /* Add border radius to the bottom-left corner */
-  }
+.technician-table th,
+.technician-table td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
+  color: #1E3A8A; /* Set font color to dark blue */
+}
   
-  .technician-table th:last-child,
-  .technician-table td:last-child {
-    border-top-right-radius: 8px; /* Add border radius to the top-right corner */
-    border-bottom-right-radius: 8px; /* Add border radius to the bottom-right corner */
-  }
+  
   
   .technician-table th {
+    height: 48px;
     background-color: #fff; /* Set background color of th to white */
-    color: #000000; /* Set font color of th to dark blue */
+    color: #ffffff; /* Set font color of th to dark blue */
     font-size:15px;
+    background-color: var(--color-primary);
   }
   
   .technician-table tbody tr:nth-child(odd) {
@@ -42,13 +77,7 @@
     border-bottom: none; /* Remove the border-bottom from the last row */
   }
 
-  
 
-  .table-header {
-    background-color: #fff;
-    padding: 16px;
-  }
-  
   .button-container {
     display: flex;
     align-items: center;
@@ -160,4 +189,14 @@
     font-weight: bold;
   }
   
+  /* .content{
+    box-shadow: 0rem 2rem 3rem rgba(132, 139, 200, 0.2);
+    border-radius: 30px;
+    transition: all 300ms ease;
+    width:100%;
+    height: 70vh;
+    margin-top: 2rem;
+    align-items: center;
+    /* background-color: lightgray; */
+  /* } */
   
