@@ -33,7 +33,6 @@
     padding: 0;
     outline: 0;
     text-decoration: none;
- //   appearance: none;
     border: 0;
     list-style: none;
     box-sizing: border-box;
@@ -252,7 +251,10 @@ main .mainHeader h1{
 }
 .itemDetails .input-box span{
     font-size: 1.2rem;
-    color: #B3B4BB;
+    color: #626266;
+}
+#name{
+    width: 50rem;
 }
 .input-box select{
     height: 40px;
@@ -295,14 +297,20 @@ form .itemDetails .middleInput{
     border-bottom-width: 2px;
     transition: all 300ms ease;
 }
-
+#img{
+    position: relative;
+    right: 2rem;
+}
 .itemDetails .input-box input:focus,
 .itemDetails .input-box input:valid{
     /* change */
     border-color: #9b59b6;
     font-size: 1.1rem;
 }
-
+.itemDetails .input-box #des_id textarea:valid {
+    border-color: #9b59b6;
+    font-size: 1.1rem;
+}
 form .button{
     position: relative;
     left: 45rem;
@@ -436,4 +444,22 @@ textarea{
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
+}
+#place{
+    width: 50rem;
+}
+#plc, #city{
+    height: 5rem;
+}
+#iframe{
+    
+    
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    padding-top: 3rem;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
 }

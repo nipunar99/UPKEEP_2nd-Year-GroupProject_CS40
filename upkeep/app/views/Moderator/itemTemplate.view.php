@@ -133,7 +133,7 @@
                         <table id="templateTable">
                             <thead>
 <tr>
-                               <th></th>
+                               <!-- <th></th> -->
                                 <th onclick="sortTable(0)">Item</th>
                                 <th class="category"  onclick="sortTable(1)">Item Type   </th>       
                                 <th  onclick="sortTable(2)" class="status">Status </th>
@@ -143,14 +143,14 @@
                             </thead>
                             <tbody class="details">       
                                         <tr>
-                                           <td><input type="checkbox" name="id" class="item_id"></td>
+                                           <!-- <td><input type="checkbox" name="id" class="item_id"></td> -->
                                             <td class="template_name">
                                                 <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
                                                 <div class="name">new</div>
                                             </td>
                                             <td>abc</td>
                                             <td id="status" class="primary">pending</td>
-                                            <td>btre </td>
+                                            <td class="des_color">btre </td>
                                             <td>
                                                 <div class="more">
                                                     <!-- <div class="view"><button onclick='passItemDetails("+i+")'><span class="material-icons-sharp">view_list</span></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div> -->

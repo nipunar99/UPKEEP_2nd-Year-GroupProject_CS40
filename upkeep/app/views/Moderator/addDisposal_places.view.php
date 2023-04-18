@@ -105,9 +105,9 @@
                     <div class="itemDetails">
                     <div class="topInput">
                       
-                        <div class="input-box">
+                        <div class="input-box" id="place">
                             <span class="details">Place Name</span>
-                            <input type="text" name="place_name" id="" required placeholder="Enter place Name">
+                            <input type="text" name="place_name" id="plc" required placeholder="Enter place Name">
                         </div>
 
  </div>
@@ -116,7 +116,7 @@
                             
                         <div class="input-box">
                                 <span class="details">City</span>
-                                <input type="text" name="city" id="" required placeholder="Enter city">
+                                <input type="text" name="city" id="city" required placeholder="Enter city">
                             </div>
                            
                           
@@ -126,7 +126,7 @@
 
                         <div class="input-box">
                             <span class="details">Iframe Link</span>
-                            <textarea rows="3" cols="100" name="iframe_link" id="" required placeholder="Enter iframe link"></textarea>
+                            <textarea rows="5" cols="100" name="iframe_link" id="iframe" required placeholder="Enter iframe link"></textarea>
                         </div>
 
 

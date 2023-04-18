@@ -1,7 +1,17 @@
+
 // Global varible for itemtemplate details
 var itemtemplateDetails = null;
 
+elements = document.getElementsByTagName("td")
+for (var i = elements.length; i--;) {
+  if (elements[i].innerHTML === "Pending") {
+   //  elements[i].style.color = "red";
+   elements[i].classList.add("danger");
 
+  }
+  if (elements[i].innerHTML === "Approved") {
+   //  elements[i].style.color = "green";  
+    elements[i].classList.add("success"); }}
 
 
 
@@ -76,7 +86,7 @@ function fun(id) {
     xhr.onload = function () {
       if (xhr.status === 200) {
         const res = xhr.responseText;
-        console.log(res);
+        console.log(id);
         // If the request was successful, delete the row from the table
         // row.parentNode.removeChild(row);
         // } else {
@@ -126,7 +136,7 @@ function ajax_getItems() {
         console.log(json.length);
         // html += "<tbody>";
         html += "<tr>";
-        html += "<td><input type='checkbox' name='id'></td>";
+        // html += "<td><input type='checkbox' name='id'></td>";
         html += "                <td class='template_name'>";
         html += "                     <div class='image'>";
         html += "<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/" + json[i].image + "'>";
@@ -148,7 +158,7 @@ function ajax_getItems() {
           html += "class = 'danger'>";
         }
         html += "" + json[i].status + "</td>";
-        html += "                        <td>" + json[i].description + "</td>";
+        html += "                        <td class='des_color'>" + json[i].description + "</td>";
         html += "                       <td>";
         html += " <div class='more'>  ";
         //                var id = encodeURIComponent(json[i].id);
@@ -272,8 +282,8 @@ dropdown.addEventListener("change", function() {
   
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
-    const status = row.getElementsByTagName("td")[3];
-    const itemType = row.getElementsByTagName("td")[2];
+    const status = row.getElementsByTagName("td")[2];
+    const itemType = row.getElementsByTagName("td")[1];
     
     if (status && itemType) {
       const statusValue = status.textContent || status.innerText;

@@ -107,7 +107,7 @@
                       
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" id="" required placeholder="Enter Item template Name">
+                            <input type="text" name="itemtemplate_name" id="name" required placeholder="Enter Item template Name">
                         </div>
 
  </div>
@@ -118,7 +118,7 @@
                                 <select name="status" id="status"></select>
                             </div>
 
-                            <div class="input-box">
+                            <div class="input-box" id="img">
                                 <span class="details">Image</span>
                                 <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
                             </div>
@@ -133,7 +133,7 @@
 
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
+                            <textarea rows="5" cols="100" name="description" id="des_id" required placeholder="Enter Description about item Template"></textarea>
                         </div>
 
 
