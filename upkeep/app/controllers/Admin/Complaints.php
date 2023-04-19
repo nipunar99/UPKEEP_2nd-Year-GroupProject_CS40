@@ -9,7 +9,9 @@ class Complaints{
             redirect('/Home');
         }else{
             $complaint = new Complaint;
-            $complaint->getAllComplaints();
+            $complaint_list = $complaint->getAllComplaints();
+            $data['complaints'] = $complaint_list;
+            //show($complaint_list);
             $this->view('Admin/complaints',$data);
         }    
     }

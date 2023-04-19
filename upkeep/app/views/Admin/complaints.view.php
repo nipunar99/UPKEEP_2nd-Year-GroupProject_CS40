@@ -104,106 +104,126 @@
                     </div>
                 </div>
             </div>
-            
 
             
-            
-            
-            <div class="summary">    
-                
-                <h2 >Gigs Complaints</h2>
-                <table class="table-1">
-                    <thead>
-                        <tr>
-                            <th>Technician</th>
-                            <th>Item Type</th>
-                            <th>Description</th>
-                            <th>Date</th>
-                            <th class="highlight">Number of Complaints</th>
-
-
-                               
-                            
-                        </tr> 
+            <div class="content">
+                <div class="action-bar">
+                    <div class="button-container">
+                        <div class="search-bar-container">
+                            <input type="text" placeholder="Search...">
+                            <button class="search-button"><span class="material-icons-sharp">search</span></button>
+                        </div>
                         
-                        <tr>
-                            <td>Kasun</td>
-                            <td>A/C</td>
-                            <td>Harmful activities</td>
-                            <td>2020/01/02</td>
-                            <td class="highlight">25</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Kasun</td>
-                            <td>A/C</td>
-                            <td>Harmful activities</td>
-                            <td>2020/01/02</td>
-                            <td class="highlight">25</td>
-                        </tr>
-                        <tr>
-                            <td>Kasun</td>
-                            <td>A/C</td>
-                            <td>Harmful activities</td>
-                            <td>2020/01/02</td>
-                            <td class="highlight">25</td>
-                        </tr>
-                       
-                    </thead>
-                    
-                   
-                </table>
-            </div>
+                        <!-- <button  ></button> -->
 
-            <div class="modarotorList">
-                <div style="margin-bottom:2rem;">
-                    <h2>Community Complaints</h2>
-                    <!-- <a href="<?=ROOT?>/Admin/Addmoderator" class="btn_action addMode">Add Moderator</a> -->
-                    <!-- <button class="btn_action addMode">Add Moderator</button> -->
+                    </div>
                 </div>
-                <table class="table-2">
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Post ID</th>
+
+                <div class="table-container">
+                    <table class="technician-table">
+                        <thead>
+                            <tr>
+                            
+                            <th>Complaint Id</th>
+                            <th>Post Id</th>
+                            <th>Complaint Type</th>
                             <th>Description</th>
-                            <th>Date</th>
-                            <th class="highlight">Number of Complaints</th>
-                                
-
+                            <th>Status</th>
+                            <th>Action</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
                            
-                        </tr> 
-                        <tr>
-                            <td>rusith</td>
-                            <td>001</td>
-                            <td>not working properly</td>
-                            <td>2020/01/02</td>
-                            <td class="highlight">10</td>
-
-
-
                             
-                        </tr>
-                        <tr>
-                            <td>rusith</td>
-                            <td>002</td>
-                            <td>not working properly</td>
-                            <td>2020/01/02</td>
-                            <td class="highlight">20</td>
+                            <tr>                                         
+                            <?php for($i=0;$i<count($complaints);$i++):?>
+                                <tr>                                         
+                                    <td><?=$complaints[$i]->complaint_id ?></td>
+                                    <td><?=$complaints[$i]->post_id ?></td>
+                                    <td><?=$complaints[$i]->complaint_type ?></td>
+                                    <td><?=$complaints[$i]->description ?></td>
+                                    <td><?=$complaints[$i]->status ?></td>
+                                    <td>
+                                        <div class="button_container1">
+                                            <button class="view-button">View</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                                    
+                                    
+                                </tr>
+                            <?php endfor;?>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td></td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="view-button">View</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                                
+                                
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td></td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="view-button">View</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                                
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td></td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="view-button">View</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                                        
+                                    
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td></td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="view-button">View</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                                        
+                                    
+                            </tr>
                             
-                        </tr>
-                        <tr>
-                            <td>rusith</td>
-                            <td>003</td>
-                            <td>not working properly</td>
-                            <td>2020/01/02</td>
-                            <td class="highlight">20</td>
-                        </tr>
-                       
-                    </thead>
-                    
-                   
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+
+            
+            
+       
             </div>
 
         </main>

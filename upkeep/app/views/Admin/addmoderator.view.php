@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet1" href="<?=ROOT?>/assets/css/Admin/admindashboard.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/modifyform.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/addmoderator.css">
+    
 </head>
 
 <body>
@@ -77,98 +79,205 @@
         </aside>
 
         <main>
-            <div class="mainhead">
-                
-                <h1>Add Moderator</h1>
+            
+            <div class="header">
+                <div class="left">
 
-                <div class="heading">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="middle">
+                    <h1>Administrative Users</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
+
+                    <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
+                            <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
                         </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
-                            </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
-                
-            
 
-            <div class="insight">
-                <div class="style">
-                    <form method="post" action="#">
-                        <div class="itemDetails" style="margin-top:1rem;">
-                            <div class="topInput" style="display:flex;gap:4em;margin-left:4rem;margin-top:1rem;">
-                                
-                                <div class="input-box">
-                                    <span class="details">First Name</span>
-                                    <input type="text" name="first_name" id="" required placeholder="Enter First Name">
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Last Name</span>
-                                    <input type="text" name="last_name" id="" required placeholder="Enter Last Name">
-                                </div>
-                                
-                            </div>
-            
-
-                            <div class="middleInput" style=margin-left:4rem;>
-                                <div class="input-box">
-                                    <span class="details">Email</span>
-                                    <input type="text" name="email" id="" required placeholder="Enter Email">
-                                </div>
-                
-                                <div class="input-box">
-                                    <span class="details">NIC</span>
-                                    <input type="text" name="nic" id="" required placeholder="Enter Nic">
-                                </div>
-                
-                                <div class="input-box">
-                                    <span class="details">Password</span>
-                                    <input type="text" name="password" id="" required placeholder="Enter Password">
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Phone Number</span>
-                                    <input type="text" name="mobile_no" id="" required placeholder="Phone Number">
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Address</span>
-                                    <input type="text" name="address" id="" required placeholder="Address">
-                                </div>
-
-                            </div>
-                            
-                            <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">
-                                <div class="button" style="width: 10rem;">
-                                <!-- <a href="<?=ROOT?> /Admin/Admindashboard" class="btn_action addMode">Add Moderator</a> -->
-                                
-                                    <input type="submit" value="Add Moderator"> 
-                                
-                                </div>
-                            </a>
+            <div class="content">
+                <div class="action-bar">
+                    <div class="button-container">
+                        <div class="search-bar-container">
+                            <input type="text" placeholder="Search...">
+                            <button class="search-button"><span class="material-icons-sharp">search</span></button>
                         </div>
-                    </form>
+                        <a class="add-button">Add Admin</a>
+                        <a id="btn_mod1" class="add-button">Add Moderator</a>
+                        <!-- <button  ></button> -->
+
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="technician-table">
+                        <thead>
+                            <tr>
+                            
+                            <th>Name</th>
+                            <th>User ID</th>
+                            <th>Email</th>
+                            <th>Registered Date</th>
+                            <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                            
+                            <tr>                                         
+                            <?php for($i=0;$i<count($admin);$i++):?>
+                                <tr>                                         
+                                    <td><?=$admin[$i]->first_name." ".$admin[$i]->last_name ?></td>
+                                    <td><?=$admin[$i]->user_id ?></td>
+                                    <td><?=$admin[$i]->email ?></td>
+                                    <td><?=$admin[$i]->registered_date ?></td>
+                                    <td>
+                                        <div class="button_container1">
+                                                <button class="edit-button">Edit</button> 
+                                                <button class="remove-button">Remove</button>
+                                            </div>
+                                        
+                                    </td>
+                                    
+                                </tr>
+                            <?php endfor;?>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="edit-button">Edit</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="edit-button">Edit</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="edit-button">Edit</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td>
+                                        <div class="button_container1">
+                                            <button class="edit-button">Edit</button> 
+                                            <button class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </main> 
 
-    </div>
+
+
+                
+            
+
+
+        </main>
+</div>
+        
+        
+        
+
     
+    <div class="overlay hidden" id="overlay"></div>
+        <div class="popup hidden" id="addmod">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Add Moderator</h1>
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>First Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>Last Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>NIC</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Adrress</label>
+                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
+                            <small class="error">&nbsperror</small>
+                        </div>
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Phone Number</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="btn-container">
+                            <button id="OTP-send">Add Moderator</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
     
+       
+        <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/adminusers.js"></script>  
+        
+
 </body>
 </html>

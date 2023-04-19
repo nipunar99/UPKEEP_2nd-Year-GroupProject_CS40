@@ -111,7 +111,7 @@
                     <div class="button-container">
                         <div class="search-bar-container">
                             <input type="text" placeholder="Search...">
-                            <button class="search-button">Search</button>
+                            <button class="search-button"><span class="material-icons-sharp">search</span></button>
                         </div>
                         <button class="remove-button">Remove</button>
                     </div>
@@ -121,8 +121,9 @@
                     <table class="technician-table">
                         <thead>
                             <tr>
-                            <th>User_ID</th>
+                            
                             <th>Name</th>
+                            <th>User ID</th>
                             <th>Email</th>
                             <th>identity_verification</th>
                             <th>Action</th>
@@ -135,7 +136,13 @@
                                     <td><?=$technician[$i]->user_id ?></td>
                                     <td><?=$technician[$i]->email ?></td>
                                     <td><?=$technician[$i]->identity_verification ?></td>
-                                    <td><button><span class="material-icons-sharp">person</span></buttom></td>
+                                    <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
+                                    
                                 </tr>
                             <?php endfor;?>
                             <tr>                                         
@@ -143,42 +150,85 @@
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
                             </tr>
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
                             </tr>
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
                             </tr>
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
                             </tr>
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
+                                
                             </tr>
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
                             </tr>
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
+                                <td>
+                                        <div class="button_container">
+                                            <button><span class="material-icons-sharp">person</span></button> 
+                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        </div>
+                                    </td>
                             </tr>
                         </tbody>
                     </table>
@@ -201,38 +251,7 @@
         </main>
     </div>
 
-    <div class="popupview hidden">
-            
-            <button class="closebtn">&times;</button>
-            
-            <div class="popup-text">
-                <h1>Reject</h1>
-                
-                <div class="grid-container-1">
-                    <h3>select Reason</h3>
-                
-                    <div class="item-1">
-                        <p>My name is rusith siriwardhana</p>
-                        
-                       
-                            
-                            
-                    </div>
-
-            </div>
-                
-                
-                
-                
-                
-            </div>
-            
-        </div>
-
-
-        <div class="overlayview hidden"></div>
-    </div>
-    <script src="<?= ROOT ?>/assets/js/Admin/reject.js"></script>
+    
 
     
 

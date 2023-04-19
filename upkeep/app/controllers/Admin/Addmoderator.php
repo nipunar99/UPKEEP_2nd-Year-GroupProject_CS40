@@ -30,8 +30,12 @@ class Addmoderator {
         
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
             redirect('/Home');
-        }else{
-            $this->view('Admin/addmoderator');
+        }else
+            $admin = new User;
+            $admin_list = $admin->getAllAdmin();
+            $data['admin'] = $admin_list;
+            //show($admin_list);
+            $this->view('Admin/addmoderator',$data);
         }    
     
     }
@@ -44,7 +48,7 @@ class Addmoderator {
 //     // Pass the data to the view
 //     require_once 'localhost/upkeep/upkeep/app/views/Admin/adminDashboard.view.php';
 // 
-}
+
 
 
 

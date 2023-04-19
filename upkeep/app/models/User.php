@@ -161,4 +161,13 @@ class User
 
     }
 
+    public function getAllAdmin(){
+        
+        $query = "SELECT * FROM users WHERE user_role =:user_role or user_role =:user_role1";
+        $data['user_role']='admin';
+        $data['user_role1']='moderator';
+        $cc = $this->query($query,$data);
+        return $cc;
+    }
+
 }

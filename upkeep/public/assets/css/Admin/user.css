@@ -135,8 +135,9 @@ main>.content{
   
   .search-button {
     position: relative;
-    background-color: #0074D9;
+    background-color: lightgrey;
     color: #fff;
+    width: 40px;
     border-radius: 14px;
   }
   
@@ -200,3 +201,23 @@ main>.content{
     /* background-color: lightgray; */
   /* } */
   
+
+  /* table buttons */
+
+  .button_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0px;
+    border-radius: 5px;
+    
+  }
+  .favorite-icon{
+    color: red;
+  }
+
+  .search{
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }

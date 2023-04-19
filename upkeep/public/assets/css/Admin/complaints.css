@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import "./user.css";
 /* Root variables */
 
 :root{
@@ -600,3 +601,15 @@ main .summary .summaryBox .middle .guy{
 main .top .filter{
     width: 100px;
 }
+
+.view-button{
+    height: 28px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 14px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color:rgb(1, 150, 1);
+    color: #ffff;
+  }   
+        

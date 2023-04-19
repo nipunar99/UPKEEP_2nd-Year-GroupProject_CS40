@@ -6,6 +6,10 @@ class Complaint {
     protected $table = "complaints";
 
     public function getAllComplaints(){
-        echo "inside model function";
+        
+        $query = "SELECT * FROM complaints";
+        
+        $cc = $this->query($query);
+        return $cc;
     }
 };
