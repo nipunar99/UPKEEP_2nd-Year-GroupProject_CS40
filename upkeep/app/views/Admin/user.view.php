@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
+    <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha384-yacmIiZmY4ZpH4tA+8tbaThL5vi5r5pOuOvUV8X7VjQoC2Oaa/+GhBw8b7W1G6mv" crossorigin="anonymous">
@@ -118,6 +118,7 @@
                 </div>
 
                 <div class="table-container">
+                    
                     <table class="technician-table">
                         <thead>
                             <tr>
@@ -132,7 +133,12 @@
                         <tbody>
                             <?php for($i=0;$i<count($technician);$i++):?>
                                 <tr>                                         
-                                    <td><?=$technician[$i]->first_name." ".$technician[$i]->last_name ?></td>
+                                    <td>
+                                        <div class="profile">
+                                            <div class ="dp">
+                                            <img src="<?= ROOT ?>/assets/images/member-4.png"></div> <?=$technician[$i]->first_name." ".$technician[$i]->last_name ?></td>
+                                        </div>
+                                         
                                     <td><?=$technician[$i]->user_id ?></td>
                                     <td><?=$technician[$i]->email ?></td>
                                     <td><?=$technician[$i]->identity_verification ?></td>

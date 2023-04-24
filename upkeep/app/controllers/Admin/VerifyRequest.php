@@ -7,7 +7,11 @@ class VerifyRequest{
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
             redirect('/Home');
         }else{
-            $this->view('Admin/verifyRequest');
+
+            $tech = new VerifyTechnician;
+            $tech_list =$tech->getverifytech();
+            $data['technician'] = $tech_list; 
+            $this->view('Admin/verifyRequest',$data);
         }    
     }     
 }

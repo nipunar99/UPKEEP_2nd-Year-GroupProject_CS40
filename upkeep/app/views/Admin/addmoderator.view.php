@@ -9,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet1" href="<?=ROOT?>/assets/css/Admin/admindashboard.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/modifyform.css">
+    <!-- <link rel="stylesheet1" href="<?=ROOT?>/assets/css/Admin/admindashboard.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/addmoderator.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/modifyform.css">
+
     
 </head>
 
@@ -114,6 +115,7 @@
                         </div>
                         <a class="add-button">Add Admin</a>
                         <a id="btn_mod1" class="add-button">Add Moderator</a>
+                        <!-- <a id="btn_mod" class="btn_action1 addMode">Add Moderator</a> -->
                         <!-- <button  ></button> -->
 
                     </div>
@@ -143,8 +145,8 @@
                                     <td><?=$admin[$i]->registered_date ?></td>
                                     <td>
                                         <div class="button_container1">
-                                                <button class="edit-button">Edit</button> 
-                                                <button class="remove-button">Remove</button>
+                                                <button class="edit-button" id="edit_btn">Edit</button> 
+                                                <button class="remove-button" id="remove_btn">Remove</button>
                                             </div>
                                         
                                     </td>
@@ -273,9 +275,74 @@
             </div>
         </div>
         
+
+        <div class="popup hidden" id="editmod">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Edit Moderator</h1>
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>User Id</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Userid " >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>User Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter username" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>Contact</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter contact" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Change Password</label>
+                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter password" >
+                            <small class="error">&nbsperror</small>
+                        </div>
+
+                        
+                        <div class="btn-container">
+                            <button id="OTP-send">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup hidden" id="removemod">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Edit Moderator</h1>
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+ 
+                    
+
+
+                        
+                        <div class="btn-container">
+                            <button id="OTP-send">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     
        
-        <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/adminusers.js"></script>  
         
 

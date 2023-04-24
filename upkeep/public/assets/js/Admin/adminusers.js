@@ -10,3 +10,24 @@ addmod.addEventListener('click',function(e){
     console.log("hello");
 
 } )
+
+
+const edit = document.getElementById("edit_btn");
+
+
+edit.addEventListener('click',function(e){
+    e.preventDefault();
+    console.log("clicked");
+    openPopup("editmod");
+}
+)
+
+const remove = document.getElementById("remove_btn");
+
+
+remove.addEventListener('click',function(e){
+    e.preventDefault();
+    console.log("clicked");
+    openPopup("removemod");
+}
+)

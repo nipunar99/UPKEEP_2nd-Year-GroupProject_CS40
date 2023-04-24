@@ -141,6 +141,7 @@
             <div class="grid-container"style="height:10vh;grid-template-columns: 1fr 1fr 1fr 1fr;width:90%;">
                 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
+                <?php for($i=0;$i<count($technician);$i++):?>
                     <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
                         <div class="photo-container" style="display: flex;
                                     justify-content: center;
@@ -149,57 +150,22 @@
                                     src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
                             </div>
                             <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
+                                <h2><?=$technician[$i]->first_name ?></h2>
+                                <p><?=$technician[$i]->type ?>|<?=$technician[$i]->city ?></p>
                             </div>
                             <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
+                                <p><?=$technician[$i]->email ?></p>
+                                <p><?=$technician[$i]->mobile_no ?></p>
 
                             </div>
                     </div>
+                    <?php endfor;?>
                 </a>
                 
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
-
-                            </div>
-                    </div>
-                </a>
 
 
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
 
-                            </div>
-                    </div>
-                </a>
+
 
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
@@ -262,45 +228,9 @@
                     </div>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
 
-                            </div>
-                    </div>
-                </a>
 
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
 
-                            </div>
-                    </div>
-                </a>
 
                 <a href="<?=ROOT?>/Admin/VerificationRequest">
                     <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
@@ -341,25 +271,7 @@
                     </div>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item" style="background-color: rgb(248, 244, 244);height:35vh;border-radius:20px 20px 20px 20px;box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                        <div class="photo-container" style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                                <img style="width: 100px;height: 100px;border-radius: 50%;text-align: center;" 
-                                    src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            </div>
-                            <div class="details-container"style="text-align: center;">
-                                <h2>Rusith</h2>
-                                <p>Auto Mobile|Maharagama</p>
-                            </div>
-                            <div class="contact-details"style="margin-top:2rem;background-color:lightblue;border-radius:10px 10px 10px 10px;width:200px;">
-                                <p>rusith123rusith@gmail.com</p>
-                                <p>0702050912</p>
 
-                            </div>
-                    </div>
-                </a>
                         
                 
         

@@ -1,4 +1,5 @@
 @import "./general.css";
+@import './table.css';
 
 .container{
   width: 100%;
@@ -20,62 +21,6 @@ main>.content{
   padding: 1rem;
 }
 
-
-/* data table styles */
-.table-container{
-  margin: 0 1rem 0 1rem;
-  /* border: 1px solid; */
-  border-radius: var(--border-radius-2);
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
-  height: calc(100% - 80px);
-}
-
-
-.technician-table {
-    border-collapse: separate; /* Set border-collapse to separate to add border-spacing */
-    border-spacing: 0; /* Set border-spacing to 0 to remove default spacing */
-    width: 100%;
-    text-align: center;
-    margin-bottom: auto;
-    justify-content: center;
-    
-  }
-
-  tr:hover {
-    background-color: rgb(126, 99, 99);
-  }
-  
-  
-.technician-table th,
-.technician-table td {
-  padding: 8px;
-  text-align: center;
-  border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
-  color: #1E3A8A; /* Set font color to dark blue */
-}
-  
-  
-  
-  .technician-table th {
-    height: 48px;
-    background-color: #fff; /* Set background color of th to white */
-    color: #ffffff; /* Set font color of th to dark blue */
-    font-size:15px;
-    background-color: var(--color-primary);
-  }
-  
-  .technician-table tbody tr:nth-child(odd) {
-    background-color: #f2f2f2;
-  }
-  
-  .technician-table tbody tr:nth-child(even) {
-    background-color: #fff;
-  }
-  
-  .technician-table tbody tr:last-child td {
-    border-bottom: none; /* Remove the border-bottom from the last row */
-  }
 
 
   .button-container {
@@ -136,9 +81,10 @@ main>.content{
   .search-button {
     position: relative;
     background-color: lightgrey;
-    color: #fff;
-    width: 40px;
+    color:black;
+    width: 50px;
     border-radius: 14px;
+    
   }
   
   .search-button:hover {
@@ -220,4 +166,18 @@ main>.content{
     font-size: 24px;
     vertical-align: middle;
     margin-right: 10px;
+  }
+
+  .dp{
+    background-color: #000;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    
+  }
+  .profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
