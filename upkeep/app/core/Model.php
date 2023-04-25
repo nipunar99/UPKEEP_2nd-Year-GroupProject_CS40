@@ -79,6 +79,7 @@ Trait Model {
         return false;
 
     }
+
     public function delete($id, $id_column = "id"){
         
         $data[$id_column] = $id;

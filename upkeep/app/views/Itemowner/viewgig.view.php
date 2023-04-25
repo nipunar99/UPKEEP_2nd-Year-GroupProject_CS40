@@ -270,21 +270,25 @@
                             <div class="input-box">
                                 <span class="details">Item Name</span>
                                 <select  name="item_name" id="itemname" required></select>
+                                <small></small>
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Item Id</span>
                                 <input type="text" name="item_id" id="itemid" required>
+                                <small></small>
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Description</span>
                                 <input type="text" name="description" id="" required placeholder="Enter Description">
+                                <small></small>
                             </div>
 
                             <div class="input-box">
-                                <span class="details">Job type</span>
-                                <select name="job_type" id="jobtype" ></select>
+                                <span class="details">Delivary Method</span>
+                                <select name="delivary_method" id="delivarymethod" ></select>
+                                <small></small>
                             </div>
                         </div>   
 
@@ -292,14 +296,17 @@
                             <div class="input-box">
                                 <span class="details">Address</span>
                                 <input type="text" name="address" id="" required placeholder="Enter Location">
+                                <small></small>
                             </div>
                             <div class="input-box">
                                 <span class="details">District</span>
                                 <select  name="district" id="district"required ></select>
+                                <small></small>
                             </div>
                             <div class="input-box">
                                 <span class="details">City</span>
                                 <select  name="city" id="city" required ></select>
+                                <small></small>
                             </div>
                         </div>
 
@@ -307,14 +314,17 @@
                             <div class="input-box">
                                 <span class="details">Date</span>
                                 <input type="date" name="date" id="schedule_date"  placeholder="Enter Schedule Date">
+                                <small></small>
                             </div>
                             <div class="input-box">
                                 <span class="details">Time</span>
                                 <input type="time" name="time" id="schedule_time"  placeholder="Enter Schedule Time">
+                                <small></small>
                             </div>               
                             <div class="input-box">
                                 <span class="details">Contact No</span>
                                 <input type="number" name="contact_no" id=""  placeholder="Enter Contact No">
+                                <small></small>
                             </div>
                         </div>
                         

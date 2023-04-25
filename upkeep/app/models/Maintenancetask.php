@@ -32,7 +32,6 @@ class Maintenancetask {
                 try{
                     $data["item_id"] = $_SESSION['item_id'];
                     $data["image"] = $file_name;
-                    show($data);
                     $this->insert($data);
                 }
                 catch(PDOException $e){

@@ -15,4 +15,17 @@ class Statistic {
         
     }
 
+    public function display1Details(){
+        $task = new CompleteTask;
+        $costOfMonth = $task->getCostOfMonth();
+        $json = json_encode($costOfMonth);
+        echo($json);
+    }
+
+    public function display2Details(){
+        $task = new CompleteTask;
+        $costOfMonth = $task->getCostOfMonth();
+        $json = json_encode($costOfMonth);
+        echo($json);
+    }
 }

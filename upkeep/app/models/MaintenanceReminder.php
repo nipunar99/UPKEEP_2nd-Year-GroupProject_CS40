@@ -39,11 +39,11 @@ class MaintenanceReminder {
     }
     
     public function getAllItemReminders($user_id){
-        $query = "select r.item_id,r.reminder_id, r.description,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'ontime'";
+        $query = "select r.item_id,r.reminder_id, r.description, r.task_ID,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'ontime'";
         return $this->query($query);
     }
     public function getAllItemOverdueReminders($user_id){
-        $query = "select r.item_id,r.reminder_id, r.description,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'overdue'";
+        $query = "select r.item_id,r.reminder_id, r.description,r.task_ID,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'overdue'";
         return $this->query($query);
     }
 

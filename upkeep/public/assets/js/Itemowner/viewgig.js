@@ -39,7 +39,7 @@ document.getElementById("schedule_date").value = currentDate;
 
 // set value for job type select
 
-const jobtype = document.getElementById("jobtype");
+const jobtype = document.getElementById("delivarymethod");
 
 const values = ['home visit','Others'];
 
@@ -147,17 +147,18 @@ districtSelect.addEventListener('change', function() {
 
 //Get data form elements ..................................................................
 
-function submitPost(){
-    ajax_completeTask();
+function submitPost(e){
+    e.preventDefault();
+    ajax_submitPost();
 }
 
-function ajax_completeTask(){
+function ajax_submitPost(){
     const formCompleteDetails = document.getElementById("form_JobDetails");
 
     const form = new FormData(formCompleteDetails);
     form.append("action", "addJob");
     const xhr = new XMLHttpRequest();
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/addJob");
+    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/postJob");
 
     xhr.onload = function(){
         if(xhr.status == 200){

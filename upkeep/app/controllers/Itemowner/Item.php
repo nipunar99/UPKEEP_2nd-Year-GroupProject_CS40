@@ -20,13 +20,20 @@ public function index (){
                 unset($_POST['action']);
                 $item = new Owneritem;
                 $item->insertItem($_POST);
+            }else if(isset($_POST['action']) && $_POST['action']=="adddoc"){
+
+                show($_POST);
+                unset($_POST['action']);
+                $item = new ItemDoc;
+                $item->insertDocs();
             } 
             else {
                 $this->selectItem($_POST);
             }
         }
         else{
-            //show(result);
+            // show($_SESSION['item_id'][0]->id);
+
             $this->view('itemowner/item',$data);
         }
 
@@ -42,7 +49,6 @@ public function selectItem($arr){
     $items = new Owneritem;
     $result = $items->where($arr);
     $data['result'] = $result;
-    // show($data);
     $this->view('itemowner/viewitem',$data);
 
 }

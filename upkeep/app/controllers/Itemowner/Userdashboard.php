@@ -17,6 +17,7 @@ class Userdashboard {
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             if(isset($_POST['action']) && $_POST['action']=="completeTask"){
                 unset($_POST['action']);
+                show($_POST);
                 $task = new CompleteTask;
                 $task->insert($_POST);
             } 

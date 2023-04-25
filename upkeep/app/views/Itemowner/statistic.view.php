@@ -110,7 +110,7 @@
                         <div class="middle">
                             <span class="material-icons-sharp">attach_money</span>
                             <div class="left">
-                                <h3><span>Rs.</span><span>15500</span></h3>
+                                <h3 class="total_cost"></h3>
                             <h3>This month Maintenance Cost</h3>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
 
                     </div>
 
-                    <div class="mainDisplay1">
+                    <div class="mainDisplay4">
                         <div class="middle">
                             <span class="material-icons-sharp">task_alt</span>
                             <div class="left">
@@ -316,6 +316,9 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/statistic.js"></script>
 
 </body>

@@ -18,13 +18,26 @@ class ViewItem {
                 if(isset($_POST['action']) && $_POST['action']=="addReminder"){
 
                     unset($_POST['action']);
-                    show($_POST);
                     $reminder = new MaintenanceReminder;
                     $reminder->insertReminder($_POST);
                 }
                 if(isset($_POST['action']) && $_POST['action']=="addMaintenance"){
                     unset($_POST['action']);
-                    show($_POST);
+                    $_POST['rerun_date'] = $_POST['start_date'];
+
+                    $years = intval($_POST['years']);
+                    $months = intval($_POST['months']);
+                    $weeks = intval($_POST['weeks']);
+                    
+                    $start_date = new DateTime($_POST['rerun_date']);
+                    //'2023-04-20'
+                    show($start_date);
+                    // Add years, months, and weeks to the start date
+                    $start_date->add(new DateInterval('P' . $years . 'Y' . $months . 'M' . $weeks . 'W'));
+
+                    // Output the new date
+                    show ($start_date->format('Y-m-d'));
+
                     $reminder = new Maintenancetask;
                     $reminder->insertMaintenanceTask($_POST);
                 }
@@ -159,4 +172,49 @@ class ViewItem {
         
     }
 
+    public function loadDocumentaions(){
+        $arr = [];
+        $arr["item_id"] = $_SESSION['item_id'];
+        $itemdoc = new ItemDoc;
+        $result = $itemdoc->where($arr);
+        // show($result);
+        $json = json_encode($result);
+        echo($json);
+
+    }
+
+    public function addDocumentaions(){
+        show($_POST);
+        unset($_POST['action']);
+        $item = new ItemDoc;
+        $item->insertDocs($_POST);
+        
+    }
+
+    public function selectItem($arr){
+        $_SESSION['item_id'] = $arr['item_id'];
+        $data = [];
+        $items = new Owneritem;
+        $result = $items->where($arr);
+        $json = json_encode($result);
+        echo($json);
+    }
+
+    public function updateTask(){
+        $maintenanceTask = new Maintenancetask;
+        $id=$_POST['task_id'];
+        unset($_POST['task_id']);
+
+        $maintenanceTask->update($id,$_POST,"task_id");
+
+    }
+
+    public function deleteTask(){
+        $maintenanceTask = new Maintenancetask;
+        $id=$_POST['task_id'];
+        unset($_POST['task_id']);
+
+        $maintenanceTask->delete($id,"task_id");
+
+    }
 }

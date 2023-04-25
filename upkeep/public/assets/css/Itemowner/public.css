@@ -131,11 +131,11 @@ b{
 }
 
 .danger{
-    color:var(--color-danger);
+    color:var(--color-danger) !important;
 }
 
 .success{
-    color:var(--color-success);
+    color:var(--color-success) !important;
 }
 
 .warning{

@@ -1,3 +1,11 @@
+
+/////////////////////// Add maintenance form constraints...............
+
+document.addEventListener("DOMContentLoaded",function(){
+  display1details();
+});
+//////////////////////////////////////////////
+
 // Bar chart
 const ctx1 = document.getElementById('barChat');
 
@@ -76,3 +84,42 @@ new Chart(ctx2, {
     type: 'polarArea',
     data: data2,
   });
+
+
+function display1details(){
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("GET",""+ROOT+"/Itemowner/Statistic/display1Details");
+
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          console.log(json[0].total_cost);
+          var html = "";
+          html += "<span>Rs.</span><span >"+json[0].total_cost+"</span>";
+          document.querySelector(".total_cost").innerHTML = html;
+      }
+  }
+  xhr.send();
+
+}
+
+function display2details(){
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("GET",""+ROOT+"/Itemowner/Statistic/display1Details");
+
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          console.log(json[0].total_cost);
+          var html = "";
+          html += "<span>Rs.</span><span >"+json[0].total_cost+"</span>";
+          document.querySelector(".total_cost").innerHTML = html;
+      }
+  }
+  xhr.send();
+
+}

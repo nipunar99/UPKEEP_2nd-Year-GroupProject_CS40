@@ -355,12 +355,12 @@ main .insight > div{
     position: relative;
 }
 
-main .insight >.mainDisplay1{
+main .insight >.mainDisplay1 ,main .insight >.mainDisplay4 {
     box-shadow: 0 0.5rem 3rem #caffcf;
     transition: all 300ms ease;
 }
 
-.mainDisplay1 .middle>span , .mainDisplay2 .middle>span,.mainDisplay3 .middle>span{
+.mainDisplay1 .middle>span , .mainDisplay2 .middle>span,.mainDisplay3 .middle>span,.mainDisplay4 .middle>span{
     background: #A7FCA6;
     padding: 0.8rem;
     margin: 0.5rem 1rem 0 0;
@@ -380,6 +380,7 @@ main .insight > div.mainDisplay2 .middle>span{
 main .insight > div.mainDisplay3 .middle>span{
     background-color: #FCA6A6;
 }
+
 
 main .insight > div .middle{
     display: flex;

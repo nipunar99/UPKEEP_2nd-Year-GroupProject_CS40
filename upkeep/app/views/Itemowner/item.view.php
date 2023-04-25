@@ -133,17 +133,20 @@
                     <div class="itemDetails">
                         <div class="input-box">
                             <span class="details">Item Name</span>
-                            <input type="text" name="item_name" id="" required placeholder="Enter Item Name">
+                            <input type="text" name="item_name" id="item_name" required placeholder="Enter Item Name">
+                            <small></small>
                         </div>
                         
                         <div class="middleInput"> 
                             <div class="input-box">
                                 <span class="details">Item type</span>
                                 <select name="item_type" id="itemtype" ></select>
+                                <small></small>
                             </div>
                             <div class="input-box hidden" id="altertypeinput">
                                 <span class="details">Enter type</span>
-                                <input type="text" name="alter_type" id="" required placeholder="Enter Type">
+                                <input type="text" name="alter_type" id="alter_type" required placeholder="Enter Type">
+                                <small></small>
                             </div>
                         </div>
 
@@ -155,39 +158,47 @@
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Brand</span>
-                                <input type="text" name="brand" id="" required placeholder="Enter Brand">
+                                <input type="text" name="brand" id="brand" required placeholder="Enter Brand">
+                                <small></small>
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Model</span>
                                 <input type="text" name="model" id=""  placeholder="Enter Model">
+                                <small></small>
+
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Purchase Price(Rs.)</span>
-                                <input type="number" name="purchase_price" id=""  placeholder="Purchase Price">
+                                <input type="number" name="purchase_price" id="purchase_price"  placeholder="Purchase Price">
+                                <small></small>
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Description</span>
                                 <input type="text" name="description" id=""  placeholder="Enter Description about item">
+
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Purchase Date</span>
-                                <input type="date" name="purchase_date" id=""  placeholder="Enter Purchase Date">
+                                <input type="date" name="purchase_date" id="purchase_date"  placeholder="Enter Purchase Date">
+                                <small></small>
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Warrenty Date</span>
-                                <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
+                                <input type="date" name="warrenty_date" id="warrenty_date"  placeholder="Enter Warrenty Date">
+                                <small></small>
                             </div>
                         </div>
                         <div class="button">
                             <input type="submit" value="Next" id="nextBtn"> 
-                            <!-- itemDetails -->
                         </div>
-        
+                        <!-- <div onclick="addreminder()" class="button">
+                            <input type="button" value="Add a Maintenance" id="addReminderbtn"> 
+                        </div> -->
                     </div>
                 </form>
 
@@ -199,24 +210,28 @@
 
             <div class="content content2">
 
-                <!-- <form method="post" enctype="multipart/form-data" id=""> -->
+                <form method="post" enctype="multipart/form-data" id="form_docFiles">
                     
                     <div class="itemDetails">
                         <h2>Documentation</h2>
-                        <div class="middleInput">                            
+                        <div class="middleInput">  
+
                             <div class="input-box">
                                 <span class="details">Bill</span>
-                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                <input type="file" class = "imgInput billfile" name="bill_file" id=""  placeholder="Enter Bill file">
+                                <small></small>
                             </div>
 
                             <div class="input-box">
                                     <span class="details">Warrenty Card</span>
-                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                    <input type="file" class = "imgInput Warrentyfile" name="Warrenty_file" id=""  placeholder="Enter Warrenty file">
+                                    <small></small>
                             </div>
 
                             <div class="input-box">
                                     <span class="details">User Manual</span>
-                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                    <input type="file" class = "imgInput manualfile" name="manual_file" id=""  placeholder="Enter User Manual file">
+                                    <small></small>
                             </div>
                     </div>
 

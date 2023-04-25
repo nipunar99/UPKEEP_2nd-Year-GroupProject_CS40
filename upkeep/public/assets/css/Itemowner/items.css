@@ -793,6 +793,14 @@ form .itemDetails .middleInput{
     color: white;
 }
 
+.erroInput{
+    border-color: #ff7782 !important;
+}
+form small{
+    color:#ff7782;
+}
+
+
 /*................ Media query................*/
 @media screen and (max-width: 1200px) {
     .container{

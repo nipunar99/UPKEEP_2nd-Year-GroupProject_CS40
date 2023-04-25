@@ -37,6 +37,7 @@ function ajax_getAllReminders() {
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
+            console.log(json);
             var html="";
             var i= 0;
             for( i=0; i<json.length; i++){
@@ -66,7 +67,7 @@ function ajax_getAllReminders() {
                 html+= "        <div class='middleInput'>";
                 html+= "            <div class='input-box'>";
                 html+= "            <span class='details'>Summary of Maintenance</span>";
-                html+= "                <input type='text' name='task_description' id='' required  placeholder='Enter Summary'>";
+                html+= "                <input type='text' name='description' id='' required  placeholder='Enter Description'>";
                 html+= "            </div>";
                 html+= "            <div class='input-box'>";
                 html+= "                <span class='details'>Complete Date</span>";
@@ -74,8 +75,9 @@ function ajax_getAllReminders() {
                 html+= "            </div>";
                 html+= "            <div class='input-box'>";
                 html+= "                <span class='details'>Cost for Maintenance</span>";
-                html+= "                <input type='number' min='0' name='cost'  placeholder='Enter Brand'>";
+                html+= "                <input type='number' min='0' name='cost'  placeholder='Enter Maintenance Cost'>";
                 html+= "            </div>";
+                html+= "        <h2 id='taskID"+(i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2>";// GET TASK ID
                 html+= "        </div>";
                 html+= "        <div onclick='submitTask("+(i+1)+")' class='button completebtn'>";
                 html+= "            <input type='button' value='Done' class='completeTaskbtn confirmbtn action_btn'>";       
@@ -121,9 +123,11 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
                 html+= "<h2 id='itemid'style='display: none;'>"+json[i].item_id+"</h2></div>";
+                html+= "<h2 id='taskID"+(firstIndex+i+1)+" hidden'>"+json[i].task_ID+"</h2>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
+                html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
                 html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button class='deletebtn' id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
@@ -132,7 +136,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "        <div class='middleInput'>";
                 html+= "            <div class='input-box'>";
                 html+= "            <span class='details'>Summary of Maintenance</span>";
-                html+= "                <input type='text' name='task_description' id='' required  placeholder='Enter Summary'>";
+                html+= "                <input type='text' name='description' id='' required  placeholder='Enter description'>";
                 html+= "            </div>";
                 html+= "            <div class='input-box'>";
                 html+= "                <span class='details'>Complete Date</span>";
@@ -140,14 +144,14 @@ function ajax_getAllOverdueReminders() {
                 html+= "            </div>";
                 html+= "            <div class='input-box'>";
                 html+= "                <span class='details'>Cost for Maintenance</span>";
-                html+= "                <input type='number' min='0' name='cost'  placeholder='Enter Brand'>";
+                html+= "                <input type='number' min='0' name='cost'  placeholder='Enter Maintenance Cost'>";
                 html+= "            </div>";
                 html+= "        </div>";
                 html+= "        <div onclick='submitTask("+(firstIndex+i+1)+")' class='button completebtn'>";
                 html+= "            <input type='button' value='Done' class='completeTaskbtn'>";       
                 html+= "        </div>";
                 html+= "</form>";
-                html+= "<div class='action_btn'>";
+                html+= "<div class='action_btn'>";  
                 html+= "    <button onclick='cancelcompleteTask("+(firstIndex+i+1)+")' class='cancelbtn'>Cancel</button>";
                 html+= "</div> </div>";
                 html+= "</div>";
@@ -211,10 +215,14 @@ function submitTask(number){
 function ajax_completeTask() {
     const formCompleteDetails = document.getElementById("form_completeTask"+submintFormNum+"");
     const itemid = document.getElementById("itemid").innerHTML;
+    const taskId = document.getElementById("taskID"+submintFormNum+"").innerHTML;
+    console.log(taskId);
+
 
     const form = new FormData(formCompleteDetails);
     form.append("action", "completeTask");
     form.append("item_id", itemid);
+    form.append("task_ID", taskId);
     const xhr = new XMLHttpRequest();
     xhr.open("POST",""+ROOT+"/Itemowner/Userdashboard/completeTask");
 

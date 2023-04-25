@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/viewItem.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/itemdocs.css">
 </head>
 <body>
     <div class="container">
@@ -267,7 +268,7 @@
                 <div class="itembtnsection1">
                     
                     <button class="morebtn">More</button>
-                    <a href="<?= ROOT ?>/Itemowner/Documentation"><button class="docbtn" >Docs</button></a>
+                    <button class="docbtn" >Docs</button>
                     <button class="deletebtn">Delete</button>
                 </div>
 
@@ -306,7 +307,7 @@
             <div class="content content1">
 
                 <form method="post" enctype="multipart/form-data" id="form_reminderDetails">
-                <h2>Maintenance Details</h2>
+                    <h2>Maintenance Details</h2>
                     <div class="itemDetails">
                         
                         <div class="input-box">
@@ -352,17 +353,22 @@
                         
                         <div class="input-box">
                             <span class="details">Sub Component</span>
-                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
+                            <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
+                            <small></small>
+
                         </div>
                         
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <input type="text" name="description" id="" required placeholder="Enter description">
+                            <input type="text" name="description" id="description" required placeholder="Enter description">
+                            <small></small>
+
                         </div>
                         
                         <div class="input-box">
                             <span class="details">Sub Component Image</span>
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
+                            <input type="file" class = "imgInput" name="image" id="upfileimage"  placeholder="Enter Image">
+                            <small></small>
                         </div>
 
                         <h2>Time frame</h2>
@@ -371,25 +377,29 @@
                             
                             <div class="input-box">
                                 <span class="details">Yearly</span>
-                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
+                                <input type="number" name="years" id="years"  placeholder="Years">
+                                <small></small>
                             </div>
 
 
                             <div class="input-box">
                                 <span class="details">Monthly</span>
-                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
+                                <input type="number" name="months" id="months"  placeholder="Months">                                
+                                <small></small>
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Weekly</span>
-                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
+                                <input type="number" name="weeks" id="weeks"  placeholder="Weeks">                                
+                                <small></small>
                             </div>
             
                         </div>
                         
                         <div class="input-box">
                             <span class="details">Due date</span>
-                            <input type="date" name="start_date" id="start_date" required placeholder="Enter Brand">
+                            <input type="date" name="start_date" id="strt_date" required placeholder="Enter Brand">
+                            <small></small>
                         </div>
                         
                         <div class="button">
@@ -476,7 +486,7 @@
                     <tbody class="maintenanceListTbody"></tbody>
                 </table>
             </div>
-        
+            <div class="loadDivViews"></div>    
         </main>
 
         <main class="main3 hidden">
@@ -529,6 +539,177 @@
         
         </main>
 
+        <main class="main4 hidden">
+            <div class="date">
+                <p>14/11/2022</p>
+            </div>
+            
+            <button class="back3">Back</button>
+            <div class="insight1">
+                
+                <div class="item">
+
+                    <div class="itemImg">
+                        <img src="<?= ROOT ?>/assets/images/upload/GEO-266.png" alt="">
+                        <h2>
+                        GEO Inverter Refrigerator
+                        </h2>
+                        <h3>Singer</h3>
+                    </div>
+
+                    <div class="itemDetails">
+                        <div class="details">
+                            <div class="subDetails">
+                                <h3>Item Name</h3>
+                                <h4>Samsung WindFree AirConditioner</h4>
+                            </div>
+                            <div class="subDetails">
+                                <h3>Item Type</h3>
+                                <h4>Air Conditioner</h4>
+                            </div>
+                            <div class="subDetails">
+                                <h3>Brand</h3>
+                                <h4>Samsung</h4>
+                            </div>
+                            <div class="subDetails">
+                                <h3>Model</h3>
+                                <h4>M-3511</h4>
+                            </div>
+                            <div class="subDetails">
+                                <h3>Purches Price</h3>
+                                <h4>Rs.100000</h4>
+                            </div>
+                            <div class="subDetails">
+                                <h3>Warranty Date</h3>
+                                <h4>01/03/2024</h4>
+                            </div>
+                        </div>
+                        <div class="btnDetails">
+                            <button class="addItem editItem" onclick="updateItem()">Edit Item Details</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div >
+                    <h2>documentation</h2>
+                    <div class="documentation">
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Description</h2>
+                    <div class="description">
+                    </div>
+                </div>
+
+                <div class="popupview editItemform hidden">
+                    <button class="closeupdatebtn closebtn">&times;</button>
+
+                    <div class="content content1">
+
+                        <form method="post" enctype="multipart/form-data" id="form_itemDetails">
+                        <h2>Item Details</h2>
+                            <div class="itemDetails">
+                                <div class="input-box">
+                                    <span class="details">Item Name</span>
+                                    <input type="text" name="item_name" id="item_name" required placeholder="Enter Item Name">
+                                    <small></small>
+                                </div>
+
+                                <div class="input-box">
+                                        <span class="details">Image</span>
+                                        <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
+                                </div>
+                                
+                                <div class="middleInput">
+                                    <div class="input-box">
+                                        <span class="details">Brand</span>
+                                        <input type="text" name="brand" id="brand" required placeholder="Enter Brand">
+                                        <small></small>
+                                    </div>
+                    
+                                    <div class="input-box">
+                                        <span class="details">Model</span>
+                                        <input type="text" name="model" id=""  placeholder="Enter Model">
+                                        <small></small>
+
+                                    </div>
+                    
+                                    <div class="input-box">
+                                        <span class="details">Purchase Price(Rs.)</span>
+                                        <input type="number" name="purchase_price" id="purchase_price"  placeholder="Purchase Price">
+                                        <small></small>
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <span class="details">Description</span>
+                                        <input type="text" name="description" id=""  placeholder="Enter Description about item">
+
+                                    </div>
+
+                                    <div class="input-box">
+                                        <span class="details">Purchase Date</span>
+                                        <input type="date" name="purchase_date" id="purchase_date"  placeholder="Enter Purchase Date">
+                                        <small></small>
+                                    </div>
+
+                                    <div class="input-box">
+                                        <span class="details">Warrenty Date</span>
+                                        <input type="date" name="warrenty_date" id="warrenty_date"  placeholder="Enter Warrenty Date">
+                                        <small></small>
+                                    </div>
+                                </div>
+                                <div class="button" onclick="updateItem()">
+                                    <input type="submit" value="Update Details" id="UpdateDetails"> 
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="popupimage imgeView hidden" >
+                </div>
+
+            </div>
+
+        </main>
+
+        <div class="popupview addDocumentForm hidden" id="addMaitenanceFromPopup">
+            <button class="closedocbtn closebtn">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" enctype="multipart/form-data" id="form_documentDetails">
+                    <h2>Document Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="input-box">
+                            <span class="details">Document Name</span>
+                            <input type="text" name="document_name" id="document_name" required placeholder="Enter Document Name">
+                            <small></small>
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Document File</span>
+                            <input type="file" class = "imgInput" name="file_name" id="addDocfile"  placeholder="Enter Document File">
+                            <small></small>
+                        </div>
+
+                        </div>
+
+                        <div onclick="addDocument()" class="button">
+                            <input type="button" value="Add" id="addReminderbtn"> 
+                        </div>
+        
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        
     </div>
     <?php
         echo "<script> var ROOT = '".ROOT."'; </script>";
@@ -536,5 +717,6 @@
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewitem.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/sse.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/script.js"></script>
+    
 </body>
 </html>

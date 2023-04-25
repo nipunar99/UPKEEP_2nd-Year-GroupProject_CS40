@@ -39,13 +39,18 @@ class Owneritem {
                     }
                     show($data);
                     $this->insert($data);
+                    $_SESSION['item_id'] =$this->getLastID();
+                    
                 }
                 catch(PDOException $e){
                     echo $e->getMessage();
                 }
             }
         }
+        unset($_FILES);
+
     }
+    
 
     public function delete($id, $id_column = "item_id"){
         
@@ -61,5 +66,8 @@ class Owneritem {
         return $this->query($query);
     }
 
-    
+    public function getLastID(){
+        $query = "select MAX(item_id) as 'id' from items";
+        return $this->query($query);
+    }
 }
