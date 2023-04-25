@@ -1,5 +1,6 @@
 @import "general.css";
 @import "popupform.css";
+@import "multi.css";
 
 /* header of the page */
 
@@ -123,22 +124,77 @@ main .right .verification-methods .method-card h1{
     color: var(--color-dark);
 }
 
-main .right .verification-methods .method-card .step{
+main .right .verification-methods .method-card .method-step{
     border-bottom: 1px solid var(--color-info-light);
     width: 100%;
     padding: 0.5rem 0 0.5rem 0;
+    color: var(--color-dark)!important;
 }
 
 main .right .verification-methods .method-card .action{
     width: 100%;
     /*border-top: 1px solid var(--color-info-light);*/
-    padding-top: 0.5rem;
+    /*padding-top: 0.5rem;*/
 }
 
 main .right .verification-methods .method-card .action button{
     width: 100%;
     border-radius: 0;
 }
+
+main .right .verification-methods .method-card .action .status{
+    display: none;
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+
+/*method card state styles*/
+/*success*/
+main .right .verification-methods .method-card.success .icon{
+    background: var(--color-success);
+    color: var(--color-white);
+}
+
+main .right .verification-methods .method-card.success .action{
+    background: var(--color-success);
+    color: var(--color-white);
+}
+
+main .right .verification-methods .method-card.success .action button,
+main .right .verification-methods .method-card.pending .action button{
+    display: none;
+}
+
+main .right .verification-methods .method-card.success .action .status,
+main .right .verification-methods .method-card.pending .action .status{
+    display: block;
+}
+
+/*pending*/
+main .right .verification-methods .method-card.pending .icon{
+    background: var(--color-warning);
+    color: var(--color-white);
+}
+
+main .right .verification-methods .method-card.pending .action{
+    background: var(--color-warning);
+    color: var(--color-white);
+}
+
+main .right .verification-methods .method-card.success:hover,
+main .right .verification-methods .method-card.pending:hover,
+main .right .verification-methods .method-card.pending:hover .icon,
+main .right .verification-methods .method-card.success:hover .icon
+{
+    box-shadow:none;
+}
+
+
+
+
 
 .buttonContainer{
     display: flex;
@@ -158,7 +214,7 @@ a#skip{
 }
 
 a#skip::hover{
-    pointer: cursor;
+    cursor: pointer;;
     color: var(--color-info-dark);
 }
 
@@ -169,15 +225,14 @@ a#skip h3, a#skip span{
     align-items: center;
 }
 
-a#skip::hover h3, a#skip:hover span{
-    pointer: cursor;
+a#skip:hover h3, a#skip:hover span{
+    cursor: pointer;
     color: var(--color-info-dark);
 }
 
+
+
 /* button styles */
-
-
-
 main .right a.btn{
     background: var(--color-primary);
     color: var(--color-white);
@@ -227,3 +282,5 @@ main .right a.btn.logout{
  .number .input-box{
     display: inline-flex;
  }
+
+

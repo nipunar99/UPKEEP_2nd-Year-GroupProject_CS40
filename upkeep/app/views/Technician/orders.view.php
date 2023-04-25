@@ -17,99 +17,96 @@
 
 <body>
     <div class="container">
-        <aside>
-            <div class="top">
-                <script>
-                    console.log("Loaded")
-                </script>
-
-                <div class="logo">
-                    <img src=<?= ROOT . "/assets/images/logo.png" ?> alt="">
-                    <img src=<?= ROOT . "/assets/images/title.png" ?> alt="">
+        <aside class="close">
+            <div class="header nbs">
+                <div class="left">
                 </div>
-
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                    </span>
+                <div class="center">
+                    <div class="header-logo">
+                        <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                    </div>
                 </div>
-
+                <div class="right"></div>
             </div>
 
-            <div class="sidebar">
-                <a href="<?= ROOT ?>/Technician/Dashboard">
-                    <span class="material-icons-sharp">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
+            <div class="middle">
+                <div class="sidebar">
+                    <a href="<?=ROOT?>/Technician/Dashboard" >
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
 
-                <a href="<?= ROOT ?>/Technician/Findjobs">
-                    <span class="material-icons-sharp">work</span>
-                    <h3>Find Jobs</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Findjobs" >
+                        <span class="material-icons-sharp">work</span>
+                        <h3>Find Jobs</h3>
+                    </a>
 
-                <a href="<?= ROOT ?>/Technician/Orders" class="active">
-                    <span class="material-icons-sharp">list_alt</span>
-                    <h3>Orders</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Orders" class="active" >
+                        <span class="material-icons-sharp">list_alt</span>
+                        <h3>Orders</h3>
+                    </a>
 
-                <a href="<?= ROOT ?>/Technician/Gigs">
-                    <span class="material-icons-sharp">task</span>
-                    <h3>Gigs</h3>
-                </a>
-
-
-                <a href="<?= ROOT ?>/Community">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Gigs">
+                        <span class="material-icons-sharp">task</span>
+                        <h3>Gigs</h3>
+                    </a>
 
 
-                <a href="<?= ROOT ?>/Conversation">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Conversation</h3>
-                    <span class="message-count">11</span>
-                </a>
+                    <a href="<?=ROOT?>/Community">
+                        <span class="material-icons-sharp">forum</span>
+                        <h3>Community</h3>
+                    </a>
 
-                <a href="<?= ROOT ?>/Technician/Statistics">
-                    <span class="material-icons-sharp">analytics</span>
-                    <h3>Statistics</h3>
-                </a>
 
-                <a href=<?= ROOT . "/Signout" ?>>
+                    <a href="<?=ROOT?>/Coversation">
+                        <span class="material-icons-sharp">mail_outline</span>
+                        <h3>Conversation</h3>
+                    </a>
+
+                    <a href="<?=ROOT?>/Technician/Statistics">
+                        <span class="material-icons-sharp">analytics</span>
+                        <h3>Statistics</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
             </div>
 
+
         </aside>
 
         <main>
-            <div class="top">
-                <div>
+            <div class="header nbs">
+                <div class="left">
+
+                </div>
+                <div class="center">
                     <h1>My Orders</h1>
                 </div>
                 <div class="right">
-                    <button id="menu-btn">
-                        <span class="material-icons-sharp">menu</span>
-                    </button>
-
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
 
                     <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">Technician</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <div class="toolbar">
                 <div class="filter-search">

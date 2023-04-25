@@ -13,6 +13,23 @@ class User
         "password",
     ];
 
+    protected $validationRules = [
+
+        'email' => [
+            'email',
+            'unique',
+            'required',
+        ],
+        'username' => [
+            'alpha',
+            'required',
+        ],
+        'password' => [
+            'not_less_than_8_chars',
+            'required',
+        ],
+    ];
+
     public function validate($data){
         $this->errors =[];
         

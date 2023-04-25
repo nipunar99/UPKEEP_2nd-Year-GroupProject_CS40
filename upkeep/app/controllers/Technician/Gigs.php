@@ -8,17 +8,14 @@ class Gigs{
     public static $enter = 0;
 
     public function index(){
-
         $this->technicianAuth();
         $gigs = new Gig;
         $gigList = $gigs->getGigsOfTechnician($_SESSION["user_id"]);
         $data['gigList'] = $gigList;
         $this->view(('Technician/gigs'), $data);
-
     }
 
     public function addgig(){
-
         $gigs = new Gig;
         $gigs->createGig($_POST, $_SESSION["user_id"]);
 

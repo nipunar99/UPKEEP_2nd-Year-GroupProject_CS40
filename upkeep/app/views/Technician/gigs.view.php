@@ -15,90 +15,93 @@
 </head>
 <body>
     <div class="container">
-    <aside>
-            <div class="top">
-                <script>console.log("Loaded")</script>
-
-                <div class="logo">
-                    <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
-                    <img src=<?=ROOT."/assets/images/title.png"?> alt="">
+        <aside class="close">
+            <div class="header nbs">
+                <div class="left">
                 </div>
-
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                        </span>
+                <div class="center">
+                    <div class="header-logo">
+                        <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                    </div>
                 </div>
-
+                <div class="right"></div>
             </div>
 
-            <div class="sidebar">
-                <a href="<?=ROOT?>/Technician/Dashboard">
-                    <span class="material-icons-sharp">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
+            <div class="middle">
+                <div class="sidebar">
+                    <a href="<?=ROOT?>/Technician/Dashboard" >
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
 
-                <a href="<?=ROOT?>/Technician/Findjobs" >
-                    <span class="material-icons-sharp">work</span>
-                    <h3>Find Jobs</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Findjobs" >
+                        <span class="material-icons-sharp">work</span>
+                        <h3>Find Jobs</h3>
+                    </a>
 
-                <a href="<?=ROOT?>/Technician/Orders" >
-                    <span class="material-icons-sharp">list_alt</span>
-                    <h3>Orders</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Orders" >
+                        <span class="material-icons-sharp">list_alt</span>
+                        <h3>Orders</h3>
+                    </a>
 
-                <a href="<?=ROOT?>/Technician/Gigs" class="active">
-                    <span class="material-icons-sharp">task</span>
-                    <h3>Gigs</h3>
-                </a>
-
-
-                <a href="<?=ROOT?>/Community">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Gigs" class="active">
+                        <span class="material-icons-sharp">task</span>
+                        <h3>Gigs</h3>
+                    </a>
 
 
-                <a href="<?=ROOT?>/Conversation">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Conversation</h3>
-                    <span class="message-count">11</span>
-                </a>
+                    <a href="<?=ROOT?>/Community">
+                        <span class="material-icons-sharp">forum</span>
+                        <h3>Community</h3>
+                    </a>
 
-                <a href="<?=ROOT?>/Technician/Statistics">
-                    <span class="material-icons-sharp">analytics</span>
-                    <h3>Statistics</h3>
-                </a>
 
+                    <a href="<?=ROOT?>/Coversation">
+                        <span class="material-icons-sharp">mail_outline</span>
+                        <h3>Conversation</h3>
+                    </a>
+
+                    <a href="<?=ROOT?>/Technician/Statistics">
+                        <span class="material-icons-sharp">analytics</span>
+                        <h3>Statistics</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bottom">
                 <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
             </div>
 
+
         </aside>
 
-        <main>
-            <div class="top">
-                <h1>GIGS</h1>
-                <div class="right">
-                    <button id="menu-btn">
-                        <span class="material-icons-sharp">menu</span>
-                    </button>
 
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
+        <main>
+            <div class="header nbs">
+                <div class="left">
+
+                </div>
+                <div class="center">
+                    <h1>My Gigs</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
 
                     <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">Technician</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
@@ -168,44 +171,59 @@
 
     <div id="overlay" class="overlay hidden"></div>
     <div class="popup hidden" id="add-gig">
-            <div class="middle">
-                <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Create Your Gig!</h1>
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="title">
+            <h1>Create Your Gig!</h1>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress"></div>
+                <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
+                <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
+                <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
             </div>
+            <div class="step-label">
+            </div>
+        </div>
+        <div class="content">
+
             <div class="form-container">
-                <div class="progress-container">
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                        <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
-                        <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
-                        <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
-                    </div>
-                    <div class="step-label">
-                    </div>
-                </div>  
+
                 <form id="addgigform">
                     <div class="step" id="step1">
                         <h2>Basic details about Your service</h2>
-                        <label for="item">Select Items:</label>
+
+                        <div class="input-field">
+                            <label class="left" for="item">Select Items:</label>
                             <select id="item" name="item">
                                 <option value="A/C">A/C</option>
                                 <option value="Refrigerator">Refrigerator</option>
                                 <option value="Washing Machine">Washing Machine</option>
                                 <option value="Gas Cooker">Gas Cooker</option>
                             </select>
-                            
-                        <label for="location">Select Location:</label>
-                        <input type="text" name="location" id="location" required placeholder="Enter Locations that you can provide service">
+                            <small class="error">&nbsp</small>
+                        </div>
 
-                        <label for="service_method">Select Service method:</label>
+                        <div class="input-field">
+                            <label class="left" for="location">Select Location:</label>
+                            <input type="text" name="location" id="location" required placeholder="Enter Locations that you can provide service">
+                            <small class="error">&nbsp</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label class="left" for="service_method">Select Service method:</label>
                             <select id="service_method" name="service_method">
                                 <option value="Visits">Visits</option>
                                 <option value="Workshop">Workshop</option>
                             </select>
-                        
-                        <label for="work_tags">Worktags::</label>
-                        <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+                            <small class="error">&nbsp</small>
+                        </div>
 
+                        <div class="input-field">
+                            <label class="left" for="work_tags">Worktags::</label>
+                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+                            <small class="error">&nbsp</small>
+                        </div>
 
                         <div class="btn-container">
                             <button class="next">Next</button>
@@ -213,10 +231,17 @@
                     </div>
 
                     <div class="step hideright" id="step2">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Enter title" />
-                        <label for="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
+                        <div class="input-field">
+                            <label class="left"  for="title">Title</label>
+                            <input type="text" name="title" id="title" placeholder="Enter title" />
+                            <small class="error">&nbsp</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label class="left" for="description">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
+                            <small class="error">&nbsp</small>
+                        </div>
 
                         <div class="btn-container">
                             <button class="prev">Previous</button>
@@ -226,18 +251,22 @@
 
                     <div class="step hideright" id="step2">
                     <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-                        <div class="image-upload-wrap">
-                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                        <div class="drag-text">
-                            <h3>Your Selected image will be shown here!</h3>
+                        <div class="input-field">
+                            <div class="image-upload-wrap">
+                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                <div class="drag-text">
+                                    <h3>Your Selected image will be shown here!</h3>
+                                </div>
+                            </div>
+                            <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                </div>
+                            </div>
+                            <small class="error">&nbsp</small>
                         </div>
-                        </div>
-                        <div class="file-upload-content">
-                        <img class="file-upload-image" src="#" alt="your image" />
-                        <div class="image-title-wrap">
-                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                        </div>
-                        </div>
+
                         <div class="btn-container">
                             <button class="prev">Previous</button>
                             <button class="submitBtn" id="submitBtn">Submit</button>
@@ -245,11 +274,12 @@
                     </div>
                 </form>
             </div>
-            
-
-            
-                
+        </div>
     </div>
+
+
+
+
     <script>
         const ROOT = "<?= ROOT ?>";
         const gigList = <?= json_encode($gigList) ?>;

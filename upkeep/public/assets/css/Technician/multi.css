@@ -1,10 +1,10 @@
-.form-container {
-	width: 100%;
-	height: 100%;
-	padding: 0.5rem;
-}
+/* {*/
+/*	width: 100%;*/
+/*	height: 100%;*/
+/*	padding: 0.5rem;*/
+/*}*/
 
-.form-container form {
+ form.multistep {
 	display: grid;
 	grid-template-columns: 1fr;
 	width: 100%;
@@ -14,13 +14,12 @@
 	border-radius: 0.5rem;
 	padding: 1rem;
 }
-.form-container h1 {
+ h1 {
 	text-align: center;
 	font-size: 1.5rem;
-	margin-bottom: 20px;
 }
 
-.form-container .step {
+ .step {
 	grid-row-start: 1;
 	grid-column-start: 1;
 	/* display: flex; */
@@ -33,28 +32,28 @@
 	opacity: 1;
 }
 
-.form-container .step.hideleft {
+ .step.hideleft {
 	left: -100%;
 	opacity: 0;
 	display: none;
 }
 
-.form-container .step.hideright {
+ .step.hideright {
 	left: 100%;
 	opacity: 0;
 	display: none;
 }
 
-.form-container .progress-bar {
+ .progress-bar {
 	position: relative;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	/* counter-reset: step; */
-	margin: 2rem 9rem 2rem 9rem;
+	margin: 1rem 5rem 1rem 5rem;
 }
 
-.form-container .progress-bar::before,
+ .progress-bar::before,
 .progress {
 	content: "";
 	position: absolute;
@@ -120,15 +119,17 @@
 	transition: 0.5s;
 }
 
-/* button styles */
-.btn-container {
+form .btn-container{
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	justify-content: center;
 	align-items: center;
-	margin: 2rem 0 2rem 0;
-	gap: 4rem;
+	width: 100%;
+	gap: 2rem;
+
 }
 
+/* button styles */
 .btn-container button,
 .file-upload-btn {
 	background-color: var(--color-primary);
@@ -143,6 +144,7 @@
 	transition: 0.5s;
 	gap: 1rem;
 }
+
 
 /* Image upload */
 .file-upload {

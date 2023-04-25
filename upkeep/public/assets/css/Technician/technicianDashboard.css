@@ -8,8 +8,7 @@
 /* Right CSS */
 
 .right {
-	margin-top: 1.4rem;
-	margin-right: 1rem;
+	height: 100vj\h;
 }
 
 .right .top {
@@ -22,31 +21,6 @@
 	display: none;
 }
 
-.right .theme-toggler {
-	background: var(--color-light);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 1.6rem;
-	width: 4.2rem;
-	cursor: pointer;
-	border-radius: var(--border-radius-1);
-}
-
-.right .theme-toggler span {
-	font-size: 1.2rem;
-	width: 50%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.right .theme-toggler span.active {
-	background: var(--color-white);
-	color: white;
-	border-radius: var(--border-radius-1);
-}
 
 .right .top .profile {
 	display: flex;
@@ -79,59 +53,19 @@
 	margin-bottom: 1rem;
 }
 
-/* Sales Analytics */
-
-.right .sales-analytics {
-	margin-top: 1rem;
-}
-
-.right .sales-analytics h2 {
-	margin-bottom: 0.8rem;
-}
-
-.right .sales-analytics .item {
-	background: var(--color-white);
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	margin-bottom: 0.7rem;
-	padding: 1.4rem var(--card-padding);
-	border-radius: var(--border-radius-3);
-	transition: all 300ms ease;
-}
-
-.right .sales-analytics .item:hover {
-	box-shadow: none;
-}
-
-.maintenance {
-	height: 19rem;
-	overflow-y: scroll;
-}
-.right .sales-analytics .item .right {
-	display: flex;
-	justify-content: space-between;
-	align-items: start;
-	margin: 0;
-	width: 100%;
-}
-
-.right .sales-analytics .item .icon {
-	padding: 0.6rem;
-	color: var(--color-white);
-	border-radius: 50%;
-	display: flex;
-}
-
-.right .sales-analytics .item.online .icon {
-	background: var(--color-success);
-}
-
-.right .sales-analytics .item.offline .icon {
-	background: var(--color-danger);
-}
 
 /* Recent order css */
+main .middle{
+	height: calc(100vh - 64px);
+	overflow-y: scroll;
+}
+
+main .middle::-webkit-scrollbar {
+	display: none;
+	width: 0px; /* Hide the scrollbar width */
+	height: 0px;
+	background-color: transparent;
+}
 
 .main .recent-orders {
 	height: 50%;
@@ -189,34 +123,62 @@
 	width: 44px;
 }
 
+
+
 /*card for basic info*/
 main .dashItem {
 	display: flex;
-	height: auto;
+	flex-direction: row;
+	/*max-height: 10rem;*/
+	max-width: calc(100vw - 35rem);
 	/* border: black solid 2px; */
 	padding: 6px 10px;
-	align-content: center;
-	/* overflow-x: scroll; */
+	/*align-content: center;*/
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;
+	scrollbar-height: none;
+	background-clip: border-box;
 }
 
+
+
+div.dashItem::-webkit-scrollbar {
+	display: none;
+	width: 0px; /* Hide the scrollbar width */
+	height: 0px;
+	background-color: transparent;
+}
+
+div.dashItem::-webkit-scrollbar-thumb {
+	background-color: transparent; /* Hide the scrollbar thumb */
+}
+
+
 main .dashItem .card {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	gap: 1.6rem;
 	width: 33%;
+	min-width: 15rem;
 	margin: 1rem;
 	box-shadow: 0 2rem 3rem #caffcf;
 	border-radius: var(--card-border-radius);
 	text-align: center;
-	padding: 1rem;
+	padding: 2rem;
 	transition: all 300ms ease;
 }
 
-main .dashItem .card > div {
-	display: block;
-	margin-top: 5%;
-	margin-top: 0.1rem;
-	margin-bottom: 0.1rem;
-	text-align: center;
-	transition: all 300ms ease;
+/*main .dashItem div.card {*/
+/*	margin-top: 5%;*/
+/*	margin-top: 0.1rem;*/
+/*	margin-bottom: 0.1rem;*/
+/*	text-align: center;*/
+/*	transition: all 300ms ease;*/
+/*}*/
+
+main .dashItem div.card .details{
+	text-align: left;
 }
 
 main .dashItem .card > div span {
@@ -256,6 +218,7 @@ main .dashItem .card.yellow {
 
 main .dashItem > div.card:hover {
 	box-shadow: none;
+	border: 1px solid var(--color-info-light);
 	transform: scale(0.9);
 }
 
@@ -344,17 +307,45 @@ main .recent-orders a {
 	color: var(--color-);
 }
 
+.right .container{
+	display: flex;
+	/*grid-template-rows: auto auto;*/
+	flex-direction: column;
+	align-items: center;
+	height: calc(100vh - 64px);
+	padding: 0.5rem;
+	overflow-y: auto;
+}
+
+/**/
+.orders {
+	width: 30%;
+}
+
+.order-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.order {
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+
+
 /*******************/
 /* Calender styles */
 /*******************/
 .cal {
-	width: 18vw;
-	height: 43vh;
+	width: 100%;
+	height: max-content;
 	background: #fff;
 	border-radius: 10px;
 	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 	font-size: 14px;
-	margin-top: 1rem;
 }
 .cal .header {
 	display: flex;
@@ -437,3 +428,261 @@ main .recent-orders a {
 .days li:not(.active):hover::before {
 	background: #f2f2f2;
 }
+
+/*calender Events*/
+
+.cal#events{
+	margin-top: 0.5rem;
+	height: 300px;
+	overflow-y: hidden;
+}
+
+.cal#events .calendar{
+	height: 80%;
+	overflow-y: auto;
+}
+
+.spacer {
+	border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.event-list {
+	display: block;
+	height: calc(100% - 64px);
+	overflow-y: auto;
+}
+
+.event {
+	margin: 0.5rem;
+	border-radius: var(--border-radius-3);
+	/*border: 1pc solid;*/
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	border: var(--border);
+	overflow:hidden ;
+}
+
+.event:nth-child(n) .event-container {
+	border-left-color: var(--color-header-h1); /* brown */
+}
+
+.event:nth-child(n+1) .event-container {
+	border-left-color: var(--color-header-h1); /*yellow*/
+}
+
+
+.event-container {
+	display: flex;
+	flex-direction: column;
+	color: var(--color-dark);
+	transition: all 0.2s ease;
+	background: var(--color-white);
+	border-left: 10px solid;
+	padding-left: 0.5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+
+}
+
+.event-container:hover {
+	border-left-width: 14px;
+	background:#ccc;
+}
+
+.time-container {
+	margin-right: 6px;
+	font-weight: 700;
+	color:var(--color-info-dark);
+}
+
+.detail-container {
+	display:inline-block;
+	vertical-align:top;
+	padding-top:3px;
+}
+
+.title {
+	text-transform:uppercase;
+	font-weight:500;
+	font-size:1.5em;
+	color:var(--color-dark)
+}
+
+.description {
+	display:block;
+	font-size:0.9em;
+	color:#4DD0E1;
+}
+
+.event  span{
+	font-size: 1rem;
+}
+
+.event span.location{
+	display: flex;
+	justify-content: center;
+}
+
+
+
+
+/**/
+.cards {
+	width: 100%;/* NOTE: this selects the container for the cards */
+	/*overscroll-behavior-inline: contain;  !* NOTE: this means the when someone scrolls to the end then it will not scroll the whole page, too *!*/
+	/*scroll-snap-type: inline mandatory;   !* NOTE: this will make the first visible card snap *!*/
+	display: flex;                        /* NOTE: use grid, not flex */
+	/*grid-auto-flow: column;*/
+	/*grid-auto-columns: 25%;               !* NOTE: use an odd percentage *!*/
+	/*overflow-x: auto;*/
+	padding: 0.5rem;
+	/*overflow-x: hidden;*/
+}
+.cards > div.card {                            /* NOTE: this selects the card */
+	scroll-snap-align: start;             /* NOTE: this works in conjunction with "scroll-snap-type: inline mandatory;" from above */
+	scroll-padding-inline: 5px;           /* NOTE: this optionally adds some padding but it is already present because of the "margin: 5px;" below */
+	border-radius: 7px;
+	margin: 5px;                          /* NOTE: this adds some spacing to the cards */
+	padding: 1rem;
+	background-color: white;
+	color: var(--color-dark);
+	overflow: hidden;
+	box-shadow: var(--box-shadow);
+
+}
+
+.cards > div.card:hover {
+	box-shadow: var(--box-shadow-hover);
+}
+
+.cards > div.card .day {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	margin: 0;
+	align-items: center;
+
+}
+
+.cards > div.card .day .date {
+	height: 100%;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0;
+	padding: 0.5rem;
+	background-color: white;
+	border-radius: var(--border-radius-2);
+	box-shadow: inset var(--box-shadow-reduced);
+	color:white;
+	background-color: var(--color-primary-variant);
+
+}
+
+.cards > div.card .day .remaining {
+	height: 100%;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: left;
+	margin: 0;
+	padding: 0.5rem;
+	text-align: left;
+}
+
+.cards > div.card .title {
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.cards > div.card .location{
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	font-size: 0.5rem;
+	font-weight: 500;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: var(--color-info-dark);
+}
+
+.cards > div.card > img {
+	inline-size: 100%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.cards > div.card .btn-container {
+	display: flex;
+	justify-content: center;
+	border-top: 1px solid var(--color-info-light);
+	align-items: center;
+}
+
+.cards > div.card a {
+	display: inline-block;
+	text-align: center;
+	height: 1.5rem;
+	width: 6.5rem;
+	color: var(--color-dark);
+	margin: 0.5rem;
+
+}
+
+
+
+/*stats cards*/
+.stat{
+	height: 40%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	gap: 1rem;
+}
+
+.stat > div{
+	height: 100%;
+	width: 50%;
+	background-color: white;
+	border-radius: var(--border-radius-2);
+	box-shadow: var(--box-shadow);
+	color: var(--color-dark);
+}
+
+.stat > div canvas{
+	width: 100%;
+	height: 100%;
+}
+
+/**/
+
+
+/*!* Scroll bar hide *!*/
+/*.cards::-webkit-scrollbar {*/
+/*	display: none;*/
+/*	height: 15px;*/
+/*}*/
+/*.cards::-webkit-scrollbar-track {*/
+/*	background-color: black;*/
+/*	margin-block: 5px;*/
+/*	border-radius: 100vmax;*/
+/*}*/
+/*.cards::-webkit-scrollbar-thumb {*/
+/*	background-color: white;*/
+/*	border: 3px solid black;*/
+/*	border-radius: 100vmax;*/
+/*}*/
+/*.cards::-webkit-scrollbar-thumb:hover {*/
+/*	background-color: lightgray;*/
+/*}*/
+
+
+

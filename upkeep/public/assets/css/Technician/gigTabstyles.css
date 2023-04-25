@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 @import "general.css";
-/* Root variables */
+@import "popupform.css";
 
 .container {
 	display: grid;
-	width: 98%;
-	margin: 0 auto;
+	width: 100%;
+	margin: 0;
 	gap: 1rem;
 	grid-template-columns: 15rem auto;
 	height: 100vh;
@@ -226,117 +226,19 @@ main .profile-details .updates {
 }
 
 /* popup addGigForm */
-.overlay {
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(179, 180, 189, 0.5);
-	backdrop-filter: blur(3px);
-	z-index: 6;
-	align-items: center;
-	opacity: 1;
-	visibility: visible;
-	transition: opacity 300ms;
-	z-index: 0;
-}
-
-.overlay.hidden {
-	opacity: 0;
-	display: none;
-}
-
-/* .overlay:target {
-    visibility: visible;
-    opacity: 1;
-  } */
-
-.popup {
-	position: absolute;
-	margin: auto;
-	top: 15%;
-	left: 25%;
-	width: 50%;
-	height: max-content;
-	background-color: rgb(255, 255, 255);
-	border-radius: var(--border-radius-3);
-	box-shadow: 0 0 20px rgb(99, 99, 99);
-	padding: 10px;
-	justify-content: space-between;
-	z-index: 1;
-}
-
-.popup.hidden {
-	display: none;
-}
-
-.popup h1 {
-	display: inline-block;
-	font-size: 1.6rem;
-	text-align: center;
-}
-
 .popup .middle {
 	display: inline-flexbox;
 	text-align: center;
 }
 
 .popup a.close {
+	display: flex;
 	position: absolute;
-	top: 10px;
 	right: 10px;
+	top: 10px;
 	color: var(--color-dark);
-	cursor: pointer;
 }
 
-/* addGigForm styles */
-.popup .addGigForm {
-	display: flexbox;
-	padding: 1rem;
-	height: auto;
-}
-
-.popup .addGigForm .gigDetails .input-box {
-	display: inline-flexbox;
-	width: 100%;
-	height: auto;
-	text-align: left;
-	top: 1rem;
-	padding: 0.3rem;
-}
-
-.popup .addGigForm .gigDetails .input-box.inline {
-	float: left;
-	width: 50%;
-}
-
-input[type="text"],
-input[type="file"],
-select,
-textarea {
-	width: 100%;
-	padding: 12px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	resize: vertical;
-}
-
-label {
-	padding: 12px 12px 12px 0;
-	display: inline-block;
-}
-
-input[type="submit"] {
-	background-color: #04aa6d;
-	color: white;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	float: right;
-}
 
 .inline:after {
 	content: "";
@@ -379,3 +281,14 @@ div.worktagsContainer {
 div.worktagsContainer::-webkit-scrollbar {
 	display: none;
 }
+
+form .btn-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+
+}
+
+/*multi select*/
