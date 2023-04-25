@@ -15,21 +15,16 @@
 <body>
     <div class="container">
     <aside>
-            <div class="top">
-                <script>console.log("Loaded")</script>
-
-                <div class="logo">
-                    <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
-                    <img src=<?=ROOT."/assets/images/title.png"?> alt="">
-                </div>
-
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                        </span>
-                </div>
-
+        <div class="header nbs">
+            <div class="left">
             </div>
+            <div class="center">
+                <div class="header-logo">
+                    <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                </div>
+            </div>
+            <div class="right"></div>
+        </div>
 
             <div class="sidebar">
                 <a href="<?=ROOT?>/Technician/Dashboard">

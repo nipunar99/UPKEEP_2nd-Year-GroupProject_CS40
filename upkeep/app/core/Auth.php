@@ -4,7 +4,7 @@ trait Auth{
     public function checkAuth()
     {
         if (!isset($_SESSION['user_id'])) {
-            redirect('login');
+            redirect('Signin');
             exit;
         }
     }
@@ -12,7 +12,7 @@ trait Auth{
     public function technicianAuth()
     {
         $this->checkAuth();
-        if ($_SESSION['verified'] != false) {
+        if ($_SESSION['verified'] == false) {
             redirect('Technician/Getverified');
             exit;
         }

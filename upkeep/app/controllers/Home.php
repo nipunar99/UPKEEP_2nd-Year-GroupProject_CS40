@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit("Access denied");
+
 class Home {
 
     use Controller;
@@ -10,7 +12,7 @@ class Home {
         }
         else{
             switch ($_SESSION['user_role']) {
-                case 'itemowner':
+                case 'item_owner':
                     redirect('Itemowner/Userdashboard');
                     break;
                 
