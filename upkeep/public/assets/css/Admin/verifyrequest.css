@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-@import url('general.css');
+@import 'general.css';
 /* Root variables */
 
 :root{
@@ -440,7 +440,6 @@ form .button input:hover{
     height: 10vh;
     width: 100%;
     margin-top: 1rem;
-    s
     
     
   }
@@ -551,6 +550,49 @@ form .button input:hover{
     margin-right: 10px;
   }
   
+.grid-container{
+   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height:10vh;
+    width:90%;
+}
 
+.item{
+    background-color: rgb(248, 244, 244);
+    height:35vh;
+    border-radius:20px 20px 20px 20px;
+    box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);
+}
+.photo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;                                
+}
+.details-container{
+    text-align: center;
+}
 
+.contact-details{
+    margin-top:2rem;
+    background-color:lightblue;
+    border-radius:10px 10px 10px 10px;
+    width:200px;
+}
+
+.photo-container img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.accounts h2{
+    font-size: medium;
+    margin-top: 1rem;
+}
+
+.head h4{
+    font-size: large;
+}
   

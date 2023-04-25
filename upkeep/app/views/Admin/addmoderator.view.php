@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet1" href="<?=ROOT?>/assets/css/Admin/admindashboard.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/addmoderator.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/modifyform.css">
-
     
 </head>
 
@@ -113,8 +111,8 @@
                             <input type="text" placeholder="Search...">
                             <button class="search-button"><span class="material-icons-sharp">search</span></button>
                         </div>
-                        <a class="add-button">Add Admin</a>
-                        <a id="btn_mod1" class="add-button">Add Moderator</a>
+                        <button id="add_admin" class="add-button">Add Admin</button>
+                        <button id="add_mod" class="add-button">Add Moderator</button>
                         <!-- <a id="btn_mod" class="btn_action1 addMode">Add Moderator</a> -->
                         <!-- <button  ></button> -->
 
@@ -144,10 +142,10 @@
                                     <td><?=$admin[$i]->email ?></td>
                                     <td><?=$admin[$i]->registered_date ?></td>
                                     <td>
-                                        <div class="button_container1">
-                                                <button class="edit-button" id="edit_btn">Edit</button> 
-                                                <button class="remove-button" id="remove_btn">Remove</button>
-                                            </div>
+                                        <div class="btn-container">
+                                            <button id="editor_btn" class="edit-button">Edit</button> 
+                                            <button id="remove_btn" class="remove-button">Remove</button>
+                                        </div>
                                         
                                     </td>
                                     
@@ -160,8 +158,32 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container1">
-                                            <button class="edit-button">Edit</button> 
+                                        <div class="btn-container">
+                                            <button id="editor_btn"  class="edit-button">Edit</button> 
+                                            <button id="remove_btn" class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td>
+                                        <div class="btn-container">
+                                            <button id="editor_btn" class="edit-button">Edit</button> 
+                                            <button id="remove_btn" class="remove-button">Remove</button>
+                                        </div>
+                                    </td>
+                            </tr>
+                            <tr>                                         
+                                <td>Nipuna Rahal</td>
+                                <td>5</td>
+                                <td>rahal@gmail.com</td>
+                                <td>verified</td>
+                                <td>
+                                        <div class="btn-container">
+                                            <button id="editor_btn"  class="edit-button">Edit</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>
                                     </td>
@@ -172,32 +194,8 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container1">
-                                            <button class="edit-button">Edit</button> 
-                                            <button class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="button_container1">
-                                            <button class="edit-button">Edit</button> 
-                                            <button class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="button_container1">
-                                            <button class="edit-button">Edit</button> 
+                                        <div class="btn-container">
+                                            <button id="editor_btn" class="edit-button">Edit</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>
                                     </td>
@@ -220,7 +218,7 @@
         
         
 
-    
+    <!-- moderator adding popup form -->
     <div class="overlay hidden" id="overlay"></div>
         <div class="popup hidden" id="addmod">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
@@ -274,8 +272,60 @@
                 </form>
             </div>
         </div>
-        
+        <!-- admin adding popup form -->
+        <div class="popup hidden" id="addadmin">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Add Admin</h1>
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>First Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>Last Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
 
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>NIC</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Adrress</label>
+                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
+                            <small class="error">&nbsperror</small>
+                        </div>
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Phone Number</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="btn-container">
+                            <button id="submit">Add Admin</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- administrative user editing popup form -->
         <div class="popup hidden" id="editmod">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
@@ -315,28 +365,36 @@
 
                         
                         <div class="btn-container">
-                            <button id="OTP-send">Save changes</button>
+                            <div class="changes">
+                                <button id="OTP-send">Save changes</button></div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
+         <!-- administrative user removing popup form -->
         <div class="popup hidden" id="removemod">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content">
-                <h1>Edit Moderator</h1>
+            <div class="content-1">
+                <div class="content-2">
+                    <h2>Confirm deletion of this Moderator</h2>
+                </div>
+                
                 <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
-                    <div class = "mobile-number-input" id="step1">
+                    <div class ="head" >
+                        <h3>Are you sure you you want to remove this moderator?</h3>
+                    </div>
+                    <div class="btn-container">
+                                <button id="OTP-send">Cancel</button>
+                                <button id="OTP-send">Yes,I'm Sure</button>
+                        </div>
  
                     
 
 
                         
-                        <div class="btn-container">
-                            <button id="OTP-send">Save changes</button>
-                        </div>
-                    </div>
+                       
+                    
                 </form>
             </div>
         </div>

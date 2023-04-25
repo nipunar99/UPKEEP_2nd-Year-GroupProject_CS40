@@ -145,7 +145,7 @@
                                     <td><?=$complaints[$i]->description ?></td>
                                     <td><?=$complaints[$i]->status ?></td>
                                     <td>
-                                        <div class="button_container1">
+                                        <div class="btn-container">
                                             <button class="view-button">View</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>
@@ -162,7 +162,7 @@
                                 <td>verified</td>
                                 <td></td>
                                 <td>
-                                        <div class="button_container1">
+                                        <div class="btn-container">
                                             <button class="view-button">View</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>
@@ -177,7 +177,7 @@
                                 <td>verified</td>
                                 <td></td>
                                 <td>
-                                        <div class="button_container1">
+                                        <div class="btn-container">
                                             <button class="view-button">View</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>
@@ -191,7 +191,7 @@
                                 <td>verified</td>
                                 <td></td>
                                 <td>
-                                        <div class="button_container1">
+                                        <div class="btn-container">
                                             <button class="view-button">View</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>
@@ -206,7 +206,7 @@
                                 <td>verified</td>
                                 <td></td>
                                 <td>
-                                        <div class="button_container1">
+                                        <div class="btn-container">
                                             <button class="view-button">View</button> 
                                             <button class="remove-button">Remove</button>
                                         </div>

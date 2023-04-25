@@ -202,7 +202,7 @@
         <!-- End of Main -->
 
 
-        <div class="overlay hidden" id="overlay"></div>
+        <!-- <div class="overlay hidden" id="overlay"></div>
         <div class="popup hidden" id="addmoderator">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
@@ -254,7 +254,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
         
         <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/dashboard.js"></script>

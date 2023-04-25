@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-@import "./Technician/popupform.css";
-@import "./admindashboard.css";
-/* @import "./modifyform.css"; */
+
+@import "./popupform.css";
+@import "./popupchanges.css";
+@import "./modifyform.css";
 
 @import "./user.css";
+
+
 /* Root variables */
 
 :root{
@@ -88,9 +91,7 @@ main h1{
     gap: 2rem;
 } 
 
-.heading .top button{
-    display: none;
-}
+
 
 .heading .theme-toggler{
     background: var(--color-light);
@@ -367,65 +368,9 @@ form .itemDetails .middleInput{
     font-size: 1.1rem;
 }
 
-form .button{
-    position: relative;
-    left: 45rem;
-    height: 45px;
-    margin: 45px 0;
-    width: 10rem;
+#editor_btn {
+    background-color:green;
+    color: white;
+
 }
-
-form .button input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: #fff;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    border-radius: 30px;
-    letter-spacing: 1px;
-    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
-    transition: all 300ms ease;
-}
-
-form .button input:hover{
-    transform: scale(1.1);
-} 
-/* adding btn for both admin and moderator */
-.add-button{
-    background-color: #111e88;
-    color: #ffff;
-    height: 28px;
-    padding: 0 8px;
-    border: none;
-    border-radius: 14px;
-    font-size: 14px;
-}
-
-.button_container1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0px;
-    border-radius: 5px;
-    
-  }
-
-  .edit-button {
-    height: 28px;
-    padding: 0 8px;
-    border: none;
-    border-radius: 14px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color:rgb(1, 150, 1);
-    color: #ffff;
-  }
-
-
- 
-
-
-
 

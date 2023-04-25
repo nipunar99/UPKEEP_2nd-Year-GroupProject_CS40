@@ -1,6 +1,11 @@
 @import "./general.css";
 @import './table.css';
 
+@import "./popupform.css";
+@import "./popupchanges.css";
+@import './modifyform.css';
+
+
 .container{
   width: 100%;
   display: grid;
@@ -180,4 +185,14 @@ main>.content{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+  }
+
+  #view-btn{
+    background-color:#f2f2f2;
+    color: #000;
+  }
+  
+  #reject-btn{
+    background-color:#f2f2f2;
+    color: #D30F0A;
   }

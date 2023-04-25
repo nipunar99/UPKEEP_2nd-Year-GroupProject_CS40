@@ -11,6 +11,9 @@ class VerifyRequest{
             $tech = new VerifyTechnician;
             $tech_list =$tech->getverifytech();
             $data['technician'] = $tech_list; 
+
+            $verify_list = $tech->getVerifyAcc();
+            $data['verify_tech'] = $verify_list;
             $this->view('Admin/verifyRequest',$data);
         }    
     }     

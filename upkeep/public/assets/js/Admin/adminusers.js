@@ -1,5 +1,5 @@
 console.log('loaded')
-const addmod = document.getElementById("btn_mod1");
+const addmod = document.getElementById("add_mod");
 
 
 
@@ -12,7 +12,7 @@ addmod.addEventListener('click',function(e){
 } )
 
 
-const edit = document.getElementById("edit_btn");
+const edit = document.getElementById("editor_btn");
 
 
 edit.addEventListener('click',function(e){
@@ -29,5 +29,15 @@ remove.addEventListener('click',function(e){
     e.preventDefault();
     console.log("clicked");
     openPopup("removemod");
+}
+)
+
+const adminadd = document.getElementById("add_admin");
+
+
+adminadd.addEventListener('click',function(e){
+    e.preventDefault();
+    console.log("clicked");
+    openPopup("addadmin");
 }
 )

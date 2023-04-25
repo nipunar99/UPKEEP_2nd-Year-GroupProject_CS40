@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha384-yacmIiZmY4ZpH4tA+8tbaThL5vi5r5pOuOvUV8X7VjQoC2Oaa/+GhBw8b7W1G6mv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
 </head>
 <body>
     <div class="container">
@@ -143,9 +144,9 @@
                                     <td><?=$technician[$i]->email ?></td>
                                     <td><?=$technician[$i]->identity_verification ?></td>
                                     <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                                     
@@ -157,9 +158,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                             </tr>
@@ -169,9 +170,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                             </tr>
@@ -181,9 +182,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                             </tr>
@@ -193,9 +194,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                             </tr>
@@ -205,9 +206,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                                 
@@ -218,9 +219,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
                                         </div>
                                     </td>
                             </tr>
@@ -230,9 +231,9 @@
                                 <td>rahal@gmail.com</td>
                                 <td>verified</td>
                                 <td>
-                                        <div class="button_container">
-                                            <button><span class="material-icons-sharp">person</span></button> 
-                                            <button><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                        <div class="btn-container">
+                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">cancel</span></button>
                                         </div>
                                     </td>
                             </tr>
@@ -256,6 +257,38 @@
         <!-- </div> -->
         </main>
     </div>
+    <div class="overlay hidden" id="overlay"></div>
+    <div class="popup hidden" id="banned-user">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content-1">
+                <div class="content-2">
+                    <h2>Confirm deletion of this Moderator</h2>
+                </div>
+                
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class ="head" >
+                        <h3>Are you sure you you want to remove this moderator?</h3>
+                    </div>
+                    <div class="btn-container">
+                                <button id="OTP-send">Cancel</button>
+                                <button id="OTP-send">Yes,I'm Sure</button>
+                        </div>
+ 
+                    
+
+
+                        
+                       
+                    
+                </form>
+            </div>
+    </div>
+
+
+
+
+    <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
+    <script src="<?=ROOT?>/assets/js/Admin/users.js"></script>
 
     
 

@@ -1,0 +1,20 @@
+
+.remove-popup{
+    width: 50%;
+}
+.content-2{
+    background-color:lightgray
+    border-radius: 2rem 2rem 2rem 2rem;
+}
+
+.edit_btn{
+    background-color: yellowgreen;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+}
+
+
+
