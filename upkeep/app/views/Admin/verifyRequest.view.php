@@ -138,20 +138,20 @@
                 </div>
 
             </div>
-            <div class = "head">
+            <div class ="head">
             <h4>Verification Requests</h4>
             <div class="grid-container">
                 
                 <?php for($i=0;$i<count($technician);$i++):?>
-                    <a href="<?=ROOT?>/Admin/VerificationRequest">
+                    <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->request_id?>">
                     <div class="item">
                         <div class="photo-container">
                                 <img  src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo"> 
                                    
                             </div>
                             <div class="details-container">
-                                <h2><?=$technician[$i]->first_name ?></h2>
-                                <p><?=$technician[$i]->type ?>|<?=$technician[$i]->city ?></p>
+                                <h2><?=$technician[$i]->first_name." ".$technician[$i]->last_name?> </h2>
+                                <p><?=$technician[$i]->location ?></p>
                             </div>
                             <div class="contact-details">
                                 <p><?=$technician[$i]->email ?></p>
@@ -172,7 +172,7 @@
                     <div class="item">
                         <div class="photo-container">
                                 <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                                    
+                            
                         </div>
                         <div class="details-container">
                             <h2>Rusith</h2>
@@ -181,7 +181,6 @@
                         <div class="contact-details">
                             <p>rusith123rusith@gmail.com</p>
                             <p>0702050912</p>
-
                         </div>
                     </div>
                 </a> -->

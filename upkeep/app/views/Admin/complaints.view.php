@@ -147,7 +147,7 @@
                                     <td>
                                         <div class="btn-container">
                                             <button class="view-button">View</button> 
-                                            <button class="remove-button">Remove</button>
+                                            <button id ="delete_btn" class="remove-button">Remove</button>
                                         </div>
                                     </td>
                                     
@@ -228,6 +228,35 @@
 
         </main>
         <!-- End of Main -->
+
+        <div class="popup hidden" id="remove_complaint">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content-1">
+                <div class="content-2">
+                    <h2>Confirm deletion of this Moderator</h2>
+                </div>
+                
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class ="head" >
+                        <h3>Are you sure you you want to remove this moderator?</h3>
+                    </div>
+                    <div class="btn-container">
+                                <button id="OTP-send">Cancel</button>
+                                <button id="OTP-send">Yes,I'm Sure</button>
+                        </div>
+ 
+                    
+
+
+                        
+                       
+                    
+                </form>
+            </div>
+        </div>
+
+        <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/complaint.js"></script>
         
 
 </body>
