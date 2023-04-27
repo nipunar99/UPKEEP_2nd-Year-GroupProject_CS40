@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,14 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/moderatordashboard.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
             <div class="top">
 
                 <!-- <div class="logo"> -->
-                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
-                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
+                <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
+                <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 <!-- </div> -->
 
                 <!-- <div class="close" id="close-btn">
@@ -49,7 +51,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Moderator/Statistics" >
+                <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">person</span>
                     <h3>Statistics</h3>
                 </a>
@@ -59,7 +61,7 @@
                     <h3>Logout</h3>
                 </a> -->
 
-<!-- 
+                <!-- 
                 <a href="#">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Notifications</h3>
@@ -82,34 +84,33 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
-                <h1>Dashboard</h1>
-                <div class="right">
-                    <!-- <div class="top"> -->
-                        <!-- <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button> -->
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
-                        </div>
-        
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
-                            </div>
-                        </div>
-                    <!-- </div> -->
+            <div class="header nbs">
+                <div class="left">
 
-        
                 </div>
-    
+                <div class="center">
+                    <h1>Find Jobs</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
+
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                        </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <!-- <div class="date">
                 <p>14/11/2022</p>
             </div> -->
@@ -118,29 +119,29 @@
                 <div class="mainDisplay1">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
-                            <h2>15</h2>
-                            <h3>Total Templates</h3>
+                        <h2>15</h2>
+                        <h3>Total Templates</h3>
                     </div>
                 </div>
 
                 <div class="mainDisplay2">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
-                            <h2>35</h2>
-                            <h3>Pending approvals</h3>
+                        <h2>35</h2>
+                        <h3>Pending approvals</h3>
                     </div>
                 </div>
 
                 <div class="mainDisplay3">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
-                            <h2>25</h2>
-                            <h3>Unhandled Complaints</h3>
+                        <h2>25</h2>
+                        <h3>Unhandled Complaints</h3>
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <div class="main-tables">
                 <div class="suggestion">
                     <h2>Recent Item Suggestions</h2>
@@ -154,31 +155,31 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = "name">T_10001</td>
+                                <td class="name">T_10001</td>
                                 <td class="primary">Air Conditioner</td>
                                 <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10002 </td>
+                                <td class="name">T_10002 </td>
                                 <td class="primary">Refrigerator</td>
                                 <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10003 </td>
+                                <td class="name">T_10003 </td>
                                 <td class="primary">Microwave Oven</td>
                                 <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10004 </td>
+                                <td class="name">T_10004 </td>
                                 <td class="primary">Gas Cooker</td>
                                 <td class="warning">Text</td>
                             </tr>
 
                             <tr>
-                                <td class = "name">T_10005 </td>
+                                <td class="name">T_10005 </td>
                                 <td class="primary">Washing Machine</td>
                                 <td class="warning">Text</td>
                             </tr>
@@ -229,9 +230,10 @@
                     <a href="<?= ROOT ?>/Moderator/Complaint">See more</a>
                 </div>
             </div>
-        </main> 
+        </main>
 
     </div>
     <script src="<?= ROOT ?>/assets/js/Moderator/moderatordashboard.js"></script>
 </body>
+
 </html>
