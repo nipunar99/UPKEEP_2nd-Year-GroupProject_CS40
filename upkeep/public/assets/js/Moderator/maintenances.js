@@ -1,3 +1,5 @@
+ajax_getItems();
+
 const districtSelect = document.getElementById("status");
 
 const district = ['Approved','Pending'];
@@ -11,45 +13,78 @@ const district = ['Approved','Pending'];
     districtSelect.value = 'Select the status';
 })();
 
- const modal = document.querySelector(".popupview1");
- const overlay = document.querySelector(".overlayview");
-const btnCloseModal = document.querySelector(".closebtn");
- const btnShowRow1 = document.querySelector(".subcategory");
- const modals = document.querySelector(".popupview2");
- const btnShowRows = document.querySelectorAll(".view");
+//  const modal = document.querySelector(".popupview1");
+//  const overlay = document.querySelector(".overlayview");
+const btnCloseModal1 = document.querySelector(".closebtn1");
+const btnCloseModal2 = document.querySelector(".closebtn2");
+//  const modals = document.querySelector(".popupview2");
+ const btnShowRows = document.querySelectorAll(".edit-maintenance");
  const rowIdInput = document.querySelector('#rowid_input1');
  const table = document.getElementById('categoryTable');
  const rows = table.getElementsByTagName("tr");
 
+
+const popupviews = document.getElementsByClassName("popupview");
+const overlay = document.getElementById('overlay');
+const btnShowRow1 = document.querySelector(".subcategory");
+
+//Event Listners
+btnShowRow1.addEventListener("click", function(e){
+  e.preventDefault();
+  showModal("add-maintenance");
+});
+btnCloseModal1.addEventListener("click", function(e){
+  e.preventDefault();
+  closeModal("add-maintenance");
+  closeModal("update-maintenance");
+});
+btnCloseModal2.addEventListener("click", function(e){
+  e.preventDefault();
+  closeModal("update-maintenance");
+});
+
+function setEventListner(){
+  const action_update = document.querySelectorAll(".edit-maintenance");
+  console.log(action_update);
+  action_update.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      console.log('click');
+      showModal('update-maintenance');
+      const taskID = btn.parentElement.parentElement.parentElement.querySelector('#task_ID');
+      console.log(taskID);
+      xhr = new XMLHttpRequest;
+      xhr.open('GET', "ROOT/Moderator/Maintenance/editMaintenanceTask")
+
+    })
+  });
+}
+
+
+
+
 // Show Modal function const showModal
-const showModal = function () {
+const showModal = function (id) {
     console.log("button clicked");
-    modal.classList.remove("hidden");
+    popupviews[id].classList.remove("hidden");
     overlay.classList.remove("hidden");
 }; 
 
 // Close Modal function
-const closeModal = function () {
-    modal.classList.add("hidden");
+const closeModal = function (id) {
+  console.log("button clicked");
+    popupviews[id].classList.add("hidden");
     overlay.classList.add("hidden");
 };
-const showModals = function () {
-  console.log("button clicked");
- 
-  modals.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-}; 
 
-const closeModals = function () {
-  modals.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
+
+
 // show modal click event
-btnShowRow1.addEventListener("click", showModal);
 
-// close modal click
-btnCloseModal.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
+
+// // close modal click
+// btnCloseModal.addEventListener("click", closeModal);
+// overlay.addEventListener("click", closeModal);
 
 btnShowRows.forEach(function(button) {
   button.addEventListener('click', function() {
@@ -71,18 +106,19 @@ btnShowRows.forEach(function(button) {
   });
 });
 
-for (let i = 0; i < btnShowRows.length; i++) {
+
+
+// for (let i = 0; i < btnShowRows.length; i++) {
  
-   btnShowRows[i].addEventListener("click", showModals);
-}
+//    btnShowRows[i].addEventListener("click", showModals);
+// }
 
 
 overlay.addEventListener("click", closeModal);
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    ajax_getItems();
-  });
+// document.addEventListener("DOMContentLoaded", function () {
+  // });
   
   function ajax_getItems() {
     const xhr = new XMLHttpRequest();
@@ -101,22 +137,18 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(json.length);
        
           html += "<tr>";
-          html += "<td><input type='checkbox' name='task_ID[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
-          html+= "<td class='hidden_id'>" + json[i].task_ID + "</td>";
+          html += " <td><input type='checkbox' name='task_ID[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
+          html += " <td class='hidden_id' id='task_ID'>" + json[i].task_ID + "</td>";
           html += " <td>" + json[i].description + "</td>";
-          html +=" <td>" + json[i].sub_component + "</td>";
-          html += "                     <td>";
-          html += "" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W ";
-         
-          html += "</td>";
-                                
-          html += " <td><div><button class='view'><span class='material-icons-sharp'>edit</span></button></div>";
-          html += "                </td>";
-          html += "                </tr>";
+          html += " <td>" + json[i].sub_component + "</td>";
+          html += " <td>" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W </td>";                    
+          html += "<td><div><button class='edit-maintenance'><span>edit</span></button></div></td>";
+          html += "</tr>";
          
   
         }
         document.querySelector(".category").innerHTML = html;
+        setEventListner();
       }
     }
     xhr.send();
@@ -158,23 +190,17 @@ document.addEventListener("DOMContentLoaded", function () {
             
             if (checkedIds.length > 0) {
                 
-                    // Create a new XMLHttpRequest object
                     var xhr = new XMLHttpRequest();
-                    
-                    // Define the URL to send the request to
+                  
                     var url = "http://localhost/upkeep/upkeep/public/Moderator/Maintenance/delMaintenance";
                     
-                    // Define the request method (GET or POST)
                     var method = "POST";
-                    
-                    // Define the request parameters
+                   
                     var params = "ids=" + JSON.stringify(checkedIds);
                     console.log(params);
                     
-                    // Open the request and set the method and URL
                     xhr.open(method, url);
-                    
-                    // Set the request headers (if needed)
+                   
                     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     
                     // Define the function to handle the response from the server
@@ -191,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   
                   
                 // Send the checkedIds array to the server using AJAX to delete the corresponding records
-                // Alternatively, you can submit a form with hidden inputs to pass the checkedIds array to the server using POST method
+                
             }
 
             deleteButton.style.display = "none";

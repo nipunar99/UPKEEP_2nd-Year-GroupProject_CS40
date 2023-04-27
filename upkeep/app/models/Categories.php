@@ -1,14 +1,14 @@
 <?php 
 
-class Itemtemplates 
+class Categories 
 {
     use Model;
 
-    protected $table = "item_type";
+    protected $table = "categories";
 
     protected $allowedColumns = [
-        "type_id",
-        "type_name"
+        "category_id",
+        "category_name"
         
     ];
     public function insertItemtemplate($data){
@@ -31,6 +31,11 @@ class Itemtemplates
         //     }        
             // $sql = "select * from `itemtemplate` where id=:id";
         // }  
+        public function getCategoryId($category_name){
+            $query = "select category_id from $this->table where category_name = '$category_name' ";
+            echo($category_name);
+            return $this->query($query);
+        }
 }
 
           

@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
 
             </div>
@@ -100,28 +100,29 @@
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
-               <div class="filter">
-                 <button onclick="showDropdwn()" class="filter_table"><span class="material-icons-sharp">filter_list</span><div class="fil"> Filter  
-                 </div> 
-                 </button><!-- <div id="1"> -->
-                 <select class="table-status" id="main-dropdwn" style="display:none;">
-                    <optgroup label="Status" id="status">Status
+                <div class="filter">
+                    <button onclick="showDropdwn()" class="filter_table"><span class="material-icons-sharp">filter_list</span>
+                        <div class="fil"> Filter
+                        </div>
+                    </button>
+                    <select class="table-status" id="main-dropdwn" style="display:none;">
+                        <optgroup label="Status" id="status">Status
                             <option value="1">Approved</option>
                             <option value="2">Pending</option>
-                    </optgroup>
-                    <optgroup label="Item Type">Status
-                            <option value="3">House Hold</option>
-                            <option value="4">Office</option>
-                            <option value="5">Vehicle</option>
-                            <option value="6">Personal</option>
-                    </optgroup>           
-                 </select>
-                        <!-- </div> -->
-                        
-              
-                
-              </div> 
-                
+                        </optgroup>
+                        <optgroup label="Item Type">Status
+                            <option value="3">Electronics</option>
+                            <option value="4">Appliances</option>
+                            <option value="5">Tools and equipment</option>
+                            <option value="6">Vehicles</option>
+                            <option value="7">Furniture</option>
+                            <option value="8">Home and garden</option>
+                            <option value="9">Other</option>
+                        </optgroup>
+                    </select>
+
+                </div>
+
             </div>
 
 
@@ -129,74 +130,71 @@
 
 
                 <div class="insight">
-                    <div class="itemTemplateList" >
+                    <div class="itemTemplateList">
                         <table id="templateTable">
                             <thead>
-<tr>
-                               <!-- <th></th> -->
-                                <th onclick="sortTable(0)">Item</th>
-                                <th class="category"  onclick="sortTable(1)">Item Type   </th>       
-                                <th  onclick="sortTable(2)" class="status">Status </th>
-                                <th  class="description">Description</th>
-                                <th>Action</th>
+                                <tr>
+                                    <th onclick="sortTable(0)">Item</th>
+                                    <th class="category" onclick="sortTable(1)">Item Type </th>
+                                    <th onclick="sortTable(2)" class="status">Status </th>
+                                    <th class="description">Description</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="details">       
-                                        <tr>
-                                           <!-- <td><input type="checkbox" name="id" class="item_id"></td> -->
-                                            <td class="template_name">
-                                                <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
-                                                <div class="name">new</div>
-                                            </td>
-                                            <td>abc</td>
-                                            <td id="status" class="primary">pending</td>
-                                            <td class="des_color">btre </td>
-                                            <td>
-                                                <div class="more">
-                                                    <!-- <div class="view"><button onclick='passItemDetails("+i+")'><span class="material-icons-sharp">view_list</span></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div> -->
-                                                    <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem"><span class="material-icons-sharp">view_list</span></a></button></div>
-                                                    &nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                   
+                            <tbody class="details">
+                                <tr>
+                                    <td class="template_name">
+                                        <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
+                                        <div class="name">new</div>
+                                    </td>
+                                    <td>abc</td>
+                                    <td id="status" class="primary">pending</td>
+                                    <td class="des_color">btre </td>
+                                    <td>
+                                        <div class="more">                               
+                                            <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem"><span class="material-icons-sharp">visibility</span></a></button></div>
+                                            &nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
                             </tbody>
-                            </table>
+                        </table>
                     </div>
                 </div>
-</div>
+            </div>
         </main>
         <div class="overlayview hidden"></div>
-    
-    
+
+
         <div class="popupview hidden">
             <!-- <button class="closebtn">&times;</button> -->
 
             <div class="delete1">
 
                 <!-- <form method="post" enctype="multipart/form-data" id=""> -->
-                    
-                        <h2>Do you want to delete this item template</h2>
-                        </div>
-                    <div class="actions">
-                        
-                    <button class="confirmbtn">Yes</button>
-                    <button class="closebtn1">No</button>
-                    <a href="<?= ROOT ?>/Moderator/Itemtemplate" style='display:none;' class="autoclick"></a>
-                    </div>
-                
 
-        
-    </div>
-        
-    
-    
+                <h2>Do you want to delete this item template</h2>
+            </div>
+            <div class="actions">
+
+                <button class="confirmbtn">Yes</button>
+                <button class="closebtn1">No</button>
+                <a href="<?= ROOT ?>/Moderator/Itemtemplate" style='display:none;' class="autoclick"></a>
+            </div>
 
 
-   
-   
-    <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
-    </script>
+
+        </div>
+
+
+
+
+
+
+
+        <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
+        </script>
 </body>
 
 </html>

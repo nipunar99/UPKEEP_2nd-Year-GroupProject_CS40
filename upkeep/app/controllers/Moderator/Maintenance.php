@@ -88,4 +88,11 @@ class Maintenance {
             redirect("Moderator/maintenance");
         
        }
+
+    public function editMaintenanceTask($id){
+        $maintenance = new Maintenance_templates;
+        $task = $maintenance->getTaskById($id);
+        $task = json_encode($task);
+        echo($task);
+    } 
 }

@@ -52,7 +52,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                
+
 
                 <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
@@ -92,30 +92,28 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End of top -->
-
-                    <!-- End of recent updates -->
 
                 </div>
 
             </div>
 
             <div class="insight">
-                <form method="post" action="#"  id="myform">
+                <form method="post" action="#" id="myform">
                     <div class="itemDetails">
-                    <div class="topInput">
-                      
-                        <div class="input-box">
-                            <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" id="name" required placeholder="Enter Item template Name">
-                        </div>
+                        <div class="topInput">
 
- </div>
+                            <div class="input-box">
+                                <span class="details">Item template Name</span>
+                                <input type="text" name="itemtemplate_name" id="name" pattern="[A-Za-z ]+" required placeholder="Enter Item template Name (Letters and spaces only) ">
+
+                            </div>
+
+                        </div>
 
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Status</span>
-                                <select name="status" id="status"></select>
+                                <select name="status" id="status" required=""></select>
                             </div>
 
                             <div class="input-box" id="img">
@@ -123,11 +121,9 @@
                                 <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
                             </div>
                             <div class="input-box">
-                                <span class="details">Type ID</span>
-                                <input type="text" name="type_id" id="" required placeholder="Enter type id">
+                                <span class="details">Select category</span>
+                                <select name="category_id" id="category" required></select>
                             </div>
-                          
-
 
                         </div>
 
@@ -139,8 +135,6 @@
 
                         <div class="button">
                             <input type="submit" value="Add Item" id="submitBtn">
-                            <!-- <button id="show-btn" onclick="showButton()">Add item</button> -->
-                         
                         </div>
 
                     </div>

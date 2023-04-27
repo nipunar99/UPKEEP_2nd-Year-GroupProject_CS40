@@ -5,13 +5,13 @@ var itemtemplateDetails = null;
 elements = document.getElementsByTagName("td")
 for (var i = elements.length; i--;) {
   if (elements[i].innerHTML === "Pending") {
-   //  elements[i].style.color = "red";
-   elements[i].classList.add("danger");
+    elements[i].classList.add("danger");
 
   }
   if (elements[i].innerHTML === "Approved") {
-   //  elements[i].style.color = "green";  
-    elements[i].classList.add("success"); }}
+    elements[i].classList.add("success");
+  }
+}
 
 
 
@@ -22,7 +22,7 @@ function myFunction() {
   table = document.getElementById("templateTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
+    td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -36,14 +36,13 @@ function myFunction() {
 }
 
 
-// "use strict";
 function fun(id) {
   // Get all DOM and store in variable
   const modal = document.querySelector(".popupview");
   const overlay = document.querySelector(".overlayview");
   const btnCloseModal = document.querySelector(".closebtn1");
   const confirmbtn = document.querySelector(".confirmbtn");
-   const autoclick = document.querySelector(".autoclick");
+  const autoclick = document.querySelector(".autoclick");
   const btnShowRow1 = document.querySelector(".delete");
   var itemtemplate_id = id;
 
@@ -70,15 +69,14 @@ function fun(id) {
 
   // close modal click
   btnCloseModal.addEventListener("click", closeModal);
-  // overlay.addEventListener("click", closeModal);
   confirmbtn.addEventListener("click", ajax_deleteItem(itemtemplate_id));
-  
+
   function ajax_deleteItem(id) {
     const item_id = id;
     const form = new FormData();
     form.append("action", "deleteItem");
     form.append("id", item_id);
-  
+
     const urlparams = new URLSearchParams(form);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/deleteItems");
@@ -94,13 +92,13 @@ function fun(id) {
         //   alert("Failed to delete row");
       }
     }
-    xhr.send(urlparams);
-  
+    xhr.send(form);
+
     // Your code to delete the row from the database goes here
-     closeModal();
-     autoclick.click();
-  
-  
+    closeModal();
+    autoclick.click();
+
+
   }
 
 
@@ -120,56 +118,40 @@ function ajax_getItems() {
   xhr.onload = function () {
     if (xhr.status == 200) {
       const res = xhr.responseText;
-      //  const json = JSON.parse(res);
-      // console.log(json);
-      // try {
       const json = JSON.parse(res);
       itemtemplateDetails = JSON.parse(res);
-      // console.log(itemtemplateDetails[1]);
-      // }
-      // catch (error) {
-      // console.log('Error parsing JSON:', error, res);
-      // }
       var html = "";
 
       for (var i = 0; i < json.length; i++) {
         console.log(json.length);
-        // html += "<tbody>";
+      
         html += "<tr>";
-        // html += "<td><input type='checkbox' name='id'></td>";
         html += "                <td class='template_name'>";
         html += "                     <div class='image'>";
         html += "<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/" + json[i].image + "'>";
-         console.log(json[i].id);
+        console.log(json[i].id);
         html += "</div>";
         html += "                        <div class='name'>" + json[i].itemtemplate_name + "";
 
         html += "                    </div>";
         html += "                     </td>";
-        // html += "                <td><"+json[i].type_name+"</td>";
-        html += "                        <td>" + json[i].type_name + "</td>";
+        html += "                        <td>" + json[i].category_name + "</td>";
         html += " <td id='status'";
         if (json[i].status == 'Approved') {
-          // console.log(json[i].status);
           html += "class='success'>";
         } else {
 
-          // console.log(json[i].status);
           html += "class = 'danger'>";
         }
         html += "" + json[i].status + "</td>";
         html += "                        <td class='des_color'>" + json[i].description + "</td>";
         html += "                       <td>";
-        html += " <div class='more'>  ";
-        //                var id = encodeURIComponent(json[i].id);
-        // var name = encodeURIComponent(json[i].itemtemplate_name);                        
-        html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/" + json[i].id + "'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button type='button' onclick='fun("+ json[i].id +")'><span class='material-icons-sharp'>delete</span></button></div>";
-        //  html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/?id=id'&name= name'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button><span class='material-icons-sharp'>delete</span></button></div>"
-        // html += "<div class='view'><button onclick='passItemDetails("+i+")'><span class='material-icons-sharp'>view_list</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button type='button' onclick='fun()'><span class='material-icons-sharp'>delete</span></button></div>";
+        html += " <div class='more'>  ";                        
+        html += "<div class='view'><button><a href='http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewItem/" + json[i].id + "'><span class='material-icons-sharp'>visibility</span></a></button></div>&nbsp;&nbsp;<div class='delete'><button type='button' onclick='fun(" + json[i].id + ")'><span class='material-icons-sharp'>delete</span></button></div>";
         html += "                </div>";
         html += "                </td>";
         html += "                </tr>";
-        // var id = json[i].id;
+
 
       }
       document.querySelector(".details").innerHTML = html;
@@ -180,23 +162,23 @@ function ajax_getItems() {
 
 }
 
-function passItemDetails(i) {
+// function passItemDetails(i) {
 
-  const xhr = new XMLHttpRequest();
-  var x = console.log(itemtemplateDetails[i].itemtemplate_name);
-  var y = console.log(itemtemplateDetails[i].id);
+//   const xhr = new XMLHttpRequest();
+//   var x = console.log(itemtemplateDetails[i].itemtemplate_name);
+//   var y = console.log(itemtemplateDetails[i].id);
 
 
-  xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Item/viewItem/", "true");
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  console.log(itemtemplateDetails[i]);
-  xhr.onload = function () {
-    if (xhr.status == 200) {
-      const res = xhr.responseText;
-    }
-  }
-  xhr.send();
-}
+//   xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewItem/", "true");
+//   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//   console.log(itemtemplateDetails[i]);
+//   xhr.onload = function () {
+//     if (xhr.status == 200) {
+//       const res = xhr.responseText;
+//     }
+//   }
+//   xhr.send();
+// }
 
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -211,7 +193,7 @@ no switching has been done:*/
     switching = false;
     rows = table.rows;
     console.log(rows.length);
-    
+
     /*Loop through all table rows (except the
    first, which contains table headers):*/
     for (i = 1; i < (rows.length - 1); i++) {
@@ -263,33 +245,34 @@ no switching has been done:*/
 function showDropdwn() {
 
   var select = document.getElementById("main-dropdwn");
-  if(select.style.display === "none")
-  {
-  select.style.display = "block";
+  if (select.style.display === "none") {
+    select.style.display = "block";
   }
-  else{
-    select.style.display= "none";
+  else {
+    select.style.display = "none";
   }
 }
 
 const dropdown = document.getElementById("main-dropdwn");
 const table = document.getElementById("templateTable");
 
-dropdown.addEventListener("change", function() {
+dropdown.addEventListener("change", function () {
   const selectedValue = this.value;
   console.log(selectedValue);
-  const rows = table.getElementsByTagName("tr");
   
+  const rows = table.getElementsByTagName("tr");
+
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
     const status = row.getElementsByTagName("td")[2];
     const itemType = row.getElementsByTagName("td")[1];
-    
+
     if (status && itemType) {
       const statusValue = status.textContent || status.innerText;
+      console.log(statusValue);
       const itemTypeValue = itemType.textContent || itemType.innerText;
-      
-      if ( selectedValue === "1" && statusValue === "Approved" || selectedValue === "2" && statusValue === "Pending" || selectedValue === "5" && itemTypeValue === "Vehicle" || selectedValue === "6" && itemTypeValue === "Personal" || selectedValue === "3" && itemTypeValue === "House Hold" || selectedValue === "4" && itemTypeValue === "Office") {
+
+      if (selectedValue === "1" && statusValue === "Approved" || selectedValue === "2" && statusValue === "Pending" || selectedValue === "5" && itemTypeValue === "Tools and equipment" || selectedValue === "6" && itemTypeValue === "Vehicles" || selectedValue === "8" && itemTypeValue === "Home and garden" || selectedValue === "9" && itemTypeValue === "Other" || selectedValue === "3" && itemTypeValue === "Electronics" || selectedValue === "7" && itemTypeValue === "Furniture" || selectedValue === "4" && itemTypeValue === "Appliances") {
         row.style.display = "";
       } else {
         row.style.display = "none";

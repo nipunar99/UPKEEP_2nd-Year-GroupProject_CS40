@@ -11,6 +11,7 @@ class User
         "last_name",
         "email",
         "password",
+        "user_role"
     ];
 
     public function validate($data){
@@ -45,5 +46,8 @@ class User
         $this->insert($data);
 
     }
-
+public function TotalItemOwners(){
+    $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'item_owner'";
+    return $this->query($query);
+}
 }

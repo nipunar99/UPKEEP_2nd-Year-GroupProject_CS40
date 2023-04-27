@@ -116,7 +116,7 @@
                             
                         <div class="input-box">
                                 <span class="details">City</span>
-                                <input type="text" name="city" id="city" required placeholder="Enter city">
+                                <input type="text" name="city" id="city" pattern="[A-Za-z]+" required placeholder="Enter city">
                             </div>
                            
                           
@@ -142,7 +142,7 @@
         </main>
 
     </div>
-   
+    <script src="<?= ROOT ?>/assets/js/Moderator/addDisposalPlaces.js"></script>
 </body>
 
 </html>

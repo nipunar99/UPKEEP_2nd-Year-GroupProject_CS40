@@ -53,10 +53,10 @@
             <div class="mainHeader">
                 <h1>Item</h1>
                 <div class="right">
-                    <div class="theme-toggler">
+                    <!-- <div class="theme-toggler">
                         <span class="material-icons-sharp active">light_mode</span>
                         <span class="material-icons-sharp">dark mode</span>
-                    </div>
+                    </div> -->
 
                     <div class="profile">
                         <div class="info">
@@ -71,60 +71,44 @@
             </div>
             <div class="insight">
                 <div class="card-main">
-                    <div class="view-1">
-                        <?php
-                        $result = json_decode($data['result']);
-                        $result_obj = $result[0];
+                    <div class="itemView">
+                        <div class="view-1">
+                            <?php
+                            $result = json_decode($data['result']);
+                            $result_obj = $result[0];
 
-                        ?>
+                            ?>
 
-                        <div class='img'>
-                            <img src="<?= ROOT ?>/assets/images/uploads/<?= $result_obj->image ?>">
-                        </div>
-
-
-                        <!-- <div class="view-1">
-                       
-                        <div class='img'>
-                            <img src="<?= ROOT ?>/assets/images/uploads/2.png">
-                        </div>
-                        <div class='view-1-text'>
-
-                            <div class='name'>
-                                <h5>aa</h5>
-                                <p>bb</p>
-                            </div>
-                            <div class='type'>
-                                <h5>Item Type</h5>
-                                <p>cc</p>
-                            </div>
-
-
-                        </div> -->
-
-
-
-                    </div>
-                    <div class="view-3">
-                        <div class='view-1-text'>
-
-                            <div class='name'>
-                                <h5>Item Template Name</h5>
-                                <p><?= $result_obj->itemtemplate_name ?></p>
-                            </div>
-                            <div class='type'>
-                                <h5>Item Type</h5>
-                                <p><?= $result_obj->type_name ?></p>
-                            </div>
-                            <div class='sta'>
-                                <h5>Status</h5>
-                                <p><?= $result_obj->status ?></p>
+                            <div class='img'>
+                                <img src="<?= ROOT ?>/assets/images/uploads/<?= $result_obj->image ?>">
                             </div>
 
                         </div>
+                        <div class="view-3">
+                            <div class='view-1-text'>
+                                <div class='basic'>
+                                    <h5>Basic details</h5>
 
+                                </div>
+                                <div class='name'>
+                                    <h5>Item Template Name</h5>
+                                    <p><?= $result_obj->itemtemplate_name ?></p>
+                                </div>
+                                <div class='type'>
+                                    <h5>Item Type</h5>
+                                    <p><?= $result_obj->category_name ?></p>
+                                </div>
+                                <div class='sta'>
+                                    <h5>Status</h5>
+                                    <p><?= $result_obj->status ?></p>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
                     <!-- <div class="view-3"> -->
+
 
 
 
@@ -132,39 +116,42 @@
                     <div class="view-2">
                         <div class="text">
                             <div class="text-1">
-                                <p>Users</p>
-                                <h1>250</h1>
-                                <p>12/11/2021</p>
+                                <h2>Item Users</h2>
+
                             </div>
                             <div class="text-2">
-                                <p>Total Users 110</p>
-                                <p>Item Users 10</p>
+                                <?php
+                                // $result1 = json_decode($data2['res1']);
+                                // $result_obj1 = $result1[0]->{'COUNT(*)'};
+                                // $data = array(
+                                //     'result_obj1' => $result_obj1);
+
+                                // 
+                                ?>
+                                //
+                                // <?php
+                                    // $result2 = json_decode($data3['res2']);
+                                    // $result_obj2 = $result2[0]->{'COUNT(*)'};
+                                    // $data = array(
+
+                                    //     'result_obj2' => $result_obj2);
+                                    // 
+                                    ?>
+
 
                             </div>
                         </div>
                         <div class="pie-view">
 
                         </div>
-                        <!-- <h2>Usage</h2>
-                        <div class="view-2-text">
-                            <div class="users">
-                                <h3>Current Users</h3>
-                                <h4>50</h4>
-                            </div>
-                            <div class="tasks">
-                                <h3>Current Suggested Tasks</h3>
-                                <h4>Task 1</h4>
-                                <h4>Task 2</h4>
-                                <h4>Task 3</h4>
-                            </div>
-                        </div> -->
+
                     </div>
                 </div>
                 <!-- <form action="" method="post"> -->
                 <div class="maintenances">
 
                     <h1>Sub Categories</h1>
-                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span class="material-icons-sharp">delete</span></button>
+                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>delete</span></button>
                     <span> <button id="popup-btn" class="subcategory">Add Sub Category</button></span>
                     <div class="table">
                         <table id="categoryTable">
@@ -172,8 +159,8 @@
                                 <tr>
                                     <th></th>
                                     <th class="hidden_id"></th>
-                                    <th>Sub category</th>
-                                    <!-- <th>Time Frame</th> -->
+                                    <th>Item name</th>
+                                    <th>Status</th>
                                     <th>Description</th>
                                     <th>Action</th>
 
@@ -185,16 +172,12 @@
                                         <tr>
                                             <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
                                             <td class="hidden_id"><?= $row->id ?></td>
-                                            <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
-                                            <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/<?= $row->id ?>"><?= $row->category ?></a></td>
-                                            <!-- <td>Sub Component</td> -->
-                                            <!-- <td>Time Frame</td> -->
+                                            <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/<?= $row->id ?>"><?= $row->itemtemplate_name ?></a></td>
+                                            <td><?= $row->status ?></td>
                                             <td><?= $row->description ?></td>
+
                                             <td>
-                                                <!-- <div class="more"> -->
-                                                <!-- <div class="view"><button onclick='passItemDetails("+i+")'><span class="material-icons-sharp">view_list</span></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div> -->
                                                 <div> <button class="view"><span>edit</span></button></div>
-                                                <!-- </div> -->
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -210,41 +193,17 @@
 
                 <!-- </form> -->
         </main>
-        <!-- <div class="popupview hidden">
-            <button class="closebtn">&times;</button>
-            <div class="popup-text">
-                <div class="1">
-                    <span class="material-icons-sharp">view_in_ar</span>
-                    <h4>Item name</h4>
-                    <h4><B>Samsung Inverter Windfree AC</B> </h4>
-                </div>
-                <div class="2">
-                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                    <h4>Maintenance task</h4>
-                    <h4><b>Replace HAVC air filters</b></h4>
-                </div>
-                <div class="3">
-                    <span class="material-icons-sharp">construction</span>
-                    <h4>Sub Component</h4>
-                    <h4><b>Air filter</b></h4>
-                </div>
-            </div>
-            <div class="actions">
-                <button>Add to template</button>
-                <button>Edit</button>
-                <button>Reject</button>
-            </div>
-        </div> -->
 
-        <!-- <div id="common-ancestor"> -->
         <div class="popupview popupview1 hidden">
-            <form id="popup-form1" method="post" action="#" class="fm">
+            <form id="popup-form1" method="post" action="add" class="fm" enctype="multipart/form-data">
                 <div class="itemDetails">
                     <div class="topInput">
-
+                        <input type="hidden" name="operation" value="'AddNewChildItemtemplate'">
+                        <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowid-input">
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" value="<?= $result_obj->itemtemplate_name ?>" id="" readonly>
+                            <input type="text" name="itemtemplate_name" value="" id="itemtemplate_name">
+                            <small></small>
                         </div>
 
                     </div>
@@ -252,34 +211,31 @@
                     <div class="middleInput">
                         <div class="input-box">
                             <span class="details">Status</span>
-                            <select name="status" id="status1"></select>
+                            <select name="status" id="status" required=""></select>
+                            <small></small>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Image</span>
                             <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
+                            <small></small>
                         </div>
                         <div class="input-box">
-                            <span class="details">Type Name</span>
-                            <input type="text" name="type_id" id="" value="<?= $result_obj->type_name ?>" readonly>
+                            <span class="details">Category Name</span>
+                            <input type="text" name="category_id" id="name1" value="<?= $result_obj->category_name ?>" readonly>
+                            <small></small>
                         </div>
-
-
-
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Category</span>
-                        <input type="text" name="category" id="" required placeholder="Enter Category">
 
                     </div>
                     <div class="input-box">
                         <span class="details">Description</span>
-                        <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
+                        <textarea rows="3" cols="100" name="description" id="description" required placeholder="Enter Description about item Template"></textarea>
+                        <small></small>
                     </div>
 
 
                     <div class="button">
-                        <input type="submit" value="Add Item">
+                        <input type="submit" value="Add Item" id="add">
                     </div>
 
                 </div>
@@ -288,14 +244,16 @@
             </form>
         </div>
         <div class="popupview popupview2 hidden">
-            <form id="popup-form2" method="post" action="#" class="fm">
+            <form id="popup-form2" method="post" action="update" class="fm">
                 <div class="itemDetails">
                     <div class="topInput">
                         <input type="hidden" name="operation" value=" 'update'">
                         <input type="hidden" name="id" id="rowid-input">
+                        <input type="hidden" name="parent_id" id="rowparentid-input">
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" value="<?= $result_obj->itemtemplate_name ?>" id="" readonly>
+                            <input type="text" name="itemtemplate_name" value="<?= $row->itemtemplate_name ?>" id="Itemtemplate_name">
+                            <small></small>
                         </div>
 
                     </div>
@@ -303,34 +261,30 @@
                     <div class="middleInput">
                         <div class="input-box">
                             <span class="details">Status</span>
-                            <select name="status" id="status2"></select>
+                            <select name="status" id="Status" required="" value=""></select>
+                            <small></small>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Image</span>
-                            <input type="file" class="imgInput" name="image" id="upfile" value="<?= $result_obj->image ?>" placeholder="Enter Brand">
+                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
+                            <small></small>
                         </div>
                         <div class="input-box">
-                            <span class="details">Type Name</span>
-                            <input type="text" name="type_id" id="" value="<?= $result_obj->type_name ?>" readonly>
+                            <span class="details">Category Name</span>
+                            <input type="text" name="category_id" id="name2" value="<?= $row->category_name ?>" readonly>
+                            <small></small>
                         </div>
-
-
-
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Category</span>
-                        <input type="text" name="category" value="<?= $result_obj->category ?>" id="" required placeholder="Enter Category">
-
                     </div>
                     <div class="input-box">
                         <span class="details">Description</span>
-                        <textarea rows="3" cols="100" name="description" value="<?= $result_obj->description ?>" id="" required placeholder="Enter Description about item Template"></textarea>
+                        <textarea rows="3" cols="100" name="description" id="Description" required placeholder="Enter Description about item Template"></textarea>
+                        <small></small>
                     </div>
 
 
                     <div class="button">
-                        <input type="submit" value="Add Item">
+                        <input type="submit" value="Add Item" id="update">
                     </div>
 
                 </div>
@@ -343,6 +297,9 @@
         <div class="overlayview hidden"></div>
     </div>
     </div>
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Moderator/item.js"></script>
 </body>
 

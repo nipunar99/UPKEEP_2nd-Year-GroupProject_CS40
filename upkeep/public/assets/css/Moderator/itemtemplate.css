@@ -68,9 +68,9 @@ body{
 a{
     color: var(--color-dark);
 }
-button {
+/* button {
     color: #f6f1f1;
-}
+} */
 
 img{
     display: block;
@@ -291,7 +291,7 @@ main .insight >div:hover{
 }
 
 main .insight >div span{
-    background: var(--color-primary);
+    /* background: var(--color-primary); */
     padding: 0.5rem;
     border-radius: 50%;
     color: var(--color-white);
@@ -487,7 +487,7 @@ main .more{
 .image{
     display: flex;
     position: relative;
-    left: 7rem;
+    left: 10rem;
     gap: 1rem;
 }
 .name{
@@ -717,26 +717,26 @@ th .status {
     grid-template-columns: 2rem 12rem 18rem;
     gap: 1.5rem;
 } */
-tbody tr:nth-child(2n+1) {
-    background-color: #f7f5f5; /* Set first row color */
-  }
+/* tbody tr:nth-child(2n+1) {
+    background-color: #f7f5f5; 
+  } */
   
-  tbody tr:nth-child(2n) {
-    background-color: #fff; /* Set second row color */
-  }
+  /* tbody tr:nth-child(2n) {
+    background-color: #fff; 
+  } */
   
-  tbody tr:nth-child(3n+1) {
-    background-color: #f6f1f1; /* Set third row color to match first row */
-  }
+  /* tbody tr:nth-child(3n+1) {
+    background-color: #f6f1f1; 
+  } */
   table {
   
   border-spacing: 0;
 }
 .view{
-    color: #dfe5e6;
+    background-color: #fff;
 }
 .delete{
-    color: #fbfafa;
+    color: #fff;
 }
   
 .popup-text span{

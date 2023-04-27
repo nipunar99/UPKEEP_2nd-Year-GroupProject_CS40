@@ -53,10 +53,10 @@
             <div class="mainHeader">
                 <h1>Item Maintenances</h1>
                 <div class="right">
-                    <div class="theme-toggler">
+                    <!-- <div class="theme-toggler">
                         <span class="material-icons-sharp active">light_mode</span>
                         <span class="material-icons-sharp">dark mode</span>
-                    </div>
+                    </div> -->
 
                     <div class="profile">
                         <div class="info">
@@ -72,8 +72,8 @@
             <div class="insight">
                 
                     <!-- <div class="name">name</div> -->
-                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span class="material-icons-sharp">delete</span></button>
-                    <span> <button class="subcategory">&#43</button></span>
+                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
+                    <span> <div class="subcategory"><button>Add maintenance task </button></div></span>
                     <div class="temp_id">
                     <input type="hidden" name="item_template_id" id="rowid-input">
                     </div>
@@ -94,21 +94,17 @@
                             <tbody class="category">
                             
                                 <tr>
-                                <td><input type="checkbox" name="task_ID[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
-                                <td class="hidden_id"></td>
+                                    <td><input type="checkbox" name="task_ID[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
+                                    <td class="hidden_id" id="task_ID"></td>
                                     <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
-                                    <td>gfrt</td>
-                                    <td>gfrt</td>
-                                    <td>6</td>
-                                    <!-- <td>Sub Component</td> -->
-                                    <!-- <td>Time Frame</td> -->
-                                    
-                                    <td>
-                                                <!-- <div class="more"> -->
-                                                    <!-- <div class="view"><button onclick='passItemDetails("+i+")'><span class="material-icons-sharp">view_list</span></button></div>&nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div> -->
-                                                   <div> <button class="view"><span class="material-icons-sharp">edit</span></button></div>
-                                                <!-- </div> -->
-                                            </td>
+                                    <td id="description">gfrt</td>
+                                    <td id="sub_component">gfrt</td>
+                                    <td id="time_frame">6</td>
+                                    <td>  <!-- display:flex; flex-direction:row;justify-content:center;align-items:center; -->
+                                        <div class="btn-container">
+                                            <button class="edit-maintenance"><span>edit</span></button>
+                                        </div>
+                                    </td>
                                 </tr>
 
                                    
@@ -120,8 +116,10 @@
                
               
             </div>
-            <div class="popupview1 popupview hidden" >
-            <button class="closebtn closebtn2">&times;</button>
+
+            <!-- popupviews -->
+            <div class="popupview hidden" id="add-maintenance" >
+            <button class="closebtn closebtn1">&times;</button>
             
             <div class="content content1">
                 
@@ -136,8 +134,9 @@
                         
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <input type="text" name="description" id="" required placeholder="Enter description">
+                            <textarea rows="3" cols="90" name="description" id="des_id" required placeholder="Enter maintenance task"></textarea>
                         </div>
+
                         
                         <div class="input-box">
                             <span class="details">Sub Component Image</span>
@@ -181,9 +180,12 @@
                 </form>
                 
             </div>
-        </div> 
-        <div class="popupview popupview2 hidden" >
-            <button class="closebtn">&times;</button>
+        </div>
+        
+        
+
+        <div class="popupview hidden" id="update-maintenance">
+            <button class="closebtn closebtn2">&times;</button>
             
             <div class="content content1">
                 
@@ -200,9 +202,9 @@
                         
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <input type="text" name="description" id="" required placeholder="Enter description">
+                            <textarea rows="3" cols="100" name="description" id="des_id" required placeholder="Enter maintenance task"></textarea>
                         </div>
-                        
+
                         <div class="input-box">
                             <span class="details">Sub Component Image</span>
                             <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Image">
@@ -247,9 +249,14 @@
             </div>
         </div> 
         
-          <div class="overlayview hidden"></div>
-                    <script src="<?= ROOT ?>/assets/js/Moderator/maintenances.js">
-                    </script>
+          <div class="overlayview hidden" id="overlay"></div>
+
+            <script>
+                const ROOT = "<?=ROOT?>";
+            </script>
+            <script src="<?= ROOT ?>/assets/js/Moderator/maintenances.js">
+            </script>
+                    
 </body>
 
 </html>

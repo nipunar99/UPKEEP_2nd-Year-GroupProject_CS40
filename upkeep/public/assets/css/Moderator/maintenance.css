@@ -164,11 +164,11 @@ main .mainHeader{
 }
 
 .right{
-    margin-top: 1.4rem;
+    margin-top: 0.4rem;
     margin-right: 1rem;
     width: 10rem;
     position: relative;
-    left: 900px;
+    left: 852px;
     display: flex;
     justify-content: space-around;
     gap: 2rem;
@@ -250,14 +250,58 @@ main .mainHeader{
     font-size: 2rem;
     padding-top: 2rem;
 }
-span .subcategory{
-    font-size: 40px;
-    color: #00BEE4;
+span .subcategory button{
+  
+  
     position: absolute;
-    right: 180px;
-    bottom: 610px;
+    right: 52px;
+    bottom: 630px;
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+    display: inline-block;
+    border-radius: 30px;
+    margin: 0 3rem;
+    padding: 0.5rem 1.6rem;
+    color: white;
+    font-weight: 500;
+    transition: all 300ms ease;
+}
+ span .subcategory button:hover{
+    transform: scale(1.1);
     
+}   
+.del{
+    position: absolute;
+    right: 300px;
+    bottom: 630px;
+    background: linear-gradient(to right, rgba(227, 82, 20, 0.7), rgba(230, 44, 6, 0.895));
+    display: inline-block;
+    border-radius: 30px;
+    margin: 0 3rem;
+    padding: 0.5rem 1.6rem;
+    color: white;
+    font-weight: 500;
+    transition: all 300ms ease;
+}
+.del:hover, .edit-maintenance:hover{
+    transform: scale(1.1);
+   
+}
+.btn-container{
+    display:flex;
+     flex-direction:row;
+     justify-content:center;
+     align-items:center;
+    
+}
+.edit-maintenance{
+    background: lightgreen;
+    display: inline-block;
+    border-radius: 30px;
 
+    padding: 0.3rem 2rem;
+    color: white;
+    font-weight: 500;
+    transition: all 300ms ease;
 }
 .overlayview {
     position: absolute;
@@ -334,7 +378,7 @@ form .itemDetails >.input-box:first-child {
     width: 46rem;
 }
 form .itemDetails >.input-box:nth-child(2) {
-    width: 18rem;
+    width: 48rem;
 }
 form .itemDetails .middleInput{
     display: grid;
@@ -358,7 +402,10 @@ form .itemDetails .middleInput{
     border-bottom-width: 2px;
     transition: all 300ms ease;
 }
-
+.itemDetails .input-box span{
+    font-size: 1.2rem;
+    color: #626266;
+}
 .itemDetails .input-box input:focus,
 .itemDetails .input-box input:valid{
     /* change */
@@ -371,7 +418,7 @@ form .itemDetails .middleInput{
 
 .content form .button{
     position: relative;
-    left: 45rem;
+    left: 38rem;
     height: 45px;
     width: 16rem;
 }
@@ -445,7 +492,7 @@ form .itemDetails .middleInput{
 }
 textarea{
     display:block;
-    width: 50rem;
+    width: 46rem;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;

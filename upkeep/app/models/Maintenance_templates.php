@@ -69,6 +69,12 @@ class Maintenance_templates
           
         return $this->query($query);
     }
+
+    public function getTaskById($id){
+        $arr['task_ID'] = $id;
+        $task = $this->where($arr);
+        return $task;
+    }
 }
 
           
