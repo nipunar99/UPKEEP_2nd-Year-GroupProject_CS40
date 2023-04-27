@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/items.css">
 </head>
 <body>
@@ -41,26 +40,26 @@
                     <h3>Item</h3>
                 </a>
 
-                <a href="#" >
+                <a href="<?= ROOT ?>/itemowner/TechnicianGigs" >
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Community">
                     <span class="material-icons-sharp">forum</span>
                     <h3>Community</h3>
                 </a>
 
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Conversation">
                     <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
+                    <h3>Conversation</h3>
                     <span class="message-count">11</span>
                 </a>
 
                 <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
+                    <span class="material-icons-sharp">trending_up</span>
+                    <h3>Statistics</h3>
                 </a>
 
                 <a href="#">
@@ -134,12 +133,21 @@
                     <div class="itemDetails">
                         <div class="input-box">
                             <span class="details">Item Name</span>
-                            <input type="text" name="item_name" id="" required placeholder="Enter Item Name">
+                            <input type="text" name="item_name" id="item_name" required placeholder="Enter Item Name">
+                            <small></small>
                         </div>
-        
-                        <div class="input-box">
-                            <span class="details">Item type</span>
-                            <select name="item_type" id="itemtype" ></select>
+                        
+                        <div class="middleInput"> 
+                            <div class="input-box">
+                                <span class="details">Item type</span>
+                                <select name="item_type" id="itemtype" ></select>
+                                <small></small>
+                            </div>
+                            <div class="input-box hidden" id="altertypeinput">
+                                <span class="details">Enter type</span>
+                                <input type="text" name="alter_type" id="alter_type" required placeholder="Enter Type">
+                                <small></small>
+                            </div>
                         </div>
 
                         <div class="input-box">
@@ -150,39 +158,47 @@
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Brand</span>
-                                <input type="text" name="brand" id="" required placeholder="Enter Brand">
+                                <input type="text" name="brand" id="brand" required placeholder="Enter Brand">
+                                <small></small>
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Model</span>
                                 <input type="text" name="model" id=""  placeholder="Enter Model">
+                                <small></small>
+
                             </div>
             
                             <div class="input-box">
                                 <span class="details">Purchase Price(Rs.)</span>
-                                <input type="number" name="purchase_price" id=""  placeholder="Purchase Price">
+                                <input type="number" name="purchase_price" id="purchase_price"  placeholder="Purchase Price">
+                                <small></small>
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Description</span>
                                 <input type="text" name="description" id=""  placeholder="Enter Description about item">
+
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Purchase Date</span>
-                                <input type="date" name="purchase_date" id=""  placeholder="Enter Purchase Date">
+                                <input type="date" name="purchase_date" id="purchase_date"  placeholder="Enter Purchase Date">
+                                <small></small>
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Warrenty Date</span>
-                                <input type="date" name="warrenty_date" id=""  placeholder="Enter Warrenty Date">
+                                <input type="date" name="warrenty_date" id="warrenty_date"  placeholder="Enter Warrenty Date">
+                                <small></small>
                             </div>
                         </div>
                         <div class="button">
                             <input type="submit" value="Next" id="nextBtn"> 
-                            <!-- itemDetails -->
                         </div>
-        
+                        <!-- <div onclick="addreminder()" class="button">
+                            <input type="button" value="Add a Maintenance" id="addReminderbtn"> 
+                        </div> -->
                     </div>
                 </form>
 
@@ -194,24 +210,28 @@
 
             <div class="content content2">
 
-                <!-- <form method="post" enctype="multipart/form-data" id=""> -->
+                <form method="post" enctype="multipart/form-data" id="form_docFiles">
                     
                     <div class="itemDetails">
                         <h2>Documentation</h2>
-                        <div class="middleInput">                            
+                        <div class="middleInput">  
+
                             <div class="input-box">
                                 <span class="details">Bill</span>
-                                <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                <input type="file" class = "imgInput billfile" name="bill_file" id=""  placeholder="Enter Bill file">
+                                <small></small>
                             </div>
 
                             <div class="input-box">
                                     <span class="details">Warrenty Card</span>
-                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                    <input type="file" class = "imgInput Warrentyfile" name="Warrenty_file" id=""  placeholder="Enter Warrenty file">
+                                    <small></small>
                             </div>
 
                             <div class="input-box">
                                     <span class="details">User Manual</span>
-                                    <input type="file" class = "imgInput" name="image" id=""  placeholder="Enter Brand">
+                                    <input type="file" class = "imgInput manualfile" name="manual_file" id=""  placeholder="Enter User Manual file">
+                                    <small></small>
                             </div>
                     </div>
 
@@ -224,7 +244,9 @@
         
     <div class="overlayview hidden"></div>
     
-    
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/items.js"></script>
-</body>
+</body> 
 </html>

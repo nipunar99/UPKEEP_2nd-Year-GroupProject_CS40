@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/addmoderator.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/addmoderator.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                     <h3>Dashboard</h3>
                 </a>
                 
-                <a href="#">
+                <a href="<?=ROOT?>/Admin/VerifyRequest">
                     <span class="material-icons-sharp">help_outline</span>
                     <h3>Verification Requests </h3>
                 </a>
@@ -45,13 +45,17 @@
                     <span class="material-icons-sharp">person</span>
                     <h3>Moderators</h3>
                 </a>
+                <a href="<?=ROOT?>/Admin/Technician">
+                    <span class="material-icons-sharp">person</span>
+                    <h3>Technician</h3>
+                </a>
                 
-                <a href="#">
+                <a href="<?=ROOT?> /Admin/Complaints">
                     <span class="material-icons-sharp">error</span>
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#">
+                <a href="">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
@@ -122,7 +126,8 @@
             <div class="insight">
                 <form method="post" action="#">
                     <div class="itemDetails">
-                        <div class="topInput">
+                        <div class="topInput" style="display:flex;gap:11em;">
+                            
                             <div class="input-box">
                                 <span class="details">First Name</span>
                                 <input type="text" name="first_name" id="" required placeholder="Enter First Name">
@@ -131,6 +136,7 @@
                                 <span class="details">Last Name</span>
                                 <input type="text" name="last_name" id="" required placeholder="Enter Last Name">
                             </div>
+                            
                         </div>
         
 

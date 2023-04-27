@@ -6,7 +6,7 @@ class Item {
     
 public function index (){
     $data =[];
-    if($_SESSION['USER'] == $_SESSION['user_id']){
+    if($_SESSION['user_id'] == $_SESSION['user_id']){
 
         $arr = [];
         $arr["owner_id"] = $_SESSION['user_id'];
@@ -20,13 +20,20 @@ public function index (){
                 unset($_POST['action']);
                 $item = new Owneritem;
                 $item->insertItem($_POST);
+            }else if(isset($_POST['action']) && $_POST['action']=="adddoc"){
+
+                show($_POST);
+                unset($_POST['action']);
+                $item = new ItemDoc;
+                $item->insertDocs();
             } 
             else {
                 $this->selectItem($_POST);
             }
         }
         else{
-            //show(result);
+            // show($_SESSION['item_id'][0]->id);
+
             $this->view('itemowner/item',$data);
         }
 
@@ -37,11 +44,11 @@ public function index (){
 }
 
 public function selectItem($arr){
+    $_SESSION['item_id'] = $arr['item_id'];
     $data = [];
     $items = new Owneritem;
     $result = $items->where($arr);
     $data['result'] = $result;
-    // show($data);
     $this->view('itemowner/viewitem',$data);
 
 }

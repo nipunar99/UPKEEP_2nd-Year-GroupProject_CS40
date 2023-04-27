@@ -106,12 +106,21 @@
                         <div class="text">
                             <div class="text-1">
                                 <p>Total Templates</p>
+<<<<<<< HEAD
                                 <h1>66</h1>
                                 <p>12/11/2021</p>
                             </div>
                             <div class="text-2">
                                 <p>Item Templates 100</p>
                                 <p>Pending Items 10</p>
+=======
+                                <h1>100</h1>
+                                <p>12/11/2021</p>
+                            </div>
+                            <div class="text-2">
+                                <p>Item templates 55</p>
+                                <p>Pending items 11</p>
+>>>>>>> develop
                                 
                             </div>
                         </div>

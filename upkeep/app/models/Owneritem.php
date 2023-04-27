@@ -33,15 +33,24 @@ class Owneritem {
                 try{
                     $data["owner_id"] = $_SESSION['user_id'];
                     $data["image"] = $file_name;
-                    // show($data);
+                    if($data["item_type"] == "Other"){
+                        $data["item_type"] = $data["alter_type"];
+                        unset($data["alter_type"]);
+                    }
+                    show($data);
                     $this->insert($data);
+                    $_SESSION['item_id'] =$this->getLastID();
+                    
                 }
                 catch(PDOException $e){
                     echo $e->getMessage();
                 }
             }
         }
+        unset($_FILES);
+
     }
+    
 
     public function delete($id, $id_column = "item_id"){
         
@@ -55,4 +64,14 @@ class Owneritem {
     $query = "select COUNT(*) FROM $this->table WHERE item_type = '$item_nme'";
     return  $this->query($query);
   }
+
+    public function getLatestWarrentyDate($user_id){
+        $query = "select item_name,warrenty_date from items WHERE owner_id =" . $user_id . " ORDER BY warrenty_date ASC LIMIT 1";
+        return $this->query($query);
+    }
+
+    public function getLastID(){
+        $query = "select MAX(item_id) as 'id' from items";
+        return $this->query($query);
+    }
 }

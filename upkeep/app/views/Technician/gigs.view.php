@@ -10,120 +10,153 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/multi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
-    <aside>
-            <div class="top">
-                <script>console.log("Loaded")</script>
-
-                <div class="logo">
-                    <img src=<?=ROOT."/assets/images/logo.png"?> alt="">
-                    <img src=<?=ROOT."/assets/images/title.png"?> alt="">
+        <aside class="close">
+            <div class="header nbs">
+                <div class="left">
                 </div>
-
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                        </span>
+                <div class="center">
+                    <div class="header-logo">
+                        <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                    </div>
                 </div>
-
+                <div class="right"></div>
             </div>
 
-            <div class="sidebar">
-                <a href="<?=ROOT?>/Technician/Dashboard" >
-                    <span class="material-icons-sharp">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
+            <div class="middle">
+                <div class="sidebar">
+                    <a href="<?=ROOT?>/Technician/Dashboard" >
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
 
-                <a href="#" >
-                    <span class="material-icons-sharp">list_alt</span>
-                    <h3>Orders</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Findjobs" >
+                        <span class="material-icons-sharp">work</span>
+                        <h3>Find Jobs</h3>
+                    </a>
 
-                <a href="<?=ROOT?>/Technician/Gigs" class="active">
-                    <span class="material-icons-sharp">task</span>
-                    <h3>Gigs</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Orders" >
+                        <span class="material-icons-sharp">list_alt</span>
+                        <h3>Orders</h3>
+                    </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a>
+                    <a href="<?=ROOT?>/Technician/Gigs" class="active">
+                        <span class="material-icons-sharp">task</span>
+                        <h3>Gigs</h3>
+                    </a>
 
 
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
-                    <span class="message-count">11</span>
-                </a>
+                    <a href="<?=ROOT?>/Community">
+                        <span class="material-icons-sharp">forum</span>
+                        <h3>Community</h3>
+                    </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">error</span>
-                    <h3>Reports</h3>
-                </a>
 
+                    <a href="<?=ROOT?>/Coversation">
+                        <span class="material-icons-sharp">mail_outline</span>
+                        <h3>Conversation</h3>
+                    </a>
+
+                    <a href="<?=ROOT?>/Technician/Statistics">
+                        <span class="material-icons-sharp">analytics</span>
+                        <h3>Statistics</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bottom">
                 <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
-
             </div>
 
 
         </aside>
 
+
         <main>
-            <h1>GIGS</h1>
+            <div class="header nbs">
+                <div class="left">
 
-            <div class="top">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">menu</span>
-                </button>
-
-                <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
                 </div>
-
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey,<b>Saman</b></p>
-                        <small class="text-muted">Technician</small>
+                <div class="center">
+                    <h1>My Gigs</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
-                    <div class="profile-photo">
-                        <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
+
+                    <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                        </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="toolbar">
-                <a class="show-modal addGig" href="#addgig">Add GIG</a> 
-                <a class="viewitem" href="#">View Available Items</a> 
+                <a class="show-modal addGig btn hidden" href="">Add GIG</a> 
+                <a class="viewitem btn" href="#">View Available Items</a> 
             </div>
             
-            <?php if(!empty($data['gigList'])) : ?>
-            <div class="insight">
-            <?php foreach($data["gigList"] as $gig) : ?>
-                <div class="gig-card">
-                    <div class="middle">  
-                        <div class='gig-cover'>
-                            <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+            <div class="gigs">
+                <?php if(!empty($gigList)) : ?>
+                <div class="insight">
+                <?php foreach($gigList as $gig) : ?>
+                        <div class="gig-card">
+                            <div class="middle">  
+                                <div class='gig-cover'>
+                                    <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+                                </div>
+                                <h1><?=$gig->title?></h1>
+                                <?php if(empty($gig->rating)):?>
+                                    <p>No Reviews Yet</p> 
+                                <?php else:?>
+                                    <?php echo "Rating: "?>
+                                        <?php for($i=0;$i<5;$i++):?>
+                                            <?php if((int)round($gig->rating)>$i):?>
+                                                <span class="fa fa-star checked"></span>
+                                            <?php else:?>
+                                                <span class="fa fa-star"></span>
+                                            <?php endif;?>
+                                        <?php endfor;?>
+                                    <?= "(".round($gig->rating,1).")"?>
+                                <?php endif;?>    
+                                <div class="description">
+                                    <p>
+                                        <?=$gig->description?>
+                                    </p>
+                                    <div class="dots">...</div>
+                                </div>
+                                <?php $arr=explode(",",$gig->work_tags);?>
+
+                                <div class="worktagsContainer">
+                                    <?php foreach($arr as $tag) : ?>
+                                    <a class="worktags"><?=$tag?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                                
+                            </div>
+                            <a class="moreDetailsBtn" href="<?=ROOT?>/Technician/Gigs/viewGig/<?=$gig->gig_id?>"><div style="text-align: center; margin-top:8px;"><small class="text-muted">View More</small></div></a>
                         </div>
-                        <h1><?=$gig->title?></h1>
-                        <div class="description">
-                            <p>
-                                <?=$gig->description?>
-                            </p>
-                            <div class="dots">...</div>
-                        </div>
-                        
-                    </div>
-                    <small class="text-muted">More Details</small>
-                </div>
+                    
                 <?php endforeach;?>
+                </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
         <!-- </main>  -->
 
         <!-- End of Main -->
@@ -136,65 +169,127 @@
         </main>
     </div>
 
-    <div id="addgig" class="overlay">
-        <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Create Gig</h1>
+    <div id="overlay" class="overlay hidden"></div>
+    <div class="popup hidden" id="add-gig">
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="title">
+            <h1>Create Your Gig!</h1>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress"></div>
+                <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
+                <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
+                <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
             </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
-                        <div class="inline">
-                            <div class="input-box inline">
-                                <span class="details">Choose Item</span>
-                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
-                                <select id="item" name="item">
-                                    <option value="A/C">A/C</option>
-                                    <option value="Refrigerator">Refridgerator</option>
-                                    <option value="Washing Machine">Washing Machine</option>
-                                    <option value="Gas Cooker">Gas Cooker</option>
-                                </select>
-                            </div>
-                            
-                            <div class="input-box inline">
-                                <span class="details">Location</span>
-                                <input type="text" name="location" id="location" required placeholder="Enter Description about item">
-                            </div>
+            <div class="step-label">
+            </div>
+        </div>
+        <div class="content">
+
+            <div class="form-container">
+
+                <form id="addgigform">
+                    <div class="step" id="step1">
+                        <h2>Basic details about Your service</h2>
+
+                        <div class="input-field">
+                            <label class="left" for="item">Select Items:</label>
+                            <select id="item" name="item">
+                                <option value="A/C">A/C</option>
+                                <option value="Refrigerator">Refrigerator</option>
+                                <option value="Washing Machine">Washing Machine</option>
+                                <option value="Gas Cooker">Gas Cooker</option>
+                            </select>
+                            <small class="error">&nbsp</small>
                         </div>
 
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) ">
+                        <div class="input-field">
+                            <label class="left" for="location">Select Location:</label>
+                            <input type="text" name="location" id="location" required placeholder="Enter Locations that you can provide service">
+                            <small class="error">&nbsp</small>
                         </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"></textarea>
+
+                        <div class="input-field">
+                            <label class="left" for="service_method">Select Service method:</label>
+                            <select id="service_method" name="service_method">
+                                <option value="Visits">Visits</option>
+                                <option value="Workshop">Workshop</option>
+                            </select>
+                            <small class="error">&nbsp</small>
                         </div>
-        
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
+
+                        <div class="input-field">
+                            <label class="left" for="work_tags">Worktags::</label>
                             <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+                            <small class="error">&nbsp</small>
                         </div>
 
-                        <div class="input-box">
-                            <span class="details">Add Photos</span>
-                            <input type="file" name="image" id="image" placeholder="add images related to your work">
+                        <div class="btn-container">
+                            <button class="next">Next</button>
                         </div>
-
                     </div>
-                    <div class="button">
-                        <input type="submit" value="Submit">
+
+                    <div class="step hideright" id="step2">
+                        <div class="input-field">
+                            <label class="left"  for="title">Title</label>
+                            <input type="text" name="title" id="title" placeholder="Enter title" />
+                            <small class="error">&nbsp</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label class="left" for="description">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
+                            <small class="error">&nbsp</small>
+                        </div>
+
+                        <div class="btn-container">
+                            <button class="prev">Previous</button>
+                            <button class="next">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step hideright" id="step2">
+                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                        <div class="input-field">
+                            <div class="image-upload-wrap">
+                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                <div class="drag-text">
+                                    <h3>Your Selected image will be shown here!</h3>
+                                </div>
+                            </div>
+                            <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                </div>
+                            </div>
+                            <small class="error">&nbsp</small>
+                        </div>
+
+                        <div class="btn-container">
+                            <button class="prev">Previous</button>
+                            <button class="submitBtn" id="submitBtn">Submit</button>
+                        </div>
                     </div>
                 </form>
-            <!-- </div> -->
-                
+            </div>
         </div>
-    </div>    
+    </div>
 
-    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
 
+
+
+    <script>
+        const ROOT = "<?= ROOT ?>";
+        const gigList = <?= json_encode($gigList) ?>;
+        console.log(gigList);
+    </script>
+    <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/gigs.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/multi.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/image.js"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </body>
 </html>
 
@@ -203,60 +298,56 @@
 
 
 
-<!-- <div class="popupview hidden">
-        <button class="closebtn">&times;</button>
-        <form action="#">
-            <div class="gigDetails">
 
-                <div class="input-box">
-                    <span class="details">Title</span>
-                    <input type="text" name="" id="" required placeholder="Enter Item Name">
-                </div>
+<!-- <div class="form-container">
+                <form class="form" enctype="multipart/form-data" id="addgigform" method="POST">
+                    <div class="step" id="step1">
+                        <div class="gigDetails">
+                            <div class="inline">
+                                <div class="input-box inline">
+                                    <span class="details">Choose Item</span>
+                                    <input type="text" name="item" id="item" required placeholder="">
+                                    <select id="item" name="item">
+                                        <option value="A/C">A/C</option>
+                                        <option value="Refrigerator">Refrigerator</option>
+                                        <option value="Washing Machine">Washing Machine</option>
+                                        <option value="Gas Cooker">Gas Cooker</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-box inline">
+                                    <span class="details">Location</span>
+                                    <input type="text" name="location" id="location" required placeholder="Enter Description about item">
+                                </div>
+                            </div>
 
-                <div class="input-box">
-                    <span class="details">District</span>
-                    <select name="Select Item Type" id="district" ></select>
-                </div>
-                
-                <div class="middleInput">
-                    <div class="input-box">
-                        <span class="details">Brand</span>
-                        <input type="text" name="" id="" required placeholder="Enter Brand">
-                    </div>
-    
-                    <div class="input-box">
-                        <span class="details">Model</span>
-                        <input type="text" name="" id="" required placeholder="Enter Model">
-                    </div>
-    
-                    <div class="input-box">
-                        <span class="details">Purchase Price(Rs.)</span>
-                        <input type="number" name="" id="" required placeholder="Purchase Price">
+                            <div class="input-box">
+                                <span class="details">Title</span>
+                                <input type="text" name="title" id="title" required placeholder="I Will do... (etc) ">
+                            </div>
+                            
+                            <div class="input-box">
+                                <span class="details">Description</span>
+                                <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"></textarea>
+                            </div>
+            
+                            <div class="input-box">
+                                <span class="details">Work Tags</span>
+                                <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Add Photo</span>
+                                <input type="file" name="image" id="image" placeholder="add images related to your work">
+                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input class= "addGigBtn" id= "submitBtn" type="submit" value="Submit">
+                        </div>
                     </div>
                     
-                    <div class="input-box">
-                        <span class="details">Description</span>
-                        <input type="text" name="" id="" required placeholder="Enter Description about item">
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Purchase Date</span>
-                        <input type="date" name="" id="" required placeholder="Enter Purchase Date">
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Warrenty Date</span>
-                        <input type="date" name="" id="" required placeholder="Enter Warrenty Date">
-                    </div>
-                </div>
-                
-
-                <div class="button">
-                    <input type="submit" value="Add Item">
-                </div>
-
+                </form>
             </div>
-        </form>
-    </div>
-    
-    <div class="overlayview hidden"></div> -->
+
+ -->

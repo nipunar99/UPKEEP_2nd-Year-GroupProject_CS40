@@ -13,8 +13,7 @@
 <body>
     <header>
         <div class="logo">
-        <img src="<?= ROOT ?>/assets/images/landingPage/logo.png" alt="">
-        <img src="<?= ROOT ?>/assets/images/landingPage/title.png" alt="">
+        <img src="<?= ROOT ?>/assets/images/headerlogo2.svg" alt="">
         </div>
 
         <div class="nav">
@@ -28,11 +27,11 @@
 
         <div class="logbtn">
         <a class="createBtn" href="<?=ROOT?>/Userselection/signup" >Create</a></li>
-        <a class="signinBtn" href="<?=ROOT?>/Userselection/signin" >Sign in</a></li>
+        <a class="signinBtn" href="<?=ROOT?>/Signin">Sign in</a></li>
         </div>
     </header>
 
-    <section class="home" id="home">
+    <section class="home" id="home" style="background: url(<?= ROOT ?>/assets/images/landingPage/home-bg-img.png) no-repeat;background-size: cover;background-position: center;" >
 
         <div class="content">
         <h3>From out of sight , To done <span>rights</span></h3>
@@ -45,15 +44,15 @@
             <a href="#" class="btn cta cta-com">Community</a>
         </div>
         
-    </div>
+        </div>
 
-    <div class="image">
-        <img src="<?= ROOT ?>/assets/images/landingPage/mainImg.png" alt="">
-    </div>
+        <div class="image">
+            <img src="<?= ROOT ?>/assets/images/landingPage/mainImg.png" alt="">
+        </div>
 
     </section>
 
-    <section class="about" id="about">
+    <section class="about" id="about" style="background: url(<?= ROOT ?>/assets/images/landingPage/about-bg.png) no-repeat;background-size: cover;background-position: center;">
 
     <h1 class="heading"> Why need you UpKeep </h1>
 
@@ -85,7 +84,7 @@
     </section>
     
 
-    <section class="features" id="features">
+    <section class="features" id="features" style="background: url(<?= ROOT ?>/assets/images/landingPage/feature-bg.png no-repeat;background-size: cover;background-position: center;">
 
     <h1 class="heading"> app features </h1>
 
@@ -147,7 +146,7 @@
 
 </section>
 
-<div class="footer">
+<div class="footer" style="background: url(<?= ROOT ?>/assets/images/landingPage/footer-bg.png) no-repeat;background-size: cover;background-position: center;">
 
     <div class="box-container">
 

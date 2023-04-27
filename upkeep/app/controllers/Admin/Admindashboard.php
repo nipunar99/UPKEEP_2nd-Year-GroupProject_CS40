@@ -5,13 +5,17 @@ class Admindashboard{
         
     public function index(){
 
-        if($_SESSION['USER'] == 'Admin'){
+        //$moderator=new User;
+        //$moderators= $moderator->viewmod();
 
-            $this->view('Admin/adminDashboard');
+        //$data['mods']=$moderators;
+
+        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
+            redirect('/Home');
         }else{
-            redirect("Home/home");
-        }
+            $this->view('Admin/adminDashboard');
+        }    
+    
     }
-        
-        
+           
 }

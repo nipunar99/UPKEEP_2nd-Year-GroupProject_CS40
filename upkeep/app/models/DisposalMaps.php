@@ -26,6 +26,7 @@ class DisposalMaps {
             echo $e->getMessage();
         }        
         }
+
     
     // public function delete($id, $id_column = "item_id"){
         

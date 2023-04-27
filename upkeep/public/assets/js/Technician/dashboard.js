@@ -47,3 +47,96 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+
+
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "20rem";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+//charts
+var donutChart = new Chart(document.getElementById('donut-chart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Orders Received', 'Orders Completed', 'Orders in Queue', 'Orders Canceled'],
+        datasets: [
+            {
+                data: [10, 20, 30, 5],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            display: true,
+            position: 'right'
+        },
+        title: {
+            display: true,
+            text: 'Orders Status'
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        },
+        // set size for the chart
+        width: 400,
+        height: 400
+    }
+});
+
+
+
+var barChart = new Chart(document.getElementById('bar-chart'), {
+    type: 'bar',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'Monthly Income',
+                data: [5000, 7000, 6000, 8000, 9000, 7500, 10000],
+                backgroundColor: '#36A2EB',
+                borderColor: '#36A2EB',
+                borderWidth: 1
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            display: false
+        },
+        title: {
+            display: true,
+            text: 'Monthly Income'
+        },
+        scales: {
+            yAxes: [
+                {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }
+            ]
+        },
+        // set size for the chart
+        width: 400,
+        height: 400
+    }
+});
+
+
+
+
+
