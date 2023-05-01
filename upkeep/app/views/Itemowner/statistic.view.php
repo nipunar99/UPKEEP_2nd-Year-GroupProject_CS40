@@ -139,7 +139,7 @@
                         <div class="middle">
                             <span class="material-icons-sharp">view_in_ar</span>
                             <div class="left">
-                                <h3><span>5</span></h3>
+                                <h3 class="dispose_itemCount"></h3>
                                 <h3>Discarded items</h3>
                             </div>
                         </div>
@@ -238,34 +238,15 @@
                                     <th>Description</th>
                                     <th>Due date</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="maintenanceHistoryDetails">
                                 <tr>
                                     <td>AC air filter clean</td>
                                     <td class="danger">07/02/2023</td>
                                     <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
                                 </tr>
-                                <tr>
-                                    <td>AC air filter clean</td>
-                                    <td class="danger">07/02/2023</td>
-                                    <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
-                                </tr>
-                                <tr>
-                                    <td>AC air filter clean</td>
-                                    <td class="danger">07/02/2023</td>
-                                    <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
-                                </tr>
-                                <tr>
-                                    <td>AC air filter clean</td>
-                                    <td class="danger">07/02/2023</td>
-                                    <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -275,36 +256,18 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Description</th>
-                                    <th>Due date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th></th>
+                                    <th>Categary</th>
+                                    <th>Item name</th>
+                                    <th>Dispose Date</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+                            </thead> 
+                            <tbody class="disposeItemsDetails">
                                 <tr>
                                     <td>AC air filter clean</td>
-                                    <td class="danger">07/02/2023</td>
                                     <td class="warning">Pending</td>
                                     <td class="primary">Action</td>
-                                </tr>
-                                <tr>
-                                    <td>AC air filter clean</td>
                                     <td class="danger">07/02/2023</td>
-                                    <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
-                                </tr>
-                                <tr>
-                                    <td>AC air filter clean</td>
-                                    <td class="danger">07/02/2023</td>
-                                    <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
-                                </tr>
-                                <tr>
-                                    <td>AC air filter clean</td>
-                                    <td class="danger">07/02/2023</td>
-                                    <td class="warning">Pending</td>
-                                    <td class="primary">Action</td>
                                 </tr>
                             </tbody>
                         </table>

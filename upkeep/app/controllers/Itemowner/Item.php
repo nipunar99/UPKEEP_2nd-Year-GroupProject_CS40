@@ -10,7 +10,7 @@ public function index (){
 
         $arr = [];
         $arr["owner_id"] = $_SESSION['user_id'];
-        $items = new Owneritem;
+        $items = new IO_Owneritem;
         $result = $items->where($arr);
             $data["result"] = $result; 
 
@@ -18,13 +18,13 @@ public function index (){
             if(isset($_POST['action']) && $_POST['action']=="addItem"){
 
                 unset($_POST['action']);
-                $item = new Owneritem;
+                $item = new IO_Owneritem;
                 $item->insertItem($_POST);
             }else if(isset($_POST['action']) && $_POST['action']=="adddoc"){
 
                 show($_POST);
                 unset($_POST['action']);
-                $item = new ItemDoc;
+                $item = new IO_ItemDoc;
                 $item->insertDocs();
             } 
             else {
@@ -46,7 +46,7 @@ public function index (){
 public function selectItem($arr){
     $_SESSION['item_id'] = $arr['item_id'];
     $data = [];
-    $items = new Owneritem;
+    $items = new IO_Owneritem;
     $result = $items->where($arr);
     $data['result'] = $result;
     $this->view('itemowner/viewitem',$data);
@@ -56,7 +56,8 @@ public function selectItem($arr){
 public function getAllItem(){
     $arr = [];
     $arr["owner_id"] = $_SESSION['user_id'];
-    $items = new Owneritem;
+    $arr['status'] = "Active";
+    $items = new IO_Owneritem;
     $result = $items->where($arr);
     $json = json_encode($result);
     echo($json);

@@ -32,7 +32,7 @@ class ViewGig {
     public function getAllItem(){
         $arr = [];
         $arr["owner_id"] = $_SESSION['user_id'];
-        $items = new Owneritem;
+        $items = new IO_Owneritem;
         $result = $items->where($arr);
         $json = json_encode($result);
         echo($json);
@@ -47,7 +47,7 @@ class ViewGig {
                 $_POST['user_id'] = $_SESSION['user_id'];
                 $_POST['gig_id'] = $_SESSION['gig_id'];
                 
-                $task = new CompleteTask;
+                $task = new IO_CompleteTask;
                 $task->insert($_POST);
             } 
         }

@@ -1,6 +1,6 @@
 <?php 
 
-class Owneritem {
+class IO_Owneritem {
 
     use Model;
 
@@ -52,12 +52,12 @@ class Owneritem {
     }
     
 
-    public function delete($id, $id_column = "item_id"){
-        
-        $data[$id_column] = $id;
-        $query = "delete from $this->table where $id_column = :$id_column";
+    public function disposeItem($id){
+        $query = "UPDATE items SET status = 'dispose', dispose_date = DATE(NOW()) WHERE item_id =".$id."";
+        // UPDATE items SET status = 'dispose', dispose_date = DATE(NOW()) WHERE item_id IN (item_id1, item_id2, item_id3);
 
-        $this->query($query,$data);
+
+        $this->query($query);
         return false;
     }
 
@@ -68,6 +68,16 @@ class Owneritem {
 
     public function getLastID(){
         $query = "select MAX(item_id) as 'id' from items";
+        return $this->query($query);
+    }
+
+    public function getDisposeItemsCount(){
+        $query = "SELECT COUNT(item_id) AS dispose_count FROM items WHERE status = 'Dispose'";
+        return $this->query($query);
+    }
+
+    public function getDisposeItems(){
+        $query = "SELECT COUNT(item_id) AS dispose_count FROM items WHERE status = 'Dispose'";
         return $this->query($query);
     }
 }

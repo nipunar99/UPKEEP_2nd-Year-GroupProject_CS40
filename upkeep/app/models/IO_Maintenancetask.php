@@ -1,6 +1,6 @@
 <?php
 
-class Maintenancetask {
+class IO_Maintenancetask {
     use Model;
 
     protected $table =  "maintenance_task";
@@ -32,7 +32,7 @@ class Maintenancetask {
                 try{
                     $data["item_id"] = $_SESSION['item_id'];
                     $data["image"] = $file_name;
-                    $this->insert($data);
+                    return $this->insertAndGetLastIndex($data);
                 }
                 catch(PDOException $e){
                     echo $e->getMessage();

@@ -1,6 +1,8 @@
 var disposalPlacesjson = null;
 var documentationjson = null;
 var MaintainTaskjson = null;
+var ongoingReminders = null;
+var overdueReminders = null;
 
 //validataion checking flag
 var errocheckflag = 0;
@@ -69,6 +71,7 @@ function showError(input, message) {
     input.classList.add("erroInput");
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
+    console.log(small);
     small.innerText = message;
 
 }
@@ -134,9 +137,8 @@ function checkFileType(file){
   }
 
 function checkImageType(file){
-var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
-
-    if (fileExt.toLowerCase() === 'jpeg' || fileExt.toLowerCase() === 'png' || fileExt.toLowerCase() === 'jpg'|| file.type === '') {
+    var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
+    if (fileExt.toLowerCase() === 'jpeg' || fileExt.toLowerCase() === 'png' || fileExt.toLowerCase() === 'jpg'|| file.value === '') {
         if(parseFloat(file.files[0].size/(1024*1024))>3 ){
         showError(file, 'File size must be less than 3MB.');
         }
@@ -144,7 +146,8 @@ var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
         showSuccess(file);
         }
     }else {
-    showError(file, 'File type not supported.');
+        console.log('Checking image type');
+        showError(file, 'File type not supported.');
     }
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -210,6 +213,7 @@ const closeModal = function () {
     deleteMsg.classList.add("hidden");
     overlay.classList.add("hidden");
     addMaintenanceForm.classList.add("hidden");
+    editReminderForm.classList.add("hidden");
     addMaintenanceForm2.classList.add("hidden");
     addDocumentForm.classList.add("hidden");
     editItemform.classList.add("hidden");
@@ -217,10 +221,8 @@ const closeModal = function () {
     // removeEvent();
 };
 const addMaintenaceFormFunc = function () {
-    console.log("button clicked");
     overlay.classList.remove("hidden");
     addMaintenanceForm.classList.remove("hidden");
-    // removeEvent();
 };
 function loadDocumentForm(){
     console.log("button clicked");
@@ -265,6 +267,7 @@ allMaintenance.addEventListener ("click", () => {
     right.classList.add("hidden");
     main2.classList.remove("hidden");
     container.classList.add("newgrid-container");
+    loadOngoingReminderList();loadOverdueReminderList();
 })
 
 //......................................................
@@ -294,7 +297,6 @@ disposeguide.addEventListener ("click", () => {
 
 // Close all maintanence
 function handleClick() {
-    console.log("httt");
     main1.classList.remove("hidden");
     right.classList.remove("hidden");
     container.classList.remove("newgrid-container");
@@ -424,6 +426,7 @@ function ajax_getAllReminders(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
+            ongoingReminders =json;
             var html = "";
 
             if (json.length > 0){
@@ -443,7 +446,7 @@ function ajax_getAllReminders(){
                 
                 html+= "<div class='maintenaceview"+(i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
-                html+= "<h2 id='itemid'style='display: none;'>"+json[i].item_id+"</h2></div>";
+                html+= "<h2 id='itemid"+(i+1)+"'style='display: none;'>"+json[i].item_id+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
@@ -485,6 +488,8 @@ function ajax_getAllReminders(){
         }
     }
     xhr.send();
+
+    loadOngoingReminderList();
 }
 
 function ajax_getAllOverdueReminders() {
@@ -496,8 +501,9 @@ function ajax_getAllOverdueReminders() {
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log(json);
+            overdueReminders = json;
             var html="";
+
             for(var i=0; i<json.length; i++){
                 html+= "<div onclick='loadupcomeview("+(firstIndex+i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
@@ -513,7 +519,7 @@ function ajax_getAllOverdueReminders() {
                 
                 html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
-                html+= "<h2 id='itemid'style='display: none;'>"+json[i].item_id+"</h2></div>";
+                html+= "<h2 id='itemid"+(firstIndex+i+1)+"'style='display: none;'>"+json[i].item_id+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
@@ -553,9 +559,6 @@ function ajax_getAllOverdueReminders() {
     xhr.send();
 }
 
-
-//////////////////////////////////// Ajax for the add Maintenance////////////////////////////////////
-
 const sub_component = document.getElementById("sub_component");
 const description = document.getElementById("description");
 const upfileimage = document.getElementById("upfileimage");
@@ -577,7 +580,7 @@ function ajax_addMaintenance(){
     checkRequired([description,strt_date]);
 
     if(years.value=='' && months .value=='' && weeks.value==''){
-        showError(years,"Please Enter a time");
+        showError(months,"Please Enter a time");
     }else{
         if(years.value!=''){
             checkRange(years,0,50);
@@ -587,12 +590,12 @@ function ajax_addMaintenance(){
         if(months.value!=''){
             checkRange(months,0,12);
         }else{
-            years.value=0;
+            months.value=0;
         }
         if(weeks.value!=''){
             checkRange(weeks,0,4);
         }else{
-            years.value=0;
+            weeks.value=0;
         }
     }
     checkImageType(upfileimage);
@@ -753,7 +756,7 @@ function ajax_TaskStatus(num) {
 function unloadMaintask(popup){
     element = ".popupMaintask"+popup+"";
     
-    document.querySelector(element).classList.add("hidden");;
+    document.querySelector(element).classList.add("hidden");
     overlay.classList.add("hidden");
 }
 
@@ -794,8 +797,6 @@ function display1details(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log(json);
-            console.log(json.length);
             var html = "";
 
             if (json.status != "empty"){
@@ -825,9 +826,6 @@ function display2details(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log("display2details");
-            console.log(json);
-            // console.log(json.length);
             var html = "";
 
             if (json.status != "empty"){
@@ -847,17 +845,13 @@ function display2details(){
 }
 
 function display3details(){
-    console.log("display1details");
-
     const xhr = new XMLHttpRequest();
-
     xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/display3details");
 
     xhr.onload = function(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log("display3details");
             var html = "";
 
             if (json.status != "empty"){
@@ -906,14 +900,15 @@ function cancelcompleteTask(window){
 function submitTask(number){
     submintFormNum = number;
     ajax_completeTask();
-    document.getElementById("deletebtn"+submintFormNum+"").click();
+    ajax_generateReminder();
+    // document.getElementById("deletebtn"+submintFormNum+"").click();
 }
 
 //............................................................................
 
 function ajax_completeTask() {
     const formCompleteDetails = document.getElementById("form_completeTask"+submintFormNum+"");
-    const itemid = document.getElementById("itemid").innerHTML;    
+    const itemid = document.getElementById("itemid"+submintFormNum+"").innerHTML;    
     const taskId = document.getElementById("taskID"+submintFormNum+"").innerHTML;
 
     const form = new FormData(formCompleteDetails);
@@ -933,6 +928,21 @@ function ajax_completeTask() {
     xhr.send(form);
     cancelcompleteTask(submintFormNum);
     unloadupcomeview(submintFormNum);
+}
+
+function ajax_generateReminder(){
+    const taskId = document.getElementById("taskID"+submintFormNum+"").innerHTML;
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/generateReminder/"+taskId+"",true);   
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            console.log(res);
+        }
+    };
+
+    xhr.send();
 }
 
 
@@ -1056,7 +1066,7 @@ function loadImage(i){
     overlay.classList.remove("hidden");
     document.querySelector(".imgeView").classList.remove("hidden");
 
-    html += "<img src='"+ROOT+"/assets/images/uploads/"+documentationjson[i].file_name+"'>";
+    html += "<img src='"+ROOT+"/assets/images/uploads/"+documentationjson[i-1].file_name+"'>";
 
     document.querySelector(".imgeView").innerHTML = html;
 

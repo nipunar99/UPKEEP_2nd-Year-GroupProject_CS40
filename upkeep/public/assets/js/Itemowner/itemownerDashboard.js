@@ -127,7 +127,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
+                // html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
                 html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button class='deletebtn' id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
@@ -208,7 +208,8 @@ overlay.addEventListener("click", closeModal);
 function submitTask(number){
     submintFormNum = number;
     ajax_completeTask();
-    document.getElementById("deletebtn"+submintFormNum+"").click();
+    ajax_generateReminder();
+    // document.getElementById("deletebtn"+submintFormNum+"").click();
 }
 
 //........................................................................
@@ -236,6 +237,21 @@ function ajax_completeTask() {
     xhr.send(form);
     cancelcompleteTask(submintFormNum);
     unloadupcomeview(submintFormNum);
+}
+
+function ajax_generateReminder(){
+    const taskId = document.getElementById("taskID"+submintFormNum+"").innerHTML;
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/generateReminder/"+taskId+"",true);   
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            console.log(res);
+        }
+    };
+
+    xhr.send();
 }
 //.............................Delete Task...........................................
 

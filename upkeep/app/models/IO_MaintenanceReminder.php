@@ -1,6 +1,6 @@
 <?php
 
-class MaintenanceReminder {
+class IO_MaintenanceReminder {
     use Model;
 
     protected $table = "maintenance_reminder";
@@ -68,6 +68,21 @@ class MaintenanceReminder {
             $query = "select x.item_name, m.description, m.sub_component, m.start_date, m.reminder_status from maintenance_reminder m INNER JOIN (select item_id , item_name from items WHERE owner_id=" . $data['id']  . ")x ON m.item_id = x.item_id WHERE reminder_status = 'overdue' ORDER BY start_date ASC LIMIT 1";
         }
             return $this->query($query);
+    }
+
+    public function noOfMaintenaceTask($user_id){
+        $query = "select COUNT(m.task_ID) AS task_count from maintenance_task m INNER JOIN (select item_id from items WHERE owner_id=" . $user_id . ")x ON m.item_id = x.item_id";
+        return $this->query($query);
+    }
+
+    public function getCompleteTaskOfMonth(){
+        $query = "select count(reminder_id) as inCompleteTask FROM maintenance_reminder WHERE MONTH(start_date) = MONTH(CURRENT_DATE()) && reminder_status = 'ontime'";
+        return $this->query($query);
+    }
+
+    public function getIncompleteTaskOfMonth(){
+        $query = "select count(reminder_id) as OverdueTask FROM maintenance_reminder WHERE MONTH(start_date) = MONTH(CURRENT_DATE()) && reminder_status = 'overdue'";
+        return $this->query($query);
     }
 
 }

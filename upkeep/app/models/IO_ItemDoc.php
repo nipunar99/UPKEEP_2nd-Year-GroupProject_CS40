@@ -1,6 +1,6 @@
 <?php 
 
-class ItemDoc {
+class IO_ItemDoc {
 
     use Model;
 

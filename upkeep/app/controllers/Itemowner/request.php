@@ -8,12 +8,12 @@ require $grandparent_dir. '/vendor/autoload.php';
 use Orhanerday\OpenAi\OpenAi;
 
 // Set up the API client
-$open_ai = new OpenAi('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');
+$open_ai = new OpenAi('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');
 
 $prompt = $_GET['prompt'];
 
 // Generate text based on user input
-$length = 1000;
+$length = 2000;
 $temperature = 0.7;
 
 

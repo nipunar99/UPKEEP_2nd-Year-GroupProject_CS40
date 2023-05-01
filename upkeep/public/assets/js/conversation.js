@@ -123,4 +123,4 @@ function loadMessages() {
 }
   
   // Call the function every 500ms using setInterval
-// setInterval(loadMessages, 500);
+setInterval(loadMessages, 500);

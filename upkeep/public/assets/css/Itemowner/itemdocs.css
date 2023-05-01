@@ -177,8 +177,12 @@ table thead tr th:last-child , table tbody tr td:last-child{
     color: #ff7782 !important;
 }
 
+.popupMaintask .action_btn .edit{
+    color: var(--color-success) !important;
+}
+
 .popupMaintask{
-    height: 50vh;
+    min-height: 50vh;
 }
 
 .popupMaintask h2, .popupMaintask span{
