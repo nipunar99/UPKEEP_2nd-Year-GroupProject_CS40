@@ -50,6 +50,11 @@ class Itemtemplates
 
     }
 
+    public function getAllItemsDetails(){
+        $query = "SELECT * FROM itemtemplate";
+        return $this->query($query);
+    }
+
 
 
 

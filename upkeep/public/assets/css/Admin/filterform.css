@@ -1,0 +1,90 @@
+/* @import "./popupform.css"; */
+
+.slide-out-form {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .slide-out-form.open {
+    right: 0;
+  }
+  
+  .slide-out-form form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  
+  .slide-out-form label {
+    font-weight: bold;
+  }
+  
+  .slide-out-form input,
+  .slide-out-form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 95%;
+  }
+  
+  .slide-out-form button[type="submit"] {
+    background-color: green;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color:#f2f2f2;
+    color:black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .slide-out-form .top_info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .input_box{
+    display: flex;
+    flex-direction: column;
+  }
+  .slide-out-form .end_info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  /* form label {
+    width: 80px;
+  } */
+  
+  .filter-button {
+    background-color: #1dbf22;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    
+    
+    
+  }
+  
+  

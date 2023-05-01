@@ -5,7 +5,6 @@ const verify_button = document.getElementById('OTP-verify');
 const error = document.getElementsByClassName('error');
 const send_button = document.getElementById('OTP-send');
 const finish_button = document.getElementById('finish');
-console.log("hello");
 
 //setting up event listeners for the OTP input fields using for loop
 for (var i = 0; i < otpnums.length; i++) {
@@ -110,7 +109,7 @@ function verifyOTP(e){
       if(xhr.status == 200){
         const res = xhr.responseText;
         console.log(res);
-        formSuccessfull('contact-verification');
+        formSuccessfull('contact-verification','Thank You!','Your contact details have been verified.');
       }else if (xhr.status == 400) {
         const res2 = (xhr.responseText);
         console.log(res2);

@@ -130,88 +130,30 @@
                 </form>
                 
                 <div>
-                    <button class="filter-btn">Add Item</button>
+                    <button id ="add_item" class="filter-btn">Add Item</button>
 
                 </div>
 
             </div>
 
             <div class="grid-container">
+                <?php for($i=0;$i<count($item);$i++):?>
+                        <a href="<?=ROOT?>/Admin/ItemTemplate/viewtemplate/" >
+                            <div class="item">
+                                <div>
+                                    <h3><?=$item[$i]->item_type?></h3>
+                                </div>
+                                <div class="photo-container">
+                                    <img src="<?=ROOT?>/assets/images/item1.png" alt="Profile photo">
+                                </div>
+                                
+                            </div>
+                        </a>
+                    <?php endfor;?>
                 <!-- grid items go here -->
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>A/C</h3>
-                        </div>
-                        <div class="photo-container">
-                                <img src="<?=ROOT?>/assets/images/item1.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
                 
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>Refrigerator</h3>
-                        </div>
-                        <div class="photo-container">
-                            <img src="<?=ROOT?>/assets/images/item2.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>Washing Machine</h3>
-                        </div>
-                        <div class="photo-container">
-                            <img src="<?=ROOT?>/assets/images/item3.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>Oven</h3>
-                        </div>
-                        <div class="photo-container">
-                            <img src="<?=ROOT?>/assets/images/item4.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
-
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>A/C</h3>
-                        </div>
-                        <div class="photo-container">
-                            <img src="<?=ROOT?>/assets/images/item1.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
-
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>Oven</h3>
-                        </div>
-                        <div class="photo-container">
-                            <img src="<?=ROOT?>/assets/images/item4.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
-
-                <div class=item style="box-shadow: 0 1rem 2rem rgb(132 139 200 / 47%);">
-                    <a href="<?=ROOT?> /Admin/ItemMaintenance">
-                        <div>
-                            <h3>Washing Machine</h3>
-                        </div>
-                        <div class="photo-container">
-                            <img src="<?=ROOT?>/assets/images/item3.png" alt="Profile photo">
-                        </div>
-                    </a>
-                </div>
+                
+                
                 
             </div>
 
@@ -219,7 +161,68 @@
             
         </main> 
 
+
     </div>
+
+    
+        <!-- add item popup form -->
+        <div class="overlay hidden" id="overlay"></div>
+        <div class="popup hidden" id="additem">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Add Item</h1>
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>First Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>Last Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>NIC</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Adrress</label>
+                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
+                            <small class="error">&nbsperror</small>
+                        </div>
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Phone Number</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="btn-container">
+                            <button id="submit">Add Admin</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/additem.js"></script>
     
     
 </body>

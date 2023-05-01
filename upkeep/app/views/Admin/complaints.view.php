@@ -137,16 +137,16 @@
                            
                             
                             <tr>                                         
-                            <?php for($i=0;$i<count($complaints);$i++):?>
+                            <?php for($i=0;$i<count($complaint);$i++):?>
                                 <tr>                                         
-                                    <td><?=$complaints[$i]->complaint_id ?></td>
-                                    <td><?=$complaints[$i]->post_id ?></td>
-                                    <td><?=$complaints[$i]->complaint_type ?></td>
-                                    <td><?=$complaints[$i]->description ?></td>
-                                    <td><?=$complaints[$i]->status ?></td>
+                                    <td><?=$complaint[$i]->complaint_id ?></td>
+                                    <td><?=$complaint[$i]->post_id ?></td>
+                                    <td><?=$complaint[$i]->complaint_type ?></td>
+                                    <td><?=$complaint[$i]->description ?></td>
+                                    <td><?=$complaint[$i]->status ?></td>
                                     <td>
                                         <div class="btn-container">
-                                            <button class="view-button">View</button> 
+                                            <button id ="edit_btn" class="view-button">View</button> 
                                             <button id ="delete_btn" class="remove-button">Remove</button>
                                         </div>
                                     </td>
@@ -228,21 +228,21 @@
 
         </main>
         <!-- End of Main -->
-
+        <div class="overlay hidden" id="overlay"></div>
         <div class="popup hidden" id="remove_complaint">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content-1">
                 <div class="content-2">
-                    <h2>Confirm deletion of this Moderator</h2>
+                    <h2>Confirm deletion of this Complaint</h2>
                 </div>
                 
                 <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
                     <div class ="head" >
-                        <h3>Are you sure you you want to remove this moderator?</h3>
+                        <h3>Are you sure you you want to remove this complaint?</h3>
                     </div>
                     <div class="btn-container">
-                                <button id="OTP-send">Cancel</button>
                                 <button id="OTP-send">Yes,I'm Sure</button>
+                                <button id="OTP-send">Cancel</button>
                         </div>
  
                     
@@ -252,6 +252,45 @@
                        
                     
                 </form>
+            </div>
+        </div>
+
+
+        <div class="popup hidden" id="view_complaint">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content-1">
+                <div class="content-2">
+                    <div class="cc">
+                        <div class=bb>
+                            <h2>Decription</h2>
+                                <h3><?=$complaint[$i]->description?></h3>
+                        </div>
+                        <div class=bb>
+                            <h2>Type</h2>
+                                <h4><?=$complaint[$i]->complaint_type?></h4>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <div class=bb>
+                            <h2>Status</h2>
+                                <h4><?=$complaint[$i]->status?></h4>
+                        </div>
+                        <div class=bb>
+                            <h2>Date created</h2>
+                            <h4><?=$complaint[$i]->date_created?></h4> 
+                        </div>  
+                    </div>
+                </div>
+                
+                
+ 
+                    
+
+
+                        
+                       
+                    
+                
             </div>
         </div>
 

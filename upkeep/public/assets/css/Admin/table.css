@@ -12,10 +12,11 @@
   .technician-table {
       border-collapse: separate; /* Set border-collapse to separate to add border-spacing */
       border-spacing: 0; /* Set border-spacing to 0 to remove default spacing */
-      width: 100%;
+      width: 98%;
       text-align: center;
       margin-bottom: auto;
       justify-content: center;
+      box-shadow:0 1rem 2rem rgb(132 139 200 / 477%);
       
     }
   
@@ -29,17 +30,17 @@
     padding: 8px;
     text-align: center;
     border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
-    color: #1E3A8A; /* Set font color to dark blue */
+    color: black; /* Set font color to dark blue */
   }
     
     
     
     .technician-table th {
       height: 48px;
-      background-color: #fff; /* Set background color of th to white */
-      color: #ffffff; /* Set font color of th to dark blue */
+      background-color:white /* Set background color of th to black */
+      color: black /* Set font color of th to dark blue */
       font-size:15px;
-      background-color: var(--color-primary);
+      background-color:white
     }
     
     .technician-table tbody tr:nth-child(odd) {

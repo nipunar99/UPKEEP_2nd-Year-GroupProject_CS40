@@ -35,7 +35,7 @@ class Admindashboard{
             $data['item_counts']= $approved_items;
             //  show($approved_items);
 
-            
+            //sshow($_SESSION);
             $this->view('Admin/adminDashboard',$data);
             
         }    

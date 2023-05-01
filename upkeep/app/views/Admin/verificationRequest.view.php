@@ -86,11 +86,8 @@
                 
                     <div class="item">
                         <div class="photo-container">
-                                <img 
-                                    src="<?=ROOT?>/assets/images/frontId.png" alt="Profile photo">
-
-                                
-                        </div>
+                                <img src="<?=ROOT?>/Getverified/Technician/getImage/<?=$profile[0]->id_front?>" alt="Profile photo"> 
+                                                            </div>
                         <div>
                             <h3>Front Photo Of NIC</h3>
                         </div>
@@ -150,7 +147,31 @@
 
         <!-- End of Main -->
 
-        <div class="right">
+        <div class="right_grid">
+            <div class="header">
+                        <div class="left">
+
+                        </div>
+                        <!-- <div class="middle">
+                            <h1>Users</h1>
+                        </div> -->
+                        <div class="right">
+                            <div class="notification">
+                                <span class="material-icons-sharp">notifications</span>
+                            </div>
+
+                            <div class="profile">
+                                <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                                <div class="info">
+                                    <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
+                                    <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
+                                </div>
+                                <div class="profile-photo">
+                                    <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
             <!-- <div class="top">
                 <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
@@ -175,7 +196,7 @@
 
 
             <div class="heading">
-                    <div class="top">
+                    <!-- <div class="top">
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
                         </button>
@@ -195,7 +216,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
             <!-- End of top -->
 
             <div class="grid-container-2">
@@ -210,12 +232,12 @@
                         </div>
 
                         <div>
-                            <h3>Rusith Siriwardhana</h3>
-                            <h4>Auto Mobile|Maharagama</h4>
+                            <h3><?=$profile[0]->first_name." ".$profile[0]->last_name?></h3>
+                            <h4><?=$profile[0]->location?></h4>
                         </div>
                         <div>
-                            <h5>rusith@gmail.com</h5>
-                            <h6>0702050812</h6>
+                            <h5><?=$profile[0]->email?></h5>
+                            <h6><?=$profile[0]->mobile_no?></h6>
                         </div>
 
                         <div class="button-container">

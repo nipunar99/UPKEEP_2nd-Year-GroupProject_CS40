@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import "./general.css";
+
+
 /* Root variables */
 
 :root{
@@ -311,7 +314,7 @@ main h1{
 
 /* Right CSS */
 
-.right{
+.right_grid{
     /* margin-top: 1.4rem; */
     margin-right: 1rem;
 }
@@ -494,12 +497,12 @@ p {
 
 
   
-  .right .grid-container .button-container {
+  .right_grid .grid-container .button-container {
     display: flex;
     justify-content: space-between;
   }
   
-  .right .grid-container-2 .first-button {
+  .right_grid .grid-container-2 .first-button {
     
 
     margin-right: 10px;
@@ -513,11 +516,11 @@ p {
     cursor: pointer;
   }
   
-  .right .grid-container-2 .first-button:hover {
+  .right_grid .grid-container-2 .first-button:hover {
     background-color: #3e8e41;
   }
   
-  .right .grid-container-2 .second-button {
+  .right_grid .grid-container-2 .second-button {
 
 
     padding: 10px 20px;
@@ -530,7 +533,7 @@ p {
      cursor: pointer;
 }
   
-  .right .grid-container .second-button:hover {
+  .right_grid .grid-container .second-button:hover {
     background-color
   
   }

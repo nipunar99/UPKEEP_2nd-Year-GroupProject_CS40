@@ -29,8 +29,11 @@ class VerifyRequest{
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
             redirect('/Home');
          }else{
-            
-            $this->view('Admin/verificationRequest');
+            $bb = new VerificationRequest;
+            $profile_details = $bb->getProfile();
+            $data['profile'] = $profile_details;
+            //show($profile_details);
+            $this->view('Admin/verificationRequest',$data);
          }   
     }
 }

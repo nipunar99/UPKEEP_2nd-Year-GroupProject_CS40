@@ -41,4 +41,9 @@ class Maintenancetask {
             }
         }
     }
+
+    public function getAllMaintenance(){
+        $query = "SELECT * FROM maintenance_task";
+        return $this->query($query);
+}
 }

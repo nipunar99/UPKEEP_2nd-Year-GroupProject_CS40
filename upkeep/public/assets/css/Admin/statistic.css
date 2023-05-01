@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
+@import "./general.css";
+
 :root{
     --color-primary: #7380ec;
     --color-warning:#ffbb55;
@@ -310,9 +312,10 @@ main .mainHeader{
 .text-2{
     display: flex;
     flex-direction: column;
+    
     width: fit-content;
    position: relative;
-   left: 245px;
+   left: 84px;
     gap: 1rem;
     top: 1rem;
     
@@ -320,6 +323,7 @@ main .mainHeader{
 .text-1{
     display: flex;
     flex-direction: column;
+    
    position: relative;
    width: fit-content;
    left: 34px;
@@ -332,7 +336,7 @@ main .mainHeader{
     color: red;
 }
 .maintenance table{
-    width: 95%;
+    /* width: 95%;
     border-radius: var(--card-border-radius);
     background: var(--color-white);
     box-shadow: var(--box-shadow);
@@ -340,18 +344,42 @@ main .mainHeader{
     transition: all 300ms ease;
     margin-top: 2rem;
     margin-left: 4rem;
-    text-align: center;
+    text-align: center; */
+
+    border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
   
 }
+th, td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f5f5f5;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #e6e6e6;
+  }
+
 .maintenance table:hover{
     box-shadow: none;
 }
 
-.maintenance table tbody td{
+/* .maintenance table tbody td{
     height:2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
-}
+} */
 .overlayview{
     position: absolute;
     top: 0px;
@@ -447,7 +475,13 @@ main .mainHeader{
     transform: scale(1.1);
 }
 .text{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.text h1{
+    font-size: medium;
 }
 .pie-view {
     /* margin-top: 300px; */
@@ -476,6 +510,6 @@ main .mainHeader{
     background-color: #f2f2f2;
 }*/
 
-.table tbody tr:nth-child(even) {
+/* .table tbody tr:nth-child(even) {
     background-color: #d8d5d5;
-} 
+}  */

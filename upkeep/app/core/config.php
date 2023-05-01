@@ -35,7 +35,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBDRIVER', '');
 
     define('ROOT', 'httpS://www.yourwebsite.com');
-} else {
+}
+ 
+else {
     define('DBNAME', 'my_db');
     define('DBHOST', 'localhost');
     define('DBUSER', 'root');
@@ -43,4 +45,18 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBDRIVER', '');
 
     define('ROOT', 'httpS://www.yourwebsite.com');
+}
+
+$server_name = "localhost";
+$user_name = "root";
+$password = "";
+$database = "upkeep";
+
+$connection = new mysqli($server_name , $user_name , $password , $database);
+
+if($connection -> connect_error){
+    die("connection error");
+
+}else{
+    echo 'connection ok';
 }

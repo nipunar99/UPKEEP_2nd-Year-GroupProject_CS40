@@ -57,7 +57,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="">
+                <a href="<?=ROOT?> /Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
@@ -224,17 +224,17 @@
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
                 <h1>Add Moderator</h1>
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                <form class="mobile-verify" id="mobile-details" method="post" action="insert.php" enctype="" >
                     <div class = "mobile-number-input" id="step1">
                         <div class="inline">
                             <div class="input-field">
                                 <label>First Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
+                                <input class="mobile" type="text" id="first_name" name="firstName" required placeholder="First Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
                                 <label>Last Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
+                                <input class="mobile" type="text" id="last_name" name="lastName" required placeholder="Last Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                         </div>
@@ -242,18 +242,18 @@
                         <div class="inline">
                             <div class="input-field">
                                 <label>Email</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
+                                <input class="mobile" type="text" id="email" name="email" required placeholder="Email" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
                                 <label>NIC</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
+                                <input class="mobile" type="text" id="nic" name="nic" required placeholder="NIC" >
                                 <small class="error">&nbsperror</small>
                             </div>
                         </div>
                         <div class="input-field">
                             <label>Adrress</label>
-                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
+                            <input class="mobile" type="text" id="address" name="address" required placeholder="Address" >
                             <small class="error">&nbsperror</small>
                         </div>
                         <div class="inline">
@@ -385,8 +385,9 @@
                         <h3>Are you sure you you want to remove this moderator?</h3>
                     </div>
                     <div class="btn-container">
-                                <button id="OTP-send">Cancel</button>
                                 <button id="OTP-send">Yes,I'm Sure</button>
+                                <button id="OTP-send">Cancel</button>
+                                
                         </div>
  
                     

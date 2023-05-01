@@ -29,6 +29,14 @@ class Addmoderator {
      public function index(){
         
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
+
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                $mod = new User;
+                $mod->insertModerator($_POST);
+                // redirect("Itemowner/additem/adddoc");
+
+            }
+            $this->view('Admin/adminDashboard');
             redirect('/Home');
         }else
             $admin = new User;

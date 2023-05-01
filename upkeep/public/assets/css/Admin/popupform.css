@@ -45,10 +45,15 @@
 
 .popup a.close {
 	display: flex;
+    justify-content: right;
     position: absolute;
-    right: 10;
-    top: 10;
+    right: 10px;
+    top: 5px;
 	color: var(--color-dark);
+
+    
+        
+      
 }
 
 .popup .top{

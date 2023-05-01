@@ -270,8 +270,8 @@
                         <h3>Are you sure you you want to remove this moderator?</h3>
                     </div>
                     <div class="btn-container">
-                                <button id="OTP-send">Cancel</button>
                                 <button id="OTP-send">Yes,I'm Sure</button>
+                                <button id="OTP-send">Cancel</button>
                         </div>
  
                     

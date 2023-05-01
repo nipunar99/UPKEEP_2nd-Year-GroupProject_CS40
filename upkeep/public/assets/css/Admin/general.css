@@ -509,5 +509,6 @@ button {
 .btn-container{
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 2rem;
+	justify-content: center;
 }

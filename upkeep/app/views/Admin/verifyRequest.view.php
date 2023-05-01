@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/verifyrequest.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha384-yacmIiZmY4ZpH4tA+8tbaThL5vi5r5pOuOvUV8X7VjQoC2Oaa/+GhBw8b7W1G6mv" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/verifyrequest.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/filterform.css">
 
 </head>
 
@@ -24,20 +22,20 @@
             <div class="top">
 
                 <div class="logo">
-                    <img src="<?=ROOT?>/assets/images/logo.png" alt="">
-                    <img src="<?=ROOT?>/assets/images/title.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
+                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
-                        </span>
+                    </span>
                 </div>
 
             </div>
 
             <div class="sidebar">
-                <a href="<?=ROOT?> /Admin/Admindashboard">
+                <a href="<?= ROOT ?> /Admin/Admindashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -47,7 +45,7 @@
                     <h3>Verification Requests </h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/Addmoderator">
+                <a href="<?= ROOT ?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
                     <h3>Administrative Users</h3>
                 </a>
@@ -61,7 +59,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="">
+                <a href="<?=ROOT?> /Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
                 </a>
@@ -82,8 +80,8 @@
         </aside>
 
         <main>
-        <div class="mainhead">
-                
+            <div class="mainhead">
+
                 <h1>Verification Requests</h1>
 
                 <div class="heading">
@@ -91,7 +89,7 @@
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
                         </button>
-        
+
                         <div class="theme-toggler">
                             <span class="material-icons-sharp active">light_mode</span>
                             <span class="material-icons-sharp">dark_mode</span>
@@ -108,18 +106,9 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
-            <!-- <div class="search-bar">
-                <div class="search-tab">
-                        iiii
-                </div>
-                <div class="search-tab">
-                        iiii
-                </div>
-                <div class="search-tab">
-                        iiii
-                </div>
-            </div> -->
+
             <div class="search-bar" style="margin-top:3rem;">
                 <form>
                     <input type="text" placeholder="Search...">
@@ -133,19 +122,20 @@
                     <h2><?=$verify_tech[0]->count ?> Account</h2>
                 </div>
                 <div>
-                    <button class="filter-btn"><i class="fa fa-filter" style="margin-right:0.6rem;"></i> Filter</button>
+                    <button class="filter-button">Filter</button>
 
                 </div>
 
             </div>
             <div class ="head">
-            <h4>Verification Requests</h4>
+                <h4>Verification Requests</h4>
+            </div>
             <div class="grid-container">
                 
                 <?php for($i=0;$i<count($technician);$i++):?>
                     <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->request_id?>">
-                    <div class="item">
-                        <div class="photo-container">
+                        <div class="item">
+                            <div class="photo-container">
                                 <img  src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo"> 
                                    
                             </div>
@@ -158,58 +148,56 @@
                                 <p><?=$technician[$i]->mobile_no ?></p>
 
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
                 <?php endfor;?>
-                
-
-
-
-
-
-<!-- 
-                <a href="<?=ROOT?>/Admin/VerificationRequest">
-                    <div class="item">
-                        <div class="photo-container">
-                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo">
-                            
-                        </div>
-                        <div class="details-container">
-                            <h2>Rusith</h2>
-                            <p>Auto Mobile|Maharagama</p>    
-                        </div>
-                        <div class="contact-details">
-                            <p>rusith123rusith@gmail.com</p>
-                            <p>0702050912</p>
-                        </div>
-                    </div>
-                </a> -->
-
-
-
-
-               
-
-
-
-
-
-           
-
-
-
-                        
-                
-        
             </div>
 
-
-            
+     
             
         </main> 
 
     </div>
+
+        
+    <div class="slide-out-form">
+        <button class="close-button"><span class="material-icons-sharp">close</span></button>
+        <form>
+            <div class="top_info">
+                <div class="input_box">
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" name="name" required placeholder="First name "><br><br>
+                </div>
+                <div class="input_box">
+                    <label for="name">Last Name</label>
+                    <input type="text" id="name" name="name" required placeholder="last name "><br><br>
+                </div>
+            </div>
+            <div class="top_info">
+                <div class="input_box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="email "><br><br>
+                </div>
+                <div class="input_box">
+                    <label for="name">Phone Number</label>
+                    <input type="text" id="mobile_no" name="Phone Number" required placeholder="phone number "><br><br>
+                </div>
+            </div>
+            <div class="end_info">
+                <label for="email">City</label>
+                <input type="text" id="city" name="city" required placeholder="city" required placeholder="city"><br><br>
+            </div>
+            <!-- <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea><br><br> -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="<?=ROOT?>/assets/js/Admin/filter.js"></script>
+
     
     
 </body>
+
 </html>

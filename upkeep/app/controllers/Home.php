@@ -8,11 +8,11 @@ class Home {
     public function index (){
 
         if(!isset($_SESSION['user_name'])){
-            $this->viewHtml('home');
+            $this->view('home');
         }
         else{
             switch ($_SESSION['user_role']) {
-                case 'itemowner':
+                case 'item_owner':
                     redirect('Itemowner/Userdashboard');
                     break;
                 

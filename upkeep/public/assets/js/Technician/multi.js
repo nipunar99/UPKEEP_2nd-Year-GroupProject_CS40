@@ -20,13 +20,17 @@ function nextStep(e) {
 
 	console.log("next button clicked");
 	steps[currentStep].classList.add("hideleft");
-	indicator_steps[currentStep].classList.remove("current");
+	if(indicator_steps.length>0) {
+		indicator_steps[currentStep].classList.remove("current");
+	}
 	currentStep++;
 	steps[currentStep].classList.remove("hideright");
-	indicator_steps[currentStep].classList.add("active");
-	indicator_steps[currentStep].classList.add("current");
-	var width = (currentStep / (allSteps - 1)) * 100;
-	progress[0].style.width = width + "%";
+	if(indicator_steps.length>0) {
+		indicator_steps[currentStep].classList.add("active");
+		indicator_steps[currentStep].classList.add("current");
+		var width = (currentStep / (allSteps - 1)) * 100;
+		progress[0].style.width = width + "%";
+	}
 }
 
 function prevStep(e) {
@@ -34,12 +38,15 @@ function prevStep(e) {
 
 	console.log("prev button clicked");
 	steps[currentStep].classList.add("hideright");
-	indicator_steps[currentStep].classList.remove("active");
-	indicator_steps[currentStep].classList.remove("current");
-
+	if(indicator_steps.length>0) {
+		indicator_steps[currentStep].classList.remove("active");
+		indicator_steps[currentStep].classList.remove("current");
+	}
 	currentStep--;
 	steps[currentStep].classList.remove("hideleft");
-	indicator_steps[currentStep].classList.add("current");
-	var width = (currentStep / (allSteps - 1)) * 100;
-	progress[0].style.width = width + "%";
+	if(indicator_steps.length>0) {
+		indicator_steps[currentStep].classList.add("current");
+		var width = (currentStep / (allSteps - 1)) * 100;
+		progress[0].style.width = width + "%";
+	}
 }

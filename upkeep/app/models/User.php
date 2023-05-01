@@ -13,6 +13,23 @@ class User
         "password",
     ];
 
+    protected $validationRules = [
+
+        'email' => [
+            'email',
+            'unique',
+            'required',
+        ],
+        'username' => [
+            'alpha',
+            'required',
+        ],
+        'password' => [
+            'not_less_than_8_chars',
+            'required',
+        ],
+    ];
+
     public function validate($data){
         $this->errors =[];
         
@@ -170,4 +187,58 @@ class User
         return $cc;
     }
 
+    // public function insertModerator(){
+    //     $query = "INSERT INTO user"
+    // }
+
+    public function getTotalTechnician(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $data['user_role']='technician';
+        return $this->query($query2);
+
+
+
+    }
+    
+    public function getTotalItemOwners(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $data['user_role']='item_owner';
+        return $this->query($query2);;
+
+
+
+    }
+
+    public function getTotalAdministrativeUser(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $data['user_role1']='admin';
+        $data['user_role2']='moderator';
+        return $this->query($query);
+
+
+
+    }
+
+    public function getTotalAdmin(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $data['user_role']='admin';
+        return $this->query($query);
+
+
+
+    }
+
+    public function getTotalModerator(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $data['user_role']='moderator';
+        return $this->query($query);
+
+
+
+    }
 }

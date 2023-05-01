@@ -10,8 +10,9 @@ class Complaints{
         }else{
             $complaint = new Complaint;
             $complaint_list = $complaint->getAllComplaints();
-            $data['complaints'] = $complaint_list;
+            $data['complaint'] = $complaint_list;
             //show($complaint_list);
+            // $data['complaint_view'] = $complaint->getAllComplaints();
             $this->view('Admin/complaints',$data);
         }    
     }
