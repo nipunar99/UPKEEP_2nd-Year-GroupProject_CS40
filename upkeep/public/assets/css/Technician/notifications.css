@@ -1,0 +1,152 @@
+@import "general.css";
+
+.sidenav .tab-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidenav .tabs {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+    padding: 0.75rem;
+    border-radius: 99px;
+}
+
+.sidenav .tabs * {
+    z-index: 2;
+}
+
+.sidenav input[type="radio"] {
+    display: none;
+}
+
+.sidenav .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 100%;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+}
+
+.sidenav .notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    transition: 0.15s ease-in;
+}
+
+.sidenav input[type="radio"]:checked + label {
+    color: var(--primary-color);
+}
+
+.sidenav input[type="radio"]:checked + label > .notification {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.sidenav input[id="radio-1"]:checked ~ .glider {
+    transform: translateX(0);
+}
+
+.sidenav input[id="radio-2"]:checked ~ .glider {
+    transform: translateX(100%);
+}
+
+.sidenav input[id="radio-3"]:checked ~ .glider {
+    transform: translateX(200%);
+}
+
+.sidenav .glider {
+    position: absolute;
+    display: flex;
+    height: 54px;
+    width: 200px;
+    background-color: var(--secondary-color);
+    z-index: 1;
+    border-radius: 99px;
+    transition: 0.25s ease-out;
+}
+
+
+
+/* notification tab */
+.notification-card {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+.notification-card .icon {
+    margin-right: 16px;
+    font-size: 24px;
+    color: #FFFFFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification-card .content {
+    flex: 1;
+}
+
+.notification-card .title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.notification-card .description {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+.notification-card .action {
+    margin-left: 16px;
+}
+
+.notification-card .mark-as-read {
+    border: none;
+    background-color: #EFEFEF;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.notification-card.high-priority {
+    border-left: 4px solid #FF5E5E;
+}
+
+.notification-card.medium-priority {
+    border-left: 4px solid #FFC100;
+}
+
+.notification-card.low-priority {
+    border-left: 4px solid #00A3FF;
+}

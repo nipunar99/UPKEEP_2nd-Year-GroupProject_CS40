@@ -27,7 +27,10 @@ function finish(id){
 }
 
 function formSuccessfull(id,success_title,success_message){
-    popups[id].querySelector('.content').innerHTML = "" +
+    popups[id].querySelectorAll('.content').forEach((content)=>{
+        content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+    });
+    popups[id].querySelector('.content#msg').innerHTML = "" +
         "<div class=\"middle\">\n" +
         "   <div class=\"icon-container\">\n" +
         "       <span class=\"material-icons-sharp\" id=\"success-icon\">check_circle</span>\n" +
@@ -38,6 +41,40 @@ function formSuccessfull(id,success_title,success_message){
         "       <button id=\"finish\">Continue!</button>\n" +
         "   </div>\n" +
         "</div>"
+}
+
+
+function areYouSure(id,areYouSureMessage){
+    popups[id].querySelectorAll('.content').forEach((content)=>{
+        content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+    });
+    popups[id].querySelector('.content#msg').innerHTML = "" +
+        "<div class=\"middle\">\n" +
+        "   <div class=\"icon-container\">\n" +
+        "       <span class=\"material-icons-outlined warning\" id=\"warning-icon\">error_outline</span>\n" +
+        "   </div>\n" +
+        "   <h1 id=\"warning-title\" >Are you sure?</h1>\n" +
+        "   <p id=\"warning-message\">"+areYouSureMessage+"</p><br>\n" +
+        "   <div class=\"btn-container\">\n" +
+        "       <button id=\"yes\">Yes</button>\n" +
+        "       <button id=\"no\">No</button>\n" +
+        "   </div>\n" +
+        "</div>"
+
+    popups[id].querySelector('#yes').addEventListener('click',()=>{
+        //set the form visible in next click
+        popups[id].querySelectorAll('.content').forEach((content)=>{
+            content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+        });
+        closePopup(id);
+    });
+    popups[id].querySelector('#no').addEventListener('click',()=>{
+        //go backto the form
+        popups[id].querySelectorAll('.content').forEach((content)=>{
+            content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+        });
+
+    });
 }
 
 
@@ -64,6 +101,21 @@ input_files.forEach((input)=>{
         }
     });
 });
+
+
+// show input error message
+function showErrors(input, message) {
+    const inputField = input.parentElement;
+    inputField.className = 'input-field error';
+    const small = inputField.querySelector('small');
+    small.innerText = message;
+}
+
+function clearErrors(popupid) {
+    popups[popupid].querySelectorAll('.input-field').forEach((inputField)=>{
+        inputField.className = 'input-field';
+    });
+}
 
 //
 // function showPreview(event) {

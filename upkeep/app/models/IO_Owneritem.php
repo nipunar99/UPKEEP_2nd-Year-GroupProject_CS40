@@ -66,6 +66,7 @@ class IO_Owneritem {
         return $this->query($query);
     }
 
+<<<<<<< Updated upstream:upkeep/app/models/IO_Owneritem.php
     public function getLastID(){
         $query = "select MAX(item_id) as 'id' from items";
         return $this->query($query);
@@ -80,4 +81,11 @@ class IO_Owneritem {
         $query = "SELECT COUNT(item_id) AS dispose_count FROM items WHERE status = 'Dispose'";
         return $this->query($query);
     }
+=======
+    public function getItemDetailsForJob($item_id){
+        $query = "select * from items WHERE item_id =" . $item_id;
+        return $this->query($query)[0];
+    }
+    
+>>>>>>> Stashed changes:upkeep/app/models/Owneritem.php
 }

@@ -1,4 +1,6 @@
 @import "general.css";
+@import "popupform.css";
+@import "notifications.css";
 
 /* .container {
 	display: grid;
@@ -539,7 +541,9 @@ main .recent-orders a {
 	padding: 0.5rem;
 	/*overflow-x: hidden;*/
 }
-.cards > div.card {                            /* NOTE: this selects the card */
+.cards > div.card {
+	width: 25%;/* NOTE: this selects the card */
+	min-width: 200px;
 	scroll-snap-align: start;             /* NOTE: this works in conjunction with "scroll-snap-type: inline mandatory;" from above */
 	scroll-padding-inline: 5px;           /* NOTE: this optionally adds some padding but it is already present because of the "margin: 5px;" below */
 	border-radius: 7px;
@@ -595,7 +599,12 @@ main .recent-orders a {
 }
 
 .cards > div.card .title {
-	padding: 0.5rem 0.5rem 0.5rem 0;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1; /* number of lines to show */
+	line-clamp: 1;
+	-webkit-box-orient: vertical;
+	margin: 0.5rem 0.5rem 0.5rem 0;
 	font-size: 1.5rem;
 	font-weight: 500;
 }
@@ -639,7 +648,8 @@ main .recent-orders a {
 
 /*stats cards*/
 .stat{
-	height: 40%;
+	height: max-content;
+	height: 26rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -658,10 +668,33 @@ main .recent-orders a {
 }
 
 .stat > div canvas{
-	width: 100%;
-	height: 100%;
+	height: 20rem;
+	width: 20rem;
 }
 
+.stat .order-summary {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+	padding:0.5rem ;
+}
+
+.stat #order-action{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+
+#order-action > a{
+	margin: 0.5rem;
+	height: 50%;
+	width: 100%;
+}
 /**/
 
 

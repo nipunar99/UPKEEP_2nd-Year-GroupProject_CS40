@@ -58,6 +58,31 @@ function get_image(mixed $file = '',string $type = 'post'):string
 
 }
 
+//count due days from today
+function dueDays($date){
+    $today = date("Y-m-d");
+    if($date < $today){
+        return 0;
+    }
+    $diff = date_diff(date_create($today), date_create($date));
+    return $diff->format("%a");
+}
+
+//date quote
+function dateQuote($compareDate){
+    $diff = floor(  ((strtotime('today')) - (strtotime($compareDate))) / (60 * 60 * 24));
+    if ($diff == 0) {
+        echo "Today";
+    } else if ($diff == 1) {
+        echo "Yesterday";
+    } else {
+        echo $diff . " days ago ";
+    }
+}
+
+
+
+
 //function sendSMS($phone_number, $message, $message_type="ARN"){
 //
 //    curl -X POST https://rest-api.telesign.com/v1/messaging\

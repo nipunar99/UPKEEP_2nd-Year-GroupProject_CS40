@@ -3,6 +3,7 @@
         "telesign/telesign": "^3.0",
         "orhanerday/open-ai": "^4.0",
       "ext-json": "*",
-      "ext-pdo": "*"
+      "ext-pdo": "*",
+        "cboden/ratchet": "^0.4.4"
     }
 }

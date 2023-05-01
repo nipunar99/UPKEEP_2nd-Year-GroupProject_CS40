@@ -133,6 +133,45 @@ Trait Model
     }
 
 
+    public function getColumns($cols=[],$where=[],$wherenot=[]){
+
+            $query = "select ";
+
+            if(empty($cols)){
+                $query .= "* ";
+            }else{
+                $query .= implode(",",$cols);
+            }
+
+            $query .= " from $this->table ";
+
+            if(!empty($where)){
+                $query .= " where ";
+                $keys = array_keys($where);
+                foreach($keys as $key){
+                    $query .= $key . "= :" . $key . " && ";
+                }
+                $query = trim($query, " && ");
+            }
+
+            if(!empty($wherenot)){
+                $query .= " where ";
+                $keys = array_keys($wherenot);
+                foreach($keys as $key){
+                    $query .= $key . "!= :" . $key . " && ";
+                }
+                $query = trim($query, " && ");
+            }
+
+            $query .= " limit $this->limit offset $this->offset"; // make the query
+
+            $data = array_merge($where, $wherenot); // mearge data arrays to put the query function as parameter
+
+            return $this->query($query, $data);
+
+    }
+
+
     public function getError($key)
     {
         if (!empty($this->errors[$key]))

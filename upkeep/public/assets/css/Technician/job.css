@@ -1,0 +1,273 @@
+@import "general.css";
+@import "popupform.css";
+
+.container {
+    grid-template-columns: 17rem auto;
+}
+
+.content-a-20{
+    display: grid;
+    grid-template-columns:3fr 1fr;
+    height: calc(100vh - 64px);
+    overflow-y:scroll;
+}
+
+.content-a-20 .left{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: var(--color-white);
+    transition: 0.3s;
+    margin-right: 0;
+
+}
+
+.content-a-20 .right{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: var(--color-white);
+    transition: 0.3s;
+    margin-left: 0;
+
+}
+
+.head {
+    height: max-content;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin: 0 1rem 0 1rem;
+    /*border-bottom: 1px solid #e0e0e0;*/
+}
+
+.content-a-20 .head .title {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+}
+
+ .head .btn-container{
+     padding: 0.5rem;
+     gap: 0.5rem;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     text-align: right;
+     justify-content: center;
+}
+
+/*add modern button style with my root colors and hover*/
+.btn-container .btn{
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-info);
+    background-color: var(--color-header-h1);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.btn-container .btn#cancel{
+    background-color: var(--color-danger);
+}
+
+.btn-container .btn:disabled{
+    background-color: var(--color-info-light);
+    border: 1px solid var(--color-info-light);
+    cursor: default;
+}
+
+ .btn-container .btn:disabled:hover{
+    background-color: var(--color-info-light);
+    border: 1px solid var(--color-info-light);
+    cursor: default;
+}
+
+
+
+.btn-container .btn:hover{
+    background-color: var(--color-info-light);
+    border: 1px solid var(--color-info-light);
+}
+
+.content-a-20 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    /*padding: 0.5rem;*/
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    transition: 0.3s ease-in;
+    overflow: hidden;
+}
+
+.content-a-20 .card:hover{
+    box-shadow: var(--box-shadow-hover);
+    border: 1px solid var(--color-info-light);
+}
+
+.content-a-20 .card .card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.content-a-20 .card .card-header .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.content-a-20 .card .card-header .btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-a-20 .card .card-header .btn-container .btn{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-info);
+    background-color: var(--color-header-h1);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.content-a-20 .card .card-header .btn-container .btn:hover{
+    background-color: var(--color-info-light);
+    border: 1px solid var(--color-info-light);
+}
+
+.content-a-20 .card .card-row{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    padding: 0.5rem;
+    /*border-bottom: 1px solid #e0e0e0;*/
+}
+
+.content-a-20 .right .card .card-row{
+    justify-content: space-evenly;
+}
+
+.content-a-20 .card .card-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    padding: 0.5rem;
+    /*border-bottom: 1px solid #e0e0e0;*/
+}
+
+.content-a-20 .card .card-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding: 0.5rem;
+    overflow-x: auto;
+}
+
+.content-a-20 .card .card-body .title{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.content-a-20 .card .card-body .text{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.content-a-20 .card .profile-image{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 2rem 0;
+}
+
+.card .profile-image img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.left-text{
+    text-align: left;
+}
+
+/*li in card*/
+.content-a-20 .card li{
+    height: max-content;
+    border: var(--border);
+    border-radius: var(--border-radius-1);
+}
+
+.content-a-20 .card li .profile-image{
+    width:auto;
+    margin: 0;
+}
+
+.content-a-20 .card li .profile-image img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+
+/*small tag like element to show the job status pending approval, pending, completed with specific colors*/
+.content-a-20  .tag{
+    margin: auto 0.5rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.content-a-20 .tag.pending{
+    background-color: var(--color-warning);
+}
+
+.content-a-20 .tag.pending-approval{
+    background-color: var(--color-info-light);
+}
+
+.content-a-20  .tag.completed{
+    background-color: var(--color-success);
+}
+
+
+
+
+
