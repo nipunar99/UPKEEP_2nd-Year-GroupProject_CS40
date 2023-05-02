@@ -8,61 +8,66 @@ class Maintenance {
     public function index (){
        
         if(isset($_SESSION['user_id'])){
-           
-           
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                if (isset($_POST['action']) && $_POST['action'] == "addMaintenanceTask") {
+                    unset($_POST['action']);
+                    $errors = $this->checkValidation();
+                    if ($errors === null) {
+                        $this->addMaintenanceTask($_POST);
+                    }
+                } elseif (isset($_POST['action']) && $_POST['action'] == "updateMaintenanceTask") {
+                    unset($_POST['action']);
+                    $errors = $this->checkValidation();
+                    if($errors === null){
+                        $this->UpdateMaintenanceTask($_POST);
+                    }
+                   
+                }
+            } else {
+
+            }
         }else{
             redirect("Home/home");
         }
 
     }
-    public function maintenanceTasks($id){
-        $item_template_id = $id[0];
-        // echo $item_template_id;
-        // print_r($_POST);
-       
-        if(isset($_SESSION['user_id']) &&  ($_SERVER['REQUEST_METHOD'] == "POST")) {
-            if(($_POST['task_ID'] != 0)){
-              
-                $suggestions = new Maintenance_templates;
-              
-                $data = array(
-                    'task_ID' => $_POST['task_ID'],  
-                    'item_template_id' => $_POST['item_template_id'],
-                    'sub_component' => $_POST['sub_component'],
-                    'description' => $_POST['description'],
-                    'image' => $_POST['image'],
-                    'years' => $_POST['years'],
-                    'months' => $_POST['months'],
-                    'weeks' => $_POST['weeks']
+    public function checkValidation()
+    {
 
-                );
-                $suggestions->update($id,$data,$id="task_ID");
-                redirect("Moderator/Maintenance");
+        $errors = [];
+        //form validation
+        $item_template_id = $_SESSION['item_template_id'];
 
+        if ($_POST['item_template_id'] !== $item_template_id) {
+            $errors[] = "Form data has been changed";
+        }
+
+        if (empty($_POST['status'])) {
+            $errors[] = "Status is required";
+        }
+
+        if (empty($_POST['description'])) {
+            $errors[] = "Description is required";
+        }
+        if (empty($_POST['sub_component'])) {
+            $errors[] = "Sub Component name is required";
+        } else if (!preg_match("/^[a-zA-Z\s]+$/", $_POST['sub_component'])) {
+            $errors[] = "Component name should only contain letters and spaces";
+        }
+        //print if there exists errors in form
+
+        if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo "<p>" . $error . "</p>";
             }
-            else{
-       
-        $suggestions = new Maintenance_templates;
-        $data = array(
-            
-                    'item_template_id' => $item_template_id,
-                    'sub_component' => $_POST['sub_component'],
-                    'description' => $_POST['description'],
-                    'image' => basename($_FILES['image']['name']),
-                    'years' => $_POST['years'],
-                    'months' => $_POST['months'],
-                    'weeks' => $_POST['weeks'],
-                    'status' => $_POST['status']
-
-              );
-
-           $suggestions->insertMaintenanceTasks($data);
-
+        } else {
+            return null;
         }
     }
-        $this->view('Moderator/maintenance');
+    public function maintenanceTasks($id){
+        $item_template_id = $id[0];
         $_SESSION['item_template_id'] = $item_template_id;
-       
+        $this->view('Moderator/maintenance');
     }
 
     public function viewMaintenanceTasks(){ 
@@ -90,9 +95,21 @@ class Maintenance {
        }
 
     public function editMaintenanceTask($id){
+        $task_id = $id[0];
+        $_SESSION['task_ID'] = $task_id;
         $maintenance = new Maintenance_templates;
-        $task = $maintenance->getTaskById($id);
+        $task = $maintenance->getTaskById($id[0]);
         $task = json_encode($task);
         echo($task);
-    } 
+    }
+    public function addMaintenanceTask($data) {
+        $maintenances = new Maintenance_templates;
+        show($data);
+        $maintenances->insertMaintenanceTasks($data);
+    }
+    public function UpdateMaintenanceTask($data){
+        $update_maintenance = new Maintenance_templates;
+        $update_maintenance->updateMaintenanceTask($_SESSION['task_ID'],$data);
+
+    }
 }

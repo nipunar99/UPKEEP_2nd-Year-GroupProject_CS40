@@ -39,7 +39,7 @@
 	padding: 0;
 	outline: 0;
 	text-decoration: none;
-	appearance: none;
+	/* appearance: none; */
 	border: 0;
 	list-style: none;
 	box-sizing: border-box;
@@ -58,17 +58,16 @@ body {
 	font-weight: 600;
 	background: #fff;
 	user-select: none;
-	overflow: hidden;
+	overflow-x: hidden;
 	color: var(--color-dark);
 }
 
 .container {
 	display: grid;
-	width: 100%;
+	width: 98%;
 	margin: 0;
 	margin-right: 0;
 	gap: 1rem;
-	grid-template-columns: 17rem auto 20rem;
 	height: 100vh;
 }
 
@@ -76,10 +75,10 @@ a {
 	color: var(--color-dark);
 }
 
-img {
+/* img {
 	display: block;
 	width: 100%;
-}
+} */
 
 h1 {
 	font-weight: 800;

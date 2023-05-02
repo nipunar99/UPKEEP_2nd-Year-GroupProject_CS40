@@ -135,7 +135,21 @@ class User
         $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'item_owner'";
         return $this->query($query);
     }
-
+    public function TotalTechnicians()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'technician'";
+        return $this->query($query);
+    }
+    public function TotalAdmins()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'admin'";
+        return $this->query($query);
+    }
+    public function TotalModerators()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'moderator'";
+        return $this->query($query);
+    }
     public function countAllWhereUserName($username)
     {
         $query = "SELECT COUNT(*) FROM $this->table WHERE user_name = '$username'";

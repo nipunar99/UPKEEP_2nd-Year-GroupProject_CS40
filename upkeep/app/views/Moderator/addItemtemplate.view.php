@@ -23,11 +23,6 @@
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                    </span>
-                </div>
 
             </div>
 
@@ -69,33 +64,35 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
-                <h1>Items Templates</h1>
-                <div class="right">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
-                        </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
+            <div class="header nbs">
+                <div class="left">
 
                 </div>
+                <div class="center">
+                    <h1>Add Itemtemplate</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
 
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                        </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
 
             <div class="insight">
                 <form method="post" action="#" id="myform">

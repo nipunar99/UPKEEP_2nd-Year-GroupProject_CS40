@@ -60,7 +60,7 @@ class Owneritem {
         $this->query($query,$data);
         return false;
     }
-  public function itemUsers($item_nme){
+  public function itemUsersCount($item_nme){
     $query = "select COUNT(*) FROM $this->table WHERE item_type = '$item_nme'";
     return  $this->query($query);
   }

@@ -22,7 +22,7 @@ class Itemtemplates
     {
 
         try {
-            $data["moderator_id"] = $_SESSION['ID'];
+            $data["moderator_id"] = $_SESSION['user_id'];
 
             $this->insert($data);
         } catch (PDOException $e) {
@@ -43,27 +43,32 @@ class Itemtemplates
         $query = "select i.image,i.id,i.category_id, i.itemtemplate_name, c.category_name, i.status from itemtemplate  i inner JOIN categories c on  c.category_id = i.category_id where id = $id[0]";
         return $this->query($query);
     }
+    public function insertChildItem($data)
+    {
+        try {
+            $data["moderator_id"] = $_SESSION['user_id'];
+            $data['image'] = $_FILES['image']['name'];
+            $this->insert($data);
+            show($this->insert($data));
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
     public function viewChildItems($id)
     {
         $query = "select itemtemplate.category_id,itemtemplate.status,itemtemplate.description, categories.category_name,itemtemplate.itemtemplate_name,itemtemplate.id from itemtemplate  inner JOIN categories on  categories.category_id = itemtemplate.category_id where parent_id = '$id[0]'";
         return $this->query($query);
     }
-    public function insertChildItem($data)
+    public function updateChildItem($id, $data)
     {
         try {
-            // $data["moderator_id"] = $_SESSION['ID'];
-
-            $this->insert($data);
+            $data["moderator_id"] = $_SESSION['user_id'];
+            $data['image'] = $_FILES['image']['name'];
+            $this->update($id, $data, $data['id'] = "id");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
-    public function inser($parent_id, $status, $description, $itemtemplate_name, $category_id)
-    {
-        $query = "insert into $this->table (itemtemplate_name,status,category_id,description, parent_id) values('$itemtemplate_name','$status', $category_id,'$description',$parent_id)";
-        return $this->query($query);
-    }
-
     public function deleteChildItemtemplate($id)
     {
         $this->delete($id);
@@ -82,30 +87,29 @@ class Itemtemplates
         $item = $this->where($arr);
         return $item;
     }
+    public function pending()
+    {
+        $query = "select * from $this->table where status='Pending'";
+        return $this->query($query);
+    }
+    public function countTotalItemtemplate()
+    {
+        $query = "select COUNT(*) FROM $this->table where status = 'Approved' ";
+        return $this->query($query);
+    }
+    public function countPendingItemtemplate()
+    {
+        $query = "SELECT COUNT(*) FROM $this->table where status='pending'";
+        return $this->query($query);
+    }
+    public function getItemcountByCategories(){
+        $query = " select c.category_name AS category , COUNT(*) AS total_item from itemtemplate AS i JOIN categories AS c ON i.category_id = c.category_id GROUP BY c.category_id ";
+        return $this->query($query);
+    }
+
+    public function getSuggestionDetails(){
+        $query = "select c.category_name, i.itemtemplate_name, i.image,i.id from $this->table i inner JOIN categories c on i.category_id = c.category_id where moderator_id = 0 AND status='Pending'";
+        return $this->query($query);
+    }
 }
 
-
-
-
-
-
-
-// public function viewItem($data){
-    //     try{
-    //         $data["moderator_id"] = $_SESSION['ID'];
-    //         $this->insert($data);   
-    //     }
-    //     catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }        
-    // $sql = "select * from `itemtemplate` where id=:id";
-    // }  
-
-    // public function delete($id, $id_column = "id"){
-
-    //     $data[$id_column] = $id;
-    //     $query = "delete from $this->table where $id_column = :$id_column";
-
-    //     $this->query($query,$data);
-    //     return false;
-    // }

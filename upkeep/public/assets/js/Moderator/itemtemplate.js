@@ -60,7 +60,6 @@ function fun(id) {
     console.log("button clicked");
     modal.classList.add("hidden");
     overlay.classList.add("hidden");
-    // removeEvent();
   };
 
 
@@ -85,16 +84,10 @@ function fun(id) {
       if (xhr.status === 200) {
         const res = xhr.responseText;
         console.log(id);
-        // If the request was successful, delete the row from the table
-        // row.parentNode.removeChild(row);
-        // } else {
-        // If the request failed, display an error message
-        //   alert("Failed to delete row");
       }
     }
     xhr.send(form);
 
-    // Your code to delete the row from the database goes here
     closeModal();
     autoclick.click();
 
@@ -103,8 +96,6 @@ function fun(id) {
 
 
 };
-
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -127,13 +118,13 @@ function ajax_getItems() {
       
         html += "<tr>";
         html += "                <td class='template_name'>";
-        html += "                     <div class='image'>";
+        // html += "                     <div class='image'>";
         html += "<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/" + json[i].image + "'>";
         console.log(json[i].id);
-        html += "</div>";
-        html += "                        <div class='name'>" + json[i].itemtemplate_name + "";
+        // html += "</div>";
+        html += "                        " + json[i].itemtemplate_name + "";
 
-        html += "                    </div>";
+        // html += "                    </div>";
         html += "                     </td>";
         html += "                        <td>" + json[i].category_name + "</td>";
         html += " <td id='status'";

@@ -1,3 +1,4 @@
+
 //validataion checking flag
 var errocheckflag = 0;
 
@@ -12,71 +13,66 @@ const statu2 = document.querySelector('#Status');
 const description1 = document.querySelector('#description');
 const description2 = document.querySelector('#Description');
 
+const districtSelect = document.getElementById("status");
 
+const district = ['Approved', 'Pending'];
 
-form2.addEventListener('submit', function (event) {
+(function populateDistrict() {
+  for (let i = 0; i < district.length; i++) {
+    const option = document.createElement('option');
+    option.textContent = district[i];
+    districtSelect.appendChild(option);
+  }
+  
+  // Set the default value of the select element
+  districtSelect.value = 'Select the status';
+})();
 
-    event.preventDefault();
-    const stat2 = statu2.value;
-    const descrip2 = description2.value;
-    const temp_name2 = input2.value;
-
-    if (!/^[a-zA-Z\s]+$/.test(temp_name2)) {
-        alert('Please enter only letters and spaces.');
-        return;
-    }
-    if (stat2 === "") {
-        alert('Please select the status');
-        return;
-    }
-
-    if (descrip2.trim() === '') {
-        alert('please enter description');
-        return;
-    }
-    form2.submit();
-});
 //new item template addtion popup view
-const modal = document.querySelector(".popupview1");
+const popupviews = document.getElementsByClassName("popupview");
 const overlay = document.querySelector(".overlayview");
 const btnShowRow1 = document.querySelector(".subcategory");
+const btnCloseModal1 = document.querySelector(".closebtn1");
+const btnCloseModal2 = document.querySelector(".closebtn2");
 
-const showModal = function () {
+
+const showModal = function (id) {
     console.log("button clicked");
-    modal.classList.remove("hidden");
+    popupviews[id].classList.remove("hidden");
     overlay.classList.remove("hidden");
-};
+}; 
 
-const closeModal = function () {
-    modal.classList.add("hidden");
+// Close Modal function
+const closeModal = function (id) {
+  console.log("button clicked");
+    popupviews[id].classList.add("hidden");
     overlay.classList.add("hidden");
-
 };
-btnShowRow1.addEventListener("click", showModal);
-overlay.addEventListener("click", closeModal);
 
-//update itemtemplate popup view
-const modals = document.querySelector(".popupview2");
-const btnShowRows = document.querySelectorAll(".view");
-const rowIdInput = document.querySelector('#rowid-input');
+btnShowRow1.addEventListener("click", function(e){
+    e.preventDefault();
+    showModal("add-item");
+  });
+  btnCloseModal1.addEventListener("click", function(e){
+    e.preventDefault();
+    closeModal("add-item");
+  
+  });
+  btnCloseModal2.addEventListener("click", function(e){
+    e.preventDefault();
+    closeModal("update-item");
+  });
+
 const table = document.getElementById('categoryTable');
 const rows = table.getElementsByTagName("tr");
 
-
-const showModals = function () {
-    console.log("button clicked");
-    modals.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-};
-
-const closeModals = function () {
-    modals.classList.add("hidden");
-    overlay.classList.add("hidden");
-};
-//get the itemtemplalte_id of edit item
+function setEventListner(){
+const btnShowRows = document.querySelectorAll(".view");
 btnShowRows.forEach(function (button) {
-    button.addEventListener('click', function () {
-
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log('click');
+        showModal('update-item');
         var row = button.closest('tr');
 
         // Get the row ID
@@ -85,72 +81,147 @@ btnShowRows.forEach(function (button) {
         // Get the values from the row
         var cell1 = row.getElementsByTagName("td")[1].innerHTML;
         console.log(cell1);
-        // ... repeat for other cells in the row
-
-        // Set the values in the popup form
-        document.getElementById("rowid-input").value = cell1;
+       
         const xhr = new XMLHttpRequest();
-        console.log("" + ROOT + "/Moderator/Itemtemplate/editItemtemplate/" + cell1)
-        xhr.open('GET', "" + ROOT + "/Moderator/Itemtemplate/editItemtemplate/" + cell1)
-        console.log(xhr);
+        xhr.open('GET', "" + ROOT + "/Moderator/Itemtemplate/editItemtemplate/" + cell1);
+        // console.log(xhr);
         xhr.onload = function () {
             if (xhr.status == 200) {
                 const res = xhr.responseText;
-                console.log(res);
+                // console.log(res);
                 const json = JSON.parse(res);
-                // itemtemplateDetails = JSON.parse(res);
-
-                console.log(json.description)
 
                 for (var i = 0; i < json.length; i++) {
                     console.log(json.length);
 
                     form2.querySelector("#Itemtemplate_name").value = json[0].itemtemplate_name;
                     form2.querySelector("#Status").value = json[0].status;
-                    // form2.querySelector("#").value=json.itemtemplate_name;
-                    // form2.querySelector("#").value=json.itemtemplate_name;
                     form2.querySelector("#Description").value = json[0].description;
+                    // form2.querySelector("#Upfile").value = json[0].image;
                 }
             }
         }
-
+        console.log(res);
         xhr.send();
-    });
+        
+    })
 });
-
-for (let i = 0; i < btnShowRows.length; i++) {
-
-    btnShowRows[i].addEventListener("click", showModals);
 }
 
+const DistrictSelect = document.getElementById("Status");
 
-overlay.addEventListener("click", closeModals);
+const District = ['Approved','Pending'];
 
-const districtSelect = document.getElementById("status");
-const district = ['Approved', 'Pending'];
-
-(function populateDistrict() {
-    for (let i = 0; i < district.length; i++) {
+(function populateDistrict (){
+    for(let i=0; i<District.length; i++){
         const option = document.createElement('option');
-        option.textContent = district[i];
-        districtSelect.appendChild(option);
+        option.textContent = District[i];
+        DistrictSelect.appendChild(option);
+    }
+    DistrictSelect.value = 'Select the status';
+})();
+
+document.addEventListener("DOMContentLoaded", function () {
+    ajax_getItems();
+    ajax_statisticView();
+});
+
+function ajax_getItems() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewChildItem", "true");
+    console.log(xhr);
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            itemtemplateDetails = JSON.parse(res);
+            var html = "";
+
+            for (var i = 0; i < json.length; i++) {
+                console.log(json.length);
+
+                html += "<tr>";
+                html += "<td><input type='checkbox' name='id[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
+                html += "<td class='hidden_id'>"+json[i].id+"</td>";
+
+                html += "<td role='button'><a href='http://localhost/upkeep/upkeep/public/Moderator/Maintenance/maintenanceTasks/"+json[i].id+"'>"+json[i].itemtemplate_name +" </a>";
+
+                html += "</td>";
+                html += "<td id='status'>"+ json[i].status+"";
+                html += "</td>";
+                html += "<td>"+json[i].description+"</td>";
+                html += "<td>";
+                html += "<div><button class='view'><span>edit</span></button></div>";
+                html += "</td>";
+                html += "</tr>";
+
+
+            }
+            document.querySelector(".category").innerHTML = html;
+        }
+    }
+    xhr.send();
+
+
+}
+var totalUsers, itemUsers;
+function ajax_statisticView() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "" + ROOT + "/Moderator/Itemtemplate/statisticView", "true");
+    console.log(xhr);
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            totalUsers = json.total_users;
+            itemUsers = json.item_users;
+            var html = "";
+
+
+
+            html += "<div class='text'>";
+            html += "<div class='text-1'>";
+            html += "<h2>Item Users</h2></div>";
+            html += "<div class='text-2'>";
+            html += "<div class='t1'><h4>Total Users <h3>" + json.total_users + "</h3></h4></div>";
+            html += "<div class='t2'><h4>Item Users <h3>" + json.item_users + "</h3></h4></div>";
+            html += " </div></div>";
+
+
+            console.log(totalUsers, itemUsers);
+            document.querySelector(".text").innerHTML = html;
+            console.log(totalUsers, itemUsers);
+            const ctx = document.getElementById('pieChart');
+            const data = {
+
+                datasets: [{
+                    data: [totalUsers, itemUsers],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)'
+
+                    ],
+                    hoverOffset: 4
+                }],
+                labels: [
+                    'Total Users',
+                    'Item Users',
+
+                ]
+            };
+
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+            })
+        }
 
     }
-    districtSelect.value = 'Select the status';
-})();
-const districtSelects = document.getElementById("Status");
+    xhr.send();
 
-const districts = ['Approved', 'Pending'];
 
-(function populateDistrict() {
-    for (let i = 0; i < districts.length; i++) {
-        const option = document.createElement('option');
-        option.textContent = districts[i];
-
-        districtSelects.appendChild(option);
-    }
-    districtSelects.value = 'Select the status';
-})();
+}
 //delete itemtemplate
 function toggleDeleteButton() {
     var table = document.getElementById("categoryTable");
@@ -181,7 +252,7 @@ function toggleDeleteButton() {
 
 
             if (checkedIds.length > 0) {
-
+                console.log("a");
                 // Create a new XMLHttpRequest object
                 var xhr = new XMLHttpRequest();
 
@@ -212,10 +283,6 @@ function toggleDeleteButton() {
 
                 // Send the request with the parameters
                 xhr.send(params);
-
-
-                // Send the checkedIds array to the server using AJAX to delete the corresponding records
-                // Alternatively, you can submit a form with hidden inputs to pass the checkedIds array to the server using POST method
             }
 
             deleteButton.style.display = "none";
@@ -248,11 +315,20 @@ function showSuccess(input) {
 function checkRequired(inputArr) {
     inputArr.forEach(function (input) {
         if (input.value.trim() === '') {
+
             showError(input, `${getFieldName(input)} is required`);
         }
-        else if (!/^[a-zA-Z\s]+$/.test(input1.value)) {
-            showError(input1, `only letters and spaces`);
+        if (input == input1) {
+            if (!/^[a-zA-Z\s]+$/.test(input1.value)) {
+                showError(input1, `only letters and spaces`);
+            }
         }
+        else if (input == input2) {
+            if (!/^[a-zA-Z\s]+$/.test(input2.value)) {
+                showError(input1, `only letters and spaces`);
+            }
+        }
+
         else {
             showSuccess(input);
         }
@@ -270,11 +346,12 @@ function ajax_addItem(e) {
     setSmallNull();
     const formItemDetails = document.getElementById("popup-form1");
 
-    checkRequired([input1, description1, statu1]);
-
+    checkRequired([input1,description1]);
+    console.log(input1.value.trim());
     if (errocheckflag == 0) {
         const form = new FormData(formItemDetails);
         form.append("action", "addItem");
+
         // form.delete('alter_type');
         // const urlparams = new URLSearchParams(form);
 
@@ -293,11 +370,10 @@ function ajax_addItem(e) {
         }
 
         xhr.send(form);
-        closeModal();
+        closeModal('add-item');
     }
 
 }
-
 //update itemtemplate form submission
 document.getElementById("update").addEventListener('click', ajax_updateItem);
 function ajax_updateItem(e) {
@@ -306,14 +382,16 @@ function ajax_updateItem(e) {
     setSmallNull();
     const formItemDetails = document.getElementById("popup-form2");
 
-    checkRequired([input2, description2, statu2]);
-
+    checkRequired([input2, description2]);
+    console.log(errocheckflag);
+    console.log(input2.value.trim());
+    console.log(errocheckflag);
     if (errocheckflag == 0) {
         const form = new FormData(formItemDetails);
-        form.append("action", "addItem");
+        form.append("action", "updateItem");
+        // form.append("id",cell1);
         // form.delete('alter_type');
         // const urlparams = new URLSearchParams(form);
-
         console.log(form);
         const xhr = new XMLHttpRequest();
 
@@ -327,9 +405,8 @@ function ajax_updateItem(e) {
                 console.log(res);
             }
         }
-
         xhr.send(form);
-        closeModal();
+        closeModal('update-item');
     }
 
 }

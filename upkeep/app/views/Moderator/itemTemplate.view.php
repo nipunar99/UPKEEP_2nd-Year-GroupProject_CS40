@@ -67,134 +67,137 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
-                <h1>Items Templates</h1>
+            <div class="header nbs">
+                <div class="left">
+                </div>
+                <div class="center">
+                    <h1>Item Template</h1>
+                </div>
                 <div class="right">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
-                        </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
-                            </div>
-                        </div>
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
 
-                </div>
-
-            </div>
-            <div class="toolbar">
-                <div class="searchBar">
-                    <input type="search" name="" id="txtHint" placeholder="Search item" onkeyup="myFunction()">
-                    <span class="material-icons-sharp">search</span>
-                </div>
-                <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
-                <div class="filter">
-                    <button onclick="showDropdwn()" class="filter_table"><span class="material-icons-sharp">filter_list</span>
-                        <div class="fil"> Filter
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
-                    </button>
-                    <select class="table-status" id="main-dropdwn" style="display:none;">
-                        <optgroup label="Status" id="status">Status
-                            <option value="1">Approved</option>
-                            <option value="2">Pending</option>
-                        </optgroup>
-                        <optgroup label="Item Type">Status
-                            <option value="3">Electronics</option>
-                            <option value="4">Appliances</option>
-                            <option value="5">Tools and equipment</option>
-                            <option value="6">Vehicles</option>
-                            <option value="7">Furniture</option>
-                            <option value="8">Home and garden</option>
-                            <option value="9">Other</option>
-                        </optgroup>
-                    </select>
-
-                </div>
-
-            </div>
-
-
-            <div class="item-details">
-
-
-                <div class="insight">
-                    <div class="itemTemplateList">
-                        <table id="templateTable">
-                            <thead>
-                                <tr>
-                                    <th onclick="sortTable(0)">Item</th>
-                                    <th class="category" onclick="sortTable(1)">Item Type </th>
-                                    <th onclick="sortTable(2)" class="status">Status </th>
-                                    <th class="description">Description</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="details">
-                                <tr>
-                                    <td class="template_name">
-                                        <div class="image"><img src="<?= ROOT ?>/assets/images/uploads/2.png"></div>
-                                        <div class="name">new</div>
-                                    </td>
-                                    <td>abc</td>
-                                    <td id="status" class="primary">pending</td>
-                                    <td class="des_color">btre </td>
-                                    <td>
-                                        <div class="more">                               
-                                            <div class="view"><button><a href="<?= ROOT ?>/Moderator/Item/viewItem"><span class="material-icons-sharp">visibility</span></a></button></div>
-                                            &nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"><span class="material-icons-sharp">delete</span></button></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <div class="overlayview hidden"></div>
 
 
-        <div class="popupview hidden">
-            <!-- <button class="closebtn">&times;</button> -->
+   
+    <div class="toolbar">
+        <div class="searchBar">
+            <input type="search" name="" id="txtHint" placeholder="Search item" onkeyup="myFunction()">
+            <span class="material-icons-sharp">search</span>
+        </div>
+        <a href="<?= ROOT ?>/Moderator/Additemtemplate"><button class="addItem">Add An Item Template</button></a>
+        <div class="filter">
+            <button onclick="showDropdwn()" class="filter_table"><span class="material-icons-sharp">filter_list</span>
+                <div class="fil"> Filter
+                </div>
+            </button>
+            <select class="table-status" id="main-dropdwn" style="display:none;">
+                <optgroup label="Status" id="status">Status
+                    <option value="1">Approved</option>
+                    <option value="2">Pending</option>
+                </optgroup>
+                <optgroup label="Item Type">Status
+                    <option value="3">Electronics</option>
+                    <option value="4">Appliances</option>
+                    <option value="5">Tools and equipment</option>
+                    <option value="6">Vehicles</option>
+                    <option value="7">Furniture</option>
+                    <option value="8">Home and garden</option>
+                    <option value="9">Other</option>
+                </optgroup>
+            </select>
 
-            <div class="delete1">
+        </div>
 
-                <!-- <form method="post" enctype="multipart/form-data" id=""> -->
+    </div>
 
-                <h2>Do you want to delete this item template</h2>
+
+    <div class="item-details">
+
+
+        <div class="insight">
+            <div class="itemTemplateList">
+                <table id="templateTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="items" onclick="sortTable(0)">Item</th>
+                            <th class="category" onclick="sortTable(1)">Item Type </th>
+                            <th onclick="sortTable(2)" class="status">Status </th>
+                            <th class="description">Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="details">
+                        <tr>
+                            <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
+                            <td class="template_name">
+                                <img src="<?= ROOT ?>/assets/images/uploads/2.png">
+                                <span>new</span>
+                            </td>
+                            <td>abc</td>
+                            <td id="status" class="primary">pending</td>
+                            <td class="des_color">btre </td>
+                            <td>
+                                <div class="more">
+                                    <div class="view"><button class="view"><a href="<?= ROOT ?>/Moderator/Item/viewItem">view</a></button></div>
+                                    &nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"></button></div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
-            <div class="actions">
-
-                <button class="confirmbtn">Yes</button>
-                <button class="closebtn1">No</button>
-                <a href="<?= ROOT ?>/Moderator/Itemtemplate" style='display:none;' class="autoclick"></a>
-            </div>
+        </div>
+    </div>
+    </main>
 
 
 
+    <div class="popupview hidden">
+        <!-- <button class="closebtn">&times;</button> -->
+
+        <div class="delete1">
+
+            <!-- <form method="post" enctype="multipart/form-data" id=""> -->
+
+            <h2>Do you want to delete this item template</h2>
+        </div>
+        <div class="actions">
+
+            <button class="confirmbtn">Yes</button>
+            <button class="closebtn1">No</button>
+            <a href="<?= ROOT ?>/Moderator/Itemtemplate" style='display:none;' class="autoclick"></a>
         </div>
 
 
 
+    </div>
+
+    <div class="overlayview hidden"></div>
 
 
 
 
-        <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
-        </script>
+
+    <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
+    </script>
 </body>
 
 </html>

@@ -50,32 +50,40 @@
             </div>
         </aside>
         <main>
-            <div class="mainHeader">
-                <h1>Item Maintenances</h1>
-                <div class="right">
-                    <!-- <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark mode</span>
-                    </div> -->
+        <div class="header nbs">
+                <div class="left">
 
-                    <div class="profile">
+                </div>
+                <div class="center">
+                    <h1>Maintenances</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
+
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">user</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="insight">
                 
                     <!-- <div class="name">name</div> -->
                     <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
                     <span> <div class="subcategory"><button>Add maintenance task </button></div></span>
                     <div class="temp_id">
-                    <input type="hidden" name="item_template_id" id="rowid-input">
+                    <input type="hidden" name="task_ID" id="rowid-input">
                     </div>
                     <div class="table">
                         <table id="categoryTable">
@@ -123,18 +131,20 @@
             
             <div class="content content1">
                 
-            <form method="post" enctype="multipart/form-data" id="form_itemDetails">
+            <form method="post" enctype="multipart/form-data" id="popup-form1">
                     <h2>Maintenance Details</h2>
                     <div class="itemDetails">
-                    <!-- <input type="hidden" name="item_template_id" id="rowid-input"> -->
+                        <input type="hidden" name="item_template_id" id="rowid-input">
                         <div class="input-box">
                             <span class="details">Sub Component</span>
-                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
+                            <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
+                            <small></small>
                         </div>
                         
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <textarea rows="3" cols="90" name="description" id="des_id" required placeholder="Enter maintenance task"></textarea>
+                            <textarea rows="3" cols="90" name="description" id="description" required placeholder="Enter maintenance task"></textarea>
+                            <small></small>
                         </div>
 
                         
@@ -149,22 +159,26 @@
                             
                             <div class="input-box">
                                 <span class="details">Yearly</span>
-                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
+                                <input type="number" min="0" max="10" name="years" id="years"  placeholder="Years">
+                                <small></small>                                
                             </div>
 
 
                             <div class="input-box">
                                 <span class="details">Monthly</span>
-                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
+                                <input type="number" min="0" max="12" name="months" id="months"  placeholder="Months">
+                                <small></small>                                
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Weekly</span>
-                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
+                                <input type="number" min="0" max="4" name="weeks" id="weeks"  placeholder="Weeks"> 
+                                <small></small>                               
                             </div>
                             <div class="input-box">
                                 <span class="details">Status</span>
                                 <select name="status" id="status"></select>
+                                <small></small>
                             </div>
             
                         </div>
@@ -192,17 +206,19 @@
             <form id="popup-form2" method="post" action="#" class="fm">
                     <h2>Maintenance Details</h2>
                     <div class="itemDetails">
-                    <input type="hidden" name="operation" value=" 'update'">
+                    <!-- <input type="hidden" name="operation" value=" 'update'"> -->
                     <input type="hidden" name="task_ID" id="rowid_input1">
                     <input type="hidden" name="item_template_id" id="rowid-input2">
                         <div class="input-box">
                             <span class="details">Sub Component</span>
-                            <input type="text" name="sub_component" id="" required placeholder="Enter Sub component">
+                            <input type="text" name="sub_component" id="Sub_component" required placeholder="Enter Sub component">
+                            <small></small>
                         </div>
                         
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <textarea rows="3" cols="100" name="description" id="des_id" required placeholder="Enter maintenance task"></textarea>
+                            <textarea rows="3" cols="100" name="description" id="Description" required placeholder="Enter maintenance task"></textarea>
+                            <small></small>
                         </div>
 
                         <div class="input-box">
@@ -216,22 +232,26 @@
                             
                             <div class="input-box">
                                 <span class="details">Yearly</span>
-                                <input type="number" min="0" max="10" name="years" id=""  placeholder="Years">                                
+                                <input type="number" min="0" max="10" name="years" id="Years"  placeholder="Years">
+                                <small></small>                                
                             </div>
 
 
                             <div class="input-box">
                                 <span class="details">Monthly</span>
-                                <input type="number" min="0" max="12" name="months" id=""  placeholder="Months">                                
+                                <input type="number" min="0" max="12" name="months" id="Months"  placeholder="Months">
+                                <small></small>                                
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Weekly</span>
-                                <input type="number" min="0" max="4" name="weeks" id=""  placeholder="Weeks">                                
+                                <input type="number" min="0" max="4" name="weeks" id="Weeks"  placeholder="Weeks">
+                                <small></small>                                
                             </div>
                             <div class="input-box">
                                 <span class="details">Status</span>
-                                <select name="status" id="status"></select>
+                                <select name="status" id="Status"></select>
+                                <small></small>
                             </div>
             
                         </div>
@@ -239,7 +259,7 @@
                       
                         
                         <div class="button">
-                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn"> 
+                            <input type="submit" value="Add a Maintenance" id="updateMaintenancebtn"> 
                             
                         </div>
                         

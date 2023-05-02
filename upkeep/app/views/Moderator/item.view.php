@@ -50,25 +50,33 @@
             </div>
         </aside>
         <main>
-            <div class="mainHeader">
-                <h1>Item</h1>
-                <div class="right">
-                    <!-- <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark mode</span>
-                    </div> -->
+            <div class="header nbs">
+                <div class="left">
 
-                    <div class="profile">
+                </div>
+                <div class="center">
+                    <h1>Item</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
+
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">user</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="insight">
                 <div class="card-main">
                     <div class="itemView">
@@ -120,29 +128,20 @@
 
                             </div>
                             <div class="text-2">
-                                <?php
-                                // $result1 = json_decode($data2['res1']);
-                                // $result_obj1 = $result1[0]->{'COUNT(*)'};
-                                // $data = array(
-                                //     'result_obj1' => $result_obj1);
-
-                                // 
-                                ?>
-                                //
-                                // <?php
-                                    // $result2 = json_decode($data3['res2']);
-                                    // $result_obj2 = $result2[0]->{'COUNT(*)'};
-                                    // $data = array(
-
-                                    //     'result_obj2' => $result_obj2);
-                                    // 
-                                    ?>
-
+                                <div class="t1">
+                                    <h4>Total Users <h3>130</h3>
+                                    </h4>
+                                </div>
+                                <div class="t2">
+                                    <h4>Item Users <h3>10</h3>
+                                    </h4>
+                                </div>
 
                             </div>
                         </div>
                         <div class="pie-view">
-
+                            <canvas id="pieChart">
+                                <canvas>
                         </div>
 
                     </div>
@@ -167,42 +166,32 @@
                                 </tr>
                             </thead>
                             <tbody class="category">
-                                <?php if (!empty($results)) : ?>
-                                    <?php foreach ($results as $row) : ?>
-                                        <tr>
-                                            <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
-                                            <td class="hidden_id"><?= $row->id ?></td>
-                                            <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/<?= $row->id ?>"><?= $row->itemtemplate_name ?></a></td>
-                                            <td><?= $row->status ?></td>
-                                            <td><?= $row->description ?></td>
-
-                                            <td>
-                                                <div> <button class="view"><span>edit</span></button></div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-
-
+                                <tr>
+                                    <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
+                                    <td class="hidden_id">87</td>
+                                    <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/5">aaaa></a></td>
+                                    <td id="status">nnoyt</td>
+                                    <td>aaa</td>
+                                    <td>
+                                        <div> <button class="view"><span>edit</span></button></div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-
                 <!-- </form> -->
         </main>
 
-        <div class="popupview popupview1 hidden">
+        <div class="popupview hidden" id="add-item">
+        <button class="closebtn closebtn1">&times;</button>
             <form id="popup-form1" method="post" action="add" class="fm" enctype="multipart/form-data">
                 <div class="itemDetails">
                     <div class="topInput">
-                        <input type="hidden" name="operation" value="'AddNewChildItemtemplate'">
                         <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowid-input">
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" value="" id="itemtemplate_name">
+                            <input type="text" name="itemtemplate_name" pattern="[A-Za-z ]+" value="" id="itemtemplate_name">
                             <small></small>
                         </div>
 
@@ -243,16 +232,16 @@
 
             </form>
         </div>
-        <div class="popupview popupview2 hidden">
-            <form id="popup-form2" method="post" action="update" class="fm">
+        <div class="popupview hidden" id="update-item">
+        <button class="closebtn closebtn2">&times;</button>
+            <form id="popup-form2" method="post" action="updateItem" class="fm">
                 <div class="itemDetails">
                     <div class="topInput">
-                        <input type="hidden" name="operation" value=" 'update'">
-                        <input type="hidden" name="id" id="rowid-input">
-                        <input type="hidden" name="parent_id" id="rowparentid-input">
+                        <input type="hidden" name="id" id="rowid-input1">
+                        <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowparentid-input">
                         <div class="input-box">
                             <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" value="<?= $row->itemtemplate_name ?>" id="Itemtemplate_name">
+                            <input type="text" name="itemtemplate_name" pattern="[A-Za-z ]+" value="" id="Itemtemplate_name">
                             <small></small>
                         </div>
 
@@ -267,12 +256,12 @@
 
                         <div class="input-box">
                             <span class="details">Image</span>
-                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
+                            <input type="file" class="imgInput" name="image" id="Upfile" value="" placeholder="Enter Brand">
                             <small></small>
                         </div>
                         <div class="input-box">
                             <span class="details">Category Name</span>
-                            <input type="text" name="category_id" id="name2" value="<?= $row->category_name ?>" readonly>
+                            <input type="text" name="category_id" id="name2" value="<?= $result_obj->category_name ?>" readonly>
                             <small></small>
                         </div>
                     </div>
@@ -297,6 +286,7 @@
         <div class="overlayview hidden"></div>
     </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <?php
     echo "<script> var ROOT = '" . ROOT . "'; </script>";
     ?>

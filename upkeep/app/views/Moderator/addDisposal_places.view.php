@@ -52,7 +52,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                
+
 
                 <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
@@ -69,57 +69,54 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
-                <h1>Add Disposal Places</h1>
-                <div class="right">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
-                        </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of top -->
-
-                    <!-- End of recent updates -->
+            <div class="header nbs">
+                <div class="left">
 
                 </div>
+                <div class="center">
+                    <h1>Add Disposal Places</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
 
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                        </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+
             <div class="insight">
-                <form method="post" action="#"  id="myform">
+                <form method="post" action="#" id="myform">
                     <div class="itemDetails">
-                    <div class="topInput">
-                      
-                        <div class="input-box" id="place">
-                            <span class="details">Place Name</span>
-                            <input type="text" name="place_name" id="plc" required placeholder="Enter place Name">
+                        <div class="topInput">
+
+                            <div class="input-box" id="place">
+                                <span class="details">Place Name</span>
+                                <input type="text" name="place_name" id="plc" required placeholder="Enter place Name">
+                            </div>
+
                         </div>
 
- </div>
-
                         <div class="middleInput">
-                            
-                        <div class="input-box">
+
+                            <div class="input-box">
                                 <span class="details">City</span>
                                 <input type="text" name="city" id="city" pattern="[A-Za-z]+" required placeholder="Enter city">
                             </div>
-                           
-                          
+
+
 
 
                         </div>
@@ -133,7 +130,7 @@
                         <div class="button-2">
                             <input type="submit" value="Add disposal places" id="submitBtn">
                             <!-- <button id="show-btn" onclick="showButton()">Add item</button> -->
-                         
+
                         </div>
 
                     </div>

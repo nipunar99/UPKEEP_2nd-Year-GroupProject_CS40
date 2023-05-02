@@ -8,14 +8,23 @@ class Suggestion {
         if(isset($_SESSION['user_id'])){
             $arr=[];
             $suggestions = new Owneritem;
-            $result = $suggestions->findAll();
-            $data['result'] = $result;
+           
 
-            $this->view('Moderator/suggestions',$data);
+            $this->view('Moderator/suggestions');
         }else{
             redirect("Home/home");
         }
 
     }
+    public function getItemSuggestions(){
+        $item = new Itemtemplates;
+        $suggestions = $item->getSuggestionDetails();
+        $result = json_encode($suggestions);
+        echo($result);
 
+    } 
+    public function viewSuggestions($id){
+        // $i_suggsetion = new 
+        $this->view('Moderator/itemsuggestions');
+    }
 }

@@ -1,4 +1,20 @@
-ajax_getItems();
+var errocheckflag = 0;
+
+
+const form2 = document.getElementById("popup-form2");
+const input1 = document.querySelector('#sub_component');
+const input2 = document.querySelector('#Sub_component');
+const year1 = document.querySelector('#years');
+const month1 = document.querySelector('#months');
+const week1 = document.querySelector('#weeks');
+const year2 = document.querySelector('#Years');
+const month2 = document.querySelector('#Months');
+const week2 = document.querySelector('#Weeks');
+const statu1 = document.querySelector('#status');
+const statu2 = document.querySelector('#Status');
+const description1 = document.querySelector('#description');
+const description2 = document.querySelector('#Description');
+
 
 const districtSelect = document.getElementById("status");
 
@@ -11,6 +27,18 @@ const district = ['Approved','Pending'];
         districtSelect.appendChild(option);
     }
     districtSelect.value = 'Select the status';
+})();
+const DistrictSelect = document.getElementById("Status");
+
+const District = ['Approved','Pending'];
+
+(function populateDistrict (){
+    for(let i=0; i<District.length; i++){
+        const option = document.createElement('option');
+        option.textContent = District[i];
+        DistrictSelect.appendChild(option);
+    }
+    DistrictSelect.value = 'Select the status';
 })();
 
 //  const modal = document.querySelector(".popupview1");
@@ -51,11 +79,42 @@ function setEventListner(){
       e.preventDefault();
       console.log('click');
       showModal('update-maintenance');
-      const taskID = btn.parentElement.parentElement.parentElement.querySelector('#task_ID');
-      console.log(taskID);
-      xhr = new XMLHttpRequest;
-      xhr.open('GET', "ROOT/Moderator/Maintenance/editMaintenanceTask")
+      var row = btn.closest('tr');
 
+      // Get the row ID
+      var rowId = row.id;
+
+      // Get the values from the row
+      var taskID = row.getElementsByTagName("td")[1].innerHTML;
+      console.log(taskID);
+      // ... repeat for other cells in the row
+
+      // Set the values in the popup form
+      document.getElementById("rowid-input").value = taskID;
+      console.log(taskID);
+      xhr = new XMLHttpRequest();
+      xhr.open('GET', "" + ROOT + "/Moderator/Maintenance/editMaintenanceTask/"+ taskID);
+      console.log(xhr);
+      xhr.onload = function () {
+        if (xhr.status == 200) {
+            const res = xhr.responseText;
+            // console.log(res);
+            const json = JSON.parse(res);
+
+            for (var i = 0; i < json.length; i++) {
+                console.log(json.length);
+
+                form2.querySelector("#Sub_component").value = json[0].sub_component;
+                form2.querySelector("#Status").value = json[0].status;
+                form2.querySelector("#Years").value=json[0].years;
+                form2.querySelector("#Months").value=json[0].months;
+                form2.querySelector("#Description").value = json[0].description;
+                form2.querySelector("#Weeks").value = json[0].weeks;
+            }
+        }
+    }
+
+    xhr.send();
     })
   });
 }
@@ -86,25 +145,25 @@ const closeModal = function (id) {
 // btnCloseModal.addEventListener("click", closeModal);
 // overlay.addEventListener("click", closeModal);
 
-btnShowRows.forEach(function(button) {
-  button.addEventListener('click', function() {
+// btnShowRows.forEach(function(button) {
+//   button.addEventListener('click', function() {
  
-    var row = button.closest('tr');
+//     var row = button.closest('tr');
 
-    // Get the row ID
-    var rowId = row.task_ID;
+//     // Get the row ID
+//     var rowId = row.task_ID;
 
-    // Get the values from the row
-    var cell1 = row.getElementsByTagName("td")[1].innerHTML;
-    console.log(cell1);
-    // ... repeat for other cells in the row
+//     // Get the values from the row
+//     var cell1 = row.getElementsByTagName("td")[1].innerHTML;
+//     console.log(cell1);
+//     // ... repeat for other cells in the row
 
-    // Set the values in the popup form
-    document.getElementById("rowid_input1").value = cell1;
-    // Set the values in the popup form
+//     // Set the values in the popup form
+//     document.getElementById("rowid_input1").value = cell1;
+//     // Set the values in the popup form
     
-  });
-});
+//   });
+// });
 
 
 
@@ -117,8 +176,9 @@ btnShowRows.forEach(function(button) {
 overlay.addEventListener("click", closeModal);
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-  // });
+document.addEventListener("DOMContentLoaded", function () {
+       ajax_getItems();
+  });
   
   function ajax_getItems() {
     const xhr = new XMLHttpRequest();
@@ -227,5 +287,139 @@ overlay.addEventListener("click", closeModal);
     }
 }
 
+// validation 
+
+function setSmallNull() {
+  var smallTags = document.querySelectorAll('small');
+  for (var i = 0; i < smallTags.length; i++) {
+      smallTags[i].innerHTML = null;
+  }
+}
+function showError(input, message) {
+  errocheckflag++;
+  input.classList.add("erroInput");
+  const formControl = input.parentElement;
+  const small = formControl.querySelector('small');
+  small.innerText = message;
+
+}
+
+function showSuccess(input) {
+  input.classList.remove("erroInput");
+}
+
+
+function checkRequired(inputArr) {
+  inputArr.forEach(function (input) {
+      if (input.value.trim() === '') {
+         
+          showError(input, `${getFieldName(input)} is required`);
+      }
+      // else if (!/^[a-zA-Z\s]+$/.test(input1.value) ) {
+      //     showError(input1, `only letters and spaces`);
+      // }
+      else {
+          showSuccess(input);
+      }
+  });
+}
+function checkRange(input, min, max) {
+  if (parseFloat(input.value) < min) {
+    showError(input, `${getFieldName(input)} must be at least ${min}`);
+  } else if (parseFloat(input.value) > max) {
+    showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+  } else {
+    showSuccess(input);
+  }
+}
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+const url = window.location.href;
+const taskId = url.substring(url.lastIndexOf("/") + 1);
+console.log(taskId);
+//new itemtemplate form submission
+document.getElementById("addMaintenancebtn").addEventListener('click', ajax_addMaintenanceTask);
+function ajax_addMaintenanceTask(e) {
+  errocheckflag = 0;
+  e.preventDefault();
+  setSmallNull();
+  const formItemDetails = document.getElementById("popup-form1");
+
+  // checkRequired([input1, description1, statu1]);
+  checkRange(year1, 1, 10);
+  checkRange(month1, 1, 11);
+  checkRange(week1, 1, 3);
+
+  if (errocheckflag == 0) {
+      const form = new FormData(formItemDetails);
+      form.append("action", "addMaintenanceTask");
+      form.append("item_template_id",taskId);
+
+      // form.delete('alter_type');
+      // const urlparams = new URLSearchParams(form);
+
+      console.log(form);
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("POST", "" + ROOT + "/Moderator/Maintenance/");
+      // xhr.setRequestHeader("Content-Type","application/json");             
+      // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+      xhr.onload = function () {
+          if (xhr.status == 200) {
+              const res = xhr.responseText;
+               console.log(res);
+          }
+      }
+
+      xhr.send(form);
+      closeModal("add-maintenance");
+  }
+
+}
+
+//update maintenance task
+
+//new itemtemplate form submission
+document.getElementById("updateMaintenancebtn").addEventListener('click', ajax_updateMaintenanceTask);
+function ajax_updateMaintenanceTask(e) {
+  errocheckflag = 0;
+  e.preventDefault();
+  setSmallNull();
+  const formItemDetailss = document.getElementById("popup-form2");
+
+  checkRequired([input2, description2, statu2]);
+  checkRange(year2, 1, 10);
+  checkRange(month2, 1, 11);
+  checkRange(week2, 1, 3);
+
+  if (errocheckflag == 0) {
+      const form = new FormData(formItemDetailss);
+      form.append("action", "updateMaintenanceTask");
+      form.append("item_template_id",taskId);
+// console.log(taskId);
+      // form.delete('alter_type');
+      // const urlparams = new URLSearchParams(form);
+
+      console.log(form);
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("POST", "" + ROOT + "/Moderator/Maintenance/");
+      // xhr.setRequestHeader("Content-Type","application/json");             
+      // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+      xhr.onload = function () {
+          if (xhr.status == 200) {
+              const res = xhr.responseText;
+              console.log(res);
+          }
+      }
+
+      xhr.send(form);
+      closeModal("update-maintenance");
+  }
+
+}
 
 

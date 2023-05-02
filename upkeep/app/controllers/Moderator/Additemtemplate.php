@@ -28,32 +28,12 @@ class Additemtemplate
                     $errors[] = "Description is required";
                 }
                 if (empty($errors)) {
-                    if ($_POST['category_id'] == "Electronics") {
-                        $category_id = 1;
-                    } elseif ($_POST['category_id'] == "Appliances") {
-                        $category_id = 2;
-                    } elseif ($_POST['category_id'] == "Tools and equipment") {
-                        $category_id = 3;
-                    } elseif ($_POST['category_id'] == "Vehicles") {
-                        $category_id = 5;
-                    } elseif ($_POST['category_id'] == "Furniture") {
-                        $category_id = 5;
-                    } elseif ($_POST['category_id'] == "Home and garden") {
-                        $category_id = 6;
-                    } else {
-                        $category_id = 7;
-                    }
-                    $data = array(
-                        'itemtemplate_name' => $_POST['itemtemplate_name'],
-                        'status' => $_POST['status'],
-                        'category_id' => $category_id,
-                        'description' => $_POST['description'],
-                        'image' => $_POST['image']
-
-                    );
-
+                    $childitem = new Categories;
+                    $result = json_encode($childitem->getCategoryId($_POST['category_id']));
+                    $id = json_decode($result);
+                    $_POST['category_id'] = $id[0]->category_id;
                     $itemtemplate = new Itemtemplates;
-                    $itemtemplate->insertItemtemplate($data);
+                    $itemtemplate->insertItemtemplate($_POST);
                     redirect("Moderator/addDisposal_places");
                 } else {
                     foreach ($errors as $error) {
