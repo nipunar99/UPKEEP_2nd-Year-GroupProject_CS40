@@ -63,4 +63,18 @@ public function getAllItem(){
     echo($json);
 }
 
+public function getCategoryDetails(){
+    $cat = new Categories;
+    $result = $cat->findAll();
+    // show($result);
+    $json = json_encode($result);
+    echo($json);
+}
+public function getItemTemplatesDetails(){
+    $templates = new IO_ItemTemplate;
+    $result = $templates->where($_POST);
+    $json = json_encode($result);
+    echo($json);
+}
+
 }

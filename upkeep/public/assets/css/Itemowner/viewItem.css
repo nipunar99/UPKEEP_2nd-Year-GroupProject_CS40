@@ -542,7 +542,7 @@ main .recent-orders a{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    height: 60vh;
+    min-height: 60vh;
 }
 
 .deleteMsg{

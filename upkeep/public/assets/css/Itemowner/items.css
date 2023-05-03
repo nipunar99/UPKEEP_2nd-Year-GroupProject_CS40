@@ -595,7 +595,7 @@ main .mainHeader h1{
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     gap: 1.5rem;
 }
 .content2{
@@ -710,14 +710,22 @@ form .itemDetails .input-box{
 }
 
 form .itemDetails >.input-box:first-child {
-    width: 46rem;
+    width: 63rem;
 }
 form .itemDetails >.input-box:nth-child(2) {
     width: 18rem;
 }
 form .itemDetails .middleInput{
     display: grid;
-    grid-template-columns:repeat(2,1fr)
+    grid-template-columns:repeat(2,1fr);
+}
+form .itemDetails .middleInput .input-box {
+    width: 26rem;
+}
+
+form .itemDetails .threeinputs{
+    display: grid;
+    grid-template-columns:repeat(3,1fr)!important;
 }
 
 .itemDetails .input-box .details{
@@ -748,7 +756,7 @@ form .itemDetails .middleInput{
 
 .content form .button{
     position: relative;
-    left: 45rem;
+    left: 57rem;
     height: 45px;
     width: 8rem;
 }

@@ -1,3 +1,4 @@
+const input = document.getElementById('altertypeinput');
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,14 +138,27 @@
                             <small></small>
                         </div>
                         
-                        <div class="middleInput"> 
+                        <div class="threeinputs"> 
                             <div class="input-box">
-                                <span class="details">Item type</span>
+                                <span class="details">Categary</span>
+                                <!-- check names -->
+                                <select name="categary" id="categary" ></select>
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Items</span>
                                 <select name="item_type" id="itemtype" ></select>
+                                <small></small>
+                                <input  type="text" name="id" id="id" >
+                            </div>
+                            <div class="input-box hidden" id="subIteminput">
+                                <span class="details">SubItems</span>
+                                <select name="Subitem_type" id="subitemtype" ></select>
+                                <input  type="text" name="sub_id" id="sub_id" >
                                 <small></small>
                             </div>
                             <div class="input-box hidden" id="altertypeinput">
-                                <span class="details">Enter type</span>
+                                <span class="details">Enter Item type</span>
                                 <input type="text" name="alter_type" id="alter_type" required placeholder="Enter Type">
                                 <small></small>
                             </div>

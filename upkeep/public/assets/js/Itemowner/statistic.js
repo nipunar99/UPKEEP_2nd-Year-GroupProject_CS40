@@ -1,6 +1,6 @@
 
 /////////////////////// Add maintenance form constraints...............
-
+// var monthCost=null;
 document.addEventListener("DOMContentLoaded",function(){
   display1details();
   display3details();
@@ -40,7 +40,7 @@ function display3details(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          console.log(json[0].dispose_count);
+          // console.log(json[0].dispose_count);
           var html = "";
           html += "<span >"+json[0].dispose_count+"</span>";
           document.querySelector(".dispose_itemCount").innerHTML = html;
@@ -69,7 +69,8 @@ function display4details(){
 }
 
 //////////////////////////////////////////////
-const cost = new Array(12).fill(0);
+var cst = Array(12).fill(0);
+var i=0;
 function barchartDetails(){
 
   const xhr = new XMLHttpRequest();
@@ -80,23 +81,65 @@ function barchartDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          console.log(json);
-
-          json.forEach(function(costMonth) {
-            cost[costMonth.month]=parseInt(costMonth.total_cost);
-          });
+          setMonthCost(json);
       }
 
   }
   xhr.send();
 }
 
+var m1 =0,m2 =0,m3 =0,m4 =0,m5 =0,m6 =0,m7 =0,m8 =0,m9 =0,m10 =0,m11 =0,m12 =0;
+function setMonthCost(monthCost) {
+  monthCost.forEach(function(costMonth) {
+    // cst[costMonth.month-1]=parseInt(costMonth.total_cost);
+      switch (costMonth.month-1) {
+        case 0:
+          m1 = parseInt(costMonth.total_cost);
+          break;
+        case 1:
+          m2 = parseInt(costMonth.total_cost);
+          break;
+        case 2:
+          m3 = parseInt(costMonth.total_cost);
+          break;
+        case 3:
+          m4 = parseInt(costMonth.total_cost);
+          break;
+        case 4:
+          m5 = parseInt(costMonth.total_cost);
+          break;
+        case 5:
+          m6 = parseInt(costMonth.total_cost);
+          break;
+        case 6:
+          m7 = parseInt(costMonth.total_cost);
+          break;
+        case 7:
+          m8 = parseInt(costMonth.total_cost);
+          break;
+        case 8:
+          m9 = parseInt(costMonth.total_cost);
+          break;
+        case 9:
+          m10 = parseInt(costMonth.total_cost);
+          break;
+        case 10:
+          m11 = parseInt(costMonth.total_cost);
+          break;
+        case 11:
+          m12 = parseInt(costMonth.total_cost);
+          break;
+      }
+    
+  });
+  var dt =[m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12];
+  generateBarchart(dt);
 
-// Bar chart
-var k =10;
-var dt =[4,6,2];
-console.log(dt);
-const ctx1 = document.getElementById('barChat');
+}
+
+function generateBarchart(dt){
+  console.log(dt);
+  const ctx1 = document.getElementById('barChat');
   new Chart(ctx1, {
     type: 'bar',
     data: {
@@ -142,6 +185,8 @@ const ctx1 = document.getElementById('barChat');
       }
     }
   });
+}
+
 
 //..............................................................................................
 
@@ -157,7 +202,9 @@ function piechartDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          // console.log(json.complete);  
+          console.log(json);  
+          var dt =[json.complete,json.incomplete,json.overdue];
+          generatePiechart(dt);
       }
 
   }
@@ -165,30 +212,31 @@ function piechartDetails(){
 }
 
 //   pie chart
-
-const ctx2 = document.getElementById('pieChart');
-const data2 = {
-    labels: [
-      'Completed ',
-      'Incomplete',
-      'Overdue  '
-    ],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [300,200,400],
-      backgroundColor: [
-        'rgba(0,149,217,0.7)',
-        'rgba(0,190,228,0.5)',
-        'rgb(128,128,128,0.5)'
+function generatePiechart(dt){
+  const ctx2 = document.getElementById('pieChart');
+  const data2 = {
+      labels: [
+        'Completed ',
+        'Incomplete',
+        'Overdue  '
       ],
-      hoverOffset: 4
-    }]
-};
+      datasets: [{
+        label: 'My First Dataset',
+        data:dt,
+        backgroundColor: [
+          'rgba(0,149,217,0.7)',
+          'rgba(0,190,228,0.5)',
+          'rgb(128,128,128,0.5)'
+        ],
+        hoverOffset: 4
+      }]
+  };
 
-new Chart(ctx2, {
-    type: 'polarArea',
-    data: data2,
-});
+  new Chart(ctx2, {
+      type: 'polarArea',
+      data: data2,
+  });
+}
 
 
 //..............................................................................................
@@ -241,7 +289,7 @@ function maintenanceHistoryDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          console.log(json);
+          // console.log(json);
 
           var html = "";
           
@@ -272,7 +320,7 @@ function DisposeItemsDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          console.log(json);
+          // console.log(json);
 
           var html = "";
           
