@@ -230,11 +230,19 @@ class ViewItem {
 
     }
     public function updateReminder(){
-        // $maintenanceTask = new IO_Maintenancetask;
-        // $id=$_POST['task_id'];
-        // unset($_POST['task_id']);
+        $maintenanceTask = new IO_MaintenanceReminder;
+        $maintenanceTask->updateReminder($_POST);
+    }
+
+    public function updateItem(){
         show($_POST);
-        // $maintenanceTask->delete($id,"task_id");
+        if(isset($_POST['action']) && $_POST['action']=="updateItem"){
+            
+            $item_id=$_POST["item_id"];
+            unset($_POST["item_id"]);unset($_POST['action']);
+            $item = new IO_Owneritem;
+            $item->update($item_id,$_POST,"item_id");
+        }
 
     }
 }

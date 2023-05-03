@@ -567,44 +567,53 @@
             <div class="insight1">
                 
                 <div class="item">
-
-                    <div class="itemImg">
-                        <img src="<?= ROOT ?>/assets/images/upload/GEO-266.png" alt="">
-                        <h2>
-                        GEO Inverter Refrigerator
-                        </h2>
-                        <h3>Singer</h3>
-                    </div>
-
-                    <div class="itemDetails">
-                        <div class="details">
-                            <div class="subDetails">
+                <?php 
+                if(!empty($result)){
+                foreach ($result as $row)
+                    // show($row);
+                        echo "
+                        <div class='itemImg'>
+                            <img src='".ROOT."/assets/images/uploads/".$row->image."' alt=''>
+                            <h2>$row->item_name</h2>
+                        </div>"
+                        ; }
+                ?>
+                    <?php 
+                if(!empty($result)){
+                foreach ($result as $row)
+                    // show($row);
+                        echo "
+                    <div class='itemDetails'>
+                        <div class='details'>
+                            <div class='subDetails'>
                                 <h3>Item Name</h3>
-                                <h4>Samsung WindFree AirConditioner</h4>
+                                <h4>$row->item_name</h4>
                             </div>
-                            <div class="subDetails">
+                            <div class='subDetails'>
                                 <h3>Item Type</h3>
-                                <h4>Air Conditioner</h4>
+                                <h4>$row->item_type</h4>
                             </div>
-                            <div class="subDetails">
+                            <div class='subDetails'>
                                 <h3>Brand</h3>
-                                <h4>Samsung</h4>
+                                <h4>$row->brand</h4>
                             </div>
-                            <div class="subDetails">
+                            <div class='subDetails'>
                                 <h3>Model</h3>
-                                <h4>M-3511</h4>
+                                <h4>$row->model</h4>
                             </div>
-                            <div class="subDetails">
+                            <div class='subDetails'>
                                 <h3>Purches Price</h3>
-                                <h4>Rs.100000</h4>
+                                <h4>Rs.$row->purchase_price</h4>
                             </div>
-                            <div class="subDetails">
+                            <div class='subDetails'>
                                 <h3>Warranty Date</h3>
-                                <h4>01/03/2024</h4>
+                                <h4>$row->warrenty_date</h4>
                             </div>
-                        </div>
+                        </div>"
+                            ; }
+                        ?>
                         <div class="btnDetails">
-                            <button class="addItem editItem" onclick="updateItem()">Edit Item Details</button>
+                            <button class="addItem editItem" >Edit Item Details</button>
                         </div>
                     </div>
                     
@@ -621,6 +630,7 @@
                     <div class="description">
                     </div>
                 </div>
+                
 
                 <div class="popupview editItemform hidden">
                     <button class="closeupdatebtn closebtn">&times;</button>
@@ -630,56 +640,69 @@
                         <form method="post" enctype="multipart/form-data" id="form_itemDetails">
                         <h2>Item Details</h2>
                             <div class="itemDetails">
-                                <div class="input-box">
-                                    <span class="details">Item Name</span>
-                                    <input type="text" name="item_name" id="item_name" required placeholder="Enter Item Name">
-                                    <small></small>
-                                </div>
+                                <?php 
+                                if(!empty($result)){
+                                foreach ($result as $row)
+                                    // show($row);
+                                    echo "
+                                    <div class='input-box'>
+                                        <span class='details'>Item Name</span>
+                                        <input type='text' name='item_name' id='item_name' value='$row->item_name' required placeholder='Enter Item Name'>
+                                        <small></small>
+                                    </div>
 
-                                <div class="input-box">
-                                        <span class="details">Image</span>
-                                        <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
-                                </div>
-                                
-                                <div class="middleInput">
-                                    <div class="input-box">
-                                        <span class="details">Brand</span>
-                                        <input type="text" name="brand" id="brand" required placeholder="Enter Brand">
-                                        <small></small>
+                                    <div class='input-box'>
+                                            <span class='details'>Image</span>
+                                            <input type='file' class = 'imgInput' name='image' id='upfile'  placeholder='Enter Brand'>
+                                            <small></small>
                                     </div>
-                    
-                                    <div class="input-box">
-                                        <span class="details">Model</span>
-                                        <input type="text" name="model" id=""  placeholder="Enter Model">
-                                        <small></small>
-
-                                    </div>
-                    
-                                    <div class="input-box">
-                                        <span class="details">Purchase Price(Rs.)</span>
-                                        <input type="number" name="purchase_price" id="purchase_price"  placeholder="Purchase Price">
-                                        <small></small>
-                                    </div>
+                                        <div class='input-box hidden'>
+                                            <input type='text' name='item_id' id='item_id' value='$row->item_id' required placeholder='Enter Brand'>
+                                            <small></small>
+                                        </div>
                                     
-                                    <div class="input-box">
-                                        <span class="details">Description</span>
-                                        <input type="text" name="description" id=""  placeholder="Enter Description about item">
+                                    <div class='middleInput'>
+                                        <div class='input-box'>
+                                            <span class='details'>Brand</span>
+                                            <input type='text' name='brand' id='brand' value='$row->brand' required placeholder='Enter Brand'>
+                                            <small></small>
+                                        </div>
+                        
+                                        <div class='input-box'>
+                                            <span class='details'>Model</span>
+                                            <input type='text' name='model' id='' value='$row->model' placeholder='Enter Model'>
+                                            <small></small>
 
-                                    </div>
+                                        </div>
+                        
+                                        <div class='input-box'>
+                                            <span class='detail'>Purchase Price(Rs.)</span>
+                                            <input type='number' name='purchase_price' id='purchase_price' value='$row->purchase_price' placeholder='Purchase Price'>
+                                            <small></small>
+                                        </div>
+                                        
+                                        <div class='input-box'>
+                                            <span class='details'>Description</span>
+                                            <input type='text' name='description' id='' value='$row->description' placeholder='Enter Description about item'>
 
-                                    <div class="input-box">
-                                        <span class="details">Purchase Date</span>
-                                        <input type="date" name="purchase_date" id="purchase_date"  placeholder="Enter Purchase Date">
-                                        <small></small>
-                                    </div>
+                                        </div>
 
-                                    <div class="input-box">
-                                        <span class="details">Warrenty Date</span>
-                                        <input type="date" name="warrenty_date" id="warrenty_date"  placeholder="Enter Warrenty Date">
-                                        <small></small>
-                                    </div>
+                                        <div class='input-box'>
+                                            <span class='details'>Purchase Date</span>
+                                            <input type='date' name='purchase_date' id='purchase_date' value='$row->purchase_date'  placeholder='Enter Purchase Date'>
+                                            <small></small>
+                                        </div>
+
+                                        <div class='input-box'>
+                                            <span class='details'>Warrenty Date</span>
+                                            <input type='date' name='warrenty_date' id='warrenty_date' value='$row->warrenty_date' placeholder='Enter Warrenty Date'>
+                                            <small></small>
+                                        </div>"
+
+                                    ; }
+                                ?>
                                 </div>
-                                <div class="button" onclick="updateItem()">
+                                <div class="button">
                                     <input type="submit" value="Update Details" id="UpdateDetails"> 
                                 </div>
                             </div>

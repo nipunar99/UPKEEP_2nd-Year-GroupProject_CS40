@@ -82,7 +82,7 @@ function showSuccess(input) {
 
 function checkRequired(inputArr) {
     inputArr.forEach(function (input) {
-      if (input.value === '') {
+      if (input.value.trim() === '') {
         showError(input, `${getFieldName(input)} is required`);
       }else{
         showSuccess(input);
@@ -146,8 +146,17 @@ function checkImageType(file){
         showSuccess(file);
         }
     }else {
-        console.log('Checking image type');
         showError(file, 'File type not supported.');
+    }
+}
+function checkPurchaseDate(input) {
+    var inputDate = new Date(input.value);
+    var currentDate = new Date();
+
+    if (inputDate > currentDate) {
+        showError(input, `${getFieldName(input)} is invalid Purchase Date`);
+    } else {
+        showSuccess(input);
     }
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -557,6 +566,7 @@ function ajax_getAllOverdueReminders() {
 
     }
     xhr.send();
+    loadOverdueReminderList();
 }
 
 const sub_component = document.getElementById("sub_component");
@@ -880,8 +890,9 @@ function loadupcomeview(popup){
 
 function unloadupcomeview(popup){
     element = ".upcomepopupview"+popup+"";
+    element = ".upcomepopupview"+popup+"";
     
-    document.querySelector(element).classList.add("hidden");;
+    document.querySelector(element).classList.add("hidden");
     overlay.classList.add("hidden");
 }
 function completeTask(window){
@@ -928,6 +939,8 @@ function ajax_completeTask() {
     xhr.send(form);
     cancelcompleteTask(submintFormNum);
     unloadupcomeview(submintFormNum);
+    ajax_getAllReminders();
+    ajax_getAllOverdueReminders();
 }
 
 function ajax_generateReminder(){
@@ -1130,11 +1143,47 @@ document.querySelector(".editItem").addEventListener("click",()=>{
     editItemform.classList.remove("hidden");
 
 });
+const item_name = document.getElementById("item_name");
+const alter_type = document.getElementById("alter_type");
+const brand = document.getElementById("brand");
+const purchase_price = document.getElementById("purchase_price");
+const purchase_date = document.getElementById("purchase_date");
 
+document.getElementById("UpdateDetails").addEventListener("click",updateItem);
 
-function updateItem(){
+function updateItem(e){
+    errocheckflag = 0;
+    e.preventDefault();
+    setSmallNull();
+    const formItemDetails = document.getElementById("form_itemDetails");
 
+    checkRequired([item_name, brand]);
+    checkRange(purchase_price, 0, 10000000);
+    checkPurchaseDate(purchase_date);
+    
+
+    if(errocheckflag == 0){
+        const form = new FormData(formItemDetails);
+        form.append("action","updateItem");
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("POST",""+ROOT+"/Itemowner/ViewItem/updateItem");
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                const res = xhr.responseText;
+                console.log(res);
+            }
+        }
+
+        xhr.send(form);
+        
+        closeModal();
+        formItemDetails.reset();
+    }
 }
+
 function ajax_addDocumentation(e){
     errocheckflag = 0;
     // e.preventDefault();

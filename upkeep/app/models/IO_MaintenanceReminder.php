@@ -85,4 +85,30 @@ class IO_MaintenanceReminder {
         return $this->query($query);
     }
 
+    public function updateReminder($data){
+        $file_name = $_FILES['image']["name"];
+        $file_temp = $_FILES['image']['tmp_name'];
+        $file_size = $_FILES['image']['size'];
+        $file_type = $_FILES['image']['type'];
+
+        $location = "../public/assets/images/uploads/".$file_name;
+
+        if($file_size < 524000){
+            if(move_uploaded_file($file_temp,$location)){
+                try{
+                    
+                    $data["image"] = $file_name;
+                    // show($data);
+                }
+                catch(PDOException $e){
+                    echo $e->getMessage();
+                }
+            }
+        }
+        
+        $reminder_id = $data["reminder_id"];
+        unset($data["reminder_id"]);
+        $this->update($reminder_id,$data,"reminder_id");
+
+    }
 }

@@ -1,32 +1,172 @@
-// Dropdown functionalities
+document.addEventListener("DOMContentLoaded",function(){
+  getCategory();
+});
 
-//validataion checking flag
-var errocheckflag = 0;
-//////////////////////////
-const districtSelect = document.getElementById("itemtype");
+////////////////////////// SET CATEGORY SELECTOR //////////////////////////
+const catDetails = null;
+function getCategory(){
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET",""+ROOT+"/Itemowner/Item/getCategoryDetails");
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          setToCategarySelector(json);
+      }
+  }
+  xhr.send();
+}
 
-const district = ['Refrigerator','Air Conditioner','Washer','TV','Solor Panel',
-'Projector','Camera','PC','Laptop','Vehicle','Other'];
+const categary = document.getElementById("categary");// categary selector
+function setToCategarySelector(json){
+  var categaryTypes = [];
+  for (var i = 0; i < json.length; i++) {
+    categaryTypes.push(json[i].category_name);
+  }
+  (function loadCategaries (){
+      for(let i=0; i<categaryTypes.length; i++){
+          const option = document.createElement('option');
+          option.textContent = categaryTypes[i];
+          categary.appendChild(option);
+      }
+      categary.value = 'Ampara';
+  })();
 
-(function populateDistrict (){
-    for(let i=0; i<district.length; i++){
-        const option = document.createElement('option');
-        option.textContent = district[i];
-        districtSelect.appendChild(option);
-    }
-    districtSelect.value = 'Ampara';
-})();
+  const categary_id = document.getElementById('categary_id');
+  categary.addEventListener('change', function() {
+      for (var a = 0; a < json.length; a++) {
+          if (categary.value === json[a].category_name) {
+            // categary_id.value = json[a].category_id;
+            getItemsTemplates(json[a].category_id);
+          }
+      }
+  });
 
-// Add form elements......................................................................
+}
+////////////////////////////////////////////////////////////////////////////
 
-const select = document.getElementById('itemtype');
+////////////////////////// SET Items SELECTOR //////////////////////////
+
+
+function getItemsTemplates(catValue){
+  const form = new FormData();
+  form.append("category_id",catValue);
+  form.append("parent_id",0);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST",""+ROOT+"/Itemowner/Item/getItemTemplatesDetails");
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          setToItemSelector(json);
+      }
+  }
+
+  xhr.send(form);
+}
+
+const itemtemplates = document.getElementById("itemtype");// Item selector
+itemtemplates.innerHTML = ""; 
+
+function setToItemSelector(json){
+  var itemtemplatesArr = [];
+  itemtemplates.innerHTML = ""; 
+  for (var i = 0; i < json.length; i++) {
+    itemtemplatesArr.push(json[i].itemtemplate_name);
+  }
+  itemtemplatesArr.push("Other");
+
+  (function loadTemplates(){
+      for(let i=0; i<itemtemplatesArr.length; i++){
+          const option = document.createElement('option');
+          option.textContent = itemtemplatesArr[i];
+          itemtemplates.appendChild(option);
+      }
+      itemtemplates.value = '';
+  })();
+
+  const Item_id = document.getElementById('id');
+  itemtemplates.addEventListener('change', function() {
+      for (var a = 0; a < json.length; a++) {
+          if (itemtemplates.value === json[a].itemtemplate_name) {
+            Item_id.value = json[a].id;
+            getSubItemsTemplates(json[a].id);
+          }
+      }
+  });
+
+}
+////////////////////////////////////////////////////////////////////////////
+
+////////////////////////// SET Items SELECTOR //////////////////////////
+
+
+function getSubItemsTemplates(parent_id){
+  const form = new FormData();
+  form.append("parent_id",parent_id);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST",""+ROOT+"/Itemowner/Item/getItemTemplatesDetails");
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          console.log(json);
+          if (json.length > 0){
+            setToSubItemSelector(json);
+            subIteminput.classList.remove("hidden");
+          }else{
+            subIteminput.classList.add("hidden");
+          }
+      }
+  }
+
+  xhr.send(form);
+}
+
+const subitemtemplates = document.getElementById("subitemtype");// Sub Item selector
+function setToSubItemSelector(json){
+  var itemtemplatesArr = [];
+  subitemtemplates.innerHTML = ""; 
+  for (var i = 0; i < json.length; i++) {
+    itemtemplatesArr.push(json[i].itemtemplate_name);
+  }
+  itemtemplatesArr.push("Other");
+
+  (function loadTemplates(){
+      for(let i=0; i<itemtemplatesArr.length; i++){
+          const option = document.createElement('option');
+          option.textContent = itemtemplatesArr[i];
+          subitemtemplates.appendChild(option);
+      }
+      subitemtemplates.value = '';
+  })();
+
+  const Item_id = document.getElementById('sub_id');
+  subitemtemplates.addEventListener('change', function() {
+      for (var a = 0; a < json.length; a++) {
+          if (subitemtemplates.value === json[a].itemtemplate_name) {
+            Item_id.value = json[a].id;
+          }
+      }
+  });
+
+}
+////////////////////////////////////////////////////////////////////////////
+
+const itemtypeselect = document.getElementById('itemtype');
+const altertypeinput = document.getElementById('altertypeinput');
+const subIteminput = document.getElementById('subIteminput');
+
 const input = document.getElementById('altertypeinput');
 
-select.addEventListener('change', function() {
-  if (select.value === 'Other') {
-    input.classList.remove("hidden");
+itemtypeselect.addEventListener('change', function() {
+  if (itemtypeselect.value === 'Other') {
+    altertypeinput.classList.remove("hidden");
+    subIteminput.classList.add("hidden");
   } else {
-    input.classList.add("hidden");
+    altertypeinput.classList.add("hidden");
   }
 });
 
@@ -91,6 +231,9 @@ overlay.addEventListener("click", closeModal);
 
 
 /////////////////////////////////Valideation check functions //////////////////////////////////////////////
+
+//validataion checking flag
+var errocheckflag = 0;
 
 function showError(input, message) {
     errocheckflag++;

@@ -4,7 +4,6 @@ const editReminderForm = document.querySelector(".editReminderForm");
 
 function loadOngoingReminderList(){
     var html = "";
-    var status = "ongoing";
     if(ongoingReminders!=null){ 
         for (var a = 0; a < ongoingReminders.length; a++) {
     
@@ -25,7 +24,6 @@ function loadOngoingReminderList(){
 ///////////load Ongoing Maintenance/////////////////////////
 
 function loadOverdueReminderList(){
-    var status = "overdue";
     var html = "";
     if(overdueReminders!=null){ 
         for (var a = 0; a < overdueReminders.length; a++) {
@@ -65,7 +63,7 @@ function reminderTableRowView(num,status){
     html+= "<h2 id='itemid'style='display: none;'>"+json[num].item_id+"</h2></div>";
     html+= "<div><span class='material-icons-sharp'>construction</span><h3> Sub Component Image</h3><img src='"+ROOT+"/assets/images/uploads/"+json[num].image+"'></div>";
     html+= "<div class='maintenanceStatus success'><span class='material-icons-sharp'>error_outline</span><h3> Reminder Status</h3><h2 class='success'>"+json[num].reminder_status+"</h2></div></div>";
-    html+= "<div class='action_btn'><button class='edit' onclick='editReminder"+argEdit+"'>Edit</button>  <button class='cancel' onclick='deleteMainTask("+json[num].task_ID+")'>Delete</button> </div> </div>";
+    html+= "<div class='action_btn'><button class='edit' onclick='editReminder"+argEdit+"'>Edit</button>  <button class='cancel' onclick='ajax_deleteReminder("+json[num].reminder_id+","+(num+1)+")'>Delete</button> </div> </div>";
 
     document.querySelector('.loadDivViews').innerHTML=html;
 }
@@ -102,7 +100,9 @@ function ajax_editReminder(e){
     errocheckflag = 0;
     e.preventDefault();
     setSmallNull();
-    checkImageType(reminder_upfile);
+    if(reminder_upfile.value!=""){
+        checkImageType(reminder_upfile);
+    }
     checkStartDate(reminder_startDate);
 
     if(errocheckflag == 0){
@@ -122,5 +122,29 @@ function ajax_editReminder(e){
         xhr.send(form);
         closeModal();
         form_editReminder.reset();
+
     }
+}
+
+// Delete reminders
+
+function ajax_deleteReminder(id,formNum) {
+    const form = new FormData();
+    form.append("action","deleteTask");
+    form.append("reminder_id",id);
+    const urlparams = new URLSearchParams(form);
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST",""+ROOT+"/Itemowner/Userdashboard/deleteTask");
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            console.log(res);
+        }
+    }
+    xhr.send(urlparams);
+    unloadMaintask(formNum);
+    
 }
