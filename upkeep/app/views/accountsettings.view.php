@@ -107,62 +107,104 @@
                 </div>
             </div>
 
-            <div class="tabs">
-                <div class="tab-link-container">
-                    <a href="#" class="tab-link current" data-tab="profile-settings">Profile Settings</a>
-                    <a href="#" class="tab-link" data-tab="account-settings">Account Settings</a>
+            <div>
+                <div class="tabs">
+                    <div class="tab-item active">
+                        <i class="tab-icon fas fa-briefcase"></i>
+                        Profile Settings
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-clock"></i>
+                        Account Settings
+                    </div>
+
+                    <div class="line"></div>
                 </div>
-                <div id="profile-settings" class="tab-content current">
-                    <div class="form-group">
-                        <label for="profile-picture">Profile Picture</label>
-                        <div class="current-picture">
-                            <img src="https://via.placeholder.com/150" alt="Current Profile Picture">
-                        </div>
-                        <input type="file" id="profile-picture">
+
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <form>
+                            <div class="input-field">
+                                <label for="profile-picture">Profile Picture</label>
+                                <div class="input-group">
+                                    <div class="current-picture">
+                                        <img src="https://via.placeholder.com/150" alt="Current Profile Picture">
+                                    </div>
+                                    <input type="file" id="profile-picture">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                            <div class="input-field">
+                                <label for="first-name">First Name</label>
+                                <div class="input-group">
+                                    <input type="text" id="first-name" value="John" readonly>
+                                    <button class="edit-btn" data-input="first-name"><i class="material-icons-sharp">edit</i></button>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <label for="last-name">Last Name</label>
+                                <div class="input-group">
+                                    <input type="text" id="last-name" value="Doe" readonly>
+                                    <button class="edit-btn" data-input="last-name"><i class="material-icons-sharp">edit</i></button>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="input-field">
+                                <label for="username">Username</label>
+                                <div class="input-group">
+                                    <input type="text" id="username" value="johndoe123" readonly>
+                                    <button class="edit-btn" data-input="username"><i class="material-icons-sharp">edit</i></button>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <label for="username">Email</label>
+                                <div class="input-group">
+                                    <input type="text" id="email" value="" readonly>
+                                    <button class="edit-btn" data-input="email"><i class="material-icons-sharp">edit</i></button>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <label for="username">Mobile Number</label>
+                                <div class="input-group">
+                                    <input type="number" id="mobile_no" value="" readonly>
+                                    <button class="edit-btn" data-input="email"><i class="material-icons-sharp">edit</i></button>
+                                </div>
+                            </div>
+<!--                            <div class="form-group">-->
+<!--                                <label for="bio">Bio</label>-->
+<!--                                <div class="input-group">-->
+<!--                                    <textarea id="bio" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>-->
+<!--                                    <button class="edit-btn" data-input="bio"><i class="material-icons-sharp">edit</i></button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="first-name">First Name</label>
-                        <div class="input-group">
-                            <input type="text" id="first-name" value="John" readonly>
-                            <button class="edit-btn" data-input="first-name"><i class="material-icons-sharp">edit</i></button>
-                        </div>
+                    <div class="tab-pane">
+
                     </div>
-                    <div class="form-group">
-                        <label for="last-name">Last Name</label>
-                        <div class="input-group">
-                            <input type="text" id="last-name" value="Doe" readonly>
-                            <button class="edit-btn" data-input="last-name"><i class="material-icons-sharp">edit</i></button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <div class="input-group">
-                            <input type="text" id="username" value="johndoe123" readonly>
-                            <button class="edit-btn" data-input="username"><i class="material-icons-sharp">edit</i></button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="bio">Bio</label>
-                        <div class="input-group">
-                            <textarea id="bio" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
-                            <button class="edit-btn" data-input="bio"><i class="material-icons-sharp">edit</i></button>
-                        </div>
-                    </div>
-                </div>
-                <div id="account-settings" class="tab-content">
-                    <div class="form-group">
-                        <label for="email">Change Email</label>
-                        <input type="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Change Password</label>
-                        <input type="password" id="password">
-                    </div>
-                </div>
             </div>
+
+<!--            <div class="tabs">-->
+<!--                <div class="tab-link-container">-->
+<!--                    <a href="#" class="tab-link current" data-tab="profile-settings">Profile Settings</a>-->
+<!--                    <a href="#" class="tab-link" data-tab="account-settings">Account Settings</a>-->
+<!--                </div>-->
+
+<!--                <div id="account-settings" class="tab-content">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="email">Change Email</label>-->
+<!--                        <input type="email" id="email">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="password">Change Password</label>-->
+<!--                        <input type="password" id="password">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </main>
 
 
     <script src="<?=ROOT?>/assets/js/accountsettings.js  "></script>
+    <script src="<?=ROOT?>/assets/js/Technician/tabs.js  "></script>
 </body>
 </html>

@@ -92,4 +92,30 @@ class Findjobs
             echo json_encode($arr);
         }
     }
+
+    public function removeApplication(){
+        if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['action'] == "remove"){
+            $job_id = $_POST["job_id"];
+            $technician_id = $_SESSION["user_id"];
+            try {
+                $job_apply = new Job_apply;
+                $job_apply->removeApplication([
+                    "job_id" => $job_id,
+                    "technician_id" => $technician_id
+                ]);
+            } catch (PDOException $e) {
+                $arr['error']='Something went wrong';
+                echo json_encode($arr);
+                exit();
+            }
+
+            http_response_code(200);
+            $arr['success']='Application removed successfully';
+            echo json_encode($arr);
+        }else{
+            http_response_code(400);
+            $arr['error']='Bad Request';
+            echo json_encode($arr);
+        }
+    }
 }

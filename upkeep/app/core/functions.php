@@ -81,13 +81,37 @@ function dateQuote($compareDate){
 }
 
 
+function generate_time_ago_string($datetime) {
+    $timestamp = strtotime($datetime);
+    $current_time = time();
+    $time_diff = $current_time - $timestamp;
+
+    $minute = 60;
+    $hour = $minute * 60;
+    $day = $hour * 24;
+    $week = $day * 7;
+    $month = $day * 30;
+
+    if ($time_diff < $minute) {
+        $time_ago = "just now";
+    } elseif ($time_diff < $hour) {
+        $minutes_ago = floor($time_diff / $minute);
+        $time_ago = $minutes_ago . " minute" . ($minutes_ago > 1 ? "s" : "") . " ago";
+    } elseif ($time_diff < $day) {
+        $hours_ago = floor($time_diff / $hour);
+        $time_ago = $hours_ago . " hour" . ($hours_ago > 1 ? "s" : "") . " ago";
+    } elseif ($time_diff < $week) {
+        $days_ago = floor($time_diff / $day);
+        $time_ago = $days_ago . " day" . ($days_ago > 1 ? "s" : "") . " ago";
+    } elseif ($time_diff < $month) {
+        $weeks_ago = floor($time_diff / $week);
+        $time_ago = $weeks_ago . " week" . ($weeks_ago > 1 ? "s" : "") . " ago";
+    } else {
+        $months_ago = floor($time_diff / $month);
+        $time_ago = $months_ago . " month" . ($months_ago > 1 ? "s" : "") . " ago";
+    }
+
+    return $time_ago;
+}
 
 
-//function sendSMS($phone_number, $message, $message_type="ARN"){
-//
-//    curl -X POST https://rest-api.telesign.com/v1/messaging\
-//  -d phone_number=$phone_number\
-//  -d message=$message\
-//  -d message_type="ARN"\
-//  -u '7EBDE7B2-57E7-4623-9FE0-CC7085F21644':'*********************************'
-//}

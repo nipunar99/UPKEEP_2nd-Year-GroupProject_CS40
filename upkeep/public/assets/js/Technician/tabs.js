@@ -1,14 +1,10 @@
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
 const tabs = document.querySelectorAll(".tab-item");
 const panes = document.querySelectorAll(".tab-pane");
 
 const tabActive = document.querySelector(".tab-item.active");
 const line = document.querySelector(".tabs .line");
 
-// SonDN fixed - Active size wrong size on first load.
-// Original post: https://www.facebook.com/groups/649972919142215/?multi_permalinks=1175881616551340
+
 requestIdleCallback(function () {
     line.style.left = tabActive.offsetLeft + "px";
     line.style.width = tabActive.offsetWidth + "px";

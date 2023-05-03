@@ -1,15 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-<<<<<<< Updated upstream
-        'pretty_version' => 'dev-develop',
-        'version' => 'dev-develop',
-        'reference' => 'edf3c2a27522e2802678353e0b3f17b3e6fccde9',
-=======
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '07fe142f5b5313ff08d53522bfd35d8ad8b115c3',
->>>>>>> Stashed changes
+        'reference' => '4a9f44f9285083a0e2e80ef8e387fe16b7187684',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -17,15 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-<<<<<<< Updated upstream
-            'pretty_version' => 'dev-develop',
-            'version' => 'dev-develop',
-            'reference' => 'edf3c2a27522e2802678353e0b3f17b3e6fccde9',
-=======
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '07fe142f5b5313ff08d53522bfd35d8ad8b115c3',
->>>>>>> Stashed changes
+            'reference' => '4a9f44f9285083a0e2e80ef8e387fe16b7187684',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -91,6 +79,15 @@
             'reference' => '4cba4706cf1d0b06a9bd766f3bd439fc8f93dfb3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../orhanerday/open-ai',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.8.0',
+            'version' => '6.8.0.0',
+            'reference' => 'df16b615e371d81fb79e506277faea67a1be18f1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

@@ -167,7 +167,7 @@ input.mobile:focus {
 
 
 /* button styles */
-.popup button,
+.popup button.btn,
 .popup a.btn{
 	display: inline-block;
 	text-align: center;
@@ -180,26 +180,26 @@ input.mobile:focus {
 	color: var(--color-white);
 }
 /*give styles for disabled button*/
-button:disabled,
-a.btn:disabled{
+.popup button.btn:disabled,
+.popup a.btn:disabled{
     background: #ccc;
     cursor: default;
 }
 
-button:hover,
-a.btn:hover{
+.popup button.btn:hover,
+.popup a.btn:hover{
     background: var(--color-button-gradient-hover);
     cursor: pointer;
 }
 
-button.disabled:hover,
-a.btn.disabled:hover{
+.popup button.btn.disabled:hover,
+.popup a.btn.disabled:hover{
     background: #ccc;
     cursor: default;
 }
 
-button.btn-cancel,
-a.btn.btn-cancel{
+.popup button.btn-cancel,
+.popup a.btn.btn-cancel{
     background: var(--color-danger);
 }
 
@@ -326,6 +326,7 @@ form>div.hidden {
  input[type="email"],
  input[type="password"],
  input[type="date"],
+ /*input[type="file"],*/
  textarea {
      display: block;
      width: 100%;
@@ -345,6 +346,7 @@ form>div.hidden {
  input[type="email"]:hover,
  input[type="password"]:hover,
  input[type="date"]:hover,
+ /*input[type="file"]:hover,*/
  textarea:hover {
      border-color: #999;
  }
@@ -355,6 +357,7 @@ form>div.hidden {
  input[type="email"]:focus,
  input[type="password"]:focus,
  input[type="date"]:focus,
+ /*input[type="file"]:focus,*/
  textarea:focus {
      outline: none;
      border-color: #0077cc;
@@ -367,6 +370,7 @@ form>div.hidden {
  input[type="email"]:not(:hover):not(:focus),
  input[type="password"]:not(:hover):not(:focus),
  input[type="date"]:not(:hover):not(:focus),
+ /*input[type="file"]:not(:hover):not(:focus),*/
  textarea:not(:hover):not(:focus) {
      transition: all 0.2s ease-in-out;
  }
@@ -377,6 +381,7 @@ form>div.hidden {
  input[type="email"]:hover:focus,
  input[type="password"]:hover:focus,
  input[type="date"]:hover:focus,
+ /*input[type="file"]:hover:focus,*/
  textarea:hover:focus {
      transition: all 0.2s ease-in-out;
  }
@@ -387,6 +392,7 @@ form>div.hidden {
  input[type="email"]:focus:not(:hover),
  input[type="password"]:focus:not(:hover),
  input[type="date"]:focus:not(:hover),
+ /*input[type="file"]:focus:not(:hover),*/
  textarea:focus:not(:hover) {
      transition: all 0.2s ease-in-out;
  }

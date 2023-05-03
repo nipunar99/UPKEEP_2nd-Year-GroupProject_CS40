@@ -123,10 +123,16 @@
                         </div>
                         <small>posted on <?=$job_details->created_at?></small>
                     </div>
-                    <div class="btn-container" id="head-buttons">
-                        <?php if(!$job_details->applied):?>
-                        <?php else:?>
-                        <?php endif;?>
+                    <div class="btn-container" id="head-buttons"
+                         data-jobid="<?=$job_details->job_id?>"
+                         data-orderid="<?=$job_details->order_id?>"
+                         data-title="<?=$job_details->title?>"
+                         data-client="<?=$job_details->client?>"
+                         data-date="<?=$job_details->date?>"
+                         data-time="<?=$job_details->time?>"
+                         data-address="<?=$job_details->city.', '.$job_details->district?>"
+                    >
+
 
                     </div>
                 </div>
@@ -346,59 +352,132 @@
 
             </div>
         </main>
-
-        <div class="overlay hidden" id="overlay"></div>
-        <div class="popup hidden" id="apply_job">
-            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content">
-                <div class="header nbs">
-                    <div class="center">
-                        <h2 class="popup-title"<??></h2>
-                    </div>
-                </div>
-                <form method="post" >
-                    <div class="input-field">
-                        <label for="quote">Enter a estimated service charge(Rs.):</label>
-                        <input type="number" id="quote" name="quote" placeholder="Enter your quote">
-                        <small>Error message</small>
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn btn-primary" id="apply-job">Apply</button>
-                        <button class="btn btn-cancel ">Cancel</button>
-                    </div>
-                </form>
-            </div>
-            <div class="content hidden" id="msg">
-
-            </div>
-        </div>
-
-        <div class="popup hidden" id="remove_application">
-            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content">
-                <div class="header nbs">
-                    <div class="center">
-                        <h2 class="popup-title">Are You Sure?</h2>
-                    </div>
-                </div>
-                <form method="post" >
-                    <div class="input-field">
-                        <input class="hidden" type="number" id="quote" name="quote" placeholder="Enter your quote">
-                        <small>Error message</small>
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn btn-primary" id="remove">Yes</button>
-                        <button class="btn btn-cancel">No</button>
-                    </div>
-                </form>
-            </div>
-            <div class="content hidden" id="msg">
-
-            </div>
-        </div>
-
-
     </div>
+
+    <div class="overlay hidden" id="overlay"></div>
+
+    <div class="popup hidden" id="apply_job">
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="content">
+            <div class="header nbs">
+                <div class="center">
+                    <h2 class="popup-title"<??></h2>
+                </div>
+            </div>
+            <form method="post" >
+                <div class="input-field">
+                    <label for="quote">Enter a estimated service charge(Rs.):</label>
+                    <input type="number" id="quote" name="quote" placeholder="Enter your quote">
+                    <small>Error message</small>
+                </div>
+                <div class="btn-container">
+                    <button class="btn btn-primary" id="apply-job">Apply</button>
+                    <button class="btn btn-cancel ">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="content hidden" id="msg">
+
+        </div>
+    </div>
+
+    <div class="popup hidden" id="remove_application" data-jobid="<?=$job_details->job_id?>">
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="content">
+            <input type="text" id="job_id" name="job_id" class="hidden">
+        </div>
+        <div class="content hidden" id="msg">
+
+        </div>
+    </div>
+
+    <div class="popup hidden" id="complete_order">
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="content">
+            <h1 class="popup-title">Complete Order</h1>
+            <form method="post">
+                <div class="input-inline">
+                    <div class="input-field text-left">
+                        <label for="job_id text-left">Order ID</label>
+                        <input type="text" class="" id="order_id" name="order_id" value="" disabled>
+                        <small>error</small>
+                    </div>
+                    <div class="input-field text-left">
+                        <label for="completed_date">Completed Date</label>
+                        <input type="date" id="completed_date" name="completed_date" disabled>
+                        <small>error</small>
+                    </div>
+                </div>
+                <div class="input-field text-left">
+                    <label for="service_charge">Service Charge (Rs.)</label>
+                    <input type="number" id="service_charge" name="service_charge">
+                    <small>error</small>
+                </div>
+                <div class="input-field text-left">
+                    <label for="additional_notes">Additional Notes</label>
+                    <textarea id="additional_notes" name="additional_notes"></textarea>
+                    <small>error</small>
+                </div>
+
+                <div class="btn-container">
+                    <div class="btn-container">
+                        <a class="btn cancel" id="cancel-btn">Cancel</a>
+                        <a class="btn complete_popup" id="complete-popup">Complete</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="content hidden" id="msg">
+
+        </div>
+    </div>
+
+    <div class="popup hidden" id="accept_job">
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="content">
+            <h2 class="popup-title">Accept Job</h2>
+            <form method="post">
+                <!--                div to show essensial job details before action-->
+                <h3>These are the details of the job you are going to accept!</h3>
+                <div class="detail-container">
+                    <div class="details" id="title">
+                        <div class="title">Job</div>
+                        <div class="description"></div>
+                    </div>
+                    <div class="details" id="client">
+                        <div class="title">Client Name</div>
+                        <div class="description"></div>
+                    </div>
+                    <div class="details" id="date">
+                        <div class="title">Date</div>
+                        <div class="description"></div>
+                    </div>
+                    <div class="details" id="time">
+                        <div class="title">Time</div>
+                        <div class="description"></div>
+                    </div>
+                    <div class="details" id="address">
+                        <div class="title">Location</div>
+                        <div class="description"></div>
+                    </div>
+                    <div class="input-field hidden">
+                        <input type="text" class="" id="job_id" name="job_id" value="">
+                        <small>error</small>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <a class="btn cancel" id="cancel-btn">Cancel</a>
+                    <a class="btn accept_popup" id="accept-popup">Accept</a>
+                </div>
+            </form>
+        </div>
+        <div class="content hidden" id="msg">
+
+        </div>
+    </div>
+
+
 
     <script>
         const ROOT = "<?=ROOT?>";
@@ -410,6 +489,8 @@
     <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
     <script src="<?=ROOT?>/assets/js/Technician/job.js"></script>
     <script src="<?=ROOT?>/assets/js/Technician/applyjob.js"></script>
+    <script src="<?=ROOT?>/assets/js/Technician/orders.js"></script>
+
 
 
 

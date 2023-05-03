@@ -313,20 +313,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
                                     <?php if($completed_orders):?>
-                                    <?php foreach ($completed_orders as $orders):?>
+                                    <?php foreach ($completed_orders as $orderc):?>
                                     <tr>
                                         <td>
                                             <div class="client-info">
                                                 <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile Pic">
-                                                <span class="client-name"><?=$order->client?></span>
+                                                <span class="client-name"><?=$orderc->client?></span>
                                             </div>
                                         </td>
-                                        <td>#<?=$order->job_id?></td>
-                                        <td><?=$order->job_type?></td>
-                                        <td><?=Date('d M o',$order->date_completed)?></td>
-                                        <td><?=$order->service_charge?></td>
-                                        <td><div class="btn-container"> <a class="btn">view</a></div></td>
+                                        <td>#<?=$orderc->job_id?></td>
+                                        <td><?=$orderc->job_type?></td>
+                                        <td><?=Date('d M o');?></td>
+                                        <td><?=$orderc->service_charge?></td>
+                                        <td><div class="btn-container"> <a class="btn" href="<?=ROOT?>/Technician/Orders/viewOrder/<?=$orderc->job_id?>">view</a></div></td>
                                     </tr>
                                     <?php endforeach;?>
                                     <?php endif;?>

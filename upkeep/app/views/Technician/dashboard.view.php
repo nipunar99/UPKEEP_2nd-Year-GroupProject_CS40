@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href=<?=ROOT."/assets/css/Technician/technicianDashboard.css"?>>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -179,10 +180,13 @@
             <div class="header nbs">
                 <div class="right">
                     <div class="notification">
-                        <span class="material-icons-sharp" onclick="openNav()">notifications</span>
+                        <div>
+                            <span class="material-icons-sharp" onclick="openNav()">notifications</span>
+                            <span class="badge">3</span>
+                        </div>
                     </div>
 
-                    <div class="profile">
+                    <div class="profile dropdown">
                         <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
                             <div class="name">
@@ -192,6 +196,10 @@
                         </div>
                         <div class="profile-photo">
                             <div><img src="<?= ROOT ?>/assets/images/photo2.png" alt=""></div>
+                        </div>
+                        <div class="dropdown-content hidden">
+                            <a href="<?= ROOT ?>/Profile"><span class="material-icons-sharp">person</span>Profile</a>
+                            <a href="<?= ROOT ?>/Accountsettings"><span class="material-icons-sharp">settings</span>Settings</a>
                         </div>
                     </div>
                 </div>
@@ -289,24 +297,44 @@
         </div>
     </div>
 
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav notification hidden">
         <div class="header">
-            <div class="left">
+            <div class="center">
                 <h2>Notifications</h2>
             </div>
-            <
+            <div class="tabs">
+                <div class="tab-item active">
+                    <i class="tab-icon fas fa-bell"></i>
+                    Alert
+                </div>
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-clock"></i>
+                    History
+                </div>
+                <div class="line"></div>
+            </div>
             <span class="closebtn" onclick="closeNav()">&times;</span>
         </div>
-        <div class="tab-container">
-            <div class="tabs">
-                <input type="radio" id="radio-1" name="tabs" checked />
-                <label class="tab" for="radio-1">Unread<span class="notification">2</span></label>
-                <input type="radio" id="radio-2" name="tabs" />
-                <label class="tab" for="radio-2">Read</label>
-                <span class="glider"></span>
+        <div class="tab-content" >
+            <div class="tab-pane active" id="">
+                <ol id="notification-list-unread">
+
+                </ol>
+
+
+            </div>
+
+            <div class="tab-pane" id="">
+                <ol id="notification-list-history">
+
+                </ol>
+
             </div>
         </div>
+
     </div>
+
+    <div class="overlay hidden" id="overlay"></div>
 
     <script>
         const ROOT = "<?=ROOT?>";
@@ -317,7 +345,7 @@
 
     <script src="<?=ROOT?>/assets/js/main.js"></script>
     <script src="<?=ROOT?>/assets/js/Technician/dashboard.js  "></script>
-    <script src="<?=ROOT?>/assets/js/Technician/fetch.js  "></script>
+    <script src="<?=ROOT?>/assets/js/Technician/tabs.js"></script>
     <script src="<?=ROOT?>/assets/js/notification.js"></script>
 
 </body>

@@ -28,4 +28,9 @@ class job_apply
         $result = $this->query($sql);
         return $result;
     }
+
+    public function removeApplication(array $array)
+    {
+        $this->deleteWhere($array);
+    }
 }

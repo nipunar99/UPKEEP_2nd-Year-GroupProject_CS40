@@ -48,6 +48,7 @@ class ComposerStaticInitb8701e05b783718c1490487d0277256e
         array (
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'O' => 
         array (
@@ -134,6 +135,10 @@ class ComposerStaticInitb8701e05b783718c1490487d0277256e
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Orhanerday\\OpenAi\\' => 
         array (

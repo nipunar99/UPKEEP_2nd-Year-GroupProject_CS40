@@ -38,9 +38,13 @@ function formSuccessfull(id,success_title,success_message){
         "   <h1 id=\"success-title\">"+success_title+"</h1>\n" +
         "   <p id=\"success-message\">"+success_message+"</p><br>\n" +
         "   <div class=\"btn-container\">\n" +
-        "       <button id=\"finish\">Continue!</button>\n" +
+        "       <button class='btn' id=\"finish\">Continue!</button>\n" +
         "   </div>\n" +
         "</div>"
+
+    popups[id].querySelector('#finish').addEventListener('click',()=>{
+        finish(id);
+    });
 }
 
 
@@ -56,8 +60,8 @@ function areYouSure(id,areYouSureMessage){
         "   <h1 id=\"warning-title\" >Are you sure?</h1>\n" +
         "   <p id=\"warning-message\">"+areYouSureMessage+"</p><br>\n" +
         "   <div class=\"btn-container\">\n" +
-        "       <button id=\"yes\">Yes</button>\n" +
-        "       <button id=\"no\">No</button>\n" +
+        "       <button class='btn' id=\"yes\">Yes</button>\n" +
+        "       <button class='btn' id=\"no\">No</button>\n" +
         "   </div>\n" +
         "</div>"
 

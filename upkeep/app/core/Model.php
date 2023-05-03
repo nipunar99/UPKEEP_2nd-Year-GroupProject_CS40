@@ -41,7 +41,6 @@ Trait Model
         $query .= " limit $this->limit offset $this->offset"; // make the query
 
         $data = array_merge($data, $data_not); // mearge data arrays to put the query function as parameter
-
         return $this->query($query, $data);
 
     }
@@ -110,6 +109,29 @@ Trait Model
         $this->query($query, $data);
         return false;
     }
+
+    public function deleteWhere($data, $data_not = [])
+    {
+
+        $keys = array_keys($data);
+        $keys_not = array_keys($data_not);
+        $query = "delete from $this->table where ";
+
+        foreach ($keys as $key) {
+            $query .= $key . "= :" . $key . " && ";
+        }
+        foreach ($keys_not as $key) {
+            $query .= $key . "!= :" . $key . " && ";
+        }
+
+        $query = trim($query, " && ");
+
+        $data = array_merge($data, $data_not); // mearge data arrays to put the query function as parameter
+
+        $this->query($query, $data);
+        return false;
+    }
+
 
     public function update($id, $data, $id_column = "id")
     {

@@ -141,11 +141,13 @@ class jobs
                     concat(u.first_name,' ', u.last_name) AS client, u.email, u.mobile_no, u.last_login, 
                     a.*,
                     count(ja.job_id) AS applied_count,
-                    CAST(CASE WHEN ja.job_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS applied
+                    CAST(CASE WHEN ja.job_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS applied,
+                    o.order_id, o.status AS order_status
                 FROM jobs j 
                 INNER JOIN users u ON j.user_id = u.user_id 
                 INNER JOIN address a ON j.address_id = a.address_id
                 LEFT JOIN job_apply ja ON j.job_id = ja.job_id && ja.technician_id = $technician_id
+                LEFT JOIN orders o ON j.job_id = o.job_id && o.technician_id = $technician_id
                 WHERE j.job_id = $job_id";
 
         $result = $this->query($sql);

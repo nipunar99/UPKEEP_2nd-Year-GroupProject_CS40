@@ -1,4 +1,4 @@
-const daysTag = document.querySelector(".days"),
+ const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".icons span");
 
@@ -53,12 +53,14 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "20rem";
+    document.getElementById("mySidenav").classList.remove('hidden');
+    // document.getElementById('overlay').classList.remove('hidden');
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").classList.add('hidden');
+    // document.getElementById('overlay').classList.add('hidden');
 }
 
 
@@ -67,7 +69,7 @@ function closeNav() {
 //charts
 piechart_data = JSON.parse(piechart_data);
 barchart_data = JSON.parse(barchart_data);
-console.log(barchart_data);
+// console.log(barchart_data);
 
 //dunction to check if month exist in barchart_data and returns it's index
 function checkMonth(month) {
@@ -92,7 +94,7 @@ for (let i = 5; i >= 0; i--) {
     }
 
     index = checkMonth(month+1);
-    console.log(index);
+    // console.log(index);
     if(index){
        bar_data.push(barchart_data[index-1].revenue);
     }else{
@@ -100,8 +102,8 @@ for (let i = 5; i >= 0; i--) {
     }
     bar_labels.push(month_labels[month]);
 }
-console.log(bar_labels);
-console.log(bar_data)
+// console.log(bar_labels);
+// console.log(bar_data)
 
 
 

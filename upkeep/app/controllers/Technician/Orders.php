@@ -17,12 +17,10 @@ class Orders{
         $completed_orders = $orders->getCompletedOrdersForTable($_SESSION['user_id']);
 
 
-        //show($new_orders);
         $data['new_orders'] = $new_orders;
         $data['order_queue'] = $order_queue;
         $data['completed_orders'] = $completed_orders;
 
-//        show($data['new_orders']);
 
         $this->view('Technician/orders',$data);
 
@@ -33,8 +31,7 @@ class Orders{
 
         $jobs = new Jobs;
         $job = $jobs->getJobDetailsByIdForTechnician($id[0]);
-//        show($job);
-        $item = new Owneritem;
+        $item = new IO_Owneritem;
         $item_details = $item->getItemDetailsForJob($job->item_id);
 
         $job_application = new Job_apply;

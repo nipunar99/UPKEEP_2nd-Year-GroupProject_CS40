@@ -1,4 +1,5 @@
 //new orders
+//ACCEPT JOB
 const accept_main = document.querySelectorAll('.accept_main');
 const accept_popup = document.querySelector('.accept_popup');
 
@@ -7,7 +8,12 @@ accept_main.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         openPopup('accept_job');
-        data = btn.closest('li').dataset;
+
+        if(btn.closest('li') != null) {
+            data = btn.closest('li').dataset;
+        }else{
+            data = btn.closest('div').dataset;
+        }
 
         currentpopup = popups['accept_job'];
         currentpopup.querySelector('.popup-title').innerHTML = "Accept Job #" + data.jobid;
@@ -54,16 +60,24 @@ function acceptJob() {
 
 
 
+
+
+
+//COMPLETE JOB
 //orders in queue
 const complete_main = document.querySelectorAll('.complete_main');
 const complete_popup = document.querySelector('.complete_popup');
 
-//idont use querry
 complete_main.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         openPopup('complete_order');
-        data = btn.closest('li').dataset;
+
+        if(btn.closest('li') != null) {
+            data = btn.closest('li').dataset;
+        }else{
+            data = btn.closest('div').dataset;
+        }
 
         currentpopup = popups['complete_order'];
         currentpopup.querySelector('.popup-title').innerHTML = "Complete Order #" + data.orderid;
@@ -77,14 +91,14 @@ complete_main.forEach((btn) => {
 });
 
 
-//event listner to accept job button in popup
+//event listner to complete job button in popup
 complete_popup.addEventListener('click', (e) => {
     e.preventDefault();
     completeOrder();
 });
 
 
-//function to accept job to back end using xmlHttpRequest
+//function to complete
 function completeOrder() {
     const form = popups['complete_order'].querySelector('form');
     const formData = new FormData(form);

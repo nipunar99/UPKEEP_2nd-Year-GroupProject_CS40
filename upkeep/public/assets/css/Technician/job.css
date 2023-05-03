@@ -60,12 +60,15 @@
      gap: 0.5rem;
      display: flex;
      align-items: center;
-     flex-direction: column;
+     flex-direction: row;
      text-align: right;
      justify-content: center;
 }
 
-/*add modern button style with my root colors and hover*/
+ .head .btn-container.single-btn{
+     flex-direction: column;
+ }
+
 .btn-container .btn{
     width: 100%;
     padding: 0.8rem;
@@ -98,10 +101,10 @@
 
 
 
-.btn-container .btn:hover{
-    background-color: var(--color-info-light);
-    border: 1px solid var(--color-info-light);
-}
+/*.btn-container .btn:hover{*/
+/*    background-color: var(--color-info-light);*/
+/*    border: 1px solid var(--color-info-light);*/
+/*}*/
 
 .content-a-20 .card{
     display: flex;
@@ -268,6 +271,30 @@
 }
 
 
+/*more button*/
+.btn.warning{
+    background-color: var(--color-white);
+    border: 1px solid var(--color-warning);
+    color: var(--color-warning);
+}
+
+.btn.warning:hover{
+    background-color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+    color: var(--color-white);
+}
+
+.btn.danger{
+    background-color: var(--color-white);
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+}
+
+.btn.danger:hover{
+    background-color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    color: var(--color-white);
+}
 
 
 

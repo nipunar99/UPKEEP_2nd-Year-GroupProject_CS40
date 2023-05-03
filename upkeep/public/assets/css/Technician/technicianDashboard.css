@@ -1,5 +1,6 @@
 @import "general.css";
 @import "popupform.css";
+@import "tabs.css";
 @import "notifications.css";
 
 /* .container {
@@ -10,7 +11,7 @@
 /* Right CSS */
 
 .right {
-	height: 100vj\h;
+	/*height: 100vh;*/
 }
 
 .right .top {
