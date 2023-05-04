@@ -32,17 +32,17 @@ class Itemtemplates
     //view parent id null itemtemplates
     public function completeItemTemplate()
     {
-        $query = "select i.image,i.id, i.itemtemplate_name, c.category_name, i.description, i.status from itemtemplate i inner JOIN categories c on c.category_id = i.category_id where parent_id IS NULL ";
+        $query = "select i.image,i.id, i.itemtemplate_name, i.description, i.status,i.moderator_id, c.category_name from itemtemplate i inner JOIN categories c on c.category_id = i.category_id where parent_id IS NULL AND moderator_id > 0";
 
         return $this->query($query);
     }
 
     public function getBasicitem($id)
     {
-
         $query = "select i.image,i.id,i.category_id, i.itemtemplate_name, c.category_name, i.status from itemtemplate  i inner JOIN categories c on  c.category_id = i.category_id where id = $id[0]";
         return $this->query($query);
     }
+
     public function insertChildItem($data)
     {
         try {
@@ -56,7 +56,7 @@ class Itemtemplates
     }
     public function viewChildItems($id)
     {
-        $query = "select itemtemplate.category_id,itemtemplate.status,itemtemplate.description, categories.category_name,itemtemplate.itemtemplate_name,itemtemplate.id from itemtemplate  inner JOIN categories on  categories.category_id = itemtemplate.category_id where parent_id = '$id[0]'";
+        $query = "select itemtemplate.category_id, itemtemplate.status, itemtemplate.description, itemtemplate.parent_id, categories.category_name, itemtemplate.itemtemplate_name, itemtemplate.id from itemtemplate  inner JOIN categories on  categories.category_id = itemtemplate.category_id where parent_id = $id";
         return $this->query($query);
     }
     public function updateChildItem($id, $data)

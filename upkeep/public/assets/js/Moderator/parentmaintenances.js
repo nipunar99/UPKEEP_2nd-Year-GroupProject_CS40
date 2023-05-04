@@ -1,6 +1,5 @@
 var errocheckflag = 0;
 
-
 const form2 = document.getElementById("popup-form2");
 const input1 = document.querySelector('#sub_component');
 const input2 = document.querySelector('#Sub_component');
@@ -14,10 +13,7 @@ const statu1 = document.querySelector('#status');
 const statu2 = document.querySelector('#Status');
 const description1 = document.querySelector('#description');
 const description2 = document.querySelector('#Description');
-
-
 const districtSelect = document.getElementById("status");
-
 const district = ['Approved','Pending'];
 
 (function populateDistrict (){
@@ -41,11 +37,8 @@ const District = ['Approved','Pending'];
     DistrictSelect.value = 'Select the status';
 })();
 
-//  const modal = document.querySelector(".popupview1");
-//  const overlay = document.querySelector(".overlayview");
 const btnCloseModal1 = document.querySelector(".closebtn1");
 const btnCloseModal2 = document.querySelector(".closebtn2");
-//  const modals = document.querySelector(".popupview2");
  const btnShowRows = document.querySelectorAll(".edit-maintenance");
  const rowIdInput = document.querySelector('#rowid_input1');
  const table = document.getElementById('categoryTable');
@@ -137,42 +130,6 @@ const closeModal = function (id) {
 };
 
 
-
-// show modal click event
-
-
-// // close modal click
-// btnCloseModal.addEventListener("click", closeModal);
-// overlay.addEventListener("click", closeModal);
-
-// btnShowRows.forEach(function(button) {
-//   button.addEventListener('click', function() {
- 
-//     var row = button.closest('tr');
-
-//     // Get the row ID
-//     var rowId = row.task_ID;
-
-//     // Get the values from the row
-//     var cell1 = row.getElementsByTagName("td")[1].innerHTML;
-//     console.log(cell1);
-//     // ... repeat for other cells in the row
-
-//     // Set the values in the popup form
-//     document.getElementById("rowid_input1").value = cell1;
-//     // Set the values in the popup form
-    
-//   });
-// });
-
-
-
-// for (let i = 0; i < btnShowRows.length; i++) {
- 
-//    btnShowRows[i].addEventListener("click", showModals);
-// }
-
-
 overlay.addEventListener("click", closeModal);
 
 
@@ -199,10 +156,10 @@ document.addEventListener("DOMContentLoaded", function () {
           html += "<tr>";
           html += " <td><input type='checkbox' name='task_ID[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
           html += " <td class='hidden_id' id='task_ID'>" + json[i].task_ID + "</td>";
-          html += " <td id='subcomponent'>" + json[i].description + "</td>";
-          html += " <td id='C_description'>" + json[i].sub_component + "</td>";
+          html += " <td id='subcomponent'>" + json[i].sub_component + "</td>";
+          html += " <td id='C_description'>" + json[i].description + "</td>";
           html += " <td id='time_frame'>" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W </td>";                    
-          html += "<td><div  class='btn-container'><button class='edit-maintenance'><span>edit</span></button></div></td>";
+          html += "<td><div class='btn-container'><button class='edit-maintenance'><span>edit</span></button></div></td>";
           html += "</tr>";
          
   
@@ -216,11 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   }
 
-  
-  
-  
-  
-  
     
   function toggleDeleteButton() {
     var table = document.getElementById("categoryTable");
@@ -263,21 +215,15 @@ document.addEventListener("DOMContentLoaded", function () {
                    
                     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     
-                    // Define the function to handle the response from the server
                     xhr.onreadystatechange = function() {
                       if (xhr.readyState === 4 && xhr.status === 200) {
-                        // Handle the response from the server (if needed)
                         console.log(xhr.responseText);
-                        // table.innerHTML = xhr.responseText;
+                      
                       }
                     };
-                    
-                    // Send the request with the parameters
+               
                     xhr.send(params);
-                  
-                  
-                // Send the checkedIds array to the server using AJAX to delete the corresponding records
-                
+               
             }
 
             deleteButton.style.display = "none";
@@ -346,7 +292,7 @@ function ajax_addMaintenanceTask(e) {
   setSmallNull();
   const formItemDetails = document.getElementById("popup-form1");
 
-   checkRequired([input1, description1, statu1]);
+  checkRequired([input1, description1, statu1]);
   checkRange(year1, 1, 10);
   checkRange(month1, 1, 11);
   checkRange(week1, 1, 3);
@@ -356,16 +302,10 @@ function ajax_addMaintenanceTask(e) {
       form.append("action", "addMaintenanceTask");
       form.append("item_template_id",taskId);
 
-      // form.delete('alter_type');
-      // const urlparams = new URLSearchParams(form);
-
       console.log(form);
       const xhr = new XMLHttpRequest();
 
       xhr.open("POST", "" + ROOT + "/Moderator/Maintenance/");
-      // xhr.setRequestHeader("Content-Type","application/json");             
-      // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
       xhr.onload = function () {
           if (xhr.status == 200) {
               const res = xhr.responseText;
@@ -390,25 +330,20 @@ function ajax_updateMaintenanceTask(e) {
   const formItemDetailss = document.getElementById("popup-form2");
 
   checkRequired([input2, description2, statu2]);
-  // checkRange(year2, 1, 10);
-  // checkRange(month2, 1, 11);
-  // checkRange(week2, 1, 3);
+  checkRange(year2, 1, 10);
+  checkRange(month2, 1, 11);
+  checkRange(week2, 1, 3);
 
   if (errocheckflag == 0) {
       const form = new FormData(formItemDetailss);
       form.append("action", "updateMaintenanceTask");
       form.append("item_template_id",taskId);
-// console.log(taskId);
-      // form.delete('alter_type');
-      // const urlparams = new URLSearchParams(form);
 
       console.log(form);
       const xhr = new XMLHttpRequest();
 
       xhr.open("POST", "" + ROOT + "/Moderator/Maintenance/");
-      // xhr.setRequestHeader("Content-Type","application/json");             
-      // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
+      
       xhr.onload = function () {
           if (xhr.status == 200) {
               const res = xhr.responseText;

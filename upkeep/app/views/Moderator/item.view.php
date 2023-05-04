@@ -94,10 +94,6 @@
                         </div>
                         <div class="view-3">
                             <div class='view-1-text'>
-                                <div class='basic'>
-                                    <h5>Basic details</h5>
-
-                                </div>
                                 <div class='name'>
                                     <h5>Item Template Name</h5>
                                     <p><?= $result_obj->itemtemplate_name ?></p>
@@ -112,7 +108,9 @@
                                 </div>
 
                             </div>
-
+                            <button class="view-1-button">
+                                   <h2><a href="http://localhost/upkeep/upkeep/public/Moderator/Maintenance/parentmaintenanceTasks/<?= $result_obj->id ?>">View Maintenances</a> </h2>
+                            </button>
                         </div>
                     </div>
                     <!-- <div class="view-3"> -->
@@ -150,7 +148,7 @@
                 <div class="maintenances">
 
                     <h1>Sub Categories</h1>
-                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>delete</span></button>
+                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
                     <span> <button id="popup-btn" class="subcategory">Add Sub Category</button></span>
                     <div class="table">
                         <table id="categoryTable">
@@ -171,7 +169,7 @@
                                     <td class="hidden_id">87</td>
                                     <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/5">aaaa></a></td>
                                     <td id="status">nnoyt</td>
-                                    <td>aaa</td>
+                                    <td class="des">aaa</td>
                                     <td>
                                         <div> <button class="view"><span>edit</span></button></div>
                                     </td>
@@ -187,6 +185,7 @@
         <button class="closebtn closebtn1">&times;</button>
             <form id="popup-form1" method="post" action="add" class="fm" enctype="multipart/form-data">
                 <div class="itemDetails">
+                    <h1>Add Item Template</h1>
                     <div class="topInput">
                         <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowid-input">
                         <div class="input-box">
@@ -200,7 +199,7 @@
                     <div class="middleInput">
                         <div class="input-box">
                             <span class="details">Status</span>
-                            <select name="status" id="status" required=""></select>
+                            <select name="status" id="status1" required=""></select>
                             <small></small>
                         </div>
 
@@ -236,6 +235,7 @@
         <button class="closebtn closebtn2">&times;</button>
             <form id="popup-form2" method="post" action="updateItem" class="fm">
                 <div class="itemDetails">
+                    <h1>Edit Item Template</h1>
                     <div class="topInput">
                         <input type="hidden" name="id" id="rowid-input1">
                         <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowparentid-input">
@@ -273,7 +273,7 @@
 
 
                     <div class="button">
-                        <input type="submit" value="Add Item" id="update">
+                        <input type="submit" value="Update Item" id="update">
                     </div>
 
                 </div>

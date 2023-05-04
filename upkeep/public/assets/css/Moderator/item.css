@@ -43,7 +43,7 @@
 }
 .view-3{
     position: absolute;
-    top: 7rem;
+    top: 5.5rem;
     right: 38rem;
     width: 500px;
     text-align: center;
@@ -52,8 +52,8 @@
 }
 .view-2{
     position: absolute;
-    top: 9rem;
-    right: 14rem;
+    top: 5.5rem;
+    right: 13rem;
     width: 500px;
     text-align: center;
     width: 20%;
@@ -63,6 +63,7 @@
     padding-bottom: 2rem;
     transition: all 300ms ease;
     box-shadow: 0 2rem 3rem rgba(121, 251, 151, 0.45) ;
+    height: 35vh;
    
 }
 .view-2 >div:hover{
@@ -95,14 +96,18 @@
     /* margin-top: 300px; */
     display: block;
     position: relative;
-  left: 113px;
-    width: 100px;
-    height: 100px;
+  left: 55px;
+    width: 250px;
+    height: 196px;
     /* border-radius: 50%;
     background-image: conic-gradient(
         pink 70deg, 
         lightblue 0  
     ); */
+}
+#update-item h1, #add-item h1{
+    text-align: center;
+    color: #05B2E9;
 }
 #pieChart{
     position: relative;
@@ -139,40 +144,33 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 86px;
-    top: 50px;
+    left: 48px;
+    top: 20px;
     width: fit-content; 
-    height: 5rem;                          
+    height: 5rem;  
+    text-align: left;
+    row-gap: 1rem;                        
 }
-.view-1 .view-1-text h2{
-    color:  #05B2E9;
-    /* position: relative; */
-    /* margin-bottom: 3rem;
-    margin-top: 3rem; */
-    /* left: 350px; */
-    /* bottom: 250px; */
-    width: fit-content;
-    /* gap: 2rem; */
-
-    padding-bottom: 1rem;
+.view-1-text p{
+    color: blue;
+    
 }
 
-.view-2 h2{
-   margin-bottom: 2rem;
-   text-align: center;
-   
-}
 .view-1-button{
     display: flex;
-    /* width: fit-content; */
+    width: fit-content;
     flex-direction:row ;
     width: fit-content;
     position: relative;
-    left: 275px;
-    bottom: 150px;
+    left: 38px;
+    top: 106px;
     gap: 2rem;
-    border: 1rem red;
-    border-radius:var(--border-radius-1);
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+    border-radius: 30px;
+    padding: 0.5rem 1.6rem;
+    color: white;
+    font-weight: 500;
+    transition: all 300ms ease;
 }
 .delete{
     border: 1px solid red;
@@ -192,40 +190,7 @@
     /* font-size: 1.2rem; */
 
  /* / } */
-.view-1-text .basic, .name, .type, .sta{
-    display: flex;
-    flex-direction: column;
-    font-size: 1.25rem;
-    /* gap: 1rem; */
-    
-     position: relative; 
-    /* left: 350px;
-    bottom: 200px; */
-    width: fit-content; 
-    /* height: 5rem; */
-    /* gap: 1rem; */
-    padding-bottom: 1rem; 
-    /* font-size: 1.2rem; */
 
- } 
- .basic{
-    font-weight: 300;
-    text-align: center;
-    color: #0582e9;
- }
- .sta {
-    position: relative;
-    left: -1rem;
-    top: -1rem;
- }
- 
- .view-1-text p{
-    position: relative;
-    left: 1rem;
-    color: #00BEE4;
-    font-size: 1rem;
-    
- }
 /* .view-1-text .name, .type .lifespan b{
     position: relative;
     left: 30px;
@@ -381,6 +346,7 @@ textarea{
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
+    
 }
 .actions button:nth-child(1){
     width: 12rem;
@@ -410,7 +376,7 @@ textarea{
     transition: all 300ms ease;
     margin-top: 2rem;
     margin-left: 4rem;
-    text-align: center;
+    text-align: left;
   
 }
 .table table:hover{
@@ -429,6 +395,16 @@ textarea{
     overflow: hidden;
     border-radius: 50%;
 }
+
+td div button{
+    align-items: center;
+}
+.table table tbody .des{
+    width: 18rem;
+}
+tr:hover {
+    background-color: #e9f3f4f9;
+  }
 span .subcategory{
     
     /* position: absolute;
@@ -446,7 +422,7 @@ span .subcategory{
     font-weight: 500;
     transition: all 300ms ease;
 }
- span .subcategory:hover{
+ .view-1-button:hover, .subcategory:hover{
     transform: scale(1.1);
     
 }   

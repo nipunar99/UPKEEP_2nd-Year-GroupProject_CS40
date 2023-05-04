@@ -14,7 +14,7 @@ class Itemtemplate
                         unset($_POST['action']);
                     $errors = $this->checkValidation();
                     if ($errors === null) {
-                        $this->addChildItemtemplate($_POST['parent_id']);
+                        $this->addChildItemtemplate();
                     }
                 } elseif (isset($_POST['action']) && $_POST['action'] == "updateItem") {
                     unset($_POST['action']);
@@ -83,30 +83,20 @@ class Itemtemplate
             return null;
         }
     }
-    //delete item template 
-    public function deleteItems()
+    public function delParentItem()
     {
-
-        if ($_SESSION['USER'] == $_SESSION['user_id']) {
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if (isset($_POST['action']) && $_POST['action'] == "deleteItem") {
-
-                    unset($_POST['action']);
-                    $item = new Itemtemplates;
-                    $id = $_POST['id'];
-                    echo ($id);
-                    $item->delete($id);
-                }
-            }
-        } else {
-            redirect("Home/home");
+        $ids = json_decode($_POST['ids']);
+        foreach ($ids as $id) {
+            print $id;
+            $item = new Itemtemplates;
+            $item->delete($id);
         }
+        redirect("Moderator/itemtemplate");
     }
     public function viewItem($id)
     {
         $item_template_id = $id[0];
         $_SESSION['item_template_id'] = $item_template_id;
-
 
         if (isset($_SESSION['user_id'])) {
 
@@ -115,8 +105,7 @@ class Itemtemplate
             $result1 = $item->getBasicitem($id);
             $_SESSION['parent_item'] = $result1[0]->itemtemplate_name;
             $data['result'] = json_encode($result1);
-           
-
+            
             $this->view('Moderator/item', $data);
         } else {
             redirect("Home/home");
@@ -131,14 +120,21 @@ class Itemtemplate
         $data['item_users'] = $users[0]->{'COUNT(*)'};
          echo (json_encode($data));
     }
+
     public function viewChildItem()
     {
         $item = new Itemtemplates;
         $result = $item->viewChildItems($_SESSION['item_template_id']);
+        $parent = $_SESSION['item_template_id'];
         $result1 = json_encode($result);
+
+        // $result2['parent'] = $parent;
+        // // $result2['data'] = $result;
+        // $result2=json_encode($result2); 
         echo ($result1);
     }
-    public function addChildItemtemplate($parent_id)
+
+    public function addChildItemtemplate()
     {
 
         $childitem = new Categories;
@@ -147,7 +143,7 @@ class Itemtemplate
         $_POST['category_id'] = $id[0]->category_id;
         $child = new Itemtemplates;
         $child->insertChildItem($_POST);
-        redirect("Moderator/Itemtemplate/viewItem/".$parent_id);
+        redirect("Moderator/Itemtemplate/");
     }
 
     public function UpdateItemtemplate($data)
@@ -157,7 +153,7 @@ class Itemtemplate
         $id = json_decode($result);
         $data['category_id'] = $id[0]->category_id;
         $updateitem = new Itemtemplates;
-        $updateitem->updateChildItem($_SESSION['child_id'],$data,);
+        $updateitem->updateChildItem($_SESSION['i_id'],$data,);
         
     }
     public function delChildItem()
@@ -173,8 +169,8 @@ class Itemtemplate
 
     public function editItemtemplate($id)
     {
-        $childitem_id = $id[0];
-        $_SESSION['child_id'] = $childitem_id;
+        $item_id = $id[0];
+        $_SESSION['i_id'] = $item_id;
         $item_template = new Itemtemplates;
         $item = $item_template->getItemtemplateById($id[0]);
         $update_item = json_encode($item);

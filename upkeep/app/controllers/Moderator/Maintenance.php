@@ -64,6 +64,11 @@ class Maintenance {
             return null;
         }
     }
+    public function parentmaintenanceTasks($id){
+        $item_template_id = $id[0];
+        $_SESSION['item_template_id'] = $item_template_id;
+        $this->view('Moderator/parentMaintenances');
+    }
     public function maintenanceTasks($id){
         $item_template_id = $id[0];
         $_SESSION['item_template_id'] = $item_template_id;

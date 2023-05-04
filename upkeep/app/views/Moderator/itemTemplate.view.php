@@ -23,11 +23,11 @@
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
-                <div class="close" id="close-btn">
+                <!-- <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
                     </span>
-                </div>
+                </div> -->
 
             </div>
 
@@ -123,6 +123,7 @@
             </select>
 
         </div>
+        <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
 
     </div>
 
@@ -136,6 +137,7 @@
                     <thead>
                         <tr>
                             <th></th>
+                            <th class="hidden_id"></th>
                             <th class="items" onclick="sortTable(0)">Item</th>
                             <th class="category" onclick="sortTable(1)">Item Type </th>
                             <th onclick="sortTable(2)" class="status">Status </th>
@@ -146,6 +148,7 @@
                     <tbody class="details">
                         <tr>
                             <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
+                            <td class="hidden_id" id="id"></td>
                             <td class="template_name">
                                 <img src="<?= ROOT ?>/assets/images/uploads/2.png">
                                 <span>new</span>
@@ -155,8 +158,8 @@
                             <td class="des_color">btre </td>
                             <td>
                                 <div class="more">
-                                    <div class="view"><button class="view"><a href="<?= ROOT ?>/Moderator/Item/viewItem">view</a></button></div>
-                                    &nbsp;&nbsp;<div class="delete"><button type="button" onclick="fun()"></button></div>
+                                    <div class="view"><a href="<?= ROOT ?>/Moderator/Item/viewItem"><button class="view">view</a></button>
+                                    &nbsp;<div class="delete"><button class="edit" >edit</button></div>
                                 </div>
                             </td>
                         </tr>
@@ -170,31 +173,64 @@
 
 
 
-    <div class="popupview hidden">
-        <!-- <button class="closebtn">&times;</button> -->
+    <div class="popupview hidden" id="update-item">
+        <button class="closebtn closebtn1">&times;</button>
+            <form id="popup-form1" method="post" action="add" class="fm" enctype="multipart/form-data">
+                <div class="itemDetails">
+                    <h1>Edit Item Template</h1>
+                    <div class="topInput">
+                       
+                        <div class="input-box">
+                            <span class="details">Item template Name</span>
+                            <input type="text" name="itemtemplate_name" pattern="[A-Za-z ]+" value="" id="itemtemplate_name">
+                            <small></small>
+                        </div>
 
-        <div class="delete1">
+                    </div>
 
-            <!-- <form method="post" enctype="multipart/form-data" id=""> -->
+                    <div class="middleInput">
+                        <div class="input-box">
+                            <span class="details">Status</span>
+                            <select name="status" id="Status" required=""></select>
+                            <small></small>
+                        </div>
 
-            <h2>Do you want to delete this item template</h2>
+                        <div class="input-box">
+                            <span class="details">Image</span>
+                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
+                            <small></small>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Category Name</span>
+                            <input type="text" name="category_id" id="category"  readonly>
+                            <small></small>
+                        </div>
+
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        <textarea rows="3" cols="100" name="description" id="description" required placeholder="Enter Description about item Template"></textarea>
+                        <small></small>
+                    </div>
+
+
+                    <div class="button">
+                        <input type="submit" value="Edit Item" id="update">
+                    </div>
+
+                </div>
+                <!-- text input field with "readonly" attribute -->
+
+            </form>
         </div>
-        <div class="actions">
-
-            <button class="confirmbtn">Yes</button>
-            <button class="closebtn1">No</button>
-            <a href="<?= ROOT ?>/Moderator/Itemtemplate" style='display:none;' class="autoclick"></a>
-        </div>
-
-
-
-    </div>
 
     <div class="overlayview hidden"></div>
 
 
 
-
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
 
     <script src="<?= ROOT ?>/assets/js/Moderator/itemtemplate.js">
     </script>

@@ -213,13 +213,18 @@ form .itemDetails .middleInput{
     border-color: #9b59b6;
     font-size: 1.1rem;
 }
-
-
+#update-maintenance h2, #add-maintenance h2{
+    text-align: center;
+    color: #00BEE4;
+}
+#update-maintenance .middleInput{
+    column-gap: 2rem;
+}
 
 
 .content form .button{
     position: relative;
-    left: 38rem;
+    left: 34rem;
     height: 45px;
     width: 16rem;
 }
@@ -272,7 +277,7 @@ form .itemDetails .middleInput{
     transition: all 300ms ease;
     margin-top: 5rem;
     margin-left: 4rem;
-    text-align: center;
+    text-align: left;
   
 }
 .table table:hover{
@@ -321,4 +326,11 @@ textarea{
 }
 .hidden_id {
     display: none;
+}
+#C_description{
+    width: 18rem;
+    color: blue;
+}
+.action{
+    text-align: center;
 }

@@ -8,24 +8,24 @@ const input1 = document.querySelector('#itemtemplate_name');
 const input2 = document.querySelector('#Itemtemplate_name');
 const inputs1 = document.querySelector('#name1');
 const inputs2 = document.querySelector('#name2');
-const statu1 = document.querySelector('#status');
+const statu1 = document.querySelector('#status1');
 const statu2 = document.querySelector('#Status');
 const description1 = document.querySelector('#description');
 const description2 = document.querySelector('#Description');
 
-const districtSelect = document.getElementById("status");
+const districtSelect = document.getElementById("status1");
 
 const district = ['Approved', 'Pending'];
 
 (function populateDistrict() {
-  for (let i = 0; i < district.length; i++) {
-    const option = document.createElement('option');
-    option.textContent = district[i];
-    districtSelect.appendChild(option);
-  }
-  
-  // Set the default value of the select element
-  districtSelect.value = 'Select the status';
+    for (let i = 0; i < district.length; i++) {
+        const option = document.createElement('option');
+        option.textContent = district[i];
+        districtSelect.appendChild(option);
+    }
+
+    // Set the default value of the select element
+    districtSelect.value = 'Select the status';
 })();
 
 //new item template addtion popup view
@@ -40,80 +40,91 @@ const showModal = function (id) {
     console.log("button clicked");
     popupviews[id].classList.remove("hidden");
     overlay.classList.remove("hidden");
-}; 
+};
 
 // Close Modal function
 const closeModal = function (id) {
-  console.log("button clicked");
+    console.log("button clicked");
     popupviews[id].classList.add("hidden");
     overlay.classList.add("hidden");
 };
 
-btnShowRow1.addEventListener("click", function(e){
+btnShowRow1.addEventListener("click", function (e) {
     e.preventDefault();
     showModal("add-item");
-  });
-  btnCloseModal1.addEventListener("click", function(e){
+});
+btnCloseModal1.addEventListener("click", function (e) {
     e.preventDefault();
     closeModal("add-item");
-  
-  });
-  btnCloseModal2.addEventListener("click", function(e){
+
+});
+btnCloseModal2.addEventListener("click", function (e) {
     e.preventDefault();
     closeModal("update-item");
-  });
+});
 
 const table = document.getElementById('categoryTable');
 const rows = table.getElementsByTagName("tr");
 
-function setEventListner(){
-const btnShowRows = document.querySelectorAll(".view");
-btnShowRows.forEach(function (button) {
-    button.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log('click');
-        showModal('update-item');
-        var row = button.closest('tr');
+function setEventListner() {
+    const btnShowRows = document.querySelectorAll(".view");
+    btnShowRows.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log('click');
+            showModal('update-item');
+            var row = button.closest('tr');
 
-        // Get the row ID
-        var rowId = row.id;
+            // Get the row ID
+            var rowId = row.id;
 
-        // Get the values from the row
-        var cell1 = row.getElementsByTagName("td")[1].innerHTML;
-        console.log(cell1);
-       
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', "" + ROOT + "/Moderator/Itemtemplate/editItemtemplate/" + cell1);
-        // console.log(xhr);
-        xhr.onload = function () {
-            if (xhr.status == 200) {
-                const res = xhr.responseText;
-                // console.log(res);
-                const json = JSON.parse(res);
+            // Get the values from the row
+            var cell1 = row.getElementsByTagName("td")[1].innerHTML;
+            console.log(cell1);
 
-                for (var i = 0; i < json.length; i++) {
-                    console.log(json.length);
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', "" + ROOT + "/Moderator/Itemtemplate/editItemtemplate/" + cell1);
+            // console.log(xhr);
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    const res = xhr.responseText;
+                    // console.log(res);
+                    const json = JSON.parse(res);
+                    console.log(json);
 
-                    form2.querySelector("#Itemtemplate_name").value = json[0].itemtemplate_name;
-                    form2.querySelector("#Status").value = json[0].status;
-                    form2.querySelector("#Description").value = json[0].description;
-                    // form2.querySelector("#Upfile").value = json[0].image;
+                    for (var i = 0; i < json.length; i++) {
+                        console.log(json.length);
+
+                        form2.querySelector("#Itemtemplate_name").value = json[0].itemtemplate_name;
+                        form2.querySelector("#Status").value = json[0].status;
+                        form2.querySelector("#Description").value = json[0].description;
+                        // form2.querySelector("#Upfile").value = json[0].image;
+                    }
                 }
             }
-        }
-        console.log(res);
-        xhr.send();
-        
-    })
-});
+            console.log();
+            xhr.send();
+
+        })
+    });
+}
+const btn = document.querySelector(".view-1-button");
+btn.addEventListener('click',function(){
+    ajax_addMaintenances();
+})
+function ajax_addMaintenances(){
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST","" + ROOT + "/Moderator/Itemtemplate/parentMaintenances", "true");
+    console.log(xhr);
+    
 }
 
 const DistrictSelect = document.getElementById("Status");
 
-const District = ['Approved','Pending'];
+const District = ['Approved', 'Pending'];
 
-(function populateDistrict (){
-    for(let i=0; i<District.length; i++){
+(function populateDistrict() {
+    for (let i = 0; i < District.length; i++) {
         const option = document.createElement('option');
         option.textContent = District[i];
         DistrictSelect.appendChild(option);
@@ -129,27 +140,28 @@ document.addEventListener("DOMContentLoaded", function () {
 function ajax_getItems() {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewChildItem", "true");
-    console.log(xhr);
+    // console.log(xhr);
     xhr.onload = function () {
         if (xhr.status == 200) {
             const res = xhr.responseText;
             const json = JSON.parse(res);
             itemtemplateDetails = JSON.parse(res);
             var html = "";
+            console.log(itemtemplateDetails);
 
             for (var i = 0; i < json.length; i++) {
                 console.log(json.length);
 
                 html += "<tr>";
                 html += "<td><input type='checkbox' name='id[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
-                html += "<td class='hidden_id'>"+json[i].id+"</td>";
+                html += "<td class='hidden_id'>" + json[i].id + "</td>";
 
-                html += "<td role='button'><a href='http://localhost/upkeep/upkeep/public/Moderator/Maintenance/maintenanceTasks/"+json[i].id+"'>"+json[i].itemtemplate_name +" </a>";
+                html += "<td role='button'><a href='http://localhost/upkeep/upkeep/public/Moderator/Maintenance/maintenanceTasks/" + json[i].id + "'>" + json[i].itemtemplate_name + " </a>";
 
                 html += "</td>";
-                html += "<td id='status'>"+ json[i].status+"";
+                html += "<td id='status'>" + json[i].status + "";
                 html += "</td>";
-                html += "<td>"+json[i].description+"</td>";
+                html += "<td class='des'>" + json[i].description + "</td>";
                 html += "<td>";
                 html += "<div><button class='view'><span>edit</span></button></div>";
                 html += "</td>";
@@ -158,12 +170,15 @@ function ajax_getItems() {
 
             }
             document.querySelector(".category").innerHTML = html;
+            setEventListner();
         }
     }
     xhr.send();
 
 
 }
+
+
 var totalUsers, itemUsers;
 function ajax_statisticView() {
     const xhr = new XMLHttpRequest();
@@ -183,8 +198,8 @@ function ajax_statisticView() {
             html += "<div class='text-1'>";
             html += "<h2>Item Users</h2></div>";
             html += "<div class='text-2'>";
-            html += "<div class='t1'><h4>Total Users <h3>" + json.total_users + "</h3></h4></div>";
-            html += "<div class='t2'><h4>Item Users <h3>" + json.item_users + "</h3></h4></div>";
+            // html += "<div class='t1'><h4>Total Users <h3>" + json.total_users + "</h3></h4></div>";
+            // html += "<div class='t2'><h4>Item Users <h3>" + json.item_users + "</h3></h4></div>";
             html += " </div></div>";
 
 
@@ -197,8 +212,8 @@ function ajax_statisticView() {
                 datasets: [{
                     data: [totalUsers, itemUsers],
                     backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)'
+                        'lightgreen',
+                        '#B3B4BB;'
 
                     ],
                     hoverOffset: 4
@@ -346,7 +361,7 @@ function ajax_addItem(e) {
     setSmallNull();
     const formItemDetails = document.getElementById("popup-form1");
 
-    checkRequired([input1,description1]);
+    checkRequired([input1, description1, statu1]);
     console.log(input1.value.trim());
     if (errocheckflag == 0) {
         const form = new FormData(formItemDetails);

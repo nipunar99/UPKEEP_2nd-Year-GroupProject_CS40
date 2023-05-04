@@ -119,14 +119,17 @@
                     <table>
                         <thead>
                             <tr>
+                                <th></th>
+                                <th class="hidden_id"></th>
                                 <th>Description</th>
                                 <th>Sub Component</th>
-                                <th>Status</th>
+                                <th>Time Frame(YY|MM|WW)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody class="maintenances_suggestions">
+
+                            <!-- <tr>
                                 <td>Description</td>
                                 <td>Sub Component</td>
                                 <td>Status</td>
@@ -151,7 +154,7 @@
                                 <td>Sub Component</td>
                                 <td>Status</td>
                                 <td>Action</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     </div>
