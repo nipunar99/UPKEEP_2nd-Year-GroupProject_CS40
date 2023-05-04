@@ -6,7 +6,7 @@ closeBtns.forEach((btn)=>{
         closePopup(btn.parentElement.id);
     });
 });
-console.log(ROOT);
+// console.log(ROOT);
 
 
 function openPopup(id){

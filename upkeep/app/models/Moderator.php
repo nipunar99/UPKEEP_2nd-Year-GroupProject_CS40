@@ -11,6 +11,9 @@ class Moderator
         "first_name",
         "last_name",
         "email",
+        "mobile_no",
+        "nic",
+        "address",
         "password",
     ];
 
@@ -51,11 +54,11 @@ class Moderator
         // $data['user_role']='moderator';
         $aa = $this->query($query,$data);
         return $aa;
+}
 
-
-         
-
-
+    public function insertModerator($data){
+        show($data);
+        // $this->insert($data);
     }
 
 

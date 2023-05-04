@@ -224,17 +224,17 @@
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
                 <h1>Add Moderator</h1>
-                <form class="mobile-verify" id="mobile-details" method="post" action="insert.php" enctype="" >
+                <form class="mobile-verify" id="addModerator-details" method="post" >
                     <div class = "mobile-number-input" id="step1">
                         <div class="inline">
                             <div class="input-field">
                                 <label>First Name</label>
-                                <input class="mobile" type="text" id="first_name" name="firstName" required placeholder="First Name" >
+                                <input class="mobile" type="text" id="first_name" name="first_name" required placeholder="First Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
                                 <label>Last Name</label>
-                                <input class="mobile" type="text" id="last_name" name="lastName" required placeholder="Last Name" >
+                                <input class="mobile" type="text" id="last_name" name="last_name" required placeholder="Last Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                         </div>
@@ -259,15 +259,16 @@
                         <div class="inline">
                             <div class="input-field">
                                 <label>Phone Number</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_no" required placeholder="Phone Number" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             
                         </div>
                         
                         <div class="btn-container">
-                            <button id="OTP-send">Add Moderator</button>
+                            <input type="submit" value="Add Moderator" id="addModeratorbtn"> 
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -400,7 +401,10 @@
             </div>
         </div>
     
-       
+       <?php
+            echo "<script> var ROOT = '".ROOT."'; </script>";
+        ?>
+        <script src="<?= ROOT ?>/assets/js/Admin/addModerator.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/adminusers.js"></script>  
         
