@@ -105,6 +105,8 @@
                                     <td><input type="checkbox" name="task_ID[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
                                     <td class="hidden_id" id="task_ID"></td>
                                     <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->    
+                                    
+                                    
                                     <td id="subcomponent">gfrt</td>
                                     <td id="C_description">gfrt</td>
                                     <td id="time_frame">6</td>

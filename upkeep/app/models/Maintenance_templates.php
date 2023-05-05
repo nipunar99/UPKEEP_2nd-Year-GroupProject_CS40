@@ -46,12 +46,14 @@ class Maintenance_templates
     }
     
 
-    public function viewsMaintenanceTasks($id){
-        $query = "select i.description,i.task_ID,i.item_template_id, i.sub_component,i.years,i.months,i.weeks from maintenance_templates i where item_template_id = $id ";
-          
+    public function viewsMaintenanceTasks($id,$parent_id){
+        $query = "select i.description,i.task_ID,i.item_template_id, i.sub_component,i.years,i.months,i.weeks from maintenance_templates i where item_template_id = $id OR item_template_id = $parent_id";
         return $this->query($query);
     }
-
+   public function viewParentMaintenances($id){
+        $query = "select i.description,i.task_ID,i.item_template_id, i.sub_component,i.years,i.months,i.weeks from maintenance_templates i where item_template_id = $id";  
+        return $this->query($query);
+   }
     public function getTaskById($id){
         $arr['task_ID'] = $id;
         $task = $this->where($arr);

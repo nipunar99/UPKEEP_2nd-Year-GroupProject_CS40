@@ -198,9 +198,9 @@ document.addEventListener("DOMContentLoaded", function () {
        
           html += "<tr>";
           html += " <td><input type='checkbox' name='task_ID[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
-          html += " <td class='hidden_id' id='task_ID'>" + json[i].task_ID + "</td>";
-          html += " <td id='subcomponent'>" + json[i].description + "</td>";
-          html += " <td id='C_description'>" + json[i].sub_component + "</td>";
+          html += " <td class='hidden_id' id='task_ID'>" + json[i].task_ID + "</td>";        
+          html += " <td id='subcomponent'>" + json[i].sub_component + "</td>";
+          html += " <td id='C_description'>" + json[i].description + "</td>";
           html += " <td id='time_frame'>" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W </td>";                    
           html += "<td><div  class='btn-container'><button class='edit-maintenance'><span>edit</span></button></div></td>";
           html += "</tr>";

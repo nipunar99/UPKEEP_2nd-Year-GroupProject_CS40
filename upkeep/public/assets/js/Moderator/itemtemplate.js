@@ -88,7 +88,7 @@ const rows = Table.getElementsByTagName("tr");
             console.log(cell1);
 
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', "" + ROOT + "/Moderator/Itemtemplate/editItemtemplate/" + cell1);
+            xhr.open('GET', "" + ROOT + "/Moderator/Itemtemplate/editParentItemtemplate/" + cell1);
             // console.log(xhr);
             xhr.onload = function () {
                 if (xhr.status == 200) {
@@ -102,7 +102,7 @@ const rows = Table.getElementsByTagName("tr");
 
                         form1.querySelector("#itemtemplate_name").value = json[0].itemtemplate_name;
                         form1.querySelector("#Status").value = json[0].status;
-                        // form1.querySelector("#category").value = json[0].category_name;
+                        form1.querySelector("#category").value = json[0].category_name;
                         form1.querySelector("#description").value = json[0].description;
                         // form2.querySelector("#Upfile").value = json[0].image;
                     }

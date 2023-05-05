@@ -32,7 +32,7 @@ class Itemtemplates
     //view parent id null itemtemplates
     public function completeItemTemplate()
     {
-        $query = "select i.image,i.id, i.itemtemplate_name, i.description, i.status,i.moderator_id, c.category_name from itemtemplate i inner JOIN categories c on c.category_id = i.category_id where parent_id IS NULL AND moderator_id > 0";
+        $query = "select i.image,i.id, i.itemtemplate_name, i.description, i.status,i.moderator_id, c.category_name from itemtemplate i inner JOIN categories c on c.category_id = i.category_id where parent_id = 0 AND moderator_id > 0";
 
         return $this->query($query);
     }
@@ -87,6 +87,10 @@ class Itemtemplates
         $item = $this->where($arr);
         return $item;
     }
+    public function getItemtemplateDetails($id){
+        $query = "select *, categories.category_name  from $this->table inner JOIN categories where categories.category_id = $this->table.category_id AND $this->table.id = $id";
+        return $this->query($query);
+    }
     public function pending()
     {
         $query = "select * from $this->table where status='Pending'";
@@ -111,5 +115,6 @@ class Itemtemplates
         $query = "select c.category_name, i.itemtemplate_name, i.image,i.id from $this->table i inner JOIN categories c on i.category_id = c.category_id where moderator_id = 0 AND status='Pending'";
         return $this->query($query);
     }
+    
 }
 

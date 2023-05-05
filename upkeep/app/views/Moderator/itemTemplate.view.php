@@ -142,7 +142,7 @@
                             <th class="category" onclick="sortTable(1)">Item Type </th>
                             <th onclick="sortTable(2)" class="status">Status </th>
                             <th class="description">Description</th>
-                            <th>Action</th>
+                            <th class="action-btn">Action</th>
                         </tr>
                     </thead>
                     <tbody class="details">
