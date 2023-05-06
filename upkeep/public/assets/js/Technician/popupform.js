@@ -32,8 +32,7 @@ function formSuccessfull(id,success_title,success_message){
     });
     popups[id].querySelector('.content#msg').innerHTML = "" +
         "<div class=\"middle\">\n" +
-        "   <div class=\"icon-container\">\n" +
-        "       <span class=\"material-icons-sharp\" id=\"success-icon\">check_circle</span>\n" +
+        "       <svg class=\"checkmark\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 52 52\"><circle class=\"checkmark__circle\" cx=\"26\" cy=\"26\" r=\"25\" fill=\"none\" /><path class=\"checkmark__check\" fill=\"none\" d=\"M14.1 27.2l7.1 7.2 16.7-16.8\" /></svg>\n" +
         "   </div>\n" +
         "   <h1 id=\"success-title\">"+success_title+"</h1>\n" +
         "   <p id=\"success-message\">"+success_message+"</p><br>\n" +
@@ -109,7 +108,7 @@ input_files.forEach((input)=>{
 
 // show input error message
 function showErrors(input, message) {
-    const inputField = input.parentElement;
+    const inputField = input.closest('.input-field');
     inputField.className = 'input-field error';
     const small = inputField.querySelector('small');
     small.innerText = message;
@@ -119,6 +118,16 @@ function clearErrors(popupid) {
     popups[popupid].querySelectorAll('.input-field').forEach((inputField)=>{
         inputField.className = 'input-field';
     });
+}
+
+function clearErrorsForm(form) {
+    form.querySelectorAll('.input-field').forEach((inputField)=>{
+        inputField.className = 'input-field';
+    });
+}
+
+function clearErrorsInput(input) {
+    input.closest('.input-field').className = 'input-field';
 }
 
 //

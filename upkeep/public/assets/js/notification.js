@@ -2,19 +2,21 @@
 console.log("notification.js");
 window.onload = function (){
     notification = new Notification();
+    setTabs();
     // notification.fetchNotifications();
     // notification.LoadNewNotificationsDynamically();
 }
 
 class Notification {
     constructor() {
+        this.rendersidepanel();
         this.notifications = [];
         this.unreadNotifications = [];
         this.unreadNotificationCount = 0;
         this.notificationCount = 0;
         this.lastChecked;//initially time now
         this.notificationList = document.querySelector('#notification-list-unread');
-        this.notificationCountElement = document.getElementById('.notification .badge');
+        this.notificationCountElement = document.querySelector('.notification .badge');
         this.fetchNotifications();
         this.LoadNewNotificationsDynamically();
         // this.notificationCountElement.innerHTML = this.notificationCount;
@@ -23,21 +25,6 @@ class Notification {
         // this.sse = null;
         // this.connect();
     }
-
-    // connect() {
-    //     // Replace with the actual user ID
-    //     console.log(ROOT + "/sse.php?user_id=" + user_id);
-    //     this.sse = new EventSource(ROOT + "/sse.php?user_id=" + user_id);
-    //     // Handle errors
-    //     this.sse.onerror = function (event) {
-    //         console.error("Failed to connect to SSE stream:", event);
-    //     };
-    //     // Handle incoming events
-    //     this.sse.onmessage = function (event) {
-    //         // var data = JSON.parse(event.data);
-    //         console.log(event.data);
-    //     };
-    // }
 
 
     //use set interval to check for new notifications
@@ -60,19 +47,24 @@ class Notification {
                     notifications.forEach(notification => {
                         // Create a new <li> element
                         const li = this.createNotificationElement(notification);
-                        this.notificationList.insertBefore(li, this.notificationList.firstChild);
+                        if(this.notificationList.firstChild != null){
+                            this.notificationList.insertBefore(li, this.notificationList.firstChild);
+                        }else{
+                            this.notificationList.appendChild(li);
+                        }
                     });
 
                     this.notificationCount += notifications.length;
-                    this.unreadNotificationCount += notifications.length;
+                    this.unreadNotificationCount += notifications.filter(notification => notification.read_status == '0').length;
+
                     this.lastChecked = notifications[0].created_at;
+                    this.notificationCountElement.innerHTML = this.unreadNotificationCount;
                 }
                 // notification_class.notificationCountElement.innerHTML = notification_class.notificationCount;
             } else {
                 console.log(xhr.responseText);
             }
         }
-        console.log(this.lastChecked);
         xhr.send();
     }
 
@@ -95,26 +87,33 @@ class Notification {
                 //filling notification panel
                 const notificationList1=document.querySelector('#notification-list-unread');
                 const notificationList2=document.querySelector('#notification-list-history');
-                notifications.forEach(notification => {
-                    // Create a new <li> element
-                    const li = this.createNotificationElement(notification);
-                    if(notification.read_status=='0') {
-                        notificationList1.appendChild(li);
-                    }else if(notification.read_status=='1'){
-                        notificationList2.appendChild(li);
-                    }
-                });
+                if(notifications.length>0) {
+                    notifications.forEach(notification => {
+                        // Create a new <li> element
+                        const li = this.createNotificationElement(notification);
+                        if (notification.read_status == '0') {
+                            notificationList1.appendChild(li);
+                        } else if (notification.read_status == '1') {
+                            notificationList2.appendChild(li);
+                        }
+                    });
 
-                this.notificationCount = notifications.length;
-                this.unreadNotificationCount = notifications.filter(notification => notification.read_status == '0').length;
-                this.lastChecked = notifications[0].created_at;
-                // this.notificationCountElement.innerHTML = this.notificationCount;
+                    this.notificationCount = notifications.length;
+                    this.unreadNotificationCount = notifications.filter(notification => notification.read_status == '0').length;
+                    this.lastChecked = notifications[0].created_at;
+                    this.updateNotificationCount();
+                    // this.notificationCountElement.innerHTML = this.notificationCount;
+                }
             }else{
                 console.log('error');
             }
         }
         xhr.send();
 
+    }
+    updateNotificationCount() {
+        // update the notification count in the notification bell
+        this.notificationCountElement.innerHTML = (this.unreadNotificationCount > 0) ? this.unreadNotificationCount : '';
     }
 
     markAsRead(notificationId) {
@@ -142,7 +141,7 @@ class Notification {
 
         // Create a new <div> element with the "content" class
         var content = document.createElement('div');
-        content.classList.add('content');
+        content.classList.add('notification-content');
 
         // Create a new <div> element with the "title-row" class
         var titleRow = document.createElement('div');
@@ -214,13 +213,112 @@ class Notification {
 
         return li;
     }
+
+    rendersidepanel(){
+        // Create the necessary elements and set their attributes
+        const sidenav = document.createElement('div');
+        sidenav.id = 'mySidenav';
+        sidenav.classList.add('sidenav', 'notification', 'hidden');
+
+        const header = document.createElement('div');
+        header.classList.add('header');
+
+        const center = document.createElement('div');
+        center.classList.add('center');
+
+        const h2 = document.createElement('h2');
+        h2.innerText = 'Notifications';
+
+        const tabs = document.createElement('div');
+        tabs.classList.add('tabs');
+
+        const tab1 = document.createElement('div');
+        tab1.classList.add('tab-item', 'active');
+
+        const tabIcon1 = document.createElement('i');
+        tabIcon1.classList.add('tab-icon', 'fas', 'fa-bell');
+
+        const tabText1 = document.createTextNode('Alert');
+
+        tab1.appendChild(tabIcon1);
+        tab1.appendChild(tabText1);
+
+        const tab2 = document.createElement('div');
+        tab2.classList.add('tab-item');
+
+        const tabIcon2 = document.createElement('i');
+        tabIcon2.classList.add('tab-icon', 'fas', 'fa-clock');
+
+        const tabText2 = document.createTextNode('History');
+
+        tab2.appendChild(tabIcon2);
+        tab2.appendChild(tabText2);
+
+        const line = document.createElement('div');
+        line.classList.add('line');
+
+        const closeBtn = document.createElement('span');
+        closeBtn.classList.add('closebtn');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.onclick = function() {
+            sidenav.classList.add('hidden');
+        }
+
+        const tabContent = document.createElement('div');
+        tabContent.classList.add('tab-content');
+
+        const tabPane1 = document.createElement('div');
+        tabPane1.classList.add('tab-pane', 'active');
+        tabPane1.id = '';
+
+        const ol1 = document.createElement('ol');
+        ol1.id = 'notification-list-unread';
+
+        const tabPane2 = document.createElement('div');
+        tabPane2.classList.add('tab-pane');
+        tabPane2.id = '';
+
+        const ol2 = document.createElement('ol');
+        ol2.id = 'notification-list-history';
+
+// Append the elements to their appropriate parent elements
+        center.appendChild(h2);
+        header.appendChild(center);
+
+        tabs.appendChild(tab1);
+        tabs.appendChild(tab2);
+        tabs.appendChild(line);
+
+        header.appendChild(tabs);
+        header.appendChild(closeBtn);
+
+        tabPane1.appendChild(ol1);
+        tabPane2.appendChild(ol2);
+
+        tabContent.appendChild(tabPane1);
+        tabContent.appendChild(tabPane2);
+
+        sidenav.appendChild(header);
+        sidenav.appendChild(tabContent);
+
+// Add the completed element to the body of the HTML document
+//         document.querySelector('.notification-side-panel').appendChild(sidenav);
+        document.body.appendChild(sidenav);
+
+    }
 }
 
-// create an instance of the Notification class
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").classList.remove('hidden');
+    // document.getElementById('overlay').classList.remove('hidden');
+}
 
-
-// setTimeout(notification.fetchNotifications(),100000);
-
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").classList.add('hidden');
+    // document.getElementById('overlay').classList.add('hidden');
+}
 
 
 //additional Functions

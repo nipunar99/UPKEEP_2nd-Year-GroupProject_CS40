@@ -1,5 +1,9 @@
 //new orders
 //ACCEPT JOB
+window.onload = function() {
+    setTabs();
+}
+
 const accept_main = document.querySelectorAll('.accept_main');
 const accept_popup = document.querySelector('.accept_popup');
 

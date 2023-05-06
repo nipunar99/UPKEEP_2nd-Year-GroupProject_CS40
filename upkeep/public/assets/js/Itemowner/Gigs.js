@@ -33,7 +33,7 @@ function ajax_getItems(){
                 html += "<div class='gig-card'>";
                 html += "            <div class='middle'>";
                 html += "                <div class='technician-profile'>";                                
-                html += "                    <div class='profile-pic'>";
+                html += "                    <div class='profilepic'>";
                 html += "                        <img src='http://localhost/upkeep/upkeep/public/assets/images/profile-2.jpg'>";
                 html += "                    </div>";
                 html += "                    <div class='profile-info'>";

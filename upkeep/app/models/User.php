@@ -14,12 +14,22 @@ class User
     ];
 
     protected $validationRules = [
+        'first_name' => [
+            'alpha',
+            'required',
+        ],
+
+        'last_name' => [
+            'alpha',
+            'required',
+        ],
 
         'email' => [
             'email',
             'unique',
             'required',
         ],
+
         'username' => [
             'alpha',
             'required',
@@ -30,21 +40,6 @@ class User
         ],
     ];
 
-    public function validate($data){
-        $this->errors =[];
-        
-        
-        if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
-            $this->errors['email'] ="Email is not valid";
-        }
-        
-        if(empty($this->errors)){
-
-            return true;
-        }
-
-        return false;
-    }
 
     public function loginValidate($data){
         $this->errors =[];
@@ -139,5 +134,56 @@ class User
         $n=$this->countAllWhereUserName($user_name);
         $user_name=$user_name.$n;
         return $user_name;
+    }
+
+    public function getProfileDataForUser($user_id){
+        if($_SESSION['user_role']!='technician'){
+            $result = $this->where(['user_id' => $user_id]);
+        }else{
+            $query = "SELECT * FROM $this->table u 
+                        INNER JOIN technicians t 
+                        ON u.user_id = t.user_id 
+                        WHERE u.user_id = :user_id";
+
+            $result= $this->query($query,['user_id' => $user_id]);
+        }
+        return $result[0];
+    }
+
+    public function updateProfile($user_id,$data){
+        $this->update($user_id,$data,'user_id');
+        return $this->getProfileDataForUser($user_id);
+    }
+
+    public function hasProfilePicture($user_id){
+        $profile_picture = $this->getColumns(['profile_picture'],['user_id' => $user_id]);
+        if($profile_picture[0]->profile_picture == null){
+            return false;
+        }else{
+            return $profile_picture[0]->profile_picture;
+        }
+    }
+
+    public function removeProfilePicture($user_id){
+        $this->update($user_id,['profile_picture' => null],'user_id');
+    }
+
+    public function validatePassword($user_id, $currentPassword)
+    {
+        $user = $this->getUserById($user_id);
+        if (password_verify($currentPassword, $user->password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function validateNewPassword($newPassword, $confirmPassword)
+    {
+        if ($newPassword == $confirmPassword) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

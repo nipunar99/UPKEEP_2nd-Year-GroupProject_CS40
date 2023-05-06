@@ -1,12 +1,12 @@
 //...............................slide bar.......................
 const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
-const closeBtn = document.querySelector("#close-btn");
+const  closebt= document.querySelector("#close-btn");
 
 menuBtn.addEventListener("click", () => {
     sideMenu.style.display = "block";
 })
- closeBtn.addEventListener("click", () => {
+ closebt.addEventListener("click", () => {
     sideMenu.style.display = "none";
 })
 //...............................................................
@@ -24,3 +24,10 @@ itempannelclosebtn.addEventListener('click', () => {
     itempannel.classList.remove("animateOpenRight");
     itempannel.classList.add("animateCloseRight");
 })
+
+//community class structure with post and comment classes fully OOP
+
+
+
+
+

@@ -51,17 +51,6 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 
 
 
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").classList.remove('hidden');
-    // document.getElementById('overlay').classList.remove('hidden');
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").classList.add('hidden');
-    // document.getElementById('overlay').classList.add('hidden');
-}
 
 
 

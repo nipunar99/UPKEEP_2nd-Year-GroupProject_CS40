@@ -1,4 +1,5 @@
 @import "general.css";
+@import "tabs.css";
 /*header*/
 .notification .header{
     height: max-content;

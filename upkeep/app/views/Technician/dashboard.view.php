@@ -182,7 +182,7 @@
                     <div class="notification">
                         <div>
                             <span class="material-icons-sharp" onclick="openNav()">notifications</span>
-                            <span class="badge">3</span>
+                            <span class="badge"></span>
                         </div>
                     </div>
 
@@ -297,42 +297,43 @@
         </div>
     </div>
 
-    <div id="mySidenav" class="sidenav notification hidden">
-        <div class="header">
-            <div class="center">
-                <h2>Notifications</h2>
-            </div>
-            <div class="tabs">
-                <div class="tab-item active">
-                    <i class="tab-icon fas fa-bell"></i>
-                    Alert
-                </div>
-                <div class="tab-item">
-                    <i class="tab-icon fas fa-clock"></i>
-                    History
-                </div>
-                <div class="line"></div>
-            </div>
-            <span class="closebtn" onclick="closeNav()">&times;</span>
-        </div>
-        <div class="tab-content" >
-            <div class="tab-pane active" id="">
-                <ol id="notification-list-unread">
-
-                </ol>
-
-
-            </div>
-
-            <div class="tab-pane" id="">
-                <ol id="notification-list-history">
-
-                </ol>
-
-            </div>
-        </div>
-
-    </div>
+    <div class="notification-side-panel"></div>
+<!--    <div id="mySidenav" class="sidenav notification hidden">-->
+<!--        <div class="header">-->
+<!--            <div class="center">-->
+<!--                <h2>Notifications</h2>-->
+<!--            </div>-->
+<!--            <div class="tabs">-->
+<!--                <div class="tab-item active">-->
+<!--                    <i class="tab-icon fas fa-bell"></i>-->
+<!--                    Alert-->
+<!--                </div>-->
+<!--                <div class="tab-item">-->
+<!--                    <i class="tab-icon fas fa-clock"></i>-->
+<!--                    History-->
+<!--                </div>-->
+<!--                <div class="line"></div>-->
+<!--            </div>-->
+<!--            <span class="closebtn" onclick="closeNav()">&times;</span>-->
+<!--        </div>-->
+<!--        <div class="tab-content" >-->
+<!--            <div class="tab-pane active" id="">-->
+<!--                <ol id="notification-list-unread">-->
+<!---->
+<!--                </ol>-->
+<!---->
+<!---->
+<!--            </div>-->
+<!---->
+<!--            <div class="tab-pane" id="">-->
+<!--                <ol id="notification-list-history">-->
+<!---->
+<!--                </ol>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--    </div>-->
 
     <div class="overlay hidden" id="overlay"></div>
 
@@ -342,6 +343,7 @@
         let piechart_data = JSON.stringify(<?=$piechart_data?>);
         let barchart_data = JSON.stringify(<?=$barchart_data?>);
     </script>
+
 
     <script src="<?=ROOT?>/assets/js/main.js"></script>
     <script src="<?=ROOT?>/assets/js/Technician/dashboard.js  "></script>

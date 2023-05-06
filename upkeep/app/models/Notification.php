@@ -21,7 +21,7 @@ class Notification
 
     //get notifications after last check
     public function getNewNotifications($user_id, $last_check){
-        $query= "select * from $this->table where user_id = :user_id and created_at > :last_check";
+        $query= "select * from $this->table where user_id = :user_id and created_at > :last_check and read_status = 0";
         $notifications = $this->query($query, ['user_id'=>$user_id, 'last_check'=>$last_check]);
         return $notifications;
     }
