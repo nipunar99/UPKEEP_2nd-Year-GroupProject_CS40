@@ -182,6 +182,7 @@ console.log(xhr);
         }
         html += "" + json[i].status + "</td>";
         html += "<td class='des_color'>" + json[i].description + "</td>";
+        // html +="<td class='u_count'>"+json[i].user_count+"</td>";
         html += "<td>";
         html += "<div class='more'>  ";                        
         html += "<div class='view'><a href='http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewItem/"+json[i].id+"'><button class='view'>view</a></button></div>&nbsp;<div class='delete'><button class='edit'>edit</button></div>";

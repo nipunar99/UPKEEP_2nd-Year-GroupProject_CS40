@@ -40,4 +40,9 @@ class Moderatordashboard {
         echo($result1);
 
     }
+    public function itemsuggestions(){
+        $suggestions = new Itemtemplates;
+        $result = json_encode($suggestions->getSuggestionDetails());
+        echo $result;
+    }
 }

@@ -142,6 +142,7 @@
                             <th class="category" onclick="sortTable(1)">Item Type </th>
                             <th onclick="sortTable(2)" class="status">Status </th>
                             <th class="description">Description</th>
+                            <!-- <th class="user_count">Item Users</th> -->
                             <th class="action-btn">Action</th>
                         </tr>
                     </thead>
@@ -156,6 +157,7 @@
                             <td>abc</td>
                             <td id="status" class="primary">pending</td>
                             <td class="des_color">btre </td>
+                            <!-- <td class="u_count">100</td> -->
                             <td>
                                 <div class="more">
                                     <div class="view"><a href="<?= ROOT ?>/Moderator/Item/viewItem"><button class="view">view</a></button>

@@ -79,48 +79,60 @@
 
             <div class="insight">
                 <div class="card-main">
-                    <div class="view-1">
-                        <div class="img">
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
+                    <div class="view-details">
+                        <div class="view-1">
+                            <div class="img">
+                                <img src="<?= ROOT ?>/assets/images/item1.png">
+                            </div>
+
                         </div>
 
-                    </div>
 
-                </div>
-                <div class="view-2">
+                        <div class="view-2">
 
-                    <div class="view-1-text">
-                        <h1>Non Inverter</h1>
-                        <div class="name">
-                            <h5>Template Name</h5>
-                            <p>T_34235 Air Conditioner</p>
-                        </div>
-                        <div class="type">
-                            <h5>Item Type</h5>
-                            <p>Air Conditioner</p>
-                        </div>
-                        <div class="date">
-                            <h5>Added date</h5>
-                            <p>01/11/2022 </p>
-                        </div>
-                        <div class="lifespan">
-                            <h5>Esti.li.span</h5>
-                            <p>10 Years</p>
+                            <div class="view-1-text">
+                                <h1>Non Inverter</h1>
+                                <div class="name">
+                                    <h3>Template Name</h3>
+                                    <h3>T_34235 Air Conditioner</h3>
+                                </div>
+                                <div class="type">
+                                    <h3>Item Type</h3>
+                                    <h3>Air Conditioner</h3>
+                                </div>
+                                <div class="date">
+                                    <h3>Added date</h3>
+                                    <h3>01/11/2022 </h3>
+                                </div>
+                                <div class="brand">
+                                    <h3>Brand</h3>
+                                    <h3>Samsung</h3>
+                                </div>
+                                <div class="description">
+                                    <h3>Description</h3>
+                                    <h3>Samsung</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="view-1-button">
-                        <button>
-                            <div class="approve">Approve</div>
-                        </button>
-                        <button>
-                            <div class="delete">Delete</div>
-                        </button>
-                    </div>
+                            <div class="view-1-button">
+                                <button>
+                                    <div class="approve">Approve</div>
+                                </button>
+                                <button>
+                                    <div class="delete">Delete</div>
+                                </button>
+                            </div>
+                        <!-- </div> -->
                 </div>
                 <div class="maintenances">
                     <h2>Ongoing maintenances</h2>
+                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
+                    <span>
+                        <div class="subcategory"><button>Add maintenance task </button></div>
+                    </span>
                     <div class="table">
-                        <table>
+                        <table id="maintenance-table">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -151,60 +163,188 @@
 
                 </div>
         </main>
-        <div class="popupview1 hidden">
+        <div class="popupview popupview1 hidden" id="approve-btn">
             <button class="closebtn1">&times;</button>
             <div class="popup-text1">
                 <div class="1">
                     <!-- <span class="material-icons-sharp">view_in_ar</span> -->
-                    <h4>Do you want to approve the item?</h4>
+                    <h2>Do you want to approve the item?</h2>
                     <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
                 </div>
-                <!-- <div class="2">
-                <span class="material-icons-sharp">chat_bubble_outline</span>
-                <h4>Maintenance task</h4>
-                <h4><b>Replace HAVC air filters</b></h4>
-            </div>
-            <div class="3">
-                <span class="material-icons-sharp">construction</span>
-                <h4>Sub Component</h4>
-                <h4><b>Air filter</b></h4>
-            </div> -->
+
             </div>
             <div class="actions">
-                <button>Add to template</button>
+                <button id="add-btn">Add to template</button>
                 <!-- <button>Edit</button> -->
-                <button>Reject</button>
+                <button id="reject-btn">Reject</button>
             </div>
-            <div class="popupview2 hidden">
-                <button class="closebtn2">&times;</button>
-                <div class="popup-text2">
-                    <div class="2">
-                        <!-- <span class="material-icons-sharp">view_in_ar</span> -->
-                        <h4>Do you want to remove the item?</h4>
-                        <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
-                    </div>
-                    <!-- <div class="2">
-                <span class="material-icons-sharp">chat_bubble_outline</span>
-                <h4>Maintenance task</h4>
-                <h4><b>Replace HAVC air filters</b></h4>
-            </div>
-            <div class="3">
-                <span class="material-icons-sharp">construction</span>
-                <h4>Sub Component</h4>
-                <h4><b>Air filter</b></h4>
-            </div> -->
-                </div>
-                <div class="actions">
-                    <button>Yes</button>
-                    <!-- <button>Edit</button> -->
-                    <button>No</button>
-                </div>
-            </div>
-
-
-            <div class="overlayview hidden"></div>
         </div>
-        <script src="<?= ROOT ?>/assets/js/Moderator/itemsuggestions.js"></script>
+        <div class="popupview popupview2 hidden" id="cancel-btn">
+            <button class="closebtn2">&times;</button>
+            <div class="popup-text2">
+                <div class="2">
+                    <!-- <span class="material-icons-sharp">view_in_ar</span> -->
+                    <h2>Do you want to remove the item?</h2>
+                    <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
+                </div>
+
+            </div>
+            <div class="actions">
+                <button id="yes-btn">Yes</button>
+                <!-- <button>Edit</button> -->
+                <button id="no-btn">No</button>
+            </div>
+        </div>
+        <div class="popupview hidden" id="add-maintenance">
+            <button class="closebtn closebtn1">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" enctype="multipart/form-data" id="popup-form1">
+                    <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        <input type="hidden" name="item_template_id" id="rowid-input">
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea rows="3" cols="90" name="description" id="description" required placeholder="Enter maintenance task"></textarea>
+                            <small></small>
+                        </div>
+
+
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Image">
+                        </div>
+
+                        <h2>Time frame</h2>
+
+                        <div class="middleInput">
+
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" min="0" max="10" name="years" id="years" placeholder="Years">
+                                <small></small>
+                            </div>
+
+
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" min="0" max="12" name="months" id="months" placeholder="Months">
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" min="0" max="4" name="weeks" id="weeks" placeholder="Weeks">
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Status</span>
+                                <select name="status" id="status"></select>
+                                <small></small>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="button">
+                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn">
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+
+        <div class="popupview hidden" id="update-maintenance">
+            <button class="closebtn closebtn2">&times;</button>
+
+            <div class="content content1">
+
+                <form id="popup-form2" method="post" action="#" class="fm">
+                    <h2>Update Maintenance Details</h2>
+                    <div class="itemDetails">
+                        <!-- <input type="hidden" name="operation" value=" 'update'"> -->
+                        <input type="hidden" name="task_ID" id="rowid_input1">
+                        <input type="hidden" name="item_template_id" id="rowid-input2">
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="Sub_component" required placeholder="Enter Sub component">
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea rows="3" cols="100" name="description" id="Description" required placeholder="Enter maintenance task"></textarea>
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Image">
+                        </div>
+
+                        <h2>Time frame</h2>
+
+                        <div class="middleInput">
+
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" min="0" max="10" name="years" id="Years" placeholder="Years">
+                                <small></small>
+                            </div>
+
+
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" min="0" max="12" name="months" id="Months" placeholder="Months">
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" min="0" max="4" name="weeks" id="Weeks" placeholder="Weeks">
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Status</span>
+                                <select name="status" id="Status"></select>
+                                <small></small>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="button">
+                            <input type="submit" value="Update Maintenance" id="updateMaintenancebtn">
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+        <div class="overlayview hidden"></div>
+    </div>
+    <script>
+        const ROOT = "<?= ROOT ?>";
+    </script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/itemsuggestions.js"></script>
     </div>
 </body>
 

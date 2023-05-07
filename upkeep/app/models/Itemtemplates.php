@@ -32,8 +32,8 @@ class Itemtemplates
     //view parent id null itemtemplates
     public function completeItemTemplate()
     {
-        $query = "select i.image,i.id, i.itemtemplate_name, i.description, i.status,i.moderator_id, c.category_name from itemtemplate i inner JOIN categories c on c.category_id = i.category_id where parent_id = 0 AND moderator_id > 0";
-
+        // $query = "select i.image,i.id, i.itemtemplate_name, i.description, i.status,i.moderator_id, c.category_name,COUNT(it.item_type) AS user_count from $this->table i inner JOIN categories c on c.category_id = i.category_id left JOIN items it on it.item_template_id = i.id where i.parent_id = 0 AND i.moderator_id > 0 ";
+        $query = "select i.image,i.id, i.itemtemplate_name, i.description, i.status,i.moderator_id, c.category_name from $this->table i inner JOIN categories c on c.category_id = i.category_id where i.parent_id = 0 AND i.moderator_id > 0 ";
         return $this->query($query);
     }
 
@@ -112,9 +112,12 @@ class Itemtemplates
     }
 
     public function getSuggestionDetails(){
-        $query = "select c.category_name, i.itemtemplate_name, i.image,i.id from $this->table i inner JOIN categories c on i.category_id = c.category_id where moderator_id = 0 AND status='Pending'";
+        $query = "select c.category_name, i.itemtemplate_name, i.image,i.id,i.description from $this->table i inner JOIN categories c on i.category_id = c.category_id where moderator_id = 0 AND status='Pending'";
         return $this->query($query);
     }
-    
+    // public function updateItemTemplate($id){
+    //     $query = "update $this->table set status = 'Approved', moderator_id = '$_SESSION['user_id']' where id = $id";
+    //     return $this->query($query);
+    // }
 }
 

@@ -17,18 +17,8 @@
     <div class="container">
         <aside>
             <div class="top">
-
-                <!-- <div class="logo"> -->
                 <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
                 <img src="<?= ROOT ?>/assets/images/title.png" alt="">
-                <!-- </div> -->
-
-                <!-- <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                        </span>
-                </div> -->
-
             </div>
             <div class="sidebar">
                 <a href="#" class="active">
@@ -56,23 +46,6 @@
                     <h3>Statistics</h3>
                 </a>
 
-                <!-- <a href="#">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Logout</h3>
-                </a> -->
-
-                <!-- 
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
-                    <span class="message-count">11</span>
-                </a> -->
-
-                <!-- <a href="#">
-                    <span class="material-icons-sharp">settings</span>
-                    <h3>Settings</h3>
-                </a> -->
-
                 <a href="<?= ROOT ?>/Signout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
@@ -86,7 +59,6 @@
         <main>
             <div class="header nbs">
                 <div class="left">
-
                 </div>
                 <div class="center">
                     <h1>Dashboard</h1>
@@ -110,11 +82,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="date">
-                <p>14/11/2022</p>
-            </div> -->
-
             <div class="insight">
                 <div class="mainDisplay1">
                     <span class="material-icons-sharp">analytics</span>
@@ -153,7 +120,7 @@
                                 <th>Description</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="suggestion_table">
                             <tr>
                                 <td class="name">T_10001</td>
                                 <td class="primary">Air Conditioner</td>
@@ -231,9 +198,10 @@
                 </div>
             </div>
         </main>
-
     </div>
+    <script>
+        const ROOT = "<?=ROOT?>";
+    </script>
     <script src="<?= ROOT ?>/assets/js/Moderator/moderatordashboard.js"></script>
 </body>
-
 </html>

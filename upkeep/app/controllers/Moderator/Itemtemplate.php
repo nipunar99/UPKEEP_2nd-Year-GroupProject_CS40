@@ -181,7 +181,7 @@ class Itemtemplate
         $_SESSION['i_id'] = $item_id;
         $item_template = new Itemtemplates;
         $item = $item_template->getItemtemplateDetails($id[0]);
-        $update_item = json_encode($item);;
+        $update_item = json_encode($item);
         echo ($update_item);
     }
 }

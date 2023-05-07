@@ -10,12 +10,10 @@
     padding: 0;
     outline: 0;
     text-decoration: none;
-    /* appearance: none; */
     border: 0;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    /* overflow-x: auto; */
 }
 
 html {
@@ -23,8 +21,7 @@ html {
   }
 
 
-.container{
-   
+.container{ 
     width: 100%;
     margin: 0 auto;   
     grid-template-columns: 17rem auto;
@@ -39,26 +36,9 @@ h1{
     color: deepskyblue;
 }
 
-
-
-
-
-
-
-
-
-
-/* sidebar css */
-
-
-
-
-/* MAIN CSS */
-
 main h1{
     text-align: center;
 }
-
 main .toolbar{
     display: flex;
     justify-content: center;
@@ -81,10 +61,6 @@ main .toolbar button:hover{
 main .toolbar .addItem{
     background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
 }
-/* main .toolbar .availItem{
-    background: #B3B4BB;
-}
- */
 main .toolbar .filter{
     height: 2.5rem;
 }
@@ -105,7 +81,6 @@ main .insight > div{
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
-    /* box-shadow: var(--box-shadow); */
     transition: all 300ms ease;
 }
 
@@ -114,10 +89,7 @@ main .insight >div:hover{
 }
 
 main .insight >div span{
-    /*background: var(--color-primary);
-    *//*padding: 0.5rem;
-    border-radius: 50%;
-    */color: var(--color-white);
+    color: var(--color-white);
     font-size: 2rem;
     border-radius:20% ;
    
@@ -141,16 +113,11 @@ main .insight .progress{
     height: 92px;
     border-radius: 50%;
 }
-/* tr:nth-child(even) {
-  background-color: #e3e0e0;
-}
 
 /* Select the first row */
 tr:nth-child(odd) {
   background-color: none;
 } */
-
-/* Recent orders */
 
  main .itemTemplateList{
     margin-top: 0.9rem;
@@ -177,38 +144,17 @@ main .itemTemplateList table:hover{
 
 main table thead th{
     color:#626473;
-    font-size: 1rem;
-    
-    
+    font-size: 1rem;    
 }
-/* .items{
-    width: 10px;
-} */
 .details .template_name{
-
-  height: 72px;
-  
+  height: 72px; 
   display: flex;
   align-items: center;
- /* display: grid;
- grid-template-columns: 3rem auto; */
- /* display: flex;
- height: 3rem;
- align-items: center;
- width: 5px;
- justify-content: flex-start; */
- /* flex-wrap: nowrap;
- justify-content: flex-end; */
-  
 }
 .details .template_name img{
     width: 50px;
     height: 38px;
-    /* border: 2px #4012e6; */
     margin-right: 15px;
-    /* border-radius: 30%; */
-    /* border:2px #626473; */
-  
 }
 .hidden_id {
     display: none;
@@ -250,17 +196,8 @@ main .more{
     display: flex;
     
 }
-.view{
-    
-    /* height:min-content; */
-    /* height: 30%; */
-    /* position: relative;
-    bottom: 0rem; */
-    /* height: 10rem; */
-    /* display: flex; */
-}
+
 .delete{
-    /* position: relative; */
     top: -1rem;
 }
 .description{
@@ -284,10 +221,6 @@ main .more{
 
     font-family: 'Poppins', sans-serif;
 }
-
-/* Right CSS */
-
-
 .text, ul{
     display: flex;
     justify-content: center;
@@ -295,159 +228,21 @@ main .more{
     left: -2rem;
     text-align: center;
     vertical-align: middle;
-    /* margin-bottom: 2rem; */
 
 }
- /* .template_name{
-    display: grid;
-    grid-template-columns: auto auto;
-} */
-/* .image{
-    display: flex;
-    position: relative;
-    left: 5rem;
-    gap: 1rem;
-}
-.name{
-    display: flex;
-    flex-direction: column;
-    /* position: relative;
-    left: 9rem; */
-    
- */
-
-
 
 .more{
     display: grid;
     position: relative;
-    left: 7rem;
+    left: 1rem;
 }
-/* .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  } */
-  
-  /* .dropdown-content option {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown option:hover
-   {background-color: #ddd;
-
-}
-  .show 
-  {display: block;
-} */
-/* ul{
-    position: absolute;
-} */
-/* .right .recent-updates{
-    margin-top: 1rem;
-}
-
-.right .recent-updates h2{
-    margin-bottom: 0.5rem;
-}
-
-.right .recent-updates .updates{
-    background: var(--color-white);
-    padding: 1.2rem;
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-    height: 36vh;
-    overflow-y: scroll;
-}
-
-.right .recent-updates .updates .update{
-    display: grid;
-    grid-template-columns: 2.6rem auto;
-    gap: 1rem;
-    margin-bottom: 1rem;
-} */
- /* .item-details{
-    margin-top: 1rem;
-}
-
- .item-details h2{
-    margin-bottom: 0.5rem;
-}
-
-.item-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--color-white);
-    padding: 1.2rem;
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-    height: 87vh;
-    padding-top: 0;
-}
-
-.item-details .image-container{
-    padding: 20px;
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-} */
-
-/* .details>div:nth-child(4) {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-}
-
-.details>div{
-    margin-top: 1rem;
-}
-.details div p{
-    position: relative;
-    left:1rem;
-}
-.details>div>div{
-    margin-bottom: 1rem;
-} */
 th .status {
-    /* background-color: #4CAF50; */
     color: white;
     padding: 14px;
     font-size: 16px;
     border: none;
     cursor: pointer;
   }
-  
-  /* .dropdown {
-    position: relative;
-    display: inline-block;
-  } */
-  
   .dropdown-content {
     display: none;
     position: absolute;
@@ -530,14 +325,13 @@ th .status {
 }
 .edit{
     display: flex;
-    /*flex-direction: column;
-    */gap: 2rem;
+    gap: 2rem;
     margin-left: 4rem;
     background: rgba(0, 217, 101, 0.7);
     display: inline-block;
     border-radius: 10px;
     position: relative;
-    right: 0rem;
+    right: 2rem;
     padding: 0.3rem 2rem;
     color: white;
     font-weight: 500;
@@ -561,6 +355,7 @@ th .status {
     transition: all 300ms ease;
 }
 .action-btn{
+    width: 5rem;
     text-align: center;
 }
 .erroInput{
@@ -569,33 +364,10 @@ th .status {
 small{
     color: #ff7782 !important;
 }
-/* .popup-text >div{
-    display: grid;
-    grid-template-columns: 2rem 12rem 18rem;
-    gap: 1.5rem;
-} */
-/* tbody tr:nth-child(2n+1) {
-    background-color: #f7f5f5; 
-  } */
-  
-  /* tbody tr:nth-child(2n) {
-    background-color: #fff; 
-  } */
-  
-  /* tbody tr:nth-child(3n+1) {
-    background-color: #f6f1f1; 
-  } */
   table {
   
   border-spacing: 0;
 }
-/* .view{
-    background-color: #fff;
-} */
-/* .delete{
-    color: #fff;
-} */
- 
  .view .view {
     display: flex;
     /*flex-direction: column;
@@ -749,13 +521,6 @@ form .button input:hover{
     border-bottom-width: 2px;
     transition: all 300ms ease;
 }  
-/* .more{
-    display: grid;
-    position: relative;
-    left: 7rem;
-} */
-
-/* Right CSS */
 .hidden_id{
     display: none;
 }
@@ -770,3 +535,6 @@ textarea{
     border-radius: 4px;
     resize: vertical;
 }
+/* .user_count{
+    width: 5rem;
+} */

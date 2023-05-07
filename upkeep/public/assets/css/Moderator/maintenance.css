@@ -52,8 +52,6 @@ small{
     padding-top: 2rem;
 }
 span .subcategory button{
-  
-  
     position: absolute;
     right: 52px;
     bottom: 630px;
@@ -66,7 +64,7 @@ span .subcategory button{
     font-weight: 500;
     transition: all 300ms ease;
 }
- span .subcategory button:hover{
+span .subcategory button:hover{
     transform: scale(1.1);
     
 }   

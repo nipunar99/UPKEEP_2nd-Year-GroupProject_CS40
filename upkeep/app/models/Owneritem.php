@@ -74,4 +74,12 @@ class Owneritem {
         $query = "select MAX(item_id) as 'id' from items";
         return $this->query($query);
     }
+    public function getSuggesttedItemDetails($id){
+        $query = "select i.item_name, i.image, i.item_type, i.brand, i.purchase_date, i.description from $this->table i where item_template_id = $id";
+        return $this->query($query);
+    }
+    public function getItemId($id){
+        $query = "select item_id from $this->table where item_template_id = $id";
+        return $this->query($query);
+    }
 }
