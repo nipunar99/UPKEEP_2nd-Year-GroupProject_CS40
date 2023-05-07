@@ -4,9 +4,7 @@ var MaintainTaskjson = null;
 var ongoingReminders = null;
 var overdueReminders = null;
 
-//validataion checking flag
-var errocheckflag = 0;
-//////////////////////////
+
 
 const deleteMsg = document.querySelector(".deleteMsg");
 const confirmbtn = document.querySelector(".confirmbtn");
@@ -40,7 +38,7 @@ const main1 = document.querySelector(".main1");
 const main2 = document.querySelector(".main2");
 const main3 = document.querySelector(".main3");
 const main4 = document.querySelector(".main4");
-const right = document.querySelector(".right");
+const right = document.getElementById("right");
 const container = document.querySelector(".container");
 const backbtn = document.querySelector(".back");
 const backbtn2 = document.querySelector(".back2");
@@ -65,6 +63,9 @@ menuBtn.addEventListener("click", () => {
 
 
 /////////////////////////////////Valideation check functions //////////////////////////////////////////////
+//validataion checking flag
+var errocheckflag = 0;
+//////////////////////////
 
 function showError(input, message) {
     errocheckflag++;
@@ -443,7 +444,7 @@ function ajax_getAllReminders(){
                 for (var i = 0; i < json.length; i++) {
                     html+= "<div onclick='loadupcomeview("+(i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
-                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+truncateString(json[i].description,30)+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span>";
                 html+= "<h4>"+json[i].start_date+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
@@ -453,14 +454,15 @@ function ajax_getAllReminders(){
                 
                 html+= "<div  class='upcomepopupview"+(i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
                 
-                html+= "<div class='maintenaceview"+(i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
+                html+= "<div class='maintenaceview"+(i+1)+"'> <div class='content'>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
                 html+= "<h2 id='itemid"+(i+1)+"'style='display: none;'>"+json[i].item_id+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
+                html+= "<div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div>"
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
                 html+= "<h2 id='taskID"+(i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2>";
-                html+= "<div class='action_btn'><button class='complete' onclick='completeTask("+(i+1)+")'>Complete</button> <button class='edit' >Edit</button> <button class='cancel' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button class='complete' onclick='completeTask("+(i+1)+")'>Complete</button> <button class='cancel' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(i+1)+"'>";
@@ -516,10 +518,10 @@ function ajax_getAllOverdueReminders() {
             for(var i=0; i<json.length; i++){
                 html+= "<div onclick='loadupcomeview("+(firstIndex+i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
-                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+truncateString(json[i].description,30)+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span>";
                 html+= "<h4>"+json[i].start_date+"</h4></div>";
-                html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+truncateString(json[i].sub_component,15)+"</h4></div>";
                 html+= "<div class='maintenanceStatus'><span class='material-icons-sharp'>error_outline</span>";
                 html+= "<h4>Pending</h4></div></div>";
                 html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
@@ -1054,13 +1056,14 @@ function ajax_loadDocumentation(){
             var html = "";
             if (json.length > 0){
                 for (var i = 0; i < json.length; i++) {
-                    html += "<div onclick='loadImage("+(i+1)+")'>";
-                    html += "            <img src='"+ROOT+"/assets/images/uploads/"+json[i].file_name+"'>";
+                    html += "<div>";
+                    html += "            <img onclick='loadImage("+(i+1)+")' src='"+ROOT+"/assets/images/uploads/"+json[i].file_name+"'>";
 
                     let oprateString = json[i].document_name; // replace "_" to Space
                     let fileName = oprateString.replace(/_/g, " ").split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
                     html += "            <h3>"+fileName+"</h3>";
+                    html += " <button onclick='deleteDocumentForm("+json[i].document_id+")' class='deleteDoc'>Delete</button>";
                     html += "</div>";
                 }   
             }else{
@@ -1084,6 +1087,7 @@ function loadImage(i){
     document.querySelector(".imgeView").innerHTML = html;
 
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -1131,9 +1135,35 @@ function ajax_addDocumentation(e){
         formdocfiles.reset();
         ajax_loadDocumentation();
     }
+    ajax_loadDocumentation();
+
+}
+//........................................................
+
+//.......................Delete document.......................
+
+function deleteDocumentForm(i){
+    const form = new FormData();
+    form.append("document_id",i);
+    form.append("action","delete");
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST",""+ROOT+"/Itemowner/ViewItem/deleteDocumentaions");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            console.log(res);
+        }
+    }
+
+    xhr.send(form);
+    ajax_loadDocumentation();
+
 }
 
-//........................................................
+//...............................................................
 
 ///////////////////////////UPDATE ITEM DETAILS////////////////
 

@@ -1,7 +1,7 @@
 // Importent global variable
 var citiesjson;
 var itemsjson;
-document.addEventListener("DOMContentLoaded",function(){loadItems();loadCitiesJson();});
+document.addEventListener("DOMContentLoaded",function(){loadItems();loadCitiesJson();getAddress()});
 
 //...............................slide bar.......................
 const sideMenu = document.querySelector("aside");
@@ -39,7 +39,7 @@ document.getElementById("schedule_date").value = currentDate;
 
 // set value for job type select
 
-const jobtype = document.getElementById("delivarymethod");
+const delivarymethod = document.getElementById("delivarymethod");
 
 const values = ['home visit','Others'];
 
@@ -47,9 +47,9 @@ const values = ['home visit','Others'];
     for(let i=0; i<values.length; i++){
         const option = document.createElement('option');
         option.textContent = values[i];
-        jobtype.appendChild(option);
+        delivarymethod.appendChild(option);
     }
-    jobtype.value = 'others';
+    delivarymethod.value = 'others';
 })();
 
 
@@ -89,6 +89,7 @@ function loadItems(){
                 option.textContent = itemsjson[a].item_name;
                 itemNameSelect.appendChild(option);
             }
+            itemNameSelect.value = "";
         }
     }
     xhr.send();
@@ -128,12 +129,12 @@ function loadCitiestoSelect(){
 const districtSelect = document.getElementById('district');
 const inputcity = document.getElementById('city');
 
-districtSelect.addEventListener('change', function() {
+districtSelect.addEventListener('input', function() {
     inputcity.innerHTML = '';
     console.log(districtSelect.value);
     var district = districtSelect.value;
     var cities = citiesjson[district].cities;
-    console.log(cities.length);
+    // console.log(cities.length);
     
     for (var a = 0; a < cities.length; a++) {
         const option = document.createElement('option');
@@ -147,28 +148,59 @@ districtSelect.addEventListener('change', function() {
 
 //Get data form elements ..................................................................
 
-function submitPost(e){
+
+function submitPost(e){ 
     e.preventDefault();
     ajax_submitPost();
 }
+const description = document.getElementById('description');
+const jobtype = document.getElementById('jobtype');
+const schedule_date = document.getElementById("schedule_date");
+const contact_no = document.getElementById("contact_no");
 
 function ajax_submitPost(){
-    const formCompleteDetails = document.getElementById("form_JobDetails");
+    setSmallNull();
+    checkRequired([itemNameSelect,description,delivarymethod,jobtype,schedule_date,contact_no,address,district,city]);
+    checkFutureDate(schedule_date);
+    checkPhoneNo(contact_no);
 
-    const form = new FormData(formCompleteDetails);
-    form.append("action", "addJob");
+    if(errocheckflag == 0){
+        const formCompleteDetails = document.getElementById("form_JobDetails");
+        const form = new FormData(formCompleteDetails);
+        form.append("action", "addJob");
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/postJob");
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                const res = xhr.responseText;
+                console.log(res);
+            }
+        };
+
+        xhr.send(form);
+
+        document.querySelector(".closebtn").click();
+    }
+}
+
+
+const address = document.getElementById("address");
+const district = document.getElementById("district");
+const city = document.getElementById("city");
+
+function getAddress() {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/postJob");
-
+    xhr.open('GET', 'http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/getAddresses', true);
     xhr.onload = function(){
         if(xhr.status == 200){
             const res = xhr.responseText;
-            console.log(res);
+            json = JSON.parse(res);
+            address.value = json[0].address;
+            district.value = json[0].district;
+            city.value = json[0].city;
         }
-    };
-
-    xhr.send(form);
-
-    document.querySelector(".closebtn").click();
-
+    }
+    xhr.send();
 }
+

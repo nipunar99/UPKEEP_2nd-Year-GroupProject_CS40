@@ -71,10 +71,19 @@ class Statistic {
     }
 
     public function maintenanceHistoryDetails(){
-        $payment = new IO_CompleteTask;
-        $user_id = $_SESSION['user_id'];;
-        $paymentDetails = $payment->getAllTaskOfMonth($user_id);
-        $json = json_encode($paymentDetails);
+        $completeTask = new IO_CompleteTask;
+        if(isset($_POST['item_id'])){
+            $_SESSION['item_id'] = $_POST['item_id'];
+            $completeTasks = $completeTask->getAllTaskOfMonth($_SESSION['item_id']);
+
+        }else if(isset($_POST['date_month'])){
+            $completeTasks = $completeTask->getAllTaskOfGivenMonth($_SESSION['item_id'],$_POST['date_month']."-01");
+            // show($_POST['date_month']."-01");
+            // show($_SESSION['item_id']);
+        }else{
+            $completeTasks = $completeTask->getAllTask();
+        }
+        $json = json_encode($completeTasks);
         echo($json);
     }
 
@@ -88,5 +97,14 @@ class Statistic {
         echo($json);
     }
 
+    public function getAllItem(){
+        $arr = [];
+        $arr["owner_id"] = $_SESSION['user_id'];
+        $arr['status'] = "Active";
+        $items = new IO_Owneritem;
+        $result = $items->where($arr);
+        $json = json_encode($result);
+        echo($json);
+    }
 
 }

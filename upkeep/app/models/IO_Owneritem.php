@@ -32,19 +32,16 @@ class IO_Owneritem
 
         if ($file_size < 524000) {
             if (move_uploaded_file($file_temp, $location)) {
-                try {
+                // try {
                     $data["owner_id"] = $_SESSION['user_id'];
                     $data["image"] = $file_name;
-                    if ($data["item_type"] == "Other") {
-                        $data["item_type"] = $data["alter_type"];
-                        unset($data["alter_type"]);
-                    }
                     show($data);
-                    $this->insert($data);
-                    $_SESSION['item_id'] = $this->getLastID();
-                } catch (PDOException $e) {
-                    echo $e->getMessage();
-                }
+                    $_SESSION['item_id'] =$this->insertAndGetLastIndex($data);
+                    show($_SESSION['item_id']);
+                // } 
+                // catch (PDOException $e) {
+                //     echo $e->getMessage();
+                // }
             }
         }
         unset($_FILES);

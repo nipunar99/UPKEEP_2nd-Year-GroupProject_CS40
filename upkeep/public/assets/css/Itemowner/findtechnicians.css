@@ -145,9 +145,9 @@ aside .top{
     margin-top:1.4rem;
 }
 
-.notification {
+/* .notification {
     color: var(--color-danger);
-}
+} */
  
 aside .logo {
     display: flex;
@@ -230,7 +230,7 @@ aside .sidebar .message-count {
 
 main{
     /* overflow: scroll; */
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 main h1{
     text-align: center;
@@ -417,7 +417,7 @@ main .top .profile{
 	width: 98%;
 	margin: 0 auto;
 	gap: 1rem;
-	grid-template-columns: 15rem auto;
+	grid-template-columns: 15rem auto!important;
 	height: 100vh;
 }
 
@@ -425,7 +425,7 @@ main .top .profile{
 
 main {
 	overflow: hidden;
-	margin-top: 0;
+	margin-top: 0!important;
 }
 
 main h1 {
@@ -561,7 +561,7 @@ main a.viewitem {
 /* Right CSS */
 main .top {
 	display: grid;
-	grid-template-columns: auto 19rem;
+	grid-template-columns: auto 23rem;
 	height: 6%;
 }
 

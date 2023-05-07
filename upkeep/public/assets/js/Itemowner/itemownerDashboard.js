@@ -43,7 +43,7 @@ function ajax_getAllReminders() {
             for( i=0; i<json.length; i++){
                 html+= "<div onclick='loadupcomeview("+(i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
-                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+truncateString(json[i].description,27)+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span>";
                 html+= "<h4>"+json[i].start_date+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";
@@ -110,7 +110,7 @@ function ajax_getAllOverdueReminders() {
             for(var i=0; i<json.length; i++){
                 html+= "<div onclick='loadupcomeview("+(firstIndex+i+1)+")'  class='maintenceBox' role='button'><h3>Maintenance Schedule</h3>";   
                 html+= "<div><div class='middle'>";   
-                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+json[i].description+"</h4></div>";
+                html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h4>"+truncateString(json[i].description,30)+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span>";
                 html+= "<h4>"+json[i].start_date+"</h4></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h4>"+json[i].sub_component+"</h4></div>";

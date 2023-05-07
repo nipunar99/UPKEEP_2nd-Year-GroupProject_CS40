@@ -20,8 +20,15 @@ class Conversation {
     }
     
     public function loadUser(){
-        $user = new User();
-        $users = $user->findAll();
+        $user = new User;
+        $users = [];
+        if($_SESSION['user_role'] == 'item_owner'){
+            $users = $user->getTechnicians($_SESSION['user_id']);
+
+        }else{
+            $users = $user->getItemowners($_SESSION['user_id']);
+
+        }
 
         // $user = new Messages();
         // $users = $user->latestMessage();
@@ -34,6 +41,16 @@ class Conversation {
 
     public function loadUserChat($receiver_id){
         $_SESSION["receiver_id"]=$receiver_id[0];
+        $user = new User;
+        if($_SESSION['user_role'] == 'item_owner'){
+            // resetUserReadCount($userCount,$technician,$owner){
+            $user->resetUserReadCount("owner_unread_count",$_SESSION["receiver_id"],$_SESSION['user_id']);
+
+        }else{
+            $user->resetUserReadCount("technician_unread_count",$_SESSION['user_id'],$_SESSION["receiver_id"]);
+
+        }
+
         $arr = [];
         $arr["id"] = $receiver_id;
         $result = json_encode($arr);
@@ -47,6 +64,7 @@ class Conversation {
             $_POST["sender_id"] = $_SESSION["user_id"];
             $_POST["currentDate"] = date('F j, Y'); 
             $_POST["currentTime"] = date('g:i A');
+            // $_POST["read_status"] = 1;
 
             show($_POST);
 
@@ -62,7 +80,8 @@ class Conversation {
         $user["sender_id"] = $_SESSION["user_id"];
 
         $massage = new Messages;
-        
+
+        $result = $massage->setReadStatus($user);
         $result = $massage->getchatMessages($user);
 
         if (!empty($result)) {

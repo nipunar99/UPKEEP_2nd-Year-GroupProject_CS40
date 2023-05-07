@@ -27,6 +27,7 @@ class IO_MaintenanceReminder {
             if(move_uploaded_file($file_temp,$location)){
                 try{
                     $data["item_id"] = $_SESSION['item_id'];
+                    $data["user_id"] = $_SESSION['user_id'];
                     $data["image"] = $file_name;
                     show($data);
                     $this->insert($data);

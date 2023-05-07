@@ -14,7 +14,7 @@ class ViewGig {
     public function selectGig($id){
         if($_SESSION['user_id'] == $_SESSION['user_id']){
             
-            $_SESSION['gig_id'] = $id;
+            $_SESSION['gig_id'] = $id[0];
             $gig = new Gig;
             $profile = new User;
             $gigDetails = $gig->getGig($id);
@@ -46,12 +46,20 @@ class ViewGig {
                 unset($_POST['action']);
                 $_POST['user_id'] = $_SESSION['user_id'];
                 $_POST['gig_id'] = $_SESSION['gig_id'];
+                show($_POST);
                 
-                $task = new IO_CompleteTask;
-                $task->insert($_POST);
+                // $task = new IO_CompleteTask;
+                // $task->insert($_POST);
             } 
         }
 
+    }
+
+    public function getAddresses(){
+        $address = new Address;
+        $result = $address->getLastAddress();
+        $json = json_encode($result);
+        echo($json);
     }
 
 //     public function getTechnicianId($id) {

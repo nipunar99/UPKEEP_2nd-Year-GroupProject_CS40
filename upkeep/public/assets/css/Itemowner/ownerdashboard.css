@@ -1,3 +1,4 @@
+
 aside{
     height: 100vh;
 }
@@ -91,7 +92,11 @@ aside .sidebar .message-count {
 main{
     margin-top: 4.4rem;
     max-height: 91.7vh;
+}
+
+main .middle{
     overflow-y: scroll;
+
 }
 main h1{
     text-align: center;
@@ -235,11 +240,6 @@ main .maintenceBox h3{
 }
 
 
-main .upMaintenceList .middle{
-    width: 10rem;
-    font-weight: 400;
-}
-
 main .upMaintenceList .middle small{
     color: #6F6F6F;
     font-size: 1rem;
@@ -273,9 +273,7 @@ main .maintenceBox img{
     height: 100px;
     
 }
-main .maintenceBox>div{
-    display: flex;
-}
+
 
 main .maintenceBox .btn_action{
     border-radius: 30px;
@@ -349,9 +347,6 @@ main .Suggection a{
     gap: 2rem;
 } 
 
-.right .top button{
-    display: none;
-}
 
 .right .theme-toggler{
     background: var(--color-light);
@@ -712,6 +707,7 @@ form .middleInput select{
 }
 
 
+
 /*................ Media query................*/
 @media screen and (max-width: 1200px) {
     .container{
@@ -807,7 +803,7 @@ form .middleInput select{
         width: 94%;
         margin: 0 auto 4rem;
     }
-    .right .top{
+    .right .header{
         position: fixed;
         top: 0;
         left: 0;
@@ -822,11 +818,11 @@ form .middleInput select{
         justify-content: right;
     }
     
-    .right .top .theme-toggler{
+    .right .header .theme-toggler{
         display: none;
     }
 
-    .right .top button{
+    .right .header button{
         display: inline-block;
         background: transparent;
         cursor: pointer;
@@ -834,10 +830,15 @@ form .middleInput select{
         position: absolute;
         left: 1rem;
     }
-    .right .top button span{
+    .right .header button span{
         font-size: 2rem;
     }
-
+    .right .header .right{
+        width: 69%;
+    }
+    .header .profile {
+        margin-right: 0px;
+    }
 
     /* Unique */
 

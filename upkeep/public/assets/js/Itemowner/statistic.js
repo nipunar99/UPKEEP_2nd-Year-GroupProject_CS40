@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded",function(){
   barchartDetails();
   piechartDetails();
   paymentHistoryDetails();
-  maintenanceHistoryDetails();
   DisposeItemsDetails();
+  ItemsDetails();
+  maintenanceHistoryDetails();
 });
 
 function display1details(){
@@ -21,7 +22,6 @@ function display1details(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          // console.log(json[0].total_cost);
           var html = "";
           html += "<span>Rs.</span><span >"+json[0].total_cost+"</span>";
           document.querySelector(".total_cost").innerHTML = html;
@@ -40,7 +40,6 @@ function display3details(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          // console.log(json[0].dispose_count);
           var html = "";
           html += "<span >"+json[0].dispose_count+"</span>";
           document.querySelector(".dispose_itemCount").innerHTML = html;
@@ -59,7 +58,6 @@ function display4details(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           // const json = JSON.parse(res);
-          // console.log(json[0].dispose_count);
           // var html = "";
           // html += "<span >"+json[0].dispose_count+"</span>";
           // document.querySelector(".dispose_item").innerHTML = html;
@@ -138,7 +136,6 @@ function setMonthCost(monthCost) {
 }
 
 function generateBarchart(dt){
-  console.log(dt);
   const ctx1 = document.getElementById('barChat');
   new Chart(ctx1, {
     type: 'bar',
@@ -202,7 +199,6 @@ function piechartDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          console.log(json);  
           var dt =[json.complete,json.incomplete,json.overdue];
           generatePiechart(dt);
       }
@@ -250,7 +246,6 @@ function paymentHistoryDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          // console.log(json);
 
           var html = "<h2>Payment Histroy</h2>";
           
@@ -280,25 +275,24 @@ function paymentHistoryDetails(){
   xhr.send();
 }
 
-function maintenanceHistoryDetails(){
+function maintenanceHistoryDetails(form){
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET",""+ROOT+"/Itemowner/Statistic/maintenanceHistoryDetails");
+  xhr.open("POST",""+ROOT+"/Itemowner/Statistic/maintenanceHistoryDetails");
 
   xhr.onload = function(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          // console.log(json);
 
           var html = "";
           
           if (json.status != "empty"){
             for(var i=0; i<json.length; i++){
               html += "<tr>";
-              html += "<td>"+json[0].description+"</td>"
-              html += "<td class='danger'>"+json[0].cost+"</td>"
-              html += "<td class='warning'>"+json[0].finished_date+"</td>"
+              html += "<td>"+json[i].description+"</td>"
+              html += "<td class='danger'>"+json[i].cost+"</td>"
+              html += "<td class='warning'>"+json[i].finished_date+"</td>"
               html += "</tr>";
             }
           }else{
@@ -308,7 +302,7 @@ function maintenanceHistoryDetails(){
           document.querySelector(".maintenanceHistoryDetails").innerHTML = html;
       }
   }
-  xhr.send();
+  xhr.send(form);
 }
 
 function DisposeItemsDetails(){
@@ -320,17 +314,16 @@ function DisposeItemsDetails(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
-          // console.log(json);
 
           var html = "";
           
           if (json.status != "empty"){
             for(var i=0; i<json.length; i++){
               html += "<tr>";
-              html += "<td><img src='"+ROOT+"/assets/images/uploads/"+json[0].image+"' alt=''></td>"//image
-              html += "<td class='success'>"+json[0].item_type+"</td>"//category
-              html += "<td>"+json[0].item_name+"</td>"//Item name
-              html += "<td class='danger'>"+json[0].dispose_date+"</td>"// Despose Date
+              html += "<td><img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"' alt=''></td>"//image
+              html += "<td class='success'>"+json[i].item_type+"</td>"//category
+              html += "<td>"+json[i].item_name+"</td>"//Item name
+              html += "<td class='danger'>"+json[i].dispose_date+"</td>"// Despose Date
               html += "</tr>";
             }
           }else{
@@ -341,9 +334,57 @@ function DisposeItemsDetails(){
 
           var html = "";
           html += "<span >"+json[0].dispose_count+"</span>";
-          document.querySelector(".dispose_item").innerHTML = html;
+          // document.querySelector(".dispose_item").innerHTML = html;
       }
   }
   xhr.send();
 }
 
+
+function ItemsDetails(){
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("GET",""+ROOT+"/Itemowner/Statistic/getAllItem");
+
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+
+          if (json.status != "empty"){
+            loadItemToMaintenanceHistory(json);
+          }else{
+          }
+
+      }
+  }
+  xhr.send();
+}
+
+function loadItemToMaintenanceHistory(json){
+  itemSelector = document.getElementById("itemSelector");
+  monthyearinput = document.getElementById("month-year-input");
+
+  var itemDetails = [];
+  for (var i = 0; i < json.length; i++) {
+    itemDetails.push(json[i].item_name);
+  }
+
+  loadDataToSelector(itemDetails,itemSelector);
+  itemSelector.value ='';
+  itemSelector.addEventListener('change', function() { //Change event Listener
+      for (var a = 0; a < json.length; a++) {
+          if (itemSelector.value === json[a].item_name) {
+            const form = new FormData();
+            form.append("item_id",json[a].item_id);
+            maintenanceHistoryDetails(form);
+          }
+      }
+    });
+
+    monthyearinput.addEventListener('change', function() { //Change event Listener
+      const form = new FormData();
+      form.append("date_month",monthyearinput.value);
+      maintenanceHistoryDetails(form);
+    });
+}

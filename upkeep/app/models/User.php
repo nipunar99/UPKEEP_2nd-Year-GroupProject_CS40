@@ -136,6 +136,21 @@ class User
         return $user_name;
     }
 
+    public function getTechnicians($user_id){
+        $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.owner_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where owner_id=" . $user_id.") c  ON u.user_id = c.technician_id";
+        return $this->query($query);
+        }
+   
+    public function getItemowners($user_id){
+        $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.technician_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where technician_id=" . $user_id.") c  ON u.user_id = c.owner_id";
+        return $this->query($query);
+    }
+    public function resetUserReadCount($userCount,$technician,$owner){
+        // $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.technician_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where technician_id=" . $user_id.") c  ON u.user_id = c.owner_id";
+        $query = "update conversation set ".$userCount." = 0 where technician_id=" . $technician." AND owner_id = " . $owner."";
+        return $this->query($query);
+    }
+
     public function getProfileDataForUser($user_id){
         if($_SESSION['user_role']!='technician'){
             $result = $this->where(['user_id' => $user_id]);

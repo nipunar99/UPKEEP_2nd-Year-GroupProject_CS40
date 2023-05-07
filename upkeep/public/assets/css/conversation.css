@@ -1,6 +1,5 @@
 aside{
     height: 100vh;
-    overflow-y: scroll;
 }
 
 aside .top{
@@ -474,4 +473,17 @@ hr{
     overflow-y: scroll;
     /* height: 24rem; */
     width: 100%;
+}
+
+small{
+    color: var(--color-danger);
+}
+
+.msgCount{
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    text-align: center;
 }

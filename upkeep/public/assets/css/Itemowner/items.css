@@ -61,7 +61,7 @@ body{
     width: 98%;
     margin: 0 auto;
     gap: 1rem;
-    grid-template-columns: 15rem auto;
+    grid-template-columns: 15rem auto !important;
     height: 100vh;
 }
 a{
@@ -131,6 +131,11 @@ b{
 
 .warning{
     color:var(--color-warning);
+}
+
+main {
+    margin-top: 0rem !important;
+
 }
 
 aside{
@@ -429,11 +434,8 @@ main .mainHeader h1{
 /* Right CSS */
 
 .right{
-    margin-top: 1.4rem;
-    margin-right: 1rem;
-    width: 10rem;
     position: relative;
-    left: 1024px;
+    left: 954px;
 
 }
 

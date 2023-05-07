@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded",function(){
   getCategory();
 });
+////////////////////////Inportant elements///////////////////////////////////////////////////
+const categary = document.getElementById("categary");// categary selector
+const itemtemplates = document.getElementById("itemtype");// Item selector
+const Item_id = document.getElementById('id');
+const SubItem_id = document.getElementById('sub_id');
+
+const subitemtemplates = document.getElementById("subitemtype");// Sub Item selector
+const altertypeinput = document.getElementById('altertypeinput');
 
 ////////////////////////// SET CATEGORY SELECTOR //////////////////////////
 const catDetails = null;
@@ -17,7 +25,6 @@ function getCategory(){
   xhr.send();
 }
 
-const categary = document.getElementById("categary");// categary selector
 function setToCategarySelector(json){
   var categaryTypes = [];
   for (var i = 0; i < json.length; i++) {
@@ -32,17 +39,30 @@ function setToCategarySelector(json){
       categary.value = 'Ampara';
   })();
 
-  const categary_id = document.getElementById('categary_id');
+  const categoryid = document.getElementById('categoryid');
   categary.addEventListener('change', function() {
-      for (var a = 0; a < json.length; a++) {
-          if (categary.value === json[a].category_name) {
-            // categary_id.value = json[a].category_id;
-            getItemsTemplates(json[a].category_id);
-          }
-      }
+    setBothInputNull(); hideAlterTypeDiv(); 
+
+    for (var a = 0; a < json.length; a++) {
+        if (categary.value === json[a].category_name) {
+          categoryid.value = json[a].category_id;
+          getItemsTemplates(json[a].category_id);
+        }
+    }
   });
 
 }
+
+function setBothInputNull(){
+  Item_id.value='';
+  SubItem_id.value='';
+  itemtemplates.innerHTML = ""; 
+  subitemtemplates.innerHTML = ""; 
+}
+// categary.addEventListener('click', function() {
+//   itemtemplates.innerHTML = ""; 
+//   subitemtemplates.innerHTML = ""; 
+// });
 ////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////// SET Items SELECTOR //////////////////////////
@@ -66,12 +86,11 @@ function getItemsTemplates(catValue){
   xhr.send(form);
 }
 
-const itemtemplates = document.getElementById("itemtype");// Item selector
 itemtemplates.innerHTML = ""; 
 
 function setToItemSelector(json){
+  // itemtemplates.innerHTML = ""; subitemtemplates.innerHTML = ""; // set null value of both templates selctor when changing category
   var itemtemplatesArr = [];
-  itemtemplates.innerHTML = ""; 
   for (var i = 0; i < json.length; i++) {
     itemtemplatesArr.push(json[i].itemtemplate_name);
   }
@@ -86,8 +105,8 @@ function setToItemSelector(json){
       itemtemplates.value = '';
   })();
 
-  const Item_id = document.getElementById('id');
   itemtemplates.addEventListener('change', function() {
+   setSubInputNull();
       for (var a = 0; a < json.length; a++) {
           if (itemtemplates.value === json[a].itemtemplate_name) {
             Item_id.value = json[a].id;
@@ -97,6 +116,13 @@ function setToItemSelector(json){
   });
 
 }
+function setSubInputNull(){
+  SubItem_id.value='';
+  subitemtemplates.innerHTML = ""; 
+}
+// itemtemplates.addEventListener('click', function() { 
+//   subitemtemplates.innerHTML = ""; 
+// });
 ////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////// SET Items SELECTOR //////////////////////////
@@ -125,7 +151,6 @@ function getSubItemsTemplates(parent_id){
   xhr.send(form);
 }
 
-const subitemtemplates = document.getElementById("subitemtype");// Sub Item selector
 function setToSubItemSelector(json){
   var itemtemplatesArr = [];
   subitemtemplates.innerHTML = ""; 
@@ -143,11 +168,10 @@ function setToSubItemSelector(json){
       subitemtemplates.value = '';
   })();
 
-  const Item_id = document.getElementById('sub_id');
   subitemtemplates.addEventListener('change', function() {
       for (var a = 0; a < json.length; a++) {
           if (subitemtemplates.value === json[a].itemtemplate_name) {
-            Item_id.value = json[a].id;
+            SubItem_id.value = json[a].id;
           }
       }
   });
@@ -155,21 +179,39 @@ function setToSubItemSelector(json){
 }
 ////////////////////////////////////////////////////////////////////////////
 
-const itemtypeselect = document.getElementById('itemtype');
-const altertypeinput = document.getElementById('altertypeinput');
-const subIteminput = document.getElementById('subIteminput');
 
-const input = document.getElementById('altertypeinput');
+//////////Alter type take div show and off/////////////////////////
+const subItemDiv = document.getElementById('subIteminput'); //subIteminput Div 
 
-itemtypeselect.addEventListener('change', function() {
-  if (itemtypeselect.value === 'Other') {
-    altertypeinput.classList.remove("hidden");
-    subIteminput.classList.add("hidden");
+
+itemtemplates.addEventListener('change', function() {
+  if (itemtemplates.value === 'Other') {
+    openAlterTypeDiv();
+    subItemDiv.classList.add("hidden");
+    Item_id.value=''; SubItem_id.value='';
+
   } else {
-    altertypeinput.classList.add("hidden");
+    hideAlterTypeDiv();
+    subItemDiv.classList.remove("hidden");
   }
 });
 
+subitemtemplates.addEventListener('change', function() {
+  if (subitemtemplates.value === 'Other') {
+    openAlterTypeDiv();
+    SubItem_id.value='';
+
+  } else {
+    hideAlterTypeDiv();
+  }
+});
+
+function hideAlterTypeDiv(){
+  altertypeinput.classList.add("hidden");
+}
+function openAlterTypeDiv(){
+  altertypeinput.classList.remove("hidden");
+}
 
 //......................................................................
 
@@ -307,15 +349,15 @@ function ajax_addItem(e){
     setSmallNull();
     const formItemDetails = document.getElementById("form_itemDetails");
 
-    checkRequired([item_name, itemtype, brand]);
-    checkRange(purchase_price, 0, 10000000);
-    checkPurchaseDate(purchase_date);
+    // checkRequired([item_name, itemtype, brand]);
+    // checkRange(purchase_price, 0, 10000000);
+    // checkPurchaseDate(purchase_date);
     
 
     if(errocheckflag == 0){
         const form = new FormData(formItemDetails);
         form.append("action","addItem");
-        form.delete('alter_type');
+        // form.delete('alter_type');
         // const urlparams = new URLSearchParams(form);
 
         console.log(form);
@@ -337,7 +379,7 @@ function ajax_addItem(e){
         closeModal();
         ajax_getItems();
         formItemDetails.reset();
-        showModal1();
+        // showModal1();
     }
     
 }

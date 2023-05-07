@@ -30,10 +30,15 @@ function ajax_loadUsers() {
                 html+= "    <div>";
                 html+= "        <div class='userdetails'>";
                 html+= "            <h3>"+json[i].first_name+" "+json[i].last_name+"</h3>";
-                html+= "            <h4>11.14 A.M.</h4>";
+                                    if(json[i].unread_count==0){
+                                        html+= "            <small class='msgCount hidden'>"+json[i].unread_count+"</small>";
+                                    }else{
+                                        html+= "            <small class='msgCount'>"+json[i].unread_count+"</small>";
+                                    }
                 html+= "        </div>";
-                html+= "        <div>";
-                html+= "            <p> latest massage</p>";
+                html+= "        <div class='userdetails' >";
+                html+= "            <p>"+json[i].latest_msg+"</p>";
+                html+= "            <h4>"+json[i].time+"</h4>";
                 html+= "        </div>";
                 html+= "    </div>";
 
@@ -120,7 +125,8 @@ function loadMessages() {
 
     }
     xhr.send();
-}
+    ajax_loadUsers();
+}   
   
   // Call the function every 500ms using setInterval
-setInterval(loadMessages, 500);
+setInterval(loadMessages, 1000);

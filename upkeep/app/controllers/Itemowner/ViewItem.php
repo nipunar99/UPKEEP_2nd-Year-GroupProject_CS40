@@ -203,6 +203,14 @@ class ViewItem {
         
     }
 
+    public function deleteDocumentaions(){
+        show($_POST);
+        // unset($_POST['action']);
+        $item = new IO_ItemDoc;
+        $item->delete($_POST['document_id'], "document_id");
+        
+    }
+
     public function selectItem($arr){
         $_SESSION['item_id'] = $arr['item_id'];
         $data = [];

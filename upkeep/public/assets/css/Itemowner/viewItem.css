@@ -609,8 +609,9 @@ main .recent-orders a{
 }
 
 .complete{
-    background: linear-gradient(#0095D9,#00BEE4);
-    color:var(--color-white);
+    background: none;
+    color: #00BEE4;
+    border: 1px solid #00BEE4;
 }
 
 .edit{
@@ -804,7 +805,7 @@ form .middleInput select{
 } 
 
 .newgrid-container{
-    grid-template-columns: 15rem auto ;   
+    grid-template-columns: 15rem auto !important;   
 }
  
 .main2 button,.main3 button,.main4 button{

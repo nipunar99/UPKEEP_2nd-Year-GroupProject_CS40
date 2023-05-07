@@ -9,25 +9,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/conversation.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
+
 </head>
 <body>
     <div class="container">
         <aside>
-            <div class="top">
-
-                <div class="logo">
-                    <img src="<?= ROOT ?>/assets/images/logo.png" alt="">
-                    <img src="<?= ROOT ?>/assets/images/title.png" alt="">
+            <div class="header nbs top">
+                <div class="left">
                 </div>
+                <div class="center">
+                    <div class="header-logo">
+                        <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="right"></div>
 
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
                         </span>
                 </div>
-
             </div>
 
             <div class="sidebar">
@@ -67,12 +71,12 @@
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
-
-                <a href="<?= ROOT ?>/Signout">
+            </div>
+            <div class="bottom">
+                <a href=<?=ROOT."/Signout"?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
-
             </div>
         </aside>
 
@@ -139,24 +143,33 @@
         <!-- End of Main -->
 
         <div class="right">
-            <div class="heading">
-                <div class="top">
+            <div class="header nbs">
+                <div class="right">
                     <button id="menu-btn">
                         <span class="material-icons-sharp">menu</span>
                     </button>
-    
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
+
+                    <div class="notification">
+                        <div>
+                            <span class="material-icons-sharp" onclick="openNav()">notifications</span>
+                            <span class="badge">3</span>
+                        </div>
                     </div>
-    
-                    <div class="profile">
+
+                    <div class="profile dropdown">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">User</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/photo2.png" alt=""></div>
+                        </div>
+                        <div class="dropdown-content hidden">
+                            <a href="<?= ROOT ?>/Profile"><span class="material-icons-sharp">person</span>Profile</a>
+                            <a href="<?= ROOT ?>/Accountsettings"><span class="material-icons-sharp">settings</span>Settings</a>
                         </div>
                     </div>
                 </div>
@@ -177,6 +190,46 @@
         </div>
 
     </div>
-        <script src="<?= ROOT ?>/assets/js/conversation.js"></script>
+    <div id="mySidenav" class="sidenav notification hiddenNotify">
+        <div class="header">
+            <div class="center">
+                <h2>Notifications</h2>
+            </div>
+            <div class="tabs">
+                <div class="tab-item active">
+                    <i class="tab-icon fas fa-bell"></i>
+                    Alert
+                </div>
+                <div class="tab-item">
+                    <i class="tab-icon fas fa-clock"></i>
+                    History
+                </div>
+                <div class="line"></div>
+            </div>
+            <span class="closebtn" onclick="closeNav()">&times;</span>
+        </div>
+        <div class="tab-content" >
+            <div class="tab-pane active" id="">
+                <ol id="notification-list-unread">
+
+                </ol>
+
+
+            </div>
+
+            <div class="tab-pane" id="">
+                <ol id="notification-list-history">
+
+                </ol>
+
+            </div>
+    </div>
+
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
+    <script src="<?= ROOT ?>/assets/js/conversation.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
+    <script src="<?=ROOT?>/assets/js/notification.js"></script>
 </body>
 </html>

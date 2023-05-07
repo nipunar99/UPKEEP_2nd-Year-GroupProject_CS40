@@ -22,4 +22,12 @@ class  Messages {
         $query = " select user_id , first_name , last_name from users   right join (select * FROM messages WHERE (m.sender_id = " . $user["sender_id"] . " AND m.receiver_id = " . $user["receiver_id"] . ") OR (m.receiver_id = " . $user["sender_id"] . " and m.sender_id = " . $user["receiver_id"] . ") ORDER BY msg_id ASC LIMIT 1) x on m.receiver_id = x.user_id ";
         return $this->query($query);
     }
+
+
+    public function setReadStatus($user){
+        $query = "update messages set read_status = 1 WHERE (receiver_id = " . $user["sender_id"] . " and sender_id = " . $user["receiver_id"] . ") ORDER BY msg_id ASC";
+        return $this->query($query);
+    }
+
+    
 }

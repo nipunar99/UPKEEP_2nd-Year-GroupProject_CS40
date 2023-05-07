@@ -3,7 +3,7 @@
 class IO_CompleteTask {
 
     use Model;
-
+    
     protected $table ="complete_maintenance";
 
     protected $allowedColumns = [
@@ -30,9 +30,22 @@ class IO_CompleteTask {
         return $this->query($query);
     }
 
-    public function getAllTaskOfMonth($user_Id){
-        $query = "SELECT * FROM complete_maintenance c inner join (select item_id from items where owner_id=".$user_Id.")x on x.item_id = c.item_id WHERE MONTH(finished_date) = MONTH(CURRENT_DATE())";
+    public function getAllTaskOfMonth($item_id){
+        $query = "SELECT * FROM complete_maintenance c inner join (select item_id from items where owner_id=".$_SESSION['user_id'].")x on x.item_id = c.item_id WHERE MONTH(finished_date) = MONTH(CURRENT_DATE()) AND c.item_id =".$item_id." ";
         return $this->query($query);
     }   
+
+    public function getAllTaskOfGivenMonth($item_id , $month){
+        $query = "SELECT * FROM complete_maintenance c inner join (select item_id from items where owner_id=".$_SESSION['user_id'].")x 
+        on x.item_id = c.item_id WHERE YEAR(c.finished_date) = YEAR(".$month.") AND MONTH(finished_date) = MONTH(".$month.") AND c.item_id =".$item_id."";
+        $htpp =$this->query($query);
+        // show($htpp);
+        return $htpp;
+    }   
+
+    public function getAllTask(){
+        $query = "SELECT * FROM complete_maintenance c inner join (select item_id from items where owner_id=".$_SESSION['user_id'].")x on x.item_id = c.item_id WHERE MONTH(finished_date) = MONTH(CURRENT_DATE())";
+        return $this->query($query);
+    }
 
 }
