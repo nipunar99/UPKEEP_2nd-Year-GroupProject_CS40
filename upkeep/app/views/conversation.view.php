@@ -178,7 +178,7 @@
             <div class="conversationDetails">
                 <h2>Messages</h2>
                 <div class="msgSearch">
-                    <input type="search" name="" id="" placeholder="Search">
+                    <input type="search" name="" id="searchusers" placeholder="Search">
                     <span class="material-icons-sharp">search</span>
                 </div>
                 

@@ -61,3 +61,24 @@ function loadDataToSelector (arry ,input){
         input.appendChild(option);
     }
 }
+
+
+//////////////////Dynamic search 
+
+function performSearch(form,url){
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+    
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            // console.log(json);
+            resolve(json);
+          } 
+        };
+    
+        xhr.send(form);
+      });
+}

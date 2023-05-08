@@ -52,6 +52,13 @@ class Item {
 
     }
 
+    public function searchItem(){
+        $items = new IO_Owneritem;
+        $result = $items->searchItem($_POST['item_name']);
+        $json = json_encode($result);
+        echo($json);
+    }
+
     public function getAllItem(){
         $arr = [];
         $arr["owner_id"] = $_SESSION['user_id'];
@@ -69,6 +76,7 @@ class Item {
         $json = json_encode($result);
         echo($json);
     }
+
     public function getItemTemplatesDetails(){
         $templates = new IO_ItemTemplate;
         $result = $templates->where($_POST);

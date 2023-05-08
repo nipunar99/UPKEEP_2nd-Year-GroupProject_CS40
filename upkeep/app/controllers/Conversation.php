@@ -38,6 +38,17 @@ class Conversation {
         echo($json);
     }
 
+    public function searchUser(){
+        $user = new User;
+        if($_SESSION['user_role'] == 'item_owner'){
+            $users = $user->searchTechnicians($_POST['username']);
+        }
+        else{
+            $users = $user->searchOwners($_POST['username']);
+        }
+        $json = json_encode($users);
+        echo($json);
+    }
 
     public function loadUserChat($receiver_id){
         $_SESSION["receiver_id"]=$receiver_id[0];
@@ -119,4 +130,5 @@ class Conversation {
         return $output;
     }
 
+    
 }

@@ -145,6 +145,17 @@ class User
         $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.technician_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where technician_id=" . $user_id.") c  ON u.user_id = c.owner_id";
         return $this->query($query);
     }
+
+    public function searchTechnicians($text){
+        $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.owner_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where owner_id=" . $_SESSION['user_id'].") c  ON u.user_id =  c.technician_id where u.first_name like '%".$text."%' OR u.last_name like '%".$text."%' ";
+        // show($query);
+        return $this->query($query);
+    }
+    public function searchOwners($text){
+        $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.owner_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where technician_id=" . $_SESSION['user_id'].") c  ON u.user_id =  c.owner_id where u.first_name like '%".$text."%' OR u.last_name like '%".$text."%' ";
+        return $this->query($query);
+    }
+
     public function resetUserReadCount($userCount,$technician,$owner){
         // $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.technician_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where technician_id=" . $user_id.") c  ON u.user_id = c.owner_id";
         $query = "update conversation set ".$userCount." = 0 where technician_id=" . $technician." AND owner_id = " . $owner."";

@@ -329,7 +329,7 @@
         <div class="overlayview hidden"></div>
 
         <!-- Notifications -->
-        <div id="mySidenav" class="sidenav notification hiddenNotify">
+        <!-- <div id="mySidenav" class="sidenav notification hiddenNotify">
             <div class="header">
                 <div class="center">
                     <h2>Notifications</h2>
@@ -362,7 +362,7 @@
                     </ol>
 
                 </div>
-        </div>
+        </div> -->
 
     </div>
     </div>

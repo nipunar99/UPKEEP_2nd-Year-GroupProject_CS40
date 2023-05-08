@@ -86,4 +86,19 @@ class IO_Owneritem
         $query = "select * from items WHERE item_id =" . $item_id;
         return $this->query($query)[0];
     }
+
+    public function searchItem($text)
+    {
+        // show($text);
+        // show("'%".$text[0]."%'");
+        // show($_SESSION['user_id']);
+        // // $query = "select * FROM items WHERE (owner_id =" . $_SESSION['user_id'] . " And status = 'Active') And (item_name LIKE '%$text%' OR item_name LIKE '%$text%' OR brand LIKE '%$text%' OR model LIKE '%$text%')";
+        $query = "SELECT * FROM items WHERE owner_id = ". $_SESSION['user_id'] . " AND status = 'Active' AND (item_name LIKE '%".$text."%' OR brand LIKE '%".$text."%' OR item_type LIKE '%".$text."%' OR model LIKE '%".$text."%')";
+        // // $query = "SELECT * FROM items WHERE owner_id = 1 AND status = 'Active' AND (item_name LIKE '%wash%' OR brand LIKE '%wash%' OR model LIKE '%wash%')";
+        return $this->query($query);
+        // show($text);
+        // show($query);
+
+    }
+
 }

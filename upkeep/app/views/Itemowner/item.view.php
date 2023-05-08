@@ -122,7 +122,7 @@
             
             <div class="toolbar">
                 <div class="searchBar">
-                    <input type="search" name="" id="" placeholder="Search item">
+                    <input type="search" name="" id="searchItem" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
                 </div>
                 <button class="addItem">Add an Item</button>
@@ -265,7 +265,7 @@
         </div>
     </div>
     <!-- Notifications -->
-    <div id="mySidenav" class="sidenav notification hiddenNotify">
+    <!-- <div id="mySidenav" class="sidenav notification hiddenNotify">
         <div class="header">
             <div class="center">
                 <h2>Notifications</h2>
@@ -299,7 +299,7 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="overlayview hidden"></div>
     
