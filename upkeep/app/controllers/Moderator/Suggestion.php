@@ -1,20 +1,21 @@
 <?php
 
-class Suggestion {
+class Suggestion
+{
 
     use Controller;
-    public function index (){
-         $data = [];
-        if(isset($_SESSION['user_id'])){
-            $arr=[];
+    public function index()
+    {
+        $data = [];
+        if (isset($_SESSION['user_id'])) {
+            $arr = [];
             $suggestions = new Owneritem;
-           
+
 
             $this->view('Moderator/suggestions');
-        }else{
+        } else {
             redirect("Home/home");
         }
-
     }
     public function checkValidation()
     {
@@ -49,76 +50,53 @@ class Suggestion {
             return null;
         }
     }
-    public function getItemSuggestions(){
+
+    public function getItemSuggestions()
+    {
         $item = new Itemtemplates;
         $suggestions = $item->getSuggestionDetails();
         $result = json_encode($suggestions);
-        echo($result);
+        echo ($result);
+    }
 
-    } 
-    public function viewSuggestions($id){
+    public function viewSuggestions($id)
+    {
         $this->view('Moderator/itemsuggestions');
     }
-    public function viewItemSuggestions($id){
-        $i_id = $id[0];
-        $_SESSION['suggestion_template_id'] = $i_id;
-        $item = new Owneritem;
-        $suggestion_details = $item->getSuggesttedItemDetails($i_id);
-        $result = json_encode($suggestion_details); 
-        echo($result);
-    }
-    public function viewMaintenanceTasks(){
-        $item_id = new OwnerItem;
-        $i_id = json_encode($item_id->getItemId($_SESSION['suggestion_template_id']));
-        $item_id  = (json_decode($i_id));
-        $suggestion = new Maintenancetask;
-        $arr['item_id'] = $item_id[0]->item_id;
-        
-        $suggestion_maintenances = json_encode($suggestion->where($arr));
-        echo($suggestion_maintenances);
-        $result = json_decode($suggestion_maintenances);
-        $length = count($result);
-        $this->insertItemOwnerMaintenanceSuggestion($result,$length);
-    //     for($i = 0; $i<$length; $i++){
-    //     $data = array(
-    //         'item_template_id' => $_SESSION['suggestion_template_id'], 
-    //         'sub_component' => $result[$i]->sub_component, 
-    //         'years' => $result[$i]->years,
-    //         'months' => $result[$i]->months,
-    //         'description' => $result[$i]->description,
-    //         'weeks' => $result[$i]->weeks,
-    //         'image' => $result[$i]->image,
-    //         'status' => 'Pending'
 
-    //     );
-    // }
-    //     $new_tasks = new Maintenance_templates;
-    //     $new_tasks->insert($data);
-        // $result1 = $new_tasks->viewParentMaintenances($_SESSION['id']);
-        // echo($result);
-        
+    
+    public function viewItemSuggestions($id)
+    {
+        $template_id = $id[0];
+        $_SESSION['suggestion_template_id'] = $template_id;
+        $item_template = new Itemtemplates;   
+        $template_details = $item_template->getItemtemplateById($template_id);
+        echo json_encode($template_details[0]);
     }
-    public function insertItemOwnerMaintenanceSuggestion($result,$length){
-        for($i = 0; $i<$length; $i++){
-                $data = array(
-                    'item_template_id' => $_SESSION['suggestion_template_id'], 
-                    'sub_component' => $result[$i]->sub_component, 
-                    'years' => $result[$i]->years,
-                    'months' => $result[$i]->months,
-                    'description' => $result[$i]->description,
-                    'weeks' => $result[$i]->weeks,
-                    'image' => $result[$i]->image,
-                    'status' => 'Pending'
-        
-                );
-            }
-            $new_tasks = new Maintenance_templates;
-            $new_tasks->insert($data);
 
+    public function viewMaintenanceTasks()
+    {
+        $template_id = $_SESSION['suggestion_template_id'];
+        $maintenancetask = new Maintenancetask;
+        $result = $maintenancetask->getMaintenanceTaskForTemplate($template_id);
+        $result =json_encode($result);
+        echo $result; 
     }
-    // public function approveItemSuggestion($id){
-    //     $item = new Itemtemplates;
-    //     $result = $item->updateItemTemplate($id[0]);
 
-    // }
+    public function approveItemSuggestion(){
+        $item = new Itemtemplates;
+        $item->approveItemSuggestion($_SESSION['suggestion_template_id']);
+      
+    }
+    public function removeItemSuggestion(){
+        $item = new Itemtemplates;
+        $item->delete($_SESSION['suggestion_template_id']);
+       
+    }
+    public function editMaintenanceTask($id){
+        $task_id = $id[0];
+        $task = new Maintenancetask;
+        $task_details = json_encode($task->getDetailsById($task_id));
+        echo($task_details);
+    }
 }

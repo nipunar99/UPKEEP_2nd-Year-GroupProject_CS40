@@ -59,6 +59,7 @@ class Itemtemplates
         $query = "select itemtemplate.category_id, itemtemplate.status, itemtemplate.description, itemtemplate.parent_id, categories.category_name, itemtemplate.itemtemplate_name, itemtemplate.id from itemtemplate  inner JOIN categories on  categories.category_id = itemtemplate.category_id where parent_id = $id";
         return $this->query($query);
     }
+
     public function updateChildItem($id, $data)
     {
         try {
@@ -69,10 +70,12 @@ class Itemtemplates
             echo $e->getMessage();
         }
     }
+
     public function deleteChildItemtemplate($id)
     {
         $this->delete($id);
     }
+
 
     public function findCategoryName($id)
     {
@@ -80,27 +83,30 @@ class Itemtemplates
         return $this->query($query);
     }
 
+
     public function getItemtemplateById($id)
     {
-        // show($id);
-        $arr['id'] = $id;
-        $item = $this->where($arr);
-        return $item;
+       $query = "select i.itemtemplate_name, i.image, c.category_name, i.description from $this->table i inner JOIN categories c on i.category_id = c.category_id where id = $id";
+       return $this->query($query);
     }
+
     public function getItemtemplateDetails($id){
         $query = "select *, categories.category_name  from $this->table inner JOIN categories where categories.category_id = $this->table.category_id AND $this->table.id = $id";
         return $this->query($query);
     }
+
     public function pending()
     {
         $query = "select * from $this->table where status='Pending'";
         return $this->query($query);
     }
+
     public function countTotalItemtemplate()
     {
         $query = "select COUNT(*) FROM $this->table where status = 'Approved' ";
         return $this->query($query);
     }
+
     public function countPendingItemtemplate()
     {
         $query = "SELECT COUNT(*) FROM $this->table where status='pending'";
@@ -119,5 +125,12 @@ class Itemtemplates
     //     $query = "update $this->table set status = 'Approved', moderator_id = '$_SESSION['user_id']' where id = $id";
     //     return $this->query($query);
     // }
+    public function approveItemSuggestion($id){
+        $moderator_id = $_SESSION['user_id'];
+        $query = "update $this->table set status = 'Approved', moderator_id = '$moderator_id' where id=$id";
+        return $this->query($query);
+    }
+
+    
 }
 

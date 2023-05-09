@@ -24,7 +24,7 @@ class Maintenance_templates
       
         try{
             $data["image"] = $_FILES['image']['name'];
-            $this->insert($data);   
+            return $this->insertAndGetLastIndex($data);   
         }
         catch(PDOException $e){
             echo $e->getMessage();
@@ -60,6 +60,33 @@ class Maintenance_templates
         // show($task);
         return $task;
     }
+    public function insertSuggestedTasks($record,$id)
+    {
+        $record['item_template_id'] = $id;
+        $record['status'] = 'Pending';
+       
+        try{
+            $this->insert($record);
+        }
+        catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    public function insertAndGetLastIndex($data)
+    {
+        $keys = array_keys($data);
+        $query = "INSERT INTO $this->table (" . implode(",", $keys) . ") VALUES (:" . implode(",:", $keys) . ")";
+        $con = $this->connect();
+        $stm = $con->prepare($query);
+        $check = $stm->execute($data);
+        if($check){
+            return $con->lastInsertId();
+        } else {
+            return false;
+        }
+    }
+
+
 }
 
           

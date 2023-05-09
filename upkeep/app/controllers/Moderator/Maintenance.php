@@ -24,8 +24,14 @@ class Maintenance
                         $this->UpdateMaintenanceTask($_POST);
                     }
                 }
-            } else {
-            }
+                elseif (isset($_POST['action']) && $_POST['action'] == "addSuggestionMaintenanceTask") {
+                    unset($_POST['action']);
+
+                        $task_ID = $_POST['task_ID'];
+                        unset($_POST['task_ID']);
+                        $this->addMaintenanceTaskFromSuggestions($_POST,$task_ID);
+                }
+            } 
         } else {
             redirect("Home/home");
         }
@@ -117,6 +123,17 @@ class Maintenance
         show($data);
         $maintenances->insertMaintenanceTasks($data);
     }
+
+    public function addMaintenanceTaskFromSuggestions($data,$task_ID)
+    {
+        $maintenances = new Maintenance_templates;
+        show($data);
+        $id = $maintenances->insertMaintenanceTasks($data);
+
+        $mapping = new Maintenance_mapping;
+        $mapping->addMapping($task_ID,$id);
+    }
+    
     public function UpdateMaintenanceTask($data)
     {
         $update_maintenance = new Maintenance_templates;
