@@ -51,7 +51,7 @@ function ajax_getAllReminders() {
                 html+= "<h4>Pending</h4></div></div>";
                 html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
-                html+= "<div  class='upcomepopupview"+(i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
+                html+= "<div  class='upcomepopupview"+(i+1)+"  popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
                 
                 html+= "<div class='maintenaceview"+(i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
@@ -59,7 +59,7 @@ function ajax_getAllReminders() {
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(i+1)+")'>Complete</button> <button>Edit</button> <button class='deletebtn' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(i+1)+")'>Complete</button>  <button class='deletebtn' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(i+1)+"'>";
@@ -118,7 +118,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<h4>Pending</h4></div></div>";
                 html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
-                html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
+                html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+" popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
                 
                 html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
@@ -128,7 +128,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
                 // html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
-                html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button class='deletebtn' id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button class='confirmbtn' onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button class='deletebtn' id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(firstIndex+i+1)+"'>";
@@ -184,7 +184,7 @@ const showModal = function () {
 // Close Modal function
 const closeModal = function () {
     modal.classList.add("hidden");
-    overlay.classList.add("hidden");    
+    // overlay.classList.remove("show");    
     // removeEvent();
 };
 
@@ -379,15 +379,15 @@ let element= "";
 function loadupcomeview(popup){
     element = ".upcomepopupview"+popup+"";
     
-    document.querySelector(element).classList.remove("hidden");;
-    overlay.classList.remove("hidden");
+    document.querySelector(element).classList.add("show");
+    overlay.classList.add("show");
 }
 
 function unloadupcomeview(popup){
     element = ".upcomepopupview"+popup+"";
     
-    document.querySelector(element).classList.add("hidden");;
-    overlay.classList.add("hidden");
+    document.querySelector(element).classList.remove("show");
+    overlay.classList.remove("show");
 }
 
 

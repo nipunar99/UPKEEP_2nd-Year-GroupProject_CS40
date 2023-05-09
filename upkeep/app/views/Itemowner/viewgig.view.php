@@ -267,9 +267,9 @@
 
     </div>
 
-    <div class="overlayview hidden"></div>
+    <div class="overlayview "></div>
 
-    <div class="popupview popupview1 hidden">
+    <div class="popupview popupview1 ">
             <button class="closebtn">&times;</button>
 
             <div class="content content1">
@@ -316,7 +316,7 @@
 
                             <div class="input-box">
                                 <span class="details">Delivary Method</span>
-                                <select name="delivary_method" id="delivarymethod" ></select>
+                                <select name="delivery_method" id="delivarymethod" ></select>
                                 <small></small>
                             </div>
                             <div class="input-box">
@@ -330,6 +330,7 @@
                             <div class="input-box">
                                 <span class="details">Address</span>
                                 <input type="text" name="address" id="address" required placeholder="Enter Location">
+                                <input class="" type="number" name="address_id" id="addressid" >
                                 <small></small>
                             </div>
                             <div class="input-box">

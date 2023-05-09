@@ -241,25 +241,24 @@ const btnCloseModal1 = document.querySelector(".closebtn1");
 // Show Modal function const showModal
 const showModal = function () {
     console.log("button clicked");
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    modal.classList.add("show");
+    overlay.classList.add("show");
 }; 
 
 const showModal1 = function () {
-    console.log("showModal1");
-    modal1.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    modal1.classList.add("show");
+    overlay.classList.add("show");
 }; 
 
 // Close Modal function
 const closeModal = function () {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
+    modal.classList.remove("show");
+    overlay.classList.remove("show");
 
 };
 const closeModal1 = function () {
     modal1.classList.add("hidden");
-    overlay.classList.add("hidden");
+    overlay.classList.remove("show");
 
 };
 // show modal click event
@@ -272,57 +271,6 @@ overlay.addEventListener("click", closeModal);
 
 
 
-/////////////////////////////////Valideation check functions //////////////////////////////////////////////
-
-//validataion checking flag
-var errocheckflag = 0;
-
-function showError(input, message) {
-    errocheckflag++;
-    input.classList.add("erroInput");
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    small.innerText = message;
-
-}
-
-function showSuccess(input) {
-    input.classList.remove("erroInput");
-  }
-
-function checkRequired(inputArr) {
-    inputArr.forEach(function (input) {
-      if (input.value.trim() === '') {
-        showError(input, `${getFieldName(input)} is required`);
-      }else{
-        showSuccess(input);
-      } 
-    });
-}
-
-function checkRange(input, min, max) {
-    if (parseFloat(input.value) < min) {
-      showError(input, `${getFieldName(input)} must be at least ${min}`);
-    } else if (parseFloat(input.value) > max) {
-      showError(input, `${getFieldName(input)} must be less than ${max} characters`);
-    } else {
-      showSuccess(input);
-    }
-}
-function checkPurchaseDate(input) {
-    var inputDate = new Date(input.value);
-    var currentDate = new Date();
-
-    if (inputDate > currentDate) {
-        showError(input, `${getFieldName(input)} is invalid Purchase Date`);
-    } else {
-        showSuccess(input);
-    }
-}
-
-function getFieldName(input) {
-    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 // //Ajax for add item details
@@ -383,21 +331,6 @@ function ajax_addItem(e){
 
 //.........................................Handling document inputs
 
-function checkFileType(file){
-  var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
-
-    if (fileExt.toLowerCase() === 'jpeg' || fileExt.toLowerCase() === 'png' || fileExt.toLowerCase() === 'jpg'|| fileExt.toLowerCase() === 'pdf' ||file.type === '') {
-        if(parseFloat(file.files[0].size/(1024*1024))>3 ){
-          showError(file, 'File size must be less than 3MB.');
-        }
-        else{
-          showSuccess(file);
-        }
-    }else {
-      showError(file, 'File type not supported.');
-    }
-}
-
 document.getElementById("finishBtn").addEventListener('click',ajax_addDoc);
 
 const billfile = document.querySelector('.billfile');
@@ -420,14 +353,11 @@ function ajax_addDoc(e){
         console.log(form);
         form.append("action","adddoc");
 
-        // const urlparams = new URLSearchParams(form);
-
         console.log(form);
         const xhr = new XMLHttpRequest();
 
         xhr.open("POST",""+ROOT+"/Itemowner/Item");
-        // xhr.setRequestHeader("Content-Type","application/json");             
-        // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
 
         xhr.onload = function(){
             if(xhr.status == 200){
@@ -521,41 +451,5 @@ searchInput.addEventListener('input', (event) => {
     document.querySelector(".insight").innerHTML = html;
   });
 
-  // console.log(json);
   
 });
-
-
-// searchInput.addEventListener('input', (event) => {
-//   const searchTerm = event.target.value;
-//   const form = new FormData();
-//   form.append("item_name", searchTerm);
-//   const url = "" + ROOT + "/Itemowner/Item/searchItem";
-  
-//   performSearch(form, url).then(json => {
-//     console.log(json);
-//   });
-// });
-
-// function performSearch(form, url) {
-//   return new Promise((resolve, reject) => {
-//     const xhr = new XMLHttpRequest();
-//     xhr.open("POST", url);
-
-//     xhr.onload = function () {
-//       if (xhr.status === 200) {
-//         const res = xhr.responseText;
-//         const json = JSON.parse(res);
-//         resolve(json);
-//       } else {
-//         reject(new Error(`Request failed with status ${xhr.status}`));
-//       }
-//     };
-
-//     xhr.onerror = function () {
-//       reject(new Error("Network error"));
-//     };
-
-//     xhr.send(form);
-//   });
-// }

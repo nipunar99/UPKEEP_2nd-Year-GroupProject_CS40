@@ -326,7 +326,7 @@
             </div>
         </div>
 
-        <div class="overlayview hidden"></div>
+        <div class="overlayview"></div>
 
         <!-- Notifications -->
         <!-- <div id="mySidenav" class="sidenav notification hiddenNotify">

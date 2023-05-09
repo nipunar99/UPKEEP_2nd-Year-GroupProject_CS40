@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded",function(){
     ajax_getItems();
+    getCategory();
+
 });
 
 //...............................slide bar.......................
@@ -9,7 +11,7 @@ const closeBtn = document.querySelector("#close-btn");
 
 menuBtn.addEventListener("click", () => {
     sideMenu.style.display = "block";
-})
+})  
  closeBtn.addEventListener("click", () => {
     sideMenu.style.display = "none";
 })
@@ -62,5 +64,105 @@ function ajax_getItems(){
         }
     }
     xhr.send();
+
+}
+
+
+const categary = document.getElementById("categary");// categary selector
+const itemtemplates = document.getElementById("itemtype");// Item selector
+
+////////////////////////// SET CATEGORY SELECTOR //////////////////////////
+function getCategory(){
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET",""+ROOT+"/Itemowner/Item/getCategoryDetails");
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          setToCategarySelector(json);
+      }
+  }
+  xhr.send();
+}
+
+function setToCategarySelector(json){
+  var categaryTypes = [];
+  for (var i = 0; i < json.length; i++) {
+    categaryTypes.push(json[i].category_name);
+  }
+  (function loadCategaries (){
+      for(let i=0; i<categaryTypes.length; i++){
+          const option = document.createElement('option');
+          option.textContent = categaryTypes[i];
+          categary.appendChild(option);
+      }
+  })();
+
+  categary.addEventListener('change', function() {
+    setBothInputNull();
+
+    for (var a = 0; a < json.length; a++) {
+        if (categary.value === json[a].category_name) {
+          getItemsTemplates(json[a].category_id);
+        }
+    }
+  });
+
+}
+
+function setBothInputNull(){
+  itemtemplates.innerHTML = ""; 
+}
+
+////////////////////////////////////////////////////////////////////////////
+
+////////////////////////// SET Items SELECTOR //////////////////////////
+
+
+function getItemsTemplates(catValue){
+  const form = new FormData();
+  form.append("category_id",catValue);
+  form.append("parent_id",0);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST",""+ROOT+"/Itemowner/Item/getItemTemplatesDetails");
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          const json = JSON.parse(res);
+          setToItemSelector(json);
+      }
+  }
+
+  xhr.send(form);
+}
+
+itemtemplates.innerHTML = ""; 
+
+function setToItemSelector(json){
+  var itemtemplatesArr = [];
+  for (var i = 0; i < json.length; i++) {
+    itemtemplatesArr.push(json[i].itemtemplate_name);
+  }
+  itemtemplatesArr.push("Other");
+
+  (function loadTemplates(){
+      for(let i=0; i<itemtemplatesArr.length; i++){
+          const option = document.createElement('option');
+          option.textContent = itemtemplatesArr[i];
+          itemtemplates.appendChild(option);
+      }
+      itemtemplates.value = '';
+  })();
+
+//   itemtemplates.addEventListener('change', function() {
+// //    setSubInputNull();
+//       for (var a = 0; a < json.length; a++) {
+//           if (itemtemplates.value === json[a].itemtemplate_name) {
+//             Item_id.value = json[a].id;
+//             getSubItemsTemplates(json[a].id);
+//           }
+//       }
+//   });
 
 }

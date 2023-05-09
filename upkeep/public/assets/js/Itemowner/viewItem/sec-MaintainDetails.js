@@ -43,7 +43,6 @@ function loadOverdueReminderList(){
 ////////////////////////////////////////////////////////////
 
 function reminderTableRowView(num,status){
-    overlay.classList.remove("hidden");
     var json = "";
     var argEdit = "";
     if (status == 1) {
@@ -66,6 +65,11 @@ function reminderTableRowView(num,status){
     html+= "<div class='action_btn'><button class='edit' onclick='editReminder"+argEdit+"'>Edit</button>  <button class='cancel' onclick='ajax_deleteReminder("+json[num].reminder_id+","+(num+1)+")'>Delete</button> </div> </div>";
 
     document.querySelector('.loadDivViews').innerHTML=html;
+    showpopupMaintask();
+}
+function showpopupMaintask(){
+    overlay.classList.add("show");
+    document.querySelector('.popupMaintask').classList.add("show");
 }
 
 //Get element of edit form

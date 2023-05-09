@@ -417,24 +417,6 @@ main .Suggection a{
     backdrop-filter: blur(3px);
     z-index: 5;
 }
-.hidden {
-    display: none;
-}
-.popupview {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45%;
-    background-color: var(--color-white);
-    color: rgb(68, 67, 67);
-    padding: 5rem 2rem 2rem 5rem;
-    padding-left: 3rem;
-    border-radius: 30px;
-    box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    /* height: 60vh; */
-}
 .content {
     display: flex;
     flex-direction: column;

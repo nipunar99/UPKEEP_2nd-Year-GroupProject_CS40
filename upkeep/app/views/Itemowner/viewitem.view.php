@@ -299,9 +299,9 @@
 
         <!-- End right -->
 
-        <div class="overlayview hidden"></div>
+        <div class="overlayview "></div>
 
-        <div class="popupview hidden deleteMsg">
+        <div class="popupview deleteMsg">
             
             <h2>Are sure you want to permanently dispose this item ?</h2>
 
@@ -313,7 +313,7 @@
 
         </div>
 
-        <div class="popupview addMaintenanceForm hidden" id="addMaitenanceFromPopup">
+        <div class="popupview addMaintenanceForm " id="addMaitenanceFromPopup">
             <button class="closebtn" onclick="closeModal()">&times;</button>
 
             <div class="content content1">
@@ -361,7 +361,7 @@
         </div>
 
         
-        <div class="popupview addMaintenanceForm2 hidden" >
+        <div class="popupview addMaintenanceForm2 " >
             <button class="closebtn closebtn2">&times;</button>
             
             <div class="content content1">
@@ -644,7 +644,7 @@
                 </div>
                 
 
-                <div class="popupview editItemform hidden">
+                <div class="popupview editItemform ">
                     <button class="closeupdatebtn closebtn">&times;</button>
 
                     <div class="content content1">
@@ -723,14 +723,14 @@
                     </div>
                 </div>
 
-                <div class="popupimage imgeView hidden" >
+                <div class="popupimage imgeView " >
                 </div>
 
             </div>
 
         </main>
 
-        <div class="popupview addDocumentForm hidden" id="addMaitenanceFromPopup">
+        <div class="popupview addDocumentForm " id="addMaitenanceFromPopup">
             <button class="closedocbtn closebtn">&times;</button>
 
             <div class="content content1">
@@ -763,7 +763,7 @@
             </div>
         </div>
 
-        <div class="popupview editReminderForm hidden" id="addMaitenanceFromPopup">
+        <div class="popupview editReminderForm " id="addMaitenanceFromPopup">
             <button onclick="closeModal()" class="closebtn">&times;</button>
 
             <div class="content content1">

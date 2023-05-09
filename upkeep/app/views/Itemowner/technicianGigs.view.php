@@ -120,7 +120,7 @@
             <div class="filter-search">
                 <div>
                     <div class="filter-container">
-                        <div class="filter-item">
+                        <!-- <div class="filter-item">
                             <label for="category">Category:</label>
                             <select id="category">
                             <option value="all">All</option>
@@ -134,7 +134,22 @@
                             <option value="newest">Newest</option>
                             <option value="oldest">Oldest</option>
                             </select>
+                        </div> -->
+                        <div class="input-box">
+                            <span class="details">Categary</span>
+                            <!-- check names -->
+                            <select name="category" id="categary" ></select>
+                            <small></small>
+                            <input class="hidden" type="text" name="category_id" id="categoryid" >
+
                         </div>
+                        <div class="input-box">
+                            <span class="details">Item</span>
+                            <select name="item_type" id="itemtype" ></select>
+                            <small></small>
+                            <input class="hidden" type="text" name="id" id="id" >
+                        </div>
+
                         <div class="filter-item">
                             <label for="items">Items:</label>
                             <select id="items">
@@ -213,7 +228,9 @@
 
             </div>
     </div> -->
-
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/Gigs.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
     <script src="<?=ROOT?>/assets/js/notification.js"></script>

@@ -213,31 +213,31 @@ const deleteConfirmation = document.querySelector(".deletebtn");
 // Show Modal function const showModal
 const deleteMsgFunc = function () {
     console.log("button clicked");
-    deleteMsg.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    deleteMsg.classList.add("show");
+    overlay.classList.add("show");
 }; 
 
 // Close Modal all the popup views function
 const closeModal = function () {
     console.log("button clicked");
-    deleteMsg.classList.add("hidden");
-    overlay.classList.add("hidden");
-    addMaintenanceForm.classList.add("hidden");
-    editReminderForm.classList.add("hidden");
-    addMaintenanceForm2.classList.add("hidden");
-    addDocumentForm.classList.add("hidden");
-    editItemform.classList.add("hidden");
+    deleteMsg.classList.remove("show");
+    overlay.classList.remove("show");
+    addMaintenanceForm.classList.remove("show");
+    editReminderForm.classList.remove("show");
+    addMaintenanceForm2.classList.remove("show");
+    addDocumentForm.classList.remove("show");
+    editItemform.classList.remove("show");
     document.querySelector(".imgeView").classList.add("hidden");
     // removeEvent();
 };
 const addMaintenaceFormFunc = function () {
-    overlay.classList.remove("hidden");
-    addMaintenanceForm.classList.remove("hidden");
+    overlay.classList.add("show");
+    addMaintenanceForm.classList.add("show");
 };
 function loadDocumentForm(){
     console.log("button clicked");
-    overlay.classList.remove("hidden");
-    addDocumentForm.classList.remove("hidden");
+    overlay.classList.add("show");
+    addDocumentForm.classList.add("show");
 }
 
 // show modal click event
@@ -452,7 +452,7 @@ function ajax_getAllReminders(){
                 html+= "<h4>Pending</h4></div></div>";
                 html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
-                html+= "<div  class='upcomepopupview"+(i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
+                html+= "<div  class='upcomepopupview"+(i+1)+"  popupview'><button onclick='unloadupcomeview("+(i+1)+")' class='closebtn'>&times;</button>";
                 
                 html+= "<div class='maintenaceview"+(i+1)+"'> <div class='content'>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
@@ -526,7 +526,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<h4>Pending</h4></div></div>";
                 html+= "<img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div></div>";
                 
-                html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+" hidden popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
+                html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+"  popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
                 
                 html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
@@ -535,7 +535,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
                 html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
-                html+= "<div class='action_btn'><button onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button>Edit</button> <button id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<div class='action_btn'><button onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(firstIndex+i+1)+"'>";
@@ -886,16 +886,16 @@ function display3details(){
 function loadupcomeview(popup){
     element = ".upcomepopupview"+popup+"";
     
-    document.querySelector(element).classList.remove("hidden");;
-    overlay.classList.remove("hidden");
+    document.querySelector(element).classList.add("show");
+    overlay.classList.add("show");
 }
 
 function unloadupcomeview(popup){
     element = ".upcomepopupview"+popup+"";
     element = ".upcomepopupview"+popup+"";
     
-    document.querySelector(element).classList.add("hidden");
-    overlay.classList.add("hidden");
+    document.querySelector(element).classList.remove("show");
+    overlay.classList.remove("show");
 }
 function completeTask(window){
     
@@ -1079,7 +1079,7 @@ function ajax_loadDocumentation(){
 
 function loadImage(i){
     var html = "";
-    overlay.classList.remove("hidden");
+    overlay.classList.add("show");
     document.querySelector(".imgeView").classList.remove("hidden");
 
     html += "<img src='"+ROOT+"/assets/images/uploads/"+documentationjson[i-1].file_name+"'>";
@@ -1169,8 +1169,8 @@ function deleteDocumentForm(i){
 
 
 document.querySelector(".editItem").addEventListener("click",()=>{
-    overlay.classList.remove("hidden");
-    editItemform.classList.remove("hidden");
+    overlay.classList.add("show");
+    editItemform.classList.add("show");
 
 });
 const item_name = document.getElementById("item_name");

@@ -22,13 +22,13 @@ const overlay = document.querySelector(".overlayview");
 const popupview = document.querySelector(".popupview");
 
 hirebtn.addEventListener("click", function(){
-    overlay.classList.remove("hidden");
-    popupview.classList.remove("hidden");
+    overlay.classList.add("show");
+    popupview.classList.add("show");
 });
 
 closebtn.addEventListener("click", function(){
-    overlay.classList.add("hidden");
-    popupview.classList.add("hidden");
+    overlay.classList.remove("show");
+    popupview.classList.remove("show");
 });
 
 
@@ -41,7 +41,7 @@ document.getElementById("schedule_date").value = currentDate;
 
 const delivarymethod = document.getElementById("delivarymethod");
 
-const values = ['home visit','Others'];
+const values = ['Home Visit','Workshop Visit','Other'];
 
 (function populateValues (){
     for(let i=0; i<values.length; i++){
@@ -188,6 +188,7 @@ function ajax_submitPost(){
 const address = document.getElementById("address");
 const district = document.getElementById("district");
 const city = document.getElementById("city");
+const addressid = document.getElementById("addressid");
 
 function getAddress() {
     const xhr = new XMLHttpRequest();
@@ -196,11 +197,24 @@ function getAddress() {
         if(xhr.status == 200){
             const res = xhr.responseText;
             json = JSON.parse(res);
+
+            districtSelect.innerHTML = ''; // initaly set districtSelect empty
+            const option1 = document.createElement('option');
+            const option2 = document.createElement('option');
+            option1.textContent =json[0].district;
+            option2.textContent =json[0].city;
+            
             address.value = json[0].address;
-            district.value = json[0].district;
-            city.value = json[0].city;
+            districtSelect.appendChild(option1);
+            inputcity.appendChild(option2);
+            addressid.value = json[0].address_id;
         }
     }
     xhr.send();
 }
 
+address.addEventListener('input',function() {
+    loadCitiesJson();
+    addressid.value ='';
+
+});

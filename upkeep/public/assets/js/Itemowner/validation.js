@@ -8,7 +8,6 @@ function showError(input, message) {
     input.classList.add("erroInput");
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
-    console.log(small);
     small.innerText = message;
 
 }
@@ -108,5 +107,34 @@ function checkPhoneNo(input) {
         showError(input, `${getFieldName(input)} is invalid Purchase Date`);
 
     }
+    var errocheckflag = 0;
+
+function showError(input, message) {
+    errocheckflag++;
+    input.classList.add("erroInput");
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    small.innerText = message;
+
+}
+
+function showSuccess(input) {
+    input.classList.remove("erroInput");
+  }
+
+function checkRequired(inputArr) {
+    inputArr.forEach(function (input) {
+      if (input.value.trim() === '') {
+        showError(input, `${getFieldName(input)} is required`);
+      }else{
+        showSuccess(input);
+      } 
+    });
+}
+
+function getFieldName(input) {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
 }
 ///////////////////////////////////////////////////////////////////////////////
