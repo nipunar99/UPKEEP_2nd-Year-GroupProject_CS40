@@ -139,6 +139,14 @@ class Userdashboard {
 
     }
 
+    public function getAllMaintenanceTemplates(){
+
+        $maintenances = new IO_Maintenance_template();
+        $result = $maintenances->getAllMaintenanceTemplates();
+
+        echo $result;
+    }
+
 
 
 }

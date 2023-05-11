@@ -253,4 +253,13 @@ class ViewItem {
         }
 
     }
+
+    public function getMaintenanceTemplatesforAnItem(){
+
+        $maintenances = new IO_Maintenance_template();
+        $result = $maintenances->getMaintenanceTemplatesforAnItem();
+
+        echo $result;
+    }
+
 }

@@ -465,11 +465,12 @@ main{
 
 
 /* Notification tab css */
+/*notification side bar*/
 .sidenav {
 	height: 100%;
-	width: 25rem;		
+	width: 25rem;
 	position: fixed;
-	z-index: 20;
+	z-index: 1;
 	top: 0;
 	right: 0;
 	background-color: var(--color-white);
@@ -477,7 +478,7 @@ main{
 	box-shadow: var(--box-shadow);
 }
 
-.sidenav.hiddenNotify {
+.sidenav.hidden {
 	display: hidden;
 	right:-25rem;
 }
@@ -834,3 +835,4 @@ main .upMaintenceList .middle {
     opacity: 1;
     visibility: visible;
 }
+

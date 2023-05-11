@@ -811,40 +811,7 @@
         </div>
 
     </div>
-        <!-- <div id="mySidenav" class="sidenav notification hiddenNotify">
-            <div class="header">
-                <div class="center">
-                    <h2>Notifications</h2>
-                </div>
-                <div class="tabs">
-                    <div class="tab-item active">
-                        <i class="tab-icon fas fa-bell"></i>
-                        Alert
-                    </div>
-                    <div class="tab-item">
-                        <i class="tab-icon fas fa-clock"></i>
-                        History
-                    </div>
-                    <div class="line"></div>
-                </div>
-                <span class="closebtn" onclick="closeNav()">&times;</span>
-            </div>
-            <div class="tab-content" >
-                <div class="tab-pane active" id="">
-                    <ol id="notification-list-unread">
-
-                    </ol>
-
-
-                </div>
-
-                <div class="tab-pane" id="">
-                    <ol id="notification-list-history">
-
-                    </ol>
-
-                </div>
-        </div> -->
+        
     <?php
         echo "<script> var ROOT = '".ROOT."'; </script>";
     ?>

@@ -359,9 +359,8 @@ document.querySelector(".scrapbtn").addEventListener("click", () => {
 // Add maintain task
 
 addMaintainTaskbtn.addEventListener("click", () => {
-    console.log("addMaintainTaskbtn clicked");
-    addMaintenanceForm2.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    addMaintenanceForm2.classList.add("show");
+    overlay.classList.add("show");
 });
 
 // AJAX for the delete an item
@@ -693,12 +692,12 @@ function ajax_getAllMaintenance(){
 }
 
 function loadTableRowView(num){
-    overlay.classList.remove("hidden");
+    overlay.classList.add("show");
 
     console.log(num);
     var html = "";
     
-    html+= "<div  class='popupMaintask"+(num+1)+ " popupMaintask popupview'><button onclick='unloadMaintask("+(num+1)+")' class='closebtn'>&times;</button>";
+    html+= "<div  class='popupMaintask"+(num+1)+ " popupMaintask popupview show'><button onclick='unloadMaintask("+(num+1)+")' class='closebtn'>&times;</button>";
                 
     html+= "<div class='maintenaceview"+(num+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Description</h3><h2>"+MaintainTaskjson[num].description+"</h2></div>";
     html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3> Sub Component</h3><h2>"+MaintainTaskjson[num].sub_component+"</h2>";
@@ -768,8 +767,8 @@ function ajax_TaskStatus(num) {
 function unloadMaintask(popup){
     element = ".popupMaintask"+popup+"";
     
-    document.querySelector(element).classList.add("hidden");
-    overlay.classList.add("hidden");
+    document.querySelector(element).classList.remove("show");
+    overlay.classList.remove("show");
 }
 
 function deleteMainTask(id){
