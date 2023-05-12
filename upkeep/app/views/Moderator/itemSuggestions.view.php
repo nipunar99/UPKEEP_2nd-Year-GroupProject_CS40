@@ -110,7 +110,7 @@
                                 </div> -->
                                 <div class="description">
                                     <h3>Description</h3>
-                                    <h3>Samsung</h3>
+                                    <h3 class="description-details">Samsung</h3>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,6 @@
                                     <th>Sub Component</th>
                                     <th>Description</th>
                                     <th>Time Frame(YY|MM|WW)</th>
-                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -150,7 +149,6 @@
                                     <td id="subcomponent">gfrt</td>
                                     <td id="C_description">gfrt</td>
                                     <td id="time_frame">6</td>
-                                    <td id="status_update">Added</td>
                                     <td> <!-- display:flex; flex-direction:row;justify-content:center;align-items:center; -->
                                         <div class="btn-container">
                                             <button class="edit-maintenance"><span>add</span></button>

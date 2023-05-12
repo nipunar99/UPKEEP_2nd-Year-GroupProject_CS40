@@ -14,30 +14,20 @@ class Moderatordashboard {
     }
     public function total_tem(){
         $total = new Itemtemplates;
-        $result = $total->find();
-        $result1 = json_encode($result);
-      
-        echo($result1);
+        $result = json_encode($total->countItemtemplate());  
+        echo($result);
 
     }
     public function approvel(){
-        $total = new Itemtemplates;
-       
-    $result_pending = $total->pending();
-        $result1 = json_encode($result_pending);
- 
-     $result1 = json_encode($result_pending);
-      
-        echo($result1);
+        $total = new Itemtemplates;     
+        $result = json_encode($total->countPendingItemtemplate());
+        echo($result);
 
     }
-    public function complaint(){
-      
-       $total_un = new Complaints;
-    $result_unhandle = $total_un->unhandle();
-    $result1 = json_encode($result_unhandle);
-      
-        echo($result1);
+    public function complaint(){   
+    $total_un = new Complaints;
+    $result = json_encode($total_un->unhandle());
+    echo($result);
 
     }
     public function itemsuggestions(){

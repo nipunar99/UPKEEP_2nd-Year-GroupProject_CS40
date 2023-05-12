@@ -10,7 +10,8 @@ class Additemtemplate
 
         if (isset($_SESSION['user_id'])) {
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            if (($_SERVER['REQUEST_METHOD'] == "POST") && ($_POST['action']=='addItem')) {
+                unset($_POST['action']);
                 $errors = [];
                 if (empty($_POST['itemtemplate_name'])) {
                     $errors[] = "Template name is required";
@@ -34,7 +35,7 @@ class Additemtemplate
                     $_POST['category_id'] = $id[0]->category_id;
                     $itemtemplate = new Itemtemplates;
                     $itemtemplate->insertItemtemplate($_POST);
-                    redirect("Moderator/addDisposal_places");
+                    redirect("Moderator/itemtemplate");
                 } else {
                     foreach ($errors as $error) {
                         echo "<p>" . $error . "</p>";

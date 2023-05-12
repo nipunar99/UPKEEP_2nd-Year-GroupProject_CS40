@@ -146,10 +146,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="bar-chart">
-                    <h1>Item Categories Comparison</h1>
-                    <div class="card-4">
-                        <canvas id="barChart"></canvas>
+                <div class="bar-chart-main">
+                    <div class="bar-chart">
+                        <h1>Item Categories Comparison</h1>
+                        <div class="card-4">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bar-chart">
+                        <h1>Item Suggestions Comparison</h1>
+                        <div class="card-4">
+                            <canvas id="barChart-2"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="maintenance">

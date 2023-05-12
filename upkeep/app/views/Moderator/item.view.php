@@ -76,7 +76,12 @@
                     </div>
                 </div>
             </div>
+            <div class="toolbar">
+        <a href="<?= ROOT ?>/Moderator/AddDisposal_places"><button class="addItem">Add Disposal places</button></a>
+       
+        <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
 
+    </div>
             <div class="insight">
                 <div class="card-main">
                     <div class="itemView">
@@ -99,7 +104,7 @@
                                     <p><?= $result_obj->itemtemplate_name ?></p>
                                 </div>
                                 <div class='type'>
-                                    <h5>Item Type</h5>
+                                    <h5>Category</h5>
                                     <p><?= $result_obj->category_name ?></p>
                                 </div>
                                 <div class='sta'>
@@ -108,9 +113,11 @@
                                 </div>
 
                             </div>
+                            <a href="http://localhost/upkeep/upkeep/public/Moderator/Maintenance/parentmaintenanceTasks/<?= $result_obj->id ?>">
                             <button class="view-1-button">
-                                   <h2><a href="http://localhost/upkeep/upkeep/public/Moderator/Maintenance/parentmaintenanceTasks/<?= $result_obj->id ?>">View Maintenances</a> </h2>
+                                   View Maintenances
                             </button>
+                            </a>
                         </div>
                     </div>
                     <!-- <div class="view-3"> -->

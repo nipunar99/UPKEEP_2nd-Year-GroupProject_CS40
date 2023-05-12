@@ -25,7 +25,7 @@ html {
     width: 100%;
     margin: 0 auto;   
     grid-template-columns: 17rem auto;
-  
+  overflow: hidden;
 }
 
 h1{
@@ -82,6 +82,8 @@ main .insight > div{
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
     transition: all 300ms ease;
+    height: 81vh;
+    overflow: scroll;
 }
 
 main .insight >div:hover{
@@ -122,6 +124,7 @@ tr:nth-child(odd) {
  main .itemTemplateList{
     margin-top: 0.9rem;
     height: 80vh;
+  
 }
 
 main .itemTemplateList h2{
@@ -136,6 +139,7 @@ main .itemTemplateList table{
     text-align: left;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    overflow: scroll;
 }
 
 main .itemTemplateList table:hover{
@@ -146,6 +150,7 @@ main table thead th{
     color:#626473;
     font-size: 1rem;    
 }
+
 .details .template_name{
   height: 72px; 
   display: flex;
@@ -489,7 +494,7 @@ form .button{
     height: 45px;
     margin: 45px 0;
     top: 10px;
-    width: 8rem;
+    width: 10rem;
 }
 
 form .button input{

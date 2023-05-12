@@ -179,9 +179,9 @@
         <button class="closebtn closebtn1">&times;</button>
             <form id="popup-form1" method="post" action="add" class="fm" enctype="multipart/form-data">
                 <div class="itemDetails">
-                    <h1>Edit Item Template</h1>
+                    <h1>Update Item Template</h1>
                     <div class="topInput">
-                       
+                        <input type="hidden" name="id" id="rowid-input1">
                         <div class="input-box">
                             <span class="details">Item template Name</span>
                             <input type="text" name="itemtemplate_name" pattern="[A-Za-z ]+" value="" id="itemtemplate_name">
@@ -217,7 +217,7 @@
 
 
                     <div class="button">
-                        <input type="submit" value="Edit Item" id="update">
+                        <input type="submit" value="Update Item" id="update">
                     </div>
 
                 </div>

@@ -16,10 +16,11 @@ h1{
 }
 
 .container{
-    
+    overflow: hidden;
     grid-template-columns: 15rem auto;
    
 }
+ 
 main h1{
     text-align: center;
 }
@@ -60,24 +61,29 @@ main .toolbar .fil{
 .searchBar {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     box-shadow: 0 2rem 3rem rgba(80,154,240,0.25);
     height: 2.5rem;
     border-radius: 30px;
     padding: 0 1rem;
     color: #6F6F6F;
-    width: 34rem;
+    width: 50rem;
+}
+.searchBar input[type="search"] {
+    width: 35rem;
+    height: 2rem;
+    font-family: 'Poppins', sans-serif;
 }
 .insight{
     display: grid;
 }
 #item{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr); */
     gap: 1.6rem;
-    overflow-y: scroll;
-    height: 1000vh;
+    height: 100vh;
     padding: 1rem 1.2rem;
+    overflow: scroll;
 }
 
 .card-mainn{
@@ -96,8 +102,6 @@ main .toolbar .fil{
     -ms-transition: all 300ms ease;
     -o-transition: all 300ms ease;
 }
-
-
 .card-main::-webkit-scrollbar{
     -webkit-appearance: none;
 }
@@ -121,27 +125,11 @@ main .toolbar .fil{
     display: flex; 
     align-items: center;
     text-align: center;
-    flex-direction: column;
-  
-   
-}
-.card-1{
-    max-height: 13rem;
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-    max-width: 92%;
+    flex-direction: column;  
 }
 .card-mainn >div:hover{
     box-shadow: none;
 }
-/* .card-1{
-    display: flex;
-    flex-direction: row;
-} */
 .u{
   margin-top: 6px;
 }
@@ -267,12 +255,11 @@ main .toolbar .fil{
 /* Style the tab */
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
     background-color: #f1f1f1;
   }
   
   /* Style the buttons inside the tab */
-  .tab button {
+.tab button {
     background-color: inherit;
     float: left;
     border: none;
@@ -282,7 +269,7 @@ main .toolbar .fil{
     transition: 0.3s;
     font-size: 12px;
   }
-  #communi{
+#communi{
       /* background-color: inherit; */
       float: right;
       /* border: none;
@@ -292,7 +279,7 @@ main .toolbar .fil{
       transition: 0.3s;
       font-size: 17px */
   }
-  .maintenances h2 {
+.maintenances h2 {
     color: #05B2E9;
     margin-left: 4rem;
 }
@@ -308,7 +295,6 @@ main .toolbar .fil{
     margin-left: 4rem;
     text-align: left;
 }
-
 .table table:hover {
     box-shadow: none;
 }

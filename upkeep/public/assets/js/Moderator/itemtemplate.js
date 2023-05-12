@@ -1,11 +1,7 @@
 var errocheckflag = 0;
-const input1 = document.querySelector('#itemtemplate_name');
-const inputs1 = document.querySelector('#name1');
-const statu2 = document.querySelector('#Status');
-const description1 = document.querySelector('#description');
-
-// Global varible for itemtemplate details
-var itemtemplateDetails = null;
+const Input = document.querySelector('#itemtemplate_name');
+const Status = document.querySelector('#Status');
+const description = document.querySelector('#description');
 
 elements = document.getElementsByTagName("td")
 for (var i = elements.length; i--;) {
@@ -18,7 +14,8 @@ for (var i = elements.length; i--;) {
   }
 }
 
-
+////////////////////////////////////////////
+//search function
 
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
@@ -154,7 +151,6 @@ console.log(xhr);
     if (xhr.status == 200) {
       const res = xhr.responseText;
       const json = JSON.parse(res);
-      itemtemplateDetails = JSON.parse(res);
       var html = "";
 
       for (var i = 0; i < json.length; i++) {
@@ -163,14 +159,10 @@ console.log(xhr);
         html += "<tr>";
         html += "<td><input type='checkbox' name='id[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
         html += "<td class='hidden_id'>"+json[i].id+"</td>";
-        html += "                <td class='template_name'>";
-        // html += "                     <div class='image'>";
+        html += " <td class='template_name'>";
         html += "<img src='http://localhost/upkeep/upkeep/public/assets/images/uploads/" + json[i].image + "'>";
         console.log(json[i].id);
-        // html += "</div>";
-        html += "                        " + json[i].itemtemplate_name + "";
-
-        // html += "                    </div>";
+        html += "" + json[i].itemtemplate_name + "";
         html += "</td>";
         html += "<td>" + json[i].category_name +"</td>";
         html += " <td id='status'";
@@ -182,7 +174,6 @@ console.log(xhr);
         }
         html += "" + json[i].status + "</td>";
         html += "<td class='des_color'>" + json[i].description + "</td>";
-        // html +="<td class='u_count'>"+json[i].user_count+"</td>";
         html += "<td>";
         html += "<div class='more'>  ";                        
         html += "<div class='view'><a href='http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewItem/"+json[i].id+"'><button class='view'>view</a></button></div>&nbsp;<div class='delete'><button class='edit'>edit</button></div>";
@@ -201,89 +192,10 @@ console.log(xhr);
 
 
 }
-
-// function passItemDetails(i) {
-
-//   const xhr = new XMLHttpRequest();
-//   var x = console.log(itemtemplateDetails[i].itemtemplate_name);
-//   var y = console.log(itemtemplateDetails[i].id);
-
-
-//   xhr.open("POST", "http://localhost/upkeep/upkeep/public/Moderator/Itemtemplate/viewItem/", "true");
-//   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-//   console.log(itemtemplateDetails[i]);
-//   xhr.onload = function () {
-//     if (xhr.status == 200) {
-//       const res = xhr.responseText;
-//     }
-//   }
-//   xhr.send();
-// }
-
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("templateTable");
-  switching = true;
-  //Set the sorting direction to ascending:
-  dir = "asc";
-  /*Make a loop that will continue until
-no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    console.log(rows.length);
-
-    /*Loop through all table rows (except the
-   first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("td")[n];
-      console.log(x.innerHTML);
-      y = rows[i + 1].getElementsByTagName("td")[n];
-      /*check if the two rows should switch place,
-      based on the direction, asc or desc:*/
-      //  console.log(y.innerHTML);
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          console.log(x);
-          console.log(y);
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          console.log(x);
-          console.log(y);
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      //Each time a switch is done, increase this count by 1:
-      switchcount++;
-    } else {
-      /*If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again.*/
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
+////////////////////////////////////////////////////////////
+//filter option
 function showDropdwn() {
-
+  // dropdown show and hide
   var select = document.getElementById("main-dropdwn");
   if (select.style.display === "none") {
     select.style.display = "block";
@@ -292,11 +204,12 @@ function showDropdwn() {
     select.style.display = "none";
   }
 }
-
+//select dropdown option and filter
 const dropdown = document.getElementById("main-dropdwn");
 const table = document.getElementById("templateTable");
 
 dropdown.addEventListener("change", function () {
+  //get the dropdown select value as integer
   const selectedValue = this.value;
   console.log(selectedValue);
   
@@ -304,6 +217,7 @@ dropdown.addEventListener("change", function () {
 
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
+    //get the value of status and itemtype in eachrow of the table
     const status = row.getElementsByTagName("td")[4];
     const itemType = row.getElementsByTagName("td")[3];
 
@@ -351,7 +265,6 @@ function toggleDeleteButton() {
 
 
           if (checkedIds.length > 0) {
-              console.log("a");
               // Create a new XMLHttpRequest object
               var xhr = new XMLHttpRequest();
 
@@ -418,9 +331,9 @@ function checkRequired(inputArr) {
 
           showError(input, `${getFieldName(input)} is required`);
       }
-      if (input == input1) {
-          if (!/^[a-zA-Z\s]+$/.test(input1.value)) {
-              showError(input1, `only letters and spaces`);
+      if (input == Input) {
+          if (!/^[a-zA-Z\s]+$/.test(Input.value)) {
+              showError(Input, `only letters and spaces`);
           }
       }
     
@@ -439,22 +352,16 @@ function ajax_updateItem(e) {
     setSmallNull();
     const formItemDetails = document.getElementById("popup-form1");
 
-    checkRequired([input1, description1,statu2]);
+    checkRequired([Input, description,Status]);
     console.log(errocheckflag);
-    // console.log(input2.value.trim());
-    console.log(errocheckflag);
+
     if (errocheckflag == 0) {
         const form = new FormData(formItemDetails);
-        form.append("action", "updateItem");
-        // form.append("id",cell1);
-        // form.delete('alter_type');
-        // const urlparams = new URLSearchParams(form);
-        console.log(form);
+        form.append("action", "updateParentItem");
+        
         const xhr = new XMLHttpRequest();
-
+        console.log(xhr);
         xhr.open("POST", "" + ROOT + "/Moderator/Itemtemplate/");
-        // xhr.setRequestHeader("Content-Type","application/json");             
-        // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
         xhr.onload = function () {
             if (xhr.status == 200) {

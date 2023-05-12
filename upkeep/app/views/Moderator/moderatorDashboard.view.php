@@ -165,7 +165,7 @@
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="complaints_table">
                             <tr>
                                 <td>Nimal</td>
                                 <td class="primary">2022/06/10</td>

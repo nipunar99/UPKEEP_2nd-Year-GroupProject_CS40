@@ -100,7 +100,7 @@ function ajax_getSuggestionItemDetails() {
                 html += " <div class='view-2'><div class='view-1-text'><h1>Suggested Item</h1>";
                 html += "<div class='name'><h3>Template Name</h3> <h3>"+json.itemtemplate_name+"</h3></div>";
                 html += " <div class='type'> <h3>Category Type</h3> <h3>"+json.category_name+"</h3></div> ";
-                html += " <div class='description'> <h3>Description</h3> <h3>"+json.description+"</h3></div></div></div>";
+                html += " <div class='description'> <h3>Description</h3> <h3 class='description-details'>"+json.description+"</h3></div></div></div>";
 
             document.querySelector(".view-details").innerHTML = html;
         }
@@ -176,8 +176,13 @@ function setEventListner(){
           html += " <td id='subcomponent'>" + json[i].sub_component + "</td>";
           html += " <td id='C_description'>" + json[i].description + "</td>";
           html += " <td id='time_frame'>" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W </td>";  
-          html += "<td class='status-update'>"+json[i].added+"</td>";                  
-          html += "<td><div  class='btn-container'><button class='edit-maintenance'><span>add</span></button></div></td>";
+          var btn_value = json[i].added;
+          if (btn_value == 0) {
+            var value = 'add';
+          } else {
+            var value = 'added';
+          }                 
+          html += "<td><div  class='btn-container'><button class='edit-maintenance'><span>"+value+"</span></button></div></td>";
           html += "</tr>";
         }
         document.querySelector(".maintenances_suggestions").innerHTML = html;
@@ -246,7 +251,6 @@ function ajax_updateMaintenanceTask(e) {
   e.preventDefault();
   setSmallNull();
   const formItemDetailss = document.getElementById("popup-form2");
-
   // checkRequired([input, description, statu]);
   // checkRange(year2, 1, 10);
   // checkRange(month2, 1, 11);
@@ -273,8 +277,9 @@ function ajax_updateMaintenanceTask(e) {
 
       xhr.send(form);
       closeModal("update-maintenance");
+    
   }
-
+ 
 }
 // document.addEventListener('DOMContentLoaded', function() {
  var add_btn = document.querySelector("#add-btn");

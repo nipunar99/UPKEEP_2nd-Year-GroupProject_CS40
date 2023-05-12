@@ -411,6 +411,7 @@ function ajax_updateItem(e) {
         const xhr = new XMLHttpRequest();
 
         xhr.open("POST", "" + ROOT + "/Moderator/Itemtemplate/");
+        console.log(xhr);
         // xhr.setRequestHeader("Content-Type","application/json");             
         // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 

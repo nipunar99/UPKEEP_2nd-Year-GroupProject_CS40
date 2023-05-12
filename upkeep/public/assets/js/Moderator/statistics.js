@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ajax_statisticView();
     ajax_adminstrativeUsers();
     ajax_getItems();
+    ajax_getItemSuggestions();
 });
 
 var totalItems,totalPending;
@@ -16,7 +17,7 @@ function ajax_statisticView() {
             const json = JSON.parse(res);
             totalItems = json.total_templates;
             totalPending = json.pending_templates;
-            var total =parseInt(totalItems) +parseInt(totalPending);
+            var total = parseInt(totalItems) +parseInt(totalPending);
             var html = "";
 
 
@@ -215,6 +216,78 @@ const dataValues = json.map(item => parseInt(item.total_item));
 console.log(dataValues); // [6, 1, 3, 1, 2, 1, 1]
 
       const ctx1 = document.getElementById('barChart');
+      new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: ['Electronics', 'Appliances', 'Tools and equipment', 'Vehicles', 'Furniture', 'Home and Garden', 'Other'],
+          datasets: [{
+            // label: '# of Votes',
+            data: dataValues,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                offset: true
+              },
+            },
+            x: {
+              grid: {
+                offset: true
+              }
+            }
+
+          }
+        }
+      });
+    }
+  }
+
+  xhr.send();
+}
+
+const item_suggestions = new Array(7).fill(0);
+
+function ajax_getItemSuggestions() {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("GET", "" + ROOT + "/Moderator/Statistics/itemSuggestionsCategoryView");
+
+  xhr.onload = function() {
+    if (xhr.status == 200) {
+      const res = xhr.responseText;
+      const json = JSON.parse(res);
+      console.log(json);
+
+      json.forEach(function(viewItemSuggestions) {
+        item_suggestions[viewItemSuggestions.category] = parseInt(viewItemSuggestions.total_item);
+      });
+console.log(item_suggestions);
+const dataValues = json.map(item_suggestions => parseInt(item_suggestions.total_item));
+console.log(dataValues); // [6, 1, 3, 1, 2, 1, 1]
+
+      const ctx1 = document.getElementById('barChart-2');
       new Chart(ctx1, {
         type: 'bar',
         data: {

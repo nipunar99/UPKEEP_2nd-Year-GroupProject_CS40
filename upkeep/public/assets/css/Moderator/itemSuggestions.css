@@ -138,10 +138,14 @@ main .mainHeader {
     margin-top: 4rem;
     text-align: center;
     position: relative;
-    bottom: -10rem;
-    right: 12rem;
+    bottom: -2rem;
+    right: -10rem;
+    display: flex;
 }
-
+.view-1-button button
+{
+    background-color: transparent;
+}
 .approve {
     width: 8rem;
     height: 3rem;
@@ -181,16 +185,21 @@ background-color: #fff;
     background-image: none; */
 }
 
-.view-1-text .date, .brand, .description {
+.view-1-text .description {
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 385px;
-    bottom: 107px;
+    left: 285px;
+    bottom: 90px;
     width: fit-content;
     padding-bottom: 1rem;
 }
-
+.description .description-details{
+    width: 300px;
+}
+.view-1-text .name h3:nth-child(2), .type h3:nth-child(2), .description h3:nth-child(2){
+    color: #000bd9;
+}
 .view-1-text .name, .type {
     display: flex;
     flex-direction: column;

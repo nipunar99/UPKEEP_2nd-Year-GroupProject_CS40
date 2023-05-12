@@ -158,7 +158,26 @@ document.addEventListener("DOMContentLoaded", function () {
           html += " <td class='hidden_id' id='task_ID'>" + json[i].task_ID + "</td>";
           html += " <td id='subcomponent'>" + json[i].sub_component + "</td>";
           html += " <td id='C_description'>" + json[i].description + "</td>";
-          html += " <td id='time_frame'>" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W </td>";                    
+          var duration_weeks = "";
+          var duration_months = "";
+          var duration_years = "";
+          
+          if (json[i].weeks > 0) {
+            duration_weeks = json[i].weeks + " weeks ";
+          }
+          if (json[i].months > 0) {
+            duration_months = json[i].months + " months ";
+          }
+          if (json[i].years > 0) {
+            duration_years = json[i].years + " years ";
+          }  
+          var duration = duration_weeks + duration_months + duration_years;
+
+          if (duration.trim() !== "") {
+            html += "<td id='time_frame'>" + duration + "</td>";
+          } else {
+            html += "<td id='time_frame'>N/A</td>";
+          }                   
           html += "<td><div class='btn-container'><button class='edit-maintenance'><span>edit</span></button></div></td>";
           html += "</tr>";
          
@@ -292,7 +311,7 @@ function ajax_addMaintenanceTask(e) {
   setSmallNull();
   const formItemDetails = document.getElementById("popup-form1");
 
-  checkRequired([input1, description1, statu1]);
+  checkRequired([description1, statu1]);
   checkRange(year1, 0, 10);
   checkRange(month1, 0, 11);
   checkRange(week1, 0, 3);

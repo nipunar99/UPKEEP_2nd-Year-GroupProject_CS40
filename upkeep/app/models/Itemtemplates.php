@@ -79,28 +79,27 @@ class Itemtemplates
 
     public function findCategoryName($id)
     {
-        $query = "select c.category_name from $this->table i inner JOIN categories c on  i.category_id = c.category_id where id = $id[0] ";
+        $query = "select c.category_name from $this->table i inner JOIN categories c on  i.category_id = c.category_id where id = $id";
         return $this->query($query);
     }
 
 
     public function getItemtemplateById($id)
     {
-       $query = "select i.itemtemplate_name, i.image, c.category_name, i.description from $this->table i inner JOIN categories c on i.category_id = c.category_id where id = $id";
-       return $this->query($query);
-    }
-
-    public function getItemtemplateDetails($id){
-        $query = "select *, categories.category_name  from $this->table inner JOIN categories where categories.category_id = $this->table.category_id AND $this->table.id = $id";
+        $query = "select i.itemtemplate_name,i.id,i.status, i.image, c.category_name, i.description from $this->table i inner JOIN categories c on i.category_id = c.category_id where id = $id";
         return $this->query($query);
     }
 
-    public function pending()
+    // public function getItemtemplateDetails($id){
+    //     $query = "select *, categories.category_name  from $this->table inner JOIN categories where categories.category_id = $this->table.category_id AND $this->table.id = $id";
+    //     return $this->query($query);
+    // }
+
+    public function countItemtemplate()
     {
-        $query = "select * from $this->table where status='Pending'";
+        $query = "select COUNT(*) AS total_templates FROM $this->table";
         return $this->query($query);
     }
-
     public function countTotalItemtemplate()
     {
         $query = "select COUNT(*) FROM $this->table where status = 'Approved' ";
@@ -109,28 +108,28 @@ class Itemtemplates
 
     public function countPendingItemtemplate()
     {
-        $query = "SELECT COUNT(*) FROM $this->table where status='pending'";
+        $query = "SELECT COUNT(*) AS pending_templates FROM $this->table where status='pending'";
         return $this->query($query);
     }
-    public function getItemcountByCategories(){
-        $query = " select c.category_name AS category , COUNT(*) AS total_item from itemtemplate AS i JOIN categories AS c ON i.category_id = c.category_id GROUP BY c.category_id ";
+    public function getItemcountByCategories()
+    {
+        $query = " select c.category_name AS category , COUNT(*) AS total_item from itemtemplate AS i JOIN categories AS c ON i.category_id = c.category_id  where moderator_id > 0 GROUP BY c.category_id";
         return $this->query($query);
     }
-
-    public function getSuggestionDetails(){
+    public function getItemSuggestionscountByCategories()
+    {
+        $query = " select c.category_name AS category , COUNT(*) AS total_item from itemtemplate AS i JOIN categories AS c ON i.category_id = c.category_id  where moderator_id = 0 GROUP BY c.category_id";
+        return $this->query($query);
+    }
+    public function getSuggestionDetails()
+    {
         $query = "select c.category_name, i.itemtemplate_name, i.image,i.id,i.description from $this->table i inner JOIN categories c on i.category_id = c.category_id where moderator_id = 0 AND status='Pending'";
         return $this->query($query);
     }
-    // public function updateItemTemplate($id){
-    //     $query = "update $this->table set status = 'Approved', moderator_id = '$_SESSION['user_id']' where id = $id";
-    //     return $this->query($query);
-    // }
-    public function approveItemSuggestion($id){
+    public function approveItemSuggestion($id)
+    {
         $moderator_id = $_SESSION['user_id'];
         $query = "update $this->table set status = 'Approved', moderator_id = '$moderator_id' where id=$id";
         return $this->query($query);
     }
-
-    
 }
-

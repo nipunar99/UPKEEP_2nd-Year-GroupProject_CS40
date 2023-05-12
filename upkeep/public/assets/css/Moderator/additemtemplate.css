@@ -24,7 +24,12 @@ main .mainHeader h1{
     left: 414px;
     color: rgb(0, 179, 255);
 }
-
+.erroInput{
+    border-color: #ff7782 !important;
+}
+small{
+    color: #ff7782 !important;
+}
 .itemDetails .input-box{
     margin-bottom: 15px;
     width: 18rem;

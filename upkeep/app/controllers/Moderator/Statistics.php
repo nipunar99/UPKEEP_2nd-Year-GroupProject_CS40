@@ -21,11 +21,12 @@ class Statistics
     public function itemView()
     {
         $itemtemplate = new Itemtemplates;
-        $t_items = $itemtemplate->countTotalItemtemplate();
+        $t_items = $itemtemplate->countItemtemplate();
 
         $p_items = $itemtemplate->countPendingItemtemplate();
-        $data['total_templates'] = $t_items[0]->{'COUNT(*)'};
-        $data['pending_templates'] = $p_items[0]->{'COUNT(*)'};
+        // $data['total_templates'] = $t_items[0]->{'COUNT(*)'};
+        $data['total_templates'] = $t_items[0]->total_templates;
+        $data['pending_templates'] = $p_items[0]->pending_templates;
         echo (json_encode($data));
     }
     public function userView()
@@ -51,5 +52,11 @@ class Statistics
         $result = $item->getItemcountByCategories();
         echo(json_encode($result));
     }
+    public function itemSuggestionsCategoryView(){
+        $item = new ItemTemplates;
+        $result = $item->getItemSuggestionscountByCategories();
+        echo(json_encode($result));
+    }
+
 
 }

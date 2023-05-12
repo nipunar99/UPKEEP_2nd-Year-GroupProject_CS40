@@ -102,6 +102,7 @@
                             <div class="input-box">
                                 <span class="details">Item template Name</span>
                                 <input type="text" name="itemtemplate_name" id="name" pattern="[A-Za-z ]+" required placeholder="Enter Item template Name (Letters and spaces only) ">
+                                <small></small>
 
                             </div>
 
@@ -111,6 +112,7 @@
                             <div class="input-box">
                                 <span class="details">Status</span>
                                 <select name="status" id="status" required=""></select>
+                                <small></small>
                             </div>
 
                             <div class="input-box" id="img">
@@ -120,6 +122,7 @@
                             <div class="input-box">
                                 <span class="details">Select category</span>
                                 <select name="category_id" id="category" required></select>
+                                <small></small>
                             </div>
 
                         </div>
@@ -127,6 +130,7 @@
                         <div class="input-box">
                             <span class="details">Description</span>
                             <textarea rows="5" cols="100" name="description" id="des_id" required placeholder="Enter Description about item Template"></textarea>
+                            <small></small>
                         </div>
 
 
@@ -140,6 +144,9 @@
         </main>
 
     </div>
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Moderator/additemtemplate.js"></script>
 </body>
 

@@ -97,6 +97,11 @@ main .mainHeader{
 .card-main .warning{
     color: red;
 }
+.bar-chart-main{
+    display: grid;
+    grid-template-columns: 45rem 45rem;
+}
+
 .bar-chart h1{
     color: #00BEE4;
     margin-bottom: 2rem;

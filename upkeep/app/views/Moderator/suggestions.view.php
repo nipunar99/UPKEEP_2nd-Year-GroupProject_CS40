@@ -93,28 +93,23 @@
                         </div>
                     </button>
                     <select class="table-status" id="main-dropdwn" style="display:none;">
-                        <optgroup label="Status" id="status">Status
-                            <option value="1">Approved</option>
-                            <option value="2">Pending</option>
-                        </optgroup>
                         <optgroup label="Item Type">Status
-                            <option value="3">Electronics</option>
-                            <option value="4">Appliances</option>
-                            <option value="5">Tools and equipment</option>
-                            <option value="6">Vehicles</option>
-                            <option value="7">Furniture</option>
-                            <option value="8">Home and garden</option>
-                            <option value="9">Other</option>
+                            <option value="1">Electronics</option>
+                            <option value="2">Appliances</option>
+                            <option value="3">Tools and equipment</option>
+                            <option value="4">Vehicles</option>
+                            <option value="5">Furniture</option>
+                            <option value="6">Home and garden</option>
+                            <option value="7">Other</option>
                         </optgroup>
                     </select>
-
                 </div>
 
             </div>
 
             <div class="insight">
                 <!-- <div class="maintenancess"> -->
-                    <div class="tab">
+                    <!-- <div class="tab">
                         <button class="tablinks" onclick="openComplaints(event, 'item')" id="defaultOpen">
                             <h1>Item Suggestions </h1>
                         </button>
@@ -122,110 +117,30 @@
                             <h1>Maintenance Suggestions</h1>
                         </button>
 
-                    </div>
+                    </div> -->
                     <div class="item" id="item">
+                        <div class=" card-mainn" id="cd">
 
-                        <!-- <h1>Item Suggestions</h1> -->
-                        <div class=" card-mainn">
-                            <!-- <div class="item-class" style="position: relative;"> -->
-                                <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
                                     <div class="card-main" role="button" style="position: relative;">
 
                                     <a href="<?= ROOT ?>/Moderator/Itemsuggestion"><img src="<?= ROOT ?>/assets/images/item1.png" alt=""></a>
                                     <div class="text">
-                                        <h3><b>Non Inverter</b></h3> 
+                                    <div class="warning"><h3>Non Inverter</h3></div> 
                                         <p>Air Conditioner</p>
                                     </div>
-                                    </div>
-                                <!-- </a> -->
-                           
+                                    </div>   
                         </div>
 
-
-
-
-                        <!-- </div> -->
                     </div>
-                <!-- </div> -->
-            <!-- <div class="maintenancess"> -->
-                <div class="item" id="maintenance">
-
-                    <!-- <h1>Maintenance Suggestions</h1> -->
-
-                    <div class="table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Description</th>
-                                    <th>Sub Component</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="show-r-1">
-                                    <td>Description</td>
-                                    <td>Sub Component</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
-                                </tr>
-                                <tr class="show-r-2" role="button">
-                                    <td>Description</td>
-                                    <td>Sub Component</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
-                                </tr>
-                                <tr class="show-r-3" role="button">
-                                    <td>Description</td>
-                                    <td>Sub Component</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
-                                </tr>
-                                <tr class="show-r-4 " role="button">
-                                    <td>Description</td>
-                                    <td>Sub Component</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                </div>
-            <!-- </div> -->
+          
     </div>
 
     </main>
-    <div class="popupview hidden">
-        <button class="closebtn">&times;</button>
-        <div class="popup-text">
-            <div class="1">
-                <span class="material-icons-sharp">view_in_ar</span>
-                <h4>Item name</h4>
-                <h4><B>Samsung Inverter Windfree AC</B> </h4>
-            </div>
-            <div class="2">
-                <span class="material-icons-sharp">chat_bubble_outline</span>
-                <h4>Maintenance task</h4>
-                <h4><b>Replace HAVC air filters</b></h4>
-            </div>
-            <div class="3">
-                <span class="material-icons-sharp">construction</span>
-                <h4>Sub Component</h4>
-                <h4><b>Air filter</b></h4>
-            </div>
-        </div>
-        <div class="actions">
-            <button>Add to template</button>
-            <button>Edit</button>
-            <button>Reject</button>
-        </div>
+ 
     </div>
-
-
-    <div class="overlayview hidden"></div>
-    </div>
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Moderator/suggestions.js"></script>
 </body>
 
