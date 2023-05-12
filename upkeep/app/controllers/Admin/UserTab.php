@@ -13,7 +13,23 @@ class UserTab{
             // show($technician_list);
             $this->view('Admin/user',$data);
         }    
-    }     
+    } 
+    
+    
+    public function addBannedReason(){
+
+            if(isset($_POST['action']) && $_POST['action']=="banneduser"){
+                unset($_POST['action']);// POST tiyan action key ainkral dnw
+            
+            $_POST['admin_id'] = $_SESSION['user_id'];
+            $banned = new BannedUser;
+            $banned->insert($_POST);
+
+            }
+    
+            
+        }
+
+    }
         
         
-}

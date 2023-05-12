@@ -413,10 +413,10 @@ th {
   }
 
   td {
-    background-color: #97a1a1; /* medium gray */
+    background-color: #dfebeb; /* medium gray */
     color: #333;
     
-  } */
+  } 
   
   
   
@@ -528,7 +528,7 @@ main .moderator-table {
   }
   
   .moderator-table th {
-    background-color: #6f50f8; /* Set background color of th to white */
+    background-color: #05B2E9; /* Set background color of th to white */
     color: rgb(8, 8, 17); /* Set font color of th to dark blue */
     font-size:15px;
   }

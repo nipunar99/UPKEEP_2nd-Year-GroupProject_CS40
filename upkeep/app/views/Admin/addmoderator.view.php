@@ -128,19 +128,22 @@
                             <th>User ID</th>
                             <th>Email</th>
                             <th>Registered Date</th>
+                            <th>User Role</th>
                             <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                            
                             
-                            <tr>                                         
                             <?php for($i=0;$i<count($admin);$i++):?>
-                                <tr>                                         
+                                <tr 
+                                    data-userDetails = <?=json_encode($admin[$i])?>
+                                >                                         
                                     <td><?=$admin[$i]->first_name." ".$admin[$i]->last_name ?></td>
                                     <td><?=$admin[$i]->user_id ?></td>
                                     <td><?=$admin[$i]->email ?></td>
                                     <td><?=$admin[$i]->registered_date ?></td>
+                                    <td><?=$admin[$i]->user_role ?></td>
                                     <td>
                                         <div class="btn-container">
                                             <button id="editor_btn" class="edit-button">Edit</button> 
@@ -151,65 +154,13 @@
                                     
                                 </tr>
                             <?php endfor;?>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="editor_btn"  class="edit-button">Edit</button> 
-                                            <button id="remove_btn" class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="editor_btn" class="edit-button">Edit</button> 
-                                            <button id="remove_btn" class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="editor_btn"  class="edit-button">Edit</button> 
-                                            <button class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="editor_btn" class="edit-button">Edit</button> 
-                                            <button class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                            </tr>
                             
                         </tbody>
                     </table>
                 </div>
             </div>
 
-
-
-                
-            
+    
 
 
         </main>
@@ -266,29 +217,33 @@
                         </div>
                         
                         <div class="btn-container">
-                            <input type="submit" value="Add Moderator" id="addModeratorbtn"> 
+                            <div class = "btn-styles">
+                                <!-- <input type="submit" value="Add Moderator" id="addModeratorbtn">  -->
+                                <button id="addModeratorbtn">Add Moderator</button>
+                            </div>
                         </div>
 
                     </div>
                 </form>
             </div>
         </div>
+        
         <!-- admin adding popup form -->
         <div class="popup hidden" id="addadmin">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
                 <h1>Add Admin</h1>
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                <form class="mobile-verify" id="admin-details" method="post" enctype="" >
                     <div class = "mobile-number-input" id="step1">
                         <div class="inline">
                             <div class="input-field">
                                 <label>First Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
+                                <input class="mobile" type="text" id="mobile_number" name="first_name" required placeholder="First Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
                                 <label>Last Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
+                                <input class="mobile" type="text" id="mobile_number" name="last_name" required placeholder="Last Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                         </div>
@@ -296,83 +251,111 @@
                         <div class="inline">
                             <div class="input-field">
                                 <label>Email</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
+                                <input class="mobile" type="text" id="mobile_number" name="email" required placeholder="Email" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
                                 <label>NIC</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
+                                <input class="mobile" type="text" id="mobile_number" name="nic" required placeholder="NIC" >
                                 <small class="error">&nbsperror</small>
                             </div>
                         </div>
                         <div class="input-field">
                             <label>Adrress</label>
-                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
+                            <input class="mobile" type="text" id="mobile_number" name="address" required placeholder="Address" >
                             <small class="error">&nbsperror</small>
                         </div>
                         <div class="inline">
                             <div class="input-field">
                                 <label>Phone Number</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_no" required placeholder="Phone Number" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             
                         </div>
                         
                         <div class="btn-container">
-                            <button id="submit">Add Admin</button>
+                            <!-- <input type="submit" value="Add Admin" id="addAdminbtn">  -->
+                            <button id="addAdminbtn">Add Admin</button>
+
+                            <!-- <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a> -->
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+
         <!-- administrative user editing popup form -->
-        <div class="popup hidden" id="editmod">
+        <div class="popup hidden" id="editmod" >
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
                 <h1>Edit Moderator</h1>
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                <form class="mobile-verify" id="addUpdated-details" method="post" enctype="" >
                     <div class = "mobile-number-input" id="step1">
                         <div class="inline">
-                            <div class="input-field">
-                                <label>User Id</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Userid " >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                            <div class="input-field">
-                                <label>User Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter username" >
-                                <small class="error">&nbsperror</small>
-                            </div>
+                                <div class="input-field">
+                                    <label>First Name</label>
+                                    <input class="mobile" type="text" id="first_name" name="first_name" required placeholder="First Name" >
+                                    <small class="error">&nbsperror</small>
+                                </div>
+                                <div class="input-field">
+                                    <label>Last Name</label>
+                                    <input class="mobile" type="text" id="last_name" name="last_name" required placeholder="Last Name" >
+                                    <small class="error">&nbsperror</small>
+                                </div>
                         </div>
-
                         <div class="inline">
                             <div class="input-field">
+                                <div class="input-field">
+                                    <label>User Name</label>
+                                    <input class="mobile" type="text" id="user_name" name="user_name" required placeholder="Enter username" >
+                                    <small class="error">&nbsperror</small>
+                                </div>
+                            </div>
+
+                            <div class="input-field">
                                 <label>Email</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter email" >
+                                <input class="mobile" type="text" id="email" name="email" required placeholder="Enter email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            
+                        </div>
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>NIC</label>
+                                <input class="mobile" type="text" id="nic" name="nic" required placeholder="NIC" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
                                 <label>Contact</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter contact" >
+                                <input class="mobile" type="text" id="mobile_no" name="mobile_no" required placeholder="Enter contact" >
                                 <small class="error">&nbsperror</small>
                             </div>
+                            
+
                         </div>
-                        <div class="input-field">
-                            <label>Change Password</label>
-                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Enter password" >
-                            <small class="error">&nbsperror</small>
+
+                        <div class="inline">
+                            <div class="input-field">
+                                    <label>Adrress</label>
+                                    <input class="mobile" type="text" id="address" name="address" required placeholder="Address" >
+                                    <small class="error">&nbsperror</small>
+                                </div>
+                            
+                            
                         </div>
+                        
 
                         
                         <div class="btn-container">
                             <div class="changes">
-                                <button id="OTP-send">Save changes</button></div>
+                                <button id="save_changes">Save changes</button></div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+
          <!-- administrative user removing popup form -->
         <div class="popup hidden" id="removemod">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
@@ -381,13 +364,13 @@
                     <h2>Confirm deletion of this Moderator</h2>
                 </div>
                 
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                <form class="mobile-verify" id="remove-adminusers" method="post" enctype="" >
                     <div class ="head" >
                         <h3>Are you sure you you want to remove this moderator?</h3>
                     </div>
                     <div class="btn-container">
-                                <button id="OTP-send">Yes,I'm Sure</button>
-                                <button id="OTP-send">Cancel</button>
+                                <button id="yes">Yes,I'm Sure</button>
+                                <button id="no">Cancel</button>
                                 
                         </div>
  
@@ -407,6 +390,9 @@
         <script src="<?= ROOT ?>/assets/js/Admin/addModerator.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/adminusers.js"></script>  
+        <script src="<?=ROOT?>/assets/js/Admin/updateadminusers.js"></script>  
+
+
         
 
 </body>

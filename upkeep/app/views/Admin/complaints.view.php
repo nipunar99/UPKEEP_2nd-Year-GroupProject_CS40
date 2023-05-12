@@ -9,7 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Technician/findjobs.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/complaints.css">
+
+
 </head>
 <body>
     <div class="container">
@@ -75,8 +78,34 @@
         </aside>
 
         <main>
-            
+            <div class="header nbs">
+                    <div class="left">
 
+                    </div>
+                    <div class="center">
+                        <h1>Complaints</h1>
+                    </div>
+                    <div class="right">
+                        <div class="notification">
+                            <span class="material-icons-sharp">notifications</span>
+                        </div>
+
+                        <div class="profile" id="profile">
+                            <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                            <div class="info">
+                                <div class="name">
+                                    <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                                </div>
+                                <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                            </div>
+                            <div class="profile-photo">
+                                <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+<!-- 
             <div class="mainhead">
                 
                 <h1>Complaints</h1>
@@ -103,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             
             <div class="content">
@@ -136,9 +165,10 @@
                         <tbody>
                            
                             
-                            <tr>                                         
+                                                                     
                             <?php for($i=0;$i<count($complaint);$i++):?>
-                                <tr>                                         
+                                <tr>
+                                        
                                     <td><?=$complaint[$i]->complaint_id ?></td>
                                     <td><?=$complaint[$i]->post_id ?></td>
                                     <td><?=$complaint[$i]->complaint_type ?></td>
@@ -146,15 +176,15 @@
                                     <td><?=$complaint[$i]->status ?></td>
                                     <td>
                                         <div class="btn-container">
-                                            <button id ="edit_btn" class="view-button">View</button> 
-                                            <button id ="delete_btn" class="remove-button">Remove</button>
+                                            <button id ="view_btn" class="view-button">View</button> 
+                                            <button id ="delete_btn" data-userid=<?=$complaint[$i]->user_id?> class="remove-button">Remove</button>
                                         </div>
                                     </td>
                                     
                                     
                                 </tr>
                             <?php endfor;?>
-                            </tr>
+                            
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
@@ -164,7 +194,7 @@
                                 <td>
                                         <div class="btn-container">
                                             <button class="view-button">View</button> 
-                                            <button class="remove-button">Remove</button>
+                                            <button id= "delete_btn" class="remove-button">Remove</button>
                                         </div>
                                     </td>
                                 
@@ -179,21 +209,7 @@
                                 <td>
                                         <div class="btn-container">
                                             <button class="view-button">View</button> 
-                                            <button class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                                
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td></td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button class="view-button">View</button> 
-                                            <button class="remove-button">Remove</button>
+                                            <button id= "delete_btn" class="remove-button">Remove</button>
                                         </div>
                                     </td>
                                         
@@ -208,7 +224,7 @@
                                 <td>
                                         <div class="btn-container">
                                             <button class="view-button">View</button> 
-                                            <button class="remove-button">Remove</button>
+                                            <button id= "delete_btn"class="remove-button">Remove</button>
                                         </div>
                                     </td>
                                         
@@ -236,21 +252,14 @@
                     <h2>Confirm deletion of this Complaint</h2>
                 </div>
                 
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                <form class="mobile-verify" id="complaint_action" method="post" enctype="" >
                     <div class ="head" >
                         <h3>Are you sure you you want to remove this complaint?</h3>
                     </div>
                     <div class="btn-container">
-                                <button id="OTP-send">Yes,I'm Sure</button>
-                                <button id="OTP-send">Cancel</button>
+                                <button id="remove_complaintBtn">Yes,I'm Sure</button>
+                                <button id="cancel">Cancel</button>
                         </div>
- 
-                    
-
-
-                        
-                       
-                    
                 </form>
             </div>
         </div>
@@ -259,43 +268,40 @@
         <div class="popup hidden" id="view_complaint">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content-1">
-                <div class="content-2">
-                    <div class="cc">
-                        <div class=bb>
-                            <h2>Decription</h2>
-                                <h3><?=$complaint[$i]->description?></h3>
+               
+                    <div class="content-2">
+                        <div class="cc">
+                            <div class=bb>
+                                <h2>Decription</h2>
+                                    <h3><?=$complaint[0]->description?></h3>
+                            </div>
+                            <div class=bb>
+                                <h2>Type</h2>
+                                    <h4><?=$complaint[0]->complaint_type?></h4>
+                            </div>
                         </div>
-                        <div class=bb>
-                            <h2>Type</h2>
-                                <h4><?=$complaint[$i]->complaint_type?></h4>
+                        <div class="cc">
+                            <div class=bb>
+                                <h2>Status</h2>
+                                    <h4><?=$complaint[0]->status?></h4>
+                            </div>
+                            <div class=bb>
+                                <h2>Date created</h2>
+                                <h4><?=$complaint[0]->date_created?></h4> 
+                            </div>  
                         </div>
                     </div>
-                    <div class="cc">
-                        <div class=bb>
-                            <h2>Status</h2>
-                                <h4><?=$complaint[$i]->status?></h4>
-                        </div>
-                        <div class=bb>
-                            <h2>Date created</h2>
-                            <h4><?=$complaint[$i]->date_created?></h4> 
-                        </div>  
-                    </div>
-                </div>
-                
-                
- 
-                    
-
-
-                        
-                       
-                    
-                
             </div>
         </div>
 
+        <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+        ?>
+
         <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/complaint.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/updateadminusers.js"></script>  
+
         
 
 </body>

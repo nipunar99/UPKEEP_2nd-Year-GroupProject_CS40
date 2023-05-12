@@ -86,7 +86,7 @@
                 
                     <div class="item">
                         <div class="photo-container">
-                                <img src="<?=ROOT?>/Getverified/Technician/getImage/<?=$profile[0]->id_front?>" alt="Profile photo"> 
+                                <img src="<?=ROOT?>/Technician/Getverified/getImage/<?=$profile[0]->id_front?>" alt="Profile photo"> 
                                                             </div>
                         <div>
                             <h3>Front Photo Of NIC</h3>
@@ -99,7 +99,7 @@
                     <div class="item">
                         <div class="photo-container">
                                 <img 
-                                    src="<?=ROOT?>/assets/images/rearId.png" alt="Profile photo">
+                                    src="<?=ROOT?>/Technician/Getverified/getImage/<?=$profile[0]->id_back?>" alt="Profile photo">
                         </div>
                         <div>
                             <h3>Back Photo Of NIC</h3>
@@ -130,8 +130,7 @@
                 
                 
                     <div class="item-1">
-                        <p>My name is rusith siriwardhana,I have followed the technician course at Maharagama Youth Center...
-                            And also I have 5year experience.</p>
+                        <p><?=$profile[0]->other_documents?></p>
                         
                        
                             
@@ -241,11 +240,11 @@
                         </div>
 
                         <div class="button-container">
-                            <button class="first-button">Verify</button>
-                                <a href="#">
-                                    <button class="second-button">Reject
-                                    </button>
-                                </a>
+                            <button id = "verify_btn" onclick="verify()" class="first-button" data-technician=<?=$profile[0]->user_id?>>Verify</button>
+                                
+                            
+                            <button id = "reject_btn" onclick="reject()" class="second-button" data-technician=<?=$profile[0]->user_id?>>Reject</button>
+                            
                         
                         </div>
 
@@ -259,42 +258,36 @@
         </div>
 
     </div>
-
-    <div class="popupview hidden">
-            
-            <button class="closebtn">&times;</button>
-            
-            <div class="popup-text">
-                <h1>Reject</h1>
+    
+    <div class="overlay hidden" id="overlay"></div>
+    <div class="popup hidden" id="rejecttechnician">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content-1">
+                <div class="content-2">
+                    <h2>Confirm deletion of this Technician</h2>
+                </div>
                 
-                <div class="grid-container-1">
-                    <h3>select Reason</h3>
-                
-                    <div class="item-1">
-                        <p>My name is rusith siriwardhana</p>
-                        
-                       
-                            
-                            
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class ="head" >
+                        <h3>Are you sure you you want to reject this technician?</h3>
                     </div>
-
+                    <div class="btn-container">
+                        <button id="confirm_deleteBtn">Yes,I'm Sure</button>
+                        <button id="cancel">Cancel</button>            
+                    </div>       
+                    
+                </form>
             </div>
-                
-                
-                
-                
-                
-            </div>
-            <div class="actions">
-                
-                <button>Request Resubmission</button>
-            </div>
-        </div>
-
-
-        <div class="overlayview hidden"></div>
     </div>
-    <script src="<?= ROOT ?>/assets/js/Admin/reject.js"></script>
+    
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>
+    <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Admin/rejectTechnician.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Admin/verifyTechnician.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Admin/rejectTechnician.js"></script>
+
 
 
     

@@ -69,35 +69,37 @@
         </aside>
 
         <main>
-            <div class="header">
-                    <div class="left">
+            <div class="header nbs">
+                            <div class="left">
 
-                    </div>
-                    <div class="middle">
-                        <h1>Users</h1>
-                    </div>
-                    <div class="right">
-                        <div class="notification">
-                            <span class="material-icons-sharp">notifications</span>
-                        </div>
+                            </div>
+                            <div class="center">
+                                <h1>Find Jobs</h1>
+                            </div>
+                            <div class="right">
+                                <div class="notification">
+                                    <span class="material-icons-sharp">notifications</span>
+                                </div>
 
-                        <div class="profile">
-                            <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
-                            <div class="info">
-                                <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
-                                <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
-                            </div>
-                            <div class="profile-photo">
-                                <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="profile" id="profile">
+                                    <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                                    <div class="info">
+                                        <div class="name">
+                                            <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                                        </div>
+                                        <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                                    </div>
+                                    <div class="profile-photo">
+                                        <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>          
                 </div>
 
-        <div class="mainhead">
+        <!-- <div class="mainhead">
                 
                 
-                <!-- <div class="heading">
+                <div class="heading">
                     <div class="top">
                         <button id="menu-btn">
                             <span class="material-icons-sharp">menu</span>
@@ -118,8 +120,8 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
-            </div>
+                </div>
+            </div> -->
 
             <div class="insight">
 
@@ -185,12 +187,12 @@
                                 
                                     <?php for($i=0;$i<count($complaint_list);$i++):?>
                             <tr>
-                                <td><?=$complaint_list[$i]->first_name." ".$complaint_list[$i]->last_name?></td>
-                                <td><?=$complaint_list[$i]->status ?></td>
-                                <td><?=$complaint_list[$i]->identity_verification ?></td>
-                                <td><?=$complaint_list[$i]->description ?></td>
-                                <td><?=$complaint_list[$i]->date_created ?></td>
-                                <td><?=$complaint_counts[$i]->count ?></td>    
+                                <td><?=$complaint_list[0]->first_name." ".$complaint_list[0]->last_name?></td>
+                                <td><?=$complaint_list[0]->status ?></td>
+                                <td><?=$complaint_list[0]->identity_verification ?></td>
+                                <td><?=$complaint_list[0]->description ?></td>
+                                <td><?=$complaint_list[0]->date_created ?></td>
+                                <!-- <td><?=$complaint_counts[0]->count ?></td>     -->
                             </tr>
                         <?php endfor;?>
                                 
@@ -210,14 +212,7 @@
                                     <td>10/01/2023</td>
                                     <td>10</td>
                                 </tr>
-                                <tr class="show-r-4 " role="button">
-                                    <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    <td class="colorgreen">Permitted</td>
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
 

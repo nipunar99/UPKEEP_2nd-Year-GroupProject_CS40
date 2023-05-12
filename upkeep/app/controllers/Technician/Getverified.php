@@ -262,7 +262,7 @@ class Getverified
         // Read the file from the secure directory and output it to the browser
             $secure_dir = '\\xampp\\htdocs\\upkeep\\upkeep\\app\\secure_folder\\technician_verification\\';
             $file_path = $secure_dir . $image_id;
-           echo $file_path;
+            echo $file_path;
             readfile($file_path);
         } else {
             // User is not authorized to access the image

@@ -31,10 +31,10 @@ class Statistic{
             $total_moderators = $user->getTotalModerator();
             $data['moderator_counts']= $total_moderators;
 
-            $complaint = new Complaints;
+            $complaint = new Complaint;
             $data['complaint_list'] = $complaint->getComplaint();
 
-            $data['complaint_counts'] = $complaint->getTotalComplaints();
+            // $data['complaint_counts'] = $complaint->getTotalComplaints();
 
             
 

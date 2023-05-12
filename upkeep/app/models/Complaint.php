@@ -36,7 +36,7 @@ class Complaint
     }
 
     public function getComplaint(){
-    $query ="Select c.status, c.description, c.date_created, c.technician_id, c.user_id, ut.user_id, ut.first_name, ut.last_name, ut.identity_verification from complaints c INNER JOIN 
+    $query ="Select c.complaint_id, c.post_id, c.complaint_type, c.status, c.description, c.date_created, c.technician_id, c.user_id, ut.user_id, ut.first_name, ut.last_name, ut.identity_verification from complaints c INNER JOIN 
         (SELECT u.user_id, u.first_name, u.last_name, t.identity_verification from technicians t INNER JOIN users u ON u.user_id = t.user_id ) ut 
         ON c.user_id=ut.user_id";
 
@@ -56,10 +56,10 @@ class Complaint
 
     }
 
-    public function getAllComplaints(){
-        $query = "SELECT * FROM complaints";
-        return $this->query($query);
-    }
+    // public function getAllComplaints(){
+    //     $query = "SELECT * FROM complaints";
+    //     return $this->query($query);
+    // }
 
     
 

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
+@import "./popupform.css";
+@import "./popupchanges.css";
+@import "./modifyform.css";
+
+@import "./user.css";
+
 :root{
     --color-primary: #7380ec;
     --color-warning:#ffbb55;
@@ -299,8 +305,8 @@ main .mainHeader{
   }
 .btn {
     display: flex;
-    gap: 3rem;
-    margin-top: 8rem;
+    gap: 1rem;
+    margin-top: 2rem;
     
 }
   .item-container .edit {
@@ -319,7 +325,8 @@ main .mainHeader{
   .item-details {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 2rem;
+    /* justify-content: center; */
     align-items: flex-start;
   }
   
@@ -466,7 +473,8 @@ main .mainHeader{
     padding-bottom: 4rem;
 }
 .card-main2{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
     margin-left: 1.5rem;
     margin-top: 1rem;
@@ -476,7 +484,7 @@ main .mainHeader{
 }
 .card-main2 > div{
     text-align: center;
-    width: 30%;
+    width: 80%;
     background: var(--color-white);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
@@ -670,7 +678,7 @@ main .mainHeader{
     border-radius: 50%;
 }
 span .addmaintenance{
-    font-size: 20px;
+    font-size: 12px;
     color: white;
     background-color: #00BEE4;
     border-radius: 10px 10px 10px 10px;
@@ -678,6 +686,7 @@ span .addmaintenance{
     position: absolute;
     right: 180px;
     bottom: 290px;
+    width: 125px;
     
 
 }

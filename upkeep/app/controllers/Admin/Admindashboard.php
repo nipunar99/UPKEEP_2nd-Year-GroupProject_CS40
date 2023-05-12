@@ -16,7 +16,7 @@ class Admindashboard{
             redirect('/Home');
         }else{
             $user = new User;
-            $mod = new Moderator;
+            $mod = new User;
             $moderator_list = $mod->getAllModerators();
             $data['moderators'] = $moderator_list;
             //show($moderator_list);
@@ -34,6 +34,10 @@ class Admindashboard{
             $approved_items = $item->getApprovedItems();
             $data['item_counts']= $approved_items;
             //  show($approved_items);
+
+            $pending_approval= new VerificationRequest;
+            $pending_list = $pending_approval->getcount();
+            $data['pending_counts']=$pending_list;
 
             //sshow($_SESSION);
             $this->view('Admin/adminDashboard',$data);

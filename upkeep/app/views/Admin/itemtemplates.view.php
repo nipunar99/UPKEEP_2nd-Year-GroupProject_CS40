@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/itemtemplates.css">
+
 </head>
 
 <body>
@@ -64,22 +65,6 @@
                     <span class="material-icons-sharp">forum</span>
                     <h3>Statistics</h3>
                 </a>
-
-                
-                
-
-                
-                
-
-<!-- 
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Notifications</h3>
-                    <span class="message-count">11</span>
-                </a> -->
-
-                
-
                 <a href="#">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
@@ -91,41 +76,37 @@
         </aside>
 
         <main>
-        <div class="mainhead">
-                
-                <h1>item Templates</h1>
+            <div class="header nbs">
+                        <div class="left">
 
-                <div class="heading">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
                         </div>
+                        <div class="center">
+                            <h1>Find Jobs</h1>
+                        </div>
+                        <div class="right">
+                            <div class="notification">
+                                <span class="material-icons-sharp">notifications</span>
+                            </div>
 
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
+                            <div class="profile" id="profile">
+                                <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                                <div class="info">
+                                    <div class="name">
+                                        <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                                    </div>
+                                    <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                                </div>
+                                <div class="profile-photo">
+                                    <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                                </div>
                             </div>
-                            <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </div>          
             </div>
 
             <div class="search-bar" style="margin-top:3rem;">
                 <form>
                     <input type="text" placeholder="Search...">
                     <button type="submit">Search</button>
-                    
-                    
-                    
                     
                 </form>
                 
@@ -175,12 +156,12 @@
                     <div class = "mobile-number-input" id="step1">
                         <div class="inline">
                             <div class="input-field">
-                                <label>First Name</label>
+                                <label>Template Name</label>
                                 <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
                             <div class="input-field">
-                                <label>Last Name</label>
+                                <label>Category</label>
                                 <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
                                 <small class="error">&nbsperror</small>
                             </div>
@@ -188,32 +169,16 @@
 
                         <div class="inline">
                             <div class="input-field">
-                                <label>Email</label>
+                                <label>Description</label>
                                 <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
                                 <small class="error">&nbsperror</small>
                             </div>
-                            <div class="input-field">
-                                <label>NIC</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
-                                <small class="error">&nbsperror</small>
-                            </div>
                         </div>
-                        <div class="input-field">
-                            <label>Adrress</label>
-                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
-                            <small class="error">&nbsperror</small>
-                        </div>
-                        <div class="inline">
-                            <div class="input-field">
-                                <label>Phone Number</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                            
-                        </div>
+                           
+                        
                         
                         <div class="btn-container">
-                            <button id="submit">Add Admin</button>
+                            <button id="submit">Add Item</button>
                         </div>
                     </div>
                 </form>

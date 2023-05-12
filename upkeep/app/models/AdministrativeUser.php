@@ -1,20 +1,14 @@
 <?php 
 
-class Moderator 
+class AdministrativeUser 
 {
     use Model;
 
-    protected $table = "moderators";
+    protected $table = "administrative_users";
 
     protected $allowedColumns = [
-        
-        "first_name",
-        "last_name",
-        "email",
-        "mobile_no",
         "nic",
         "address",
-        "password",
     ];
 
     
@@ -44,7 +38,7 @@ class Moderator
 
 
     public function getAllModerators(){
-        $query = "Select * from moderators Where account_status =:account_status" ;
+        $query = "Select * from administrative_users Where account_status =:account_status" ;
         $data['account_status']='active';
         // $abc =$this->query($query,$data);
         // return $abc;
@@ -57,10 +51,8 @@ class Moderator
 }
 
     public function insertModerator($data){
-        show($data);
-        // $this->insert($data);
+        $this->insert($data);
     }
-
 
 }
 ?>

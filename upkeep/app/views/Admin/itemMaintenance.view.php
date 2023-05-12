@@ -228,7 +228,69 @@
                     </div>
                 </div>
         </main>
-        <div class="popupview hidden">
+        <div class="overlay hidden" id="overlay"></div>
+
+        <div class="popup hidden" id="additem">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <h1>Add Admin</h1>
+                <form class="mobile-verify" id="additem" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>First Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="first_name" required placeholder="First Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>Last Name</label>
+                                <input class="mobile" type="text" id="mobile_number" name="last_name" required placeholder="Last Name" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input class="mobile" type="text" id="mobile_number" name="email" required placeholder="Email" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            <div class="input-field">
+                                <label>NIC</label>
+                                <input class="mobile" type="text" id="mobile_number" name="nic" required placeholder="NIC" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Adrress</label>
+                            <input class="mobile" type="text" id="mobile_number" name="address" required placeholder="Address" >
+                            <small class="error">&nbsperror</small>
+                        </div>
+                        <div class="inline">
+                            <div class="input-field">
+                                <label>Phone Number</label>
+                                <input class="mobile" type="text" id="mobile_number" name="mobile_no" required placeholder="Phone Number" >
+                                <small class="error">&nbsperror</small>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="btn-container">
+                            <!-- <input type="submit" value="Add Admin" id="addAdminbtn">  -->
+                            <button id="addAdminbtn">Add Admin</button>
+
+                            <!-- <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script src="<?= ROOT ?>/assets/js/Admin/additem.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
+
+        <!-- <div class="popupview hidden">
             <button class="closebtn">&times;</button>
             <div class="popup-text">
                 <div class="1">
@@ -257,7 +319,7 @@
 
         <div class="overlayview hidden"></div>
     </div>
-    <script src="<?= ROOT ?>/assets/js/Moderator/item.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/item.js"></script> -->
 </body>
 
 </html>

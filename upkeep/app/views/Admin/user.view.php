@@ -124,7 +124,7 @@
                         <thead>
                             <tr>
                             
-                            <th>Name</th>
+                            <th id="name_column">Name</th>
                             <th>User ID</th>
                             <th>Email</th>
                             <th>identity_verification</th>
@@ -145,86 +145,14 @@
                                     <td><?=$technician[$i]->identity_verification ?></td>
                                     <td>
                                         <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
+                                            <button id="view_btn" class="view_btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="reject-btn" class="reject_btn"data-userId=<?=$technician[$i]->user_id?>><span class="material-icons-sharp favorite-icon">cancel</span></button>
                                         </div>
                                     </td>
                                     
                                 </tr>
                             <?php endfor;?>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
-                                        </div>
-                                    </td>
-                                
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">not_interested</span></button>
-                                        </div>
-                                    </td>
-                            </tr>
+                            
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
                                 <td>5</td>
@@ -237,6 +165,8 @@
                                         </div>
                                     </td>
                             </tr>
+                            <tr>                                         
+                            
                         </tbody>
                     </table>
                 </div>
@@ -258,34 +188,63 @@
         </main>
     </div>
     <div class="overlay hidden" id="overlay"></div>
-    <div class="popup hidden" id="banned-user">
+    <div class="popup hidden" id="banned_user" >
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content-1">
-                <div class="content-2">
-                    <h2>Confirm deletion of this Moderator</h2>
-                </div>
-                
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
-                    <div class ="head" >
-                        <h3>Are you sure you you want to remove this moderator?</h3>
-                    </div>
-                    <div class="btn-container">
-                                <button id="OTP-send">Yes,I'm Sure</button>
-                                <button id="OTP-send">Cancel</button>
+            <div class="content">
+                <h1>Banned User</h1>
+                <form class="mobile-verify" id="addbanned-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+                        <div class="inline">
+                                <div class="input-field">
+                                    <label>Enter the Reason </label>
+                                    <input class="mobile" type="text" id="reason" name="reason" required placeholder="Reason" >
+                                    <small class="error">&nbsperror</small>
+                                </div>
+
                         </div>
- 
-                    
-
-
-                        
-                       
-                    
+                                
+                       <div class="btn-container">
+                            
+                                <button id="bannedBtn">Banned</button>
+                                <button id="cancel">cancel</button>
+                        </div>
+                    </div>
                 </form>
             </div>
     </div>
 
+        <div class="popup hidden" id="view_user">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content-1">
+                <div class="content-2">
+                    <div class="cc">
+                        <div class=bb>
+                            <h2>Name</h2>
+                                <h3><?=$technician[0]->first_name." ".$technician[0]->last_name ?></h3>
+                        </div>
+                        <div class=bb>
+                            <h2>User_id</h2>
+                                <h4><?=$technician[0]->user_id?></h4>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <div class=bb>
+                            <h2>Email</h2>
+                                <h4><?=$technician[0]->email?></h4>
+                        </div>
+                        <div class=bb>
+                            <h2>identity verification</h2>
+                            <h4><?=$technician[0]->identity_verification?></h4> 
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+    <?php
+        echo "<script> var ROOT = '".ROOT."'; </script>";
+    ?>  
 
     <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
     <script src="<?=ROOT?>/assets/js/Admin/users.js"></script>

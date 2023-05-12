@@ -3,7 +3,8 @@
 @import "./popupform.css";
 @import "./popupchanges.css";
 @import "./modifyform.css";
-@import "./general.css";
+/* @import "./general.css"; */
+@import "./user.css";
 
 /* Root variables */
 

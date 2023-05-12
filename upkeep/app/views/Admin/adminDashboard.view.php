@@ -155,7 +155,7 @@
                             </div>
                             <div>
                                 <span class="material-icons-sharp">manage_accounts</span>
-                                <h4>Pending Approvals :  Acounts</h4>
+                                <h4>Pending Approvals :<?=$pending_counts[0]->count?>  Acounts</h4>
                             </div>
                             <div class="maintenanceStatus">
                                 <span class="material-icons-sharp">person_off</span>
@@ -170,7 +170,7 @@
             <div class="modarotorList">
                 <div>
                     <h2>Moderator's Profile details</h2>
-                    <a id="btn_mod" class="btn_action1 addMode">Add Moderator</a>
+                    <!-- <a id="btn_mod" class="btn_action1 addMode">Add Moderator</a> -->
                     <!-- <button class="btn_action addMode">Add Moderator</button> -->
                 </div>
                 
@@ -181,9 +181,9 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
-                            
                             <th>Phone Number</th>
                             <th>Address</th>
+                            
                             
                     </tr>
                     <?php for($i=0;$i<count($moderators);$i++):?>
@@ -200,66 +200,6 @@
 
         </main>
         <!-- End of Main -->
-
-
-        <!-- <div class="overlay hidden" id="overlay"></div>
-        <div class="popup hidden" id="addmoderator">
-            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content">
-                <h1>Add Moderator</h1>
-                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
-                    <div class = "mobile-number-input" id="step1">
-                        <div class="inline">
-                            <div class="input-field">
-                                <label>First Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="First Name" >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                            <div class="input-field">
-                                <label>Last Name</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Last Name" >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                        </div>
-
-                        <div class="inline">
-                            <div class="input-field">
-                                <label>Email</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Email" >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                            <div class="input-field">
-                                <label>NIC</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="NIC" >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                        </div>
-                        <div class="input-field">
-                            <label>Adrress</label>
-                            <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Address" >
-                            <small class="error">&nbsperror</small>
-                        </div>
-                        <div class="inline">
-                            <div class="input-field">
-                                <label>Phone Number</label>
-                                <input class="mobile" type="text" id="mobile_number" name="mobile_number" required placeholder="Phone Number" >
-                                <small class="error">&nbsperror</small>
-                            </div>
-                            
-                        </div>
-                        
-                        <div class="btn-container">
-                            <button id="OTP-send">Add Moderator</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> -->
-        
-        <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
-        <script src="<?=ROOT?>/assets/js/Admin/dashboard.js"></script>
-
-
 </body>
 
 </html>

@@ -1,34 +1,52 @@
-document.getElementById("addModeratorbtn").addEventListener('click',ajax_addModerator);
-
-function ajax_addModerator(e){
-    // errocheckflag = 0;
-    e.preventDefault();// ape form refresh wenna epa.
-    // setSmallNull();
-    const formModeratorDetails = document.getElementById("addModerator-details");
-
-    // if(errocheckflag == 0){
-        const form = new FormData(formModeratorDetails);
-        form.append("action","addmoderator");// ubt wenama key value pair dgnna pluen form eken ena ewt amthraw
-
-        // Ajax eke create kragnnw
-
-        const xhr = new XMLHttpRequest(); //ajax request ekak create
-
-        xhr.open("POST",""+ROOT+"/Admin/Addmoderator/addModeratorfunc",true);
-        
-        xhr.onload = function(){ // request success chech kranw
-            if(xhr.status == 200){
-                const res = xhr.responseText;
-                console.log(res);
-            }
-        }
-
-        xhr.send(form);
-        
-        // ajax_getItems();
-        formModeratorDetails.reset();
-        closePopup("addmod");
-
-    // }
+function ajax_addModerator(){
     
+
+    // const formItemDetails = document.getElementById("form_itemDetails");
+    const addmoderator = document.getElementById("addModerator-details");
+
+    console.log(addmoderator);
+    const form = new FormData(addmoderator);
+    form.append("action","addmoderator");
+   
+    
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST",""+ROOT+"/Admin/Addmoderator/addModeratorfunc");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            console.log(res);
+        }
+    }
+
+    xhr.send(form);
+
+}
+
+// addAdminBtn.addEventListener('click',add_admin);
+
+function ajax_addAdmin(){
+ 
+    const addadmin = document.getElementById("admin-details");
+    
+    console.log(addadmin);
+
+    const form = new FormData(addadmin);
+    form.append("action","addadmin");
+
+    
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST",""+ROOT+"/Admin/Addmoderator/addAdminfunc");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            console.log(res);
+        }
+    }
+
+    xhr.send(form);
+
 }

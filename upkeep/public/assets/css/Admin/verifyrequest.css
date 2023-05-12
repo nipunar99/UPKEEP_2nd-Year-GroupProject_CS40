@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 @import 'general.css';
 @import "./user.css";
+
 /* Root variables */
 
 :root{
@@ -579,6 +580,7 @@ form .button input:hover{
     background-color:lightblue;
     border-radius:10px 10px 10px 10px;
     width:200px;
+    margin-left: 0.5rem;
 }
 
 .photo-container img{
@@ -595,5 +597,12 @@ form .button input:hover{
 
 .head h4{
     font-size: large;
+}
+
+.vv{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-left: 25%;
 }
   

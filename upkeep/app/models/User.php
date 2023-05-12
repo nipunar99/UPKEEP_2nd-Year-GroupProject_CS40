@@ -167,7 +167,7 @@ class User
 
     public function getBannedAcc(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT account_status, COUNT(account_status) AS count FROM moderators GROUP BY account_status";
+        $query ="SELECT account_status, COUNT(account_status) AS count FROM users GROUP BY account_status";
         $data['account_status']='banned';
         
         $cc = $this->query($query);
@@ -177,14 +177,27 @@ class User
 
 
     }
+    public function getAllModerators(){
+        $query = "Select u.user_id, u.first_name, u.last_name, u.email, u.mobile_no, au.address from users u INNER JOIN administrative_users au ON u.user_id=au.user_id  Where user_role =:user_role";
+        $data['user_role']='moderator';
+        // $abc =$this->query($query,$data);
+        // return $abc;
+
+
+        // $query = "Select u.*, m.nic, m.address from users u INNER JOIN moderators m ON u.user_id=m.user_id  Where user_role =:user_role";
+        // $data['user_role']='moderator';
+        $aa = $this->query($query,$data);
+        return $aa;
+}
 
     public function getAllAdmin(){
-        
-        $query = "SELECT * FROM users WHERE user_role =:user_role or user_role =:user_role1";
+        $query = "Select u.user_id, u.first_name, u.last_name, u.user_name, u.email, u.mobile_no, u.registered_date, u.user_role, au.address, au.nic from users u INNER JOIN administrative_users au ON u.user_id=au.user_id  Where user_role =:user_role or user_role =:user_role1";
+
+        // $query = "SELECT * FROM users WHERE user_role =:user_role or user_role =:user_role1";
         $data['user_role']='admin';
         $data['user_role1']='moderator';
-        $cc = $this->query($query,$data);
-        return $cc;
+        return $this->query($query,$data);
+        
     }
 
     // public function insertModerator(){
@@ -241,4 +254,8 @@ class User
 
 
     }
+
+    // public function updateAdmin(){
+    //     $query = "UPDATE users JOIN administrative_users ON users.first_name"
+    // }
 }

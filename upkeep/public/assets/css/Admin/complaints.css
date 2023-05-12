@@ -6,6 +6,7 @@
 /* @import "./modifyform.css"; */
 @import "./user.css";
 
+
 /* Root variables */
 
 :root{
@@ -641,5 +642,5 @@ main .top .filter{
 
   }
   .popup{
-    width: 400px;
+    width: auto;
   }

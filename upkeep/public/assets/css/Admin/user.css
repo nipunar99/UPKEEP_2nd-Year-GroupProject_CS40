@@ -85,7 +85,7 @@ main>.content{
   
   .search-button {
     position: relative;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     color:black;
     width: 50px;
     border-radius: 14px;
@@ -184,15 +184,52 @@ main>.content{
   .profile{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    gap: 1rem;
   }
 
   #view-btn{
-    background-color:#f2f2f2;
+    background-color:transparent;
     color: #000;
   }
   
   #reject-btn{
-    background-color:#f2f2f2;
+    background-color:transparent;
     color: #D30F0A;
   }
+
+
+/* view popup */
+
+.cc{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  flex-direction:row;
+  gap: 0.5rem;
+  margin-top: 15px;
+  
+
+}
+.cc h2{
+  font-weight: 500;
+  color: #05B2E9;
+}
+
+.bb{
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+
+
+}
+
+
+.view_btn{
+  background-color: transparent;
+} 
+
+#name_column{
+  display: flex;
+  justify-content: flex-start;
+}

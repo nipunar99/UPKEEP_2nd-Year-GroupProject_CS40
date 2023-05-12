@@ -10,9 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Technician/findjobs.css"> -->
 
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/verifyrequest.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/filterform.css">
+
 
 </head>
 
@@ -80,7 +82,33 @@
         </aside>
 
         <main>
-            <div class="mainhead">
+            <div class="header nbs">
+                                <div class="left">
+
+                                </div>
+                                <div class="center">
+                                    <h1>Find Jobs</h1>
+                                </div>
+                                <div class="right">
+                                    <div class="notification">
+                                        <span class="material-icons-sharp">notifications</span>
+                                    </div>
+
+                                    <div class="profile" id="profile">
+                                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                                        <div class="info">
+                                            <div class="name">
+                                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                                            </div>
+                                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                                        </div>
+                                        <div class="profile-photo">
+                                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>          
+                    </div>
+            <!-- <div class="mainhead">
 
                 <h1>Verification Requests</h1>
 
@@ -107,7 +135,7 @@
                     </div>
                 </div>
                 
-            </div>
+            </div> -->
 
             <div class="search-bar" style="margin-top:3rem;">
                 <form>
@@ -144,8 +172,10 @@
                                 <p><?=$technician[$i]->location ?></p>
                             </div>
                             <div class="contact-details">
-                                <p><?=$technician[$i]->email ?></p>
-                                <p><?=$technician[$i]->mobile_no ?></p>
+                                <div class="vv">
+                                    <p><?=$technician[$i]->email ?></p>
+                                    <p><?=$technician[$i]->mobile_no ?></p>
+                                </div>
 
                             </div>
                         </div>
