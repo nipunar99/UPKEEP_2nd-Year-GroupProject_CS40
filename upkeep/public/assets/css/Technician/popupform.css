@@ -146,11 +146,11 @@
     letter-spacing: 2px;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="tel"], textarea{
     padding: 0.5rem;
     border-radius: 4px;
     resize: vertical;
-    /* -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+     /*-webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;*/
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -167,7 +167,8 @@ input.mobile:focus {
 
 
 /* button styles */
-.popup button {
+.popup button.btn,
+.popup a.btn{
 	display: inline-block;
 	text-align: center;
 	padding: 0.5rem;
@@ -179,19 +180,27 @@ input.mobile:focus {
 	color: var(--color-white);
 }
 /*give styles for disabled button*/
-button:disabled{
+.popup button.btn:disabled,
+.popup a.btn:disabled{
     background: #ccc;
     cursor: default;
 }
 
-button:enabled:hover {
+.popup button.btn:hover,
+.popup a.btn:hover{
     background: var(--color-button-gradient-hover);
     cursor: pointer;
 }
 
-button.disabled:hover{
+.popup button.btn.disabled:hover,
+.popup a.btn.disabled:hover{
     background: #ccc;
     cursor: default;
+}
+
+.popup button.btn-cancel,
+.popup a.btn.btn-cancel{
+    background: var(--color-danger);
 }
 
 /* fORM DETAILS STYLES */
@@ -241,11 +250,16 @@ form>div.hidden {
     border-color: var(--color-danger);
 }
 
+ .input-field.error input{
+    border-color: var(--color-danger);
+ }
+
 .input-field.error .mnumber-box input{
     border-color: var(--color-danger);
 }
 
 .input-field.error small{
+    color: var(--color-danger);
     visibility: visible!important;
 }
 
@@ -274,6 +288,11 @@ form>div.hidden {
     color: var(--color-success);
 }
 
+#warning-icon{
+    font-size: 10rem ;
+    color: var(--color-warning);
+}
+
 .popup .content#success h1{
     font-size: 3rem;
 }
@@ -296,15 +315,18 @@ form>div.hidden {
      justify-content: center;
      align-items: center;
      width: 100%;
-     gap: 2rem
+     gap: 2rem;
 
  }
 
 /* input fields*/
  /* General input field styles */
  input[type="text"],
+ input[type="number"],
  input[type="email"],
  input[type="password"],
+ input[type="date"],
+ /*input[type="file"],*/
  textarea {
      display: block;
      width: 100%;
@@ -320,16 +342,22 @@ form>div.hidden {
 
  /* Input field hover styles */
  input[type="text"]:hover,
+ input[type="number"]:hover,
  input[type="email"]:hover,
  input[type="password"]:hover,
+ input[type="date"]:hover,
+ /*input[type="file"]:hover,*/
  textarea:hover {
      border-color: #999;
  }
 
  /* Input field focus styles */
  input[type="text"]:focus,
+ input[type="number"]:focus,
  input[type="email"]:focus,
  input[type="password"]:focus,
+ input[type="date"]:focus,
+ /*input[type="file"]:focus,*/
  textarea:focus {
      outline: none;
      border-color: #0077cc;
@@ -338,24 +366,33 @@ form>div.hidden {
 
  /* Input field transition from normal to hover state */
  input[type="text"]:not(:hover):not(:focus),
+ input[type="number"]:not(:hover):not(:focus),
  input[type="email"]:not(:hover):not(:focus),
  input[type="password"]:not(:hover):not(:focus),
+ input[type="date"]:not(:hover):not(:focus),
+ /*input[type="file"]:not(:hover):not(:focus),*/
  textarea:not(:hover):not(:focus) {
      transition: all 0.2s ease-in-out;
  }
 
  /* Input field transition from hover to focus state */
  input[type="text"]:hover:focus,
+ input[type="number"]:hover:focus,
  input[type="email"]:hover:focus,
  input[type="password"]:hover:focus,
+ input[type="date"]:hover:focus,
+ /*input[type="file"]:hover:focus,*/
  textarea:hover:focus {
      transition: all 0.2s ease-in-out;
  }
 
  /* Input field transition from focus to normal state */
  input[type="text"]:focus:not(:hover),
+ input[type="number"]:focus:not(:hover),
  input[type="email"]:focus:not(:hover),
  input[type="password"]:focus:not(:hover),
+ input[type="date"]:focus:not(:hover),
+ /*input[type="file"]:focus:not(:hover),*/
  textarea:focus:not(:hover) {
      transition: all 0.2s ease-in-out;
  }
@@ -406,7 +443,7 @@ form>div.hidden {
  }
 
  label{
-     font-size: 0.8rem;
+     font-size: 1rem;
      font-weight: 500;
  }
 
@@ -493,4 +530,126 @@ form>div.hidden {
 
  div.upload-img-button input{
      z-index: 999;
+ }
+
+
+ input.hidden{
+     display: none;
+ }
+
+
+
+ /*structure to display details*/
+ .popup .details{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .popup .details .title{
+     width: 40%;
+     font-size: 1rem;
+     font-weight: 600;
+     margin-right: 0.5rem;
+     text-align: right;
+ }
+
+.popup .details .description{
+    width: 60%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: left;
+    margin-left: 0.5rem;
+}
+
+.popup .detail-container{
+    margin: 1rem 0 1rem 0;
+}
+
+.text-left{
+    text-align: left;
+}
+
+
+/*success svg*/
+ .success-animation { margin:150px auto;}
+
+ .checkmark {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     display: block;
+     stroke-width: 2;
+     stroke: #4bb71b;
+     stroke-miterlimit: 10;
+     box-shadow: inset 0px 0px 0px #4bb71b;
+     animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+     position:relative;
+     top: 5px;
+     right: 5px;
+     margin: 0 auto;
+ }
+ .checkmark__circle {
+     stroke-dasharray: 166;
+     stroke-dashoffset: 166;
+     stroke-width: 2;
+     stroke-miterlimit: 10;
+     stroke: #4bb71b;
+     fill: #fff;
+     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+
+ }
+
+ .checkmark__check {
+     transform-origin: 50% 50%;
+     stroke-dasharray: 48;
+     stroke-dashoffset: 48;
+     animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+ }
+
+ @keyframes stroke {
+     100% {
+         stroke-dashoffset: 0;
+     }
+ }
+
+ @keyframes scale {
+     0%, 100% {
+         transform: none;
+     }
+
+     50% {
+         transform: scale3d(1.1, 1.1, 1);
+     }
+ }
+
+ @keyframes fill {
+     100% {
+         box-shadow: inset 0px 0px 0px 30px #4bb71b;
+     }
+ }
+
+ /*shake*/
+ @keyframes shake {
+     0% {
+         padding-left: 0rem;
+         padding-right: 0.5rem;
+     }
+     25% {
+         padding-left: 0.5rem;
+         padding-right: 0rem;
+     }
+     75% {
+         padding-left: 0rem;
+        padding-right: 0.5rem;
+     }
+     100% {
+         padding-left: 0rem;
+         padding-right: 0rem;
+     }
+ }
+
+ .input-field.error{
+     animation: shake 0.2s ease-in-out 0s 2;
  }

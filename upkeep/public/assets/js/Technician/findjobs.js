@@ -77,146 +77,76 @@ profileBtn.addEventListener('click', () => {
 
 
 
-const filterButton = document.querySelector('.filter-button button');
+// Define an object to store selected filt ers
 
-filterButton.addEventListener('click', function() {
-    const categoryFilters = document.querySelectorAll('.filter-category input[type="checkbox"]:checked');
-    const typeFilters = document.querySelectorAll('.filter-type input[type="checkbox"]:checked');
-    const deliveryFilters = document.querySelectorAll('.filter-delivery input[type="checkbox"]:checked');
-    const distanceFilter = document.querySelector('.filter-distance select');
+var pagination = document.getElementsByClassName('pagination')[0];
+var links = pagination.getElementsByTagName('a');
 
-    // Get selected values from filters
-    const selectedCategories = Array.from(categoryFilters).map(function(filter) {
-        return filter.value;
+for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+        var current = pagination.getElementsByClassName('active')[0];
+        current.className = current.className.replace(' active', '');
+        this.className += ' active';
     });
-    const selectedTypes = Array.from(typeFilters).map(function(filter) {
-        return filter.value;
-    });
-    const selectedDelivery = Array.from(deliveryFilters).map(function(filter) {
-        return filter.value;
-    });
-    const selectedDistance = distanceFilter.value;
+}
 
-    // Pass selected values to backend to filter results
-    // Code for passing values to backend goes here
 
-    // Clear all filters
-    categoryFilters.forEach(function(filter) {
-        filter.checked = false;
+//Buttons for the popup form
+const applyButton_main = document.querySelectorAll('.apply-button');
+const cancelButton = document.querySelectorAll('.popup .btn-cancel');
+applyButton_main.forEach((button)=>{
+    button.addEventListener('click',()=>{
+        //clear form and errors
+        const form = popups['apply_job'].querySelector('form');
+        form.reset();
+        clearErrors('apply_job');
+        const jobid = button.closest('li').dataset.jobid;
+        console.log(jobid);
+        openPopup('apply_job');
+        popups['apply_job'].querySelector('.popup-title').innerHTML = "Apply for Job #" +button.id;
+        popups['apply_job'].dataset.jobId = jobid;
     });
-    typeFilters.forEach(function(filter) {
-        filter.checked = false;
-    });
-    deliveryFilters.forEach(function(filter) {
-        filter.checked = false;
-    });
-    distanceFilter.selectedIndex = 0;
 });
 
-
-// Get the category and subcategory elements
-const categoryFilter = document.getElementById('category-filter');
-const subcategoryFilter = document.getElementById('subcategory-filter');
-const filterCategory = document.querySelector('.filter-category');
-
-// Add event listener to category filter
-categoryFilter.addEventListener('change', function() {
-    // If the category filter is checked, show the subcategory filter
-    if (this.checked) {
-        subcategoryFilter.disabled = false;
-        filterCategory.style.display = 'flex';
-    } else {
-        subcategoryFilter.disabled = true;
-        subcategoryFilter.selectedIndex =
-            filterCategory.style.display = 'none';
-    }
+cancelButton.forEach((button)=>{
+    button.addEventListener('click',(e)=>{
+        e.preventDefault();
+        areYouSure('apply_job', 'Are you sure you want to cancel your application?');
+    });
 });
 
-// Define a list of categories and subcategories
-const categories = {
-    'Category 1': ['Item 1', 'Item 2', 'Item 3'],
-    'Category 2': ['Item 4', 'Item 5', 'Item 6'],
-    'Category 3': ['Item 7', 'Item 8', 'Item 9']
-};
+//event listner to apply job button in popup
+popups['apply_job'].querySelector('#apply-job').addEventListener('click', (e)=>{
+    e.preventDefault();
+    // console.log('apply job');
+    applyJob();
+});
 
-// Add event listener to category filter
-categoryFilter.addEventListener('change', function() {
-    // If the category filter is checked, show the subcategory filter
-    if (this.checked) {
-        subcategoryFilter.disabled = false;
-        filterCategory.style.display = 'flex';
+//function to apply job to back end
+function applyJob(){
+    // console.log('apply job');
+    const jobId = popups['apply_job'].dataset.jobId;
+    const form = popups['apply_job'].querySelector('form');
+    const formData = new FormData(form);
+    formData.append('job_id', jobId);
+    formData.append('action', 'apply');
+    xhr = new XMLHttpRequest();
+    xhr.open('POST', ROOT+'/Technician/Findjobs/applyJob', true);
+    xhr.onload = function () {
+        res=JSON.parse(this.responseText);
+        if (xhr.status === 200) {
+            console.log(xhr.responseText)
+            formSuccessfull('apply_job', 'Application Successful', 'Your application has been submitted successfully');
+            const response = JSON.parse(xhr.responseText);
+            console.log(response);
+            setTimeout(() => {
+                closePopup('apply_job');
+            }, 3000);
 
-        // Populate the subcategory filter based on the selected category
-        const selectedCategory = this.value;
-        const subcategories = categories[selectedCategory];
-        let subcategoryOptions = '';
-        for (let i = 0; i < subcategories.length; i++) {
-            subcategoryOptions += '<option value="' + subcategories[i] + '">' + subcategories[i] + '</option>';
+        } else{
+            console.log(xhr.responseText);
+            showErrors(form.querySelector("#quote"),res.error);
         }
-        document.getElementById('subcategory-select').innerHTML = subcategoryOptions;
-    } else {
-        subcategoryFilter.disabled = true;
-        subcategoryFilter.selectedIndex = -1;
-        filterCategory.style.display = 'none';
     }
-});
-
-
-// Define an object to store selected filters
-const selectedFilters = {};
-
-// Add event listeners to filters
-filters.forEach(function(filter) {
-    const filterSelect = filter.querySelector('.filter-select');
-    const filterTagList = filter.querySelector('.filter-tag-list');
-
-    // Add event listener to filter select
-    filterSelect.addEventListener('change', function() {
-        // If the filter is checked, add it to the selected filters object and display a tag
-        if (this.checked) {
-            const filterName = this.name;
-            const filterValue = this.value;
-
-            // If the filter is a category, add the subcategory value to the filter value
-            if (filterName === 'category') {
-                const subcategorySelect = filter.querySelector('#subcategory-select');
-                const subcategoryValue = subcategorySelect.value;
-                filterValue += ' (' + subcategoryValue + ')';
-            }
-
-            selectedFilters[filterName] = filterValue;
-            const tag = document.createElement('span');
-            tag.classList.add('filter-tag');
-            tag.innerHTML = filterValue + '<i class="fas fa-times filter-tag-close"></i>';
-            filterTagList.appendChild(tag);
-
-            // Add event listener to filter tag close icon
-            const tagClose = tag.querySelector('.filter-tag-close');
-            tagClose.addEventListener('click', function() {
-                // Remove the tag and the corresponding filter from the selected filters object
-                filterTagList.removeChild(tag);
-                delete selectedFilters[filterName];
-
-                // Uncheck the filter select and update the subcategory filter if necessary
-                filterSelect.checked = false;
-                if (filterName === 'category') {
-                    const subcategorySelect = filter.querySelector('#subcategory-select');
-                    subcategorySelect.disabled = true;
-                    subcategorySelect.selectedIndex = -1;
-                    filterCategory.style.display = 'none';
-                }
-            });
-        } else {
-            // If the filter is unchecked, remove it from the selected filters object and the tag list
-            const filterName = this.name;
-            const filterValue = this.value;
-            delete selectedFilters[filterName];
-            const tags = filterTagList.querySelectorAll('.filter-tag');
-            tags.forEach(function(tag) {
-                if (tag.textContent === filterValue + '×') {
-                    filterTagList.removeChild(tag);
-                }
-            });
-        }
-    });
-});
+    xhr.send(formData);
+}

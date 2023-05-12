@@ -2,11 +2,11 @@
 
 defined('ROOTPATH') OR exit("Access denied");
 
+
 class Home {
 
     use Controller;
     public function index (){
-
         if(!isset($_SESSION['user_name'])){
             $this->view('home');
         }
@@ -30,6 +30,8 @@ class Home {
                
             }
         }
+
+
 
     }
     

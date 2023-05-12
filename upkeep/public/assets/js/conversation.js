@@ -30,10 +30,15 @@ function ajax_loadUsers() {
                 html+= "    <div>";
                 html+= "        <div class='userdetails'>";
                 html+= "            <h3>"+json[i].first_name+" "+json[i].last_name+"</h3>";
-                html+= "            <h4>11.14 A.M.</h4>";
+                                    if(json[i].unread_count==0){
+                                        html+= "            <small class='msgCount hidden'>"+json[i].unread_count+"</small>";
+                                    }else{
+                                        html+= "            <small class='msgCount'>"+json[i].unread_count+"</small>";
+                                    }
                 html+= "        </div>";
-                html+= "        <div>";
-                html+= "            <p> latest massage</p>";
+                html+= "        <div class='userdetails' >";
+                html+= "            <p>"+json[i].latest_msg+"</p>";
+                html+= "            <h4>"+json[i].time+"</h4>";
                 html+= "        </div>";
                 html+= "    </div>";
 
@@ -80,6 +85,53 @@ function loadUserChat(index) {
 
 }
 
+const searchInput = document.getElementById('searchusers');
+
+    // Add an event listener for the input event
+searchInput.addEventListener('input', (event) => {
+  const searchTerm = event.target.value;
+    console.log(searchTerm);
+  const form = new FormData();
+  form.append("username",searchTerm);
+  const url = ""+ROOT+"/Conversation/searchUser";
+
+  performSearch(form, url).then(json => {
+    // console.log(json);
+    var html = "";
+
+    // for (var a = 0; a < json.length; a++) {
+    //   html += "<div style='position: relative;'>";
+    //   html += "<div class='middle'>";
+    // }
+    // document.querySelector(".insight").innerHTML = html;
+    for( var i=0; i<json.length; i++){
+        html+= "<div onclick='loadUserChat("+i+")' class='title'>";
+        html+= "    <img src='http://localhost/upkeep/upkeep/public/assets/images/profile-"+(i+2)+".jpg'  alt=''class='user'>";
+        
+        html+= "    <div>";
+        html+= "        <div class='userdetails'>";
+        html+= "            <h3>"+json[i].first_name+" "+json[i].last_name+"</h3>";
+                            if(json[i].unread_count==0){
+                                html+= "            <small class='msgCount hidden'>"+json[i].unread_count+"</small>";
+                            }else{
+                                html+= "            <small class='msgCount'>"+json[i].unread_count+"</small>";
+                            }
+        html+= "        </div>";
+        html+= "        <div class='userdetails' >";
+        html+= "            <p>"+json[i].latest_msg+"</p>";
+        html+= "            <h4>"+json[i].time+"</h4>";
+        html+= "        </div>";
+        html+= "    </div>";
+
+        html+= "</div>";
+        html+= "<hr>";
+    }
+
+    document.querySelector(".users").innerHTML=html;
+  });
+
+});
+
  //....................... Massage sent to the database......................................
 sendbtn.addEventListener('click', function(){
     const massage = document.querySelector(".msgDetails");
@@ -120,7 +172,8 @@ function loadMessages() {
 
     }
     xhr.send();
-}
+    ajax_loadUsers();
+}   
   
   // Call the function every 500ms using setInterval
-setInterval(loadMessages, 500);
+setInterval(loadMessages, 1000);

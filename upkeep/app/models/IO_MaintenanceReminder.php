@@ -1,6 +1,6 @@
 <?php
 
-class MaintenanceReminder {
+class IO_MaintenanceReminder {
     use Model;
 
     protected $table = "maintenance_reminder";
@@ -27,6 +27,7 @@ class MaintenanceReminder {
             if(move_uploaded_file($file_temp,$location)){
                 try{
                     $data["item_id"] = $_SESSION['item_id'];
+                    $data["user_id"] = $_SESSION['user_id'];
                     $data["image"] = $file_name;
                     show($data);
                     $this->insert($data);
@@ -39,11 +40,11 @@ class MaintenanceReminder {
     }
     
     public function getAllItemReminders($user_id){
-        $query = "select r.item_id,r.reminder_id, r.description,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'ontime'";
+        $query = "select r.item_id,r.reminder_id, r.description, r.task_ID,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'ontime'";
         return $this->query($query);
     }
     public function getAllItemOverdueReminders($user_id){
-        $query = "select r.item_id,r.reminder_id, r.description,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'overdue'";
+        $query = "select r.item_id,r.reminder_id, r.description,r.task_ID,r.sub_component,r.start_date,r.image,x.item_name from maintenance_reminder r INNER JOIN (select * from items WHERE owner_id=" . $user_id . ")x ON r.item_id = x.item_id WHERE reminder_status = 'overdue'";
         return $this->query($query);
     }
 
@@ -70,4 +71,45 @@ class MaintenanceReminder {
             return $this->query($query);
     }
 
+    public function noOfMaintenaceTask($user_id){
+        $query = "select COUNT(m.task_ID) AS task_count from maintenance_task m INNER JOIN (select item_id from items WHERE owner_id=" . $user_id . ")x ON m.item_id = x.item_id";
+        return $this->query($query);
+    }
+
+    public function getCompleteTaskOfMonth(){
+        $query = "select count(reminder_id) as inCompleteTask FROM maintenance_reminder WHERE MONTH(start_date) = MONTH(CURRENT_DATE()) && reminder_status = 'ontime'";
+        return $this->query($query);
+    }
+
+    public function getIncompleteTaskOfMonth(){
+        $query = "select count(reminder_id) as OverdueTask FROM maintenance_reminder WHERE MONTH(start_date) = MONTH(CURRENT_DATE()) && reminder_status = 'overdue'";
+        return $this->query($query);
+    }
+
+    public function updateReminder($data){
+        $file_name = $_FILES['image']["name"];
+        $file_temp = $_FILES['image']['tmp_name'];
+        $file_size = $_FILES['image']['size'];
+        $file_type = $_FILES['image']['type'];
+
+        $location = "../public/assets/images/uploads/".$file_name;
+
+        if($file_size < 524000){
+            if(move_uploaded_file($file_temp,$location)){
+                try{
+                    
+                    $data["image"] = $file_name;
+                    // show($data);
+                }
+                catch(PDOException $e){
+                    echo $e->getMessage();
+                }
+            }
+        }
+        
+        $reminder_id = $data["reminder_id"];
+        unset($data["reminder_id"]);
+        $this->update($reminder_id,$data,"reminder_id");
+
+    }
 }

@@ -17,7 +17,8 @@ class Userdashboard {
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             if(isset($_POST['action']) && $_POST['action']=="completeTask"){
                 unset($_POST['action']);
-                $task = new CompleteTask;
+                show($_POST);
+                $task = new IO_CompleteTask;
                 $task->insert($_POST);
             } 
         }
@@ -28,7 +29,7 @@ class Userdashboard {
             if(isset($_POST['action']) && $_POST['action']=="deleteTask"){
                 show($_POST);
                 unset($_POST['action']);
-                $task = new MaintenanceReminder;
+                $task = new IO_MaintenanceReminder;
                 $reminder_id = $_POST['reminder_id'];
                 $task->delete($reminder_id,"reminder_id");
 
@@ -39,7 +40,7 @@ class Userdashboard {
 
     public function getAllReminders(){
         $user_id = $_SESSION['user_id'];
-        $reminder = new MaintenanceReminder;
+        $reminder = new IO_MaintenanceReminder;
         $result = $reminder->getAllItemReminders($user_id);
         $json = json_encode($result);
         echo($json);
@@ -47,14 +48,14 @@ class Userdashboard {
 
     public function getAllOverdueReminders(){
         $user_id = $_SESSION['user_id'];
-        $reminder = new MaintenanceReminder;
+        $reminder = new IO_MaintenanceReminder;
         $result = $reminder->getAllItemOverdueReminders($user_id);
         $json = json_encode($result);
         echo($json);
     }
 
     public function display1details(){
-        $reminder = new MaintenanceReminder;
+        $reminder = new IO_MaintenanceReminder;
 
         $para = [];
         $para ['id'] = $_SESSION['user_id'];
@@ -84,7 +85,7 @@ class Userdashboard {
     public function display2details(){
         $user_id= $_SESSION['user_id'];
         // show($arr); 
-        $item_details = new Owneritem;
+        $item_details = new IO_Owneritem;
         $result = $item_details->getLatestWarrentyDate($user_id);
         // show($result);  
         $warrenty_date=$result[0]->warrenty_date;
@@ -99,7 +100,7 @@ class Userdashboard {
 
     public function display3details(){
         
-        $reminder = new MaintenanceReminder;
+        $reminder = new IO_MaintenanceReminder;
 
         $para = [];
         $para ['id'] = $_SESSION['user_id'];
@@ -136,6 +137,14 @@ class Userdashboard {
 
         return $interval->days; 
 
+    }
+
+    public function getAllMaintenanceTemplates(){
+
+        $maintenances = new IO_Maintenance_template();
+        $result = $maintenances->getAllMaintenanceTemplates();
+
+        echo $result;
     }
 
 

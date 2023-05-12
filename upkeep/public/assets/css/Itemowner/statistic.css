@@ -45,8 +45,6 @@
     background-color: none;
 }
 
-element.style {
-}
 main {
     margin-top: 4.4rem;
     max-height: 91.7vh;
@@ -138,7 +136,7 @@ body{
     width: 98%;
     margin: 0 auto;
     gap: 1rem;
-    grid-template-columns: 15rem auto;
+    grid-template-columns: 15rem auto !important;
     height: 100vh;
 }
 a{
@@ -301,7 +299,7 @@ aside .sidebar .message-count {
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
+    margin-top: 0 !important;
     overflow-y: scroll;
     height: 89vh;
 }
@@ -355,12 +353,12 @@ main .insight > div{
     position: relative;
 }
 
-main .insight >.mainDisplay1{
+main .insight >.mainDisplay1 ,main .insight >.mainDisplay4 {
     box-shadow: 0 0.5rem 3rem #caffcf;
     transition: all 300ms ease;
 }
 
-.mainDisplay1 .middle>span , .mainDisplay2 .middle>span,.mainDisplay3 .middle>span{
+.mainDisplay1 .middle>span , .mainDisplay2 .middle>span,.mainDisplay3 .middle>span,.mainDisplay4 .middle>span{
     background: #A7FCA6;
     padding: 0.8rem;
     margin: 0.5rem 1rem 0 0;
@@ -380,6 +378,7 @@ main .insight > div.mainDisplay2 .middle>span{
 main .insight > div.mainDisplay3 .middle>span{
     background-color: #FCA6A6;
 }
+
 
 main .insight > div .middle{
     display: flex;
@@ -449,7 +448,7 @@ main h2 {
 }
 
 .tableView {
-    margin-top: 0.9rem;
+    margin-top: 1.5rem!important;
     text-align: center;
 }
 .tableView table {
@@ -518,13 +517,10 @@ main .mainHeader h1{
 
 /* Right CSS */
 
-.right{
+.mainHeader>.right{
     display: inline-block;
-    margin-top: 1.4rem;
-    margin-right: 1rem;
-    width: 10rem;
     position: relative;
-    left: 477px;
+    left: 448px;
 
 }
 
@@ -631,4 +627,37 @@ main .mainHeader h1{
 }
 #pieChart{
     margin: auto;
+}
+
+.filterSelectors{
+    display: flex;
+}
+
+.filterSelectors>.input-box{
+    margin:auto;
+}
+
+input{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: black;
+    padding-left: 15px;
+    font-size: 1rem;
+    border-bottom-width: 2px;
+    transition: all 300ms ease;
+}
+
+.hidden{
+    display: none;
+}
+.tableDiv{
+    max-height: 57vh;
+    overflow-y:scroll;
+}
+.tableDiv th{
+    position: sticky;
+    top: 0px;
 }

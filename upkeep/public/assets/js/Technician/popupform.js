@@ -27,17 +27,57 @@ function finish(id){
 }
 
 function formSuccessfull(id,success_title,success_message){
-    popups[id].querySelector('.content').innerHTML = "" +
+    popups[id].querySelectorAll('.content').forEach((content)=>{
+        content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+    });
+    popups[id].querySelector('.content#msg').innerHTML = "" +
         "<div class=\"middle\">\n" +
-        "   <div class=\"icon-container\">\n" +
-        "       <span class=\"material-icons-sharp\" id=\"success-icon\">check_circle</span>\n" +
+        "       <svg class=\"checkmark\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 52 52\"><circle class=\"checkmark__circle\" cx=\"26\" cy=\"26\" r=\"25\" fill=\"none\" /><path class=\"checkmark__check\" fill=\"none\" d=\"M14.1 27.2l7.1 7.2 16.7-16.8\" /></svg>\n" +
         "   </div>\n" +
         "   <h1 id=\"success-title\">"+success_title+"</h1>\n" +
         "   <p id=\"success-message\">"+success_message+"</p><br>\n" +
         "   <div class=\"btn-container\">\n" +
-        "       <button id=\"finish\">Continue!</button>\n" +
+        "       <button class='btn' id=\"finish\">Continue!</button>\n" +
         "   </div>\n" +
         "</div>"
+
+    popups[id].querySelector('#finish').addEventListener('click',()=>{
+        finish(id);
+    });
+}
+
+
+function areYouSure(id,areYouSureMessage){
+    popups[id].querySelectorAll('.content').forEach((content)=>{
+        content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+    });
+    popups[id].querySelector('.content#msg').innerHTML = "" +
+        "<div class=\"middle\">\n" +
+        "   <div class=\"icon-container\">\n" +
+        "       <span class=\"material-icons-outlined warning\" id=\"warning-icon\">error_outline</span>\n" +
+        "   </div>\n" +
+        "   <h1 id=\"warning-title\" >Are you sure?</h1>\n" +
+        "   <p id=\"warning-message\">"+areYouSureMessage+"</p><br>\n" +
+        "   <div class=\"btn-container\">\n" +
+        "       <button class='btn' id=\"yes\">Yes</button>\n" +
+        "       <button class='btn' id=\"no\">No</button>\n" +
+        "   </div>\n" +
+        "</div>"
+
+    popups[id].querySelector('#yes').addEventListener('click',()=>{
+        //set the form visible in next click
+        popups[id].querySelectorAll('.content').forEach((content)=>{
+            content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+        });
+        closePopup(id);
+    });
+    popups[id].querySelector('#no').addEventListener('click',()=>{
+        //go backto the form
+        popups[id].querySelectorAll('.content').forEach((content)=>{
+            content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+        });
+
+    });
 }
 
 
@@ -64,6 +104,31 @@ input_files.forEach((input)=>{
         }
     });
 });
+
+
+// show input error message
+function showErrors(input, message) {
+    const inputField = input.closest('.input-field');
+    inputField.className = 'input-field error';
+    const small = inputField.querySelector('small');
+    small.innerText = message;
+}
+
+function clearErrors(popupid) {
+    popups[popupid].querySelectorAll('.input-field').forEach((inputField)=>{
+        inputField.className = 'input-field';
+    });
+}
+
+function clearErrorsForm(form) {
+    form.querySelectorAll('.input-field').forEach((inputField)=>{
+        inputField.className = 'input-field';
+    });
+}
+
+function clearErrorsInput(input) {
+    input.closest('.input-field').className = 'input-field';
+}
 
 //
 // function showPreview(event) {

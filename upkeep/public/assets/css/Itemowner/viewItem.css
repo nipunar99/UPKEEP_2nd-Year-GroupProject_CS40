@@ -542,7 +542,7 @@ main .recent-orders a{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    height: 60vh;
+    min-height: 60vh;
 }
 
 .deleteMsg{
@@ -585,7 +585,7 @@ main .recent-orders a{
     top: 1rem;
     right: 2rem;
     font-size: 3rem;
-    color: var(--color-dark);
+    color: var(--color-dark) !important;
     cursor: pointer;
     border: none;
     background: none;
@@ -609,8 +609,9 @@ main .recent-orders a{
 }
 
 .complete{
-    background: linear-gradient(#0095D9,#00BEE4);
-    color:var(--color-white);
+    background: none;
+    color: #00BEE4;
+    border: 1px solid #00BEE4;
 }
 
 .edit{
@@ -638,10 +639,10 @@ main .recent-orders a{
     letter-spacing: 1px;
     background: linear-gradient(#0095D9,#00BEE4);
     color: white;
-    margin-top: 2rem;
-    display: flex;
+    /* margin-top: 2rem; */
+    /* display: flex; */
     gap: 2rem;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .completebtn{
@@ -755,25 +756,10 @@ form .middleInput select{
     transform: scale(1.1);
 }
 
-#addMaitenanceFromPopup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 53%;
-    background-color: var(--color-white);
-    color: rgb(68, 67, 67);
-    padding: 5rem 2rem 2rem 5rem;
-    padding-left: 3rem;
-    border-radius: 30px;
-    box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    min-height: 54vh;
-}
 
 .content form .button{
     position: relative;
-    left: 36rem;
+    left: 32rem;
     height: 2.8rem;
     width: 14rem;
     bottom: 1rem;
@@ -815,14 +801,14 @@ form .middleInput select{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    height: 50vh;
+    min-height: 50vh;
 } 
 
 .newgrid-container{
-    grid-template-columns: 15rem auto ;   
+    grid-template-columns: 15rem auto !important;   
 }
  
-.main2 button,.main3 button{
+.main2 button,.main3 button,.main4 button, .maintenanceTemplateListTbody button{
     display: inline-block;
     border-radius: 30px;
     margin: 0 3rem;
@@ -832,7 +818,7 @@ form .middleInput select{
     transition: all 300ms ease;
     
 }
-.main2 button:hover,.main3 button:hover{
+.main2 button:hover,.main3 button:hover,.main4 button:hover, .maintenanceTemplateListTbody button:hover {
     transform: scale(1.1);
 }
 .main2 .addMaintainTask{
@@ -841,7 +827,7 @@ form .middleInput select{
     left: 80%;
     background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
 }
-.main2 .back , .main3 .back2{
+.main2 .back , .main3 .back2 ,.main4 .back3{
     background: #B3B4BB;
     position: relative;
     top: 3%;
@@ -854,7 +840,7 @@ form .middleInput select{
 }
 
 .addMaintenanceForm2{
-    height: 81vh;
+    min-height: 84vh;
     width: 54%;
 }
 
@@ -873,9 +859,9 @@ form .middleInput select{
     justify-content: space-evenly;
 }
 
-.buttonmenu button{
+.buttonmenu button , .promtbtn button{
     margin-bottom: 0.5rem;
-    width: 9.5rem;
+    /* width: 9.5rem; */
     font-size: 1rem;
     font-weight: 400;
     height: 2.5rem;
@@ -900,21 +886,20 @@ form .middleInput select{
 }
 
 textarea{
-    width: 72vw;
-    min-height: 58vh;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    padding: 20px;
-    padding-right: 140px;
-    line-height: 180%;
+    line-height: 132%;
     vertical-align: top;
-    cursor: auto;
     resize: none;
     outline: none;
-    border:none;
-    margin-top: 1rem;
-    border-radius: var(--border-radius-1); 
-    box-shadow: var(--box-shadow);
+    border: none;
+    background: transparent;
+    color: white;
+}
+.textArea{
+    height: 60vh;
+    /* text-align: start; */
+    overflow-x: scroll;
 }
 
 .prompt{
@@ -995,6 +980,79 @@ iframe{
     display: none;
 }
 
+.promtbtn{
+    display: flex;
+    margin-right: auto;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+/* inside chatbot */
+.reqestPrompt{
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 10px 10px 0 10px;
+    left: 25rem;
+    font-weight: 400;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px 10px 10px 0;
+    background: #50AFE4;
+    left: 0;
+    max-width: calc(100% - 47rem);
+    text-align: end;
+    margin-left: auto;
+    /* display: inline-block; */
+}
+
+.responsePromot{
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 10px 10px 0 10px;
+    left: 25rem;
+    font-weight: 400;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px 10px 10px 0;
+    background: #F4F6FC;
+    position: relative;
+    left: 0;
+    max-width: calc(100% - 40rem);
+    /* margin-right: auto; */
+    text-align: start;
+}
+
+.responsePromot p ,.reqestPrompt p{
+    color: white;
+    font-size: 1rem;
+}
+.responsePromot p{
+    color: #4C4C4D!important ;
+}
+
+/* chatbot command button */
+
+#reuseSteps,#disposeSteps{
+    margin-bottom: 0.5rem;
+    width: 42.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 3rem;
+    border-radius: 10px;
+    background: transparent;
+    color: #00BEE4;
+    border: 1px solid#00BEE4 ;
+    display: inline-block;
+    border-radius: 30px;
+    margin: 0 3rem;
+    padding: 0.5rem 1.6rem;
+    font-weight: 500;
+    transition: all 300ms ease;
+
+}
+
+
+.resellbtn ,.reusebtn{
+    display: none !important;
+}
 
 /*................ Media query................*/
 @media screen and (max-width: 1200px) {
@@ -1267,7 +1325,7 @@ iframe{
         overflow-y: scroll;
     }
 
-    .main2 .back, .main3 .back2 {
+    .main2 .back, .main3 .back2 , .main4 .back3 {
         top: 6%;
         position: absolute;
         left: 67%;
@@ -1303,7 +1361,7 @@ iframe{
         width: 9rem;
         padding-right: .5rem;
     }
-    .buttonmenu button {
+    .buttonmenu button, .promptbtn button {
         /* display: inline-block; */
         margin: 0;
         width: 7rem;

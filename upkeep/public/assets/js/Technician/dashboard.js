@@ -1,4 +1,4 @@
-const daysTag = document.querySelector(".days"),
+ const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".icons span");
 
@@ -51,28 +51,60 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 
 
 
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "20rem";
-}
 
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
 
 
 
 //charts
+piechart_data = JSON.parse(piechart_data);
+barchart_data = JSON.parse(barchart_data);
+// console.log(barchart_data);
+
+//dunction to check if month exist in barchart_data and returns it's index
+function checkMonth(month) {
+    for (let i = 1; i <= barchart_data.length; i++) {
+        if (barchart_data[i-1].month == month) {
+            // console.log(barchart_data[i].month)
+            return i;
+        }
+    }
+    return false;
+}
+
+//prepare data for bar chart from barchart_data 2 arrays 1st to labels and 2nd to data. lables = 6 monnths back from the current month and data = 6 months income 6 months should be created even if there is no income
+bar_data = []
+bar_labels = []
+month_labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL','AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+var thismonth = new Date().getMonth();
+for (let i = 5; i >= 0; i--) {
+    var month = thismonth - i;
+    if (month < 0) {
+        month = 12 + month;
+    }
+
+    index = checkMonth(month+1);
+    // console.log(index);
+    if(index){
+       bar_data.push(barchart_data[index-1].revenue);
+    }else{
+        bar_data.push(0);
+    }
+    bar_labels.push(month_labels[month]);
+}
+// console.log(bar_labels);
+// console.log(bar_data)
+
+
+
 var donutChart = new Chart(document.getElementById('donut-chart'), {
     type: 'doughnut',
     data: {
-        labels: ['Orders Received', 'Orders Completed', 'Orders in Queue', 'Orders Canceled'],
+        labels: ['Completed', 'In Queue', 'Canceled'],
         datasets: [
             {
-                data: [10, 20, 30, 5],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+                data: [piechart_data.completed, piechart_data.pending, piechart_data.cancelled, ],
+                backgroundColor: ['#4BC0C0', '#FFCE56', '#FF6384'],
+                hoverBackgroundColor: ['#4BC0C0', '#FFCE56', '#FF6384']
             }
         ]
     },
@@ -92,20 +124,25 @@ var donutChart = new Chart(document.getElementById('donut-chart'), {
         },
         // set size for the chart
         width: 400,
-        height: 400
+        height: 400,
+        plugins: {
+            legend: {
+
+            }
+        }
     }
 });
 
 
 
 var barChart = new Chart(document.getElementById('bar-chart'), {
-    type: 'bar',
+    type: 'line',
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: bar_labels,
         datasets: [
             {
                 label: 'Monthly Income',
-                data: [5000, 7000, 6000, 8000, 9000, 7500, 10000],
+                data: bar_data,
                 backgroundColor: '#36A2EB',
                 borderColor: '#36A2EB',
                 borderWidth: 1
@@ -122,20 +159,24 @@ var barChart = new Chart(document.getElementById('bar-chart'), {
             text: 'Monthly Income'
         },
         scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true
-                    }
+            y: {
+                beginAtZero: true,
+                grid: {
+                    offset: true
+                },
+            },
+            x: {
+                beginAtZero: true,
+                grid: {
+                    offset: true
                 }
-            ]
+            }
+
         },
-        // set size for the chart
-        width: 400,
-        height: 400
+
+        maintainAspectRatio: false,
     }
 });
-
 
 
 

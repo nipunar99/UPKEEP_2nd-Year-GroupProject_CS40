@@ -134,6 +134,10 @@ b{
     color:var(--color-warning);
 }
 
+small{
+    color: #F46060;
+}
+
 aside{
     height: 100vh;
 }
@@ -144,10 +148,10 @@ aside .top{
     justify-content: space-between;
     margin-top:1.4rem;
 }
-
+/* 
 .notification {
     color: var(--color-danger);
-}
+} */
  
 aside .logo {
     display: flex;
@@ -418,7 +422,7 @@ main .top .profile{
 .header {
     display:block;
     width: 100%;
-    background-color: #B3B5B4;
+    /* background-color: #B3B5B4; */
 }
 .right {
     margin-top: 1.4rem;

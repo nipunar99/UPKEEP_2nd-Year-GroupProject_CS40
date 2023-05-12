@@ -43,9 +43,8 @@ Trait Model
         $query = trim($query, " && ");
         $query .= " limit $this->limit offset $this->offset"; // make the query
 
-        $data = array_merge($data,$data_not); // mearge data arrays to put the query function as parameter
-        
-        return $this->query($query,$data);
+        $data = array_merge($data, $data_not); // mearge data arrays to put the query function as parameter
+        return $this->query($query, $data);
 
     }
 
@@ -104,6 +103,20 @@ Trait Model
         }
     }
 
+    public function insertAndGetLastIndex($data)
+    {
+        $keys = array_keys($data);
+        $query = "INSERT INTO $this->table (" . implode(",", $keys) . ") VALUES (:" . implode(",:", $keys) . ")";
+        $con = $this->connect();
+        $stm = $con->prepare($query);
+        $check = $stm->execute($data);
+        if($check){
+            return $con->lastInsertId();
+        } else {
+            return false;
+        }
+    }
+
     public function delete($id, $id_column = "id")
     {
 
@@ -113,6 +126,29 @@ Trait Model
         $this->query($query, $data);
         return false;
     }
+
+    public function deleteWhere($data, $data_not = [])
+    {
+
+        $keys = array_keys($data);
+        $keys_not = array_keys($data_not);
+        $query = "delete from $this->table where ";
+
+        foreach ($keys as $key) {
+            $query .= $key . "= :" . $key . " && ";
+        }
+        foreach ($keys_not as $key) {
+            $query .= $key . "!= :" . $key . " && ";
+        }
+
+        $query = trim($query, " && ");
+
+        $data = array_merge($data, $data_not); // mearge data arrays to put the query function as parameter
+
+        $this->query($query, $data);
+        return false;
+    }
+
 
     public function update($id, $data, $id_column = "id")
     {
@@ -133,6 +169,45 @@ Trait Model
 
         $this->query($query, $data);
         return false;
+    }
+
+
+    public function getColumns($cols=[],$where=[],$wherenot=[]){
+
+            $query = "select ";
+
+            if(empty($cols)){
+                $query .= "* ";
+            }else{
+                $query .= implode(",",$cols);
+            }
+
+            $query .= " from $this->table ";
+
+            if(!empty($where)){
+                $query .= " where ";
+                $keys = array_keys($where);
+                foreach($keys as $key){
+                    $query .= $key . "= :" . $key . " && ";
+                }
+                $query = trim($query, " && ");
+            }
+
+            if(!empty($wherenot)){
+                $query .= " where ";
+                $keys = array_keys($wherenot);
+                foreach($keys as $key){
+                    $query .= $key . "!= :" . $key . " && ";
+                }
+                $query = trim($query, " && ");
+            }
+
+            $query .= " limit $this->limit offset $this->offset"; // make the query
+
+            $data = array_merge($where, $wherenot); // mearge data arrays to put the query function as parameter
+
+            return $this->query($query, $data);
+
     }
 
 

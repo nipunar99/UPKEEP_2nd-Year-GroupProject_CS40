@@ -5,7 +5,7 @@
  * Save or read data to the current session
  */
 
-defined('ROOTPATH') OR exit('Access Denied!');
+//defined('ROOTPATH') OR exit('Access Denied!');
 
 class Session
 {

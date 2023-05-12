@@ -1,4 +1,7 @@
 @import "./Technician/general.css";
+@import "./Technician/tabs.css";
+@import "./Technician/popupform.css";
+
 
 .container {
     display: grid;
@@ -16,22 +19,21 @@
 
 label {
     display: block;
-    font-size: 18px;
-    font-weight: 600;
     margin-bottom: 10px;
 }
 
 
 .current-picture {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 150px;
     height: 150px;
-    margin-top: 10px;
     border-radius: 50%;
     background-color: #f7f7f7;
     overflow: hidden;
+    border: 1px solid #ddd;
 }
 
 .current-picture img {
@@ -42,13 +44,11 @@ label {
 
 .btn {
     display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
+    padding:0.5rem;
     font-weight: 600;
     text-align: center;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius-2);
     background-color: #0079d3;
     color: #fff;
     cursor: pointer;
@@ -60,44 +60,6 @@ label {
 }
 
 
-.tabs {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 30px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.tab-link {
-    padding: 10px 15px;
-    cursor: pointer;
-    background-color: #f5f5f5;
-    color: #666;
-    border: 1px solid #ddd;
-    border-bottom: none;
-}
-
-.tab-link.current {
-    background-color: #fff;
-    color: #333;
-    border-color: #ddd;
-    border-bottom: none;
-    position: relative;
-    z-index: 2;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-}
-
-.tab-content.current {
-    display: block;
-}
 
 .form-group {
     margin-bottom: 20px;
@@ -108,66 +70,59 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
+/*input[type="text"],*/
+/*input[type="email"],*/
+/*input[type="password"],*/
+/*textarea {*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 4px;*/
+/*    width: 100%;*/
+/*    box-sizing: border-box;*/
+/*    margin-bottom: 10px;*/
+/*    font-size: 16px;*/
+/*}*/
 
-textarea {
-    height: 150px;
-}
+/*textarea {*/
+/*    height: 150px;*/
+/*}*/
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0069d9;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+/*.btn {*/
+/*    display: inline-block;*/
+/*    padding: 10px 20px;*/
+/*    background-color: #0069d9;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-.current-picture img {
-    max-width: 150px;
-    max-height: 150px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 10px;
-}
 
-/* Transition effect for tabs */
-.tab-link {
-    transition: background-color 0.2s ease;
-}
+/*!* Transition effect for tabs *!*/
+/*.tab-link {*/
+/*    transition: background-color 0.2s ease;*/
+/*}*/
 
-.tab-link:hover {
-    background-color: #eee;
-}
+/*.tab-link:hover {*/
+/*    background-color: #eee;*/
+/*}*/
 
-.tab-link.current {
-    background-color: #fff;
-    color: #333;
-    border-color: #ddd;
-    border-bottom: none;
-    position: relative;
-    z-index: 2;
-}
+/*.tab-link.current {*/
+/*    background-color: #fff;*/
+/*    color: #333;*/
+/*    border-color: #ddd;*/
+/*    border-bottom: none;*/
+/*    position: relative;*/
+/*    z-index: 2;*/
+/*}*/
 
-.tab-content {
-    transition: opacity 0.3s ease;
-}
+/*.tab-content {*/
+/*    transition: opacity 0.3s ease;*/
+/*}*/
 
-.tab-content.current {
-    opacity: 1;
-}
+/*.tab-content.current {*/
+/*    opacity: 1;*/
+/*}*/
 
 
 .edit-btn {
@@ -176,7 +131,6 @@ textarea {
     color: #0069d9;
     font-size: 16px;
     cursor: pointer;
-    margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -191,4 +145,190 @@ textarea {
 
 .edit-btn i {
     font-size: 18px;
+}
+
+.input-group{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+
+/*custom form */
+form{
+    border: none;
+}
+
+form .btn-container{
+    /*margin-top: 2rem;*/
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+form .btn{
+    width:30%;
+    min-width: 100px;
+}
+
+.inline{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+/*styles for update profile pic button, modern style*/
+input#profile_picture_input{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+label#update-profilepic-label,
+.btn.remove-profilepic{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 30%;
+    min-width: 100px;
+    padding: 0.5rem;
+    text-align: center;
+    border: none;
+    border-radius: var(--border-radius-2);
+    background-color: #0079d3;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn.remove-profilepic{
+    background-color: #dc3545;
+}
+
+.btn-container#profile-pic-btns{
+    width: auto;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0;
+}
+
+main .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    /*padding: 0.5rem;*/
+    margin: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    transition: 0.3s ease-in;
+    overflow: hidden;
+}
+
+.card .card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+}
+
+.card .card-header h3{
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.content-a-20 .card .card-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding: 0.5rem;
+    overflow-x: auto;
+}
+
+
+/*hide*/
+.hidden{
+    display: none!important;
+}
+
+a[aria-disabled="true"],
+button:disabled{
+    pointer-events: none!important;
+    cursor: default!important;
+    text-decoration: none!important;
+    background-color: var(--color-info-light)!important;
+}
+
+/*overlay to set within a div*/
+.overlay-div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
+
+
+/*svg*/
+
+/*.loader-container {*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    background: #25313f;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+svg.loader{
+    width: 70px;
+    height: 70px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+}
+.loader path {
+    fill: var(--color-info-light);
+    transform-origin: center;
+    animation: rotate 1.5s linear infinite;
+}
+.loaderreverse {
+    animation-direction: reverse !important;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+    from {
+        transform: rotate(0deg);
+    }
 }

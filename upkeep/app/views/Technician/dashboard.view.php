@@ -9,10 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href=<?=ROOT."/assets/css/Technician/technicianDashboard.css"?>>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
     <div class="container">
         <aside class="close">
@@ -91,7 +93,7 @@
                     <div class="card green">
                         <div class="details">
                             <h3>CUSTOMERS</h3>
-                            <h2><?=$count?></h2>
+                            <h2><?=$counts->count?></h2>
                         </div>
                         <div>
                             <span class="material-icons-sharp customer">groups</span>
@@ -101,17 +103,17 @@
                     <div class="card blue">
                         <div class="details">
                             <h3>REVENUE</h3>
-                            <h2>Rs. 12000</h2>
+                            <h2>Rs. <?=$counts->revenue?></h2>
                         </div>
                         <div>
                             <span class="material-icons-sharp revenue">payments</span>
                         </div>
                     </div>
 
-                    <div class="card yellow">
+                    <div class="card">
                         <div class="details">
                             <h3>JOBS ON QUEUE</h3>
-                            <h2>35</h2>
+                            <h2><?=$counts->queue?></h2>
                         </div>
                         <div>
                             <span class="material-icons-sharp queue">work</span>
@@ -119,85 +121,55 @@
                     </div>
 
                 </div>
-                <div class="stat">
-                    <div class="left"><canvas id="donut-chart"></canvas></div>
-                    <div class="right"><canvas id="bar-chart"></canvas></div>
-                </div>
 
+                <div class="stat">
+                    <div class="order-summary">
+                        <h2>Order Summary</h2>
+                        <div><canvas id="donut-chart"></canvas></div>
+                    </div>
+                    <div class="order-summary">
+                        <h2>Income Summary</h2>
+                        <div><canvas id="bar-chart"></canvas></div>
+                    </div>
+                </div>
 
                 <div class="recent-orders">
                     <h2>Upcoming Orders</h2>
                     <!-- <h4>dataOnly for demonstration purposes</h4> -->
                     <div class="cards">
-                        <div class="card">
-                            <div class="day">
-                                <div class="date">
-                                    <h2>12</h2>
-                                    <h4>Aug</h4>
+                        <?php if (!empty($upcoming)):?>
+                            <?php foreach($upcoming as $order):?>
+                            <div class="card">
+                                <div class="day">
+                                    <div class="date">
+                                        <h2><?=date('d',strtotime($order->date));?></h2>
+                                        <h4><?=date('M',strtotime($order->date));?></h4>
+                                    </div>
+                                    <div class="remaining">
+                                        <h3>Due</h3>
+                                        <h2><?=dueDays($order->date)?> Days</h2>
+                                    </div>
                                 </div>
-                                <div class="remaining">
-                                    <h3>Due</h3>
-                                    <h2>2 Days</h2>
+                                <div class="title">
+                                    <h3><?=$order->title?></h3>
                                 </div>
-                            </div>
-                            <div class="title">
-                                <h3>Need a A/C Technician</h3>
-                            </div>
-                            <div class="location">
-                                <div class="notification"><span class="material-icons-sharp">place</span></div>
-                                <h4>Colombo 03</h4>
-                            </div>
-                            <div class="btn-container">
-                                <a href="#" class="btn">view order</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="day">
-                                <div class="date">
-                                    <h2>12</h2>
-                                    <h4>Aug</h4>
+                                <div class="location">
+                                    <div class="notification"><span class="material-icons-sharp">place</span></div>
+                                    <h4><?=$order->city?></h4>
                                 </div>
-                                <div class="remaining">
-                                    <h3>Due</h3>
-                                    <h2>2 Days</h2>
+                                <div class="btn-container">
+                                    <a href="#" class="btn">view order</a>
                                 </div>
                             </div>
-                            <div class="title">
-                                <h3>Need a A/C Technician</h3>
-                            </div>
-                            <div class="location">
-                                <div class="notification"><span class="material-icons-sharp">place</span></div>
-                                <h4>Colombo 03</h4>
-                            </div>
-                            <div class="btn-container">
-                                <a href="#" class="btn">view order</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="day">
-                                <div class="date">
-                                    <h2>12</h2>
-                                    <h4>Aug</h4>
-                                </div>
-                                <div class="remaining">
-                                    <h3>Due</h3>
-                                    <h2>2 Days</h2>
-                                </div>
-                            </div>
-                            <div class="title">
-                                <h3>Need a A/C Technician</h3>
-                            </div>
-                            <div class="location">
-                                <div class="notification"><span class="material-icons-sharp">place</span></div>
-                                <h4>Colombo 03</h4>
-                            </div>
-                            <div class="btn-container">
-                                <a href="#" class="btn">view order</a>
-                            </div>
-                        </div>
+                            <?php endforeach;?>
+                        <?php endif;?>
 
                     </div>
                 </div>
+
+
+
+
 
             </div>
         </main> 
@@ -208,10 +180,13 @@
             <div class="header nbs">
                 <div class="right">
                     <div class="notification">
-                        <span class="material-icons-sharp" onclick="openNav()">notifications</span>
+                        <div>
+                            <span class="material-icons-sharp" onclick="openNav()">notifications</span>
+                            <span class="badge"></span>
+                        </div>
                     </div>
 
-                    <div class="profile">
+                    <div class="profile dropdown">
                         <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
                             <div class="name">
@@ -221,6 +196,10 @@
                         </div>
                         <div class="profile-photo">
                             <div><img src="<?= ROOT ?>/assets/images/photo2.png" alt=""></div>
+                        </div>
+                        <div class="dropdown-content hidden">
+                            <a href="<?= ROOT ?>/Profile"><span class="material-icons-sharp">person</span>Profile</a>
+                            <a href="<?= ROOT ?>/Accountsettings"><span class="material-icons-sharp">settings</span>Settings</a>
                         </div>
                     </div>
                 </div>
@@ -253,7 +232,7 @@
                 </div>
                 <div class="cal" id="events">
                     <div class="header">
-                        <p class="current-date">WORK</p>
+                        <p class="current-date">SCHEDULE</p>
                     </div>
                     <div class="event-list">
                         <div class="spacer"></div>
@@ -318,18 +297,58 @@
         </div>
     </div>
 
-    <div id="mySidenav" class="sidenav">
-        <div class="header">
-            <div class="left">
-            <a class="back" id="formClose"><span class="material-icons-sharp">arrow_back</span></a>
-            </div>
-            <div class="center">
-                <h2>Notifications</h2>
-            </div>
-        </div>
-    </div>
+    <div class="notification-side-panel"></div>
+<!--    <div id="mySidenav" class="sidenav notification hidden">-->
+<!--        <div class="header">-->
+<!--            <div class="center">-->
+<!--                <h2>Notifications</h2>-->
+<!--            </div>-->
+<!--            <div class="tabs">-->
+<!--                <div class="tab-item active">-->
+<!--                    <i class="tab-icon fas fa-bell"></i>-->
+<!--                    Alert-->
+<!--                </div>-->
+<!--                <div class="tab-item">-->
+<!--                    <i class="tab-icon fas fa-clock"></i>-->
+<!--                    History-->
+<!--                </div>-->
+<!--                <div class="line"></div>-->
+<!--            </div>-->
+<!--            <span class="closebtn" onclick="closeNav()">&times;</span>-->
+<!--        </div>-->
+<!--        <div class="tab-content" >-->
+<!--            <div class="tab-pane active" id="">-->
+<!--                <ol id="notification-list-unread">-->
+<!---->
+<!--                </ol>-->
+<!---->
+<!---->
+<!--            </div>-->
+<!---->
+<!--            <div class="tab-pane" id="">-->
+<!--                <ol id="notification-list-history">-->
+<!---->
+<!--                </ol>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--    </div>-->
 
+    <div class="overlay hidden" id="overlay"></div>
+
+    <script>
+        const ROOT = "<?=ROOT?>";
+        const user_id = "<?= $_SESSION['user_id'] ?>";
+        let piechart_data = JSON.stringify(<?=$piechart_data?>);
+        let barchart_data = JSON.stringify(<?=$barchart_data?>);
+    </script>
+
+
+    <script src="<?=ROOT?>/assets/js/main.js"></script>
     <script src="<?=ROOT?>/assets/js/Technician/dashboard.js  "></script>
-    <script src="<?=ROOT?>/assets/js/Technician/fetch.js  "></script>
+    <script src="<?=ROOT?>/assets/js/Technician/tabs.js"></script>
+    <script src="<?=ROOT?>/assets/js/notification.js"></script>
+
 </body>
 </html>

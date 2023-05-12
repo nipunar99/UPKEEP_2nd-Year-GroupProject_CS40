@@ -1,6 +1,6 @@
 <?php 
 
-class Items
+class IO_Items
 {
     use Model;
 

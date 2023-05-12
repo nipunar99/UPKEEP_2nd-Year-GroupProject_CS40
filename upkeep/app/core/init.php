@@ -12,3 +12,4 @@ require 'Controller.php';
 require 'App.php';
 require 'Auth.php';
 require 'Session.php';
+require '../app/controllers/Notifications.php';
