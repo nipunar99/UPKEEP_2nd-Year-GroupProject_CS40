@@ -8,11 +8,19 @@ Trait Model
     use Database;
 
     // protected $table = '';
-    public $limit = 10;
-    public $offset = 0;
-    public $order_type = "desc";
-    public $order_column = "id";
-    public $errors = [];
+    protected $limit =10;
+    protected $offset = 0;
+    public $errors =  [];
+
+    public function find(){
+        
+        $query = "select * from $this->table "; 
+        
+        // make the query
+        return $this->query($query);
+
+    }
+  
 
     public function findAll()
     {
@@ -79,7 +87,7 @@ Trait Model
         $keys = array_keys($data);
 
         $query = "insert into $this->table (" . implode(",", $keys) . ") values (:" . implode(",:", $keys) . ")";
-
+show($query);
         $this->query($query, $data);
 
         return false;

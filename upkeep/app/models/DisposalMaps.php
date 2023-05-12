@@ -1,10 +1,11 @@
-<?php 
+<?php
 
-class DisposalMaps {
+class DisposalMaps
+{
 
     use Model;
 
-    protected $table ="disposal_place";
+    protected $table = "disposal_place";
 
     protected $allowedColumns = [
         "itemtemplate_id",
@@ -12,10 +13,20 @@ class DisposalMaps {
         "city",
         "iframe_link",
     ];
+    public function insertDisposalplaces($data)
+    {
 
-    
+        try {
+            // $itemtemplate_id = $_SESSION['id'];
+            $this->insert($data);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
     // public function delete($id, $id_column = "item_id"){
-        
+
     //     $data[$id_column] = $id;
     //     $query = "delete from $this->table where $id_column = :$id_column";
 
@@ -28,5 +39,5 @@ class DisposalMaps {
     //     return $this->query($query);
     // }
 
-    
+
 }

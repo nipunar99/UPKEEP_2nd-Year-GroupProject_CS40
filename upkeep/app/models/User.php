@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-class User 
+class User
 {
     use Model;
 
@@ -11,6 +11,7 @@ class User
         "last_name",
         "email",
         "password",
+        "user_role"
     ];
 
     protected $validationRules = [
@@ -40,18 +41,16 @@ class User
         ],
     ];
 
+    public function validate($data)
+    {
+        $this->errors = [];
 
-    public function loginValidate($data){
-        $this->errors =[];
-        
-        if(empty($data['email'])){
-            $this->errors['email'] ="Email is required";
+
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors['email'] = "Email is not valid";
         }
-        if(empty($data['password'])){
-            $this->errors['password'] ="Password is required";
-        }
-        
-        if(empty($this->errors)){
+
+        if (empty($this->errors)) {
 
             return true;
         }
@@ -59,80 +58,120 @@ class User
         return false;
     }
 
-    public function registerValidate($data){
-        $this->errors =[];
+    public function loginValidate($data)
+    {
+        $this->errors = [];
 
-        if(empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password'])){
-            $this->errors['register'] ="All fields are required";
+        if (empty($data['email'])) {
+            $this->errors['email'] = "Email is required";
+        }
+        if (empty($data['password'])) {
+            $this->errors['password'] = "Password is required";
         }
 
-        if(!preg_match("/^[a-zA-Z ]*$/",$data['first_name'])){
-            $this->errors['first_name'] ="Only letters and white space allowed";
-        }
-
-        if(!preg_match("/^[a-zA-Z ]*$/",$data['last_name'])){
-            $this->errors['last_name'] ="Only letters and white space allowed";
-        }
-
-        if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL)){
-            $this->errors['email'] ="Email is not valid";
-        }
-
-        if(strlen($data['password']) < 6){
-            $this->errors['password'] ="Password must be at least 6 characters";
-        }
-        elseif(!preg_match("#[0-9]+#",$data['password'])){
-            $this->errors['password'] ="Password must contain at least 1 number";
-        }elseif(!preg_match("#[A-Z]+#",$data['password'])){
-            $this->errors['password'] ="Password must contain at least 1 capital letter";
-        }
-
-        if(empty($this->errors)){
+        if (empty($this->errors)) {
 
             return true;
         }
 
         return false;
+    }
 
-    } 
+    public function registerValidate($data)
+    {
+        $this->errors = [];
 
-    public function getUserByEmail($email){
-        $user = $this->first(['email' =>$email]);
-        if($user){
+        if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password'])) {
+            $this->errors['register'] = "All fields are required";
+        }
+
+        if (!preg_match("/^[a-zA-Z ]*$/", $data['first_name'])) {
+            $this->errors['first_name'] = "Only letters and white space allowed";
+        }
+
+        if (!preg_match("/^[a-zA-Z ]*$/", $data['last_name'])) {
+            $this->errors['last_name'] = "Only letters and white space allowed";
+        }
+
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors['email'] = "Email is not valid";
+        }
+
+        if (strlen($data['password']) < 6) {
+            $this->errors['password'] = "Password must be at least 6 characters";
+        } elseif (!preg_match("#[0-9]+#", $data['password'])) {
+            $this->errors['password'] = "Password must contain at least 1 number";
+        } elseif (!preg_match("#[A-Z]+#", $data['password'])) {
+            $this->errors['password'] = "Password must contain at least 1 capital letter";
+        }
+
+        if (empty($this->errors)) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getUserByEmail($email)
+    {
+        $user = $this->first(['email' => $email]);
+        if ($user) {
             return $user;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public function getUserById($id){
-        $user = $this->first(['user_id' =>$id]);
-        if($user){
+    public function getUserById($id)
+    {
+        $user = $this->first(['user_id' => $id]);
+        if ($user) {
             return $user;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public function preprocess($data){
+    public function preprocess($data)
+    {
         $hashpw = password_hash($data['password'], PASSWORD_DEFAULT);
         unset($data['password']);
         $data['password'] = $hashpw;
         $this->insert($data);
-
     }
-
-    public function countAllWhereUserName($username){
+    public function TotalItemOwners()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'item_owner'";
+        return $this->query($query);
+    }
+    public function TotalTechnicians()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'technician'";
+        return $this->query($query);
+    }
+    public function TotalAdmins()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'admin'";
+        return $this->query($query);
+    }
+    public function TotalModerators()
+    {
+        $query = "select  COUNT(*) FROM $this->table WHERE user_role = 'moderator'";
+        return $this->query($query);
+    }
+    public function countAllWhereUserName($username)
+    {
         $query = "SELECT COUNT(*) FROM $this->table WHERE user_name = '$username'";
 
         $this->query($query);
-
     }
 
-    public function generateUserName($first_name,$last_name){
-        $user_name = lcfirst($first_name).lcfirst($last_name);
-        $n=$this->countAllWhereUserName($user_name);
-        $user_name=$user_name.$n;
+    public function generateUserName($first_name, $last_name)
+    {
+        $user_name = lcfirst($first_name) . lcfirst($last_name);
+        $n = $this->countAllWhereUserName($user_name);
+        $user_name = $user_name . $n;
         return $user_name;
     }
 

@@ -90,7 +90,7 @@
                             <thead>
                                 <tr>
                                     <th></th> 
-                                    <th class="hidden_id"></th>      
+                                    <th class="hidden_id"></th> 
                                     <th>Sub component</th>
                                     <th>Description</th>
                                     <!-- <th>Time Frame</th> -->
@@ -104,9 +104,7 @@
                                 <tr>
                                     <td><input type="checkbox" name="task_ID[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
                                     <td class="hidden_id" id="task_ID"></td>
-                                    <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->    
-                                    
-                                    
+                                    <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
                                     <td id="subcomponent">gfrt</td>
                                     <td id="C_description">gfrt</td>
                                     <td id="time_frame">6</td>
@@ -234,20 +232,20 @@
                             
                             <div class="input-box">
                                 <span class="details">Yearly</span>
-                                <input type="number" min="0" max="10" name="years" id="Years"  placeholder="Years">
+                                <input type="number" min="-1" max="10" name="years" id="Years"  placeholder="Years">
                                 <small></small>                                
                             </div>
 
 
                             <div class="input-box">
                                 <span class="details">Monthly</span>
-                                <input type="number" min="0" max="12" name="months" id="Months"  placeholder="Months">
+                                <input type="number" min="-1" max="12" name="months" id="Months"  placeholder="Months">
                                 <small></small>                                
                             </div>
                             
                             <div class="input-box">
                                 <span class="details">Weekly</span>
-                                <input type="number" min="0" max="4" name="weeks" id="Weeks"  placeholder="Weeks">
+                                <input type="number" min="-1" max="4" name="weeks" id="Weeks"  placeholder="Weeks">
                                 <small></small>                                
                             </div>
                             <div class="input-box">
@@ -276,7 +274,7 @@
             <script>
                 const ROOT = "<?=ROOT?>";
             </script>
-            <script src="<?= ROOT ?>/assets/js/Moderator/maintenances.js">
+            <script src="<?= ROOT ?>/assets/js/Moderator/parentmaintenances.js">
             </script>
                     
 </body>

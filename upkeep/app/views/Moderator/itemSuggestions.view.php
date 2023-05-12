@@ -50,229 +50,227 @@
             </div>
         </aside>
         <main>
-            <div class="mainHeader">
-                <h1>Item Suggestions</h1>
+            <div class="header nbs">
+                <div class="left">
+
+                </div>
+                <div class="center">
+                    <h1>Item Suggestion</h1>
+                </div>
                 <div class="right">
-                <!-- <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button> -->
-                <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
-                </div>
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
 
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey,<b>Saman</b></p>
-                        <small class="text-muted">user</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
-                    </div>
-                </div>
-                </div>
-            </div>
-        <div class="insight">
-            <div class="card-main">
-            <div class="view-1">
-                <div class="img">
-                    <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                </div>
-                <div class="view-1-text">
-                    <h2>Non Inverter</h2>
-                    <div class="name">
-                        <h5>Template Name</h5>
-                        <p>T_34235 Air Conditioner</p>
-                    </div>
-                    <div class="type">
-                        <h5>Item Type</h5>
-                        <p>Air Conditioner</p>
-                    </div>
-                    <div class="date">
-                        <h5>Added date</h5>
-                        <p>01/11/2022 </p>
-                    </div>
-                    <div class="lifespan">
-                        <h5>Esti.li.span</h5>
-                        <p>10 Years</p>
-                    </div>
-                </div>
-                <div class="view-1-button">
-                    <button><div class="approve">Approve</div></button>
-                    <button><div class="delete">Delete</div></button>
-                </div>
-            </div>
-            <div class="view-2">
-                <h2>Usage</h2>
-                <div class="view-2-text">
-                    <div class="users">
-                        <h3>Current Users</h3>
-                        <h4><b> 50</b></h4>
-                    </div>
-                    <div class="tasks">
-                        <h3 class="new">Current Suggested Tasks</h3>
-                        <h4>Task 1</h4>
-                        <h4>Task 2</h4>
-                        <h4>Task 3</h4>
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                        </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="maintenances">
-                <h2>Ongoing maintenances</h2>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Sub Component</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Description</td>
-                                <td>Sub Component</td>
-                                <td>Status</td>
-                                <td>Action</td>
-                            </tr>
-                            <tr>
-                                <td>Description</td>
-                                <td>Sub Component</td>
-                                <td>Status</td>
-                                <td>Action</td>
-                            </tr>
-                            <tr>
-                               
-                                <td>Description</td>
-                                <td>Sub Component</td>
-                                <td>Status</td>
-                                <td>Action</td>
-                            </tr>
-                            <tr>
-                               
-                                <td>Description</td>
-                                <td>Sub Component</td>
-                                <td>Status</td>
-                                <td>Action</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+            <div class="insight">
+                <div class="card-main">
+                    <div class="view-details">
+                        <div class="view-1">
+                            <div class="img">
+                                <img src="<?= ROOT ?>/assets/images/item1.png">
+                            </div>
+
+                        </div>
+
+
+                        <div class="view-2">
+
+                            <div class="view-1-text">
+                                <h1>Non Inverter</h1>
+                                <div class="name">
+                                    <h3>Template Name</h3>
+                                    <h3>T_34235 Air Conditioner</h3>
+                                </div>
+                                <div class="type">
+                                    <h3>Item Type</h3>
+                                    <h3>Air Conditioner</h3>
+                                </div>
+                                <!-- <div class="date">
+                                    <h3>Added date</h3>
+                                    <h3>01/11/2022 </h3>
+                                </div>
+                                <div class="brand">
+                                    <h3>Brand</h3>
+                                    <h3>Samsung</h3>
+                                </div> -->
+                                <div class="description">
+                                    <h3>Description</h3>
+                                    <h3 class="description-details">Samsung</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            <!-- <div class="accounts">
-                <h2>Tracking Accounts</h2>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User Account</th>
-                                <th>Name</th>
-                                <th>Account Status</th>
-                                <th>Date</th>
-                                <th>Number of Maintenance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr >
-                            
-                                <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td>
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" > Supun Perera</a></td>
-                                <td>Active</td>
-                                <td>10/11/2022</td>
-                                <td>10</td>
-                            </tr>
-                            
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                            <tr>
-                           
-                                <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td>
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" > Supun Perera</a></td>
-                                <td>Active</td>
-                                <td>10/11/2022</td>
-                                <td>10</td>
-                                
-                            </tr>
-                            </a>
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                            <tr>
-                                <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td>
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" > Supun Perera</a></td>
-                                <td>Active</td>
-                                <td>10/11/2022</td>
-                                <td>10</td>
-                            </tr>
-                            </a>
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                            <tr>
-                                <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td>
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" > Supun Perera</a></td>
-                                <td>Active</td>
-                                <td>10/11/2022</td>
-                                <td>10</td>
-                            </tr>
-                            </a>
-                        </tbody>
-                    </table>
-                </div> -->
-            <!-- </div> -->
-        </div>
+                            <div class="view-1-button">
+                                <button>
+                                    <div class="approve">Approve</div>
+                                </button>
+                                <button>
+                                    <div class="delete">Delete</div>
+                                </button>
+                            </div>
+                        <!-- </div> -->
+                </div>
+                <div class="maintenances">
+                    <h2>Ongoing maintenances</h2>
+              
+                   
+                    <div class="table">
+                        <table id="maintenance-table">
+                            <thead>
+                                <tr>
+                                  
+                                    <th class="hidden_id"></th>
+                                    <th>Sub Component</th>
+                                    <th>Description</th>
+                                    <th>Time Frame(YY|MM|WW)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="maintenances_suggestions">
+
+                                <tr>
+                                    
+                                    <td class="hidden_id" id="task_ID"></td>
+                                    <td id="subcomponent">gfrt</td>
+                                    <td id="C_description">gfrt</td>
+                                    <td id="time_frame">6</td>
+                                    <td> <!-- display:flex; flex-direction:row;justify-content:center;align-items:center; -->
+                                        <div class="btn-container">
+                                            <button class="edit-maintenance"><span>add</span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
         </main>
-        <div class="popupview1 hidden">
-        <button class="closebtn1">&times;</button>
-        <div class="popup-text1">
-            <div class="1">
-                <!-- <span class="material-icons-sharp">view_in_ar</span> -->
-                <h4>Do you want to approve the item?</h4>
-                <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
+        <div class="popupview popupview1 hidden" id="approve-btn">
+            <button class="closebtn1">&times;</button>
+            <div class="popup-text1">
+                <div class="1">
+                    <!-- <span class="material-icons-sharp">view_in_ar</span> -->
+                    <h2>Do you want to approve the item?</h2>
+                    <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
+                </div>
+
             </div>
-            <!-- <div class="2">
-                <span class="material-icons-sharp">chat_bubble_outline</span>
-                <h4>Maintenance task</h4>
-                <h4><b>Replace HAVC air filters</b></h4>
+            <div class="actions">
+                <button id="add-btn">Add to template</button>
+                <!-- <button>Edit</button> -->
+                <button id="reject-btn">Cancel</button>
             </div>
-            <div class="3">
-                <span class="material-icons-sharp">construction</span>
-                <h4>Sub Component</h4>
-                <h4><b>Air filter</b></h4>
-            </div> -->
         </div>
-        <div class="actions">
-            <button>Add to template</button>
-            <!-- <button>Edit</button> -->
-            <button>Reject</button>
-        </div>
-        <div class="popupview2 hidden">
-        <button class="closebtn2">&times;</button>
-        <div class="popup-text2">
-            <div class="2">
-                <!-- <span class="material-icons-sharp">view_in_ar</span> -->
-                <h4>Do you want to remove the item?</h4>
-                <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
+        <div class="popupview popupview2 hidden" id="cancel-btn">
+            <button class="closebtn2">&times;</button>
+            <div class="popup-text2">
+                <div class="2">
+                    <!-- <span class="material-icons-sharp">view_in_ar</span> -->
+                    <h2>Do you want to remove the item?</h2>
+                    <!-- <h4><B>Samsung Inverter Windfree AC</B> </h4> -->
+                </div>
+
             </div>
-            <!-- <div class="2">
-                <span class="material-icons-sharp">chat_bubble_outline</span>
-                <h4>Maintenance task</h4>
-                <h4><b>Replace HAVC air filters</b></h4>
+            <div class="actions">
+                <button id="yes-btn">Yes</button>
+                <!-- <button>Edit</button> -->
+                <button id="no-btn">No</button>
             </div>
-            <div class="3">
-                <span class="material-icons-sharp">construction</span>
-                <h4>Sub Component</h4>
-                <h4><b>Air filter</b></h4>
-            </div> -->
         </div>
-        <div class="actions">
-            <button>Yes</button>
-            <!-- <button>Edit</button> -->
-            <button>No</button>
-        </div>
-    </div>
+        
+        <div class="popupview hidden" id="update-maintenance">
+            <button class="closebtn closebtn3">&times;</button>
+
+            <div class="content content1">
+
+                <form id="popup-form2" method="post" action="#" class="fm">
+                    <h2>Add Maintenance Task</h2>
+                    <div class="itemDetails">
+                        <!-- <input type="hidden" name="operation" value=" 'update'"> -->
+                        <input type="hidden" name="task_ID" id="rowid_input1">
+                        <input type="hidden" name="item_template_id" id="rowid-input2">
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="Sub_component" required placeholder="Enter Sub component">
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <textarea rows="3" cols="100" name="description" id="Description" required placeholder="Enter maintenance task"></textarea>
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Image">
+                        </div>
+
+                        <h2>Time frame</h2>
+
+                        <div class="middleInput">
+
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" min="0" max="10" name="years" id="Years" placeholder="Years">
+                                <small></small>
+                            </div>
 
 
-    <div class="overlayview hidden"></div>
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" min="0" max="12" name="months" id="Months" placeholder="Months">
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" min="0" max="4" name="weeks" id="Weeks" placeholder="Weeks">
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Status</span>
+                                <select name="status" id="Status"></select>
+                                <small></small>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="button">
+                            <input type="submit" value="Add Maintenance" id="updateMaintenancebtn">
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+        <div class="overlayview hidden"></div>
     </div>
+    <script>
+        const ROOT = "<?= ROOT ?>";
+    </script>
     <script src="<?= ROOT ?>/assets/js/Moderator/itemsuggestions.js"></script>
     </div>
 </body>

@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/suggestions.css">
-     <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 </head>
 
 <body>
@@ -55,203 +55,93 @@
 
         <main>
 
-            <div class="mainHeader">
+            <div class="header nbs">
+                <div class="left">
 
-                <h1>Suggestions</h1>
-
+                </div>
+                <div class="center">
+                    <h1>Suggestions</h1>
+                </div>
                 <div class="right">
-
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark_mode</span>
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
 
-                    <div class="profile">
-
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b> </p>
-                            <small class="text-muted">User</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
-
                         <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
-
                     </div>
+                </div>
+            </div>
+            <div class="toolbar">
+                <div class="searchBar">
+                    <input type="search" name="" id="txtHint" placeholder="Search item" onkeyup="myFunction()">
+                    <span class="material-icons-sharp">search</span>
+                </div>
 
+                <div class="filter">
+                    <button onclick="showDropdwn()" class="filter_table"><span class="material-icons-sharp">filter_list</span>
+                        <div class="fil"> Filter
+                        </div>
+                    </button>
+                    <select class="table-status" id="main-dropdwn" style="display:none;">
+                        <optgroup label="Item Type">Status
+                            <option value="1">Electronics</option>
+                            <option value="2">Appliances</option>
+                            <option value="3">Tools and equipment</option>
+                            <option value="4">Vehicles</option>
+                            <option value="5">Furniture</option>
+                            <option value="6">Home and garden</option>
+                            <option value="7">Other</option>
+                        </optgroup>
+                    </select>
                 </div>
 
             </div>
 
             <div class="insight">
+                <!-- <div class="maintenancess"> -->
+                    <!-- <div class="tab">
+                        <button class="tablinks" onclick="openComplaints(event, 'item')" id="defaultOpen">
+                            <h1>Item Suggestions </h1>
+                        </button>
+                        <button class="tablinks" onclick="openComplaints(event, 'maintenance')" id="communi">
+                            <h1>Maintenance Suggestions</h1>
+                        </button>
 
-                <div class="swiper mySwiper item">
+                    </div> -->
+                    <div class="item" id="item">
+                        <div class=" card-mainn" id="cd">
 
-                    <h1>Item Suggestions</h1>
-                    <div class="swiper-wrapper card-main">
-                    
-    <!-- <button class="arrow" onclick="scrollL()"><span class="material-icons-sharp">chevron_left</span></button> -->
+                                    <div class="card-main" role="button" style="position: relative;">
 
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                            <div class="swiper-slide card-1" role="button">
-
-                                <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                                <h3><b>Non Inverter</b></h3>
-                                <p>Air Conditioner</p>
-                                <div class="c-1">
-                                    <h2 class="warning">25</h2>
-                                    <p class="u">users</p>
-                                </div>
-                        </a>
-                    </div>
-                    <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                        <div class="swiper-slide card-2" role="button">
-
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-2">
-                                <h2 class="warning">25</h2>
-                                <p class="u">users</p>
-                            </div>
-                    </a>
-                </div>
-
-
-                <a href="<?= ROOT ?>/Moderator/Itemsuggestion">
-                    <div class="swiper-slide card-3" role="button">
-
-                        <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                        <h3><b>Non Inverter</b></h3>
-                        <p>Air Conditioner</p>
-                        <div class="c-3">
-                            <h2 class="warning">25</h2>
-                            <p class="u"> users</p>
+                                    <a href="<?= ROOT ?>/Moderator/Itemsuggestion"><img src="<?= ROOT ?>/assets/images/item1.png" alt=""></a>
+                                    <div class="text">
+                                    <div class="warning"><h3>Non Inverter</h3></div> 
+                                        <p>Air Conditioner</p>
+                                    </div>
+                                    </div>   
                         </div>
-                </a>
-            </div>
 
-            <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
-                <div class="swiper-slide card-4">
-
-                    <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                    <h3><b>Non Inverter</b></h3>
-                    <p>Air Conditioner</p>
-                    <div class="c-4">
-                        <h2 class="warning">25</h2>
-                        <p class="u"> users</p>
                     </div>
-            </a>
-    </div>
-    <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
-                            <div class="swiper-slide card-5" >
-
-                                <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                                <h3><b>Non Inverter</b></h3>
-                                <p>Air Conditioner</p>
-                                <div class="c-5">
-                                    <h2 class="warning">25</h2>
-                                    <p class="u"> users</p>
-                                </div>
-                        </a>    </div>
-                        <!-- <button class="arrow" onclick="scrollR()"><span class="material-icons-sharp">navigate_next</span></button> -->
-                        <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button">
-                            <div class="swiper-slide card-6" >
-
-                                <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                                <h3><b>Non Inverter</b></h3>
-                                <p>Air Conditioner</p>
-                                <div class="c-6">
-                                    <h2 class="warning">25</h2>
-                                    <p class="u"> users</p>
-                                </div>
-                        </a>    </div>
-                    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-    </div>
-
-    <div class="maintenance">
-
-        <h1>Maintenance Suggestions</h1>
-
-        <div class="table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Sub Component</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="show-r-1">
-                        <td>Description</td>
-                        <td>Sub Component</td>
-                        <td>Status</td>
-                        <td>Action</td>
-                    </tr>
-                    <tr class="show-r-2" role="button">
-                        <td>Description</td>
-                        <td>Sub Component</td>
-                        <td>Status</td>
-                        <td>Action</td>
-                    </tr>
-                    <tr class="show-r-3" role="button">
-                        <td>Description</td>
-                        <td>Sub Component</td>
-                        <td>Status</td>
-                        <td>Action</td>
-                    </tr>
-                    <tr class="show-r-4 " role="button">
-                        <td>Description</td>
-                        <td>Sub Component</td>
-                        <td>Status</td>
-                        <td>Action</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-
-    </div>
-
+          
     </div>
 
     </main>
-    <div class="popupview hidden">
-        <button class="closebtn">&times;</button>
-        <div class="popup-text">
-            <div class="1">
-                <span class="material-icons-sharp">view_in_ar</span>
-                <h4>Item name</h4>
-                <h4><B>Samsung Inverter Windfree AC</B> </h4>
-            </div>
-            <div class="2">
-                <span class="material-icons-sharp">chat_bubble_outline</span>
-                <h4>Maintenance task</h4>
-                <h4><b>Replace HAVC air filters</b></h4>
-            </div>
-            <div class="3">
-                <span class="material-icons-sharp">construction</span>
-                <h4>Sub Component</h4>
-                <h4><b>Air filter</b></h4>
-            </div>
-        </div>
-        <div class="actions">
-            <button>Add to template</button>
-            <button>Edit</button>
-            <button>Reject</button>
-        </div>
+ 
     </div>
-
-
-    <div class="overlayview hidden"></div>
-    </div>
-    <script src="<?= ROOT ?>/assets/js/Moderator/maintenance_suggestions.js"></script>
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
+    <script src="<?= ROOT ?>/assets/js/Moderator/suggestions.js"></script>
 </body>
 
 </html>

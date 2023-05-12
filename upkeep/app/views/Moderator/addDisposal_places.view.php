@@ -23,6 +23,11 @@
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
 
             </div>
 
@@ -69,7 +74,7 @@
 
                 </div>
                 <div class="center">
-                    <h1>Add Itemtemplate</h1>
+                    <h1>Add Disposal Places</h1>
                 </div>
                 <div class="right">
                     <div class="notification">
@@ -92,50 +97,47 @@
             </div>
 
 
-
-
             <div class="insight">
                 <form method="post" action="#" id="myform">
                     <div class="itemDetails">
                         <div class="topInput">
-
-                            <div class="input-box">
-                                <span class="details">Item template Name</span>
-                                <input type="text" name="itemtemplate_name" id="name" pattern="[A-Za-z ]+" required placeholder="Enter Item template Name (Letters and spaces only) ">
+                        <div class="input-box">
+                                <span class="details">Select category</span>
+                                <select name="category_id" id="category" required></select>
                                 <small></small>
-
+                            </div>
+                            <div class="input-box" id="place">
+                                <span class="details">Place Name</span>
+                                <input type="text" name="place_name" id="plc" required placeholder="Enter place Name">
+                                <small></small>
                             </div>
 
                         </div>
 
                         <div class="middleInput">
+
                             <div class="input-box">
-                                <span class="details">Status</span>
-                                <select name="status" id="status" required=""></select>
+                                <span class="details">City</span>
+                                <input type="text" name="city" id="city" pattern="[A-Za-z]+" required placeholder="Enter city">
                                 <small></small>
                             </div>
 
-                            <div class="input-box" id="img">
-                                <span class="details">Image</span>
-                                <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Select category</span>
-                                <select name="category_id" id="category" required></select>
-                                <small></small>
-                            </div>
+
+
 
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea rows="5" cols="100" name="description" id="des_id" required placeholder="Enter Description about item Template"></textarea>
+                            <span class="details">Iframe Link</span>
+                            <textarea rows="5" cols="100" name="iframe_link" id="iframe" required placeholder="Enter iframe link"></textarea>
                             <small></small>
                         </div>
 
 
-                        <div class="button">
-                            <input type="submit" value="Add Item" id="submitBtn">
+                        <div class="button-2">
+                            <input type="submit" value="Add disposal places" id="submitBtn">
+                            <!-- <button id="show-btn" onclick="showButton()">Add item</button> -->
+
                         </div>
 
                     </div>
@@ -147,7 +149,7 @@
     <?php
     echo "<script> var ROOT = '" . ROOT . "'; </script>";
     ?>
-    <script src="<?= ROOT ?>/assets/js/Moderator/additemtemplate.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Moderator/addDisposalPlaces.js"></script>
 </body>
 
 </html>
