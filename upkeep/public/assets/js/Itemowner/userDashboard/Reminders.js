@@ -1,33 +1,3 @@
-// importent global variables
-let deleteTaskNum = "";
-let reminderid = ""; 
-let submintFormNum = "";
-var firstIndex = 0;
-
-
-
-//...............................slide bar.......................
-const sideMenu = document.querySelector("aside");
-const menuBtn = document.querySelector("#menu-btn");
-const closeBtn = document.querySelector("#close-btn");
-
-menuBtn.addEventListener("click", () => {
-    sideMenu.style.display = "block";
-})
- closeBtn.addEventListener("click", () => {
-    sideMenu.style.display = "none";
-})
-//...............................................................
-menuBtn
-document.addEventListener("DOMContentLoaded",function(){
-    ajax_getAllReminders();
-    ajax_getAllOverdueReminders();
-    display1details();
-    display2details();
-    display3details();
-});
-
-//
 function ajax_getAllReminders() {
     const xhr = new XMLHttpRequest();
 
@@ -96,6 +66,7 @@ function ajax_getAllReminders() {
     xhr.send();
 }
 
+
 function ajax_getAllOverdueReminders() {
     const xhr = new XMLHttpRequest();
 
@@ -123,7 +94,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
                 html+= "<h2 id='itemid'style='display: none;'>"+json[i].item_id+"</h2></div>";
-                html+= "<h2 id='taskID"+(firstIndex+i+1)+" hidden'>"+json[i].task_ID+"</h2>";
+                html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;' >"+json[i].task_ID+"</h2>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
@@ -164,56 +135,15 @@ function ajax_getAllOverdueReminders() {
 }
 
 
-// Get all DOM and store in variable
-const modal = document.querySelector(".popupview");
-const overlay = document.querySelector(".overlayview");
-const btnCloseModal = document.querySelector(".closebtn");
-const btnShowModal1 = document.querySelector(".show-modal1");
-const btnShowModal2 = document.querySelector(".show-modal2");
-const btnShowModal3 = document.querySelector(".show-modal3");
-
-document.querySelector("#addMaintenancebtn").addEventListener("click", ajax_completeTask);
-
-
-// Show Modal function const showModal
-const showModal = function () {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-}; 
-
-// Close Modal function
-const closeModal = function () {
-    modal.classList.add("hidden");
-    // overlay.classList.remove("show");    
-    // removeEvent();
-};
-
-//call Ajax functions 
-// completebtn.addEventListener("click", ajax_completeTask);
-
-// show modal click event
-// btnShowModal1.addEventListener("click", showModal);
-// btnShowModal2.addEventListener("click", showModal);
-// btnShowModal3.addEventListener("click", showModal);
-
-
-
-// close modal click
-btnCloseModal.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-
-//................................................................
-
-function submitTask(number){
+function submitTask(number){ // Complete task handing fucntion
     submintFormNum = number;
     ajax_completeTask();
     ajax_generateReminder();
-    // document.getElementById("deletebtn"+submintFormNum+"").click();
+    ajax_getAllReminders();
+    ajax_getAllOverdueReminders();
 }
 
-//........................................................................
-function ajax_completeTask() {
+function ajax_completeTask() { // this is invoked by submitTask fucntion. submit complete task and delete 
     const formCompleteDetails = document.getElementById("form_completeTask"+submintFormNum+"");
     const itemid = document.getElementById("itemid").innerHTML;
     const taskId = document.getElementById("taskID"+submintFormNum+"").innerHTML;
@@ -233,13 +163,13 @@ function ajax_completeTask() {
             console.log(res);
         }
     };
-
     xhr.send(form);
+    document.getElementById("deletebtn"+submintFormNum+"").click(); // Delete the form after complete task
     cancelcompleteTask(submintFormNum);
     unloadupcomeview(submintFormNum);
 }
 
-function ajax_generateReminder(){
+function ajax_generateReminder(){  // After complete the reminder then genereate a new reminder i=
     const taskId = document.getElementById("taskID"+submintFormNum+"").innerHTML;
     const xhr = new XMLHttpRequest();
     xhr.open("GET",""+ROOT+"/Itemowner/ViewItem/generateReminder/"+taskId+"",true);   
@@ -252,12 +182,12 @@ function ajax_generateReminder(){
     };
 
     xhr.send();
+    ajax_getAllReminders();
+    ajax_getAllOverdueReminders();
 }
-//.............................Delete Task...........................................
 
 
-
-function deleteTask(number,id){
+function deleteTask(number,id){ // controller delete opreations of reminder tasks
     deleteTaskNum = number;
     reminderid = id;
     ajax_deleteTask();
@@ -265,7 +195,7 @@ function deleteTask(number,id){
     ajax_getAllOverdueReminders();
 }
 
-function ajax_deleteTask() {
+function ajax_deleteTask() { // send delete requset using ajax
     const form = new FormData();
     form.append("action","deleteTask");
     form.append("reminder_id",reminderid);
@@ -284,106 +214,19 @@ function ajax_deleteTask() {
     xhr.send(urlparams);
     unloadupcomeview(deleteTaskNum);
 }
-//....................................................................................
-
-function display1details(){
-    const xhr = new XMLHttpRequest();
-
-    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display1details");
-
-    xhr.onload = function(){
-        if(xhr.status == 200){
-            const res = xhr.responseText;
-            const json = JSON.parse(res);
-            var html = "";
-
-            if (json.status != "empty"){
-                html += "<div class='middle'><span class='material-icons-sharp'>construction</span>";
-                if(json[0].moreDays == "0"){
-                    html += "<div class='left'><h3><span style='font-size: 1.6rem; font-weight: 600;'> Today </span></h3><h3>Days more</h3></div></div>"
-                }else{
-                    html += "<div class='left'><h3><span>"+json[0].moreDays+"</span></h3><h3>Days more</h3></div></div>"
-                }
-                    html += "<h4>"+json[0].description+"</h4>"
-            }else{
-                html += "<h2>No data available</h2>";
-            }
-            
-            document.querySelector(".mainDisplay1").innerHTML = html;
-        }
-    }
-    xhr.send();
-}
-
-function display2details(){
-    const xhr = new XMLHttpRequest();
-
-    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display2details");
-
-    xhr.onload = function(){
-        if(xhr.status == 200){
-            const res = xhr.responseText;
-            const json = JSON.parse(res);
-            console.log("display2details");
-            console.log(json);
-            // console.log(json.length);
-            var html = "";
-
-            if (json.status != "empty"){
-                
-                html += "<div class='middle'><span class='material-icons-sharp'>construction</span>";
-                html += "<div class='left'><h3><span>"+json[0].moreDays+"</span></h3><h3>Days more</h3></div></div>"
-                html += "<h4>Warranty Date : " +json[0].warrenty_date+"</h4>"
-                
-            }else{
-                html += "<h2>No data available</h2>";
-            }
-            
-            document.querySelector(".mainDisplay2").innerHTML = html;
-        }
-    }
-    xhr.send();
-}
-
-function display3details(){
-    const xhr = new XMLHttpRequest();
-
-    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display3details");
-
-    xhr.onload = function(){
-        if(xhr.status == 200){
-            const res = xhr.responseText;
-            const json = JSON.parse(res);
-            var html = "";
-
-            if (json.status != "empty"){
-                
-                html += "<div class='middle'><span class='material-icons-sharp'>construction</span>";
-                html += "<div class='left'><h3><span>"+json[0].leftDays+"</span></h3><h3>Days more</h3></div></div>"
-                html += "<h4>"+json[0].description+"</h4>"
-                
-            }else{
-                html += "<h3>No data available</h3>";
-            }
-            
-            document.querySelector(".mainDisplay3").innerHTML = html;
-        }
-    }
-    xhr.send();
-}
 
 
-
+// Form viweing section
 let element= "";
 
-function loadupcomeview(popup){
+function loadupcomeview(popup){ // load view of reminder form
     element = ".upcomepopupview"+popup+"";
     
     document.querySelector(element).classList.add("show");
     overlay.classList.add("show");
 }
 
-function unloadupcomeview(popup){
+function unloadupcomeview(popup){ // unload view of reminder 
     element = ".upcomepopupview"+popup+"";
     
     document.querySelector(element).classList.remove("show");
@@ -391,97 +234,15 @@ function unloadupcomeview(popup){
 }
 
 
-function completeTask(window){
+function completeTask(window){ // load complete task form
     
     document.querySelector(".maintenaceview"+window+"").classList.add("hidden");
     document.querySelector(".completeform"+window+"").classList.remove("hidden");
 
 }
 
-function cancelcompleteTask(window){
+function cancelcompleteTask(window){ // unload complete task form
     document.querySelector(".maintenaceview"+window+"").classList.remove("hidden");
     document.querySelector(".completeform"+window+"").classList.add("hidden");
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//............................calender Script.....................................................
-
-const daysTag = document.querySelector(".days"),
-currentDate = document.querySelector(".current-date"),
-prevNextIcon = document.querySelectorAll(".icons span");
-
-// getting new date, current year and month
-let date = new Date(),
-currYear = date.getFullYear(),
-currMonth = date.getMonth();
-// storing full name of all months in array
-const months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
-
-const renderCalendar = () => {
-    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
-    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
-    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
-    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
-    let liTag = "";
-    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
-        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-    }
-    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
-        // adding active class to li if the current day, month, and year matched
-        let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
-    }
-    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
-        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
-    }
-    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
-    daysTag.innerHTML = liTag;
-}
-
-renderCalendar();
-
-prevNextIcon.forEach(icon => { // getting prev and next icons
-    icon.addEventListener("click", () => { // adding click event on both icons
-        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
-        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
-            // creating a new date of current year & month and pass it as date value
-            date = new Date(currYear, currMonth);
-            currYear = date.getFullYear(); // updating current year with new date year
-            currMonth = date.getMonth(); // updating current month with new date month
-        } else {
-            date = new Date(); // pass the current date as date value
-        }
-        renderCalendar(); // calling renderCalendar function
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-// escape click event
-// document.addEventListener("keydown", function (e) {
-//     if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-//         closeModal();
-//     }
-// });

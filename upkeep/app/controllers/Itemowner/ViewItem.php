@@ -53,8 +53,9 @@ class ViewItem {
             // Output the new date
             $result[0]->start_date = $start_date->format('Y-m-d'); // reminder eke start date eka
 
-            unset($result[0]->status);
-
+            $result[0]->user_id =$_SESSION['user_id']; //set User id 
+            unset($result[0]->status);unset($result[0]->template_task_id);
+             show($result[0]);
             $reminder = new IO_MaintenanceReminder;
             $asso_arr = get_object_vars($result[0]); // convert the stdClass object to an array
             $reminder->insert($asso_arr); //Insert new reminder to maintenance_reminder table
