@@ -7,7 +7,7 @@ class VerifyRequest{
         if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
             redirect('/Home');
         }else{
-
+            show($_SESSION);
             
 
              $tech = new VerificationRequest;
@@ -30,7 +30,8 @@ class VerifyRequest{
             redirect('/Home');
          }else{
             $verify_request = new VerificationRequest;
-            $profile_details = $verify_request->getProfile();
+            $profile_details = $verify_request->getProfile($id);
+
             $data['profile'] = $profile_details;
             //show($profile_details);
             $this->view('Admin/verificationRequest',$data);
@@ -54,7 +55,10 @@ class VerifyRequest{
 
             $update_verifytechnician = new VerificationRequest;
             $update_verifytechnician->update($user_id,$arr,"user_id");
+            $update_verifytechnician->delete($user_id,"user_id");
+            redirect('Admin/VerifyRequest');
 
+            
             $update_technician = new Technician;
             $update_technician->update($user_id,$arr1,"user_id");
 

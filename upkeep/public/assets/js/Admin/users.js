@@ -59,5 +59,42 @@ userView.forEach(function(btn){
         e.preventDefault();
         console.log("clicked");
         openPopup("view_user");
+        // data=btn.closest('tr').dataset.techniciandetails;
+        // console.log(data)
+        data = JSON.parse(btn.closest('tr').dataset.techniciandetails);
+                
+        popup = popups['view_user'];
+        console.log(popup.querySelector('h3#first_name'));
+        popup.querySelector('h3#name').innerHTML = data.first_name+" "+data.last_name;
+        // popup.querySelector('h4#last_name').innerHTML = data.last_name;
+        popup.querySelector('h4#user_id').innerHTML = data.user_id;
+        popup.querySelector('h4#email').innerHTML = data.email;
+        popup.querySelector('h4#identity_verification').innerHTML = data.identity_verification;
+
     })
 })
+
+// function ajax_viewUser(id){
+      
+//         const form = new FormData();
+//         form.append("action","viewtechnician");
+//         form.append("user_id",id);
+       
+        
+//         const xhr = new XMLHttpRequest();
+    
+//         xhr.open("POST",""+ROOT+"/Admin/UserTab/technicianView");
+    
+//         xhr.onload = function(){
+//             if(xhr.status == 200){
+//                 const res = xhr.responseText;
+//                 console.log(res);
+//             }
+//         }
+    
+//         xhr.send(form);
+    
+// }
+
+
+

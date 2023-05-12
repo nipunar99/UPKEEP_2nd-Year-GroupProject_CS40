@@ -40,7 +40,10 @@ class Complaint
         (SELECT u.user_id, u.first_name, u.last_name, t.identity_verification from technicians t INNER JOIN users u ON u.user_id = t.user_id ) ut 
         ON c.user_id=ut.user_id";
 
-        return $this->query($query);
+        $result=$this->query($query);
+
+
+        return $result;
     }
 
     public function getTotalComplaints(){

@@ -114,7 +114,7 @@
                             <input type="text" placeholder="Search...">
                             <button class="search-button"><span class="material-icons-sharp">search</span></button>
                         </div>
-                        <button class="remove-button">Remove</button>
+                        <!-- <button class="remove-button">Remove</button> -->
                     </div>
                 </div>
 
@@ -133,7 +133,7 @@
                         </thead>
                         <tbody>
                             <?php for($i=0;$i<count($technician);$i++):?>
-                                <tr>                                         
+                                <tr data-technicianDetails = <?=json_encode($technician[$i])?> >                                         
                                     <td>
                                         <div class="profile">
                                             <div class ="dp">
@@ -145,7 +145,7 @@
                                     <td><?=$technician[$i]->identity_verification ?></td>
                                     <td>
                                         <div class="btn-container">
-                                            <button id="view_btn" class="view_btn"><span class="material-icons-sharp">person</span></button> 
+                                            <button id="view_btn" class="view_btn" data-userid=<?=$technician[$i]->user_id?>><span class="material-icons-sharp">person</span></button> 
                                             <button id="reject-btn" class="reject_btn"data-userId=<?=$technician[$i]->user_id?>><span class="material-icons-sharp favorite-icon">cancel</span></button>
                                         </div>
                                     </td>
@@ -220,21 +220,21 @@
                     <div class="cc">
                         <div class=bb>
                             <h2>Name</h2>
-                                <h3><?=$technician[0]->first_name." ".$technician[0]->last_name ?></h3>
+                                <h3 id="name"></h3>
                         </div>
                         <div class=bb>
                             <h2>User_id</h2>
-                                <h4><?=$technician[0]->user_id?></h4>
+                                <h4 id="user_id"></h4>
                         </div>
                     </div>
                     <div class="cc">
                         <div class=bb>
                             <h2>Email</h2>
-                                <h4><?=$technician[0]->email?></h4>
+                                <h4 id="email"></h4>
                         </div>
                         <div class=bb>
                             <h2>identity verification</h2>
-                            <h4><?=$technician[0]->identity_verification?></h4> 
+                            <h4 id="identity_verification"></h4> 
                         </div>  
                     </div>
                 </div>

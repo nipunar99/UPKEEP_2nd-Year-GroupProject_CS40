@@ -87,7 +87,7 @@
                     <div class="item">
                         <div class="photo-container">
                                 <img src="<?=ROOT?>/Technician/Getverified/getImage/<?=$profile[0]->id_front?>" alt="Profile photo"> 
-                                                            </div>
+                        </div>
                         <div>
                             <h3>Front Photo Of NIC</h3>
                         </div>

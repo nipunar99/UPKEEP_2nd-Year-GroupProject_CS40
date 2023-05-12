@@ -165,9 +165,9 @@
                         <tbody>
                            
                             
-                                                                     
+                            <?php if(!empty($complaint)):?>                                    
                             <?php for($i=0;$i<count($complaint);$i++):?>
-                                <tr>
+                                <tr data-complaintdetails = <?=json_encode($complaint[$i])?>>
                                         
                                     <td><?=$complaint[$i]->complaint_id ?></td>
                                     <td><?=$complaint[$i]->post_id ?></td>
@@ -184,6 +184,7 @@
                                     
                                 </tr>
                             <?php endfor;?>
+                            <?php endif;?>
                             
                             <tr>                                         
                                 <td>Nipuna Rahal</td>
@@ -273,21 +274,21 @@
                         <div class="cc">
                             <div class=bb>
                                 <h2>Decription</h2>
-                                    <h3><?=$complaint[0]->description?></h3>
+                                    <h3 id="description"></h3>
                             </div>
                             <div class=bb>
                                 <h2>Type</h2>
-                                    <h4><?=$complaint[0]->complaint_type?></h4>
+                                    <h4 id="type"></h4>
                             </div>
                         </div>
                         <div class="cc">
                             <div class=bb>
                                 <h2>Status</h2>
-                                    <h4><?=$complaint[0]->status?></h4>
+                                    <h4 id="status"></h4>
                             </div>
                             <div class=bb>
                                 <h2>Date created</h2>
-                                <h4><?=$complaint[0]->date_created?></h4> 
+                                <h4 id="date_created"></h4> 
                             </div>  
                         </div>
                     </div>

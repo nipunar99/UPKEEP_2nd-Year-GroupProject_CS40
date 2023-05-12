@@ -161,7 +161,7 @@
             <div class="grid-container">
                 
                 <?php for($i=0;$i<count($technician);$i++):?>
-                    <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->request_id?>">
+                    <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->user_id?>">
                         <div class="item">
                             <div class="photo-container">
                                 <img  src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo"> 
