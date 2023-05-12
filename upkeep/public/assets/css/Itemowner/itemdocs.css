@@ -1,0 +1,203 @@
+
+
+main .insight1{
+    gap: 1.6rem;
+    overflow-y: scroll;
+    padding: 0 1.2rem;
+    height: 89vh;
+}
+.insight1 .item{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 16vw auto;
+}
+
+main .insight1 > .item >div {
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    height: 26vh;
+}
+
+/*...................... item ...........................*/
+.insight1 .item .itemImg{
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insight1 .item .itemDetails{
+    /* width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; */
+    padding: 2rem;
+}
+
+.insight1 .item .itemDetails .details{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    height: 9rem;
+}
+.insight1 .item .itemDetails .details h4{
+    color: var(--color-info-dark);
+}
+
+.insight1 .item .itemDetails .details .subDetails{
+    margin: 1fr auto;
+}
+
+.insight1 .item .itemDetails .btnDetails{
+    position: relative;
+    left: 84%;
+    display: inline-block;
+    bottom: 1rem;
+}
+
+.insight1 .item .itemDetails button{
+    color: var(--color-white);
+    border-radius: 30px;
+    padding: 0.5rem;
+}
+.insight1 .item .itemDetails .addItem{
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+}
+.insight1 .item .itemDetails .availItem{
+    background: #B3B4BB;
+}
+
+
+/*.........................Documentation.........................*/
+
+.insight1 > div:nth-child(2){
+    margin: 1.5rem auto;
+}
+.insight1 .documentation{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    /* overflow-x: scroll; */
+}
+
+.insight1 .documentation>div{
+    margin: 1rem auto;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    width: 19rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 15rem;
+    transition: all 300ms ease;
+}
+.insight1 .documentation>div:hover{
+    box-shadow: none;
+}
+.insight1 .documentation .addDoc{
+    display: inline-block;
+    border-radius: 30px;
+    color: white;
+    font-weight: 500;
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    position: absolute;
+    left: 82%;
+    bottom: 82%;
+    height: 2.5rem;
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+
+}
+
+.insight1 .documentation .deleteDoc{
+
+    position: relative;
+    bottom: 0px;
+    padding: 4px;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-danger);
+    background: none;
+    color: var(--color-danger);
+}
+
+.insight1 .description{
+    height: 10rem;
+    box-shadow: var(--box-shadow);
+}
+
+/*.........................Documentation end.........................*/
+
+.addDocumentForm{
+    min-height: 45vh !important;
+}
+
+.addDocumentForm form .button{
+    display: inline-block;
+    left: 32rem;
+}
+
+.popupimage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(68, 67, 67);
+    padding: 5rem 2rem 2rem 5rem;
+    padding-left: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+.popupimage img{
+    transform: scale(5);
+}
+
+small{
+    color: #ff7782;
+}
+
+.editItemform{
+    width:54% ;
+    height: 77vh;
+}
+
+.erroInput{
+    border-color: #ff7782 !important;
+}
+
+.tableAction{
+    margin: 0 !important;
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+    display: inline-block;
+}
+
+table thead tr th:last-child , table tbody tr td:last-child{
+    display: inline-block;
+}
+
+.popupMaintask .action_btn{
+    display: flex;
+}
+
+.popupMaintask .action_btn .cancel{
+    color: #ff7782 !important;
+}
+
+.popupMaintask .action_btn .edit{
+    color: var(--color-success) !important;
+}
+
+.popupMaintask{
+    min-height: 50vh;
+}
+
+.popupMaintask h2, .popupMaintask span{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-info-dark);
+}

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="12e0ce34-039b-421d-b650-eb0a8261bc00" name="Changes" comment="">
+<<<<<<< Updated upstream
+      <change afterPath="$PROJECT_DIR$/public/assets/js/Technician/otp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/Technician/popupform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3cee15a-f9b6-417c-b14f-8fd6b3c55a26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3cee15a-f9b6-417c-b14f-8fd6b3c55a26/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3cee15a-f9b6-417c-b14f-8fd6b3c55a26/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3cee15a-f9b6-417c-b14f-8fd6b3c55a26/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3cee15a-f9b6-417c-b14f-8fd6b3c55a26/storage_v2/_src_/schema/upkeep.oHQDzg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3cee15a-f9b6-417c-b14f-8fd6b3c55a26/storage_v2/_src_/schema/upkeep.oHQDzg.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Technician/Getverified.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Technician/Getverified.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Otp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Otp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Technician.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Technician.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Technician/getverified.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Technician/getverified.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Technician/gigs.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Technician/gigs.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Technician/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Technician/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Technician/popupform.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Technician/popupform.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Technician/verifypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Technician/verifypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/Technician/getVerified.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/Technician/getVerified.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/Technician/gigs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/Technician/gigs.js" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Otp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/Technician/popupform.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/Technician/technicianDashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/technicianUI/enter_mobile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/technicianUI/mobile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/technicianUI/otp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/user.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/Technician/fetch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Admin/Admindashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Admin/Admindashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Admin/VerificationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Admin/VerificationRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Technician/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Technician/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Technician/Findjobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Technician/Findjobs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Technician/Getverified.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Technician/Getverified.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Technician/Gigs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Technician/Gigs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Technician/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Technician/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Technician.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Technician.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Admin/adminDashboard.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Admin/adminDashboard.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Technician/dashboard.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Technician/dashboard.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Technician/findjobs.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Technician/findjobs.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Technician/getverified.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Technician/getverified.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Technician/orders.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Technician/orders.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home.view.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home.view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Itemowner/gigTabstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Itemowner/gigTabstyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Technician/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Technician/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Technician/user.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/Technician/verifypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/Technician/verifypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/Technician/getVerified.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/Technician/getVerified.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/Technician/gigs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/Technician/gigs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+>>>>>>> Stashed changes
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/public/assets/css/Technician/gigTabstyles.css" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/telesign/telesign" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/orhanerday/open-ai" />
+      <path value="$PROJECT_DIR$" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2IO8xnpSLdMyuUNAI7jW6a6quwV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/upkeep/upkeep&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+=======
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+>>>>>>> Stashed changes
+=======
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+>>>>>>> Stashed changes
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="12e0ce34-039b-421d-b650-eb0a8261bc00" name="Changes" comment="" />
+      <created>1670041930645</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670041930645</updated>
+      <workItem from="1670041946529" duration="214000" />
+      <workItem from="1670065412013" duration="82000" />
+      <workItem from="1670065962737" duration="1595000" />
+      <workItem from="1670071625428" duration="7670000" />
+      <workItem from="1675443290337" duration="1994000" />
+      <workItem from="1677436640824" duration="140000" />
+      <workItem from="1681039537582" duration="3924000" />
+      <workItem from="1681053882647" duration="41094000" />
+      <workItem from="1681295621812" duration="477000" />
+      <workItem from="1681309024749" duration="15509000" />
+      <workItem from="1681410952851" duration="2526000" />
+      <workItem from="1681492276141" duration="595000" />
+      <workItem from="1681535813045" duration="1486000" />
+<<<<<<< Updated upstream
+      <workItem from="1681537925580" duration="16380000" />
+      <workItem from="1681622383112" duration="19883000" />
+      <workItem from="1681660956705" duration="5731000" />
+      <workItem from="1681675382754" duration="8399000" />
+      <workItem from="1681728870586" duration="11727000" />
+      <workItem from="1681746077858" duration="24685000" />
+=======
+      <workItem from="1681537925580" duration="9845000" />
+>>>>>>> Stashed changes
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -1,0 +1,667 @@
+// //...............................slide bar.......................
+// const sideMenu = document.querySelector("aside");
+// const menuBtn = document.querySelector("#menu-btn");
+// const  closebt= document.querySelector("#close-btn");
+//
+// menuBtn.addEventListener("click", () => {
+//     sideMenu.style.display = "block";
+// })
+//  closebt.addEventListener("click", () => {
+//     sideMenu.style.display = "none";
+// })
+// //...............................................................
+//
+// const itempannelbtn =  document.querySelector(".itempannelbtn");
+// const itempannel = document.querySelector(".right");
+// const itempannelclosebtn = document.querySelector(".itempannelclosebtn");
+//
+// itempannelbtn.addEventListener('click', () => {
+//     itempannel.classList.add("animateOpenRight");
+//     itempannel.classList.remove("animateCloseRight");
+// })
+//
+// itempannelclosebtn.addEventListener('click', () => {
+//     itempannel.classList.remove("animateOpenRight");
+//     itempannel.classList.add("animateCloseRight");
+// })
+
+//community class structure with post and comment classes fully OOP
+//3 classes: Community, Post, Comment
+//Community class has posts array and post class has comments array
+//comminity deals with back end and use chr xmlhttprequest to get data from server others are more into front end dont use fetch api use xmlhttprequest
+
+//////////////////////
+//  Community class //
+//////////////////////
+
+class Community {
+    constructor() {
+        if (Community._instance) {
+            throw new Error('Community already has an instance!!!');
+        }
+        Community._instance = this;
+
+        this.posts = [];
+        this.searchPosts = [];
+        this.popularPosts = [];
+        this.page = 1;
+        this.postCount = 0;
+        this.postListElement = document.querySelector('.Post-List');
+        this.fetchPosts();
+        this.renderPosts();
+        this.fetchPopularPosts();
+
+
+    }
+
+    addPost(post) {
+        this.posts.push(post);
+    }
+
+    addSearchPost(post) {
+        this.searchPosts.push(post);
+    }
+
+    addPopularPost(post) {
+        this.popularPosts.push(post);
+    }
+
+    getPost() {
+        return this.posts;
+    }
+
+
+    removePost(post) {
+        this.posts.splice(post, 1);
+    }
+
+    fetchPosts() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', ROOT+'/Community/getPosts?page=' + this.page, true);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                let posts = JSON.parse(xhr.responseText);
+                posts.forEach((post) => {
+                    this.addPost(new Post(post));
+                });
+                this.renderPosts();
+            }
+        }
+        xhr.send();
+    }
+
+    renderPosts() {
+        let postContainer = document.querySelector('.Post-List');
+        this.posts.forEach((post) => {
+            const postElement = document.createElement('li');
+            postElement.className = 'card';
+            postElement.id = `post-${post.postId}`;
+            postElement.appendChild(post.createPostElement());
+
+            //event listener for upvote button
+            const upvoteButton = postElement.querySelector('.upvote');
+            upvoteButton.addEventListener('click', () => {
+                this.upvotePost(post.postId);
+
+            });
+
+            //event listener for downvote button
+            const downvoteButton = postElement.querySelector('.downvote');
+            downvoteButton.addEventListener('click', () => {
+                this.downvotePost(post.postId);
+            });
+
+            //this buttton will open a pop up view_post and render post and comment dta in the 2 separate divs post-details and comment-section
+            const commentButton = postElement.querySelector('.comment');
+            commentButton.addEventListener('click', () => {
+                openPopup('view_post');
+                popups['view_post'].querySelector('.post-details').innerHTML = '';
+                const comments = popups['view_post'].querySelector('.comment-section');
+                comments.innerHTML = '';
+                document.querySelector('.post-details').append(post.createPostElement());
+
+                post.renderComments(comments)
+            });
+
+            postContainer.appendChild(postElement);
+        });
+    }
+
+    searchPostsAndRender(searchTerm) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', ROOT+'/Community/getPosts?searchTerm=' + searchTerm, true);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                let posts = JSON.parse(xhr.responseText);
+                posts.forEach((post) => {
+                    this.addSearchPost(new Post(post));
+                });
+                this.renderSearchPosts();
+            }
+        }
+        xhr.send();
+    }
+
+    renderSearchPosts() {
+        let postContainer = document.querySelector('.Post-List');
+        postContainer.innerHTML = '';
+        this.searchPosts.forEach((post) => {
+            const postElement = document.createElement('li');
+            postElement.appendChild(post.createPostElement());
+            postContainer.appendChild(postElement)
+        });
+    }
+
+    fetchPostCount() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', ROOT+'/Community/getPostCount', true);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                this.postCount = JSON.parse(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+
+    upvotePost(postId) {
+        //update post upvote count
+        const post = this.posts.find((post) => {
+            return post.postId === postId;
+        });
+        //update post upvote count in database
+        const data= new FormData();
+        data.append('post_id', postId);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', ROOT+'/Community/upvotePost', true);
+        xhr.onload = () => {
+            let res = JSON.parse(xhr.responseText);
+            if (xhr.status === 200) {
+                console.log(res.success);
+                post.addUpvote();
+            }else{
+                console.log(res.error);
+            }
+        }
+        xhr.send(data);
+    }
+
+    downvotePost(postId) {
+        console.log('downvote clicked');
+        const post = this.posts.find((post) => {
+            return post.postId === postId;
+        });
+        console.log(post);
+        //update post downvote count in database
+        const data= new FormData();
+        data.append('post_id', postId);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', ROOT+'/Community/downvotePost', true);
+        xhr.onload = () => {
+            let res = JSON.parse(xhr.responseText);
+            if (xhr.status === 200) {
+                console.log(res.success);
+                post.addDownvote();
+            }else{
+                console.log(res.error);
+            }
+        }
+        xhr.send(data);
+    }
+
+    updatePostElement(postID) {
+        let post = this.posts.find((post) => {
+            return post.postId === postID;
+        });
+        let postElement = document.querySelector(`#post-${postID}`);
+        console.log(postElement);
+        postElement.querySelector('#upvote-count').innerHTML = post.upvotes;
+        postElement.querySelector('#downvote-count').innerHTML = post.downvotes;
+
+        if(post.upvoted) {
+            postElement.querySelector('.upvote').classList.add('active');
+        }
+        if(post.downvoted) {
+            postElement.querySelector('.downvote').classList.add('active');
+        }
+
+        //update comment count
+        postElement.querySelector('#comment-count').innerHTML = post.comments.length;
+
+        //update upvote and downvote count
+        postElement.querySelector('#upvote-count').innerHTML = post.upvotes;
+        postElement.querySelector('#downvote-count').innerHTML = post.downvotes;
+
+
+
+    }
+
+    fetchPopularPosts() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', ROOT+'/Community/getPopularPosts', true);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                let posts = JSON.parse(xhr.responseText);
+                posts.forEach((post) => {
+                    this.addPopularPost(new Post(post));
+                });
+                this.renderPopularPosts();
+            }
+        }
+        xhr.send();
+    }
+
+    renderPopularPosts() {
+        let postContainer = document.querySelector('.Popular-Post-List');
+        this.popularPosts.forEach((post) => {
+            const postElement = document.createElement('li');
+            postElement.append(post.createPopularPostElement());
+            postContainer.appendChild(postElement)
+        });
+    }
+
+    renderNewPostOnTop(post) {
+        let postContainer = document.querySelector('.Post-List');
+        const postElement = document.createElement('li');
+        postElement.appendChild(post.createPostElement());
+        postContainer.prepend(postElement);
+    }
+
+
+
+}
+
+
+
+///////////////////
+//  POST CLASS  //
+//////////////////
+
+class Post {
+    constructor(postDetails) {
+        this.data = postDetails;
+        this.userId = postDetails.user_id;
+        this.userName = postDetails.user_name;
+        this.user = postDetails.user;
+        this.profilePic = postDetails.profile_pic;
+        this.postId = postDetails.post_id;
+        this.itemType = postDetails.item_type;
+        this.itemBrand = postDetails.item_brand;
+        this.itemModel = postDetails.item_model;
+        this.postType = postDetails.post_type;
+        this.postTitle = postDetails.post_title;
+        this.postDescription = postDetails.post_content;
+        this.status = postDetails.status;
+        this.createdAt = postDetails.created_at;
+        this.upvotes = postDetails.upvote_count;
+        this.downvotes = postDetails.downvote_count;
+        this.commentCount = postDetails.comment_count;
+        this.upvoted = postDetails.upvoted;
+        this.downvoted = postDetails.downvoted;
+        //check if null image list as string->array. if not null split
+        this.images = postDetails.images ? postDetails.images.split(',') : [];
+        this.comments = [];
+        this.commentListElement = document.querySelector(".comment-section")
+        this.fetchComments();
+
+    }
+
+
+
+    createPostElement() {
+        let postElement = document.createElement('div');
+        postElement.className = 'post';
+        postElement.id = `post-${this.postId}`;
+        postElement.innerHTML =
+            `<div class="card">
+                <div class="post-container">
+                    <div class="card-header">
+                        <div class="user-profile">
+                            <img src="<?= ROOT?>/assets/images/profile-2.jpg">
+                            <div>
+                                <h3>${this.user}</h3>
+                                <p class="text-muted">`+generateTimeAgoString(this.createdAt)+`</p>
+                            </div>
+                        </div>
+                        <a class="post-type-tag">${this.postType}</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row" id="about">
+                            <h3 class="about-title">About</h3>
+                            <div class="Item-details-tags"></div>
+                        </div>
+
+                        <p class="title"><b>${this.postTitle}</b></p>
+                        <p class="text">${this.postDescription}</p>
+                        <div class="image-grid"></div>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="left activity-icons">
+                            <a class="action upvote"><span class="material-symbols-outlined">shift</span><p class="count" id="upvote-count">${this.upvotes}</p></a>
+                            <a class="action downvote"><span class="material-symbols-outlined">shift</span><p class="count" id="downvote-count">${this.downvotes}</p></a>
+                            <a class="action comment"><span class="material-symbols-outlined">comment</span><p class="count" id="comment-count">${this.commentCount}</p></a>
+                        </div>
+                        <div class="right">
+                            <a class="action"><span class="material-icons-sharp">flag</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+
+        let imageGrid = postElement.querySelector('.image-grid');
+        if(this.images != null) {
+            this.images.forEach((image) => {
+                imageGrid.appendChild(this.createPostImageElement(image));
+            });
+        }
+
+        //load Item-details-tags tag
+        let itemDetailsTag = postElement.querySelector('.Item-details-tags');
+        if(this.itemType.length>0) {
+            itemDetailsTag.appendChild(this.createPostTagElement(this.itemType));
+        }
+        if(this.itemBrand.length>0) {
+            itemDetailsTag.appendChild(this.createPostTagElement(this.itemBrand));
+        }
+        if(this.itemModel.length>0) {
+            itemDetailsTag.appendChild(this.createPostTagElement(this.itemModel));
+        }
+
+        //load profile pic
+        if(this.profilePic != null) {
+            let profilePic = postElement.querySelector('.user-profile img');
+            profilePic.src = ROOT+'/assets/images/'+this.profilePic;
+        }else{
+            let profilePic = postElement.querySelector('.user-profile img');
+            profilePic.src = ROOT+'/assets/images/profilepic/user.png';
+        }
+
+        //set upvoted and downvoted
+        if(this.upvoted == 1) {
+            let upvoteButton = postElement.querySelector('.upvote');
+            upvoteButton.classList.add('active');
+        }
+        if(this.downvoted == 1) {
+            let downvoteButton = postElement.querySelector('.downvote');
+            downvoteButton.classList.add('active');
+        }
+
+
+        return postElement;
+
+    }
+
+    createPostImageElement(image) {
+        let imageElement = document.createElement('div');
+        imageElement.className = 'image';
+        imageElement.innerHTML = `<img src="<?= ROOT ?>/assets/images/postimages/${image}">`;
+        return imageElement;
+    }
+
+    createPostTagElement(tag) {
+        let tagElement = document.createElement('a');
+        tagElement.className = 'tag';
+        tagElement.innerHTML = tag;
+        return tagElement;
+    }
+
+    createPopularPostElement() {
+        let popularPostElement = document.createElement('div');
+        popularPostElement.className = 'update';
+        popularPostElement.innerHTML = `
+            <div class="profile-photo">
+                <img src="<?= ROOT ?>/assets/images/profile-2.jpg" alt="">
+            </div>
+            <div class="message">
+                <p><b>${this.user}</b> ${this.postTitle}</p>
+                <small class="text-muted">`+generateTimeAgoString(this.createdAt)+`</small>
+            </div>`
+
+        //load profile pic
+        if(this.profilePic != null) {
+            let profilePic = popularPostElement.querySelector('.profile-photo img');
+            profilePic.src = ROOT+'/assets/images/'+this.profilePic;
+        }else{
+            let profilePic = popularPostElement.querySelector('.profile-photo img');
+            profilePic.src = ROOT+'/assets/images/profilepic/user.png';
+        }
+
+
+        return popularPostElement;
+    }
+
+    addUpvote() {
+        if(this.downvoted) {
+            this.removeDownvote();
+        }
+        if(this.upvoted == 0) {
+            this.upvotes++;
+            this.upvoted = 1;
+        }else if(this.upvoted == 1) {
+            this.upvotes--;
+            this.upvoted = 0;
+        }
+        this.updatePostElement();
+    }
+
+    removeUpvote() {
+        this.upvotes--;
+        this.upvoted = 0;
+    }
+
+    addDownvote() {
+        if(this.upvoted) {
+            this.removeUpvote();
+        }
+        if(this.downvoted == 0) {
+            this.downvotes++;
+            this.downvoted = 1;
+        }else if(this.downvoted == 1) {
+            this.downvotes--;
+            this.downvoted = 0;
+        }
+        this.updatePostElement();
+    }
+
+    removeDownvote() {
+        this.downvotes--;
+        this.downvoted = 0;
+    }
+
+    addComment(comment) {
+        this.comments.push(comment);
+        this.commentCount++;
+        let commentCount = document.getElementById('comment-count');
+        commentCount.innerHTML = this.commentCount;
+    }
+
+    removeComment() {
+        this.commentCount--;
+        let commentCount = document.getElementById('comment-count');
+        commentCount.innerHTML = this.commentCount;
+    }
+
+    //using xhr same as community fetches post
+    async fetchComments() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', ROOT+'/Community/getComments/'+this.postId);
+        xhr.onload = () => {
+            if(xhr.status == 200) {
+                let response = JSON.parse(xhr.responseText);
+                console.log(response.length);
+                if(!response) {
+                    return;
+                }
+                response.forEach((comment) => {
+                    this.comments.push(new Comment(comment));
+                });
+                console.log(this.comments);
+            }
+        }
+        xhr.send();
+    }
+
+    renderComments(commentDiv) {
+        this.comments.forEach((comment) => {
+            console.log(this.comments)
+
+            let commentElement = comment.createCommentElement();
+            commentDiv.appendChild(commentElement);
+        });
+    }
+
+    updatePostElement() {
+        let postElement = document.getElementById('post-'+this.postId);
+        let upvoteCount = postElement.querySelector('#upvote-count');
+        let downvoteCount = postElement.querySelector('#downvote-count');
+        let commentCount = postElement.querySelector('#comment-count');
+        let upvoteButton = postElement.querySelector('.upvote');
+        let downvoteButton = postElement.querySelector('.downvote');
+
+
+        upvoteCount.innerHTML = this.upvotes;
+        downvoteCount.innerHTML = this.downvotes;
+        commentCount.innerHTML = this.commentCount;
+
+        if(this.upvoted == 1) {
+            upvoteButton.classList.add('active');
+            downvoteButton.classList.remove('active');
+        }else{
+            upvoteButton.classList.remove('active');
+        }
+        if(this.downvoted == 1) {
+            downvoteButton.classList.add('active');
+            upvoteButton.classList.remove('active');
+        }else{
+            downvoteButton.classList.remove('active');
+        }
+    }
+
+    createComment(){
+        let comment = document.getElementById('comment-input').value;
+        if(comment == '') {
+            return;
+        }
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', ROOT+'/Community/addComment/'+this.postId);
+        xhr.onload = () => {
+            if(xhr.status == 200) {
+                let response = JSON.parse(xhr.responseText);
+                if(response.success) {
+                    const comment = new Comment(response.comment);
+                    this.addComment(comment);
+                    this.ren
+                }
+            }
+        }
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.send('comment='+comment);
+    }
+
+    renderNewComment
+
+
+
+}
+
+
+
+///////////////////////
+//  Comment class   //
+//////////////////////
+
+class Comment {
+    constructor(commentDetails) {
+        this.commentId = commentDetails.commentId;
+        this.userId = commentDetails.userId;
+        this.userName = commentDetails.user;
+        this.commentText = commentDetails.comment;
+        this.commentDate = commentDetails.created_at;
+        this.profilepic = commentDetails.profile_picture;
+
+
+    }
+
+
+    createCommentElement() {
+        const commentElement = document.createElement('li');
+                commentElement.className = 'comment';
+                commentElement.innerHTML =`
+                    <div class="comment-container">
+                        <div class="comment-content">
+                            <div class="comment-user-avatar">
+                                <img src="${ROOT}/assets/images/profilepic/${this.profilepic}" alt="user avatar">
+                            </div>
+                            <div class="comment-data">
+                                <div class="comment-data-header">
+                                    <div class="comment-user-name">${this.userName}</div>
+                                    <div class="comment-date">${generateTimeAgoString(this.commentDate)}</div>
+                                </div>
+                                <div class="comment-text">${this.commentText}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                //set profile pic
+                if(this.profilepic) {
+                    console.log('profile pic not null');
+                    let profilePic = commentElement.querySelector('.comment-user-avatar img');
+                    profilePic.src = ROOT+'/assets/images/profilepic/'+this.profilepic;
+                }else{
+                    let profilePic = commentElement.querySelector('.comment-user-avatar img');
+                    profilePic.src = ROOT+'/assets/images/profilepic/user.png';
+                }
+        return commentElement;
+    }
+}
+
+
+function generateTimeAgoString(datetime) {
+    const timestamp = new Date(datetime).getTime() / 1000;
+    const currentTime = Math.floor(Date.now() / 1000);
+    const timeDiff = currentTime - timestamp;
+
+    const minute = 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    const week = day * 7;
+    const month = day * 30;
+
+    let timeAgo;
+
+    if (timeDiff < minute) {
+        timeAgo = 'just now';
+    } else if (timeDiff < hour) {
+        const minutesAgo = Math.floor(timeDiff / minute);
+        timeAgo = `${minutesAgo} minute${minutesAgo > 1 ? 's' : ''} ago`;
+    } else if (timeDiff < day) {
+        const hoursAgo = Math.floor(timeDiff / hour);
+        timeAgo = `${hoursAgo} hour${hoursAgo > 1 ? 's' : ''} ago`;
+    } else if (timeDiff < week) {
+        const daysAgo = Math.floor(timeDiff / day);
+        timeAgo = `${daysAgo} day${daysAgo > 1 ? 's' : ''} ago`;
+    } else if (timeDiff < month) {
+        const weeksAgo = Math.floor(timeDiff / week);
+        timeAgo = `${weeksAgo} week${weeksAgo > 1 ? 's' : ''} ago`;
+    } else {
+        const monthsAgo = Math.floor(timeDiff / month);
+        timeAgo = `${monthsAgo} month${monthsAgo > 1 ? 's' : ''} ago`;
+    }
+
+    return timeAgo;
+}
+
+
+
+let community = new Community();
+
+//search bar event listener
+let searchBar = document.getElementById('searchBarInput');
+searchBar.addEventListener('keyup', (e) => {
+    if(e.keyCode == 13) {
+        community.searchPostsAndRender(searchBar.value);
+    }
+});
+
+
