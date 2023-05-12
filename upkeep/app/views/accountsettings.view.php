@@ -326,14 +326,14 @@
             </div>
 
 
-            <script>
-                const ROOT = "<?= ROOT ?>";
-                const user = <?= $user ?>;
-                // console.log(user[0]);
-            </script>
-            <script src="<?= ROOT ?>/assets/js/Technician/popupform.js  "></script>
-            <script src="<?= ROOT ?>/assets/js/Technician/tabs.js  "></script>
-            <script src="<?= ROOT ?>/assets/js/accountsettings.js  "></script>
+    <script>
+        const ROOT = "<?=ROOT?>";
+        const user = <?=$user?>;
+        // console.log(user[0]);
+    </script>
+    <script src="<?=ROOT?>/assets/js/Technician/popupform.js  "></script>
+    <script src="<?=ROOT?>/assets/js/Technician/tabs.js"></script>
+    <script src="<?=ROOT?>/assets/js/accountsettings.js"></script>
 </body>
 
 </html>

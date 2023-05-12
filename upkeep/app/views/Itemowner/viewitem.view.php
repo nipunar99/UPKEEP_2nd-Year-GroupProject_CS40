@@ -357,6 +357,12 @@
 
                         </div>
                         <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="description" required placeholder="Enter description">
+                            <small></small>
+
+                        </div>
+                        <div class="input-box">
                             <span class="details">Sub Component</span>
                             <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
                             <small></small>
