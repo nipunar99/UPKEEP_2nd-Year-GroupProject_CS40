@@ -159,28 +159,29 @@
                 <h4>Verification Requests</h4>
             </div>
             <div class="grid-container">
-                
-                <?php for($i=0;$i<count($technician);$i++):?>
-                    <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->user_id?>">
-                        <div class="item">
-                            <div class="photo-container">
-                                <img  src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo"> 
-                                   
-                            </div>
-                            <div class="details-container">
-                                <h2><?=$technician[$i]->first_name." ".$technician[$i]->last_name?> </h2>
-                                <p><?=$technician[$i]->location ?></p>
-                            </div>
-                            <div class="contact-details">
-                                <div class="vv">
-                                    <p><?=$technician[$i]->email ?></p>
-                                    <p><?=$technician[$i]->mobile_no ?></p>
+                <?php if(!empty($technician)):?>
+                    <?php for($i=0;$i<count($technician);$i++):?>
+                        <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->user_id?>">
+                            <div class="item">
+                                <div class="photo-container">
+                                    <img  src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo"> 
+                                    
                                 </div>
+                                <div class="details-container">
+                                    <h2><?=$technician[$i]->first_name." ".$technician[$i]->last_name?> </h2>
+                                    <p><?=$technician[$i]->location ?></p>
+                                </div>
+                                <div class="contact-details">
+                                    <div class="vv">
+                                        <p><?=$technician[$i]->email ?></p>
+                                        <p><?=$technician[$i]->mobile_no ?></p>
+                                    </div>
 
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                <?php endfor;?>
+                        </a>
+                    <?php endfor;?>
+                    <?php endif;?>
             </div>
 
      

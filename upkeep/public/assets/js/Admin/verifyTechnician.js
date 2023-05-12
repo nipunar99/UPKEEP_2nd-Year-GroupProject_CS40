@@ -23,6 +23,7 @@ function ajax_verifyTechnician(user_id){
         if(xhr.status == 200){
             const res = xhr.responseText;
             console.log(res);
+            location.replace(ROOT+'/Admin/VerifyRequest'); //rederect page
         }
     }
 
