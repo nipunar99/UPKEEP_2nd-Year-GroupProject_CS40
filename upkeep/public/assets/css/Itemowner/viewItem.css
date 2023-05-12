@@ -808,7 +808,7 @@ form .middleInput select{
     grid-template-columns: 15rem auto !important;   
 }
  
-.main2 button,.main3 button,.main4 button{
+.main2 button,.main3 button,.main4 button, .maintenanceTemplateListTbody button{
     display: inline-block;
     border-radius: 30px;
     margin: 0 3rem;
@@ -818,7 +818,7 @@ form .middleInput select{
     transition: all 300ms ease;
     
 }
-.main2 button:hover,.main3 button:hover,.main4 button:hover{
+.main2 button:hover,.main3 button:hover,.main4 button:hover, .maintenanceTemplateListTbody button:hover {
     transform: scale(1.1);
 }
 .main2 .addMaintainTask{

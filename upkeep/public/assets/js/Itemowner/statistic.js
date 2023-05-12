@@ -386,5 +386,6 @@ function loadItemToMaintenanceHistory(json){
       const form = new FormData();
       form.append("date_month",monthyearinput.value);
       maintenanceHistoryDetails(form);
+      console.log(monthyearinput.value);
     });
 }

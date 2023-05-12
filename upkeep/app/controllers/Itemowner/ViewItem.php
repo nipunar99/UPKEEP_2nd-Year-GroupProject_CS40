@@ -256,10 +256,16 @@ class ViewItem {
 
     public function getMaintenanceTemplatesforAnItem(){
 
-        $maintenances = new IO_Maintenance_template();
-        $result = $maintenances->getMaintenanceTemplatesforAnItem();
+        $item = new IO_Owneritem;
+        $itemtemplate_id = $item->getItemtemplateId();
 
-        echo $result;
+        $maintenances = new IO_Maintenance_template();
+        $result = $maintenances->getMaintenanceTemplatesforAnItem($itemtemplate_id[0]->itemtemplate_id);
+        // show($itemtemplate_id[0]->itemtemplate_id);
+        // show($_SESSION['item_id']);
+        $json = json_encode($result);
+        echo $json;
     }
+
 
 }

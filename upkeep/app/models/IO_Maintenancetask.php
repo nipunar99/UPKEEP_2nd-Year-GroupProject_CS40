@@ -30,14 +30,15 @@ class IO_Maintenancetask {
         if($file_size < 524000){
             if(move_uploaded_file($file_temp,$location)){
                 try{
-                    $data["item_id"] = $_SESSION['item_id'];
                     $data["image"] = $file_name;
-                    return $this->insertAndGetLastIndex($data);
                 }
                 catch(PDOException $e){
                     echo $e->getMessage();
                 }
             }
         }
+        $data["item_id"] = $_SESSION['item_id'];
+        return $this->insertAndGetLastIndex($data);
+
     }
 }

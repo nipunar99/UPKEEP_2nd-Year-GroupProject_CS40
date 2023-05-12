@@ -101,4 +101,8 @@ class IO_Owneritem
 
     }
 
+    public function getItemtemplateId(){
+        $query = "SELECT itemtemplate_id  FROM items WHERE item_id = ". $_SESSION['item_id'] . "";
+        return $this->query($query);
+    }
 }

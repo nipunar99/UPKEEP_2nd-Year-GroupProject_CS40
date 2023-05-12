@@ -128,21 +128,14 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Sub component</th>
-                            <th>Time range</th>
                             <th>Description</th>
-                            <th>Priority status</th>
+                            <th>Sub component</th>
+                            <th>Time Frame</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Sub component</td>
-                            <td>Time range</td>
-                            <td class="primary">Description</td>
-                            <td class="warning">Priority status</td>
-                            <td class="success">Action</td>
-                        </tr>
+                    <tbody class="maintenanceTemplateListTbody">
 
                         <tr>
                             <td>Sub component</td>
@@ -152,25 +145,10 @@
                             <td class="success">Action</td>
                         </tr>
 
-                        <tr>
-                            <td>Sub component</td>
-                            <td>Time range</td>
-                            <td class="primary">Description</td>
-                            <td class="warning">Priority status</td>
-                            <td class="success">Action</td>
-                        </tr>
-
-                        <tr>
-                            <td>Sub component</td>
-                            <td>Time range</td>
-                            <td class="primary">Description</td>
-                            <td class="warning">Priority status</td>
-                            <td class="success">Action</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
-
+            <div class="loadTemplateMaintenancepopup"></div>
         </main>
 
         <!-- End of Main -->
@@ -416,7 +394,7 @@
                         </div>
                         
                         <div class="input-box">
-                            <span class="details">Due date</span>
+                            <span class="details">Start date</span>
                             <input type="date" name="start_date" id="strt_date" required placeholder="Enter Brand">
                             <small></small>
                         </div>
@@ -810,6 +788,76 @@
             </div>
         </div>
 
+        <div class="popupview addingTemplateTask" id="addingTemplateTaskPopup">
+            <button class="closebtn closebtn2" onclick="closeModal()">&times;</button>
+            
+            <div class="content content1">
+                
+                <form id="form_TemplateTaskDetails">
+                    <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="TemplateTask_sub_component" required placeholder="Enter Sub component">
+                            <small></small>
+
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="TemplateTask_description" required placeholder="Enter description">
+                            <small></small>
+
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class = "imgInput" name="image" id="TemplateTask_upfileimage"  placeholder="Enter Image">
+                            <small></small>
+                        </div>
+
+                        <h2>Time frame</h2>
+                        
+                        <div class="middleInput">
+                            
+                            <div class="input-box">
+                                <span class="details">Yearly</span>
+                                <input type="number" name="years" id="TemplateTask_years"  placeholder="Years">
+                                <small></small>
+                            </div>
+
+
+                            <div class="input-box">
+                                <span class="details">Monthly</span>
+                                <input type="number" name="months" id="TemplateTask_months"  placeholder="Months">                                
+                                <small></small>
+                            </div>
+                            
+                            <div class="input-box">
+                                <span class="details">Weekly</span>
+                                <input type="number" name="weeks" id="TemplateTask_weeks"  placeholder="Weeks">                                
+                                <small></small>
+                            </div>
+            
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="details">Start date</span>
+                            <input type="date" name="start_date" id="TemplateTask_strt_date" required placeholder="Enter Brand">
+                            <small></small>
+                        </div>
+                        
+                        <div class="button">
+                            <input type="submit" value="Add Maintenance" id="addTemplateTaskbtn"> 
+                        </div>
+                        
+                    </div>
+                </form>
+                
+            </div>
+        </div> 
+
     </div>
         
     <?php
@@ -819,6 +867,7 @@
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/sse.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/script.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/sec-MaintainDetails.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/sec-MainPage.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
     <script src="<?=ROOT?>/assets/js/notification.js"></script>
 

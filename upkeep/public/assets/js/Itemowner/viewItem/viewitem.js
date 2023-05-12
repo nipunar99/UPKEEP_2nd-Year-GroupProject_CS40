@@ -1,6 +1,7 @@
 var disposalPlacesjson = null;
 var documentationjson = null;
 var MaintainTaskjson = null;
+var MaintainTemplateTaskjson = null;
 var ongoingReminders = null;
 var overdueReminders = null;
 
@@ -19,6 +20,7 @@ const addMaintenanceForm = document.querySelector(".addMaintenanceForm");
 const addMaintenanceForm2 = document.querySelector(".addMaintenanceForm2");
 const addDocumentForm = document.querySelector(".addDocumentForm");
 const editItemform = document.querySelector(".editItemform");
+const addingTemplateTask = document.querySelector(".addingTemplateTask");
 
 
 
@@ -193,6 +195,7 @@ document.addEventListener("DOMContentLoaded",function(){
     display2details();
     disposalPlaces();
     ajax_loadDocumentation();
+    // ajax_getMaintenanceTemplatesforAnItem();
 });
 
 
@@ -227,6 +230,7 @@ const closeModal = function () {
     addMaintenanceForm2.classList.remove("show");
     addDocumentForm.classList.remove("show");
     editItemform.classList.remove("show");
+    addingTemplateTask.classList.remove("show");
     document.querySelector(".imgeView").classList.add("hidden");
     // removeEvent();
 };
@@ -569,6 +573,7 @@ function ajax_getAllOverdueReminders() {
     xhr.send();
     loadOverdueReminderList();
 }
+
 
 const sub_component = document.getElementById("sub_component");
 const description = document.getElementById("description");

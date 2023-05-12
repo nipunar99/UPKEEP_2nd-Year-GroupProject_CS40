@@ -82,8 +82,8 @@ document.getElementById("updateReminderbtn").addEventListener("click",ajax_editR
 
 function editReminder(num,status){
     var element = ".popupMaintask"+num+"";
-    document.querySelector(element).classList.add("hidden");
-    editReminderForm.classList.remove("hidden");
+    document.querySelector(element).classList.remove("show");
+    editReminderForm.classList.add("show");
 
     var json = "";
     if (status == 1) {
