@@ -138,7 +138,7 @@ class jobs
         $technician_id = $_SESSION['user_id'];
         $sql = "SELECT 
                     j.*, 
-                    concat(u.first_name,' ', u.last_name) AS client, u.email, u.mobile_no, u.last_login, 
+                    concat(u.first_name,' ', u.last_name) AS client, u.email, u.mobile_no, 
                     a.*,
                     count(ja.job_id) AS applied_count,
                     CAST(CASE WHEN ja.job_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS applied,

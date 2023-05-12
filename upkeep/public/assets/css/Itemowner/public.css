@@ -836,3 +836,25 @@ main .upMaintenceList .middle {
     visibility: visible;
 }
 
+
+.popupview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    background-color: var(--color-white);
+    color: rgb(68, 67, 67);
+    padding: 5rem 2rem 2rem 5rem;
+    padding-left: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;   
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+.popupview.show {
+    opacity: 1;
+    visibility: visible;
+}

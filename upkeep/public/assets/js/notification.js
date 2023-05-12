@@ -311,6 +311,7 @@ class Notification {
 /* Set the width of the side navigation to 250px */
 function openNav() {
     document.getElementById("mySidenav").classList.remove('hidden');
+    setTabs('#mySidenav');
     // document.getElementById('overlay').classList.remove('hidden');
 }
 
