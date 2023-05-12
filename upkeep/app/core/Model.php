@@ -103,20 +103,6 @@ Trait Model
         }
     }
 
-    public function insertAndGetLastIndex($data)
-    {
-        $keys = array_keys($data);
-        $query = "INSERT INTO $this->table (" . implode(",", $keys) . ") VALUES (:" . implode(",:", $keys) . ")";
-        $con = $this->connect();
-        $stm = $con->prepare($query);
-        $check = $stm->execute($data);
-        if($check){
-            return $con->lastInsertId();
-        } else {
-            return false;
-        }
-    }
-
     public function delete($id, $id_column = "id")
     {
 
