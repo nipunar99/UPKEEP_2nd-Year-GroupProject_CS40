@@ -140,6 +140,9 @@ function checkFileType(file){
   }
 
 function checkImageType(file){
+    if (file.value === '') {
+        return;
+    }
     var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
     if (fileExt.toLowerCase() === 'jpeg' || fileExt.toLowerCase() === 'png' || fileExt.toLowerCase() === 'jpg'|| file.value === '') {
         if(parseFloat(file.files[0].size/(1024*1024))>3 ){
@@ -152,6 +155,7 @@ function checkImageType(file){
         showError(file, 'File type not supported.');
     }
 }
+
 function checkPurchaseDate(input) {
     var inputDate = new Date(input.value);
     var currentDate = new Date();
@@ -462,7 +466,7 @@ function ajax_getAllReminders(){
                 html+= "<h2 id='itemid"+(i+1)+"'style='display: none;'>"+json[i].item_id+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
-                html+= "<div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div>"
+                html+= "<div><span class='material-icons-sharp'>view_in_ar</span><h3>Sub componant Image</h3><img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div>"
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
                 html+= "<h2 id='taskID"+(i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2>";
                 html+= "<div class='action_btn'><button class='complete' onclick='completeTask("+(i+1)+")'>Complete</button> <button class='cancel' id='deletebtn"+(i+1)+"' onclick='deleteTask("+(i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
@@ -531,11 +535,12 @@ function ajax_getAllOverdueReminders() {
                 
                 html+= "<div  class='upcomepopupview"+(firstIndex+i+1)+"  popupview'><button onclick='unloadupcomeview("+(firstIndex+i+1)+")' class='closebtn'>&times;</button>";
                 
-                html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Item name</h3><h2>"+json[i].item_name+"</h2></div>";
+                html+= "<div class='maintenaceview"+(firstIndex+i+1)+"'> <div class='content'>";
                 html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3>Maintenance task</h3><h2>"+json[i].description+"</h2>";
                 html+= "<h2 id='itemid"+(firstIndex+i+1)+"'style='display: none;'>"+json[i].item_id+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>calendar_today</span><h3>Due date</h3><h2>"+json[i].start_date+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
+                html+= "<div><span class='material-icons-sharp'>view_in_ar</span><h3>Sub component Image</h3><img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div>"
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
                 html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
                 html+= "<div class='action_btn'><button onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
@@ -781,7 +786,7 @@ function deleteMainTask(id){
     ajax_deleteMainTask();
     ajax_getAllMaintenance();
     document.querySelector('.popupMaintask').classList.add('hidden');
-    overlay.classList.add('hidden');
+    overlay.classList.remove('show');
 }
 
 function ajax_deleteMainTask() {
@@ -1099,6 +1104,7 @@ function loadImage(i){
 
 function addDocument(){
     ajax_addDocumentation();
+    ajax_loadDocumentation();
 }
 
 const document_name = document.getElementById("document_name");
@@ -1123,8 +1129,6 @@ function ajax_addDocumentation(e){
         const xhr = new XMLHttpRequest();
 
         xhr.open("POST",""+ROOT+"/Itemowner/ViewItem/addDocumentaions");
-        // xhr.setRequestHeader("Content-Type","application/json");             
-        // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
         xhr.onload = function(){
             if(xhr.status == 200){
@@ -1137,9 +1141,7 @@ function ajax_addDocumentation(e){
         
         closeModal();
         formdocfiles.reset();
-        ajax_loadDocumentation();
     }
-    ajax_loadDocumentation();
 
 }
 //........................................................

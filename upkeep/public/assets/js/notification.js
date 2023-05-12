@@ -218,7 +218,7 @@ class Notification {
         // Create the necessary elements and set their attributes
         const sidenav = document.createElement('div');
         sidenav.id = 'mySidenav';
-        sidenav.classList.add('sidenav', 'notification', 'hidden');
+        sidenav.classList.add('sidenav', 'notification', 'sidenavDeactive');
 
         const header = document.createElement('div');
         header.classList.add('header');
@@ -310,14 +310,18 @@ class Notification {
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
+<<<<<<< Updated upstream
     document.getElementById("mySidenav").classList.remove('hidden');
     setTabs('#mySidenav');
+=======
+    document.getElementById("mySidenav").classList.remove('sidenavDeactive');
+>>>>>>> Stashed changes
     // document.getElementById('overlay').classList.remove('hidden');
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
-    document.getElementById("mySidenav").classList.add('hidden');
+    document.getElementById("mySidenav").classList.add('sidenavDeactive');
     // document.getElementById('overlay').classList.add('hidden');
 }
 

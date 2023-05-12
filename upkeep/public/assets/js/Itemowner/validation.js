@@ -58,6 +58,9 @@ function setSmallNull(){
 }
 
 function checkFileType(file){
+  if (file.value === '') {
+    return;
+  } 
     var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
   
       if (fileExt.toLowerCase() === 'jpeg' || fileExt.toLowerCase() === 'png' || fileExt.toLowerCase() === 'jpg'|| fileExt.toLowerCase() === 'pdf' ||file.type === '') {
@@ -73,6 +76,9 @@ function checkFileType(file){
   }
 
 function checkImageType(file){
+  if (file.value === '') {
+    return;
+  }
     var fileExt = file.value.substring(file.value.lastIndexOf('.')+1);
     if (fileExt.toLowerCase() === 'jpeg' || fileExt.toLowerCase() === 'png' || fileExt.toLowerCase() === 'jpg'|| file.value === '') {
         if(parseFloat(file.files[0].size/(1024*1024))>3 ){

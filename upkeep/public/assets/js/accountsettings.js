@@ -1,3 +1,5 @@
+setTabs('container');
+
 //BTN UI functionalities
 window.addEventListener('DOMContentLoaded', function() {
     // Get all edit buttons

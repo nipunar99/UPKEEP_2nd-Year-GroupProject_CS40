@@ -478,10 +478,10 @@ main{
 	box-shadow: var(--box-shadow);
 }
 
-.sidenav.hidden {
-	display: hidden;
-	right:-25rem;
-}
+/* .sidenav .notification .sidenavDeactive { */
+	/* display: none; */
+	/* right:-25rem;    */
+/* } */
 
 /* The navigation menu links */
 .sidenav a {

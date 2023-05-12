@@ -351,19 +351,19 @@
                     <div class="itemDetails">
 
                         <div class="input-box">
-                            <span class="details">Sub Component</span>
-                            <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
-                            <small></small>
-
-                        </div>
-
-                        <div class="input-box">
                             <span class="details">Description</span>
                             <input type="text" name="description" id="description" required placeholder="Enter description">
                             <small></small>
 
                         </div>
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
+                            <small></small>
 
+                        </div>
+                        
+                        
                         <div class="input-box">
                             <span class="details">Sub Component Image</span>
                             <input type="file" class="imgInput" name="image" id="upfileimage" placeholder="Enter Image">
@@ -789,34 +789,34 @@
         </div>
     </div>
 
-    <div class="popupview addingTemplateTask" id="addingTemplateTaskPopup">
-        <button class="closebtn closebtn2" onclick="closeModal()">&times;</button>
+        <div class="popupview addingTemplateTask" id="addingTemplateTaskPopup">
+            <button class="closebtn closebtn2" onclick="closeModal()">&times;</button>
+            
+            <div class="content content1">
+                
+                <form id="form_TemplateTaskDetails">
+                    <h2>Maintenance Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="input-box">
+                            <span class="details">Description</span>
+                            <input type="text" name="description" id="TemplateTask_description" required placeholder="Enter description">
+                            <small></small>
 
-        <div class="content content1">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="TemplateTask_sub_component" required placeholder="Enter Sub component">
+                            <small></small>
 
-            <form id="form_TemplateTaskDetails">
-                <h2>Maintenance Details</h2>
-                <div class="itemDetails">
-
-                    <div class="input-box">
-                        <span class="details">Sub Component</span>
-                        <input type="text" name="sub_component" id="TemplateTask_sub_component" required placeholder="Enter Sub component">
-                        <small></small>
-
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Description</span>
-                        <input type="text" name="description" id="TemplateTask_description" required placeholder="Enter description">
-                        <small></small>
-
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Sub Component Image</span>
-                        <input type="file" class="imgInput" name="image" id="TemplateTask_upfileimage" placeholder="Enter Image">
-                        <small></small>
-                    </div>
+                        </div>
+                        
+                        
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class = "imgInput" name="image" id="TemplateTask_upfileimage"  placeholder="Enter Image">
+                            <small></small>
+                        </div>
 
                     <h2>Time frame</h2>
 
