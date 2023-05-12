@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/itemdocs.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
@@ -21,7 +23,7 @@
                 </div>
                 <div class="center">
                     <div class="header-logo">
-                        <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                        <a><img src="<?= ROOT ?>/assets/images/headerlogo2.svg" alt=""></a>
                     </div>
                 </div>
                 <div class="right"></div>
@@ -29,22 +31,22 @@
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
-                        </span>
+                    </span>
                 </div>
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/Itemowner/Userdashboard/" >
+                <a href="<?= ROOT ?>/Itemowner/Userdashboard/">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="#" class="active" >
+                <a href="#" class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item</h3>
                 </a>
 
-                <a href="#" >
+                <a href="#">
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -73,7 +75,7 @@
 
             </div>
             <div class="bottom">
-                <a href=<?=ROOT."/Signout"?>>
+                <a href=<?= ROOT . "/Signout" ?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -85,32 +87,32 @@
                 <h1>Item</h1>
             </div>
             <div class="date">
-            <p>28/04/2023</p>
+                <p>28/04/2023</p>
             </div>
 
             <div class="insight">
-                    
+
                 <div class="mainDisplay1">
-                    
+
                 </div>
 
                 <div class="mainDisplay2">
-                    
+
                 </div>
 
                 <div class="mainDisplay3">
-                    
+
                 </div>
 
                 <div class="addMaitenanceEm" role="button">
                     <span class="material-icons-sharp">add</span>
-                        <h3>Add Maintenance task</h3>
+                    <h3>Add Maintenance task</h3>
                 </div>
             </div>
 
             <div class="upMaintenceList">
                 <h2>Upcomming Maintenance</h2>
-                
+
                 <div class="maintenceBoxes">
 
                 </div>
@@ -122,9 +124,9 @@
                 <div class="overduemaintenceBoxes"></div>
             </div>
 
-            
+
             <div class="recent-orders">
-                <h2>Suggections  maintenance for your device</h2>
+                <h2>Suggections maintenance for your device</h2>
                 <table>
                     <thead>
                         <tr>
@@ -190,52 +192,52 @@
             </div>
 
             <div class="item-details">
-            <button class="closebtn itempannelclosebtn">&times;</button>
-            <?php 
-                if(!empty($result)){
-                foreach ($result as $row)
-                    // show($row);
+                <button class="closebtn itempannelclosebtn">&times;</button>
+                <?php
+                if (!empty($result)) {
+                    foreach ($result as $row)
+                        // show($row);
                         echo "
                             <div class='image-container'>
-                            <img src='".ROOT."/assets/images/uploads/".$row->image."'>
+                            <img src='" . ROOT . "/assets/images/uploads/" . $row->image . "'>
                             </div>
 
-                            <h2>".$row->item_name."</h2>
-                            <h4>".$row->brand."</h4>
+                            <h2>" . $row->item_name . "</h2>
+                            <h4>" . $row->brand . "</h4>
 
                             <div class='details'>
 
                                 <div style='display:none;'>
                                     <h4>Item id</h4>
-                                    <p class='item_id'>".$row->item_id."</p>
+                                    <p class='item_id'>" . $row->item_id . "</p>
                                 </div>
 
                                 <div>
                                     <h4>Item Name</h4>
-                                    <p>".$row->item_name."</p>
+                                    <p>" . $row->item_name . "</p>
                                 </div>
 
                                 <div>
                                     <h4>Item Type</h4>
-                                    <p>".$row->item_type."</p>
+                                    <p>" . $row->item_type . "</p>
                                 </div>
 
                                 <div>
                                     <div>
                                         <h4>Brand</h4>
-                                        <p>".$row->brand."</p>
+                                        <p>" . $row->brand . "</p>
                                     </div>
                                     <div>
                                         <h4>Model</h4>
-                                        <p>".$row->model."</p>
+                                        <p>" . $row->model . "</p>
                                     </div>
                                     <div>
                                         <h4>Purchase Price</h4>
-                                        <p>Rs.".$row->purchase_price."</p>
+                                        <p>Rs." . $row->purchase_price . "</p>
                                     </div>
                                     <div>
                                         <h4>Warranty date</h4>
-                                        <p>".$row->warrenty_date."</p>
+                                        <p>" . $row->warrenty_date . "</p>
                                     </div>
                 
                                     <div>
@@ -253,12 +255,12 @@
                             
                         ";
                 }
-            ?>
+                ?>
 
                 <div class="itembtnsection1">
-                    
+
                     <button class="morebtn">More</button>
-                    <button class="docbtn" >Docs</button>
+                    <button class="docbtn">Docs</button>
                     <button class="deletebtn">Delete</button>
                 </div>
 
@@ -280,7 +282,7 @@
         <div class="overlayview "></div>
 
         <div class="popupview deleteMsg">
-            
+
             <h2>Are sure you want to permanently dispose this item ?</h2>
 
             <div class="action_btn">
@@ -299,25 +301,25 @@
                 <form method="post" enctype="multipart/form-data" id="form_reminderDetails">
                     <h2>Maintenance Details</h2>
                     <div class="itemDetails">
-                        
+
                         <div class="input-box">
                             <span class="details">Description</span>
                             <input type="text" name="description" id="" required placeholder="Enter description">
                             <small></small>
 
                         </div>
-                        
+
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Sub Component</span>
-                                <input type="text" name="sub_component" id=""  placeholder="Enter Sub component">
+                                <input type="text" name="sub_component" id="" placeholder="Enter Sub component">
                                 <small></small>
 
                             </div>
                             <div class="input-box">
                                 <span class="details">Sub Component Image</span>
-                                <input type="file" class = "imgI
-                                <small></small>nput" name="image" id="upfile"  placeholder="Enter Image">
+                                <input type="file" class="imgI
+                                <small></small>nput" name="image" id="upfile" placeholder="Enter Image">
                                 <small></small>
                             </div>
                             <div class="input-box">
@@ -329,94 +331,94 @@
                         </div>
 
                         <div onclick="addreminder()" class="button">
-                            <input type="button" value="Add a Maintenance" id="addReminderbtn"> 
+                            <input type="button" value="Add a Maintenance" id="addReminderbtn">
                         </div>
-        
+
                     </div>
                 </form>
 
             </div>
         </div>
 
-        
-        <div class="popupview addMaintenanceForm2 " >
+
+        <div class="popupview addMaintenanceForm2 ">
             <button class="closebtn closebtn2">&times;</button>
-            
+
             <div class="content content1">
-                
+
                 <form id="form_maintenanceDetails">
                     <h2>Maintenance Details</h2>
                     <div class="itemDetails">
-                        
+
                         <div class="input-box">
                             <span class="details">Sub Component</span>
                             <input type="text" name="sub_component" id="sub_component" required placeholder="Enter Sub component">
                             <small></small>
 
                         </div>
-                        
+
                         <div class="input-box">
                             <span class="details">Description</span>
                             <input type="text" name="description" id="description" required placeholder="Enter description">
                             <small></small>
 
                         </div>
-                        
+
                         <div class="input-box">
                             <span class="details">Sub Component Image</span>
-                            <input type="file" class = "imgInput" name="image" id="upfileimage"  placeholder="Enter Image">
+                            <input type="file" class="imgInput" name="image" id="upfileimage" placeholder="Enter Image">
                             <small></small>
                         </div>
 
                         <h2>Time frame</h2>
-                        
+
                         <div class="middleInput">
-                            
+
                             <div class="input-box">
                                 <span class="details">Yearly</span>
-                                <input type="number" name="years" id="years"  placeholder="Years">
+                                <input type="number" name="years" id="years" placeholder="Years">
                                 <small></small>
                             </div>
 
 
                             <div class="input-box">
                                 <span class="details">Monthly</span>
-                                <input type="number" name="months" id="months"  placeholder="Months">                                
+                                <input type="number" name="months" id="months" placeholder="Months">
                                 <small></small>
                             </div>
-                            
+
                             <div class="input-box">
                                 <span class="details">Weekly</span>
-                                <input type="number" name="weeks" id="weeks"  placeholder="Weeks">                                
+                                <input type="number" name="weeks" id="weeks" placeholder="Weeks">
                                 <small></small>
                             </div>
-            
+
                         </div>
-                        
+
                         <div class="input-box">
                             <span class="details">Start date</span>
                             <input type="date" name="start_date" id="strt_date" required placeholder="Enter Brand">
                             <small></small>
                         </div>
-                        
+
                         <div class="button">
-                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn"> 
-                            
+                            <input type="submit" value="Add a Maintenance" id="addMaintenancebtn">
+
                         </div>
-                        
+
                     </div>
                 </form>
-                
+
             </div>
-        </div> 
-        
+        </div>
+
         <main class="main2 hidden">
             <div class="date">
-            <p>28/04/2023</p>
+                <p>28/04/2023</p>
             </div>
-            
+
             <button class="back">Back</button>
-            
+
             <div class="tableView maintenanceUp">
                 <h2>Upcomming Maintenance</h2>
                 <table>
@@ -440,7 +442,7 @@
                     </tbody>
                 </table>
             </div>
-        
+
             <div class="tableView maintenanceMissed">
                 <h2 class="danger">Overdue Maintenance</h2>
                 <table>
@@ -464,10 +466,10 @@
                     </tbody>
                 </table>
             </div>
-        
+
             <div class="tableView maintenanceList">
                 <h2>Maintenance Tasks List </h2>
-        
+
                 <button class="addMaintainTask">Add Maintain Task</button>
                 <table>
                     <thead>
@@ -483,16 +485,16 @@
                     <tbody class="maintenanceListTbody"></tbody>
                 </table>
             </div>
-            <div class="loadDivViews"></div>    
+            <div class="loadDivViews"></div>
         </main>
 
         <main class="main3 hidden">
             <div class="date">
-            <p>28/04/2023</p>
+                <p>28/04/2023</p>
             </div>
-            
+
             <button class="back2">Back</button>
-            
+
             <div class="disposalMain">
                 <div class="buttonmenu">
                     <button class="predisposalbtn">Disposal Gudie</button>
@@ -509,15 +511,15 @@
                         </div> -->
                         <div class="textArea"></div>
                         <div class="promtbtn">
-                        <?php 
-                            if(!empty($result)){
-                            foreach ($result as $row){
-                                echo "
+                            <?php
+                            if (!empty($result)) {
+                                foreach ($result as $row) {
+                                    echo "
                                 <button id='disposeSteps'> An important step to take before disposing of $row->item_name</button>
                                 <button id='reuseSteps'>What are the Components that can get form $row->item_name</button>";
+                                }
                             }
-                        }
-                        ?>
+                            ?>
                         </div>
 
                     </div>
@@ -545,34 +547,34 @@
 
             </div>
 
-        
+
         </main>
 
         <main class="main4 hidden">
             <div class="date">
                 <p>28/04/2023</p>
             </div>
-            
+
             <button class="back3">Back</button>
             <div class="insight1">
-                
+
                 <div class="item">
-                <?php 
-                if(!empty($result)){
-                foreach ($result as $row)
-                    // show($row);
-                        echo "
+                    <?php
+                    if (!empty($result)) {
+                        foreach ($result as $row)
+                            // show($row);
+                            echo "
                         <div class='itemImg'>
-                            <img src='".ROOT."/assets/images/uploads/".$row->image."' alt=''>
+                            <img src='" . ROOT . "/assets/images/uploads/" . $row->image . "' alt=''>
                             <h2>$row->item_name</h2>
-                        </div>"
-                        ; }
-                ?>
-                    <?php 
-                if(!empty($result)){
-                foreach ($result as $row)
-                    // show($row);
-                        echo "
+                        </div>";
+                    }
+                    ?>
+                    <?php
+                    if (!empty($result)) {
+                        foreach ($result as $row)
+                            // show($row);
+                            echo "
                     <div class='itemDetails'>
                         <div class='details'>
                             <div class='subDetails'>
@@ -599,39 +601,39 @@
                                 <h3>Warranty Date</h3>
                                 <h4>$row->warrenty_date</h4>
                             </div>
-                        </div>"
-                            ; }
-                        ?>
-                        <div class="btnDetails">
-                            <button class="addItem editItem" >Edit Item Details</button>
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div >
-                    <h2>documentation</h2>
-                    <div class="documentation">
+                        </div>";
+                    }
+                    ?>
+                    <div class="btnDetails">
+                        <button class="addItem editItem">Edit Item Details</button>
                     </div>
                 </div>
 
-                <div>
-                    <h2>Description</h2>
-                    <div class="description">
-                    </div>
+            </div>
+
+            <div>
+                <h2>documentation</h2>
+                <div class="documentation">
                 </div>
-                
+            </div>
 
-                <div class="popupview editItemform ">
-                    <button class="closeupdatebtn closebtn">&times;</button>
+            <div>
+                <h2>Description</h2>
+                <div class="description">
+                </div>
+            </div>
 
-                    <div class="content content1">
 
-                        <form method="post" enctype="multipart/form-data" id="form_itemDetails">
+            <div class="popupview editItemform ">
+                <button class="closeupdatebtn closebtn">&times;</button>
+
+                <div class="content content1">
+
+                    <form method="post" enctype="multipart/form-data" id="form_itemDetails">
                         <h2>Item Details</h2>
-                            <div class="itemDetails">
-                                <?php 
-                                if(!empty($result)){
+                        <div class="itemDetails">
+                            <?php
+                            if (!empty($result)) {
                                 foreach ($result as $row)
                                     // show($row);
                                     echo "
@@ -687,181 +689,180 @@
                                             <span class='details'>Warrenty Date</span>
                                             <input type='date' name='warrenty_date' id='warrenty_date' value='$row->warrenty_date' placeholder='Enter Warrenty Date'>
                                             <small></small>
-                                        </div>"
-
-                                    ; }
-                                ?>
-                                </div>
-                                <div class="button">
-                                    <input type="submit" value="Update Details" id="UpdateDetails"> 
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-
-                <div class="popupimage imgeView " >
-                </div>
-
-            </div>
-
-        </main>
-
-        <div class="popupview addDocumentForm " id="addMaitenanceFromPopup">
-            <button class="closedocbtn closebtn">&times;</button>
-
-            <div class="content content1">
-
-                <form method="post" enctype="multipart/form-data" id="form_documentDetails">
-                    <h2>Document Details</h2>
-                    <div class="itemDetails">
-                        
-                        <div class="input-box">
-                            <span class="details">Document Name</span>
-                            <input type="text" name="document_name" id="document_name" required placeholder="Enter Document Name">
-                            <small></small>
+                                        </div>";
+                            }
+                            ?>
                         </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Document File</span>
-                            <input type="file" class = "imgInput" name="file_name" id="addDocfile"  placeholder="Enter Document File">
-                            <small></small>
-                        </div>
-
-                        </div>
-
-                        <div onclick="addDocument()" class="button">
-                            <input type="button" value="Add" id="addReminderbtn"> 
-                        </div>
-        
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-        <div class="popupview editReminderForm " id="addMaitenanceFromPopup">
-            <button onclick="closeModal()" class="closebtn">&times;</button>
-
-            <div class="content content1">
-
-                <form method="post" enctype="multipart/form-data" id="form_editReminder">
-                    <h2>Maintenance Details</h2>
-                    <div class="itemDetails">
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <input type="text" name="description" id="reminder_description" required placeholder="Enter description">
-                            <small></small>
-                        </div>
-                        
-                        <div class="middleInput">
-                            <div class="input-box">
-                            <span class="details">Sub Component</span>
-                                <input type="text" name="sub_component" id="reminder_sub_component"  placeholder="Enter Sub component">
-                                <small></small>
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Sub Component Image</span>
-                                <input type="file" class = "imgInput" name="image" id="reminder_upfile"  placeholder="Enter Image">
-                                <small></small>
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Start Date</span>
-                                <input type="date" name="start_date" id="reminder_startDate" required placeholder="Enter Brand">
-                                <small></small>
-                            </div>
-                            <div class="input-box hidden">
-                                <input type="text" name="reminder_id" id="reminder_id"  placeholder="Enter Image">
-                            </div>
-
-                        </div>
-
                         <div class="button">
-                            <input type="submit" value="Update" id="updateReminderbtn"> 
+                            <input type="submit" value="Update Details" id="UpdateDetails">
                         </div>
-        
-                    </div>
+                </div>
                 </form>
 
             </div>
-        </div>
+    </div>
 
-        <div class="popupview addingTemplateTask" id="addingTemplateTaskPopup">
-            <button class="closebtn closebtn2" onclick="closeModal()">&times;</button>
-            
-            <div class="content content1">
-                
-                <form id="form_TemplateTaskDetails">
-                    <h2>Maintenance Details</h2>
-                    <div class="itemDetails">
-                        
-                        <div class="input-box">
-                            <span class="details">Sub Component</span>
-                            <input type="text" name="sub_component" id="TemplateTask_sub_component" required placeholder="Enter Sub component">
-                            <small></small>
-
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <input type="text" name="description" id="TemplateTask_description" required placeholder="Enter description">
-                            <small></small>
-
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Sub Component Image</span>
-                            <input type="file" class = "imgInput" name="image" id="TemplateTask_upfileimage"  placeholder="Enter Image">
-                            <small></small>
-                        </div>
-
-                        <h2>Time frame</h2>
-                        
-                        <div class="middleInput">
-                            
-                            <div class="input-box">
-                                <span class="details">Yearly</span>
-                                <input type="number" name="years" id="TemplateTask_years"  placeholder="Years">
-                                <small></small>
-                            </div>
-
-
-                            <div class="input-box">
-                                <span class="details">Monthly</span>
-                                <input type="number" name="months" id="TemplateTask_months"  placeholder="Months">                                
-                                <small></small>
-                            </div>
-                            
-                            <div class="input-box">
-                                <span class="details">Weekly</span>
-                                <input type="number" name="weeks" id="TemplateTask_weeks"  placeholder="Weeks">                                
-                                <small></small>
-                            </div>
-            
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Start date</span>
-                            <input type="date" name="start_date" id="TemplateTask_strt_date" required placeholder="Enter Brand">
-                            <small></small>
-                        </div>
-                        
-                        <div class="button">
-                            <input type="submit" value="Add Maintenance" id="addTemplateTaskbtn"> 
-                        </div>
-                        
-                    </div>
-                </form>
-                
-            </div>
-        </div> 
+    <div class="popupimage imgeView ">
+    </div>
 
     </div>
-        
+
+    </main>
+
+    <div class="popupview addDocumentForm " id="addMaitenanceFromPopup">
+        <button class="closedocbtn closebtn">&times;</button>
+
+        <div class="content content1">
+
+            <form method="post" enctype="multipart/form-data" id="form_documentDetails">
+                <h2>Document Details</h2>
+                <div class="itemDetails">
+
+                    <div class="input-box">
+                        <span class="details">Document Name</span>
+                        <input type="text" name="document_name" id="document_name" required placeholder="Enter Document Name">
+                        <small></small>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Document File</span>
+                        <input type="file" class="imgInput" name="file_name" id="addDocfile" placeholder="Enter Document File">
+                        <small></small>
+                    </div>
+
+                </div>
+
+                <div onclick="addDocument()" class="button">
+                    <input type="button" value="Add" id="addReminderbtn">
+                </div>
+
+        </div>
+        </form>
+
+    </div>
+    </div>
+
+    <div class="popupview editReminderForm " id="addMaitenanceFromPopup">
+        <button onclick="closeModal()" class="closebtn">&times;</button>
+
+        <div class="content content1">
+
+            <form method="post" enctype="multipart/form-data" id="form_editReminder">
+                <h2>Maintenance Details</h2>
+                <div class="itemDetails">
+
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        <input type="text" name="description" id="reminder_description" required placeholder="Enter description">
+                        <small></small>
+                    </div>
+
+                    <div class="middleInput">
+                        <div class="input-box">
+                            <span class="details">Sub Component</span>
+                            <input type="text" name="sub_component" id="reminder_sub_component" placeholder="Enter Sub component">
+                            <small></small>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Sub Component Image</span>
+                            <input type="file" class="imgInput" name="image" id="reminder_upfile" placeholder="Enter Image">
+                            <small></small>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Start Date</span>
+                            <input type="date" name="start_date" id="reminder_startDate" required placeholder="Enter Brand">
+                            <small></small>
+                        </div>
+                        <div class="input-box hidden">
+                            <input type="text" name="reminder_id" id="reminder_id" placeholder="Enter Image">
+                        </div>
+
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" value="Update" id="updateReminderbtn">
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="popupview addingTemplateTask" id="addingTemplateTaskPopup">
+        <button class="closebtn closebtn2" onclick="closeModal()">&times;</button>
+
+        <div class="content content1">
+
+            <form id="form_TemplateTaskDetails">
+                <h2>Maintenance Details</h2>
+                <div class="itemDetails">
+
+                    <div class="input-box">
+                        <span class="details">Sub Component</span>
+                        <input type="text" name="sub_component" id="TemplateTask_sub_component" required placeholder="Enter Sub component">
+                        <small></small>
+
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        <input type="text" name="description" id="TemplateTask_description" required placeholder="Enter description">
+                        <small></small>
+
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Sub Component Image</span>
+                        <input type="file" class="imgInput" name="image" id="TemplateTask_upfileimage" placeholder="Enter Image">
+                        <small></small>
+                    </div>
+
+                    <h2>Time frame</h2>
+
+                    <div class="middleInput">
+
+                        <div class="input-box">
+                            <span class="details">Yearly</span>
+                            <input type="number" name="years" id="TemplateTask_years" placeholder="Years">
+                            <small></small>
+                        </div>
+
+
+                        <div class="input-box">
+                            <span class="details">Monthly</span>
+                            <input type="number" name="months" id="TemplateTask_months" placeholder="Months">
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Weekly</span>
+                            <input type="number" name="weeks" id="TemplateTask_weeks" placeholder="Weeks">
+                            <small></small>
+                        </div>
+
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Start date</span>
+                        <input type="date" name="start_date" id="TemplateTask_strt_date" required placeholder="Enter Brand">
+                        <small></small>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" value="Add Maintenance" id="addTemplateTaskbtn">
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    </div>
+
     <?php
-        echo "<script> var ROOT = '".ROOT."'; </script>";
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
     ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/viewitem.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/sse.js"></script>
@@ -869,8 +870,9 @@
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/sec-MaintainDetails.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/viewItem/sec-MainPage.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
-    <script src="<?=ROOT?>/assets/js/notification.js"></script>
+    <script src="<?= ROOT ?>/assets/js/notification.js"></script>
 
-    
+
 </body>
+
 </html>

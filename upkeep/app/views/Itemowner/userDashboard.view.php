@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +13,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/ownerdashboard.css">
-    
+
 </head>
+
 <body>
     <div class="container">
         <aside>
@@ -22,7 +24,7 @@
                 </div>
                 <div class="center">
                     <div class="header-logo">
-                        <a><img src="<?=ROOT?>/assets/images/headerlogo2.svg" alt=""></a>
+                        <a><img src="<?= ROOT ?>/assets/images/headerlogo2.svg" alt=""></a>
                     </div>
                 </div>
                 <div class="right"></div>
@@ -30,7 +32,7 @@
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
                         close
-                        </span>
+                    </span>
                 </div>
             </div>
 
@@ -45,7 +47,7 @@
                     <h3>Item</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/itemowner/TechnicianGigs" >
+                <a href="<?= ROOT ?>/itemowner/TechnicianGigs">
                     <span class="material-icons-sharp">person</span>
                     <h3>Technician</h3>
                 </a>
@@ -74,7 +76,7 @@
 
             </div>
             <div class="bottom">
-                <a href=<?=ROOT."/Signout"?>>
+                <a href=<?= ROOT . "/Signout" ?>>
                     <span class="material-icons-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -104,7 +106,7 @@
                 <h2>Upcomming Maintenance</h2>
 
                 <div class="maintenceBoxes"></div>
-                
+
             </div>
 
             <div class="upMaintenceList">
@@ -231,19 +233,19 @@
                 <div class="header1">
                     <p class="current-date"></p>
                     <div class="icons">
-                    <span id="prev" class="material-icons-sharp">chevron_left</span>
-                    <span id="next" class="material-icons-sharp">chevron_right</span>
+                        <span id="prev" class="material-icons-sharp">chevron_left</span>
+                        <span id="next" class="material-icons-sharp">chevron_right</span>
                     </div>
                 </div>
                 <div class="calendar">
                     <ul class="weeks">
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tue</li>
-                    <li>Wed</li>
-                    <li>Thu</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
                     </ul>
                     <ul class="days">
 
@@ -298,31 +300,31 @@
             <div class="completeform1 hidden">
                 <form method="post" enctype="multipart/form-data" id="form_reminderDetails">
                     <h2>Maintenance Details</h2>
-                        <div class="middleInput">
-                            <div class="input-box">
+                    <div class="middleInput">
+                        <div class="input-box">
                             <span class="details">Summary of Maintenance</span>
-                                <input type="text" name="Summary" id=""  required placeholder="Enter Summary">
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Complete Date</span>
-                                <input type="date"  name="completedate" required placeholder="Enter complete date">
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Cost for Maintenance</span>
-                                <input type="number" min="0" name="cost"  placeholder="Enter Brand">
-                            </div>
+                            <input type="text" name="Summary" id="" required placeholder="Enter Summary">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Complete Date</span>
+                            <input type="date" name="completedate" required placeholder="Enter complete date">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Cost for Maintenance</span>
+                            <input type="number" min="0" name="cost" placeholder="Enter Brand">
+                        </div>
 
-                        </div>
-                        <div class="button completebtn">
-                            <input type="submit" value="Done" id="addMaintenancebtn"> 
-                            
-                        </div>
+                    </div>
+                    <div class="button completebtn">
+                        <input type="submit" value="Done" id="addMaintenancebtn">
+
+                    </div>
                 </form>
 
                 <div class="action_btn">
                     <button onclick="cancelcompleteTask()" class="cancelbtn">Cancel</button>
                 </div>
-                
+
             </div>
         </div>
 
@@ -333,12 +335,14 @@
 
 
     <?php
-        echo "<script> var ROOT = '".ROOT."'; </script>";
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
     ?>
-        <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/itemownerDashboard.js"></script>
-        <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/Reminders.js"></script>
-        <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
-        <script src="<?=ROOT?>/assets/js/notification.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/itemownerDashboard.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/Reminders.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/tabs.js"></script>
+    <script src="<?= ROOT ?>/assets/js/notification.js"></script>
 
 </body>
+
 </html>

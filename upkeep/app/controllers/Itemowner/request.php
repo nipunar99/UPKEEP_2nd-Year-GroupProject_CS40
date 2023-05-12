@@ -36,5 +36,3 @@ $complete = $open_ai->completion([
     return strlen($data);
 
 });
-
-?>
