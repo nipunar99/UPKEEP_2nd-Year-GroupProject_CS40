@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded",function(){
     ajax_getItems();
     getCategory();
+    loadCitiesJson();
 
 });
+// document.addEventListener("DOMContentLoaded",function(){loadItems();loadCitiesJson();getAddress()});
 
 //...............................slide bar.......................
 const sideMenu = document.querySelector("aside");
@@ -47,7 +49,7 @@ function ajax_getItems(){
                 html += "                </div>";
                 html += "                <div class='gigDesc'><h2>"+json[i].title+"</h2></div>";
                 html += "                <div class='worktagsContainer'>";
-                let tags = JSON.parse(json[i].work_tags);
+                let tags = JSON.parse(json[i].items);
                 for(var j = 0; j < tags.length; j++) {
                     html += "<h3>"+tags[j]+"</h3>"
                     // console.log(tags[j]);
@@ -164,5 +166,125 @@ function setToItemSelector(json){
 //           }
 //       }
 //   });
+
+}
+
+
+// cities json file................................................................
+
+var districtNames;
+function loadCitiesJson(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost/UpKeep/upkeep/public/assets/js/Itemowner/cities.json', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const res = xhr.responseText;
+            citiesjson = JSON.parse(res);
+            districtNames = Object.keys(citiesjson);
+            console.log(districtNames.length);
+
+            loadCitiestoSelect();
+        }
+      };
+    xhr.send();
+      
+}
+
+// cities json file................................................................
+
+// Set data form elements (district and cites)......................................................................
+
+function loadCitiestoSelect(){
+  districtNames = Object.keys(citiesjson);
+
+  const districtSelect = document.getElementById('district');
+
+  for (var a = 0; a < districtNames.length; a++) {
+      const option = document.createElement('option');
+      option.textContent =districtNames[a];
+      districtSelect.appendChild(option);
+  }
+}
+
+const districtSelect = document.getElementById('district');
+const inputcity = document.getElementById('city');
+
+districtSelect.addEventListener('input', function() {
+  inputcity.innerHTML = '';
+  // console.log(districtSelect.value);
+  var district = districtSelect.value;
+  var cities = citiesjson[district].cities;
+  // console.log(cities.length);
+  
+  for (var a = 0; a < cities.length; a++) {
+      const option = document.createElement('option');
+      option.textContent =cities[a];
+      inputcity.appendChild(option);
+  }
+});
+
+// Set data form elements (district and cites)......................................................................
+
+
+///.................................Filter Gigs.................................///
+
+function filterGigs(){
+  let items = document.getElementById('itemtype').value;
+  let location = document.getElementById('city').value;
+
+  if(items !="" && location!=""){
+    const form = new FormData();
+    form.append("items",items);
+    form.append("location",location);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST",""+ROOT+"/Itemowner/TechnicianGigs/filterGigs");
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            console.log(json);
+            var html = "";
+            if(json.length>0){
+              for (var i = 0; i < json.length; i++) {
+                  html += "<div class='gig-card'>";
+                  html += "            <div class='middle'>";
+                  html += "                <div class='technician-profile'>";                                
+                  html += "                    <div class='profilepic'>";
+                  html += "                        <img src='http://localhost/upkeep/upkeep/public/assets/images/profile-2.jpg'>";
+                  html += "                    </div>";
+                  html += "                    <div class='profile-info'>";
+                  html += "                        <h3><span>"+json[i].first_name+"<span/> <span>"+json[i].last_name+"</span></h3>";
+                  html += "                        <p>No Reviews Yet |</p> ";
+                  html += "                        <span class='fa fa-star checked'></span>";        
+                  html += "                        <span class='fa fa-star'></span>   ";                         
+                  html += "                    </div>";
+                  html += "                </div>";
+                  html += "                <div class='gigDesc'><h2>"+json[i].title+"</h2></div>";
+                  html += "                <div class='worktagsContainer'>";
+                  let tags = JSON.parse(json[i].items);
+                  for(var j = 0; j < tags.length; j++) {
+                      html += "<h3>"+tags[j]+"</h3>"
+                      // console.log(tags[j]);
+                  }                
+                  html +=                 "</div>";
+                  html += "                <div class='location'><span class='material-icons-sharp'>location_on</span><h3>"+json[i].location+"</h3></div>";
+                  html += "            </div>";
+                  html += "            <div class='action-bar'>";
+                  html += "                <a href='http://localhost/upkeep/upkeep/public/itemowner/ViewGig/selectGig/"+json[i].gig_id+"' class='view'>View</a>";
+                  html += "            </div>";
+                  html += "        </div>";
+              }
+              document.querySelector(".insight").innerHTML = html;
+            }else{
+              document.querySelector(".insight").innerHTML = html;
+
+            }
+              
+        }
+    }
+
+    xhr.send(form);
+  }
 
 }

@@ -25,13 +25,19 @@ class Gig{
     }
 
     public function findGigs(){
-        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.work_tags,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id";
+        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.items,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id";
         return $this->query($query);
     }
 
     public function getUserId($Gig_id){
         $query = "select user_id FROM gigs WHERE gig_id = " . $Gig_id. "";
         return $this->query($query);
+    }
+
+    public function filtergigs($items,$location){
+        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.items,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id where g.location = '$location' and g.items like '%".$items."%'";
+        return $this->query($query);
+        // return $query;
     }
 
 }

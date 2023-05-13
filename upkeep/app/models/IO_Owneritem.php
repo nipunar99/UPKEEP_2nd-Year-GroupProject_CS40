@@ -125,4 +125,9 @@ class IO_Owneritem
         $query = "SELECT itemtemplate_id  FROM items WHERE item_id = " . $_SESSION['item_id'] . "";
         return $this->query($query);
     }
+
+    public function getCateroryId(){
+        $query = "select category_id  from itemtemplate i inner join (SELECT itemtemplate_id  FROM items WHERE item_id = " . $_SESSION['item_id'] . ")x on  x.itemtemplate_id =i.id ";
+        return $this->query($query);
+    }
 }

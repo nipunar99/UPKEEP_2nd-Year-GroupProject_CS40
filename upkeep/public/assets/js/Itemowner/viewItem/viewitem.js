@@ -542,8 +542,8 @@ function ajax_getAllOverdueReminders() {
                 html+= "<div><span class='material-icons-sharp'>construction</span><h3>Sub component</h3><h2>"+json[i].sub_component+"</h2></div>";
                 html+= "<div><span class='material-icons-sharp'>view_in_ar</span><h3>Sub component Image</h3><img src='"+ROOT+"/assets/images/uploads/"+json[i].image+"'></div>"
                 html+= "<div class='maintenanceStatus danger'><span class='material-icons-sharp'>error_outline</span><h3>Pending</h3></div></div>";
-                html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2></div>";
-                html+= "<div class='action_btn'><button onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
+                html+= "<h2 id='taskID"+(firstIndex+i+1)+"' style='display: none;'>"+json[i].task_ID+"</h2>";
+                html+= "<div class='action_btn '><button class ='complete' onclick='completeTask("+(firstIndex+i+1)+")'>Complete</button> <button class='cancel' id='deletebtn"+(firstIndex+i+1)+"' onclick='deleteTask("+(firstIndex+i+1)+","+json[i].reminder_id+")'>Delete</button> </div> </div>";
 
                 html+= "<div class='completeform"+(firstIndex+i+1)+" hidden'>";
                 html+= "<form method='post' id='form_completeTask"+(firstIndex+i+1)+"'>";
@@ -563,7 +563,7 @@ function ajax_getAllOverdueReminders() {
                 html+= "            </div>";
                 html+= "        </div>";
                 html+= "        <div onclick='submitTask("+(firstIndex+i+1)+")' class='button completebtn'>";
-                html+= "            <input type='button' value='Done' class='completeTaskbtn'>";       
+                html+= "            <input type='button' value='Done' class='completeTaskbtn confirmbtn'>";       
                 html+= "        </div>";
                 html+= "</form>";
                 html+= "<div class='action_btn'>";
@@ -1061,6 +1061,7 @@ function ajax_loadDocumentation(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
+            console.log(json);
             documentationjson = json;
             var html = "";
             if (json.length > 0){

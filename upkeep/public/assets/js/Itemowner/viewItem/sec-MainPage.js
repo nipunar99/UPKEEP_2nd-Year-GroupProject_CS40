@@ -61,7 +61,7 @@ function loadTemplateTableRowView(num){
     console.log(num);
     var html = "";
     
-    html+= "<div  class='popupMaintaskTemplates"+(num+1)+ "  popupview show'><button onclick='unloadMaintaskTemplate("+(num+1)+")' class='closebtn'>&times;</button>";
+    html+= "<div  class='popupMaintaskTemplates"+(num+1)+ "  popupMaintask popupview show'><button onclick='unloadMaintaskTemplate("+(num+1)+")' class='closebtn'>&times;</button>";
                 
     html+= "<div class='maintenaceview"+(num+1)+"'> <div class='content'><div><span class='material-icons-sharp'>view_in_ar</span><h3>Description</h3><h2>"+MaintainTemplateTaskjson[num].description+"</h2></div>";
     html+= "<div><span class='material-icons-sharp'>chat_bubble_outline</span><h3> Sub Component</h3><h2>"+MaintainTemplateTaskjson[num].sub_component+"</h2>";

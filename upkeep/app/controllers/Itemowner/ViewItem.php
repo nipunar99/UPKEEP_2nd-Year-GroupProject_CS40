@@ -185,12 +185,15 @@ class ViewItem
 
     public function disposalplaces()
     {
+        $items = new IO_Owneritem;
+        $category_id  =$items->getCateroryId(); // Get category id of paticular item
+
         $arr = [];
-        $arr["item_id"] = $_SESSION['item_id'];
-        // show($arr); 
+        $arr["category_id"] = $category_id[0]->category_id ;
+
         $disposalMaps = new DisposalMaps;
-        $result = $disposalMaps->findAll();
-        // show($result);
+        $result = $disposalMaps->where($arr);
+
         $json = json_encode($result);
         echo ($json);
     }

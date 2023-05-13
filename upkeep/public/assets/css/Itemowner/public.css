@@ -858,3 +858,7 @@ main .upMaintenceList .middle {
     opacity: 1;
     visibility: visible;
 }
+
+/* #mySidenav{
+    display: none!important;
+} */

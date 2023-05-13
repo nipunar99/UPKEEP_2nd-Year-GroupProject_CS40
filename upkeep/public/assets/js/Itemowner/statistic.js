@@ -22,6 +22,7 @@ function display1details(){
       if(xhr.status == 200){
           const res = xhr.responseText;
           const json = JSON.parse(res);
+          // console.log(json);
           var html = "";
           html += "<span>Rs.</span><span >"+json[0].total_cost+"</span>";
           document.querySelector(".total_cost").innerHTML = html;
@@ -58,10 +59,11 @@ function display4details(){
   xhr.onload = function(){
       if(xhr.status == 200){
           const res = xhr.responseText;
-          // const json = JSON.parse(res);
-          // var html = "";
-          // html += "<span >"+json[0].dispose_count+"</span>";
-          // document.querySelector(".dispose_item").innerHTML = html;
+          const json = JSON.parse(res);
+          console.log(json);
+          var html = "";
+          html += "<span >"+json[0].task_count+"</span>";
+          document.querySelector(".maintenanceTaskCount").innerHTML = html;
       }
   }
   xhr.send();
