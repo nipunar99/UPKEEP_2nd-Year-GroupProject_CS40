@@ -65,4 +65,23 @@ class FileUploader {
         $power = $size > 0 ? floor(log($size, 1024)) : 0;
         return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
     }
+
+    /**
+     * @throws Exception
+     */
+    public function uploadMultipleFiles($images)
+    {
+        $file_names = [];
+        foreach ($images['name'] as $key => $image) {
+            $file = [
+                'name' => $images['name'][$key],
+                'type' => $images['type'][$key],
+                'tmp_name' => $images['tmp_name'][$key],
+                'error' => $images['error'][$key],
+                'size' => $images['size'][$key]
+            ];
+            $file_names[] = $this->uploadFile($file);
+        }
+        return $file_names;
+    }
 }

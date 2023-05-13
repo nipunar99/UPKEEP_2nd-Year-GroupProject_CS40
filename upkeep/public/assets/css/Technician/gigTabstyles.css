@@ -102,6 +102,17 @@ main .insight .gig-card .middle .description {
 	padding-left: 0.6rem;
 }
 
+
+
+main .insight > div .middle > .gig-cover{
+	width: 100%;
+	height: 10rem;
+	content: wrap;
+	border-radius: var(--card-border-radius);
+	overflow: hidden;
+}
+
+
 main .insight > div .middle > .gig-cover > img {
 	width: 100%;
 	height: 100%;
@@ -292,3 +303,112 @@ form .btn-container{
 }
 
 /*multi select*/
+.multipleChosen, .multipleSelect2{
+	width: 300px;
+}
+
+.chosen-container-multi .chosen-results {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+/*styles for preview image after upload*/
+#preview{
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 200px;
+	border-radius: var(--card-border-radius);
+}
+
+#preview ol{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	gap: 1rem;
+}
+
+#preview .remove-btn{
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: var(--color-danger);
+	color: var(--color-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+#preview img{
+	width: 100px;
+	height: 100px;
+	border-radius: var(--card-border-radius);
+}
+
+
+
+/*image carousel*/
+.carousel {
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.carousel:hover .controls {
+	opacity: 1;
+}
+.carousel .controls {
+	opacity: 0;
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	justify-content: space-between;
+	width: 100%;
+	z-index: 99999;
+	transition: all ease 0.5s;
+}
+.carousel .controls .control {
+	margin: 0 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.7);
+	opacity: 0.5;
+	transition: ease 0.3s;
+	cursor: pointer;
+}
+.carousel .controls .control:hover {
+	opacity: 1;
+}
+.carousel .slides {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	display: flex;
+	width: 100%;
+	transition: 1s ease-in-out all;
+}
+.carousel .slides .slide {
+	min-width: 100%;
+	min-height: 250px;
+	height: auto;
+}

@@ -6,6 +6,7 @@ class Comment
 
     protected $table = "comments";
 
+
     protected $allowed_columns = [
         "comment_id",
         "user_id",

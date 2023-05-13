@@ -47,11 +47,13 @@ class Post
                         p.post_id, p.item_type, p.item_brand, p.item_model, p.post_type, p.post_title, p.post_content, p.status, p.created_at,p.upvote_count, p.downvote_count,p.comment_count, 
                         u.user_id, u.user_name, concat(u.first_name,' ', u.last_name) as user, u.profile_picture,                        
                         GROUP_CONCAT(i.image_name) AS images,
+                        it.item_name, it.model, it.purchase_price, it.warrenty_date, it.image as item_image,
                         CAST(CASE WHEN up.user_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS upvoted,
                         CAST(CASE WHEN dw.user_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS downvoted
                     FROM posts p 
                     JOIN users u ON p.user_id = u.user_id
-                    LEFT JOIN post_image i ON p.post_id = i.post_id
+                    LEFT JOIN post_image i ON p.post_id = i.post_id 
+                    LEFT JOIN items it ON p.item_id = it.item_id
                     LEFT JOIN upvotes up ON p.post_id = up.post_id AND up.user_id = :user_id1
                     LEFT JOIN downvotes dw ON p.post_id = dw.post_id AND dw.user_id = :user_id2
                     WHERE p.status = 'active'
@@ -83,7 +85,6 @@ class Post
         if ($offset) {
             $query .= " OFFSET $offset";
         }
-
 
 
         $results = $this->query($query, ['user_id1' => $user_id, 'user_id2' => $user_id]);
@@ -199,4 +200,29 @@ class Post
 
         return $result;
     }
+
+
+    //there is a seperate table with us which contains user preferences on item they want to see.
+    public function fetchPostByUserPreferences($user_id){
+        $query = "SELECT 
+                        p.post_id, p.item_type, p.item_brand, p.item_model, p.post_type, p.post_title, p.post_content, p.status, p.created_at,p.upvote_count, p.downvote_count,p.comment_count, 
+                        u.user_id, u.user_name, concat(u.first_name,' ', u.last_name) as user, u.profile_picture,                        
+                        GROUP_CONCAT(i.image_name) AS images,
+                        CAST(CASE WHEN up.user_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS upvoted,
+                        CAST(CASE WHEN dw.user_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS downvoted
+                    FROM posts p 
+                    JOIN users u ON p.user_id = u.user_id
+                    LEFT JOIN post_image i ON p.post_id = i.post_id
+                    LEFT JOIN upvotes up ON p.post_id = up.post_id AND up.user_id = :user_id1
+                    LEFT JOIN downvotes dw ON p.post_id = dw.post_id AND dw.user_id = :user_id2
+                    WHERE p.status = 'active' AND p.item_type IN (SELECT item_type FROM user_preferences WHERE user_id = :user_id3)
+                    GROUP BY p.post_id
+                    ORDER BY p.upvote_count DESC
+                    LIMIT 5";
+
+        $result = $this->query($query, ['user_id1' => $user_id, 'user_id2' => $user_id, 'user_id3' => $user_id]);
+
+        return $result;
+    }
+
 }

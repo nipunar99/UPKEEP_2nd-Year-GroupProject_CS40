@@ -241,7 +241,7 @@
                                                         <div class="tp-event-calendar queue">
                                                             <div class="tp-event-month"><?=Date('F',strtotime($order->date))?></div>
                                                             <div class="tp-event-day"><?= Date('d',strtotime($order->date)) ?></div>
-                                                            <div class="tp-event-month"><span class="material-icons-sharp">schedule</span><?=Date('h : i A',strtotime($order->time))?></div>
+<!--                                                            <div class="tp-event-month"><span class="material-icons-sharp">schedule</span>=Date('h : i A',strtotime($order->time))</div>-->
                                                         </div>
                                                         <div class="details">
                                                             <div class="user-profile">
@@ -256,7 +256,7 @@
                                                             <!--                                                        <div class="row">-->
                                                             <h1><?=$order->title?>
                                                                 <span class="worktags">
-                                                            <a><?=$order->dilivery_method?></a>
+                                                            <a><?=$order->delivery_method?></a>
                                                             <a><?=$order->job_type?></a>
                                                         </span>
                                                             </h1>

@@ -13,6 +13,8 @@ Trait Model
     public $order_type = "desc";
     public $order_column = "id";
     public $errors = [];
+    public $primary_key = "id";
+
 
     public function findAll()
     {
@@ -295,5 +297,10 @@ Trait Model
         return false;
     }
 
+    public function insertAndGetData($data,$primaryKey)
+    {
+        $id = $this->insertAndGetLastIndex();
+        return $this->first([$primaryKey=> $id]);
+    }
 
 }

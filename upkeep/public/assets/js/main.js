@@ -23,3 +23,5 @@ const profile = document.querySelector('.profile');
 profile.addEventListener('click', function () {
     document.querySelector('.dropdown-content').classList.toggle('active');
 });
+
+//setprofile picture for evety where

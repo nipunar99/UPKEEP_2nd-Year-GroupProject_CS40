@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gigTabstyles.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/multi.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+
+
 </head>
 <body>
     <div class="container">
@@ -108,8 +114,7 @@
             </div>
 
             <div class="toolbar">
-                <a class="show-modal addGig btn hidden" href="">Add GIG</a> 
-                <a class="viewitem btn" href="#">View Available Items</a> 
+                <a class="show-modal addGig btn " href="">Add GIG</a>
             </div>
             
             <div class="gigs">
@@ -119,7 +124,23 @@
                         <div class="gig-card">
                             <div class="middle">  
                                 <div class='gig-cover'>
-                                    <img src='http://localhost/upkeep/upKeep/public/assets/images/Gigcover.jpg'  alt=''>
+                                    <div class="carousel">
+                                        <div class="slides">
+<!--                                            split the images string in ,-->
+                                            <?php if (!empty($gig->images)):?>
+                                            <?php $images = explode(",",$gig->images);?>
+                                            <?php foreach($images as $image):?>
+                                                <img src="<?=ROOT?>/assets/images/gig_images/<?=$image?>" alt="slide image" class="slide">
+                                            <?php endforeach;?>
+                                            <?php elseif (empty($gig->images)):?>
+                                                <img src="<?=ROOT?>/assets/images/gig_images/noimage.jpg" alt="slide image" class="slide">
+                                            <?php endif;?>
+                                        </div>
+                                        <div class="controls">
+                                            <div class="control prev-slide">&#9668;</div>
+                                            <div class="control next-slide">&#9658;</div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <h1><?=$gig->title?></h1>
                                 <?php if(empty($gig->rating)):?>
@@ -141,7 +162,7 @@
                                     </p>
                                     <div class="dots">...</div>
                                 </div>
-                                <?php $arr=explode(",",$gig->work_tags);?>
+                                <?php $arr=explode(",",$gig->items);?>
 
                                 <div class="worktagsContainer">
                                     <?php foreach($arr as $tag) : ?>
@@ -172,108 +193,122 @@
     <div id="overlay" class="overlay hidden"></div>
     <div class="popup hidden" id="add-gig">
         <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-        <div class="title">
-            <h1>Create Your Gig!</h1>
-        </div>
-        <div class="progress-container">
-            <div class="progress-bar">
-                <div class="progress"></div>
-                <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
-                <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
-                <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
-            </div>
-            <div class="step-label">
-            </div>
-        </div>
         <div class="content">
-
-            <div class="form-container">
-
-                <form id="addgigform">
-                    <div class="step" id="step1">
-                        <h2>Basic details about Your service</h2>
-
-                        <div class="input-field">
-                            <label class="left" for="item">Select Items:</label>
-                            <select id="item" name="item">
-                                <option value="A/C">A/C</option>
-                                <option value="Refrigerator">Refrigerator</option>
-                                <option value="Washing Machine">Washing Machine</option>
-                                <option value="Gas Cooker">Gas Cooker</option>
-                            </select>
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="input-field">
-                            <label class="left" for="location">Select Location:</label>
-                            <input type="text" name="location" id="location" required placeholder="Enter Locations that you can provide service">
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="input-field">
-                            <label class="left" for="service_method">Select Service method:</label>
-                            <select id="service_method" name="service_method">
-                                <option value="Visits">Visits</option>
-                                <option value="Workshop">Workshop</option>
-                            </select>
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="input-field">
-                            <label class="left" for="work_tags">Worktags::</label>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling">
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="btn-container">
-                            <button class="next">Next</button>
-                        </div>
-                    </div>
-
-                    <div class="step hideright" id="step2">
-                        <div class="input-field">
-                            <label class="left"  for="title">Title</label>
-                            <input type="text" name="title" id="title" placeholder="Enter title" />
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="input-field">
-                            <label class="left" for="description">Description</label>
-                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="btn-container">
-                            <button class="prev">Previous</button>
-                            <button class="next">Next</button>
-                        </div>
-                    </div>
-
-                    <div class="step hideright" id="step2">
-                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-                        <div class="input-field">
-                            <div class="image-upload-wrap">
-                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                                <div class="drag-text">
-                                    <h3>Your Selected image will be shown here!</h3>
-                                </div>
-                            </div>
-                            <div class="file-upload-content">
-                                <img class="file-upload-image" src="#" alt="your image" />
-                                <div class="image-title-wrap">
-                                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                                </div>
-                            </div>
-                            <small class="error">&nbsp</small>
-                        </div>
-
-                        <div class="btn-container">
-                            <button class="prev">Previous</button>
-                            <button class="submitBtn" id="submitBtn">Submit</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="header nbs">
+                <div class="center">
+                    <h1>Create Your Gig!</h1>
+                </div>
             </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                    <div class="progress-step active current" data-step-title="Item"><span class="material-icons-sharp">engineering</span></div>
+                    <div class="progress-step" data-step-title="Description"><span class="material-icons-sharp">description</span></div>
+                    <div class="progress-step" data-step-title="Photos"><span class="material-icons-sharp">image</span></div>
+                </div>
+                <div class="step-label">
+                </div>
+            </div>
+            <div class="content">
+
+                <div class="form-container">
+
+                    <form id="addgigform">
+                        <div class="step" id="step1">
+                            <h2>Basic details about Your service</h2>
+
+                            <div class="input-field">
+                                <label class="left" for="title">Select Items:</label>
+                                <select multiple class="chosen-select" id="item">
+                                    <optgroup label="Group 1">
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                    </optgroup>
+                                    <optgroup label="Group 2">
+                                        <option value="3">Option 3</option>
+                                        <option value="4">Option 4</option>
+                                    </optgroup>
+                                </select>
+                                <small class="error">&nbsp</small>
+                            </div>
+
+                            <div class="input-field">
+                                <label class="left" for="">Select Location:</label>
+                                <div class="input-inline">
+                                    <div class="input-field">
+                                        <label for="district" class="left">District:</label>
+                                        <select id="district">
+                                            <option value="0"></option>
+                                        </select>
+                                        <small class="error">&nbsp</small>
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="city">City:</label>
+                                        <select id="city">
+                                            <option value="0">Select City</option>
+                                        </select>
+                                        <small class="error">&nbsp</small>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="input-field">
+                                <label class="left" for="delivery_methods">Select How You deliver Service:</label>
+                                <select class="" id="delivery_method" name="delivery_method">
+                                    <option value="Home Visit">Home Visit</option>
+                                    <option value="Workshop">Workshop</option>
+                                </select>
+                                <small class="error">&nbsp</small>
+
+                            </div>
+
+                            <div class="btn-container">
+                                <button class="next">Next</button>
+                            </div>
+                        </div>
+
+                        <div class="step hideright" id="step2">
+                            <div class="input-field">
+                                <label class="left"  for="title">Title</label>
+                                <input type="text" name="title" id="title" placeholder="Enter title" />
+                                <small class="error">&nbsp</small>
+                            </div>
+
+                            <div class="input-field">
+                                <label class="left" for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter description"></textarea>
+                                <small class="error">&nbsp</small>
+                            </div>
+
+                            <div class="btn-container">
+                                <button class="prev">Previous</button>
+                                <button class="next">Next</button>
+                            </div>
+                        </div>
+
+                        <div class="step hideright" id="step2">
+                            <div class="input-field text-left">
+                                <!--                                input field for adding multiple images with preview-->
+                                <label for="images">Images</label>
+                                <input type="file" name="images" id="images_input" multiple>
+                                <div class="preview" id="preview"></div>
+                                <small>&nbsp;error</small>
+                            </div>
+
+
+
+                            <div class="btn-container">
+                                <button class="prev">Previous</button>
+                                <button class="submitBtn" id="submitBtn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="content hidden" id="msg">
+
         </div>
     </div>
 
@@ -283,12 +318,13 @@
     <script>
         const ROOT = "<?= ROOT ?>";
         const gigList = <?= json_encode($gigList) ?>;
+        var templates = '<?= $templates ?>';
         console.log(gigList);
     </script>
     <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/gigs.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/multi.js"></script>
-    <script src="<?= ROOT ?>/assets/js/Technician/image.js"></script>
+<!--    <script src="--><?//= ROOT ?><!--/assets/js/Technician/image.js"></script>-->
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </body>
 </html>

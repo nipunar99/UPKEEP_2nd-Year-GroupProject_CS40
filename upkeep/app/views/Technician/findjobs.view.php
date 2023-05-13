@@ -196,23 +196,23 @@
                             <?php endforeach;?>
                             <?php endif;?>
                         </ol>
-                        <div class="footer nbs">
-                            <div class="right">
-                                <nav class="pagination">
-                                    <ul>
-                                        <li><a href="#">&laquo;</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#" class="active">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">&raquo;</a></li>
-                                    </ul>
-                                </nav>
-
-
-                            </div>
-                        </div>
+<!--                        <div class="footer nbs">-->
+<!--                            <div class="right">-->
+<!--                                <nav class="pagination">-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="#">&laquo;</a></li>-->
+<!--                                        <li><a href="#">1</a></li>-->
+<!--                                        <li><a href="#" class="active">2</a></li>-->
+<!--                                        <li><a href="#">3</a></li>-->
+<!--                                        <li><a href="#">4</a></li>-->
+<!--                                        <li><a href="#">5</a></li>-->
+<!--                                        <li><a href="#">&raquo;</a></li>-->
+<!--                                    </ul>-->
+<!--                                </nav>-->
+<!---->
+<!---->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
                 <div class="filter-tab">

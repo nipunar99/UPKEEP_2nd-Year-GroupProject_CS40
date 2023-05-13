@@ -212,4 +212,15 @@ class User
             return false;
         }
     }
+
+    public function getTechnicianById($user_id)
+    {
+        $query = "SELECT * FROM $this->table u 
+                        INNER JOIN technicians t 
+                        ON u.user_id = t.user_id 
+                        WHERE u.user_id = :user_id";
+
+        $result= $this->query($query,['user_id' => $user_id]);
+        return $result[0];
+    }
 }

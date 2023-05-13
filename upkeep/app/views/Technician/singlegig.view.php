@@ -109,19 +109,27 @@
             <div class="gig-container">
                 <div class="left">
                     <div class="gigDetails">
-                        <div class="image-caraousel">
-                            <div class="slide fade">
-                                <img src="<?=ROOT?>/assets/images/Gigcover.jpg" alt="">
+                        <div class="gig-cover">
+                            <div class="carousel">
+                                <div class="slides">
+                                    <!--                                            split the images string in ,-->
+                                    <?php if (!empty($gig->images)):?>
+                                        <?php $images = explode(",",$gig->images);?>
+                                        <?php foreach($images as $image):?>
+                                            <img src="<?=ROOT?>/assets/images/gig_images/<?=$image?>" alt="slide image" class="slide">
+                                        <?php endforeach;?>
+                                    <?php elseif (empty($gig->images)):?>
+                                        <img src="<?=ROOT?>/assets/images/gig_images/noimage.jpg" alt="slide image" class="slide">
+                                    <?php endif;?>
+                                </div>
+                                <div class="controls">
+                                    <div class="control prev-slide">&#9668;</div>
+                                    <div class="control next-slide">&#9658;</div>
+                                </div>
                             </div>
-                            <div class="next">
-                                <span class="material-icons-sharp">chevron_right</span>
-                            </div>
-                            <div class="prev">
-                                <span class="material-icons-sharp">chevron_left</span>
-                            </div>    
                         </div>
                         <h1><?=$gigDetails[0]->title?></h1>
-                        <?php $arr=explode(",",$gigDetails[0]->work_tags);?>
+                        <?php $arr=explode(",",$gigDetails[0]->items);?>
                         <?php foreach($arr as $tag) : ?>
                         <a class="worktags"><?=$tag?></a>
                         <?php endforeach; ?>
@@ -129,77 +137,48 @@
                         <p><?=$gigDetails[0]->description?></p>
                     </div> 
                   
-                    <div class="heading-title"><h1>Overall Rating</h1></div>
                     <div class="rating-part">
-                        <div class="overall-rating">
-                            <div class="average-rating">
-                                <h2>2.5</h2>
-                                <i aria-hidden="true" class="fa fa-star"></i>
-                                <i aria-hidden="true" class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                <i aria-hidden="true" class="fa fa-star-o"></i>
-                                <i aria-hidden="true" class="fa fa-star-o"></i>
-                            </div>
-                            <div class="loder-ratimg">
-                                <div class="progress"></div>
-                                <div class="progress-2"></div>
-                                <div class="progress-3"></div>
-                                <div class="progress-4"></div>
-                                <div class="progress-5"></div>
-                            </div>
-                        </div>  
-
                         <div style="clear: both;"></div>
-                        <div class="reviews"><h1>Reviews</h1></div>
-                            <div class="comment-part">
-                                <div class="user-img-part">
-                                    <div class="user-img">
-                                        <img src="/demo/man01.png">
-                                    </div>
-                                    <div class="user-text">
-                                        <h4>8 days ago</h4>
-                                        <p>Tom kok</p>
-                                        <span>Report</span>
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                                <div class="comment">
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star-o"></i>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco.</p>
-                                </div>
-                                <div style="clear: both;"></div>
-                            </div>
+                        <div class="reviews"><h1 class="left text-left">Reviews</h1></div>
 
-                            <div class="comment-part">
-                                <div class="user-img-part">
-                                    <div class="user-img">
-                                        <img src="/demo/man02.png">
+                        <?php if(!empty($gigReviews)):?>
+                            <?php foreach($gigReviews as $review):?>
+                                <div class="comment-part">
+                                    <div class="user-img-part">
+                                        <div class="user-img">
+                                            <img src="<?=ROOT?>/assets/images/profilepic/<?=$review->profile_picture?>">
+                                        </div>
+                                        <div class="user-text">
+                                            <h4><?=$review->date_created?></h4>
+                                            <p><?=$review->user?></p>
+                                        </div>
+                                        <div style="clear: both;"></div>
                                     </div>
-                                    <div class="user-text">
-                                        <h4>30 days ago</h4>
-                                        <p>Win Rool</p>
-                                        <span>Report</span> 
+                                    <div class="comment">
+                                        <?php for($i=0;$i<5;$i++):?>
+                                            <?php if((int)round($review->rating)>$i):?>
+                                                <span class="fa fa-star checked"></span>
+                                            <?php else:?>
+                                                <span class="fa fa-star"></span>
+                                            <?php endif;?>
+                                        <?php endfor;?>
+                                        <?= "(".round($gig->rating,1).")"?>
+                                        <p><?=$review->content?></p>
                                     </div>
                                     <div style="clear: both;"></div>
                                 </div>
+                            <?php endforeach;?>
+                        <?php else:?>
+                            <div class="comment-part">
                                 <div class="comment">
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star"></i>
-                                    <i aria-hidden="true" class="fa fa-star-o"></i>
-                                    <i aria-hidden="true" class="fa fa-star-o"></i>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco.</p>
+                                    <p>No Reviews Yet</p>
                                 </div>
                                 <div style="clear: both;"></div>
                             </div>
+                        <?php endif;?>
+
+
+
                     </div>
                 </div>
                 <div class="right">
@@ -310,6 +289,7 @@
 
 
     <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technnician/gig.js"></script>
 
 </body>
 </html>

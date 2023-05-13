@@ -172,7 +172,7 @@
                         <!--                        </li>-->
                     </ol>
 
-                    <button type="button" class="load-more-btn">Load More</button>
+                    <button type="button" class="load-more-btn" id="load-more-btn">Load More</button>
                 </div>
             </section>
         </main>
@@ -330,6 +330,7 @@
                                 <select name="item" id="select-item2">
                                     <option value="">Select Item</option>
                                 </select>
+                                <small>&nbsp;</small>
                             </div>
                             <div class="card">
                                 <div class="card-header">
@@ -480,19 +481,23 @@
         <script>
             const ROOT = '<?= ROOT ?>';
             const userdata = '<?= json_encode($userdata) ?>';
+            <?php if($_SESSION['user_role']==="item_owner"):?>
             var templates = '<?= $templates ?>';
             var myItems = '<?= $my_items ?>';
+            <?php endif;?>
         </script>
 
 
         <script src="<?= ROOT ?>/assets/js/main.js"></script>
         <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
-        <!--        <script src="--><? //= ROOT 
+        <!--        <script src="--><? //= ROOT
                                     ?><!--/assets/js/imagemodal.js"></script>-->
         <script src="<?= ROOT ?>/assets/js/Technician/tabs.js"></script>
         <script src="<?= ROOT ?>/assets/js/notification.js"></script>
         <script src="<?= ROOT ?>/assets/js/community.js"></script>
-        <script src="<?= ROOT ?>/assets/js/communityEssential.js"></script>
+        <?php if($_SESSION['user_role']=="item_owner"):?>
+            <script src="<?= ROOT ?>/assets/js/communityEssential.js"></script>
+        <?php endif;?>
 </body>
 
 </html>

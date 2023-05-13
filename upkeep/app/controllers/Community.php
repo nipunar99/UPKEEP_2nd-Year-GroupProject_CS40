@@ -111,6 +111,10 @@ class Community
             'status' => 'active'
         ];
 
+        if(isset($_POST['item_id'])){
+            $arr['item_id'] = $_POST['item_id'];
+        }
+
         try {
             $post_id = $post->insertAndGetLastIndex($arr);
 
@@ -168,7 +172,7 @@ class Community
             echo json_encode(['success' => 'comment_created', 'comment' => $comment_details[0]]);
         } catch (PDOException | Exception $e) {
             http_response_code(500);
-            echo json_encode(['error' => 'comment_not_created']);
+            echo json_encode(['error' => 'comment_not_created', 'message' => $e->getMessage()]);
         }
     }
 

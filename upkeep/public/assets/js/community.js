@@ -45,7 +45,9 @@ class Community {
         this.searchPosts = [];
         this.popularPosts = [];
         this.page = 1;
+        this.limit = 10;
         this.postCount = 0;
+        this.currentPost = null;
         this.postListElement = document.querySelector('.Post-List');
         this.fetchPosts();
         this.renderPosts();
@@ -62,12 +64,22 @@ class Community {
         this.searchPosts.push(post);
     }
 
+    clearSearchPosts() {
+        this.searchPosts = [];
+    }
+
     addPopularPost(post) {
         this.popularPosts.push(post);
     }
 
     getPost() {
         return this.posts;
+    }
+
+    getPostById(postId) {
+        return this.posts.find((post) => {
+            return post.postId === postId;
+        });
     }
 
 
@@ -83,6 +95,7 @@ class Community {
                 let posts = JSON.parse(xhr.responseText);
                 posts.forEach((post) => {
                     this.addPost(new Post(post));
+                    console.log(post);
                 });
                 this.renderPosts();
             }
@@ -95,30 +108,21 @@ class Community {
         this.posts.forEach((post) => {
             const postElement = document.createElement('li');
             postElement.className = 'card';
-            postElement.id = `post-${post.postId}`;
-            postElement.appendChild(post.createPostElement());
+            postElement.appendChild(post.createPostElementWithEventListeners());
 
-            //event listener for upvote button
-            const upvoteButton = postElement.querySelector('.upvote');
-            upvoteButton.addEventListener('click', () => {
-                this.upvotePost(post.postId);
-
-            });
-
-            //event listener for downvote button
-            const downvoteButton = postElement.querySelector('.downvote');
-            downvoteButton.addEventListener('click', () => {
-                this.downvotePost(post.postId);
-            });
 
             //this buttton will open a pop up view_post and render post and comment dta in the 2 separate divs post-details and comment-section
             const commentButton = postElement.querySelector('.comment');
             commentButton.addEventListener('click', () => {
                 openPopup('view_post');
-                popups['view_post'].querySelector('.post-details').innerHTML = '';
+                this.currentPost = post.postId;
+                console.log(this.currentPost);
+                const popup = popups['view_post'];
+                popup.dataset.postId = post.postId;
+                popup.querySelector('.post-details').innerHTML = '';
                 const comments = popups['view_post'].querySelector('.comment-section');
                 comments.innerHTML = '';
-                document.querySelector('.post-details').append(post.createPostElement());
+                document.querySelector('.post-details').append(post.createPostElementWithEventListeners());
 
                 post.renderComments(comments)
             });
@@ -128,14 +132,18 @@ class Community {
     }
 
     searchPostsAndRender(searchTerm) {
+        this.clearSearchPosts();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', ROOT+'/Community/getPosts?searchTerm=' + searchTerm, true);
+        xhr.open('GET', ROOT+'/Community/getPosts?search=' + searchTerm, true);
         xhr.onload = () => {
             if (xhr.status === 200) {
+                console.log(xhr.responseText);
                 let posts = JSON.parse(xhr.responseText);
-                posts.forEach((post) => {
-                    this.addSearchPost(new Post(post));
-                });
+                if (posts.length > 0) {
+                    posts.forEach((post) => {
+                        this.addSearchPost(new Post(post));
+                    });
+                }
                 this.renderSearchPosts();
             }
         }
@@ -266,6 +274,21 @@ class Community {
         postContainer.prepend(postElement);
     }
 
+    loadMorePosts() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', ROOT+'/Community/getPosts?offset=' + this.posts.length, true);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                let posts = JSON.parse(xhr.responseText);
+                posts.forEach((post) => {
+                    this.addPost(new Post(post));
+                });
+                this.renderPosts();
+            }
+        }
+        xhr.send();
+    }
+
 
 
 }
@@ -284,9 +307,14 @@ class Post {
         this.user = postDetails.user;
         this.profilePic = postDetails.profile_pic;
         this.postId = postDetails.post_id;
+        this.itemName = postDetails.item_name ? postDetails.item_name : 'N/A';
         this.itemType = postDetails.item_type;
         this.itemBrand = postDetails.item_brand;
         this.itemModel = postDetails.item_model;
+        this.purchasePrice = postDetails.purchase_price ? postDetails.purchase_price : 'N/A';
+        this.warrantyStatus = postDetails.warrenty_date ? (new Date(postDetails.warrenty_date) > new Date() ? 'active' : 'expired') : 'N/A';
+        //noimage.jpg is default image
+        this.itemImage = postDetails.item_image ? postDetails.item_image : 'noimage.jpg';
         this.postType = postDetails.post_type;
         this.postTitle = postDetails.post_title;
         this.postDescription = postDetails.post_content;
@@ -386,9 +414,172 @@ class Post {
             downvoteButton.classList.add('active');
         }
 
+        return postElement;
+
+    }
+
+    createScrapAndSellPostElement() {
+        let postElement = document.createElement('div');
+        postElement.className = 'post';
+        postElement.id = `post-${this.postId}`;
+        postElement.innerHTML =
+            `<div class="card">
+                <div class="post-container">
+                    <div class="card-header">
+                        <div class="user-profile">
+                            <img src="<?= ROOT?>/assets/images/profile-2.jpg">
+                            <div>
+                                <h3>${this.user}</h3>
+                                <p class="text-muted">`+generateTimeAgoString(this.createdAt)+`</p>
+                            </div>
+                        </div>
+                        <a class="post-type-tag">${this.postType}</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row" id="about">
+                            <h3 class="about-title">About</h3>
+                            <div class="Item-details-tags"></div>
+                        </div>
+
+                        <p class="title"><b>${this.postTitle}</b></p>
+                        <div class="card" id="item-details">
+                                <div class="item-details-for-scrap">
+                                    <div class="card-body">
+                                        <div class="card-row">
+                                            <div class="image">
+                                                <img id="item_image" src="${ROOT}/assets/images/uploads/${this.itemImage}">
+                                            </div>
+                                            <div class="card-col">
+                                                <div class="card-row">
+                                                    <div class="card-col">
+                                                        <div class="title">
+                                                            <label>Item Name</label>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p class="text" id="item_name">${this.itemName}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-col">
+                                                        <div class="title">
+                                                            <label>Item Category</label>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p class="text" id="item_type2">${this.itemType}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-col">
+                                                        <div class="title">
+                                                            <label>Brand</label>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p class="text" id="item_brand2">${this.itemBrand}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-row">
+                                                    <div class="card-col">
+                                                        <div class="title">
+                                                            <label>Model</label>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p class="text" id="item_model2">${this.itemModel}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-col">
+                                                        <div class="title">
+                                                            <label>Purchase Price</label>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p class="text" id="purchase_price">${this.purchasePrice}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-col">
+                                                        <div class="title">
+                                                            <label>Warranty Status</label>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p class="text" id="warenty_status">${this.warrantyStatus}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <p class="text">${this.postDescription}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="left activity-icons">
+                            <a class="action upvote"><span class="material-symbols-outlined">shift</span><p class="count" id="upvote-count">${this.upvotes}</p></a>
+                            <a class="action downvote"><span class="material-symbols-outlined">shift</span><p class="count" id="downvote-count">${this.downvotes}</p></a>
+                            <a class="action comment"><span class="material-symbols-outlined">comment</span><p class="count" id="comment-count">${this.commentCount}</p></a>
+                        </div>
+                        <div class="right">
+                            <a class="action"><span class="material-icons-sharp">flag</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+
+        //load Item-details-tags tag
+        let itemDetailsTag = postElement.querySelector('.Item-details-tags');
+        if(this.itemType.length>0) {
+            itemDetailsTag.appendChild(this.createPostTagElement(this.itemType));
+        }
+        if(this.itemBrand.length>0) {
+            itemDetailsTag.appendChild(this.createPostTagElement(this.itemBrand));
+        }
+        if(this.itemModel.length>0) {
+            itemDetailsTag.appendChild(this.createPostTagElement(this.itemModel));
+        }
+
+        //load profile pic
+        if(this.profilePic != null) {
+            let profilePic = postElement.querySelector('.user-profile img');
+            profilePic.src = ROOT+'/assets/images/'+this.profilePic;
+        }else{
+            let profilePic = postElement.querySelector('.user-profile img');
+            profilePic.src = ROOT+'/assets/images/profilepic/user.png';
+        }
+
+        //set upvoted and downvoted
+        if(this.upvoted == 1) {
+            let upvoteButton = postElement.querySelector('.upvote');
+            upvoteButton.classList.add('active');
+        }
+        if(this.downvoted == 1) {
+            let downvoteButton = postElement.querySelector('.downvote');
+            downvoteButton.classList.add('active');
+        }
 
         return postElement;
 
+    }
+
+    createPostElementWithEventListeners() {
+        var postElement;
+        if(this.postType == 'Scrap and Sell') {
+            postElement = this.createScrapAndSellPostElement();
+        }else if(this.postType == 'Ask Community') {
+            postElement = this.createPostElement();
+        }
+
+        //event listener for upvote button
+        const upvoteButton = postElement.querySelector('.upvote');
+        upvoteButton.addEventListener('click', () => {
+            community.upvotePost(this.postId);
+
+        });
+
+        //event listener for downvote button
+        const downvoteButton = postElement.querySelector('.downvote');
+        downvoteButton.addEventListener('click', () => {
+            community.downvotePost(this.postId);
+        });
+
+        return postElement;
     }
 
     createPostImageElement(image) {
@@ -511,55 +702,70 @@ class Post {
     }
 
     updatePostElement() {
-        let postElement = document.getElementById('post-'+this.postId);
-        let upvoteCount = postElement.querySelector('#upvote-count');
-        let downvoteCount = postElement.querySelector('#downvote-count');
-        let commentCount = postElement.querySelector('#comment-count');
-        let upvoteButton = postElement.querySelector('.upvote');
-        let downvoteButton = postElement.querySelector('.downvote');
+        let postElement = document.querySelectorAll('#post-'+this.postId);
+        console.log(postElement);
+        postElement.forEach((element) => {
+            let upvoteCount = element.querySelector('#upvote-count');
+            let downvoteCount = element.querySelector('#downvote-count');
+            let commentCount = element.querySelector('#comment-count');
+            let upvoteButton = element.querySelector('.upvote');
+            let downvoteButton = element.querySelector('.downvote');
 
 
-        upvoteCount.innerHTML = this.upvotes;
-        downvoteCount.innerHTML = this.downvotes;
-        commentCount.innerHTML = this.commentCount;
+            upvoteCount.innerHTML = this.upvotes;
+            downvoteCount.innerHTML = this.downvotes;
+            commentCount.innerHTML = this.commentCount;
 
-        if(this.upvoted == 1) {
-            upvoteButton.classList.add('active');
-            downvoteButton.classList.remove('active');
-        }else{
-            upvoteButton.classList.remove('active');
-        }
-        if(this.downvoted == 1) {
-            downvoteButton.classList.add('active');
-            upvoteButton.classList.remove('active');
-        }else{
-            downvoteButton.classList.remove('active');
-        }
+            if (this.upvoted == 1) {
+                upvoteButton.classList.add('active');
+                downvoteButton.classList.remove('active');
+            } else {
+                upvoteButton.classList.remove('active');
+            }
+            if (this.downvoted == 1) {
+                downvoteButton.classList.add('active');
+                upvoteButton.classList.remove('active');
+            } else {
+                downvoteButton.classList.remove('active');
+            }
+        });
     }
 
     createComment(){
-        let comment = document.getElementById('comment-input').value;
-        if(comment == '') {
+        let commentForm = document.getElementById('add-comment-form');
+        if(commentForm.querySelector('textarea').value == '') {
+            console.log('empty');
             return;
         }
+        console.log(commentForm.querySelector('textarea').value);
+        const data = new FormData(commentForm);
+        data.append('post_id', this.postId);
+
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', ROOT+'/Community/addComment/'+this.postId);
+        xhr.open('POST', ROOT+'/Community/createComment');
+        console.log(data);
         xhr.onload = () => {
+            console.log(xhr.responseText);
             if(xhr.status == 200) {
                 let response = JSON.parse(xhr.responseText);
+                console.log(response);
                 if(response.success) {
                     const comment = new Comment(response.comment);
                     this.addComment(comment);
-                    this.ren
+                    this.renderNewComment(comment);
+                    commentForm.querySelector('textarea').value = '';
                 }
             }
         }
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.send('comment='+comment);
+        xhr.send(data);
     }
 
-    renderNewComment
-
+    renderNewComment(comment) {
+        let commentDiv = document.querySelector('.comment-section');
+        let commentElement = comment.createCommentElement();
+        //ontop
+        commentDiv.insertBefore(commentElement, commentDiv.firstChild);
+    }
 
 
 }
@@ -662,6 +868,22 @@ searchBar.addEventListener('keyup', (e) => {
     if(e.keyCode == 13) {
         community.searchPostsAndRender(searchBar.value);
     }
+});
+
+//post a comment event listener
+let commentButton = document.getElementById('add-comment-btn');
+commentButton.addEventListener('click', () => {
+    console.log('comment button clicked');
+    post = community.getPostById(community.currentPost);
+    console.log(post);
+    post.createComment();
+
+});
+
+//load more posts event listener
+let loadMoreButton = document.getElementById('load-more-btn');
+loadMoreButton.addEventListener('click', () => {
+    community.loadMorePosts();
 });
 
 

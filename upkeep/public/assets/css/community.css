@@ -1415,3 +1415,13 @@ ol.comment-section{
     gap: 1rem;
 
 }
+
+
+.post .card#item-details{
+    padding: 1rem;
+    box-shadow: none;
+}
+
+.post .card#item-details .item-details-for-scrap{
+    background-color: var(--color-background);
+}

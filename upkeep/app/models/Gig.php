@@ -6,14 +6,36 @@ class Gig{
 
 
     public function getGigsOfTechnician($technician_id){
-        $gigs = $this->where(['user_id'=>$technician_id]);
-        return $gigs;
-    }
+        $query = "SELECT 
+                        g.*,
+                        u.user_id, u.user_name, concat(u.first_name,' ', u.last_name) as user, u.profile_picture,                        
+                        GROUP_CONCAT(i.image_name) AS images
+                    FROM gigs g
+                    INNER JOIN users u ON u.user_id = g.user_id
+                    LEFT JOIN gig_images i ON i.gig_id = g.gig_id
+                    WHERE g.user_id = " . $technician_id . "
+                    GROUP BY g.gig_id";
 
-    public function getGig($id){
-        $gig = $this->where(['gig_id'=>$id[0]]);
+        $gig = $this->query($query);
         return $gig;
     }
+
+    public function getGig($gigId){
+        $query = "SELECT 
+                        g.*,
+                        u.user_id, u.user_name, concat(u.first_name,' ', u.last_name) as user, u.profile_picture,                        
+                        GROUP_CONCAT(i.image_name) AS images
+                    FROM gigs g
+                    INNER JOIN users u ON u.user_id = g.user_id
+                    LEFT JOIN gig_images i ON i.gig_id = g.gig_id
+                    WHERE g.gig_id = " . $gigId[0] . "
+                    GROUP BY g.gig_id";
+
+        $gig = $this->query($query);
+        return $gig;
+    }
+
+
 
     public function createGig($details,$technician_id){
         echo "in the gig model";
@@ -21,7 +43,7 @@ class Gig{
         
         show($details);
 
-        $this->insert($details);
+        return $this->insertAndGetLastIndex($details);
     }
 
     public function findGigs(){
@@ -32,6 +54,22 @@ class Gig{
     public function getUserId($Gig_id){
         $query = "select user_id FROM gigs WHERE gig_id = " . $Gig_id. "";
         return $this->query($query);
+    }
+
+    public function deleteGig($Gig_id){
+        $query = "DELETE FROM gigs WHERE gig_id = " . $Gig_id;
+        return $this->query($query);
+    }
+
+    public function addGigImages($gigID, array $fileNames)
+    {
+        $query = "INSERT INTO gig_images (gig_id, image_name) VALUES ";
+        $values = [];
+        foreach ($fileNames as $fileName) {
+            $values[] = "($gigID, '$fileName')";
+        }
+        $query .= implode(',', $values);
+        $this->query($query);
     }
 
 }

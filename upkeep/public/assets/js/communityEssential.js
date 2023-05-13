@@ -257,6 +257,11 @@ popups['create_post'].querySelector('a#create-scrap-sell-post-btn').addEventList
     //     return;
     // }
 
+    if(!validateScrapsellForm(createPost)){
+        e.preventDefault();
+        return;
+    }
+
     const formData= new FormData();
     formData.append('post_type','Scrap and Sell');
     formData.append('item_id',createPost.querySelector('#select-item2').value);
@@ -350,6 +355,26 @@ function validateForm(form){
 }
 
 
+function validateScrapsellForm(form){
+    const title = form.querySelector('#title');
+    const description = form.querySelector('#description');
+    const item_type = form.querySelector('#item_type2');
+    errors = [];
+
+    if(title.value.trim() == ""){
+        errors.push("Title is required");
+        showErrors(title,'Title is required');
+    }
+
+    if(item_type.value == ""){
+        errors.push("Select an item type");
+        showErrors(item_type,'Select an item type');
+    }
+
+
+}
+
+
 
 
 //create scrap and sell post
@@ -391,7 +416,7 @@ selectItem2.addEventListener('change',(e)=>{
 
 //update item data
 function updateItemData(itemData){
-    const itemDetailsDiv = document.querySelector('div.item-details-for-scrap');
+    const itemDetailsDiv = document.querySelector('.popup div.item-details-for-scrap');
     const item_category = itemDetailsDiv.querySelector('#item_name');
     const item_type = itemDetailsDiv.querySelector('#item_type2');
     const brand = itemDetailsDiv.querySelector('#item_brand2');
