@@ -585,7 +585,7 @@ class Post {
     createPostImageElement(image) {
         let imageElement = document.createElement('div');
         imageElement.className = 'image';
-        imageElement.innerHTML = `<img src="<?= ROOT ?>/assets/images/postimages/${image}">`;
+        imageElement.innerHTML = `<img src="`+ROOT+`/assets/images/postimages/${image}">`;
         return imageElement;
     }
 

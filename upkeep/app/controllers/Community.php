@@ -119,7 +119,7 @@ class Community
             $post_id = $post->insertAndGetLastIndex($arr);
 
             if (isset($_FILES['images'])) {
-                $directory = "\\xampp\\htdocs\\upkeep\\upkeep\\public\\assets\\images\\post_images";
+                $directory = "\\xampp\\htdocs\\upkeep\\upkeep\\public\\assets\\images\\postimages";
                 //file size is 6MB
                 $fileuploader = new FileUploader($directory, fileSizeLimit: 6000000);
                 $file_names = $fileuploader->uploadMultipleFiles($_FILES['images']);
