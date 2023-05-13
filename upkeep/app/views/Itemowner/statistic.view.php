@@ -170,7 +170,7 @@
                         <div class="middle">
                             <span class="material-icons-sharp">task_alt</span>
                             <div class="left">
-                                <h3><span>50</span></h3>
+                                <h3 class="maintenanceTaskCount"><span>50</span></h3>
                                 <h3>Maintainance Tasks</h3>
                             </div>
                         </div>
@@ -205,42 +205,6 @@
                             </div>
                         </div>
 
-                        <div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-2.jpg" alt="">
-                            </div>
-                            <div class="left">
-                                <h3>Kavindu Pramod</h3>
-                                <h3><span>Rs.</span><span>15500</span></h3>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-2.jpg" alt="">
-                            </div>
-                            <div class="left">
-                                <h3>Kavindu Pramod</h3>
-                                <h3><span>Rs.</span><span>15500</span></h3>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-2.jpg" alt="">
-                            </div>
-                            <div class="left">
-                                <h3>Kavindu Pramod</h3>
-                                <h3><span>Rs.</span><span>15500</span></h3>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-2.jpg" alt="">
-                            </div>
-                            <div class="left">
-                                <h3>Kavindu Pramod</h3>
-                                <h3><span>Rs.</span><span>15500</span></h3>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -282,26 +246,27 @@
 
                     <div class="tableView maintenanceUp">
                         <h2>Discard Items</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Categary</th>
-                                    <th>Item name</th>
-                                    <th>Dispose Date</th>
-                                </tr>
-                            </thead> 
-                            <div class="tableDiv">
-                                <tbody class="disposeItemsDetails">
+                        <div class="tableDiv">
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td>AC air filter clean</td>
-                                        <td class="warning">Pending</td>
-                                        <td class="primary">Action</td>
-                                        <td class="danger">07/02/2023</td>
+                                        <th>Item</th>
+                                        <th>Categary</th>
+                                        <th>Item name</th>
+                                        <th>Dispose Date</th>
                                     </tr>
-                                </tbody>
-                            </div>
-                        </table>
+                                </thead> 
+                                
+
+                                    <tbody class="disposeItemsDetails">
+                                        <tr>
+                                            <td>Data Not Available</td>
+                                        </tr>
+                                    </tbody>
+
+                                
+                            </table>
+                        </div>
                     </div>
                 </div>
             </main> 

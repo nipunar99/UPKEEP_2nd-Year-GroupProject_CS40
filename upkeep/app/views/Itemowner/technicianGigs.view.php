@@ -55,18 +55,18 @@
                 </a>
 
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Conversation">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Conversation</h3>
                     <span class="message-count">11</span>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/itemowner/Statistic">
                     <span class="material-icons-sharp">trending_up</span>
                     <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/Accountsettings">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
@@ -120,49 +120,34 @@
             <div class="filter-search">
                 <div>
                     <div class="filter-container">
-                        <!-- <div class="filter-item">
-                            <label for="category">Category:</label>
-                            <select id="category">
-                            <option value="all">All</option>
-                            <option value="category1">Category 1</option>
-                            <option value="category2">Category 2</option>
-                            </select>
-                        </div>
-                        <div class="filter-item">
-                            <label for="sort">Sort:</label>
-                            <select id="sort">
-                            <option value="newest">Newest</option>
-                            <option value="oldest">Oldest</option>
-                            </select>
-                        </div> -->
                         <div class="input-box">
                             <span class="details">Categary</span>
-                            <!-- check names -->
                             <select name="category" id="categary" ></select>
-                            <small></small>
-                            <input class="hidden" type="text" name="category_id" id="categoryid" >
 
                         </div>
                         <div class="input-box">
                             <span class="details">Item</span>
                             <select name="item_type" id="itemtype" ></select>
-                            <small></small>
-                            <input class="hidden" type="text" name="id" id="id" >
                         </div>
 
-                        <div class="filter-item">
-                            <label for="items">Items:</label>
-                            <select id="items">
-                            <option value="A/C">A/C</option>
-                            <option value="Refridgerator">Refridgerator</option>
-                            </select>
+                        <div class="input-box">
+                            <span class="details">District</span>
+                            <select  name="district" id="district"required ></select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">City</span>
+                            <select  name="city" id="city" required ></select>
+                        </div>
+
+                        <div class="input-box">
+                            <button class="filterButton" onclick="filterGigs()">Apply</button>
                         </div>
                     </div>
                 </div>
-                <div class="searchBar">
+                <!-- <div class="searchBar">
                     <input type="search" name="" id="" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
-                </div>
+                </div> -->
                 
             </div>
             
@@ -231,8 +216,8 @@
     <?php
         echo "<script> var ROOT = '".ROOT."'; </script>";
     ?>
-    <script src="<?= ROOT ?>/assets/js/Itemowner/Gigs.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/Gigs.js"></script>
     <script src="<?=ROOT?>/assets/js/notification.js"></script>
 </body>
 </html>

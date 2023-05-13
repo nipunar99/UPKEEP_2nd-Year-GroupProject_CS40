@@ -330,7 +330,7 @@
                             <div class="input-box">
                                 <span class="details">Address</span>
                                 <input type="text" name="address" id="address" required placeholder="Enter Location">
-                                <input class="" type="number" name="address_id" id="addressid" >
+                                <input class="" style="display: none;" type="number" name="address_id" id="addressid" >
                                 <small></small>
                             </div>
                             <div class="input-box">
@@ -362,7 +362,7 @@
 
             </div>
         </div>
-        <div id="mySidenav" class="sidenav notification hiddenNotify">
+        <!-- <div id="mySidenav" class="sidenav notification hiddenNotify">
             <div class="header">
                 <div class="center">
                     <h2>Notifications</h2>
@@ -395,7 +395,7 @@
                     </ol>
 
                 </div>
-        </div>
+        </div> -->
 
         <?php
             echo "<script> var ROOT = '".ROOT."'; </script>";

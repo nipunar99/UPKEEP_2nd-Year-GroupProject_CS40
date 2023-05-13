@@ -448,7 +448,7 @@ main .date input[type="date"] {
 main .gigs {
 	overflow-y: scroll;
 	overflow-x: overlay;
-	height: 88%;
+	height: 77%;
 }
 
 main .insight {
@@ -793,7 +793,7 @@ div.worktagsContainer::-webkit-scrollbar {
 
 .gig-card .technician-profile{
     display: grid;
-    grid-template-columns: 3rem auto;
+    grid-template-columns: 5rem auto;
     gap: 1rem;
     /* margin: 1rem 0; */
     padding-top: 1rem;
@@ -847,7 +847,7 @@ div.worktagsContainer::-webkit-scrollbar {
 .filter-container {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     padding: 5px;
     gap: 2rem;
@@ -948,6 +948,50 @@ main .insight {
     box-shadow: 0 2rem 3rem rgba(80,154,240,0.25);
 }
 
+
+.filterButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin-top: 1rem;
+    padding-left: 3rem;
+    gap: 2rem;
+    position: relative;
+    bottom: .5rem;
+    /* left: 11rem; */
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.filterButton:hover{
+    transform: scale(1.05);
+}
+
+.filter-container .input-box{
+    color: var(--color-dark-variant);
+    width: 15rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-container .input-box span{
+    text-align: center;
+}
+
+.profilepic img{
+    border-radius: 50px;
+    width: 61px;
+}
+
+
+
 /*................ Media query................*/
 @media screen and (max-width: 1200px) {
     .container {
@@ -988,7 +1032,7 @@ main .insight {
 @media screen and (max-width: 768px) {
     .container{
         width: 100%;
-        display: block;
+        display: block !important;
     }
     main .insight {
         display: block;

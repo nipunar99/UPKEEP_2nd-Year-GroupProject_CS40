@@ -1,11 +1,13 @@
 <?php
 
-class Gig{
-    private $table="gigs";
+class Gig
+{
+    private $table = "gigs";
     use Model;
 
 
-    public function getGigsOfTechnician($technician_id){
+    public function getGigsOfTechnician($technician_id)
+    {
         $query = "SELECT 
                         g.*,
                         u.user_id, u.user_name, concat(u.first_name,' ', u.last_name) as user, u.profile_picture,                        
@@ -20,7 +22,8 @@ class Gig{
         return $gig;
     }
 
-    public function getGig($gigId){
+    public function getGig($gigId)
+    {
         $query = "SELECT 
                         g.*,
                         u.user_id, u.user_name, concat(u.first_name,' ', u.last_name) as user, u.profile_picture,                        
@@ -37,26 +40,30 @@ class Gig{
 
 
 
-    public function createGig($details,$technician_id){
+    public function createGig($details, $technician_id)
+    {
         echo "in the gig model";
-        $details['user_id']=$technician_id;
-        
+        $details['user_id'] = $technician_id;
+
         show($details);
 
         return $this->insertAndGetLastIndex($details);
     }
 
-    public function findGigs(){
-        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.work_tags,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id";
+    public function findGigs()
+    {
+        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.items,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id";
         return $this->query($query);
     }
 
-    public function getUserId($Gig_id){
-        $query = "select user_id FROM gigs WHERE gig_id = " . $Gig_id. "";
+    public function getUserId($Gig_id)
+    {
+        $query = "select user_id FROM gigs WHERE gig_id = " . $Gig_id . "";
         return $this->query($query);
     }
 
-    public function deleteGig($Gig_id){
+    public function deleteGig($Gig_id)
+    {
         $query = "DELETE FROM gigs WHERE gig_id = " . $Gig_id;
         return $this->query($query);
     }
@@ -72,4 +79,10 @@ class Gig{
         $this->query($query);
     }
 
+    public function filtergigs($items, $location)
+    {
+        $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.items,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id where g.location = '$location' and g.items like '%" . $items . "%'";
+        return $this->query($query);
+        // return $query;
+    }
 }

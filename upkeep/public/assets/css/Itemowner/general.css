@@ -409,3 +409,9 @@ main .top .profile{
     gap: 2rem;
     text-align: right;
 }
+
+.popupMaintask h2, .popupMaintask span{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-info-dark);
+}

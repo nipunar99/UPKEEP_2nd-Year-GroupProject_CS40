@@ -429,7 +429,7 @@ currMonth = date.getMonth();
 // storing full name of all months in array
 const months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
 
-const renderCalendar = () => {
+const renderCalendar = (test) => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
     lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
     lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
@@ -468,6 +468,39 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
     });
 });
 
+//add event dates to calender thhrough separate function
+
+//above functions are for calender. now i want to add events to calender through separate function
+
+function addEvent(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET",""+ROOT+"/Itemowner/Userdashboard/display4details");
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            const json = JSON.parse(res);
+            console.log("display4details");
+            console.log(json);
+            // console.log(json.length);
+            var html = "";
+
+            if (json.status != "empty"){
+
+                for (let i = 0; i < json.length; i++) {
+                    html += "<li class='event'>"+json[i].event_date+"<span>"+json[i].description+"</span></li>";
+                }
+
+            }else{
+                html += "<h2>No data available</h2>";
+            }
+
+            document.querySelector(".days").innerHTML += html;
+        }
+    }
+    xhr.send();
+}
 
 
 

@@ -19,16 +19,40 @@ class TechnicianGigs {
     public function findAllGigs(){
         $gigs = new Gig;
         $gigList = $gigs->findGigs();
-        $tags = $gigList[0]->work_tags;
+        $tags = $gigList[0]->items;
         
         foreach($gigList as $gig){
-            $tags = $gig->work_tags;
+            $tags = $gig->items;
             $spitTags = $this->spiltWordTagstoJson($tags);
-            $gig->work_tags = $spitTags;
+            $gig->items = $spitTags;
         }
         
         $result = json_encode($gigList);
         echo($result);
+
+    }
+
+    public function filterGigs(){
+        $items = $_POST['items'];
+        $location = $_POST['location'];
+
+        $gigs = new Gig;
+        $gigList = $gigs->filtergigs($items,$location);
+
+        $tags = $gigList[0]->items;
+        
+        foreach($gigList as $gig){
+            $tags = $gig->items;
+            $spitTags = $this->spiltWordTagstoJson($tags);
+            $gig->items = $spitTags;
+        }
+
+
+        $json = json_encode($gigList); 
+        echo($json);
+
+        // show($json);
+        // return $json;
 
     }
 
@@ -46,4 +70,5 @@ class TechnicianGigs {
         return $json;
 
     }
+
 } 

@@ -492,9 +492,13 @@ main .recent-orders a{
 .itembtnsection1 .deletebtn input{
     color: var(--color-danger);
 }
+.itembtnsection2 ,.itembtnsection3{
+    margin: 0.4rem 0;
+}
+
 .itembtnsection2 button, .itembtnsection3 button {
     margin-bottom: 0.5rem;
-    width: 7.5rem;
+    width: 14.5rem;
     font-size: 1rem;
     font-weight: 400;
     height: 2.5rem;
@@ -542,7 +546,7 @@ main .recent-orders a{
     border-radius: 30px;
     box-shadow: 0 3re 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
-    min-height: 60vh;
+    /* min-height: 60vh; */
 }
 
 .deleteMsg{
@@ -637,12 +641,13 @@ main .recent-orders a{
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
-    background: linear-gradient(#0095D9,#00BEE4);
     color: white;
-    /* margin-top: 2rem; */
-    /* display: flex; */
     gap: 2rem;
-    /* justify-content: center; */
+    background: none;
+    color: #00BEE4;
+    border: 1px solid #00BEE4;
+    position: relative;
+    bottom: 2.5rem;
 }
 
 .completebtn{
@@ -1098,9 +1103,9 @@ iframe{
 /*................ Media query................*/
 @media screen and (max-width: 768px) {
     .container{
-        width: 100%;
-        display: grid;
-        grid-template-columns:1fr;
+        width: 100% !important;
+        display: grid !important;
+        grid-template-columns:1fr !important;
     }
     main .insight {
         display: block;

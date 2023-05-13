@@ -16,8 +16,9 @@ class IO_CompleteTask {
     ];
 
     public function getCostOfCurrentMonth(){
-        $query = "SELECT SUM(cost) AS total_cost FROM complete_maintenance WHERE MONTH(finished_date) = MONTH(CURRENT_DATE())AND YEAR(finished_date) = YEAR(CURRENT_DATE())";
+        $query = "SELECT SUM(c.cost) AS total_cost, x.item_id  FROM complete_maintenance c inner join (select item_id from items where owner_id = ".$_SESSION['user_id'].")x on c.item_id = x.item_id WHERE MONTH(finished_date) = MONTH(CURRENT_DATE())AND YEAR(finished_date) = YEAR(CURRENT_DATE())";
         return $this->query($query);
+        // return $query;
     }
 
     public function getCostOfMonth(){

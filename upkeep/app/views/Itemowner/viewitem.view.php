@@ -265,13 +265,13 @@
                 </div>
 
                 <div class="itembtnsection2">
-                    <button class="findtecbtn">Find technician</button>
+                    <!-- <button class="findtecbtn">Find technician</button> -->
                     <button class="communitybtn">Community</button>
                 </div>
 
                 <div class="itembtnsection3">
                     <button class="disposebtn">Dispose Guide</button>
-                    <button class="communitybtn">Community</button>
+                    <!-- <button class="communitybtn">Community</button> -->
                 </div>
 
             </div>
