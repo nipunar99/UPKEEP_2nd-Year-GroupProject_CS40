@@ -50,226 +50,253 @@
             </div>
         </aside>
         <main>
-            <div class="mainHeader">
-                <h1>Item</h1>
+            <div class="header nbs">
+                <div class="left">
+
+                </div>
+                <div class="center">
+                    <h1>Item</h1>
+                </div>
                 <div class="right">
-                    <div class="theme-toggler">
-                        <span class="material-icons-sharp active">light_mode</span>
-                        <span class="material-icons-sharp">dark mode</span>
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
                     </div>
 
-                    <div class="profile">
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                         <div class="info">
-                            <p>Hey,<b>Saman</b></p>
-                            <small class="text-muted">user</small>
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="toolbar">
+        <a href="<?= ROOT ?>/Moderator/AddDisposal_places"><button class="addItem">Add Disposal places</button></a>
+       
+        <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
+
+    </div>
             <div class="insight">
                 <div class="card-main">
-                    <div class="view-1">
-                    <?php
-                            if(!empty($result)){
-                                foreach($result as $result)
-                             echo " 
-                        <div class='img'>
-                          <img src=".ROOT.$result->image.">
-                        </div>
-                        <div class='view-1-text'>
-                           
-                                <h2>".$result->item_type."</h2>
-                            <div class='name'>
-                                <h5>Tempalte Name</h5>
-                                <h5>".$result->itemtemplate_name."</h5>
-                            </div>
-                            <div class='type'>
-                                <h5>Item Type</h5>
-                                <h5>".$result->item_type."</h5>
-                            </div>
-                            <div class='date'>
-                                <h5>Added date</h5>
-                                <h5>".$result->itemtemplate_name."</h5>
-                            </div>
-                            <div class='lifespan'>
-                                <h5>Esti.li.span</h5>
-                                <h5>10 Years</h5>
-                            </div>
-                            
-                            ";
-                            }
+                    <div class="itemView">
+                        <div class="view-1">
+                            <?php
+                            $result = json_decode($data['result']);
+                            $result_obj = $result[0];
+
                             ?>
-                            
+
+                            <div class='img'>
+                                <img src="<?= ROOT ?>/assets/images/uploads/<?= $result_obj->image ?>">
+                            </div>
+
                         </div>
-                        <div class="view-1-button">
-                            <button>Edit</button>
-                            <button class="delete">Delete</button>
+                        <div class="view-3">
+                            <div class='view-1-text'>
+                                <div class='name'>
+                                    <h5>Item Template Name</h5>
+                                    <p><?= $result_obj->itemtemplate_name ?></p>
+                                </div>
+                                <div class='type'>
+                                    <h5>Category</h5>
+                                    <p><?= $result_obj->category_name ?></p>
+                                </div>
+                                <div class='sta'>
+                                    <h5>Status</h5>
+                                    <p><?= $result_obj->status ?></p>
+                                </div>
+
+                            </div>
+                            <a href="http://localhost/upkeep/upkeep/public/Moderator/Maintenance/parentmaintenanceTasks/<?= $result_obj->id ?>">
+                            <button class="view-1-button">
+                                   View Maintenances
+                            </button>
+                            </a>
                         </div>
                     </div>
+                    <!-- <div class="view-3"> -->
 
+
+
+
+                    <!-- <div class="view-3"></div> -->
                     <div class="view-2">
-                        <h2>Usage</h2>
-                        <div class="view-2-text">
-                            <div class="users">
-                                <h3>Current Users</h3>
-                                <h4>50</h4>
+                        <div class="text">
+                            <div class="text-1">
+                                <h2>Item Users</h2>
+
                             </div>
-                            <div class="tasks">
-                                <h3>Current Suggested Tasks</h3>
-                                <h4>Task 1</h4>
-                                <h4>Task 2</h4>
-                                <h4>Task 3</h4>
+                            <div class="text-2">
+                                <div class="t1">
+                                    <h4>Total Users <h3>130</h3>
+                                    </h4>
+                                </div>
+                                <div class="t2">
+                                    <h4>Item Users <h3>10</h3>
+                                    </h4>
+                                </div>
+
                             </div>
                         </div>
+                        <div class="pie-view">
+                            <canvas id="pieChart">
+                                <canvas>
+                        </div>
+
                     </div>
                 </div>
+                <!-- <form action="" method="post"> -->
                 <div class="maintenances">
 
                     <h1>Sub Categories</h1>
-                   <span> <button class="subcategory">&#43</button></span>
+                    <button id="deleteButton" name="deleteButton" style="display: none;" class="del"><span>Delete</span></button>
+                    <span> <button id="popup-btn" class="subcategory">Add Sub Category</button></span>
                     <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <!-- <th>Type</th> -->
-                                <th>Sub category</th>
-                                <!-- <th>Time Frame</th> -->
-                                <th>Description</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr >
-                            
-                                <!-- <td ><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""> </td> -->
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
-                                <!-- <td>Sub Component</td> -->
-                                <!-- <td>Time Frame</td> -->
-                                <td>Description</td>
-                            </tr>
-                            
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                            <tr>
-                           
-                                <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
-                                <!-- <td>Sub Component</td> -->
-                                <!-- <td>Time Frame</td> -->
-                                <td>Description</td>
-                                
-                            </tr>
-                            </a>
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                            <tr>
-                                <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
-                                <!-- <td>Sub Component</td> -->
-                                <!-- <td>Time Frame</td> -->
-                                <td>Description</td>
-                            </tr>
-                            </a>
-                            <a href="<?= ROOT ?>/Moderator/Ongoingmaintenace" role="button">
-                            <tr>
-                                <!-- <td><img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt=""></td> -->
-                                <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance" > Type</a></td>
-                                <!-- <td>Sub Component</td> -->
-                                <!-- <td>Time Frame</td> -->
-                                <td>Description</td>
-                            </tr>
-                            </a>
-                        </tbody>
-                    </table>
+                        <table id="categoryTable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="hidden_id"></th>
+                                    <th>Item name</th>
+                                    <th>Status</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="category">
+                                <tr>
+                                    <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
+                                    <td class="hidden_id">87</td>
+                                    <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/5">aaaa></a></td>
+                                    <td id="status">nnoyt</td>
+                                    <td class="des">aaa</td>
+                                    <td>
+                                        <div> <button class="view"><span>edit</span></button></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <!-- <div class="card-main2"> -->
-                        <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
-                        <!-- <div class="card-1" role="button">
-
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Maintenance Schedule 1</b></h3>
-                            <p>Clean Air filter</p>
-                            <div class="c-1">
-
-                                <p class="u">Air filter</p>
-                                <h2 class="warning">25</h2>
-                            </div> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
-                        <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
-                        <!-- <div class="card-2" role="button">
-
-                            <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-2">
-                                <h2 class="warning">25</h2>
-                                <p class="u">users</p>
-                            </div> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
-
-
-                        <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion"> -->
-                        <!-- <div class="card-3" role="button"> -->
-
-                            <!-- <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-3">
-                                <h2 class="warning">25</h2>
-                                <p class="u"> users</p>
-                            </div> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
-
-                        <!-- <a href="<?= ROOT ?>/Moderator/Itemsuggestion" role="button"> -->
-                        <!-- <div class="card-4"> -->
-
-                            <!-- <img src="<?= ROOT ?>/assets/images/item1.png" alt="">
-                            <h3><b>Non Inverter</b></h3>
-                            <p>Air Conditioner</p>
-                            <div class="c-4">
-                                <h2 class="warning">25</h2>
-                                <p class="u"> users</p>
-                            </div> -->
-                            <!-- </a>    </div> -->
-<!--  -->
-                        <!-- </div> -->
-                    <!-- </div> -->
                 </div>
+                <!-- </form> -->
         </main>
-        <div class="popupview hidden">
-            <button class="closebtn">&times;</button>
-            <div class="popup-text">
-                <div class="1">
-                    <span class="material-icons-sharp">view_in_ar</span>
-                    <h4>Item name</h4>
-                    <h4><B>Samsung Inverter Windfree AC</B> </h4>
-                </div>
-                <div class="2">
-                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                    <h4>Maintenance task</h4>
-                    <h4><b>Replace HAVC air filters</b></h4>
-                </div>
-                <div class="3">
-                    <span class="material-icons-sharp">construction</span>
-                    <h4>Sub Component</h4>
-                    <h4><b>Air filter</b></h4>
-                </div>
-            </div>
-            <div class="actions">
-                <button>Add to template</button>
-                <button>Edit</button>
-                <button>Reject</button>
-            </div>
-        </div>
 
+        <div class="popupview hidden" id="add-item">
+        <button class="closebtn closebtn1">&times;</button>
+            <form id="popup-form1" method="post" action="add" class="fm" enctype="multipart/form-data">
+                <div class="itemDetails">
+                    <h1>Add Item Template</h1>
+                    <div class="topInput">
+                        <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowid-input">
+                        <div class="input-box">
+                            <span class="details">Item template Name</span>
+                            <input type="text" name="itemtemplate_name" pattern="[A-Za-z ]+" value="" id="itemtemplate_name">
+                            <small></small>
+                        </div>
+
+                    </div>
+
+                    <div class="middleInput">
+                        <div class="input-box">
+                            <span class="details">Status</span>
+                            <select name="status" id="status1" required=""></select>
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Image</span>
+                            <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
+                            <small></small>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Category Name</span>
+                            <input type="text" name="category_id" id="name1" value="<?= $result_obj->category_name ?>" readonly>
+                            <small></small>
+                        </div>
+
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        <textarea rows="3" cols="100" name="description" id="description" required placeholder="Enter Description about item Template"></textarea>
+                        <small></small>
+                    </div>
+
+
+                    <div class="button">
+                        <input type="submit" value="Add Item" id="add">
+                    </div>
+
+                </div>
+                <!-- text input field with "readonly" attribute -->
+
+            </form>
+        </div>
+        <div class="popupview hidden" id="update-item">
+        <button class="closebtn closebtn2">&times;</button>
+            <form id="popup-form2" method="post" action="updateItem" class="fm">
+                <div class="itemDetails">
+                    <h1>Edit Item Template</h1>
+                    <div class="topInput">
+                        <input type="hidden" name="id" id="rowid-input1">
+                        <input type="hidden" name="parent_id" value="<?= $result_obj->id ?>" id="rowparentid-input">
+                        <div class="input-box">
+                            <span class="details">Item template Name</span>
+                            <input type="text" name="itemtemplate_name" pattern="[A-Za-z ]+" value="" id="Itemtemplate_name">
+                            <small></small>
+                        </div>
+
+                    </div>
+
+                    <div class="middleInput">
+                        <div class="input-box">
+                            <span class="details">Status</span>
+                            <select name="status" id="Status" required="" value=""></select>
+                            <small></small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Image</span>
+                            <input type="file" class="imgInput" name="image" id="Upfile" value="" placeholder="Enter Brand">
+                            <small></small>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Category Name</span>
+                            <input type="text" name="category_id" id="name2" value="<?= $result_obj->category_name ?>" readonly>
+                            <small></small>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        <textarea rows="3" cols="100" name="description" id="Description" required placeholder="Enter Description about item Template"></textarea>
+                        <small></small>
+                    </div>
+
+
+                    <div class="button">
+                        <input type="submit" value="Update Item" id="update">
+                    </div>
+
+                </div>
+                <!-- text input field with "readonly" attribute -->
+
+            </form>
+        </div>
+        <!-- </div> -->
 
         <div class="overlayview hidden"></div>
     </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Moderator/item.js"></script>
 </body>
 

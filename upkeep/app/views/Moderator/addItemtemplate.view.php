@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Moderator/additemtemplate.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
@@ -21,16 +23,11 @@
                     <img src="<?= ROOT ?>/assets/images/title.png" alt="">
                 </div>
 
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                        </span>
-                </div>
 
             </div>
 
             <div class="sidebar">
-                <a href="<?= ROOT ?>/Moderator/Moderatordashboard" >
+                <a href="<?= ROOT ?>/Moderator/Moderatordashboard">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -50,15 +47,7 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <!-- <a href="#" >
-                    <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
-                </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">forum</span>
-                    <h3>Community</h3>
-                </a> -->
 
                 <a href="<?= ROOT ?>/Moderator/Statistics">
                     <span class="material-icons-sharp">settings</span>
@@ -75,92 +64,90 @@
         </aside>
 
         <main>
-            <div class="mainHeader">
-                <h1>Items Templates</h1>
+            <div class="header nbs">
+                <div class="left">
+
+                </div>
+                <div class="center">
+                    <h1>Add Itemtemplate</h1>
+                </div>
                 <div class="right">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
+
+                    <div class="profile" id="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
-        
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?= ROOT ?>/assets/images/profile-1.jpg" alt="">
-                            </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
-                    <!-- End of top -->
-        
-                    <!-- End of recent updates -->
-        
                 </div>
-    
             </div>
 
+
+
+
             <div class="insight">
-                <form method="post" action="#">
+                <form method="post" action="#" id="myform">
                     <div class="itemDetails">
-        
-                        <div class="input-box">
-                            <span class="details">Item template Name</span>
-                            <input type="text" name="itemtemplate_name" id="" required placeholder="Enter Item template Name">
+                        <div class="topInput">
+
+                            <div class="input-box">
+                                <span class="details">Item template Name</span>
+                                <input type="text" name="itemtemplate_name" id="name" pattern="[A-Za-z ]+" required placeholder="Enter Item template Name (Letters and spaces only) ">
+                                <small></small>
+
+                            </div>
+
                         </div>
-        
-                        
-                        
+
                         <div class="middleInput">
                             <div class="input-box">
                                 <span class="details">Status</span>
-                                <select name="status" id="status" ></select>
+                                <select name="status" id="status" required=""></select>
+                                <small></small>
                             </div>
 
-                            <div class="input-box">
-                                <span class="details">Item Type</span>
-                                <input type="text" name="item_type" id="" required placeholder="Enter Item Type">
-                            </div>
-                            <div class="input-box">
+                            <div class="input-box" id="img">
                                 <span class="details">Image</span>
-                                <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="Enter Brand">
-                        </div>
-                            <div class="input-box">
-                                <span class="details">Category</span>
-                                <input type="text" name="category" id="" required placeholder="Enter Category">
+                                <input type="file" class="imgInput" name="image" id="upfile" placeholder="Enter Brand">
                             </div>
-                            
-                            
-
                             <div class="input-box">
-                                <span class="details">Esti. lifespan </span>
-                                <input type="number" name="lifespan" id=""  placeholder="Enter Estimated life span">
+                                <span class="details">Select category</span>
+                                <select name="category_id" id="category" required></select>
+                                <small></small>
                             </div>
 
                         </div>
 
                         <div class="input-box">
                             <span class="details">Description</span>
-                            <textarea rows="3" cols="100" name="description" id="" required placeholder="Enter Description about item Template"></textarea>
+                            <textarea rows="5" cols="100" name="description" id="des_id" required placeholder="Enter Description about item Template"></textarea>
+                            <small></small>
                         </div>
-                        
-        
+
+
                         <div class="button">
-                            <input type="submit" value="Add Item">
+                            <input type="submit" value="Add Item" id="submitBtn">
                         </div>
-        
+
                     </div>
                 </form>
             </div>
-        </main> 
+        </main>
 
     </div>
+    <?php
+    echo "<script> var ROOT = '" . ROOT . "'; </script>";
+    ?>
     <script src="<?= ROOT ?>/assets/js/Moderator/additemtemplate.js"></script>
 </body>
+
 </html>

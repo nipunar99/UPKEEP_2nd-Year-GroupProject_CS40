@@ -69,7 +69,7 @@
                     <h3>Statistics</h3>
                 </a>
 
-                <a href="#">
+                <a href="<?= ROOT ?>/accountsettings">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
@@ -337,11 +337,11 @@
     <?php
     echo "<script> var ROOT = '" . ROOT . "'; </script>";
     ?>
-    <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/itemownerDashboard.js"></script>
-    <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/Reminders.js"></script>
-    <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
-    <script src="<?= ROOT ?>/assets/js/Technician/tabs.js"></script>
-    <script src="<?= ROOT ?>/assets/js/notification.js"></script>
+        <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/itemownerDashboard.js"></script>
+        <script src="<?= ROOT ?>/assets/js/Itemowner/userDashboard/Reminders.js"></script>
+        <script src="<?=ROOT?>/assets/js/Technician/tabs.js"></script>
+        <script src="<?=ROOT?>/assets/js/notification.js"></script>
+        <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
 
 </body>
 

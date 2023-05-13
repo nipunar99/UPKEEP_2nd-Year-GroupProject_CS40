@@ -2,17 +2,23 @@
 
 // Main Model trait
 
-Trait Model
+trait Model
 {
 
     use Database;
 
-    // protected $table = '';
-    public $limit = 10;
-    public $offset = 0;
-    public $order_type = "desc";
-    public $order_column = "id";
-    public $errors = [];
+    protected $offset = 0;
+    public $errors =  [];
+
+    public function find()
+    {
+
+        $query = "select * from $this->table ";
+
+        // make the query
+        return $this->query($query);
+    }
+
     public $primary_key = "id";
 
 
@@ -23,7 +29,6 @@ Trait Model
 
         // make the query
         return $this->query($query);
-
     }
 
     public function where($data, $data_not = [])
@@ -44,7 +49,6 @@ Trait Model
 
         $data = array_merge($data, $data_not); // mearge data arrays to put the query function as parameter
         return $this->query($query, $data);
-
     }
 
     public function first($data, $data_not = [])
@@ -72,7 +76,6 @@ Trait Model
             return $result[0];
         }
         return false;
-
     }
 
     public function insert($data)
@@ -81,11 +84,10 @@ Trait Model
         $keys = array_keys($data);
 
         $query = "insert into $this->table (" . implode(",", $keys) . ") values (:" . implode(",:", $keys) . ")";
-
+        show($query);
         $this->query($query, $data);
 
         return false;
-
     }
 
     public function insertAndGetLastIndex($data)
@@ -95,7 +97,7 @@ Trait Model
         $con = $this->connect();
         $stm = $con->prepare($query);
         $check = $stm->execute($data);
-        if($check){
+        if ($check) {
             return $con->lastInsertId();
         } else {
             return false;
@@ -157,42 +159,42 @@ Trait Model
     }
 
 
-    public function getColumns($cols=[],$where=[],$wherenot=[]){
+    public function getColumns($cols = [], $where = [], $wherenot = [])
+    {
 
-            $query = "select ";
+        $query = "select ";
 
-            if(empty($cols)){
-                $query .= "* ";
-            }else{
-                $query .= implode(",",$cols);
+        if (empty($cols)) {
+            $query .= "* ";
+        } else {
+            $query .= implode(",", $cols);
+        }
+
+        $query .= " from $this->table ";
+
+        if (!empty($where)) {
+            $query .= " where ";
+            $keys = array_keys($where);
+            foreach ($keys as $key) {
+                $query .= $key . "= :" . $key . " && ";
             }
+            $query = trim($query, " && ");
+        }
 
-            $query .= " from $this->table ";
-
-            if(!empty($where)){
-                $query .= " where ";
-                $keys = array_keys($where);
-                foreach($keys as $key){
-                    $query .= $key . "= :" . $key . " && ";
-                }
-                $query = trim($query, " && ");
+        if (!empty($wherenot)) {
+            $query .= " where ";
+            $keys = array_keys($wherenot);
+            foreach ($keys as $key) {
+                $query .= $key . "!= :" . $key . " && ";
             }
+            $query = trim($query, " && ");
+        }
 
-            if(!empty($wherenot)){
-                $query .= " where ";
-                $keys = array_keys($wherenot);
-                foreach($keys as $key){
-                    $query .= $key . "!= :" . $key . " && ";
-                }
-                $query = trim($query, " && ");
-            }
+        $query .= " limit $this->limit offset $this->offset"; // make the query
 
-            $query .= " limit $this->limit offset $this->offset"; // make the query
+        $data = array_merge($where, $wherenot); // mearge data arrays to put the query function as parameter
 
-            $data = array_merge($where, $wherenot); // mearge data arrays to put the query function as parameter
-
-            return $this->query($query, $data);
-
+        return $this->query($query, $data);
     }
 
 
@@ -297,10 +299,9 @@ Trait Model
         return false;
     }
 
-    public function insertAndGetData($data,$primaryKey)
+    public function insertAndGetData($data, $primaryKey)
     {
         $id = $this->insertAndGetLastIndex();
-        return $this->first([$primaryKey=> $id]);
+        return $this->first([$primaryKey => $id]);
     }
-
 }

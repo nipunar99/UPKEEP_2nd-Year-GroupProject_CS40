@@ -41,4 +41,31 @@ class IO_Maintenancetask
         $data["item_id"] = $_SESSION['item_id'];
         return $this->insertAndGetLastIndex($data);
     }
+    public function getSuggestionsDetails($id){
+        $query = "select m.sub_component, m.image, m.description, m.years, m.months, m.weeks from $this->table where item_id = $id";
+        return $this->query($query);
+       }
+    
+       public function getMaintenanceTaskForTemplate($template_id){
+            $query = "SELECT 
+                            mt.*, 
+                            CAST(CASE WHEN tma.maintenance_task_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS added
+                        FROM $this->table mt
+                        INNER JOIN 
+                        (SELECT item_id FROM items where item_template_id = $template_id) i
+                        ON mt.item_id = i.item_id
+                        LEFT JOIN maintenance_task_to_template_mapping tma
+                        ON mt.task_ID = tma.maintenance_task_id
+                        WHERE mt.item_id = i.item_id";
+           
+    
+            return $this->query($query);
+        }
+    
+        public function getDetailsById($task_id)
+        {
+            $arr['task_ID'] = $task_id;
+            $task = $this->where($arr);
+            return $task;
+        }
 }

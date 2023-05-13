@@ -128,6 +128,9 @@ function ajax_editReminder(e){
         form_editReminder.reset();
 
     }
+    ajax_getAllOverdueReminders();
+    ajax_getAllReminders();
+    loadOngoingReminderList();
 }
 
 // Delete reminders

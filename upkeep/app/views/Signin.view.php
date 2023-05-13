@@ -30,7 +30,7 @@
                         <?php 
                             if(!empty($errors)){
                                 echo"
-                                    <input class='wrongpw' type='password' name='password'  required placeholder='Password is invalied'>
+                                    <input class='wrongpw' type='password' name='password'  required placeholder='Password is invalid'>
                                 ";
                             }else{
                                 echo"
