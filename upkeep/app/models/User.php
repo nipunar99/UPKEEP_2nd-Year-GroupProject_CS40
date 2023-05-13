@@ -171,7 +171,7 @@ class User
     {
         $user_name = lcfirst($first_name) . lcfirst($last_name);
         $n = $this->countAllWhereUserName($user_name);
-        $user_name = $user_name . $n;
+        $user_name = $user_name.$n;
         return $user_name;
     }
 

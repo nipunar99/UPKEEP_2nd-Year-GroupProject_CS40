@@ -77,7 +77,7 @@ class Suggestion
     public function viewMaintenanceTasks()
     {
         $template_id = $_SESSION['suggestion_template_id'];
-        $maintenancetask = new Maintenancetask;
+        $maintenancetask = new IO_Maintenancetask;
         $result = $maintenancetask->getMaintenanceTaskForTemplate($template_id);
         $result =json_encode($result);
         echo $result; 
@@ -95,7 +95,7 @@ class Suggestion
     }
     public function editMaintenanceTask($id){
         $task_id = $id[0];
-        $task = new Maintenancetask;
+        $task = new IO_Maintenancetask;
         $task_details = json_encode($task->getDetailsById($task_id));
         echo($task_details);
     }

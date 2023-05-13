@@ -56,7 +56,7 @@ class Itemtemplates
     }
     public function viewChildItems($id)
     {
-        $query = "select itemtemplate.category_id, itemtemplate.status, itemtemplate.description, itemtemplate.parent_id, categories.category_name, itemtemplate.itemtemplate_name, itemtemplate.id from itemtemplate  inner JOIN categories on  categories.category_id = itemtemplate.category_id where parent_id = $id";
+        $query = "select itemtemplate.category_id, itemtemplate.status, itemtemplate.description, itemtemplate.parent_id, categories.category_name, itemtemplate.itemtemplate_name, itemtemplate.id from itemtemplate  inner JOIN categories on  categories.category_id = itemtemplate.category_id where parent_id = $id && moderator_id > 0";
         return $this->query($query);
     }
 
@@ -75,8 +75,8 @@ class Itemtemplates
     {
         $this->delete($id);
     }
-        }
-    }
+        
+    
     // public function viewItem($data){
     //     try{
     //         $data["moderator_id"] = $_SESSION['ID'];
@@ -131,7 +131,7 @@ class Itemtemplates
 
         //        return $result;
     }
-}
+
 
 
     public function findCategoryName($id)
