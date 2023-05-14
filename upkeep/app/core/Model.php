@@ -8,7 +8,7 @@ trait Model
     use Database;
     protected $limit = 10;
     protected $offset = 0;
-    protected $limit = 10;
+    // protect?ed $limit = 10;
     public $errors =  [];
 
     public function find()
