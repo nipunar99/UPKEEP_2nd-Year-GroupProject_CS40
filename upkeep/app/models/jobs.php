@@ -6,7 +6,6 @@ class jobs
     use Model;
 
     protected $table = 'jobs';
-    public $limit = 10;
     protected $page = 1;
     protected $order = 'ASC';
     protected $order_by = 'jobs';
@@ -119,8 +118,9 @@ class jobs
     public function getJobDetailsForPublic()
     {
         $technician_id = $_SESSION['user_id'];
-        $sql = "SELECT j.*, concat(u.first_name,' ', u.last_name) AS user_posted, a.*, i.item_name,
-                CAST(CASE WHEN ja.job_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS applied
+        $sql = "SELECT 
+                    j.*, concat(u.first_name,' ', u.last_name) AS user_posted, a.*, i.item_name,
+                    CAST(CASE WHEN ja.job_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS applied
                 FROM $this->table j 
                 INNER JOIN users u ON j.user_id = u.user_id 
                 INNER JOIN address a ON j.address_id = a.address_id
@@ -128,6 +128,7 @@ class jobs
                 LEFT JOIN job_apply ja ON j.job_id = ja.job_id && ja.technician_id = $technician_id
                 WHERE j.status = 'pending' && j.technician_id IS NULL && j.date >= CURDATE()
                 HAVING applied = 0";
+
         $result = $this->query($sql);
         return $result;
     }
@@ -175,6 +176,13 @@ class jobs
 
     public function userAcceptsTechnicianForJob($job_id,$technician_id){
         $this->update($job_id,['technician_id'=>$technician_id,'status'=>'accepted'],'job_id');
+    }
+
+    public function getUserPosted($job_id){
+        $sql = "SELECT user_id FROM $this->table WHERE job_id = :job_id";
+        $arr['job_id'] = $job_id;
+        $result = $this->query($sql,$arr);
+        return $result;
     }
 
 }

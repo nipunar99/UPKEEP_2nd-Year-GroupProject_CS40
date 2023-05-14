@@ -74,6 +74,17 @@ class Findjobs
                     "quote" => $quote,
                     "status" => $status
                 ]);
+
+
+                $job = new Jobs;
+                $user_id = $job->getUserPosted($job_id);
+                Notifications::sendNotification(
+                    $user_id[0]->user_id,
+                    "Job",
+                    "A Technician has applied for your job#". $job_id,
+                    "High",
+                    ROOT."/Itemowner/Technician/viewjob/$job_id"
+                );
             } catch (PDOException $e) {
                 if($e->getCode() == 23000){
                     http_response_code(400);

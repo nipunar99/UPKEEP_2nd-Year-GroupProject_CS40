@@ -59,6 +59,9 @@ class Gigs{
         $gigDetails = $gig->getGig($id);
         $profileDetails = $profile->getTechnicianById($gigDetails[0]->user_id);
 
+        $templates = new Itemtemplates;
+        $data['templates'] = json_encode($templates->getAllItemTemplates());
+
         $gig_reviews = new Gigreviews;
         $gigReviews = $gig_reviews->getGigReviews($id[0]);
 
@@ -69,6 +72,37 @@ class Gigs{
 
 
         $this->view('Technician/singlegig', $data);
+    }
+
+    //with error handling
+    public function editGig(){
+        $gigs = new Gig;
+
+        //handle data
+        $arr['title'] = $_POST['title'];
+        $arr['description'] = $_POST['description'];
+        $arr['items'] = $_POST['items'];
+        $arr['location'] = $_POST['location'];
+        $arr['delivery_method'] = $_POST['delivery_method'];
+
+
+        //create gig
+        $gigID = $gigs->editGig($arr, $_POST['gig_id']);
+
+        //add images
+        if(isset($_FILES['images'])){
+            $directory = "\\xampp\\htdocs\\upkeep\\upkeep\\public\\assets\\images\\gig_images";
+
+            $fileUpload = new FileUploader($directory);
+            $fileNames = $fileUpload->uploadMultipleFiles($_FILES['images']);
+
+            $gigs->addGigImages($gigID, $fileNames);
+        }
+
+        //send response
+        echo json_encode(array("status" => "success"));
+
+
     }
 
 }

@@ -14,26 +14,6 @@ const list = document.querySelector('ol');
 
 
 
-const gridViewButton = document.querySelector('.grid-view');
-const listViewButton = document.querySelector('.list-view');
-
-gridViewButton.addEventListener('click', () => {
-    gridViewButton.classList.add('active');
-    listViewButton.classList.remove('active');
-    // Code to switch to grid view goes here
-    list.classList.remove('list-view-filter');
-    list.classList.add('grid-view-filter');
-});
-
-listViewButton.addEventListener('click', () => {
-    gridViewButton.classList.remove('active');
-    listViewButton.classList.add('active');
-    // Code to switch to list view goes here
-    list.classList.remove('grid-view-filter');
-    list.classList.add('list-view-filter');
-});
-
-
 
 
 function addFilterOption() {
@@ -77,18 +57,18 @@ profileBtn.addEventListener('click', () => {
 
 
 
-// Define an object to store selected filt ers
-
-var pagination = document.getElementsByClassName('pagination')[0];
-var links = pagination.getElementsByTagName('a');
-
-for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function() {
-        var current = pagination.getElementsByClassName('active')[0];
-        current.className = current.className.replace(' active', '');
-        this.className += ' active';
-    });
-}
+// // Define an object to store selected filt ers
+//
+// var pagination = document.getElementsByClassName('pagination')[0];
+// var links = pagination.getElementsByTagName('a');
+//
+// for (var i = 0; i < links.length; i++) {
+//     links[i].addEventListener('click', function() {
+//         var current = pagination.getElementsByClassName('active')[0];
+//         current.className = current.className.replace(' active', '');
+//         this.className += ' active';
+//     });
+// }
 
 
 //Buttons for the popup form
@@ -133,6 +113,7 @@ function applyJob(){
     xhr = new XMLHttpRequest();
     xhr.open('POST', ROOT+'/Technician/Findjobs/applyJob', true);
     xhr.onload = function () {
+        console.log(this.responseText);
         res=JSON.parse(this.responseText);
         if (xhr.status === 200) {
             console.log(xhr.responseText)

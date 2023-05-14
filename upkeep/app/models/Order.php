@@ -75,7 +75,6 @@ class Order{
 
 
 
-    //GET ORDER BY DATE
 
 
 
@@ -153,12 +152,14 @@ class Order{
 
     public function completeOrder($order_id,$service_charge,$additional_notes)
     {
-        $this->update($order_id,[
-            'status' => 'completed',
-            'service_charge' => $service_charge,
-            'date_completed' => date('Y-m-d'),
-            'additional_notes' => $additional_notes
-        ], 'order_id');
+        $this->update($order_id,
+                        [
+                        'status' => 'completed',
+                        'service_charge' => $service_charge,
+                        'date_completed' => date('Y-m-d'),
+                        'additional_notes' => $additional_notes
+                        ]
+                        , 'order_id');
     }
 
 

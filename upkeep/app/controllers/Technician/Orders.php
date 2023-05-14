@@ -71,7 +71,6 @@ class Orders{
         $this->technicianAuth();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action']=='complete_order'){
-            show($_POST);
             try {
                 $order_id = $_POST['order_id'];
                 $service_charge = $_POST['service_charge'];

@@ -9,7 +9,7 @@
 .job-view{
     height: calc(100% - 128px);
     display: grid;
-    grid-template-columns: auto 19rem;
+    grid-template-columns: auto;
 }
 
 

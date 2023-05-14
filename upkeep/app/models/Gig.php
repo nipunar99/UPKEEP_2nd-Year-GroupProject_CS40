@@ -75,6 +75,7 @@ class Gig
         foreach ($fileNames as $fileName) {
             $values[] = "($gigID, '$fileName')";
         }
+        show($values);
         $query .= implode(',', $values);
         $this->query($query);
     }
@@ -84,5 +85,10 @@ class Gig
         $query = "select u.first_name ,u.last_name ,g.gig_id,g.title,g.items,g.location,g.user_id from gigs g inner JOIN users u on u.user_id=g.user_id where g.location = '$location' and g.items like '%" . $items . "%'";
         return $this->query($query);
         // return $query;
+    }
+
+    public function editGig(array $arr, $gig_id)
+    {
+        return $this->update($gig_id,$arr, 'gig_id');
     }
 }

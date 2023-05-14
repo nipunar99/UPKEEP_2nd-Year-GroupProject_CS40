@@ -167,7 +167,6 @@
                                                     <div class="tp-event-calendar">
                                                         <div class="tp-event-month"><?=Date('F',strtotime($new_order->date))?></div>
                                                         <div class="tp-event-day"><?= Date('d',strtotime($new_order->date)) ?></div>
-                                                        <div class="tp-event-month"><span class="material-icons-sharp">schedule</span><?=Date('h : i A',strtotime($new_order->time))?></div>
                                                     </div>
                                                     <div class="details">
                                                         <div class="user-profile">
@@ -182,7 +181,7 @@
 <!--                                                        <div class="row">-->
                                                         <h1><?=$new_order->title?>
                                                         <span class="worktags">
-                                                            <a><?=$new_order->dilivery_method?></a>
+                                                            <a><?=$new_order->delivery_method?></a>
                                                             <a><?=$new_order->job_type?></a>
                                                         </span>
                                                         </h1>

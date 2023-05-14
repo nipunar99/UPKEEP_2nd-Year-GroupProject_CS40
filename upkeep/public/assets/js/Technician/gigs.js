@@ -150,6 +150,7 @@ function ajax_addGig(e) {
 		if (xhr.status == 200) {
 			// handle server response
 
+			showSuccessfull("add-gig", "Success","Gig added successfully");
 			console.log("success");
 			console.log(this.responseText);
 		}
@@ -214,6 +215,30 @@ districts.addEventListener("change", function () {
 	populateCities(this.value);
 });
 
+//get district using city using the cities.json file. cities.json is already loaded in to the file
+function getDistrict(city) {
+	// console.log("getDistrict called");
+	const xhr = new XMLHttpRequest();
+	xhr.open("GET", ROOT+"/assets/js/Technician/cities.json", true);
+	xhr.send();
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			const citiesObj = JSON.parse(this.responseText);
+			// console.log(citiesObj);
+			for (let district in citiesObj) {
+				for (let city of citiesObj[district].cities) {
+					if (city == city) {
+						// console.log(district);
+						return district;
+					}
+				}
+			}
+		}
+	};
+}
+
+
 // <select multiple className="chosen-select" id="item">
 // 	<optgroup label="Group 1">
 // 		<option value="1">Option 1</option>
@@ -250,6 +275,7 @@ function populateItems() {
 	// 		items.innerHTML = output;
 	// 	}
 	// };
+	console.log(templates);
 	categories = JSON.parse(templates);
 	console.log(categories);
 
@@ -273,44 +299,6 @@ $(".chosen-select").chosen({
 	width: "100%"
 });
 
-
-//image carousel
-const delay = 3000; //ms
-
-const slides = document.querySelectorAll(".slides");
-slides.forEach(function (slide, index) {
-	const slidesCount = slides.childElementCount;
-	const maxLeft = (slidesCount - 1) * 100 * -1;
-
-	let current = 0;
-
-	function changeSlide(next = true) {
-		if (next) {
-			current += current > maxLeft ? -100 : current * -1;
-		} else {
-			current = current < 0 ? current + 100 : maxLeft;
-		}
-
-		slides.style.left = current + "%";
-	}
-});
-
-// let autoChange = setInterval(changeSlide, delay);
-// const restart = function() {
-// 	clearInterval(autoChange);
-// 	autoChange = setInterval(changeSlide, delay);
-// };
-//
-// // Controls
-// document.querySelector(".next-slide").addEventListener("click", function() {
-// 	changeSlide();
-// 	restart();
-// });
-//
-// document.querySelector(".prev-slide").addEventListener("click", function() {
-// 	changeSlide(false);
-// 	restart();
-// });
 
 
 

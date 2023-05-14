@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Technician/gig.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 
 </head>
 <body>
@@ -85,7 +88,7 @@
 
                 </div>
                 <div class="center">
-                    <h1>Find Jobs</h1>
+                    <h1>Gig</h1>
                 </div>
                 <div class="right">
                     <div class="notification">
@@ -106,19 +109,20 @@
                     </div>
                 </div>
             </div>
-            <div class="gig-container">
+
+            <div class="content-a-20">
                 <div class="left">
-                    <div class="gigDetails">
+                    <div class="card gigDetails text-left">
                         <div class="gig-cover">
                             <div class="carousel">
                                 <div class="slides">
                                     <!--                                            split the images string in ,-->
-                                    <?php if (!empty($gig->images)):?>
-                                        <?php $images = explode(",",$gig->images);?>
+                                    <?php if (!empty($gigDetails[0]->images)):?>
+                                        <?php $images = explode(",",$gigDetails[0]->images);?>
                                         <?php foreach($images as $image):?>
-                                            <img src="<?=ROOT?>/assets/images/gig_images/<?=$image?>" alt="slide image" class="slide">
+                                            <div class="slide"><img src="<?=ROOT?>/assets/images/gig_images/<?=$image?>" alt="slide image" class=""></div>
                                         <?php endforeach;?>
-                                    <?php elseif (empty($gig->images)):?>
+                                    <?php elseif (empty($gigDetails[0]->images)):?>
                                         <img src="<?=ROOT?>/assets/images/gig_images/noimage.jpg" alt="slide image" class="slide">
                                     <?php endif;?>
                                 </div>
@@ -128,18 +132,30 @@
                                 </div>
                             </div>
                         </div>
-                        <h1><?=$gigDetails[0]->title?></h1>
-                        <?php $arr=explode(",",$gigDetails[0]->items);?>
-                        <?php foreach($arr as $tag) : ?>
-                        <a class="worktags"><?=$tag?></a>
-                        <?php endforeach; ?>
-                        <div class="location"><span class="material-icons-sharp">location_on</span><p><?=$gigDetails[0]->location?></p></div>
-                        <p><?=$gigDetails[0]->description?></p>
+                        <h1 class="text-left"><?=$gigDetails[0]->title?></h1>
+                        <div class="work-tags">
+                            <h3 class="text-muted">Items</h3>
+                            <?php $arr=explode(",",$gigDetails[0]->items);?>
+                            <?php foreach($arr as $tag) : ?>
+                                <a class="worktags"><?=$tag?></a>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="inline">
+                            <div class="location">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <p><?=$gigDetails[0]->location?></p>
+                            </div>
+                            <div class="delivery-method">
+                                <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                <p><?=$gigDetails[0]->delivery_method?></p>
+                            </div>
+                        </div>
+                        <p id="gig-description"><?=$gigDetails[0]->description?></p>
                     </div> 
                   
-                    <div class="rating-part">
+                    <div class="card rating-part">
                         <div style="clear: both;"></div>
-                        <div class="reviews"><h1 class="left text-left">Reviews</h1></div>
+                        <div class=" reviews"><h1 class="left text-left">Reviews</h1></div>
 
                         <?php if(!empty($gigReviews)):?>
                             <?php foreach($gigReviews as $review):?>
@@ -162,7 +178,7 @@
                                                 <span class="fa fa-star"></span>
                                             <?php endif;?>
                                         <?php endfor;?>
-                                        <?= "(".round($gig->rating,1).")"?>
+                                        <?= "(".round($gigDetails->rating,1).")"?>
                                         <p><?=$review->content?></p>
                                     </div>
                                     <div style="clear: both;"></div>
@@ -182,7 +198,12 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div class="profile-details">
+                    <div class="card profile-details">
+                        <div class="header nbs">
+                            <div class="center">
+                                <h2>About Technician</h2>
+                            </div>
+                        </div>
                             <div class="profile-img">
                                 <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
                             </div>
@@ -205,26 +226,36 @@
                             <div class="other-details">
                                 <div>
                                     <h4>Member Since:</h4>
-                                    <p>2020</p><br>
-                                    <h4>Experience:</h4>
-                                    <p>5 Years</p>
+                                    <p><?=Date("Y",strtotime($profileDetails->date_time))?></p><br>
+                                    <h4>Service Method:</h4>
+                                    <p><?=$gigDetails[0]->delivery_method?></p><br>
                                 </div>
                                 <div>
+                                    <h4>Experience:</h4>
+                                    <p><?=$profileDetails->experience?> Years</p><br>
                                     <h4>Location:</h4>
-                                    <p>Colombo</p><br>
-                                    <h4>Job Type:</h4>
-                                    <p>Workshop</p>
+                                    <p><?=$gigDetails[0]->location?></p><br>
                                 </div>
                             </div>
                             <div class="description">
                                 <h4>Description:</h4>
-                                <p>I am an expeirenced A/C Technician from Maharagama Providing my services visiting home and I have a workshop as well</p>
+                                <p><?=$profileDetails->description?></p>
                             </div>
-                            <div class="actions">
-                                <a href="#" class="btn btn-primary">View Profile</a>
-                                <a href="#edit" class="btn btn-primary">Edit Gig</a>
+                            <div class="btn-container">
+                                <?php if($userdata->user_role == "technician"): ?>
+
+                                <?php elseif($userdata->user_role == "item_owner"): ?>
+                                    <a href="#" class="btn btn-primary">Hire</a>
+                                <?php endif; ?>
+
                             </div>
                     </div>
+                    <?php if($userdata->user_role=="technician" && $userdata->user_id == $_SESSION['user_id']):?>
+                    <div class="btn-container">
+                        <a href="" class="btn btn-primary warning" id="editGig" data-gigdata = '<?=json_encode($gigDetails[0])?>'><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</a>
+                        <a href="" class="btn btn-primary danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                    </div>
+                    <?php endif;?>
                 </div>
             </div>
         </main>
@@ -232,64 +263,93 @@
 
     </div>
 
-    <div id="edit" class="overlay">
-        <div class="popup">
-            <div class="middle">
-                <a class="close" href="#"><span class="material-icons-sharp">cancel</span></a>
-                <h1>Edit Gig</h1>
+    <div id="overlay"  class="overlay hidden"></div>
+
+    <div class="popup hidden" id="edit_gig">
+        <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+        <div class="header nbs">
+            <div class="center">
+                <h2>Edit Gig</h2>
             </div>
-            <!-- <div class="form"> -->
-                <form class="form" action="<?=ROOT?>/Technician/Gigs/" id="addgigform" method="POST">
-                    <div class="gigDetails">
-                        <div class="inline">
-                            <div class="input-box inline">
-                                <span class="details">Choose Item</span>
-                                <!-- <input type="text" name="item" id="item" required placeholder=""> -->
-                                <select id="item" name="item">
-                                    <option value="<?=$gigDetails[0]->item?>"><?=$gigDetails[0]->item?></option>
-                                </select>
-                            </div>
-                            
-                            <div class="input-box inline">
-                                <span class="details">Location</span>
-                                <input type="text" name="location" id="location" required placeholder="Enter Description about item" value="<?=$gigDetails[0]->location?>">
-                            </div>
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Title</span>
-                            <input type="text" name="title" id="title" required placeholder="I Will do... (etc) " value="<?=$gigDetails[0]->title?>">
-                        </div>
-                        
-                        <div class="input-box">
-                            <span class="details">Description</span>
-                            <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"><?=$gigDetails[0]->description?></textarea>
-                        </div>
-        
-                        <div class="input-box">
-                            <span class="details">Work Tags</span>
-                            <input type="text" name="work_tags" id="work_tags" required placeholder="Tags to specify work. Ex - A/C Repair, A/C Gas Filling" value="<?=$gigDetails[0]->work_tags?>">
-                        </div>
-
-                        <div class="input-box">
-                            <span class="details">Add Photo</span>
-                            <!-- <input type="file" name="image" id="image" placeholder="add images related to your work"> -->
-                            <input type="file" class = "imgInput" name="image" id="upfile"  placeholder="add images related to your work">
-                        </div>
-
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Update">
-                    </div>
-                </form>
-            <!-- </div> -->
-                
         </div>
-    </div>
+        <div class="content">
+            <form class="form" action="" id="editgigform" method="POST">
+                <div class="gigDetails text-left">
+                    <div class="input-inline">
+                        <div class="input-field">
+                            <label for="item">Items</label>
+                            <select multiple class="chosen-select" id="item">
+                            </select>
+                            <small class="error">&nbsp</small>
+                        </div>
+
+                        <div class="input-field">
+                            <div class="input-inline">
+                                <div class="input-field">
+                                    <label for="district" class="left">District:</label>
+                                    <select id="district">
+                                        <option value="0"></option>
+                                    </select>
+                                    <small class="error">&nbsp</small>
+                                </div>
+                                <div class="input-field">
+                                    <label for="city">City:</label>
+                                    <select id="city">
+                                        <option value="0">Select City</option>
+                                    </select>
+                                    <small class="error">&nbsp</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label class="left" for="delivery_methods">Select How You deliver Service:</label>
+                        <select class="" id="delivery_method" name="delivery_method">
+                            <option value="Home Visit">Home Visit</option>
+                            <option value="Workshop">Workshop</option>
+                        </select>
+                        <small class="error">&nbsp</small>
+
+                    </div>
+
+                    <div class="input-field">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required placeholder="I Will do... (etc) " value="<?=$gigDetails[0]->title?>">
+                        <small>Error Message</small>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="description">Description</label>
+                        <textarea type="text" name="description" id="description" required placeholder="Enter Description about work that can be done"><?=$gigDetails[0]->description?></textarea>
+                        <small>Error Message</small>
+                    </div>
+                    <div class="input-field text-left">
+                        <!--                                input field for adding multiple images with preview-->
+                        <label for="images">Add Images</label>
+                        <input type="file" name="images" id="images_input" multiple>
+                        <div class="preview" id="preview"></div>
+                        <small>&nbsp;error</small>
+                    </div>
 
 
-    <script src="<?= ROOT ?>/assets/js/addgig.js"></script>
-    <script src="<?= ROOT ?>/assets/js/Technnician/gig.js"></script>
+                </div>
+                <div class="btn-container">
+                    <a class="btn" id="update-btn">Update</a>
+                    <a class="btn cancel" id="formClose">Cancel</a>
+                </div>
+            </form>
+            <div class="content hidden" id="msg">
+
+            </div>
+        </div>
+
+    <script>
+        var ROOT = "<?=ROOT?>";
+        var templates = <?=$templates?>
+    </script>
+    <script src="<?= ROOT ?>/assets/js/Technician/carousel.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Technician/gig.js"></script>
 
 </body>
 </html>

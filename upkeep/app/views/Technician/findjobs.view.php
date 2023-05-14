@@ -123,10 +123,6 @@
 <!--                        <option value="location">Location</option>-->
 <!--                    </select>-->
 <!--                </div>-->
-                <div class="view-mode">
-                    <button class="list-view active" title="List view"><span class="material-icons-sharp">view_list</span></button>
-                    <button class="grid-view" title="Grid view"><span class="material-icons-sharp">grid_view</span></button>
-                </div>
             </div>
 
 
@@ -215,80 +211,6 @@
 <!--                        </div>-->
                     </div>
                 </div>
-                <div class="filter-tab">
-                    <div class="filter-panel">
-                        <h2 class="filter-title">Filter Results</h2>
-                        <div class="filter-content">
-                            <div class="filter-group">
-                                <h3 class="filter-group-title">Category</h3>
-                                <div class="filter-accordion">
-                                    <input type="checkbox" id="category-filter" class="accordion-input">
-                                    <label for="category-filter" class="accordion-label">Select Categories</label>
-                                    <div class="accordion-content">
-                                        <div class="filter-category">
-                                            <label><input type="checkbox" value="category1"> Category 1</label>
-                                            <label><input type="checkbox" value="category2"> Category 2</label>
-                                            <label><input type="checkbox" value="category3"> Category 3</label>
-                                            <label><input type="checkbox" value="category4"> Category 4</label>
-                                        </div>
-                                        <div class="filter-subcategory">
-                                            <label for="subcategory-filter">Select Subcategories</label>
-                                            <select id="subcategory-filter" multiple disabled>
-                                                <option value="subcategory1">Subcategory 1</option>
-                                                <option value="subcategory2">Subcategory 2</option>
-                                                <option value="subcategory3">Subcategory 3</option>
-                                                <option value="subcategory4">Subcategory 4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="filter-group">
-                                <h3 class="filter-group-title">Type of Work</h3>
-                                <div class="filter-accordion">
-                                    <input type="checkbox" id="type-filter" class="accordion-input">
-                                    <label for="type-filter" class="accordion-label">Select Types</label>
-                                    <div class="accordion-content">
-                                        <div class="filter-type">
-                                            <label><input type="checkbox" value="type1"> Type 1</label>
-                                            <label><input type="checkbox" value="type2"> Type 2</label>
-                                            <label><input type="checkbox" value="type3"> Type 3</label>
-                                            <label><input type="checkbox" value="type4"> Type 4</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="filter-group">
-                                <h3 class="filter-group-title">Delivery Method</h3>
-                                <div class="filter-accordion">
-                                    <input type="checkbox" id="delivery-filter" class="accordion-input">
-                                    <label for="delivery-filter" class="accordion-label">Select Methods</label>
-                                    <div class="accordion-content">
-                                        <div class="filter-delivery">
-                                            <label><input type="checkbox" value="delivery1"> Delivery 1</label>
-                                            <label><input type="checkbox" value="delivery2"> Delivery 2</label>
-                                            <label><input type="checkbox" value="delivery3"> Delivery 3</label>
-                                            <label><input type="checkbox" value="delivery4"> Delivery 4</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="filter-group">
-                                <h3 class="filter-group-title">Distance</h3>
-                                <div class="filter-distance">
-                                    <select>
-                                        <option value="distance1">Less than 5 miles</option>
-                                        <option value="distance2">5-10 miles</option>
-                                        <option value="distance3">10-20 miles</option>
-                                        <option value="distance4">More than 20 miles</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="filter-tag-list"></div> <!-- Add filter tag list here -->
-                            <button class="filter-btn">Apply Filters</button>
-                        </div>
-                </div>
-            </div>
 
         </main>
     </div>

@@ -220,14 +220,6 @@
                             <div class="input-field">
                                 <label class="left" for="title">Select Items:</label>
                                 <select multiple class="chosen-select" id="item">
-                                    <optgroup label="Group 1">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                    </optgroup>
-                                    <optgroup label="Group 2">
-                                        <option value="3">Option 3</option>
-                                        <option value="4">Option 4</option>
-                                    </optgroup>
                                 </select>
                                 <small class="error">&nbsp</small>
                             </div>

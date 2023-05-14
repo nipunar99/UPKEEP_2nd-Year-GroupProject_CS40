@@ -87,6 +87,38 @@ function areYouSure(id,areYouSureMessage){
     });
 }
 
+function showUnsuccessfull(popupid,errors){
+    popups[popupid].querySelectorAll('.content').forEach((content)=>{
+        content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+    });
+    popups[popupid].querySelector('.content#msg').innerHTML = "" +
+        "<div class=\"middle\">\n" +
+        "   <div class=\"icon-container\">\n" +
+        "       <span class=\"material-icons-outlined warning\" id=\"warning-icon\">error_outline</span>\n" +
+        "   </div>\n" +
+        "   <h1 id=\"warning-title\" >Something went wrong!</h1>\n" +
+        "   <p id=\"warning-message\">"+errors+"</p><br>\n" +
+        "   <div class=\"btn-container\">\n" +
+        "       <button class='btn' id=\"ok\">Ok</button>\n" +
+        "   </div>\n" +
+        "</div>"
+
+    popups[popupid].querySelector('#ok').addEventListener('click',()=>{
+        //go backto the form
+        popups[popupid].querySelectorAll('.content').forEach((content)=>{
+            content.classList.contains('hidden')?content.classList.remove('hidden'):content.classList.add('hidden');
+        });
+
+    });
+}
+
+function showErrorsForm(form,errors){
+    clearErrorsForm(form);
+    errors.forEach((error)=>{
+        showErrors(form.querySelector('#'+error.field),error.message);
+    });
+}
+
 
 
 const input_files = document.querySelectorAll('input.img-input');

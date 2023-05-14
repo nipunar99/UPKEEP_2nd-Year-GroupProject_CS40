@@ -82,7 +82,6 @@
         </aside>
 
         <main>
-
             <div class="header nbs">
                 <div class="left">
 
@@ -110,8 +109,6 @@
                 </div>
             </div>
 
-
-
             <div class="content">
                 <div class="head">
                     <div class="title">
@@ -138,7 +135,6 @@
                 </div>
                 <div class="content-a-20">
                     <div class="left">
-
                         <div class="card" id="job-details">
                             <div class="card-header">
                                 <h2>Job Details</h2>

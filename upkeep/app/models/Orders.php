@@ -5,7 +5,7 @@ class Orders{
     use Model;
 
     protected $table = 'orders';
-    protected $primary_key = 'order_id';
+//    protected $primary_key = 'order_id';
 
     protected $allowedColumns = [
         "order_id",

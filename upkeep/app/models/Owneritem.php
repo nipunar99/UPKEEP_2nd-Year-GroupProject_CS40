@@ -90,4 +90,9 @@ class Owneritem
         $query = "select item_id from $this->table where item_template_id = $id";
         return $this->query($query);
     }
+
+    public function getItemDetailsForJob($item_id)
+    {
+
+    }
 }
