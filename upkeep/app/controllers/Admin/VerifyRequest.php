@@ -15,12 +15,16 @@ class VerifyRequest{
              $data['technician'] = $tech_list; 
              //show($data);
 
-             $tech_count = $tech->getcount();
+             $tech_count = $tech->getCountOfPendingApproval();
              $data['verify_tech'] = $tech_count;
              //show($data);
 
             // $verify_list = $tech->getVerifyAcc();
             // $data['verify_tech'] = $verify_list;
+
+            // $profile_photo=new User;
+            // $profile_picture=$profile_photo->getProfilePhoto();
+            // $data['profile_pic']=$profile_picture;
             $this->view('Admin/verifyRequest',$data);
         }    
     }
@@ -88,4 +92,6 @@ class VerifyRequest{
             
     }
 }
+
+
 }

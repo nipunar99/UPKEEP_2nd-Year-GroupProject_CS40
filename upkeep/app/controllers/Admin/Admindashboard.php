@@ -35,9 +35,19 @@ class Admindashboard{
             $data['item_counts']= $approved_items;
             //  show($approved_items);
 
+            $registered_approval=new VerificationRequest;
+            $registered_list=$registered_approval->getCountOfRegisteredApproval();
+            $data['registered_counts']=$registered_list;
+
             $pending_approval= new VerificationRequest;
-            $pending_list = $pending_approval->getcount();
+            $pending_list = $pending_approval->getCountOfPendingApproval();
             $data['pending_counts']=$pending_list;
+            // show($pending_list);
+
+            $reject_approval=new VerificationRequest;
+            $reject_list=$reject_approval->getCountOfRejectApproval();
+            $data['reject_counts']=$reject_list;
+            show($reject_list);
 
             //sshow($_SESSION);
             $this->view('Admin/adminDashboard',$data);

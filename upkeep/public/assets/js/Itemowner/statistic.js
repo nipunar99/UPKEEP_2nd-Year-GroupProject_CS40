@@ -39,6 +39,7 @@ function display3details(){
   xhr.onload = function(){
       if(xhr.status == 200){
           const res = xhr.responseText;
+          console.log(res);
           const json = JSON.parse(res);
           var html = "";
           html += "<span >"+json[0].dispose_count+"</span>";

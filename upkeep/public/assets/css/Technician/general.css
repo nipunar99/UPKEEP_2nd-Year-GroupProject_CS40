@@ -376,7 +376,7 @@ main .top .profile {
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 300ms;
-	z-index: 0;
+	z-index: 99;
 	transition: all 300ms ease;
 }
 
@@ -642,7 +642,7 @@ input[type=number]::-webkit-outer-spin-button{
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 300ms;
-	z-index: 0;
+	z-index: 99;
 }
 
 .overlay.hidden {
@@ -819,6 +819,11 @@ input[type=number]::-webkit-outer-spin-button{
 	aside.close{
 		display: none;
 	}
+}
+
+
+.hidden{
+	display: none !important;
 }
 
 

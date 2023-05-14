@@ -134,26 +134,27 @@
                         </thead>
                         <tbody>
                            
-                            
-                            <?php for($i=0;$i<count($admin);$i++):?>
-                                <tr 
-                                    data-userDetails = <?=json_encode($admin[$i])?>
-                                >                                         
-                                    <td><?=$admin[$i]->first_name." ".$admin[$i]->last_name ?></td>
-                                    <td><?=$admin[$i]->user_id ?></td>
-                                    <td><?=$admin[$i]->email ?></td>
-                                    <td><?=$admin[$i]->registered_date ?></td>
-                                    <td><?=$admin[$i]->user_role ?></td>
-                                    <td>
-                                        <div class="btn-container">
-                                            <button id="editor_btn" class="edit-button">Edit</button> 
-                                            <button id="remove_btn" class="remove-button">Remove</button>
-                                        </div>
+                            <?php if(!empty($admin)):?>
+                                <?php for($i=0;$i<count($admin);$i++):?>
+                                    <tr 
+                                        data-userDetails = <?=json_encode($admin[$i])?>
+                                    >                                         
+                                        <td><?=$admin[$i]->first_name." ".$admin[$i]->last_name ?></td>
+                                        <td><?=$admin[$i]->user_id ?></td>
+                                        <td><?=$admin[$i]->email ?></td>
+                                        <td><?=$admin[$i]->registered_date ?></td>
+                                        <td><?=$admin[$i]->user_role ?></td>
+                                        <td>
+                                            <div class="btn-container">
+                                                <button id="editor_btn" class="edit-button">Edit</button> 
+                                                <button id="remove_btn" class="remove-button">Remove</button>
+                                            </div>
+                                            
+                                        </td>
                                         
-                                    </td>
-                                    
-                                </tr>
-                            <?php endfor;?>
+                                    </tr>
+                                <?php endfor;?>
+                            <?php endif ?>
                             
                         </tbody>
                     </table>

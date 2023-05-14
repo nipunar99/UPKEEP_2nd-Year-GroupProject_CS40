@@ -22,28 +22,15 @@ class Complaint
         return $aa;
     } 
 
-    public function getComplaints(){
-        // $query = "Select * from complaints Where complaint_type =:complaint_type" ;
-        // $data['complaint_type']='False_advertising';
-        // // $abc =$this->query($query,$data);
-        // // return $abc;
-
-
-        // // $query = "Select u.*, m.nic, m.address from users u INNER JOIN moderators m ON u.user_id=m.user_id  Where user_role =:user_role";
-        // // $data['user_role']='moderator';
-        // $aa = $this->query($query,$data);
-        // return $aa;
-    }
 
     public function getComplaint(){
-    $query ="Select c.complaint_id, c.post_id, c.complaint_type, c.status, c.description, c.date_created, c.technician_id, c.user_id, ut.user_id, ut.first_name, ut.last_name, ut.identity_verification from complaints c INNER JOIN 
-        (SELECT u.user_id, u.first_name, u.last_name, t.identity_verification from technicians t INNER JOIN users u ON u.user_id = t.user_id ) ut 
-        ON c.user_id=ut.user_id";
+        $query = "SELECT c.*, u.user_id, u.user_name FROM
+                        complaints c
+                    INNER JOIN users u 
+                    ON c.user_id = u.user_id
+                    ";
 
-        $result=$this->query($query);
-
-
-        return $result;
+                    return $this->query($query);
     }
 
     public function getTotalComplaints(){

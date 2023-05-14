@@ -12,11 +12,18 @@ closeBtns.forEach((btn)=>{
 function openPopup(id){
     overlay.classList.remove('hidden');
     popups[id].classList.remove('hidden');
+    popups[id].classList.remove('animate-hidden');
+    if(popups[id].querySelector('.tabs')){
+        setTabs('.popup#'+id);
+    }
 }
 
 function closePopup(id){
     overlay.classList.add('hidden');
-    popups[id].classList.add('hidden');
+    popups[id].classList.add('animate-hidden');
+    setTimeout(()=> {
+        popups[id].classList.add('hidden');
+    }, 200);
 }
 
 
@@ -109,25 +116,25 @@ input_files.forEach((input)=>{
 // show input error message
 function showErrors(input, message) {
     const inputField = input.closest('.input-field');
-    inputField.className = 'input-field error';
+    inputField.classList.add('error');
     const small = inputField.querySelector('small');
     small.innerText = message;
 }
 
 function clearErrors(popupid) {
     popups[popupid].querySelectorAll('.input-field').forEach((inputField)=>{
-        inputField.className = 'input-field';
+        inputField.classList.remove('error');
     });
 }
 
 function clearErrorsForm(form) {
     form.querySelectorAll('.input-field').forEach((inputField)=>{
-        inputField.className = 'input-field';
+        inputField.classList.remove('error');
     });
 }
 
 function clearErrorsInput(input) {
-    input.closest('.input-field').className = 'input-field';
+    input.closest('.input-field').classList.remove('error');
 }
 
 //

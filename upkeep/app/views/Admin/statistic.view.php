@@ -74,7 +74,7 @@
 
                             </div>
                             <div class="center">
-                                <h1>Find Jobs</h1>
+                                <h1>Statistic</h1>
                             </div>
                             <div class="right">
                                 <div class="notification">

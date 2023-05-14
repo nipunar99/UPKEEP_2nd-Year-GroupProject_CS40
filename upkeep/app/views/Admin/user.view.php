@@ -132,12 +132,14 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                        <?php if(!empty($technician)):?>
                             <?php for($i=0;$i<count($technician);$i++):?>
                                 <tr data-technicianDetails = <?=json_encode($technician[$i])?> >                                         
                                     <td>
                                         <div class="profile">
                                             <div class ="dp">
-                                            <img src="<?= ROOT ?>/assets/images/member-4.png"></div> <?=$technician[$i]->first_name." ".$technician[$i]->last_name ?></td>
+                                            <img src="<?= ROOT ?>/assets/images/member-3.png"></div> <?=$technician[$i]->first_name." ".$technician[$i]->last_name ?></td>
                                         </div>
                                          
                                     <td><?=$technician[$i]->user_id ?></td>
@@ -152,6 +154,7 @@
                                     
                                 </tr>
                             <?php endfor;?>
+                        <?php endif;?>
                             
                             <tr>                                         
                                 <td>Nipuna Rahal</td>

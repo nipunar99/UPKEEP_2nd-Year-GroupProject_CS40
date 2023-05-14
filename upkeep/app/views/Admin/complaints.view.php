@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Technician/findjobs.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Admin/complaints.css">
 
@@ -166,71 +169,26 @@
                            
                             
                             <?php if(!empty($complaint)):?>                                    
-                            <?php for($i=0;$i<count($complaint);$i++):?>
-                                <tr data-complaintdetails = <?=json_encode($complaint[$i])?>>
+                                <?php for($i=0;$i<count($complaint);$i++):?>
+                                    <tr data-complaintdetails = <?=json_encode($complaint[$i])?>>
+                                            
+                                        <td><?=$complaint[$i]->complaint_id ?></td>
+                                        <td><?=$complaint[$i]->post_id ?></td>
+                                        <td><?=$complaint[$i]->complaint_type ?></td>
+                                        <td><?=$complaint[$i]->description ?></td>
+                                        <td><?=$complaint[$i]->status ?></td>
+                                        <td>
+                                            <div class="btn-container">
+                                                <button id ="view_btn" data-postid=<?=$complaint[$i]->post_id?> data-userid=<?=$complaint[$i]->user_id?> class="view-button">View</button> 
+                                                <!-- <button id ="delete_btn" class="remove-button">Remove</button> -->
+                                            </div>
+                                        </td>
                                         
-                                    <td><?=$complaint[$i]->complaint_id ?></td>
-                                    <td><?=$complaint[$i]->post_id ?></td>
-                                    <td><?=$complaint[$i]->complaint_type ?></td>
-                                    <td><?=$complaint[$i]->description ?></td>
-                                    <td><?=$complaint[$i]->status ?></td>
-                                    <td>
-                                        <div class="btn-container">
-                                            <button id ="view_btn" class="view-button">View</button> 
-                                            <button id ="delete_btn" data-userid=<?=$complaint[$i]->user_id?> class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                                    
-                                    
-                                </tr>
-                            <?php endfor;?>
+                                        
+                                    </tr>
+                                <?php endfor;?>
                             <?php endif;?>
                             
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td></td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button class="view-button">View</button> 
-                                            <button id= "delete_btn" class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                                
-                                
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td></td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button class="view-button">View</button> 
-                                            <button id= "delete_btn" class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                                        
-                                    
-                            </tr>
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td></td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button class="view-button">View</button> 
-                                            <button id= "delete_btn"class="remove-button">Remove</button>
-                                        </div>
-                                    </td>
-                                        
-                                    
-                            </tr>
                             
                         </tbody>
                     </table>
@@ -248,8 +206,8 @@
         <div class="overlay hidden" id="overlay"></div>
         <div class="popup hidden" id="remove_complaint">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content-1">
-                <div class="content-2">
+            <div class="content">
+                <div class="content">
                     <h2>Confirm deletion of this Complaint</h2>
                 </div>
                 
@@ -263,35 +221,86 @@
                         </div>
                 </form>
             </div>
+            <div class="content hidden" id="msg">
+                
+            </div>
         </div>
 
 
         <div class="popup hidden" id="view_complaint">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
-            <div class="content-1">
-               
-                    <div class="content-2">
-                        <div class="cc">
-                            <div class=bb>
-                                <h2>Decription</h2>
-                                    <h3 id="description"></h3>
-                            </div>
-                            <div class=bb>
-                                <h2>Type</h2>
-                                    <h4 id="type"></h4>
-                            </div>
-                        </div>
-                        <div class="cc">
-                            <div class=bb>
-                                <h2>Status</h2>
-                                    <h4 id="status"></h4>
-                            </div>
-                            <div class=bb>
-                                <h2>Date created</h2>
-                                <h4 id="date_created"></h4> 
-                            </div>  
-                        </div>
+            <div class="content">
+                <div class="header nbs">
+                    <div class="center">
+                        <h1>Complaint</h1>
                     </div>
+                </div>
+                <div class="complaint-box">
+                    <div class="post-details">
+                    
+                
+                </div>
+                    
+                    <div class="complaint-details">
+                            <h2 id="complaint_details">Complaint Details</h2>
+                        <div class="content">
+                            <div class ="complaint-data">
+                                <div>
+                                    <h2 id="head">Complaint Id</h2>
+                                    <h3 id="complaint_id"></h3>
+                                </div>
+                                <div>
+                                    <h2 id="head">Complaint Type</h2>
+                                    <h3 id="complaint_type"></h3>
+                                </div>
+                            </div>
+                            <div class ="complaint-data">
+                                <div>
+                                    <h2 id="head">Description</h2>
+                                    <h3 id="description"></h3>
+                                </div>
+                                <div>
+                                    <h2 id="head">Status</h2>
+                                    <h3 id="status"></h3>
+                                </div>
+                            </div>
+                        </div>
+                            
+
+
+                    </div>
+                    <div class="complaint_btn">
+                        <div>
+                            <button  id="remove_postBtn">Remove</button></div>
+                        <div class="ignore">
+                            <button onclick="removePost()" id="ignore_btn">Ignore</button></div>
+                    </div>
+            </div>
+            <div class="content hidden" id="msg">
+                <h1>delete the post....</h1>
+
+            </div>
+        </div>
+
+        <div class="popup hidden" id="remove_complaint_action">
+            <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
+            <div class="content">
+                <div class="content">
+                    <h2>Confirm deletion of this Complaint</h2>
+                </div>
+                
+                <form class="mobile-verify" id="" method="post" enctype="" >
+                    <div class ="head" >
+                        <h3>Are you sure you you want to remove this complaint?</h3>
+                    </div>
+                    <div class="btn-container">
+                                <button id="remove_complaintBtn">Yes,I'm Sure</button>
+                                <button id="cancel">Cancel</button>
+                        </div>
+                </form>
+            </div>
+            <div class="content hidden" id="msg">
+                
             </div>
         </div>
 
@@ -300,6 +309,7 @@
         ?>
 
         <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
+        <script src="<?=ROOT?>/assets/js/Admin/communityComplaint.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/complaint.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/updateadminusers.js"></script>  
 

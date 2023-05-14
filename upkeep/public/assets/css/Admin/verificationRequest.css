@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 @import "./general.css";
 
+/* @import "../Technician/general.css"; */
 @import "./popupform.css";
 @import "./popupchanges.css";
 @import "./modifyform.css";
@@ -141,8 +142,9 @@ h1{
 
 h2{
     font-size: 1.4rem;
-s    font-size:medium;
+    font-size:medium;
 }
+
 .pd h2 {
     font-size:medium;
     margin-top:14rem;
@@ -504,7 +506,7 @@ p {
     justify-content: space-between;
   }
   
-  .right_grid .grid-container-2 .first-button {
+ .grid-container-2 .first-button {
     
 
     margin-right: 10px;
@@ -518,11 +520,11 @@ p {
     cursor: pointer;
   }
   
-  .right_grid .grid-container-2 .first-button:hover {
+  .grid-container-2 .first-button:hover {
     background-color: #3e8e41;
   }
   
-  .right_grid .grid-container-2 .second-button {
+ .grid-container-2 .second-button {
 
 
     padding: 10px 20px;
@@ -535,18 +537,15 @@ p {
      cursor: pointer;
 }
   
-  .right_grid .grid-container .second-button:hover {
-    background-color
-  
-  }
-
-  .button-container {
+.button-container {
     display: flex;
     justify-content: space-between;
     margin:2rem 2rem 0 3rem;
   }
 
-  .overlayview{
+  
+
+.overlayview{
     position: absolute;
     top: 0px;
     left: 0px;

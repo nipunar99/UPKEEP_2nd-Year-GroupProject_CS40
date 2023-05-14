@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Technician/findjobs.css"> -->
 
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Admin/verifyrequest.css">
@@ -164,7 +168,7 @@
                         <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->user_id?>">
                             <div class="item">
                                 <div class="photo-container">
-                                    <img  src="<?=ROOT?>/assets/images/profile-1.jpg" alt="Profile photo"> 
+                                    <img  src="<?=ROOT?>/assets/images/member-4.png" alt="Profile photo"> 
                                     
                                 </div>
                                 <div class="details-container">
@@ -181,7 +185,7 @@
                             </div>
                         </a>
                     <?php endfor;?>
-                    <?php endif;?>
+                <?php endif;?>
             </div>
 
      

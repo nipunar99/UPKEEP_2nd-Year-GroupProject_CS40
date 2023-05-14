@@ -29,6 +29,8 @@ function ajax_addModerator(){
 function ajax_addAdmin(){
  
     const addadmin = document.getElementById("admin-details");
+    e.preventDefault();
+
     
     console.log(addadmin);
 

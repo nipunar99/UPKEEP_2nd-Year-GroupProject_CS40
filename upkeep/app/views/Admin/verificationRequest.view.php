@@ -76,7 +76,17 @@
         </aside>
 
         <main>
-            <h1>Verification Request</h1>
+            <div class="header nbs">
+                <div class="left">
+
+                </div>
+                <div class="center">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="right">
+                    
+                </div>
+            </div>
             <div>
                 <h2>NIC Details</h2>
             </div>
@@ -146,30 +156,28 @@
 
         <!-- End of Main -->
 
-        <div class="right_grid">
+        <div class="right">
             <div class="header">
-                        <div class="left">
+                <div class="left">
 
-                        </div>
-                        <!-- <div class="middle">
-                            <h1>Users</h1>
-                        </div> -->
-                        <div class="right">
-                            <div class="notification">
-                                <span class="material-icons-sharp">notifications</span>
-                            </div>
+                </div>
+                
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
 
-                            <div class="profile">
-                                <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
-                                <div class="info">
-                                    <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
-                                    <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
-                                </div>
-                                <div class="profile-photo">
-                                    <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
-                                </div>
-                            </div>
+                    <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
+                            <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
                         </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- <div class="top">
                 <button id="menu-btn">
@@ -194,66 +202,27 @@
 
 
 
-            <div class="heading">
-                    <!-- <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
-                        </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-            <!-- End of top -->
-
-            <div class="grid-container-2">
-                
-                
-                    <div class="item-2">
-                        <div class="photo-container-1">
-                                <img 
-                                    src="<?=ROOT?>/assets/images/profile-2.jpg" alt="Profile photo">
-
-                                
-                        </div>
-
-                        <div>
-                            <h3><?=$profile[0]->first_name." ".$profile[0]->last_name?></h3>
-                            <h4><?=$profile[0]->location?></h4>
-                        </div>
-                        <div>
-                            <h5><?=$profile[0]->email?></h5>
-                            <h6><?=$profile[0]->mobile_no?></h6>
-                        </div>
-
-                        <div class="button-container">
-                            <button id = "verify_btn" onclick="verify()" class="first-button" data-technician=<?=$profile[0]->user_id?>>Verify</button>
-                                
-                            
-                            <button id = "reject_btn" onclick="reject()" class="second-button" data-technician=<?=$profile[0]->user_id?>>Reject</button>
-                            
-                        
-                        </div>
-
-                        
-                       
-                            
-                            
+            
+            <div class="grid-container-2">   
+                <div class="item-2">
+                    <div class="photo-container-1">
+                            <img src="<?=ROOT?>/Technician/Getverified/getImage/<?=$profile[0]->profile_picture?>" alt="Profile photo">  
                     </div>
 
+                    <div>
+                        <h3><?=$profile[0]->first_name." ".$profile[0]->last_name?></h3>
+                        <h4><?=$profile[0]->location?></h4>
+                    </div>
+                    <div>
+                        <h5><?=$profile[0]->email?></h5>
+                        <h6><?=$profile[0]->mobile_no?></h6>
+                    </div>
+
+                    <div class="button-container">
+                        <button id = "verify_btn" onclick="verify()" class="first-button" data-technician=<?=$profile[0]->user_id?>>Verify</button>
+                        <button id = "reject_btn" onclick="reject()" class="second-button" data-technician=<?=$profile[0]->user_id?>>Reject</button>
+                    </div>    
+                </div>
             </div>
         </div>
 

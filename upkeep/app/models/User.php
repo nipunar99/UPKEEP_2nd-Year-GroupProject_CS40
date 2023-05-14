@@ -142,10 +142,11 @@ class User
 
     public function getTotalUser(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
         $data['user_role1']='item_owner';
         $data['user_role2']='technician';
-        $bb = $this->query($query2);
+        $bb = $this->query($query);
+        
 
         return $bb;
 
@@ -195,10 +196,6 @@ class User
         
     }
 
-    // public function insertModerator(){
-    //     $query = "INSERT INTO user"
-    // }
-
     public function getTotalTechnician(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
         $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
@@ -241,18 +238,17 @@ class User
     }
 
     public function getTotalModerator(){
+        
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
         $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
         $data['user_role']='moderator';
         return $this->query($query);
-
-
-
+}
+    public function getProfilePhoto(){
+        $query="SELECT u.user_id, u.profile_picture, v.user_id from users u INNER JOIN verification_request v ON u.user_id=v.user_id  Where user_role =:user_role";
+        return $this->query($query);
     }
 
-    // public function updateAdmin(){
-    //     $query = "UPDATE users JOIN administrative_users ON users.first_name"
-    // }
     public function getTechnicians($user_id){
         $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.owner_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where owner_id=" . $user_id.") c  ON u.user_id = c.technician_id";
         return $this->query($query);
@@ -329,4 +325,6 @@ class User
             return false;
         }
     }
+
+    
 }
