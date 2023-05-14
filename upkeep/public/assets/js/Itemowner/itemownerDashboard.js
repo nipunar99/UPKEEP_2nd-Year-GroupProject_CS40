@@ -324,9 +324,9 @@ function display2details(){
         if(xhr.status == 200){
             const res = xhr.responseText;
             const json = JSON.parse(res);
-            console.log("display2details");
+            // console.log("display2details");
             console.log(json);
-            // console.log(json.length);
+            console.log(json.length);
             var html = "";
 
             if (json.status != "empty"){

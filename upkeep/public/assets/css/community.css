@@ -1425,3 +1425,7 @@ ol.comment-section{
 .post .card#item-details .item-details-for-scrap{
     background-color: var(--color-background);
 }
+
+.message-count{
+    display: none!important;
+}

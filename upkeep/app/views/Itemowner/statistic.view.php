@@ -130,10 +130,10 @@
                             <h3>This month Maintenance Cost</h3>
                             </div>
                         </div>
-                        <div class="h4content">
+                        <!-- <div class="h4content">
                             <h4>View More </h4>
                             <h4 class="leftarrow"><span class="material-icons-sharp">east</span></h4>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="mainDisplay2">
@@ -144,10 +144,10 @@
                                 <h3>Hired Technicians of This month</h3>
                             </div>
                         </div>
-                        <div class="h4content">
+                        <!-- <div class="h4content">
                             <h4>View More </h4>
                             <h4 class="leftarrow"><span class="material-icons-sharp">east</span></h4>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -159,10 +159,10 @@
                                 <h3>Discarded items</h3>
                             </div>
                         </div>
-                        <div class="h4content">
+                        <!-- <div class="h4content">
                             <h4>View More </h4>
                             <h4 class="leftarrow"><span class="material-icons-sharp">east</span></h4>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -174,10 +174,10 @@
                                 <h3>Maintainance Tasks</h3>
                             </div>
                         </div>
-                        <div class="h4content">
+                        <!-- <div class="h4content">
                             <h4>View More </h4>
                             <h4 class="leftarrow"><span class="material-icons-sharp">east</span></h4>
-                        </div>
+                        </div> -->
 
                     </div>
 

@@ -6,7 +6,7 @@ class jobs
     use Model;
 
     protected $table = 'jobs';
-    public $limit = 10;
+    // public $limit = 10;
     protected $page = 1;
     protected $order = 'ASC';
     protected $order_by = 'jobs';
@@ -55,7 +55,7 @@ class jobs
     }
 
     public function get()
-    {
+    {   
         $sql = "SELECT * FROM $this->table WHERE 1=1";
         if ($this->search != null) {
             $sql .= " AND (";
@@ -90,7 +90,7 @@ class jobs
 
             $user = new User;
             $user->where(["user_id" => $user_id]);
-            $user_details = $user->get();
+            // $user_details = $user->get();
 
             $address = new Address;
             $address_details = $address->where(["address_id" => $address_id]);
@@ -107,7 +107,7 @@ class jobs
                 "item_id" => $item_id,
                 "address_id" => $address_id,
                 "contact_no" => $contact_no,
-                "user_details" => $user_details,
+                // "user_details" => $user_details,
                 "address_details" => $address_details
             ];
             $jobs[] = $job;

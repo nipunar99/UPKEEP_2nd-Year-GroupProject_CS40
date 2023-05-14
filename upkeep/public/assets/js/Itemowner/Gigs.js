@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded",function(){
     ajax_getItems();
     getCategory();
     loadCitiesJson();
+    getAddress();
+    loadItems();
 
 });
 // document.addEventListener("DOMContentLoaded",function(){loadItems();loadCitiesJson();getAddress()});
@@ -157,16 +159,6 @@ function setToItemSelector(json){
       itemtemplates.value = '';
   })();
 
-//   itemtemplates.addEventListener('change', function() {
-// //    setSubInputNull();
-//       for (var a = 0; a < json.length; a++) {
-//           if (itemtemplates.value === json[a].itemtemplate_name) {
-//             Item_id.value = json[a].id;
-//             getSubItemsTemplates(json[a].id);
-//           }
-//       }
-//   });
-
 }
 
 
@@ -194,6 +186,9 @@ function loadCitiesJson(){
 
 // Set data form elements (district and cites)......................................................................
 
+const districtSelect1 = document.getElementById('district1');
+const inputcity1 = document.getElementById('city1');
+
 function loadCitiestoSelect(){
   districtNames = Object.keys(citiesjson);
 
@@ -204,6 +199,11 @@ function loadCitiestoSelect(){
       option.textContent =districtNames[a];
       districtSelect.appendChild(option);
   }
+  for (var a = 0; a < districtNames.length; a++) {
+    const option = document.createElement('option');
+    option.textContent =districtNames[a];
+    districtSelect1.appendChild(option);
+}
 }
 
 const districtSelect = document.getElementById('district');
@@ -211,10 +211,8 @@ const inputcity = document.getElementById('city');
 
 districtSelect.addEventListener('input', function() {
   inputcity.innerHTML = '';
-  // console.log(districtSelect.value);
   var district = districtSelect.value;
   var cities = citiesjson[district].cities;
-  // console.log(cities.length);
   
   for (var a = 0; a < cities.length; a++) {
       const option = document.createElement('option');
@@ -223,15 +221,41 @@ districtSelect.addEventListener('input', function() {
   }
 });
 
+districtSelect1.addEventListener('input', function() {
+  inputcity1.innerHTML = '';
+  var district = districtSelect1.value;
+  var cities = citiesjson[district].cities;
+  
+  for (var a = 0; a < cities.length; a++) {
+      const option = document.createElement('option');
+      option.textContent =cities[a];
+      inputcity1.appendChild(option);
+  }
+});
+
 // Set data form elements (district and cites)......................................................................
 
+////////////////////////////Load Delicarymthods//////////////////////////
+const delivarymethod = document.getElementById("delivarymethod");
+
+const values = ['Home Visit','Workshop Visit','Other'];
+
+(function populateValues (){
+    for(let i=0; i<values.length; i++){
+        const option = document.createElement('option');
+        option.textContent = values[i];
+        delivarymethod.appendChild(option);
+    }
+    delivarymethod.value = 'others';
+})();
+
+//////////////////////////////////////////////////////////////////////////
 
 ///.................................Filter Gigs.................................///
 
 function filterGigs(){
   let items = document.getElementById('itemtype').value;
-  let location = document.getElementById('city').value;
-
+  let location = document.getElementById('city1').value;
   if(items !="" && location!=""){
     const form = new FormData();
     form.append("items",items);
@@ -287,4 +311,129 @@ function filterGigs(){
     xhr.send(form);
   }
 
+}
+
+const address = document.getElementById("address");
+const district = document.getElementById("district");
+const city = document.getElementById("city");
+const addressid = document.getElementById("addressid");
+
+function getAddress() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/getAddresses', true);
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            const res = xhr.responseText;
+            json = JSON.parse(res);
+
+            districtSelect.innerHTML = ''; // initaly set districtSelect empty
+            const option1 = document.createElement('option');
+            const option2 = document.createElement('option');
+            option1.textContent =json[0].district;
+            option2.textContent =json[0].city;
+            
+            address.value = json[0].address;
+            districtSelect.appendChild(option1);
+            inputcity.appendChild(option2);
+            addressid.value = json[0].address_id;
+        }
+    }
+    xhr.send();
+}
+
+address.addEventListener('input',function() {
+    loadCitiesJson();
+    addressid.value ='';
+
+});
+
+function loadItems(){
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost/upkeep/upkeep/public/Itemowner/ViewGig/getAllItem', true);
+  xhr.onload = function(){
+      if(xhr.status == 200){
+          const res = xhr.responseText;
+          itemsjson = JSON.parse(res);
+          const itemNameSelect = document.getElementById('itemname');
+
+          for (var a = 0; a < itemsjson.length; a++) {
+              const option = document.createElement('option');
+              option.textContent = itemsjson[a].item_name;
+              itemNameSelect.appendChild(option);
+          }
+          itemNameSelect.value = "";
+      }
+  }
+  xhr.send();
+    
+}
+
+// Set data form elements (item_name and Item_id)......................................................................
+
+const itemNameSelect = document.getElementById('itemname');
+const inputItemId = document.getElementById('itemid');
+
+itemNameSelect.addEventListener('change', function() {
+    for (var a = 0; a < itemsjson.length; a++) {
+        if (itemNameSelect.value === itemsjson[a].item_name) {
+            inputItemId.value = itemsjson[a].item_id;
+        }
+    }
+});
+// Set data form elements (item_name and Item_id)......................................................................
+
+
+
+// Show and close Public form
+const overlay = document.querySelector(".overlayview");
+const popupview = document.querySelector(".popupview");
+const closebtn = document.querySelector(".closebtn");
+
+function pubicJobForm(){
+  overlay.classList.add("show");
+  popupview.classList.add("show");
+}
+
+closebtn.addEventListener("click", function(){
+    overlay.classList.remove("show");
+    popupview.classList.remove("show");
+});
+
+
+// Post the public job
+
+
+function submitPost(e){ 
+  e.preventDefault();
+  ajax_submitPost();
+}
+const description = document.getElementById('description');
+const jobtype = document.getElementById('jobtype');
+const schedule_date = document.getElementById("schedule_date");
+const contact_no = document.getElementById("contact_no");
+
+function ajax_submitPost(){
+  setSmallNull();
+  checkRequired([itemNameSelect,description,delivarymethod,jobtype,schedule_date,contact_no,address,district,city]);
+  checkFutureDate(schedule_date);
+  checkPhoneNo(contact_no);
+
+  if(errocheckflag == 0){
+      const formCompleteDetails = document.getElementById("form_JobDetails");
+      const form = new FormData(formCompleteDetails);
+      form.append("action", "addJob");
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST","http://localhost/upkeep/upkeep/public/Itemowner/TechnicianGigs/postJob");
+
+      xhr.onload = function(){
+          if(xhr.status == 200){
+              const res = xhr.responseText;
+              console.log(res);
+          }
+      };
+
+      xhr.send(form);
+
+      document.querySelector(".closebtn").click();
+  }
 }

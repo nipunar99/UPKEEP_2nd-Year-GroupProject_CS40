@@ -130,4 +130,10 @@ class IO_Owneritem
         $query = "select category_id  from itemtemplate i inner join (SELECT itemtemplate_id  FROM items WHERE item_id = " . $_SESSION['item_id'] . ")x on  x.itemtemplate_id =i.id ";
         return $this->query($query);
     }
+
+    public function itemCount(){
+        $query = "select count(item_id) as item_count from items  WHERE item_id = ".$_SESSION['user_id']." ";
+        return $this->query($query);
+
+    }
 }

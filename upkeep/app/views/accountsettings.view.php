@@ -75,7 +75,7 @@
                     </div>
                 <?php elseif ($_SESSION['user_role'] === 'item_owner') : ?>
                     <div class="sidebar">
-                        <a href="#" class="active">
+                        <a href="#" >
                             <span class="material-icons-sharp">grid_view</span>
                             <h3>Dashboard</h3>
                         </a>
@@ -107,7 +107,7 @@
                             <h3>Statistics</h3>
                         </a>
 
-                        <a href="#">
+                        <a href="#" class="active">
                             <span class="material-icons-sharp">settings</span>
                             <h3>Settings</h3>
                         </a>
