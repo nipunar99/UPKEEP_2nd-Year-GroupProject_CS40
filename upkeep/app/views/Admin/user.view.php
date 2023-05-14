@@ -60,10 +60,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/ItemTemplate">
+                <!-- <a href="<?=ROOT?>/Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?=ROOT?>/Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
@@ -87,7 +87,7 @@
 
                 </div>
                 <div class="middle">
-                    <h1>Users</h1>
+                    <h1 id="user_header">Users</h1>
                 </div>
                 <div class="right">
                     <div class="notification">
@@ -111,8 +111,8 @@
                 <div class="action-bar">
                     <div class="button-container">
                         <div class="search-bar-container">
-                            <input type="text" placeholder="Search...">
-                            <button class="search-button"><span class="material-icons-sharp">search</span></button>
+                            <input type="text" id="searchInput" placeholder="Search...">
+                            <button class="search-button" id="searchButton"><span class="material-icons-sharp">search</span></button>
                         </div>
                         <!-- <button class="remove-button">Remove</button> -->
                     </div>
@@ -120,7 +120,7 @@
 
                 <div class="table-container">
                     
-                    <table class="technician-table">
+                    <table class="technician-table" id="userTable">
                         <thead>
                             <tr>
                             
@@ -135,7 +135,7 @@
 
                         <?php if(!empty($technician)):?>
                             <?php for($i=0;$i<count($technician);$i++):?>
-                                <tr data-technicianDetails = <?=json_encode($technician[$i])?> >                                         
+                                <tr data-technicianDetails = <?=json_encode($technician[$i])?> id="usertable_row" >                                         
                                     <td>
                                         <div class="profile">
                                             <div class ="dp">
@@ -155,21 +155,6 @@
                                 </tr>
                             <?php endfor;?>
                         <?php endif;?>
-                            
-                            <tr>                                         
-                                <td>Nipuna Rahal</td>
-                                <td>5</td>
-                                <td>rahal@gmail.com</td>
-                                <td>verified</td>
-                                <td>
-                                        <div class="btn-container">
-                                            <button id="view-btn"><span class="material-icons-sharp">person</span></button> 
-                                            <button id="reject-btn"><span class="material-icons-sharp favorite-icon">cancel</span></button>
-                                        </div>
-                                    </td>
-                            </tr>
-                            <tr>                                         
-                            
                         </tbody>
                     </table>
                 </div>
@@ -251,6 +236,8 @@
 
     <script src="<?=ROOT?>/assets/js/Admin/popupform.js"></script>
     <script src="<?=ROOT?>/assets/js/Admin/users.js"></script>
+    <script src="<?=ROOT?>/assets/js/Admin/userSearch.js"></script>
+
 
     
 

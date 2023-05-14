@@ -80,6 +80,7 @@ body{
 }
 main h1{
     text-align: center;
+   
 }
 .heading{
     margin-top: 10px;
@@ -289,6 +290,7 @@ main{
 }
 main h1{
     text-align: center;
+    color:#00BEE4;
 }
 
 main .insight{
@@ -373,6 +375,7 @@ form .itemDetails .middleInput{
     color: white;
 
 }
+
 
 
 

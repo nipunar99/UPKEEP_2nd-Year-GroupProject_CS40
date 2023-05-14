@@ -52,6 +52,21 @@ class Complaints{
             $ignore->update($complaint_id,$arr,'complaint_id');
     }
 }
+    public function addResolution(){
+        if(isset($_POST['action']) && $_POST['action']=="addresolution_details"){
+            unset($_POST['action']);
+            $complaint_id=$_POST['complaint_id'];
+            show($_POST);
+
+
+            $resolution = new Complaint;
+            $resolution->update($complaint_id,$_POST,'complaint_id');
+
+
+
+
+        }
+    }
 
     public function getPostById($id){
         $post = new Post;

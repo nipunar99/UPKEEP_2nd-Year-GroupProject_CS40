@@ -389,6 +389,10 @@ main h1{
     height:25vh;
     grid-template-columns: 1fr;
     width:100%;
+    background-color:whitesmoke;
+    border-radius: 2em 2em 2em 2em;
+    border: 1px solid var(--color-dark);
+
  }
  .grid-container-2 {
     height:50%;
@@ -643,4 +647,22 @@ p {
 
 .action_btn button:hover{
     transform: scale(1.1);
+}
+
+.profile_information{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+    
+}
+
+h3#personal_doc{
+    font-size: 125%;
+    margin-top: 1rem;
+    font-weight:400;
+}
+
+h1#verify_header{
+    color:#00BEE4;
 }

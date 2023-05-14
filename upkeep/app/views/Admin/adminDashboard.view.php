@@ -57,10 +57,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?= ROOT ?>/Admin/ItemTemplate">
+                <!-- <a href="<?= ROOT ?>/Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?= ROOT ?>/Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
@@ -117,11 +117,11 @@
                             </div>
                             <div>
                                 <span class="material-icons-sharp">manage_accounts</span>
-                                <h4>Technician : <?=$user_counts[1]->count?> Acounts</h4>
+                                <h4>Technician : <?=$technician_counts[0]->count?> Acounts</h4>
                             </div>
                             <div class="maintenanceStatus">
                                 <span class="material-icons-sharp">person_off</span>
-                                <h4>Banned accounts : <?=$banned_users[1]->count?> Accounts</h4>
+                                <h4>Banned accounts : <?=$banned_users[0]->count?> Accounts</h4>
                             </div>
                         </div>
                         <a href="<?=ROOT?>/Admin/UserTab">
@@ -139,7 +139,7 @@
                             </div>
                             <div class="maintenanceStatus">
                                 <span class="material-icons-sharp">construction</span>
-                                <h4>Pending templates : <?=$item_counts[1]->count?> Items</h4>
+                                <h4>Pending templates : <?=$pendingitem_counts[0]->count?> Items</h4>
                             </div>
                         </div>
                         <a href="<?=ROOT?>/Admin/ItemTemplate">

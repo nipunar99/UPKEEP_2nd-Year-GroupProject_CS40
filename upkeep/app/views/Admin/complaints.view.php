@@ -61,10 +61,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/ItemTemplate" >
+                <!-- <a href="<?=ROOT?>/Admin/ItemTemplate" >
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
@@ -244,6 +244,18 @@
                     <div class="complaint-details">
                             <h2 id="complaint_details">Complaint Details</h2>
                         <div class="content">
+                        <form class="mobile-verify" id="add_resolution" method="post">
+                            <div class = "mobile-number-input" id="step1">
+                                <div class="inline">
+                                        <div class="input-field">
+                                            <label>Resolution</label>
+                                            <input class="mobile" type="text" id="resolution" name="resolution" required placeholder="Enter Resolution">
+                                            <small class="error">&nbsperror</small>
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                        </form>
                             <div class ="complaint-data">
                                 <div>
                                     <h2 id="head">Complaint Id</h2>
@@ -289,7 +301,7 @@
                     <h2>Confirm deletion of this Complaint</h2>
                 </div>
                 
-                <form class="mobile-verify" id="" method="post" enctype="" >
+                <form class="mobile-verify" id="add_resolution" method="post" enctype="" >
                     <div class ="head" >
                         <h3>Are you sure you you want to remove this complaint?</h3>
                     </div>
@@ -312,6 +324,8 @@
         <script src="<?=ROOT?>/assets/js/Admin/communityComplaint.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/complaint.js"></script>
         <script src="<?=ROOT?>/assets/js/Admin/updateadminusers.js"></script>  
+        <script src="<?=ROOT?>/assets/js/Admin/adminPiechart.js"></script>  
+
 
         
 

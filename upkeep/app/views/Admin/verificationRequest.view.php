@@ -54,10 +54,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/ItemTemplate">
+                <!-- <a href="<?=ROOT?>/Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?=ROOT?>/Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
@@ -81,7 +81,7 @@
 
                 </div>
                 <div class="center">
-                    <h1>Dashboard</h1>
+                    <h1 id="verify_header">verification Request</h1>
                 </div>
                 <div class="right">
                     
@@ -139,8 +139,10 @@
             <div class="grid-container-1">
                 
                 
-                    <div class="item-1">
-                        <p><?=$profile[0]->other_documents?></p>
+                    <div class="profile_information">
+                        <div>
+                            <h3 id="personal_doc"><?=$profile[0]->other_documents?></h3>
+                        </div>
                         
                        
                             
@@ -202,7 +204,7 @@
 
 
 
-            
+
             <div class="grid-container-2">   
                 <div class="item-2">
                     <div class="photo-container-1">
@@ -217,10 +219,13 @@
                         <h5><?=$profile[0]->email?></h5>
                         <h6><?=$profile[0]->mobile_no?></h6>
                     </div>
-
                     <div class="button-container">
                         <button id = "verify_btn" onclick="verify()" class="first-button" data-technician=<?=$profile[0]->user_id?>>Verify</button>
-                        <button id = "reject_btn" onclick="reject()" class="second-button" data-technician=<?=$profile[0]->user_id?>>Reject</button>
+                        
+                            <button id = "reject_btn" onclick="reject()" class="second-button" data-technician=<?=$profile[0]->user_id?>>Reject</button>
+                            <?php if($profile[0]->status=='rejected'):?>
+                                <h1>rejected</h1>
+                            <?php endif?>
                     </div>    
                 </div>
             </div>

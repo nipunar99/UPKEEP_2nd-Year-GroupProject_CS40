@@ -57,10 +57,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?> /Admin/ItemTemplate">
+                <!-- <a href="<?=ROOT?> /Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
@@ -175,7 +175,7 @@
         <div class="popup hidden" id="addmod">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
-                <h1>Add Moderator</h1>
+                <h1 id="addmod">Add Moderator</h1>
                 <form class="mobile-verify" id="addModerator-details" method="post" >
                     <div class = "mobile-number-input" id="step1">
                         <div class="inline">

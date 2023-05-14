@@ -48,10 +48,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/ItemTemplate">
+                <!-- <a href="<?=ROOT?>/Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="#" class="active">
                     <span class="material-icons-sharp">forum</span>
@@ -69,59 +69,32 @@
         </aside>
 
         <main>
-            <div class="header nbs">
-                            <div class="left">
+        <div class="header_nbs">
+                <div class="left">
 
-                            </div>
-                            <div class="center">
-                                <h1>Statistic</h1>
-                            </div>
-                            <div class="right">
-                                <div class="notification">
-                                    <span class="material-icons-sharp">notifications</span>
-                                </div>
-
-                                <div class="profile" id="profile">
-                                    <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
-                                    <div class="info">
-                                        <div class="name">
-                                            <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
-                                        </div>
-                                        <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
-                                    </div>
-                                    <div class="profile-photo">
-                                        <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
-                                    </div>
-                                </div>
-                            </div>          
                 </div>
+                <div class="center">
+                    <h1>Statistic</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
 
-        <!-- <div class="mainhead">
-                
-                
-                <div class="heading">
-                    <div class="top">
-                        <button id="menu-btn">
-                            <span class="material-icons-sharp">menu</span>
-                        </button>
-        
-                        <div class="theme-toggler">
-                            <span class="material-icons-sharp active">light_mode</span>
-                            <span class="material-icons-sharp">dark_mode</span>
+                    <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
-
-                        <div class="profile">
-                            <div class="info">
-                                <p>Hey,<b>Saman</b></p>
-                                <small class="text-muted">User</small>
-                            </div>
-                            <div class="profile-photo">
-                                <img src="<?=ROOT?>/assets/images/profile-1.jpg" alt="">
-                            </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <div class="insight">
 
@@ -136,10 +109,10 @@
                             <div class="text-2">
                                 <p>Admin <?=$admin_counts[0]->count?></p>
                                 <p>Moderators <?=$moderator_counts[0]->count?></p>
-                                <p>Banned 10</p>
+                                <p>Banned <?=$banned_adminusers[0]->count?></p>
                             </div>
                         </div>
-                        <div class="pie-view">
+                        <div class="pie-view" id="chart">
 
                         </div>
                     </div>
@@ -169,17 +142,17 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Technician</th>
+                                    <th>User</th>
                                     <th>Complaint Status</th>
-                                    <th>Account Status</th>
                                     <th>Description</th>
                                     <th>Date</th>
-                                    <td class="highlight">Number of Complaints</td>
+                                    <th>Resolution</th>
+                                    <!-- <td class="highlight">Number of Complaints</td>
                                         <style>
                                         .highlight {
                                             color: red;
                                         }
-                                        </style>
+                                        </style> -->
                                     
                                 </tr>
                             </thead>
@@ -187,31 +160,15 @@
                                 
                                     <?php for($i=0;$i<count($complaint_list);$i++):?>
                             <tr>
-                                <td><?=$complaint_list[0]->first_name." ".$complaint_list[0]->last_name?></td>
-                                <td><?=$complaint_list[0]->status ?></td>
-                                <td><?=$complaint_list[0]->identity_verification ?></td>
-                                <td><?=$complaint_list[0]->description ?></td>
-                                <td><?=$complaint_list[0]->date_created ?></td>
-                                <!-- <td><?=$complaint_counts[0]->count ?></td>     -->
+                                <td><?=$complaint_list[$i]->first_name." ".$complaint_list[$i]->last_name?></td>
+                                <td><?=$complaint_list[$i]->status ?></td>
+                                
+                                <td><?=$complaint_list[$i]->description ?></td>
+                                <td><?=$complaint_list[$i]->date_created ?></td>
+                                <td><?=$complaint_list[$i]->resolution?></td>
+                                <!-- <td><?=$complaint_counts[$i]->count ?></td>     -->
                             </tr>
                         <?php endfor;?>
-                                
-                                <tr class="show-r-2" role="button">
-                                <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    <td>Banned</td>
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr class="show-r-3" role="button">
-                                <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    <td>Banned</td>
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
                                 
                             </tbody>
                         </table>

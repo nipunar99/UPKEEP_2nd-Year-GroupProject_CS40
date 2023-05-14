@@ -35,21 +35,23 @@ class Complaint
 
     public function getTotalComplaints(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT technician_id, COUNT(technician_id) AS count FROM complaints GROUP BY technician_id";
-        $data['technician_id']='user_id';
-        
-        $cc = $this->query($query);
-
-        return $cc;
+        $query ="SELECT user_id, COUNT(user_id) AS count FROM complaints WHERE 'user_id'=user_id ";
+        // $data['technician_id']='user_id';
+    
+        return $this->query($query);
 
 
 
     }
+    public function getComplaintForStatistic(){
+        $query = "SELECT c.*, u.user_id, u.first_name, u.last_name FROM complaints c  
+        INNER JOIN
+                 users u ON c.user_id=u.user_id";
+        
+        return $this->query($query);
 
-    // public function getAllComplaints(){
-    //     $query = "SELECT * FROM complaints";
-    //     return $this->query($query);
-    // }
+
+}
 
     
 

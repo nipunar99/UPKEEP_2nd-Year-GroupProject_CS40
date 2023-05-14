@@ -233,3 +233,7 @@ main>.content{
   display: flex;
   justify-content: flex-start;
 }
+
+h1#user_header{
+  color:#00BEE4;
+}

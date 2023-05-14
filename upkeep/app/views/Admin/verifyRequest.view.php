@@ -65,10 +65,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?> /Admin/ItemTemplate">
+                <!-- <a href="<?=ROOT?> /Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>
@@ -91,7 +91,7 @@
 
                                 </div>
                                 <div class="center">
-                                    <h1>Find Jobs</h1>
+                                    <h1>Verification Request</h1>
                                 </div>
                                 <div class="right">
                                     <div class="notification">
@@ -168,7 +168,7 @@
                         <a href="<?=ROOT?>/Admin/verifyRequest/viewrequest/<?=$technician[$i]->user_id?>">
                             <div class="item">
                                 <div class="photo-container">
-                                    <img  src="<?=ROOT?>/assets/images/member-4.png" alt="Profile photo"> 
+                                    <img  src="<?=ROOT?>/assets/images/member-2.png" alt="Profile photo"> 
                                     
                                 </div>
                                 <div class="details-container">

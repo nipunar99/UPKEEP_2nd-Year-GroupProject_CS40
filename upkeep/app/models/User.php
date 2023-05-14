@@ -142,7 +142,7 @@ class User
 
     public function getTotalUser(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='item_owner' or user_role='technician' ";
         $data['user_role1']='item_owner';
         $data['user_role2']='technician';
         $bb = $this->query($query);
@@ -161,14 +161,20 @@ class User
         return $aa;
     }
 
-    public function getBannedAcc(){
+    public function getUserBannedAcc(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT account_status, COUNT(account_status) AS count FROM users GROUP BY account_status";
-        $data['account_status']='banned';
-        
-        $cc = $this->query($query);
+        $query ="SELECT account_status, COUNT(account_status) AS count FROM users where account_status='banned' and user_role='item_owner' or user_role='technician'  ";
+        // $data['account_status']='banned';
+   
+        return $this->query($query);
 
-        return $cc;
+
+
+    }
+    public function getAdminUserBannedAcc(){
+        $query ="SELECT account_status, COUNT(account_status) AS count FROM users where account_status='banned' and user_role='admin' or user_role='moderator' ";
+ 
+        return $this->query($query);
 
 
 
@@ -198,8 +204,8 @@ class User
 
     public function getTotalTechnician(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
-        $data['user_role']='technician';
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='technician' ";
+        // $data['user_role']='technician';
         return $this->query($query2);
 
 
@@ -208,8 +214,8 @@ class User
     
     public function getTotalItemOwners(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
-        $data['user_role']='item_owner';
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='item_owner' ";
+        // -- $data['user_role']='item_owner';
         return $this->query($query2);;
 
 
@@ -218,9 +224,9 @@ class User
 
     public function getTotalAdministrativeUser(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
-        $data['user_role1']='admin';
-        $data['user_role2']='moderator';
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role ='admin' or user_role='moderator' ";
+        // $data['user_role1']='admin';
+        // $data['user_role2']='moderator';
         return $this->query($query);
 
 
@@ -229,8 +235,8 @@ class User
 
     public function getTotalAdmin(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
-        $data['user_role']='admin';
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='admin' ";
+        // $data['user_role']='admin';
         return $this->query($query);
 
 
@@ -240,8 +246,8 @@ class User
     public function getTotalModerator(){
         
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT user_role, COUNT(user_role) AS count FROM users GROUP BY user_role";
-        $data['user_role']='moderator';
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='moderator' ";
+        // $data['user_role']='moderator';
         return $this->query($query);
 }
     public function getProfilePhoto(){

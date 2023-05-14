@@ -76,6 +76,8 @@ view.forEach(function(btn){
             data1 =postDetails.complaint_id
             console.log(postDetails);
             ajax_removePost(data,data1);
+            ajax_addResolution(data1);
+
             closePopup("view_complaint");
 
             
@@ -85,8 +87,36 @@ view.forEach(function(btn){
         ignoreBtn.addEventListener('click',function(e){
             data2=postDetails.complaint_id;
             ajax_ignorePost(data2);
+            ajax_addResolution(data2);
+
             closePopup("view_complaint");
         });
+
+        function ajax_addResolution(id){
+
+            // const formItemDetails = document.getElementById("form_itemDetails");
+            const addresolution_details = document.getElementById("add_resolution");
+        
+            console.log(addresolution_details);
+            const form = new FormData(addresolution_details);
+            form.append("action","addresolution_details");
+            form.append("complaint_id",id);
+           
+            
+            const xhr = new XMLHttpRequest();
+        
+            xhr.open("POST",""+ROOT+"/Admin/Complaints/addResolution");
+        
+            xhr.onload = function(){
+                if(xhr.status == 200){
+                    const res = xhr.responseText;
+                    console.log(res);
+                }
+            }
+        
+            xhr.send(form);
+        
+        }
 
     });
 })
@@ -151,17 +181,17 @@ function ajax_ignorePost(complaint_id){
 
 
 }
-function removePost(){
-    const remove = document.getElementById("ignore_btn");
-    // console.log(remove);
-    remove.addEventListener('click',function(e){
-        e.preventDefault();
-        console.log('hello1');
-        openPopup("remove_complaint_action");
-        console.log('hello');
-        });
+// function removePost(){
+//     const remove = document.getElementById("ignore_btn");
+//     // console.log(remove);
+//     remove.addEventListener('click',function(e){
+//         e.preventDefault();
+//         console.log('hello1');
+//         openPopup("remove_complaint_action");
+//         console.log('hello');
+//         });
 
-}
+// }
 
 
 function generateTimeAgoString(datetime) {

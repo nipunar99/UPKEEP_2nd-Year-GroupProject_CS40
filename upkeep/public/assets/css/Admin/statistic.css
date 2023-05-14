@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-/* @import "./general.css"; */
-@import "../Technician/findjobs.css";
+@import "./general.css";
+/* @import "../Technician/findjobs.css"; */
 
 :root{
     --color-primary: #7380ec;
@@ -34,8 +34,18 @@
     justify-content: space-around;
     margin: 10px 0px 0px 25rem;
 }
+.header_nbs{
+    display: flex;
+    height: 5rem;
+    justify-content: space-between;
+    padding: 0;
+    /* background-color: #8CD6FC; */
+    height: 64px;
+    width: 100%;
+}
 main h1{
     text-align: center;
+    color:#00BEE4;;
 }
 .heading{
     margin-top: 10px;
@@ -493,9 +503,9 @@ th, td {
     height: 150px;
     border-radius: 50%;
     background-image: conic-gradient(
-        rgb(9, 114, 146) 70deg, 
-        rgb(197, 11, 11) 0 235deg, 
-        rgb(23, 235, 15) 0);
+        rgb(66, 203, 245) 70deg, 
+        rgb(7, 231, 44) 0 235deg, 
+        rgb(235, 48, 15) 0);
 }
 .colored {
     background-color: #ee332c;

@@ -56,10 +56,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="#"class="active">
+                <!-- <a href="#"class="active">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="<?=ROOT?> /Admin/Statistic">
                     <span class="material-icons-sharp">forum</span>

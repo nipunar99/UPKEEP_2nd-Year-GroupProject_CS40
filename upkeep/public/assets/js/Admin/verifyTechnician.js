@@ -42,6 +42,37 @@ function reject(){
     verifyBtn.disabled = true;
 }
 
+// // Check if the rejection status is stored in local storage
+// document.addEventListener("DOMContentLoaded", function() {
+//     var isRejected = localStorage.getItem("isRejected");
+//     if (isRejected) {
+//       var rejectButton = document.getElementById("reject_btn");
+//       rejectButton.innerText = "Rejected";
+//       rejectButton.classList.add("rejected");
+//       rejectButton.disabled = true;
+//     }
+//   });
+  
+//   function reject() {
+//     var rejectButton = document.getElementById("reject_btn");
+//     rejectButton.innerText = "Rejected";
+//     rejectButton.classList.add("rejected");
+//     rejectButton.disabled = true;
+  
+//     // Store the rejection status in local storage
+//     localStorage.setItem("isRejected", "true");
+//   }
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
 
 
 

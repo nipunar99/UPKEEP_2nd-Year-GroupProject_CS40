@@ -35,15 +35,15 @@ class VerificationRequest{
 
     public function getCountOfRegisteredApproval(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT status, COUNT(status) AS count FROM verification_requests GROUP BY status";
+        $query ="SELECT status, COUNT(status) AS count FROM verification_requests where status = 'accepted' ";
         $data['status']='accepted';
         return $this->query($query);
     }
 
     public function getCountOfPendingApproval(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT status, COUNT(status) AS count FROM verification_requests GROUP BY status";
-        $data['status']='pending';
+        $query ="SELECT status, COUNT(status) AS count FROM verification_requests where status = 'pending' ";
+        // $data['status']='pending';
         return $this->query($query);
 
 
@@ -51,7 +51,7 @@ class VerificationRequest{
 
     public function getCountOfRejectApproval(){
         //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
-        $query ="SELECT status, COUNT(status) AS count FROM verification_requests where status = 'rejected' GROUP BY status";
+        $query ="SELECT status, COUNT(status) AS count FROM verification_requests where status = 'rejected' ";
         // $data['status']='rejected';
         return $this->query($query);
 

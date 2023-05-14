@@ -37,7 +37,7 @@ class VerifyRequest{
             $profile_details = $verify_request->getProfile($id);
 
             $data['profile'] = $profile_details;
-            //show($profile_details);
+            // show($profile_details);
             $this->view('Admin/verificationRequest',$data);
          }   
     }

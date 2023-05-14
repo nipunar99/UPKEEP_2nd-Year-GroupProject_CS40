@@ -38,17 +38,18 @@ class Itemtemplates
         // }  
         }
 
-    public function getApprovedItems(){
-        $query2 ="SELECT status, COUNT(status) AS count FROM itemtemplate GROUP BY status";
-        $data['status1']='Approved';
-        // $query = "SELECT * FROM itemtemplate WHERE status =:status";
-        $data['status2']='Pending';
-        return $this->query($query2);
-
-
-
-
-    }
+    public function getTotalItems(){
+        $query ="SELECT status, COUNT(status) AS count FROM itemtemplate WHERE status='Approved' or status='Pending' ";
+        // $data['status1']='Approved';
+        // // $query = "SELECT * FROM itemtemplate WHERE status =:status";
+        // $data['status2']='Pending';
+        return $this->query($query);
+}
+    public function getTotalPendingItems(){
+        $query ="SELECT status, COUNT(status) AS count FROM itemtemplate WHERE status='Pending' ";
+        
+        return $this->query($query);
+}
 
     public function getAllItemsDetails(){
         $query = "SELECT * FROM itemtemplate";
