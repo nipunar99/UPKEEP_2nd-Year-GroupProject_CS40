@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/779982a7ac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/community.css">
+    
 </head>
 
 <body>
@@ -32,44 +33,90 @@
             </div>
 
             <div class="middle">
-                <div class="sidebar">
-                    <a href="<?= ROOT ?>/Technician/Dashboard">
-                        <span class="material-icons-sharp">grid_view</span>
-                        <h3>Dashboard</h3>
-                    </a>
+            <?php if ($_SESSION['user_role'] === 'technician') : ?>
+                    <div class="sidebar">
+                        <a href="<?= ROOT ?>/Technician/Dashboard">
+                            <span class="material-icons-sharp">grid_view</span>
+                            <h3>Dashboard</h3>
+                        </a>
 
-                    <a href="<?= ROOT ?>/Technician/Findjobs">
-                        <span class="material-icons-sharp">work</span>
-                        <h3>Find Jobs</h3>
-                    </a>
+                        <a href="<?= ROOT ?>/Technician/Findjobs">
+                            <span class="material-icons-sharp">work</span>
+                            <h3>Find Jobs</h3>
+                        </a>
 
-                    <a href="<?= ROOT ?>/Technician/Orders">
-                        <span class="material-icons-sharp">list_alt</span>
-                        <h3>Orders</h3>
-                    </a>
+                        <a href="<?= ROOT ?>/Technician/Orders">
+                            <span class="material-icons-sharp">list_alt</span>
+                            <h3>Orders</h3>
+                        </a>
 
-                    <a href="<?= ROOT ?>/Technician/Gigs">
-                        <span class="material-icons-sharp">task</span>
-                        <h3>Gigs</h3>
-                    </a>
-
-
-                    <a href="<?= ROOT ?>/Community" class="active">
-                        <span class="material-icons-sharp">forum</span>
-                        <h3>Community</h3>
-                    </a>
+                        <a href="<?= ROOT ?>/Technician/Gigs">
+                            <span class="material-icons-sharp">task</span>
+                            <h3>Gigs</h3>
+                        </a>
 
 
-                    <a href="<?= ROOT ?>/Coversation">
-                        <span class="material-icons-sharp">mail_outline</span>
-                        <h3>Conversation</h3>
-                    </a>
+                        <a href="<?= ROOT ?>/Community" class="active">
+                            <span class="material-icons-sharp">forum</span>
+                            <h3>Community</h3>
+                        </a>
 
-                    <a href="<?= ROOT ?>/Technician/Statistics">
-                        <span class="material-icons-sharp">analytics</span>
-                        <h3>Statistics</h3>
-                    </a>
-                </div>
+
+                        <a href="<?= ROOT ?>/Coversation">
+                            <span class="material-icons-sharp">mail_outline</span>
+                            <h3>Conversation</h3>
+                        </a>
+
+                        <a href="<?= ROOT ?>/Technician/Statistics">
+                            <span class="material-icons-sharp">analytics</span>
+                            <h3>Statistics</h3>
+                        </a>
+                        <a href="<?= ROOT ?>/accountsettings" >
+                            <span class="material-icons-sharp">settings</span>
+                            <h3>Settings</h3>
+                        </a>
+                    </div>
+                <?php elseif ($_SESSION['user_role'] === 'item_owner') : ?>
+                    <div class="sidebar">
+                        <a href="<?= ROOT ?>/itemowner/Userdashboard">
+                            <span class="material-icons-sharp">grid_view</span>
+                            <h3>Dashboard</h3>
+                        </a>
+
+                        <a href="<?= ROOT ?>/itemowner/item">
+                            <span class="material-icons-sharp">view_in_ar</span>
+                            <h3>Item</h3>
+                        </a>
+
+                        <a href="<?= ROOT ?>/itemowner/TechnicianGigs">
+                            <span class="material-icons-sharp">person</span>
+                            <h3>Technician</h3>
+                        </a>
+
+                        <a href="<?= ROOT ?>/Community" class="active">
+                            <span class="material-icons-sharp">forum</span>
+                            <h3>Community</h3>
+                        </a>
+
+
+                        <a href="<?= ROOT ?>/Conversation">
+                            <span class="material-icons-sharp">mail_outline</span>
+                            <h3>Conversation</h3>
+                            <span class="message-count">11</span>
+                        </a>
+
+                        <a href="<?= ROOT ?>/itemowner/statistic">
+                            <span class="material-icons-sharp">trending_up</span>
+                            <h3>Statistics</h3>
+                        </a>
+
+                        <a href="<?= ROOT ?>/accountsettings" >
+                            <span class="material-icons-sharp">settings</span>
+                            <h3>Settings</h3>
+                        </a>
+
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="bottom">

@@ -336,8 +336,31 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+                        </div>
+                        <div class="card" id="application_details">
+                            <div class="card-header">
+                                <h2>Applied Technicians</h2>
+                            </div>
+                            <!-- list of technicians with their profile pic -->
+                            <div class="card-body">
+                                <ol>
+                                    <?php if ($applied_technicians):?>
+                                        <?php foreach ($applied_technicians as $technician):?>
+                                            <li>
+                                                <div class="card-row">
+                                                    <div class="profile-image">
+                                                        <img src="<?= ROOT."/assets/images/profile-1.jpg"?>" alt="profile">
+                                                    </div>
+                                                    <h3 class="title"><?=$technician->technician_name?></h3>
+                                                    <p class="text-muted">Rs. <?=$technician->quote?></p>
+                                                </div>
+                                            </li>
+                                        <?php endforeach;?>
+                                    <?php endif;?>
+                                </ol>
+                            </div>
+
                         </div>
                     </div>
 

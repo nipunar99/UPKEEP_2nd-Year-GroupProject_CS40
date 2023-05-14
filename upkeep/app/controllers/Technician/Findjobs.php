@@ -43,8 +43,7 @@ class Findjobs
 
         $jobs = new Jobs;
         $job = $jobs->getJobDetailsByIdForTechnician($id[0]);
-
-        $item = new Owneritem;
+        $item = new IO_Owneritem;
         $item_details = $item->getItemDetailsForJob($job->item_id);
 
         $job_application = new Job_apply;
@@ -55,7 +54,6 @@ class Findjobs
         $data["job_details"] = $job;
         $data["item_details"] = $item_details;
         $data["applied_technicians"] = $applied_technicians;
-
         $this->view('Technician/job',$data);
     }
 

@@ -23,8 +23,7 @@ class Signup {
 
     public function technicianSignup (){
         if(isset($_SESSION['user_id']))
-            redirect('/Tecnician/Dashboard');
-        //Rahal  singin controler method
+            redirect('/Technician/Dashboard');
         $data = [];
         if($_SERVER['REQUEST_METHOD']=="POST"){
             $user = new User;

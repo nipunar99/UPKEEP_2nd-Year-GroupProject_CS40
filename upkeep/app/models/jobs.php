@@ -24,8 +24,8 @@ class jobs
         "contact_no"
     ];
 
-    public function getPendingJobs(){
-
+    public function getPendingJobs()
+    {
     }
 
     public function limit($limit)
@@ -70,11 +70,12 @@ class jobs
     }
 
     //function to get all jobs with the sent user details from user table and address details from the address table with single sql query
-    public function getJobsWithUserAndAddressDetails($user_id){
+    public function getJobsWithUserAndAddressDetails($user_id)
+    {
         $sql = "SELECT * FROM $this->table WHERE user_id = $user_id";
         $result = $this->query($sql);
         $jobs = [];
-        foreach($result as $job){
+        foreach ($result as $job) {
             $job_id = $job['job_id'];
             $user_id = $job['user_id'];
             $gig_id = $job['gig_id'];
@@ -89,7 +90,7 @@ class jobs
 
             $user = new User;
             $user->where(["user_id" => $user_id]);
-            $user_details = $user->get();
+            // $user_details = $user->get();
 
             $address = new Address;
             $address_details = $address->where(["address_id" => $address_id]);
@@ -106,7 +107,7 @@ class jobs
                 "item_id" => $item_id,
                 "address_id" => $address_id,
                 "contact_no" => $contact_no,
-                "user_details" => $user_details,
+                // "user_details" => $user_details,
                 "address_details" => $address_details
             ];
             $jobs[] = $job;
@@ -139,7 +140,7 @@ class jobs
         $technician_id = $_SESSION['user_id'];
         $sql = "SELECT 
                     j.*, 
-                    concat(u.first_name,' ', u.last_name) AS client, u.email, u.mobile_no, 
+                    concat(u.first_name,' ', u.last_name) AS client, u.email, u.mobile_no, u.last_login,u.profile_picture, 
                     a.*,
                     count(ja.job_id) AS applied_count,
                     CAST(CASE WHEN ja.job_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS applied,
@@ -166,23 +167,91 @@ class jobs
         return $result;
     }
 
-    public function technicianAcceptJob($job_id,$technician_id){
-       $this->update($job_id,['technician_id'=>$technician_id,'status'=>'accepted'],'job_id');
+    public function technicianAcceptJob($job_id, $technician_id)
+    {
+        $this->update($job_id, ['technician_id' => $technician_id, 'status' => 'accepted'], 'job_id');
     }
 
-    public function technicianRejectJob($job_id,$technician_id){
-        $this->update($job_id,['technician_id'=>$technician_id,'status'=>'rejected'],'job_id');
+    public function technicianRejectJob($job_id, $technician_id)
+    {
+        $this->update($job_id, ['technician_id' => $technician_id, 'status' => 'rejected'], 'job_id');
     }
 
-    public function userAcceptsTechnicianForJob($job_id,$technician_id){
-        $this->update($job_id,['technician_id'=>$technician_id,'status'=>'accepted'],'job_id');
+    public function userAcceptsTechnicianForJob($job_id, $technician_id)
+    {
+        $this->update($job_id, ['technician_id' => $technician_id, 'status' => 'accepted'], 'job_id');
     }
 
-    public function getUserPosted($job_id){
+    public function getUserPosted($job_id)
+    {
         $sql = "SELECT user_id FROM $this->table WHERE job_id = :job_id";
         $arr['job_id'] = $job_id;
-        $result = $this->query($sql,$arr);
+        $result = $this->query($sql, $arr);
         return $result;
     }
 
+    public function getMyPostedJobs($user_id)
+    {
+        $sql = "SELECT j.*,j.job_id as ji, o.*, 
+                    CONCAT(u.first_name,' ', u.last_name) AS technician, 
+                    u.email, u.mobile_no, u.last_login, u.profile_picture,
+                    i.*,
+                    CASE 
+                        WHEN j.status = 'pending' AND IFNULL(o.status, '') = '' THEN 'pending acceptance'
+                        WHEN j.status = 'accepted' AND IFNULL(o.status, '') = 'pending' THEN 'accepted'
+                        WHEN IFNULL(o.status, '') = 'completed' THEN 'completed'
+                        WHEN IFNULL(o.status, '') = 'cancelled' THEN 'cancelled'
+                        ELSE ''
+                    END AS overall_status,
+                    CASE 
+                        WHEN u.user_id IS NOT NULL THEN 1
+                        ELSE 0
+                    END AS technician_assigned
+                FROM $this->table j
+                INNER JOIN items i ON j.item_id = i.item_id
+                LEFT JOIN orders o ON j.job_id = o.job_id
+                LEFT JOIN users u ON o.technician_id = u.user_id
+                WHERE j.user_id = :user_id
+                ORDER BY j.date DESC
+                ";
+
+        $arr['user_id'] = $user_id;
+        $result = $this->query($sql, $arr);
+        return $result;
+
+    }
+
+    public function getMyPostedSingleJob($user_id,$job_id)
+    {
+        $sql = "SELECT j.*,j.job_id as ji, o.*,j.description as jd, 
+                    CONCAT(u.first_name,' ', u.last_name) AS technician, 
+                    u.email, u.mobile_no, u.last_login, u.profile_picture,
+                    i.*,
+                    a.*,
+                    CASE 
+                        WHEN j.status = 'pending' AND IFNULL(o.status, '') = '' THEN 'pending acceptance'
+                        WHEN j.status = 'accepted' AND IFNULL(o.status, '') = 'pending' THEN 'accepted'
+                        WHEN IFNULL(o.status, '') = 'completed' THEN 'completed'
+                        WHEN IFNULL(o.status, '') = 'cancelled' THEN 'cancelled'
+                        ELSE ''
+                    END AS overall_status,
+                    CASE 
+                        WHEN u.user_id IS NOT NULL THEN 1
+                        ELSE 0
+                    END AS technician_assigned
+                FROM $this->table j
+                INNER JOIN address a ON j.address_id = a.address_id
+                INNER JOIN items i ON j.item_id = i.item_id
+                LEFT JOIN orders o ON j.job_id = o.job_id
+                LEFT JOIN users u ON o.technician_id = u.user_id
+                WHERE j.user_id = :user_id AND j.job_id = :job_id
+                ORDER BY j.date DESC
+                ";
+
+        $arr['user_id'] = $user_id;
+        $arr['job_id'] = $job_id;
+        $result = $this->query($sql, $arr);
+        return $result[0];
+
+    }
 }

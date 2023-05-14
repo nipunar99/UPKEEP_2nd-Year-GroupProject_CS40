@@ -862,3 +862,7 @@ main .upMaintenceList .middle {
 /* #mySidenav{
     display: none!important;
 } */
+
+.message-count{
+    display: none!important;
+}

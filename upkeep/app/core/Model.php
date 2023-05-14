@@ -6,7 +6,6 @@ trait Model
 {
 
     use Database;
-
     protected $limit = 10;
     protected $offset = 0;
     public $errors =  [];
@@ -301,7 +300,7 @@ trait Model
 
     public function insertAndGetData($data, $primaryKey)
     {
-        $id = $this->insertAndGetLastIndex();
+        $id = $this->insertAndGetLastIndex($data);
         return $this->first([$primaryKey => $id]);
     }
 }
