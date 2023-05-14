@@ -28,6 +28,34 @@ class Itemtemplates
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+        // public function viewItem($data){
+        //     try{
+        //         $data["moderator_id"] = $_SESSION['ID'];
+        //         $this->insert($data);   
+        //     }
+        //     catch(PDOException $e){
+        //         echo $e->getMessage();
+        //     }        
+            // $sql = "select * from `itemtemplate` where id=:id";
+        // }  
+        }
+
+    public function getTotalItems(){
+        $query ="SELECT status, COUNT(status) AS count FROM itemtemplate WHERE status='Approved' or status='Pending' ";
+        // $data['status1']='Approved';
+        // // $query = "SELECT * FROM itemtemplate WHERE status =:status";
+        // $data['status2']='Pending';
+        return $this->query($query);
+}
+    public function getTotalPendingItems(){
+        $query ="SELECT status, COUNT(status) AS count FROM itemtemplate WHERE status='Pending' ";
+        
+        return $this->query($query);
+}
+
+    public function getAllItemsDetails(){
+        $query = "SELECT * FROM itemtemplate";
+        return $this->query($query);
     }
     //view parent id null itemtemplates
     public function completeItemTemplate()

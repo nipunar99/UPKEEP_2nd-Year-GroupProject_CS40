@@ -4,13 +4,49 @@ class Statistic{
     use Controller;
         
     public function index(){
-
-        if($_SESSION['USER'] == 'Admin'){
-
-            $this->view('Admin/statistic');
+        
+        if(!isset($_SESSION["user_name"]) && $_SESSION["user_role"]!="admin"){
+            redirect('/Home');
         }else{
-            redirect("Home/home");
-        }
+            $user = new User;
+            $total_users = $user->getTotalUser();
+            $data['user_counts']= $total_users;
+
+            $total_technician = $user->getTotalTechnician();
+            $data['technician_counts']= $total_technician;
+
+            $total_item_owners = $user->getTotalItemOwners();
+            $data['item_owner_counts']= $total_item_owners;
+
+
+            $banned_users_list = $user->getUserBannedAcc();
+            $data['banned_users'] = $banned_users_list;
+
+            $banned_administrative_list = $user->getAdminUserBannedAcc();
+            $data['banned_adminusers'] = $banned_administrative_list;
+
+            $total_admin_users = $user->getTotalAdministrativeUser();
+            $data['administrative_counts']= $total_admin_users;
+
+            $total_admin = $user->getTotalAdmin();
+            $data['admin_counts']= $total_admin;
+
+            $total_moderators = $user->getTotalModerator();
+            $data['moderator_counts']= $total_moderators;
+
+            $complaint = new Complaint;
+            $data['complaint_list'] = $complaint->getComplaintForStatistic();
+
+            $data['complaint_counts'] = $complaint->getTotalComplaints();
+
+            // $data['complaint_counts'] = $complaint->getTotalComplaints();
+
+            
+
+
+            $this->view('Admin/statistic',$data);
+        }    
+    
     }
         
         

@@ -41,6 +41,11 @@ class IO_Maintenancetask
         $data["item_id"] = $_SESSION['item_id'];
         return $this->insertAndGetLastIndex($data);
     }
+
+    public function getAllMaintenance(){
+        $query = "SELECT * FROM maintenance_task";
+        return $this->query($query);
+}
     public function getSuggestionsDetails($id){
         $query = "select m.sub_component, m.image, m.description, m.years, m.months, m.weeks from $this->table where item_id = $id";
         return $this->query($query);

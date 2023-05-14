@@ -174,6 +174,125 @@ class User
         return $user_name;
     }
 
+
+//Moderator functions
+    
+
+    public function getTotalUser(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='item_owner' or user_role='technician' ";
+        $data['user_role1']='item_owner';
+        $data['user_role2']='technician';
+        $bb = $this->query($query);
+        
+
+        return $bb;
+
+
+
+    }
+
+    public function getVerifyTechnician(){
+        $query = "Select u.user_id, u.first_name, u.last_name, u.email, t.identity_verification from users u INNER JOIN technicians t ON u.user_id=t.user_id  Where user_role =:user_role";
+        $data['user_role']='technician';
+        $aa = $this->query($query,$data);
+        return $aa;
+    }
+
+    public function getUserBannedAcc(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT account_status, COUNT(account_status) AS count FROM users where account_status='banned' and user_role='item_owner' or user_role='technician'  ";
+        // $data['account_status']='banned';
+   
+        return $this->query($query);
+
+
+
+    }
+    public function getAdminUserBannedAcc(){
+        $query ="SELECT account_status, COUNT(account_status) AS count FROM users where account_status='banned' and user_role='admin' or user_role='moderator' ";
+ 
+        return $this->query($query);
+
+
+
+    }
+    public function getAllModerators(){
+        $query = "Select u.user_id, u.first_name, u.last_name, u.email, u.mobile_no, au.address from users u INNER JOIN administrative_users au ON u.user_id=au.user_id  Where user_role =:user_role";
+        $data['user_role']='moderator';
+        // $abc =$this->query($query,$data);
+        // return $abc;
+
+
+        // $query = "Select u.*, m.nic, m.address from users u INNER JOIN moderators m ON u.user_id=m.user_id  Where user_role =:user_role";
+        // $data['user_role']='moderator';
+        $aa = $this->query($query,$data);
+        return $aa;
+}
+
+    public function getAllAdmin(){
+        $query = "Select u.user_id, u.first_name, u.last_name, u.user_name, u.email, u.mobile_no, u.registered_date, u.user_role, au.address, au.nic from users u INNER JOIN administrative_users au ON u.user_id=au.user_id  Where user_role =:user_role or user_role =:user_role1";
+
+        // $query = "SELECT * FROM users WHERE user_role =:user_role or user_role =:user_role1";
+        $data['user_role']='admin';
+        $data['user_role1']='moderator';
+        return $this->query($query,$data);
+        
+    }
+
+    public function getTotalTechnician(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='technician' ";
+        // $data['user_role']='technician';
+        return $this->query($query2);
+
+
+
+    }
+    
+    public function getTotalItemOwners(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query2 ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='item_owner' ";
+        // -- $data['user_role']='item_owner';
+        return $this->query($query2);;
+
+
+
+    }
+
+    public function getTotalAdministrativeUser(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role ='admin' or user_role='moderator' ";
+        // $data['user_role1']='admin';
+        // $data['user_role2']='moderator';
+        return $this->query($query);
+
+
+
+    }
+
+    public function getTotalAdmin(){
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='admin' ";
+        // $data['user_role']='admin';
+        return $this->query($query);
+
+
+
+    }
+
+    public function getTotalModerator(){
+        
+        //$query ="SELECT COUNT(*) AS count FROM users WHERE user_role =:user_role1 OR user_role=:user_role2;";
+        $query ="SELECT user_role, COUNT(user_role) AS count FROM users WHERE user_role='moderator' ";
+        // $data['user_role']='moderator';
+        return $this->query($query);
+}
+    public function getProfilePhoto(){
+        $query="SELECT u.user_id, u.profile_picture, v.user_id from users u INNER JOIN verification_request v ON u.user_id=v.user_id  Where user_role =:user_role";
+        return $this->query($query);
+    }
+
     public function getTechnicians($user_id){
         $query = "select u.user_id, u.first_name, u.last_name, c.latest_msg, c.time, c.owner_unread_count as 'unread_count' from users u INNER JOIN (SELECT * FROM conversation where owner_id=" . $user_id.") c  ON u.user_id = c.technician_id";
         return $this->query($query);

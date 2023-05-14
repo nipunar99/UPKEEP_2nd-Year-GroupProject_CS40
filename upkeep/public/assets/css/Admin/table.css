@@ -1,0 +1,59 @@
+/* data table styles */
+.table-container{
+    margin: 0 1rem 0 1rem;
+    /* border: 1px solid; */
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    height: calc(100% - 80px);
+  }
+  
+  
+  .technician-table {
+      border-collapse: separate; /* Set border-collapse to separate to add border-spacing */
+      border-spacing: 0; /* Set border-spacing to 0 to remove default spacing */
+      width: 100%;
+      text-align: center;
+      margin-bottom: auto;
+      justify-content: center;
+      box-shadow:0 1rem 2rem rgb(132 139 200 / 477%);
+      
+    }
+  
+    tr:hover {
+      background-color: rgb(126, 99, 99);
+    }
+    
+    
+  .technician-table th,
+  .technician-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Add border-bottom to all rows */
+    color: black; /* Set font color to dark blue */
+  }
+    
+    
+    
+    .technician-table th {
+      height: 48px;
+      background-color:white /* Set background color of th to black */
+      color: black /* Set font color of th to dark blue */
+      font-size:15px;
+      background-color:white
+      
+    }
+    
+    .technician-table tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+    
+    .technician-table tbody tr:nth-child(even) {
+      background-color: #fff;
+    }
+    
+    .technician-table tbody tr:last-child td {
+      border-bottom: none; /* Remove the border-bottom from the last row */
+    }
+  
+  

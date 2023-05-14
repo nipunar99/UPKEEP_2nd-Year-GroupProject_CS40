@@ -36,10 +36,15 @@
                 <div class="profile">
                     <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
                     <div class="info">
+<<<<<<< HEAD
+                        <div class="name"><p><?= $_SESSION['USER']->first_name." ".$_SESSION['USER']->last_name ?></b></p></div>
+                        <small class="text-muted role"><?=ucfirst($_SESSION['user_role'])?></small>
+=======
                         <div class="name">
                             <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
                         </div>
                         <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+>>>>>>> Develope
                     </div>
                     <div class="profile-photo">
                         <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
@@ -103,9 +108,13 @@
                     </div>
                 </div>
                 <div class="buttonContainer">
+<<<<<<< HEAD
+                    <a href="#" id="skip"><h3 class="text-muted">Skip for Now!</h3><span class="material-icons-sharp text-muted">arrow_forward_ios</span></a>
+=======
                     <a href="#" id="skip">
                         <h3 class="text-muted">Skip for Now!</h3><span class="material-icons-sharp text-muted">arrow_forward_ios</span>
                     </a>
+>>>>>>> Develope
                 </div>
 
             </div>
@@ -124,8 +133,13 @@
                     <img src="<?= ROOT ?>/assets/images/technicianUI/enter_mobile.jpg" alt="" class="close">
                 </div>
                 <h1>Contact Verification</h1><br>
+<<<<<<< HEAD
+                <form class="mobile-verify" id="mobile-details" method="post" enctype="" >
+                    <div class = "mobile-number-input" id="step1">
+=======
                 <form class="mobile-verify" id="mobile-details" method="post" enctype="">
                     <div class="mobile-number-input" id="step1">
+>>>>>>> Develope
                         <p>Please enter your mobile number. We'll send an OTP (one-time password) to this number via SMS for verification</p><br>
 
                         <div class="input-field">
@@ -188,6 +202,8 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
     <div class="popup hidden" id="identity-verification">
         <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
         <div class="middle">
@@ -272,10 +288,15 @@
             </form>
         </div>
     </div>
+>>>>>>> Develope
 
 
 
     <script>
+<<<<<<< HEAD
+        console.log('hello');
+=======
+>>>>>>> Develope
         const ROOT = '<?= ROOT ?>';
         const technician_data = JSON.parse(<?= json_encode($technician) ?>);
         console.log(<?= $technician ?>)

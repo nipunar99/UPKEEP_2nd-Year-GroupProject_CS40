@@ -35,7 +35,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBDRIVER', '');
 
     define('ROOT', 'httpS://www.yourwebsite.com');
-} else {
+}
+ 
+else {
     define('DBNAME', 'my_db');
     define('DBHOST', 'localhost');
     define('DBUSER', 'root');
@@ -44,3 +46,5 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
     define('ROOT', 'httpS://www.yourwebsite.com');
 }
+
+

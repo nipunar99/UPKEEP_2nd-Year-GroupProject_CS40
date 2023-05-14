@@ -6,11 +6,11 @@ closeBtns.forEach((btn)=>{
         closePopup(btn.parentElement.id);
     });
 });
-console.log(ROOT);
+// console.log(ROOT);
 
 
 function openPopup(id){
-    overlay.classList.remove('hidden')
+    overlay.classList.remove('hidden');
     popups[id].classList.remove('hidden');
     popups[id].classList.remove('animate-hidden');
     if(popups[id].querySelector('.tabs')){

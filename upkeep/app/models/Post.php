@@ -111,8 +111,8 @@ class Post
                     GROUP BY p.post_id";
 
         $result = $this->query($query, ['user_id1' => $user_id, 'user_id2' => $user_id, 'post_id' => $post_id]);
-
         return $result;
+        // return $query;
     }
 
     public function createPost(array $data)

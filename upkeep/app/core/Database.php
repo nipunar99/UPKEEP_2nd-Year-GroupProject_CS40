@@ -21,6 +21,8 @@ Trait Database {
         $con = $this->connect();
         $stm = $con->prepare($query);
 
+        //select * from users where user_role = :user_role 
+        //select * from users where user_role = "moderator"
         $check = $stm->execute($data);
         $itemtemplate_id = $con->lastInsertId('itemtemplate');
         $_SESSION['id'] = $itemtemplate_id;
