@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/Itemowner/findtechnicians.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/Itemowner/viewgig.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Itemowner/public.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -132,16 +133,22 @@
 
                         <div class="input-box">
                             <span class="details">District</span>
-                            <select  name="district" id="district"required ></select>
+                            <select  name="district" id="district1"required ></select>
                         </div>
                         <div class="input-box">
                             <span class="details">City</span>
-                            <select  name="city" id="city" required ></select>
+                            <select  name="city" id="city1" required ></select>
+                        </div>
+
+                        <div class="input-box filterButton ">
+                            <button class="actionBtn" onclick="filterGigs()">Apply</button>
                         </div>
 
                         <div class="input-box">
-                            <button class="filterButton" onclick="filterGigs()">Apply</button>
+                            <button class="actionBtn" >My Jobs</button>
+                            <button class="actionBtn" onclick="pubicJobForm()">Public Jobs</button>
                         </div>
+                        
                     </div>
                 </div>
                 <!-- <div class="searchBar">
@@ -178,47 +185,112 @@
             </div>
 
         </main>
-    </div>  
-    <!-- <div id="mySidenav" class="sidenav notification hiddenNotify">
-        <div class="header">
-            <div class="center">
-                <h2>Notifications</h2>
+        <div class="overlayview "></div>
+
+        <div class="popupview popupview1 ">
+            <button class="closebtn">&times;</button>
+
+            <div class="content content1">
+
+                <form method="post" id="form_JobDetails">
+                    <h2>Job Details</h2>
+                    <div class="itemDetails">
+                        
+                        <div class="middleInput">
+
+                            <div class="input-box">
+                                <span class="details">Item Name</span>
+                                <select  name="item_name" id="itemname" required></select>
+                                <small></small>
+                            </div>
+                            
+                            <div class="input-box hidden">
+                                <span class="details">Item Id</span>
+                                <input  type="text" name="item_id" id="itemid" required>
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Title</span>
+                                <input type="text" name="title" id="title" required placeholder="Enter Title">
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Description</span>
+                                <input type="text" name="description" id="description" required placeholder="Enter Description">
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Job Type</span>
+                                <select name="job_type" id="jobtype" >
+                                    <option value="Repair">Repair</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <small></small>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="details">Delivary Method</span>
+                                <select name="delivery_method" id="delivarymethod" ></select>
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Date</span>
+                                <input type="date" name="date" id="schedule_date"  placeholder="Enter Schedule Date">
+                                <small></small>
+                            </div>   
+                        </div>   
+
+                        <div class="middlethree">
+                            <div class="input-box">
+                                <span class="details">Address</span>
+                                <input type="text" name="address" id="address" required placeholder="Enter Location">
+                                <input class="hidden"  type="number" name="address_id" id="addressid" >
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">District</span>
+                                <select  name="district" id="district"required ></select>
+                                <small></small>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">City</span>
+                                <select  name="city" id="city" required ></select>
+                                <small></small>
+                            </div>
+                        </div>
+
+                        <div class="middleInput">
+                            <div class="input-box">
+                                <span class="details">Contact No</span>
+                                <input type="number" name="contact_no" id="contact_no"  placeholder="Enter Contact No">
+                                <small></small>
+                            </div>
+                        </div>
+                        
+                        <div  class="button">
+                            <input onclick="submitPost(event)" type="submit"  value="Post Job" id="nextBtn"> 
+                        </div>
+        
+                    </div>
+                </form>
+
             </div>
-            <div class="tabs">
-                <div class="tab-item active">
-                    <i class="tab-icon fas fa-bell"></i>
-                    Alert
-                </div>
-                <div class="tab-item">
-                    <i class="tab-icon fas fa-clock"></i>
-                    History
-                </div>
-                <div class="line"></div>
-            </div>
-            <span class="closebtn" onclick="closeNav()">&times;</span>
         </div>
-        <div class="tab-content" >
-            <div class="tab-pane active" id="">
-                <ol id="notification-list-unread">
 
-                </ol>
-
-
-            </div>
-
-            <div class="tab-pane" id="">
-                <ol id="notification-list-history">
-
-                </ol>
-
-            </div>
-    </div> -->
+    </div>  
+    
     <?php
         echo "<script> var ROOT = '".ROOT."'; </script>";
     ?>
     <script src="<?= ROOT ?>/assets/js/Itemowner/public.js"></script>
     <script src="<?= ROOT ?>/assets/js/Itemowner/Gigs.js"></script>
     <script src="<?=ROOT?>/assets/js/notification.js"></script>
+    <script src="<?= ROOT ?>/assets/js/Itemowner/validation.js"></script>
+
 </body>
 </html>
 
