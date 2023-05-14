@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="maintenance">
+                <!-- <div class="maintenance">
 
                     <h1>Complaint History</h1>
 
@@ -204,7 +204,7 @@
 
                     </div>
 
-                </div>
+                </div> -->
 
             </div>
 

@@ -94,7 +94,7 @@
                                     <th>Sub component</th>
                                     <th>Description</th>
                                     <!-- <th>Time Frame</th> -->
-                                    <th>Time Frame(YY|MM|WW)</th>
+                                    <th>Time Frame</th>
                                     <th class="action">Action</th>
 
                                 </tr>

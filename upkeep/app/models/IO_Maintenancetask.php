@@ -52,7 +52,7 @@ class IO_Maintenancetask
                             CAST(CASE WHEN tma.maintenance_task_id IS NULL THEN 0 ELSE 1 END AS SIGNED) AS added
                         FROM $this->table mt
                         INNER JOIN 
-                        (SELECT item_id FROM items where item_template_id = $template_id) i
+                        (SELECT item_id FROM items where itemtemplate_id = $template_id) i
                         ON mt.item_id = i.item_id
                         LEFT JOIN maintenance_task_to_template_mapping tma
                         ON mt.task_ID = tma.maintenance_task_id

@@ -137,7 +137,7 @@
                                     <th class="hidden_id"></th>
                                     <th>Sub Component</th>
                                     <th>Description</th>
-                                    <th>Time Frame(YY|MM|WW)</th>
+                                    <th>Time Frame</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>

@@ -1,8 +1,6 @@
 var errocheckflag = 0;
 
 const form2 = document.getElementById("popup-form2");
-const input1 = document.querySelector('#sub_component');
-const input2 = document.querySelector('#Sub_component');
 const year1 = document.querySelector('#years');
 const month1 = document.querySelector('#months');
 const week1 = document.querySelector('#weeks');
@@ -348,7 +346,7 @@ function ajax_updateMaintenanceTask(e) {
   setSmallNull();
   const formItemDetailss = document.getElementById("popup-form2");
 
-  checkRequired([input2, description2, statu2]);
+  checkRequired([description2, statu2]);
   checkRange(year2, 0, 10);
   checkRange(month2, 0, 11);
   checkRange(week2, 0, 3);

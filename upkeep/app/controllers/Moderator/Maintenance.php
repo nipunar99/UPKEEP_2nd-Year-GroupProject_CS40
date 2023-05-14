@@ -17,11 +17,17 @@ class Maintenance
                     if ($errors === null) {
                         $this->addMaintenanceTask($_POST);
                     }
+                    else {
+                        print_r($errors);
+                    }
                 } elseif (isset($_POST['action']) && $_POST['action'] == "updateMaintenanceTask") {
-                    unset($_POST['action']);
                     $errors = $this->checkValidation();
+                    unset($_POST['action']);
                     if ($errors === null) {
                         $this->UpdateMaintenanceTask($_POST);
+                    }
+                    else {
+                        print_r($errors);
                     }
                 }
                 elseif (isset($_POST['action']) && $_POST['action'] == "addSuggestionMaintenanceTask") {
@@ -40,8 +46,15 @@ class Maintenance
     {
 
         $errors = [];
+        if($_POST['action'] == "updateMaintenanceTask")
+        {
+            $item_template_id = $_SESSION['parent_item_template_id'];
+        }
+        else{
+            $item_template_id = $_SESSION['item_template_id'];
+        }
         //form validation
-        $item_template_id = $_SESSION['item_template_id'];
+       
 
         if ($_POST['item_template_id'] !== $item_template_id) {
             $errors[] = "Form data has been changed";
@@ -54,16 +67,12 @@ class Maintenance
         if (empty($_POST['description'])) {
             $errors[] = "Description is required";
         }
-        if (empty($_POST['sub_component'])) {
-            $errors[] = "Sub Component name is required";
-        } else if (!preg_match("/^[a-zA-Z\s]+$/", $_POST['sub_component'])) {
-            $errors[] = "Component name should only contain letters and spaces";
-        }
+        
         //print if there exists errors in form
 
         if (!empty($errors)) {
             foreach ($errors as $error) {
-                echo "<p>" . $error . "</p>";
+                return "<p>" . $error . "</p>";
             }
         } else {
             return null;

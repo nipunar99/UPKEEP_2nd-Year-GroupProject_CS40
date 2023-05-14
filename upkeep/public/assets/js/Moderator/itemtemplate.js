@@ -3,16 +3,16 @@ const Input = document.querySelector('#itemtemplate_name');
 const Status = document.querySelector('#Status');
 const description = document.querySelector('#description');
 
-elements = document.getElementsByTagName("td")
-for (var i = elements.length; i--;) {
-  if (elements[i].innerHTML === "Pending") {
-    elements[i].classList.add("danger");
+// elements = document.getElementsByTagName("td")
+// for (var i = elements.length; i--;) {
+//   if (elements[i].innerHTML === "Pending") {
+//     elements[i].classList.add("danger");
 
-  }
-  if (elements[i].innerHTML === "Approved") {
-    elements[i].classList.add("success");
-  }
-}
+//   }
+//   if (elements[i].innerHTML === "Approved") {
+//     elements[i].classList.add("success");
+//   }
+// }
 
 ////////////////////////////////////////////
 //search function

@@ -159,7 +159,14 @@ function ajax_getItems() {
                 html += "<td role='button'><a href='http://localhost/upkeep/upkeep/public/Moderator/Maintenance/maintenanceTasks/" + json[i].id + "'>" + json[i].itemtemplate_name + " </a>";
 
                 html += "</td>";
-                html += "<td id='status'>" + json[i].status + "";
+                html += "<td id='status'" ;
+                if (json[i].status == 'Approved') {
+                    html += "class='succes'>";
+                  } else {
+          
+                    html += "class = 'dange'>";
+                  }
+                html += "" + json[i].status + "";
                 html += "</td>";
                 html += "<td class='des'>" + json[i].description + "</td>";
                 html += "<td>";

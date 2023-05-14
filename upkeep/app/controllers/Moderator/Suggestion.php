@@ -99,4 +99,11 @@ class Suggestion
         $task_details = json_encode($task->getDetailsById($task_id));
         echo($task_details);
     }
+    public function searchItem(){
+        $item = new Itemtemplates;
+        $result = $item->searchItem($_POST['item_name']);
+        // show($_POST['item_name']);
+        $json = json_encode($result);
+        echo($json);
+    }
 }

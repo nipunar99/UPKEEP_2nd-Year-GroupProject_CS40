@@ -189,4 +189,8 @@ class Itemtemplates
         $query = "update $this->table set status = 'Approved', moderator_id = '$moderator_id' where id=$id";
         return $this->query($query);
     }
+    public function searchItem($search_text){
+        $query = "select i.itemtemplate_name,c.category_name,i.image from $this->table i inner JOIN categories c on c.category_id = i.category_id where moderator_id = 0 AND status = 'Pending' AND itemtemplate_name = '$search_text'";
+        return $this->query($query);
+    }
 }
