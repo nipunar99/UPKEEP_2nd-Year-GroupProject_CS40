@@ -949,7 +949,7 @@ main .insight {
 }
 
 
-.filterButton{
+.actionBtn{
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -969,8 +969,11 @@ main .insight {
     text-decoration: none;
 }
 
-.filterButton:hover{
+.actionBtn:hover{
     transform: scale(1.05);
+}
+.filterButton{
+    width: 8rem !important;
 }
 
 .filter-container .input-box{

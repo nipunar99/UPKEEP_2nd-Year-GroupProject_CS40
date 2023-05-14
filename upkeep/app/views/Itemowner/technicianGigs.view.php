@@ -140,13 +140,15 @@
                             <select  name="city" id="city1" required ></select>
                         </div>
 
-                        <div class="input-box">
-                            <button class="filterButton" onclick="filterGigs()">Apply</button>
+                        <div class="input-box filterButton ">
+                            <button class="actionBtn" onclick="filterGigs()">Apply</button>
                         </div>
 
                         <div class="input-box">
-                            <button class="filterButton" onclick="pubicJobForm()">Public Jobs</button>
+                            <button class="actionBtn" >My Jobs</button>
+                            <button class="actionBtn" onclick="pubicJobForm()">Public Jobs</button>
                         </div>
+                        
                     </div>
                 </div>
                 <!-- <div class="searchBar">
@@ -202,9 +204,9 @@
                                 <small></small>
                             </div>
                             
-                            <div class="input-box ">
+                            <div class="input-box hidden">
                                 <span class="details">Item Id</span>
-                                <input type="text" name="item_id" id="itemid" required>
+                                <input  type="text" name="item_id" id="itemid" required>
                                 <small></small>
                             </div>
 
@@ -246,7 +248,7 @@
                             <div class="input-box">
                                 <span class="details">Address</span>
                                 <input type="text" name="address" id="address" required placeholder="Enter Location">
-                                <input class=""  type="number" name="address_id" id="addressid" >
+                                <input class="hidden"  type="number" name="address_id" id="addressid" >
                                 <small></small>
                             </div>
                             <div class="input-box">
