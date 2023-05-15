@@ -52,4 +52,11 @@ class Technician
         $arr['identity_verification'] = $string;
         $this->update($user_id, $arr, 'user_id');
     }
+
+    public function getTechnicianDetails($id){
+        $query = "SELECT t.*, u.* FROM technicians t, users u WHERE t.user_id = :user_id AND u.user_id = :user_id";
+        $arr['user_id'] = $id;
+        $result = $this->query($query, $arr);
+        return $result;
+    }
 }

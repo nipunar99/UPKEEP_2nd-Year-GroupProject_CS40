@@ -102,10 +102,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="buttonContainer">
-                    <a href="#" id="skip">
-                        <h3 class="text-muted">Skip for Now!</h3><span class="material-icons-sharp text-muted">arrow_forward_ios</span>
-                    </a>
+                <div class="btn-container">
+                    <a class="btn" href="<?=ROOT?>/Signout" id="signout">Sign Out</a>
                 </div>
 
             </div>
@@ -270,6 +268,49 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div class="popup hidden" id="complete-profile">
+        <div class="content">
+            <div class="middle">
+                <h1>Complete Your Profile</h1>
+                <p class="instruction">
+                    Please complete your profile to continue.
+                </p>
+                <form id="complete-profile-form">
+                    <div class="input-field">
+                        <label for="description">Profile Description</label>
+                        <textarea type="text" id="description" name="description" value="" placeholder="Enter a brief Description about Yourself!"></textarea>
+                        <small class="error">&nbsp</small>
+                    </div>
+                    <div class="input-field">
+                        <label for="experience">Experience</label>
+                        <input type="number" id="experience" name="experience" value="" placeholder="Enter your Experience in Years!">
+                        <small class="error">&nbsp</small>
+                    </div>
+                    <div class="input-inline">
+                        <div class="input-field">
+                            <label for="skills">District</label>
+                            <select id="district" name="district"></select>
+                            <small class="error">&nbsp</small>
+                        </div>
+                        <div class="input-field">
+                            <label for="city">City</label>
+                            <select id="city" name="city"></select>
+                            <small class="error">&nbsp</small>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="btn-container">
+                    <button id="complete-profile-form-btn">Complete Profile</button>
+                </div>
+            </div>
+        </div>
+        <div class="content hidden" id="msg">
+
         </div>
     </div>
 

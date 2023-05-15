@@ -282,8 +282,8 @@ class Community {
                 let posts = JSON.parse(xhr.responseText);
                 posts.forEach((post) => {
                     this.addPost(new Post(post));
+                    this.postListElement.appendChild(post.createPostElement());
                 });
-                this.renderPosts();
             }
         }
         xhr.send();

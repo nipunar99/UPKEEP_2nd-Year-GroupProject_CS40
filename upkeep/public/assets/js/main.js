@@ -24,4 +24,23 @@ profile.addEventListener('click', function () {
     document.querySelector('.dropdown-content').classList.toggle('active');
 });
 
-//setprofile picture for evety where
+//setprofile picture for every where to #current_user_profile_pic
+function setProfilePic() {
+    const current_user_profile_pic = document.querySelectorAll('#current_user_profile_pic');
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', ROOT + '/Home/getUserImage', true);
+    xhr.onload = function () {
+
+        if (this.status === 200) {
+            console.log(this.responseText);
+            const response = JSON.parse(this.responseText);
+            console.log(response);
+            current_user_profile_pic.forEach(function (element) {
+                element.setAttribute('src', ROOT + '/assets/images/profilepic/' + response.profile_picture);
+            });
+        }
+    }
+    xhr.send();
+}
+
+setProfilePic();

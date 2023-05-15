@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Technician/job.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/Technician/review.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -309,7 +310,7 @@
 
                             </div>
                         </div>
-                        <?php elseif ($job->technician_assigned == 0):?>
+                        <?php elseif ($job->overall_status == "pending for applications"):?>
                         <div class="card" id="application_details">
                             <div class="card-header">
                                 <h2>Applied Technicians</h2>
@@ -326,6 +327,7 @@
                                                     </div>
                                                     <h3 class="title"><?=$technician->technician_name?></h3>
                                                     <p class="text-muted">Rs. <?=$technician->quote?></p>
+                                                    <button class="btn success">Accept</button>
                                                 </div>
                                             </li>
                                         <?php endforeach;?>
@@ -346,24 +348,56 @@
         </main>
 
         <div class="overlay hidden" id="overlay"></div>
-        <div class="popup hidden" id="apply_job">
+        <div class="popup hidden" id="add_review">
             <a class="close" id="formClose"><span class="material-icons-sharp">cancel</span></a>
             <div class="content">
                 <div class="header nbs">
                     <div class="center">
-                        <h2 class="popup-title"<??></h2>
+                        <h2 class="popup-title">Review Technician</h2>
                     </div>
                 </div>
-                <form method="post" >
-                    <div class="input-field">
-                        <label for="quote">Enter a estimated service charge(Rs.):</label>
-                        <input type="number" id="quote" name="quote" placeholder="Enter your quote">
-                        <small>Error message</small>
+<!--                form to add rating and review for technician-->
+                <form method="post"  id="add-review-form">
+                    <div class="card-body">
+                        <div class="card-col">
+                            <div class="card-row">
+                                <div class="card-col">
+                                    <div class="input-field">
+                                        <label class="title">How Well do You rate the Service</label>
+                                        <div class="rating">
+                                            <div class="wrapper">
+                                                <input name="ratingRadio" type="radio" id="st1" value="5" />
+                                                <label for="st1"></label>
+                                                <input name="ratingRadio" type="radio" id="st2" value="4" />
+                                                <label for="st2"></label>
+                                                <input name="ratingRadio" type="radio" id="st3" value="3" />
+                                                <label for="st3"></label>
+                                                <input name="ratingRadio" type="radio" id="st4" value="2" />
+                                                <label for="st4"></label>
+                                                <input name="ratingRadio" type="radio" id="st5" value="1" />
+                                                <label for="st5"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-col">
+                                    <label class="title">Description</label>
+                                    <div class="text">
+                                        <textarea name="content" id="description" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="btn-container">
-                        <button class="btn btn-primary" id="apply-job">Apply</button>
-                        <button class="btn btn-cancel ">Cancel</button>
+                    <div class="card-footer">
+                        <input type="hidden" name="job_id" id="job_id" value="<?=$job->job_id?>">
+                        <input type="hidden" name="technician_id" id="technician_id" value="<?=$job->technician_id?>">
+                        <input type="hidden" name="technician_id" id="gig_id" value="<?=$job->gig_id?>">
+                        <div class="btn-container">
+                            <button class="btn success" type="submit" id="submit-review">Submit</button>
+                        </div>
                     </div>
+
                 </form>
             </div>
             <div class="content hidden" id="msg">
@@ -376,8 +410,10 @@
     <script>
         const ROOT = "<?=ROOT?>";
         const job = <?=json_encode($job)?>;
+        const userdata = <?=json_encode($userdata)?>;
     </script>
     <script src="<?=ROOT?>/assets/js/Technician/popupform.js"></script>
+    <script src="<?=ROOT?>/assets/js/Technician/job4io.js"></script>
 <!--    <script src="--><?//=ROOT?><!--/assets/js/Technician/applyjob.js"></script>-->
 
 

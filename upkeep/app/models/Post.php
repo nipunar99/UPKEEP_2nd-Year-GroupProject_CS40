@@ -40,7 +40,7 @@ class Post
     ];
 
     //    model for all database operations for posts with user and item details joined even to query with search params
-    public function getPosts($search = null, $category = null, $limit = 10, $offset = 0, $sort = 'DESC', $sortby = null)
+    public function getPosts($search = null, $category = null, $limit = 10, $offset = 0, $sort = 'DESC', $sortby = null,$where=[])
     {
         $user_id = $_SESSION['user_id'];
         $query = "SELECT 
@@ -65,6 +65,12 @@ class Post
 
         if ($category) {
             $query .= " AND p.post_type = '$category'";
+        }
+
+        if($where){
+            foreach($where as $key=>$value){
+                $query .= " AND $key = '$value'";
+            }
         }
 
         $query .= " GROUP BY p.post_id";

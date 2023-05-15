@@ -229,7 +229,8 @@ class jobs
                     i.*,
                     a.*,
                     CASE 
-                        WHEN j.status = 'pending' AND IFNULL(o.status, '') = '' THEN 'pending acceptance'
+                        WHEN j.status = 'pending' AND IFNULL(j.technician_id, '') = '' THEN 'pending for applications'
+                        WHEN j.status = 'pending' AND j.technician_id IS NOT NULL THEN 'pending acceptance'
                         WHEN j.status = 'accepted' AND IFNULL(o.status, '') = 'pending' THEN 'accepted'
                         WHEN IFNULL(o.status, '') = 'completed' THEN 'completed'
                         WHEN IFNULL(o.status, '') = 'cancelled' THEN 'cancelled'

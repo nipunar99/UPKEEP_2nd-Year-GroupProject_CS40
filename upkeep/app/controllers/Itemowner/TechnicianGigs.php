@@ -133,4 +133,20 @@ class TechnicianGigs {
         $this->view('Itemowner/job_for_io',$data);
     }
 
+
+    public function addReview(){
+        $review = new gig_review;
+        try {
+            $_POST['user_id'] = $_SESSION['user_id'];
+            $review->insert($_POST);
+            http_response_code(200);
+            echo json_encode(["success" => "gig_review was created."]);
+        } catch (PDOException $e) {
+            http_response_code(500);
+            $error = $e->getMessage();
+            $error = json_encode($error);
+            echo($error);
+        }
+
+    }
 } 

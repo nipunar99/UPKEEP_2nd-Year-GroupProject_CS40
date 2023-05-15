@@ -85,19 +85,21 @@ class Gigs{
         $arr['location'] = $_POST['location'];
         $arr['delivery_method'] = $_POST['delivery_method'];
 
-
-        //create gig
-        $gigID = $gigs->editGig($arr, $_POST['gig_id']);
-
-        //add images
         if(isset($_FILES['images'])){
             $directory = "\\xampp\\htdocs\\upkeep\\upkeep\\public\\assets\\images\\gig_images";
 
             $fileUpload = new FileUploader($directory);
             $fileNames = $fileUpload->uploadMultipleFiles($_FILES['images']);
 
-            $gigs->addGigImages($gigID, $fileNames);
+            $gigs->addGigImages($_POST['gig_id'], $fileNames);
         }
+
+
+        //create gig
+        $gigs->editGig($arr, $_POST['gig_id']);
+
+        //add images
+
 
         //send response
         echo json_encode(array("status" => "success"));

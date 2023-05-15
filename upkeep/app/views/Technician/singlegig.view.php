@@ -255,6 +255,10 @@
                         <a href="" class="btn btn-primary warning" id="editGig" data-gigdata = '<?=json_encode($gigDetails[0])?>'><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</a>
                         <a href="" class="btn btn-primary danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                     </div>
+                    <?php elseif ($userdata->user_role=="item_owner"):?>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary hirebtn">Hire Me</a>
+                        </div>
                     <?php endif;?>
                 </div>
             </div>
@@ -350,6 +354,109 @@
     <script src="<?= ROOT ?>/assets/js/Technician/carousel.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
     <script src="<?= ROOT ?>/assets/js/Technician/gig.js"></script>
+
+
+<!--        <div class="overlayview "></div>-->
+<!---->
+<!--        <div class="popupview popupview1 ">-->
+<!--            <button class="closebtn">&times;</button>-->
+<!---->
+<!--            <div class="content content1">-->
+<!---->
+<!--                <form method="post" id="form_JobDetails">-->
+<!--                    <h2>Job Details</h2>-->
+<!--                    <div class="itemDetails">-->
+<!---->
+<!--                        <div class="middleInput">-->
+<!---->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Item Name</span>-->
+<!--                                <select  name="item_name" id="itemname" required></select>-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="input-box hidden">-->
+<!--                                <span class="details">Item Id</span>-->
+<!--                                <input type="text" name="item_id" id="itemid" required>-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Title</span>-->
+<!--                                <input type="text" name="title" id="title" required placeholder="Enter Title">-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Description</span>-->
+<!--                                <input type="text" name="description" id="description" required placeholder="Enter Description">-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Job Type</span>-->
+<!--                                <select name="job_type" id="jobtype" >-->
+<!--                                    <option value="Repair">Repair</option>-->
+<!--                                    <option value="Maintenance">Maintenance</option>-->
+<!--                                    <option value="Other">Other</option>-->
+<!--                                </select>-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Delivary Method</span>-->
+<!--                                <select name="delivery_method" id="delivarymethod" ></select>-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Date</span>-->
+<!--                                <input type="date" name="date" id="schedule_date"  placeholder="Enter Schedule Date">-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="middlethree">-->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Address</span>-->
+<!--                                <input type="text" name="address" id="address" required placeholder="Enter Location">-->
+<!--                                <input class="" style="display: none;" type="number" name="address_id" id="addressid" >-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">District</span>-->
+<!--                                <select  name="district" id="district"required ></select>-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">City</span>-->
+<!--                                <select  name="city" id="city" required ></select>-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="middleInput">-->
+<!--                            <div class="input-box">-->
+<!--                                <span class="details">Contact No</span>-->
+<!--                                <input type="number" name="contact_no" id="contact_no"  placeholder="Enter Contact No">-->
+<!--                                <small></small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div  class="button">-->
+<!--                            <input onclick="submitPost(event)" type="submit"  value="Post Job" id="nextBtn">-->
+<!--                        </div>-->
+<!---->
+<!--                    </div>-->
+<!--                </form>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        <script src="--><?//= ROOT ?><!--/assets/js/Itemowner/viewgig.js"></script>-->
+<!--        <script src="--><?//= ROOT ?><!--/assets/js/Itemowner/validation.js"></script>-->
+<!--        <script src="--><?//= ROOT ?><!--/assets/js/Itemowner/public.js"></script>-->
+
 
 </body>
 </html>

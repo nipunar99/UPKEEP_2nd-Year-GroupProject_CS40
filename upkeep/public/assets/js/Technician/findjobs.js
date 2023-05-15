@@ -131,3 +131,19 @@ function applyJob(){
     }
     xhr.send(formData);
 }
+
+//function to validate form
+function validateForm(form){
+    const quote = form.querySelector("#quote").value;
+    const error = [];
+    if(quote === ""){
+        error.push("Please enter your quote");
+    }
+    return error;
+}
+
+//Searching for jobs
+
+const searchForm = document.querySelector('#search-form');
+const list = document.querySelector('ol.list-view-filter');
+const listItems = list.querySelectorAll('li');

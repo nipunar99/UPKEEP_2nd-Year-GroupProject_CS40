@@ -182,4 +182,8 @@ class Community
         $posts = $post->getPopularPosts();
         echo json_encode($posts);
     }
+
+    public function reportPost(){
+
+    }
 }

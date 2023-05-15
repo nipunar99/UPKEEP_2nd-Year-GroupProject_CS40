@@ -17,7 +17,10 @@ class Getverified
 
         $tech = new Technician;
         $technicianData = $tech->getTechnicianById($_SESSION['user_id']);
+        $technician = $tech->getTechnicianById($_SESSION['user_id']);
         $data['technician'] = json_encode($technicianData);
+        $data['techniciandata'] = $technician;
+
         $this->view('Technician/getverified', $data);
     }
 
@@ -272,6 +275,10 @@ class Getverified
     }
 
 
+    public function completeProfile(){
+
+    }
+
 
     protected function mobileNumberValidation($mobile_no)
     {
@@ -281,4 +288,5 @@ class Getverified
         }
         return true;
     }
+
 }

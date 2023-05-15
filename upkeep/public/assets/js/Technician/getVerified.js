@@ -67,3 +67,111 @@ function setVerificationMethodStatus(){
 //         reader.readAsDataURL(file);
 //     }
 // });
+// const cities = document.getElementById("city");
+const districts = document.getElementById("district");
+const cities = document.getElementById("city");
+
+//populate districts
+function populateDistricts() {
+    // console.log("populateDistricts called");
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", ROOT+"/assets/js/Technician/cities.json", true);
+    xhr.send();
+
+    xhr.onload = function () {
+        if (this.status == 200) {
+            const districtsObj = JSON.parse(this.responseText);
+            // console.log(districtsObj);
+            let output = "";
+            output += `<option value="" selected disabled>Select District</option>`;
+            for (let district in districtsObj) {
+                output += `<option value="${district}">${district}</option>`;
+            }
+            districts.innerHTML = output;
+        }
+    };
+}
+
+populateDistricts();
+
+//populate cities
+function populateCities(district) {
+    // console.log("populateCities called");
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", ROOT+"/assets/js/Technician/cities.json", true);
+    xhr.send();
+
+    xhr.onload = function () {
+        if (this.status == 200) {
+            const citiesObj = JSON.parse(this.responseText);
+            // console.log(citiesObj);
+            let output = "";
+            output += `<option value="" selected disabled>Select City</option>`;
+            for (let city of citiesObj[district].cities) {
+                output += `<option value="${city}">${city}</option>`;
+            }
+            cities.innerHTML = output;
+        }
+    };
+}
+
+//event listner for district change
+districts.addEventListener("change", function () {
+    // console.log("district changed");
+    populateCities(this.value);
+});
+
+
+
+//complete profile form
+const completeProfileForm = document.getElementById("complete-profile-form");
+const completeProfileFormBtn = document.getElementById("complete-profile-form-btn");
+
+//validate data also
+completeProfileFormBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    // console.log("completeProfileFormBtn clicked");
+
+    const description = document.getElementById("description").value;
+    const experience = document.getElementById("experience").value;
+    const district = document.getElementById("district").value;
+    const city = document.getElementById("city").value;
+
+    if (description == "" || experience == "" || district == "" || city == "") {
+        alert("Please fill all the fields");
+    } else {
+        const data = {
+            description: description,
+            experience: experience,
+            location: {
+                district: district,
+                city: city,
+            },
+        };
+
+        // console.log(data);
+
+        const xhr = new XMLHttpRequest();
+        data =new FormData(completeProfileForm);
+
+        xhr.open("POST", ROOT+"/getVerified/completeProfile", true);
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                // console.log(this.responseText);
+                const response = JSON.parse(this.responseText);
+                if (response.status == "success") {
+                    setTimeout(function () {
+                        showSuccess('complete-profile');
+                    }, 1000);
+                    window.location.reload();
+                } else {
+                    alert("Something went wrong");
+                }
+            }
+        }
+
+        xhr.send(data);
+
+    }
+}

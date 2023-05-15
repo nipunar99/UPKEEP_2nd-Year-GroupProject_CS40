@@ -30,9 +30,20 @@ class Home {
                
             }
         }
+    }
 
-
-
+    public function getUserImage(){
+        $id = $_SESSION['USER']->user_id;
+        $user = new User;
+        $image = $user->getUserImage($id);
+        if($image->profile_picture == null){
+            $image = ['profile_picture'=>'user.png'];
+        }
+        else{
+            $image = $image;
+        }
+//        show($image);
+        echo json_encode($image);
     }
     
 }

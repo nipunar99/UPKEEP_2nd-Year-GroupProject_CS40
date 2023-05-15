@@ -261,4 +261,14 @@ class User
         $result= $this->query($query,['user_id' => $user_id]);
         return $result[0];
     }
+
+
+    public function getUserImage($id)
+    {
+        $query = "SELECT user_id, profile_picture FROM $this->table WHERE user_id = :user_id";
+
+        $result= $this->query($query,['user_id' => $id]);
+//        show($result);
+        return $result[0];
+    }
 }

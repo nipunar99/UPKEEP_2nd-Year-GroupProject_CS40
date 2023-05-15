@@ -166,7 +166,6 @@
                                             </div>
                                             <?php else:?>
                                             <div class="client-info">
-                                                <img src="<?=ROOT?>/assets/images/profilepic/user.png" alt="Profile Pic">
                                                 <span class="client-name">Not Assigned</span>
                                             </div>
                                             <?php endif;?>

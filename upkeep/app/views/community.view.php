@@ -145,11 +145,12 @@
 
             <section class="main-content">
                 <div class="list-container" id="create-post-input">
+                    <?php if($userdata->user_role==="item_owner"):?>
                     <div class="card">
                         <div class="card-col">
                             <div class="card-row">
                                 <div class="user-profile">
-                                    <img src="http://localhost/upkeep/upkeep/public/assets/images/profile-2.jpg">
+                                    <img id="current_user_profile_pic" src="">
                                 </div>
 
                                 <div class="post-input-container">
@@ -163,60 +164,11 @@
                             </div>
                         </div>
                     </div>
+                    <?php endif;?>
 
 
                     <ol class="Post-List">
-                        <!--                        <li class="post">-->
-                        <!--                            <div class="card">-->
-                        <!--                                <div class="post-container">-->
-                        <!--                                    <div class="card-header">-->
-                        <!--                                        <div class="user-profile">-->
-                        <!--                                            <img src="--><? //= ROOT 
-                                                                                        ?><!--/assets/images/profile-2.jpg">-->
-                        <!--                                            <div>-->
-                        <!--                                                <h3>Nimna Induwara</h3>-->
-                        <!--                                                <p class="text-muted">January 04 2023, 15:40 pm</p>-->
-                        <!--                                            </div>-->
-                        <!--                                        </div>-->
-                        <!--                                        <a class="post-type-tag">Ask From Community</a>-->
-                        <!--                                    </div>-->
-                        <!--                                    <div class="card-body">-->
-                        <!--                                        <div class="card-row" id="about">-->
-                        <!--                                            <h3 class="about-title">About</h3>-->
-                        <!--                                            <div class="Item-details-tags">-->
-                        <!--                                                <a class="tag">Air Conditioner</a>-->
-                        <!--                                            </div>-->
-                        <!--                                        </div>-->
-                        <!---->
-                        <!--                                        <p class="title"><b>What is the best way to unfreeze frozen AC pipes?</b></p>-->
-                        <!--                                        <p class="text"></p>-->
-                        <!--                                        <div class="image-grid">-->
-                        <!--                                            <img src="--><? //= ROOT 
-                                                                                        ?><!--/assets/images/profile-2.jpg" class="image">-->
-                        <!--                                        </div>-->
-                        <!---->
-                        <!--                                    </div>-->
-                        <!--                                    <div class="card-footer">-->
-                        <!--                                        <div class="left activity-icons">-->
-                        <!--                                            <a class="action upvote" ><span class="material-symbols-outlined">shift</span><p class="count" id="upvote-count">10</p></a>-->
-                        <!--                                            <a class="action downvote"><span class="material-symbols-outlined">shift</span><p class="count" id="downvote-count">10</p></a>-->
-                        <!--                                            <a class="action comment"><span class="material-symbols-outlined">comment</span><p class="count" id="comment-count">10</p></a>-->
-                        <!--                                        </div>-->
-                        <!--                                        <div class="right">-->
-                        <!--                                            <a class="action"><span class="material-icons-sharp">report</span></a>-->
-                        <!--                                        </div>-->
-                        <!--                                    </div>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                            <div id="image-modal" class="modal">-->
-                        <!--                                <span class="close-modal">&times;</span>-->
-                        <!--                                <div class="image-container">-->
-                        <!--                                    <img id="modal-image" class="modal-image">-->
-                        <!--                                </div>-->
-                        <!--                                <a class="prev">&#10094;</a>-->
-                        <!--                                <a class="next">&#10095;</a>-->
-                        <!--                            </div>-->
-                        <!--                        </li>-->
+
                     </ol>
 
                     <button type="button" class="load-more-btn" id="load-more-btn">Load More</button>
@@ -247,7 +199,7 @@
                             <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
                         </div>
                         <div class="profile-photo">
-                            <div><img src="<?= ROOT ?>/assets/images/photo2.png" alt=""></div>
+                            <img id="current_user_profile_pic" src="">
                         </div>
                         <div class="dropdown-content hidden">
                             <a href="<?= ROOT ?>/Profile"><span class="material-icons-sharp">person</span>Profile</a>
@@ -510,8 +462,8 @@
             <div class="card" id="add-comment-input">
                 <div class="card-col">
                     <div class="card-row">
-                        <div class="user-profile" id="current-user-profile-photo">
-                            <img src="http://localhost/upkeep/upkeep/public/assets/images/profile-2.jpg">
+                        <div class="user-profile" >
+                            <img id="current_user_profile_pic" src="http://localhost/upkeep/upkeep/public/assets/images/profile-2.jpg">
                         </div>
                         <form method="post" enctype="multipart/form-data" id="add-comment-form">
                             <div class="post-input-container">
@@ -537,8 +489,7 @@
 
         <script src="<?= ROOT ?>/assets/js/main.js"></script>
         <script src="<?= ROOT ?>/assets/js/Technician/popupform.js"></script>
-        <!--        <script src="--><? //= ROOT
-                                    ?><!--/assets/js/imagemodal.js"></script>-->
+        <!--        <script src="--><!--/assets/js/imagemodal.js"></script>-->
         <script src="<?= ROOT ?>/assets/js/Technician/tabs.js"></script>
         <script src="<?= ROOT ?>/assets/js/notification.js"></script>
         <script src="<?= ROOT ?>/assets/js/community.js"></script>

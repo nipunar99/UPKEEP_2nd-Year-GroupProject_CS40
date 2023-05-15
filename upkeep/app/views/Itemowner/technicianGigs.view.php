@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="input-box">
-                            <button class="actionBtn" >My Jobs</button>
+                            <a href="<?=ROOT?>/itemowner/TechnicianGigs/myorders"><button class="actionBtn" >My Jobs</button></a>
                             <button class="actionBtn" onclick="pubicJobForm()">Public Jobs</button>
                         </div>
                         
