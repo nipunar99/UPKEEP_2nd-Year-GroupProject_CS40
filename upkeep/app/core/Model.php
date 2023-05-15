@@ -8,6 +8,7 @@ trait Model
     use Database;
     protected $limit = 10;
     protected $offset = 0;
+    // protect?ed $limit = 10;
     public $errors =  [];
 
     public function find()
@@ -43,6 +44,9 @@ trait Model
         foreach ($keys_not as $key) {
             $query .= $key . "!= :" . $key . " && ";
         }
+
+        //select * from users where user_role = :user_role 
+
 
         $query = trim($query, " && ");
         $query .= " limit $this->limit offset $this->offset"; // make the query
@@ -88,7 +92,7 @@ trait Model
 
         return false;
     }
-
+    
     public function insertAndGetLastIndex($data)
     {
         $keys = array_keys($data);
@@ -148,7 +152,7 @@ trait Model
 
         $query = trim($query, ',');
         $query .= " where $id_column =:$id_column ";
-
+        
         // echo $query;
 
         $data[$id_column] = $id;

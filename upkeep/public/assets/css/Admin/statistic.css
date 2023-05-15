@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
+@import "./general.css";
+/* @import "../Technician/findjobs.css"; */
+
 :root{
     --color-primary: #7380ec;
     --color-warning:#ffbb55;
@@ -24,6 +27,70 @@
     --padding-1:1.2rem;
 
     --box-shadow: 0 2rem 3rem var(--color-light);
+}
+.mainhead{
+    display: flex;
+    gap: 13.5rem;
+    justify-content: space-around;
+    margin: 10px 0px 0px 25rem;
+}
+.header_nbs{
+    display: flex;
+    height: 5rem;
+    justify-content: space-between;
+    padding: 0;
+    /* background-color: #8CD6FC; */
+    height: 64px;
+    width: 100%;
+}
+main h1{
+    text-align: center;
+    color:#00BEE4;;
+}
+.heading{
+    margin-top: 10px;
+    margin-right: 1rem;
+}
+.heading .top{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+} 
+
+.heading .top button{
+    display: none;
+}
+
+.heading .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
 }
 h1{
 
@@ -151,9 +218,9 @@ aside .sidebar a:hover span{
 }
 
 /* main */
-main{
+/* main{
     margin-top: 1.4rem;
-}
+} */
 main .mainHeader{
     display: flex;
 }
@@ -223,7 +290,7 @@ main .mainHeader{
     margin-left: 2rem;
     color: #05B2E9;
     font-weight: 100px;
-    font-size: 1.5rem;
+    font-size: x-large;
 }
 .pie-chart{
     display: flex;
@@ -256,9 +323,10 @@ main .mainHeader{
 .text-2{
     display: flex;
     flex-direction: column;
+    
     width: fit-content;
    position: relative;
-   left: 245px;
+   left: 84px;
     gap: 1rem;
     top: 1rem;
     
@@ -266,6 +334,7 @@ main .mainHeader{
 .text-1{
     display: flex;
     flex-direction: column;
+    
    position: relative;
    width: fit-content;
    left: 34px;
@@ -278,7 +347,7 @@ main .mainHeader{
     color: red;
 }
 .maintenance table{
-    width: 95%;
+    /* width: 95%;
     border-radius: var(--card-border-radius);
     background: var(--color-white);
     box-shadow: var(--box-shadow);
@@ -286,18 +355,42 @@ main .mainHeader{
     transition: all 300ms ease;
     margin-top: 2rem;
     margin-left: 4rem;
-    text-align: center;
+    text-align: center; */
+
+    border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
   
 }
+th, td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f5f5f5;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #e6e6e6;
+  }
+
 .maintenance table:hover{
     box-shadow: none;
 }
 
-.maintenance table tbody td{
+/* .maintenance table tbody td{
     height:2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
-}
+} */
 .overlayview{
     position: absolute;
     top: 0px;
@@ -393,7 +486,13 @@ main .mainHeader{
     transform: scale(1.1);
 }
 .text{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.text h1{
+    font-size: medium;
 }
 .pie-view {
     /* margin-top: 300px; */
@@ -404,17 +503,24 @@ main .mainHeader{
     height: 150px;
     border-radius: 50%;
     background-image: conic-gradient(
-        rgb(9, 114, 146) 70deg, 
-        rgb(197, 11, 11) 0 235deg, 
-        rgb(23, 235, 15) 0);
+        rgb(66, 203, 245) 70deg, 
+        rgb(7, 231, 44) 0 235deg, 
+        rgb(235, 48, 15) 0);
 }
 .colored {
-    background-color: #f0261f;
-    border-radius: 80%;
+    background-color: #ee332c;
+    border-radius:1rem 1rem 1rem 1rem;
     text-emphasis-color: black;
   }
 .colorgreen{
-    background-color: limegreen;
-    border-radius: 150%;
+    background-color: rgb(56, 224, 56);
+    border-radius:1rem 1rem 1rem 1rem;
 }
   
+/* .table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}*/
+
+/* .table tbody tr:nth-child(even) {
+    background-color: #d8d5d5;
+}  */

@@ -83,26 +83,8 @@
             </div>
             <div class="toolbar">
                 <div class="searchBar">
-                    <input type="search" name="" id="txtHint" placeholder="Search item" onkeyup="myFunction()">
+                    <input type="search" name="" id="txtHint" placeholder="Search item">
                     <span class="material-icons-sharp">search</span>
-                </div>
-
-                <div class="filter">
-                    <button onclick="showDropdwn()" class="filter_table"><span class="material-icons-sharp">filter_list</span>
-                        <div class="fil"> Filter
-                        </div>
-                    </button>
-                    <select class="table-status" id="main-dropdwn" style="display:none;">
-                        <optgroup label="Item Type">Status
-                            <option value="1">Electronics</option>
-                            <option value="2">Appliances</option>
-                            <option value="3">Tools and equipment</option>
-                            <option value="4">Vehicles</option>
-                            <option value="5">Furniture</option>
-                            <option value="6">Home and garden</option>
-                            <option value="7">Other</option>
-                        </optgroup>
-                    </select>
                 </div>
 
             </div>

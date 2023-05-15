@@ -1,3 +1,6 @@
+const currentDate = new Date();
+const dateString = currentDate.toDateString();
+
 document.addEventListener("DOMContentLoaded", function () {
     ajax_usersView();
     ajax_statisticView();
@@ -27,12 +30,12 @@ function ajax_statisticView() {
             html += "<p>Total Templates</p>";
             html += "<h1>";
             html += "" + total + "</h1>";
-            html += "<p>12/11/2021</p>";
+            html += `<p>${dateString}</p>`;
             html += " </div>";
             html += "<div class='text-2'>";
             html += "<p>Item Templates " + json.total_templates + "</p>";
             html += "<p>";
-            html += "Pending Items" + json.pending_templates + "</p>";
+            html += "Pending Items " + json.pending_templates + "</p>";
             html += " </div>";
 
          
@@ -44,7 +47,7 @@ function ajax_statisticView() {
                 datasets: [{
                     data: [totalItems, totalPending],
                     backgroundColor: [
-                        'rgb(255, 99, 132)',
+                        'rgb(255, 51, 255)',
                         'rgb(54, 162, 235)'
 
                     ],
@@ -90,12 +93,12 @@ function ajax_usersView() {
             html += "<p>Total Users</p>";
             html += "<h1>";
             html += "" + totalUsers + "</h1>";
-            html += "<p>12/11/2021</p>";
+            html += `<p>${dateString}</p>`;
             html += " </div>";
             html += "<div class='text-2'>";
             html += "<p>Technicians " + json.technicians + "</p>";
             html += "<p>";
-            html += "Item Owners" + json.item_owners + "</p>";
+            html += "Item Owners " + json.item_owners + "</p>";
             html += " </div>";
 
          
@@ -107,7 +110,7 @@ function ajax_usersView() {
                 datasets: [{
                     data: [itemUsers, technicians],
                     backgroundColor: [
-                        'rgb(255, 99, 132)',
+                        'rgb(255, 51, 255)',
                         'rgb(54, 162, 235)'
 
                     ],
@@ -153,12 +156,12 @@ function ajax_adminstrativeUsers(){
             html += "<p>Administrative Users</p>";
             html += "<h1>";
             html += "" + totalUsers + "</h1>";
-            html += "<p>12/11/2021</p>";
+            html += `<p>${dateString}</p>`;
             html += " </div>";
             html += "<div class='text-2'>";
             html += "<p>Moderators " + json.moderator + "</p>";
             html += "<p>";
-            html += "Admins" + json.admin + "</p>";
+            html += "Admins " + json.admin + "</p>";
             html += " </div>";
 
          
@@ -170,7 +173,7 @@ function ajax_adminstrativeUsers(){
                 datasets: [{
                     data: [moderators, admins],
                     backgroundColor: [
-                        'rgb(255, 99, 132)',
+                        'rgb(255, 51, 255)',
                         'rgb(54, 162, 235)'
 
                     ],
@@ -224,18 +227,18 @@ console.log(dataValues); // [6, 1, 3, 1, 2, 1, 1]
             // label: '# of Votes',
             data: dataValues,
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
+              'rgba(153, 51, 255, 0.2)',
+              'rgba(0, 128, 255, 0.2)',
+              'rgba(102, 178, 255, 0.2)',
               'rgba(75, 192, 192, 0.2)',
               'rgba(54, 162, 235, 0.2)',
               'rgba(153, 102, 255, 0.2)',
               'rgba(201, 203, 207, 0.2)'
             ],
             borderColor: [
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
+              'rgb(255, 51, 255)',
+              'rgb(0, 128, 255)',
+              'rgb(0, 128, 255)',
               'rgb(75, 192, 192)',
               'rgb(54, 162, 235)',
               'rgb(153, 102, 255)',
@@ -296,18 +299,18 @@ console.log(dataValues); // [6, 1, 3, 1, 2, 1, 1]
             // label: '# of Votes',
             data: dataValues,
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
+              'rgba(153, 51, 255, 0.2)',
+              'rgba(0, 128, 255, 0.2)',
+              'rgba(102, 178, 255, 0.2)',
               'rgba(75, 192, 192, 0.2)',
               'rgba(54, 162, 235, 0.2)',
               'rgba(153, 102, 255, 0.2)',
               'rgba(201, 203, 207, 0.2)'
             ],
             borderColor: [
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
+              'rgb(255, 51, 255)',
+              'rgb(0, 128, 255)',
+              'rgb(0, 128, 255)',
               'rgb(75, 192, 192)',
               'rgb(54, 162, 235)',
               'rgb(153, 102, 255)',

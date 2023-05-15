@@ -174,8 +174,26 @@ function setEventListner(){
           // html += " <td><input type='checkbox' name='task_ID[]' class='item_id' id='myCheckbox' onchange='toggleDeleteButton()'></td>";
           html += " <td class='hidden_id' id='task_ID'>" + json[i].task_ID + "</td>";        
           html += " <td id='subcomponent'>" + json[i].sub_component + "</td>";
-          html += " <td id='C_description'>" + json[i].description + "</td>";
-          html += " <td id='time_frame'>" + json[i].years+ "Y "+ json[i].months+"M "+json[i].weeks+"W </td>";  
+          html += " <td id='C_description'>" + json[i].description + "</td>"; var duration_weeks = "";
+          var duration_months = "";
+          var duration_years = "";
+          
+          if (json[i].weeks > 0) {
+            duration_weeks = json[i].weeks + " weeks ";
+          }
+          if (json[i].months > 0) {
+            duration_months = json[i].months + " months ";
+          }
+          if (json[i].years > 0) {
+            duration_years = json[i].years + " years ";
+          }  
+          var duration = duration_weeks + duration_months + duration_years;
+
+          if (duration.trim() !== "") {
+            html += "<td id='time_frame'>" + duration + "</td>";
+          } else {
+            html += "<td id='time_frame'>N/A</td>";
+          } 
           var btn_value = json[i].added;
           if (btn_value == 0) {
             var value = 'add';
@@ -322,7 +340,6 @@ function ajax_updateMaintenanceTask(e) {
 
   xhr.open('GET',""+ROOT+"/Moderator/Suggestion/removeItemSuggestion");
   xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
   xhr.onload = function(){
       if(xhr.status == 200){
           const res = xhr.responseText;

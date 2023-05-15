@@ -18,6 +18,8 @@ class Dashboard{
         $data['piechart_data'] = json_encode($orders->getOrderCountByStatus($_SESSION['user_id']));
         $data['barchart_data'] = json_encode($orders->getRevenueByMonth($_SESSION['user_id']));
 
+        $data['count']=$count;
+        show($_SESSION);
         //get upcommin orders
         $data["upcoming"] = $orders->upcoming($_SESSION['user_id']);
 

@@ -175,7 +175,7 @@
                                     <td><input type="checkbox" name="id[]" class="item_id" id="myCheckbox" onchange="toggleDeleteButton()"></td>
                                     <td class="hidden_id">87</td>
                                     <td role="button"><a href="<?= ROOT ?>/Moderator/Maintenance/maintenanceTasks/5">aaaa></a></td>
-                                    <td id="status">nnoyt</td>
+                                    <td id="status" class="primary">nnoyt</td>
                                     <td class="des">aaa</td>
                                     <td>
                                         <div> <button class="view"><span>edit</span></button></div>

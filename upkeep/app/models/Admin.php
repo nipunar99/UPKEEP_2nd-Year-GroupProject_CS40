@@ -39,4 +39,8 @@ class Admin
         }
     }
 
+    public function insertAdmin($data){
+        $this->insert($data);
+    }
+
 }

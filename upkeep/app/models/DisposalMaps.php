@@ -8,7 +8,7 @@ class DisposalMaps
     protected $table = "disposal_place";
 
     protected $allowedColumns = [
-        "itemtemplate_id",
+        "category_id",
         "place_name",
         "city",
         "iframe_link",

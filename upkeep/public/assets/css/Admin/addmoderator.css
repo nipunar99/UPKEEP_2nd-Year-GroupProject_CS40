@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+@import "./popupform.css";
+@import "./popupchanges.css";
+@import "./modifyform.css";
+
+@import "./user.css";
+
+
 /* Root variables */
 
 :root{
@@ -64,6 +72,60 @@ body{
     grid-template-columns: 15rem auto;
     height: 100vh;
 }
+.mainhead{
+    display: flex;
+    gap: 13.5rem;
+    justify-content: space-around;
+    margin: 10px 0px 0px 25rem;
+}
+main h1{
+    text-align: center;
+   
+}
+.heading{
+    margin-top: 10px;
+    margin-right: 1rem;
+}
+.heading .top{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+} 
+
+
+
+.heading .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.heading .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
 a{
     color: var(--color-dark);
 }
@@ -224,16 +286,26 @@ aside .sidebar .message-count {
 /* MAIN CSS */
 
 main{
-    margin-top: 1.4rem;
+    margin-top: 1.rem;
 }
 main h1{
     text-align: center;
+    color:#00BEE4;
 }
 
 main .insight{
     height: 84vh;
     padding: 2rem 12rem 0;
 }
+main .insight .style{
+    background-color:#41f1b6;border-radius:50px;width:85%;height:65%;
+}
+
+main .insight .style form {
+    margin-top: 2rem;
+    
+} 
+
 
 
 main .mainHeader{
@@ -298,80 +370,12 @@ form .itemDetails .middleInput{
     font-size: 1.1rem;
 }
 
-form .button{
-    position: relative;
-    left: 45rem;
-    height: 45px;
-    margin: 45px 0;
-    width: 11rem;
-}
-
-form .button input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: #fff;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    border-radius: 30px;
-    letter-spacing: 1px;
-    background: linear-gradient(to right, rgba(0,149,217,0.7), rgba(0,190,228,0.5));
-    transition: all 300ms ease;
-}
-
-form .button input:hover{
-    transform: scale(1.1);
-}    
-/* Right CSS */
-
-.right{
-    margin-top: 1.4rem;
-    margin-right: 1rem;
-    width: 10rem;
-    position: relative;
-    left: 750px;
-
-}
-
-.right .top{
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-} 
-
-.right .top button{
-    display: none;
-}
-
-.right .theme-toggler{
-    background: var(--color-light);
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    height: 1.6rem;
-    width: 4.2rem;
-    cursor: pointer;
-    border-radius: var(--border-radius-1);
-}
-
-.right .theme-toggler span{
-    font-size: 1.2rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.right .theme-toggler span.active{
-    background: var(--color-primary);
+#editor_btn {
+    background-color:green;
     color: white;
-    border-radius: var(--border-radius-1);
+
 }
 
-.right .top .profile{
-    display: flex;
-    gap: 2rem;
-    text-align: right;
-}
+
+
+

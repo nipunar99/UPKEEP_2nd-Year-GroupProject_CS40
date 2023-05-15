@@ -407,10 +407,10 @@ function ajax_updateMaintenanceTask(e) {
   setSmallNull();
   const formItemDetailss = document.getElementById("popup-form2");
 
-  // checkRequired([input2, description2, statu2]);
-  // checkRange(year2, 1, 10);
-  // checkRange(month2, 1, 11);
-  // checkRange(week2, 1, 3);
+  checkRequired([description2, statu2]);
+  checkRange(year2, 0, 10);
+  checkRange(month2, 0, 11);
+  checkRange(week2, 0, 3);
 
   if (errocheckflag == 0) {
       const form = new FormData(formItemDetailss);

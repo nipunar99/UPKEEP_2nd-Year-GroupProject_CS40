@@ -36,11 +36,11 @@
 
                 <a href="<?=ROOT?>/Admin/Addmoderator">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Moderators</h3>
+                    <h3>Administrative Users</h3>
                 </a>
-                <a href="<?=ROOT?>/Admin/Technician">
+                <a href="<?=ROOT?>/Admin/UserTab">
                     <span class="material-icons-sharp">person</span>
-                    <h3>Technician</h3>
+                    <h3>User</h3>
                 </a>
 
                 <a href="<?=ROOT?>/Admin/Complaints">
@@ -48,10 +48,10 @@
                     <h3>Complaints</h3>
                 </a>
 
-                <a href="<?=ROOT?>/Admin/ItemTemplate">
+                <!-- <a href="<?=ROOT?>/Admin/ItemTemplate">
                     <span class="material-icons-sharp">view_in_ar</span>
                     <h3>Item Templates</h3>
-                </a>
+                </a> -->
 
                 <a href="#" class="active">
                     <span class="material-icons-sharp">forum</span>
@@ -69,19 +69,31 @@
         </aside>
 
         <main>
-
-            <div class="mainHeader">
-
-                <h1>Statistics</h1>
-
-                <div class="right">
-
-                    
-
-                    
+        <div class="header_nbs">
+                <div class="left">
 
                 </div>
+                <div class="center">
+                    <h1>Statistic</h1>
+                </div>
+                <div class="right">
+                    <div class="notification">
+                        <span class="material-icons-sharp">notifications</span>
+                    </div>
 
+                    <div class="profile">
+                        <div class="drop"><span class="material-icons-sharp">arrow_drop_down</span></div>
+                        <div class="info">
+                            <div class="name">
+                                <p><?= $_SESSION['USER']->first_name . " " . $_SESSION['USER']->last_name ?></b></p>
+                            </div>
+                            <small class="text-muted role"><?= ucfirst($_SESSION['user_role']) ?></small>
+                        </div>
+                        <div class="profile-photo">
+                            <div><img src="<?= ROOT ?>/assets/images/user.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="insight">
@@ -90,31 +102,31 @@
                     <div class="card-1">
                         <div class="text">
                             <div class="text-1">
-                                <p>Total Users</p>
-                                <h1>250</h1>
+                                <h1>Total Administrative Users</h1>
+                                <h2><?=$administrative_counts[0]->count?></h2>
                                 <p>12/11/2021</p>
                             </div>
                             <div class="text-2">
-                                <p>Technician 110</p>
-                                <p>Item Owners 130</p>
-                                <p>Banned 10</p>
+                                <p>Admin <?=$admin_counts[0]->count?></p>
+                                <p>Moderators <?=$moderator_counts[0]->count?></p>
+                                <p>Banned <?=$banned_adminusers[0]->count?></p>
                             </div>
                         </div>
-                        <div class="pie-view">
+                        <div class="pie-view" id="chart">
 
                         </div>
                     </div>
                     <div class="card-2">
                         <div class="text">
                             <div class="text-1">
-                                <p>Total Users</p>
-                                <h1>250</h1>
+                                <h1>Total Users</h1>
+                                <h2><?=$user_counts[0]->count?></h2>
                                 <p>12/11/2021</p>
                             </div>
                             <div class="text-2">
-                                <p>Technician 110</p>
-                                <p>Item Owners 130</p>
-                                <p>Banned 10</p>
+                                <p>Technician <?=$technician_counts[0]->count?></p>
+                                <p>Item Owners <?=$item_owner_counts[0]->count?></p>
+                                <p>Banned <?=$banned_users[0]->count?></p>
                             </div>
                         </div>
                         <div class="pie-view">
@@ -130,56 +142,34 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Technician</th>
-                                    <th>Item Type</th>
-                                    <th>Account Status</th>
+                                    <th>User</th>
+                                    <th>Complaint Status</th>
                                     <th>Description</th>
                                     <th>Date</th>
-                                    <td class="highlight">Number of Complaints</td>
+                                    <th>Resolution</th>
+                                    <!-- <td class="highlight">Number of Complaints</td>
                                         <style>
                                         .highlight {
                                             color: red;
                                         }
-                                        </style>
+                                        </style> -->
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="show-r-1" role="button">
-                                    <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    
-                                    <td class="colored">Banned</td>
-                                        
-                                    
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr class="show-r-2" role="button">
-                                <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    <td>Banned</td>
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr class="show-r-3" role="button">
-                                <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    <td>Banned</td>
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr class="show-r-4 " role="button">
-                                    <td>Supun perera</td>
-                                    <td>A/C</td>
-                                    <td class="colorgreen">Permitted</td>
-                                    <td>Harmful Activities</td>
-                                    <td>10/01/2023</td>
-                                    <td>10</td>
-                                </tr>
+                                
+                                    <?php for($i=0;$i<count($complaint_list);$i++):?>
+                            <tr>
+                                <td><?=$complaint_list[$i]->first_name." ".$complaint_list[$i]->last_name?></td>
+                                <td><?=$complaint_list[$i]->status ?></td>
+                                
+                                <td><?=$complaint_list[$i]->description ?></td>
+                                <td><?=$complaint_list[$i]->date_created ?></td>
+                                <td><?=$complaint_list[$i]->resolution?></td>
+                                <!-- <td><?=$complaint_counts[$i]->count ?></td>     -->
+                            </tr>
+                        <?php endfor;?>
+                                
                             </tbody>
                         </table>
 
@@ -190,37 +180,7 @@
             </div>
 
         </main>
-        <div class="popupview hidden">
-            <button class="closebtn">&times;</button>
-            <div class="popup-text">
-                <div class="1">
-                    <span class="material-icons-sharp">view_in_ar</span>
-                    <h4>Item name</h4>
-                    <h4><B>Samsung Inverter Windfree AC</B> </h4>
-                </div>
-                <div class="2">
-                    <span class="material-icons-sharp">chat_bubble_outline</span>
-                    <h4>Maintenance task</h4>
-                    <h4><b>Replace HAVC air filters</b></h4>
-                </div>
-                <div class="3">
-                    <span class="material-icons-sharp">construction</span>
-                    <h4>Sub Component</h4>
-                    <h4><b>Air filter</b></h4>
-                </div>
-            </div>
-            <div class="actions">
-                <button>Add to template</button>
-                <button>Edit</button>
-                <button>Reject</button>
-            </div>
-        </div>
-
-
-        <div class="overlayview hidden"></div>
-    </div>
-    <!-- <script src="<?= ROOT ?>/assets/js/Moderator/maintenance_suggestions.js"></script> -->
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+       
 </body>
 
 </html>
